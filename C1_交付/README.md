@@ -82,13 +82,21 @@ C1_交付/
 │   └── <doc_id>.md单篇中文资料（含 front-matter 溯源信息）
 │
 ├── glossary/terms.json        ← 术语表（172 条，翻译与 QC 的唯一标准）
+├── source_materials/          ← 课程原始资料（clone 后管线可直接跑通）
+│   ├── CS146S_offline/        31 个课程页面 HTML（离线快照）
+│   └── Vibe_Coding_Playbook.pdf
 ├── pipeline/← 管线脚本（6 个文件，见下）
-├── cache/translations/        ← 翻译缓存（666 个 json，按原文 sha1 命名）
+├── cache/translations/        ← 翻译缓存（657 个 json，按原文 sha1 命名）
 ├── reports/                ← 自动生成的报告
 │   ├── 00_extraction.json     抽取统计（含每篇过滤掉的样板块数）
 │   ├── 02_qc.md               质量抽检报告（人读）
 │   └── 02_qc.json             质检明细（机器读，可复核）
+├── deliverables/              ← AI 日志 / AAR / 拿来说明（根目录有同名副本）
 └── work/                      ← 中间产物（segments/translations.jsonl）
+
+> **为什么带source_materials/**：早期版本只放了译文，clone 下来跑管线会抽出 0 篇——
+> 因为 `config.json` 指向仓库外的本地 `materials/` 目录。
+> 现在源资料随仓库一起提交，**clone 即可完整复跑**，无需额外准备。
 ```
 
 ### 文档站怎么用
@@ -187,6 +195,7 @@ C1_交付/
 
 ```bash
 # 1. 改 config.json 的 project.source_root 指向新的资料目录
+#    （当前值 "../source_materials"，即随仓库提交的课程原始资料）
 # 2. 增删 sources 列表（每条：id / type / path / title / priority / category）
 # 3. 跑管线
 .venv/Scripts/python pipeline/run_pipeline.py

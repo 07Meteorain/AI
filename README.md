@@ -36,12 +36,14 @@ AI 相关的学习产出与项目沉淀。
 ```bash
 cd C1_交付
 python -m venv .venv
-.venv/Scripts/pip install pypdf# 唯一依赖
+.venv/Scripts/pip install pypdf          # 唯一依赖，PDF 抽取需要
 .venv/Scripts/python pipeline/run_pipeline.py
 ```
 
 > 必须用 `.venv/Scripts/python`，系统 `python` 缺 pypdf 会在抽取阶段中断。
 > 实测全流程约 20 秒，翻译缓存命中，不调模型、零成本。
+> 课程原始资料已随仓库提交在 `C1_交付/source_materials/`，
+> **clone 下来即可完整复跑**，无需另行准备素材。
 
 ### 四份必需交付物
 
