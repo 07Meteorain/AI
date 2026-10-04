@@ -217,7 +217,7 @@ export OPENAI_API_KEY=sk-...
 | 流水线可复跑 | 要求 | `run_pipeline.py` 一键，翻译缓存幂等 | `pipeline/` |
 | 换源可复用 | 要求 | 改 `config.json` 即可 | 本文件第七节 |
 | 陌生人可独立使用 | 要求 | 站内README + 目录结构 + 部署说明 | 本文件 + `docs/` |
-| AI 日志 | 要求 | 逐日工具、prompt、踩坑记录 | `deliverables/AI协作日志.md` |
+| AI 日志 | 要求 | 逐日工具、prompt、踩坑记录 | `deliverables/AI日志.md` |
 | AAR 复盘 | 要求 | 三段式（做了什么/遇到什么问题/学到了什么），8 个真实失败经验 | `AAR复盘.md` |
 | 拿来说明 | ≥3 个 | 5 个（含原文/prompt/产出/对比） | `deliverables/拿来说明.md` |
 
