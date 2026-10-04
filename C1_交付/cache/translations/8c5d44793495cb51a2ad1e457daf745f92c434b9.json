@@ -1,0 +1,10 @@
+{
+ "seg_id": "writing-effective-tools-for-agents#0015",
+ "doc_id": "writing-effective-tools-for-agents",
+ "fingerprint": "8c5d44793495cb51a2ad1e457daf745f92c434b9",
+ "zh": "下面是一个详细工具回应的例子（206 个 token）：\n\n下面是一个简洁工具回应的例子（72 个 token）：\n\nSlack 话题（thread）和话题回复由唯一的 thread_ts 标识，获取话题回复时必须提供它。thread_ts 和其他 ID（channel_id、user_id）可以从「详细」工具回应中获取，以便后续工具调用之需。「简洁」工具回应只返回话题内容，不包含 ID。在这个例子中，使用「简洁」工具回应只用了约三分之一的 token。\n\n甚至你的工具回应结构——比如 XML、JSON 还是 Markdown——也会影响评测表现：没有一种方案能适用于所有情况。原因是，大模型的训练目标是预测下一个 token，因此它们在格式上更接近自己训练数据的往往表现更好。最优的回应结构会随任务和智能体差异很大。我们建议你依据自己的评测来选择最佳回应结构。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

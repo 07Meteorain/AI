@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Model Context Protocol 简介 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>Model Context Protocol 简介</h1>
+  <div class="meta">
+    <span>分类：Week 2 · MCP</span><span>原文 4,601 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://stytch.com/blog/model-context-protocol-introduction/" target="_blank" rel="noopener">https://stytch.com/blog/model-context-protocol-introduction/</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="mcp-introduction-0000"><div class="zh side"><div class="tag">中文</div><h1 id="hmodel-context-protocol-mcp-">Model Context Protocol (MCP)：面向开发者的全面介绍</h1>
+<p>认证与身份</p>
+<p>2025 年 3 月 28 日</p>
+<p>作者：Reed McGinley-Stempel</p></div><div class="en side"><div class="tag">EN</div><h1 id="hmodel-context-protocol-mcp-a-comprehensive-introduction-for-developers">Model Context Protocol (MCP): A comprehensive introduction for developers</h1>
+<p>Auth &amp; identity</p>
+<p>Mar 28, 2025</p>
+<p>Author: Reed McGinley-Stempel</p></div></div>
+<div class="pair" id="mcp-introduction-0001"><div class="zh side"><div class="tag">中文</div><h2 id="h-">内容概览</h2>
+<p>Model Context Protocol (MCP) 是一项开放标准，它在 AI 模型与外部数据、服务之间架起桥梁，让大语言模型（LLM）能够以一致、安全的方式发起结构化的 API 调用。本文将介绍 MCP，解释它对连接 AI 系统的价值，把它与 ChatGPT 插件、手工 API 集成等既有做法做对比，并深入介绍它近期新增的基于 OAuth 的认证支持。我们还会看一些代码，直观感受 MCP 的实际运作。</p>
+<p>MCP 充当 AI 工具与外部服务之间的通用适配器，免去了为每个工具或 API 单独编写集成代码的需要。就像 USB-C 简化了各类设备之间的连接一样，MCP 为 AI 模型提供了一套统一的方法，用来调用外部函数、获取数据或使用预定义的提示词。从根本上说，MCP 提供的是一个连接众多不同系统的接口。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hexecutive-summary">Executive summary</h2>
+<p>Model Context Protocol (MCP) is an open standard that bridges AI models with external data and services, allowing Large Language Models (LLMs) to make structured API calls in a consistent, secure way. This post will introduce MCP, explain why it’s valuable for connecting AI systems, compare it to existing approaches like ChatGPT plugins and manual API integrations, and dive into its recent support for OAuth-based authentication. We’ll also explore a bit of code to see MCP in action.</p>
+<p>MCP acts as a universal adapter between AI tools and external services, eliminating the need for custom integration code for each tool or API. Much like USB-C simplifies connectivity across diverse devices, MCP provides a uniform method for AI models to invoke external functions, retrieve data, or use predefined prompts. At its core, MCP offers one interface that connects to many different systems.</p></div></div>
+<div class="pair" id="mcp-introduction-0002"><div class="zh side"><div class="tag">中文</div><h2 id="hmodel-context-protocol-mcp-">Model Context Protocol (MCP) 是什么？</h2>
+<p>MCP 本质上是 AI 应用与外部工具或数据源之间的通用适配器。它定义了一套通用协议（基于 JSON-RPC 2.0 构建），让 AI 助手能够以结构化的方式调用外部服务中的函数、获取数据或使用预定义的提示词。过去每个 LLM 应用都要为各个 API 或数据库编写定制代码，而 MCP 为所有交互提供了一套标准化的“语言”。</p>
+<p>MCP 层让 AI 应用能够安全地访问并操作外部数据源和工具。它在大语言模型（LLM）与各类数据库、应用或 API 之间充当桥梁，无需大量定制编码就能实现无缝集成与功能落地。</p>
+<p>MCP 通过客户端—服务器架构来实现这一点。由 AI 驱动的应用（例如聊天机器人、IDE 助手或智能体）充当宿主，运行一个 MCP 客户端组件；而每个外部集成则作为 MCP 服务器运行。服务器通过 MCP 协议暴露能力（例如函数、数据资源或提示词模板），客户端连接上去使用这些能力。这种分工意味着 AI 模型不直接与 API 对话，而是要经过 MCP 客户端／服务器的握手流程，由该流程来规范整个交换过程。</p>
+<p>来源</p></div><div class="en side"><div class="tag">EN</div><h2 id="hwhat-is-model-context-protocol-mcp-">What is Model Context Protocol MCP?</h2>
+<p>MCP is essentially a universal adapter between AI applications and external tools or data sources. It defines a common protocol (built on JSON-RPC 2.0) that lets an AI assistant invoke functions, fetch data, or use predefined prompts from external services in a structured manner. Instead of every LLM app needing custom code for each API or database, MCP provides one standardized “language” for all interactions.</p>
+<p>The MCP layer enables AI applications to securely access and interact with external data sources and tools. It serves as a bridge between large language models (LLMs) and various databases, applications, or APIs, facilitating seamless integration and functionality without the need for extensive custom coding.</p>
+<p>MCP uses a client-server architecture to achieve this. The AI-powered application (e.g. a chatbot, IDE assistant, or agent) acts as the host and runs an MCP client component, while each external integration runs as an MCP server. The server exposes capabilities (like functions, data resources, or prompt templates) over the MCP protocol, and the client connects to it to utilize those capabilities. This separation means the AI model doesn’t talk to APIs directly; instead, it goes through the MCP client/server handshake, which structures the exchange.</p>
+<p>Source</p></div></div>
+<div class="pair" id="mcp-introduction-0003"><div class="zh side"><div class="tag">中文</div><h2 id="hmcp-">MCP 的价值所在</h2>
+<p>在传统做法中，把 AI 模型连接到外部数据或操作上既繁琐又零散。开发者往往要为每个希望模型使用的 API 或数据库编写一次性集成，还要分别处理各自的认证、数据格式和错误处理。MCP 通过将这些交互标准化，彻底改变了游戏规则。主要好处包括：</p>
+<ul>
+<li>快速集成工具：有了 MCP，你可以接入新能力，而不必为每个能力从头编写定制代码。如果已经有某个 MCP 服务器，比如对接 Google Drive 或 SQL 数据库的服务器，任何兼容 MCP 的 AI 应用都能连上去，立刻获得这项能力。这对自动化而言是巨大的利好——AI 智能体可以按需获取文档、查询数据库或调用 API，只需添加对应的服务器即可。这就像拥有一个现成的“插件”库，而且它们说的都是同一种语言。MCP 服务器是轻量级程序，通过标准化协议暴露特定能力，充当 Cursor 与各类外部工具或数据源之间的中介。</li>
+</ul>
+<ul>
+<li>自主智能体：MCP 让 AI 行为变得更加自主。智能体不再受限于内置知识，它可以主动检索信息，或在多步工作流中执行操作。例如，一个成熟的智能体可能先用 MCP 从 CRM 采集数据，再通过通信工具发送邮件，然后在数据库中记录一条记录——整个过程一气呵成。MCP 支持流畅、感知上下文的多步交互，帮助 AI 智能体更接近真正自主地执行任务。有评论者指出，MCP 让 AI 从一个孤立的“大脑”变成一个多才多艺的“实干者”，因为它获得了访问现实世界工具与数据的标准化途径。</li>
+</ul>
+<ul>
+<li>更少摩擦与更省配置：由于 MCP 充当通用接口，开发者不必再维护一堆割裂的集成。一旦某个应用支持 MCP，它就能通过单一机制连接任意数量的服务。这大幅减少了每次想让 AI 使用新 API 时所需的手工配置。团队可以专注于更高层的逻辑，而不必第十次重新发明连接代码。正如 Anthropic 所说，MCP 用一套更简单、更可靠的单一协议取代了碎片化的集成方式，让数据访问更顺畅。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h2 id="hwhy-mcp-is-valuable">Why MCP is Valuable</h2>
+<p>In traditional setups, connecting an AI model to external data or actions was tedious and ad-hoc. Developers often had to write one-off integrations for each API or database they wanted the model to use, dealing with different auth, data formats, and error handling for each. MCP changes the game by standardizing these interactions. Key benefits include:</p>
+<ul>
+<li>Rapid Tool Integration: With MCP, you can plug in new capabilities without custom-coding each from scratch. If an MCP server exists for, say, Google Drive or a SQL database, any MCP-compatible AI app can connect to it and immediately gain that ability. This is a huge win for automation—AI agents can fetch documents, query databases, or call APIs as needed, just by adding the appropriate server. It’s like having a library of ready-made “plugins” that all speak the same language. MCP servers serve as lightweight programs that expose specific capabilities through a standardized protocol, acting as intermediaries between the Cursor and various external tools or data sources.</li>
+</ul>
+<ul>
+<li>Autonomous Agents: MCP empowers more autonomous AI behavior. Agents are not limited to their built-in knowledge; they can actively retrieve information or perform actions in multi-step workflows. For example, a sophisticated agent might use MCP to gather data from a CRM, then send an email via a communications tool, then log a record in a database – all in one seamless chain. By enabling fluid, context-aware, multi-step interactions, MCP helps AI agents move closer to true autonomous task execution. As one observer noted, MCP turns an AI from an isolated “brain” into a versatile “doer” by giving it standardized access to real-world tools and data.</li>
+</ul>
+<ul>
+<li>Reduced Friction and Setup: Because MCP acts as a universal interface, developers avoid the fragmentation of maintaining separate integrations. Once an application supports MCP, it can connect to any number of services through a single mechanism . This dramatically reduces the manual setup required each time you want your AI to use a new API. Teams can focus on higher-level logic rather than reinventing connection code for the 10th time. As Anthropic put it, MCP replaces fragmented integrations with a simpler, more reliable single protocol for data access.</li>
+</ul></div></div>
+<div class="pair" id="mcp-introduction-0004"><div class="zh side"><div class="tag">中文</div><ul>
+<li>一致性与互操作性：MCP 在各个工具之间强制使用一致的请求／响应格式。这意味着你的 AI 应用不必一会儿处理服务 A 的 HTTP 响应，一会儿处理服务 B 的 XML 之类。模型的输出（函数调用）和工具结果全部以统一的 JSON 结构传递。这种一致性让调试和横向扩展都更容易，同时也让你的集成逻辑免于过时——即便将来更换底层模型厂商，MCP 与工具之间的接口依然不变。</li>
+</ul>
+<ul>
+<li>双向上下文：与简单的 API 调用不同，MCP 支持在模型与工具之间维持上下文和持续对话。除了工具，MCP 服务器还可以提供 Prompts（针对特定任务的预定义提示词模板）和 Resources（文档之类的数据上下文）。这意味着 AI 不仅能“调用 API”，还可以摄取参考数据，或遵循服务器引导的复杂工作流。该协议在设计之初就旨在支持丰富的交互，而非仅仅一次性查询。这在编程助手（AI 可能通过 MCP 与开发环境反复迭代）或需要与多个数据源来回往复的复杂决策任务中尤其有用。</li>
+</ul>
+<p>简而言之，MCP 为增强 LLM 提供了一种可扩展、即插即用的思路。它让 AI 系统能够安全地接入所需的“实时”数据与操作，而不必每位开发者都从头造轮子。MCP 的早期采用者已经为 Google Drive、Slack、GitHub、数据库等工具构建了服务器，展示了 AI 智能体如何借助 MCP 与企业内容库、DevOps 工具以及其他真实系统协同工作。</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Consistency and Interoperability: MCP enforces a consistent request/response format across tools. This means your AI app doesn’t have to handle one HTTP response for Service A, another XML for Service B, etc. The model’s outputs (function calls) and the tool results are all passed in a uniform JSON structure. That consistency makes it easier to debug and scale. It also future-proofs your integration logic – even if you switch underlying model vendors, MCP’s interface to the tools remains the same.</li>
+</ul>
+<ul>
+<li>Two-Way Context: Unlike simple API calls, MCP supports maintaining context and ongoing dialogue between the model and the tool. An MCP server can provide Prompts (predefined prompt templates for certain tasks) and Resources (data context like documents) in addition to tools. This means the AI can not only “call an API” but also ingest reference data or follow complex workflows guided by the server. The protocol was designed to support rich interactions, not just one-off queries. This is especially useful in applications like coding assistants (where an AI might iterate with a development environment via MCP) or complex decision-making tasks that require back-and-forth with various data sources.</li>
+</ul>
+<p>In short, MCP brings a scalable, plug-and-play approach to enhancing LLMs. It lets AI systems securely tap into the “live” data and actions they need, without each developer having to reinvent the wheel. Early adopters of MCP have already built servers for tools like Google Drive, Slack, GitHub, databases, and more – showcasing how AI agents can use MCP to work with enterprise content repositories, dev ops tools, and other real-world systems.</p></div></div>
+<div class="pair" id="mcp-introduction-0005"><div class="zh side"><div class="tag">中文</div><h2 id="hmcp-">MCP 架构——一览</h2></div><div class="en side"><div class="tag">EN</div><h2 id="hthe-mcp-architecture-how-it-works-at-a-glance">The MCP architecture – How it works at-a-glance</h2></div></div>
+<div class="pair" id="mcp-introduction-0006"><div class="zh side"><div class="tag">中文</div><h3 id="h-">客户端—服务器结构</h3>
+<p>MCP 遵循清晰的客户端—服务器架构：</p>
+<ul>
+<li>MCP 客户端：嵌入在 AI 应用中（聊天机器人、IDE 助手、自动化智能体）。</li>
+</ul>
+<ul>
+<li>MCP 服务器：暴露外部能力，例如函数（工具）、资源（数据）和提示词（模板）。</li>
+</ul>
+<p>所有交互都通过标准化的 JSON-RPC 消息完成，保持安全、结构化的交换：</p>
+<p>JSON-RPC 请求示例：</p>
+<p>例如，要列出可用工具，MCP 客户端会发送如下请求：</p></div><div class="en side"><div class="tag">EN</div><h3 id="hclient-server-structure">Client-Server structure</h3>
+<p>MCP follows a clear client-server architecture:</p>
+<ul>
+<li>MCP Client: Embedded in AI applications (chatbots, IDE assistants, automation agents).</li>
+</ul>
+<ul>
+<li>MCP Server: Exposes external capabilities such as functions (tools), resources (data), and prompts (templates).</li>
+</ul>
+<p>All interactions occur through standardized JSON-RPC messages, maintaining a secure, structured exchange:</p>
+<p>Example JSON-RPC Request:</p>
+<p>For example, to list available tools, an MCP client sends a request like this:</p></div></div>
+<div class="pair" id="mcp-introduction-0007"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;method&quot;: &quot;tools/list&quot;,
+  &quot;params&quot;: {}
+}
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;method&quot;: &quot;tools/list&quot;,
+  &quot;params&quot;: {}
+}
+</code></pre></div></div>
+<div class="pair" id="mcp-introduction-0008"><div class="zh side"><div class="tag">中文</div><p>服务器会回复一份结构化的 JSON，列出各个工具（每个工具都有名称、描述和输入 schema）。比如，某个服务器可能会声明一个 get_weather 工具，并说明它需要哪些输入。</p></div><div class="en side"><div class="tag">EN</div><p>The server would reply with a structured JSON listing the tools (each with a name, description, and input schema). For instance, a server might advertise a get_weather tool and describe what inputs it needs.</p></div></div>
+<div class="pair" id="mcp-introduction-0009"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;result&quot;: [
+    { &quot;name&quot;: &quot;get_weather&quot;, &quot;description&quot;: &quot;Retrieves weather data.&quot;, &quot;schema&quot;: { &quot;location&quot;: &quot;string&quot; } }
+  ]
+}
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;result&quot;: [
+    { &quot;name&quot;: &quot;get_weather&quot;, &quot;description&quot;: &quot;Retrieves weather data.&quot;, &quot;schema&quot;: { &quot;location&quot;: &quot;string&quot; } }
+  ]
+}
+</code></pre></div></div>
+<div class="pair" id="mcp-introduction-0010"><div class="zh side"><div class="tag">中文</div><p>之后，当 LLM 决定使用某个工具时，客户端会发起一次调用。MCP 服务器执行该函数，并以结构化的 JSON 响应返回结果。MCP 客户端（位于宿主应用内）随后可以把这个结果回填到模型的上下文或回复中。在实际实现中，这个过程由宿主应用居中协调：它把 LLM 的意图（通常来自模型的函数调用输出）转换成 MCP 请求，再把服务器返回的结构化结果交回给 LLM。这种双向交换是安全且可控的——模型只能调用服务器明确暴露的工具，所有进出数据都走既定协议。</p></div><div class="en side"><div class="tag">EN</div><p>Later, when the LLM decides to use a tool, the client invokes a call to do so. The MCP server executes the function and returns the result in a structured JSON response. The MCP client (within the host app) can then feed that result back into the model’s context or response. In practice, the host application mediates this process: it translates the LLM’s intent (often via the model’s function call output) into an MCP request, and then passes the server’s structured result back to the LLM . This two-way exchange is secure and controlled – the model can only call the specific tools the server exposes, and all data passing in/out goes through the defined protocol.</p></div></div>
+<div class="pair" id="mcp-introduction-0011"><div class="zh side"><div class="tag">中文</div><h2 id="h-mcp-">构建与部署 MCP 服务器</h2>
+<p>构建和部署 MCP 服务器，是用 Model Context Protocol (MCP) 做 AI 集成时至关重要的一步。MCP 服务器充当 AI 模型与外部数据源或工具之间的中介，实现无缝通信与数据交换。MCP 最突出的特点之一，是它在服务器开发上的灵活性。开发者可以使用任何能向 stdout 输出内容或能提供 HTTP 端点的编程语言，从而自由选择自己熟悉的语言和技术栈。</p>
+<p>构建 MCP 服务器时，务必考虑架构与设计。MCP 采用客户端—服务器架构，一个宿主应用可以连接多个服务器。这种架构带来可扩展性与灵活性，让开发者能够设计处理各种任务和功能的 MCP 服务器，例如数据处理、工具集成或 AI 模型管理。</p>
+<p>MCP 服务器可以部署在多种环境中，包括本地开发环境、云平台或自有基础设施。例如，Cloudflare 提供了用于构建和部署远程 MCP 服务器的成熟平台，让 MCP 部署的管理和扩缩都更加轻松。这种灵活性确保 MCP 服务器能够按需适配不同应用和环境的特定需求，无论是用于开发的本地配置，还是用于生产的云端方案。</p>
+<p>只要专注于良好设计的架构，并善用 MCP 的灵活性，开发者就能创建强大且可扩展的 MCP 服务器，增强 AI 模型的能力，让它们与外部数据源和工具无缝协作。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hbuilding-and-deploying-mcp-servers">Building and deploying MCP servers</h2>
+<p>Building and deploying MCP servers is a crucial step in leveraging the Model Context Protocol (MCP) for AI integrations. MCP servers act as intermediaries between AI models and external data sources or tools, enabling seamless communication and data exchange. One of the standout features of MCP is its flexibility in server development. Developers can use any programming language that can print to stdout or serve an HTTP endpoint, allowing them to choose their preferred language and technology stack.</p>
+<p>When building an MCP server, it’s essential to consider the architecture and design. MCP follows a client-server architecture, where a host application can connect to multiple servers. This architecture enables scalability and flexibility, allowing developers to design MCP servers that handle various tasks and functions, such as data processing, tool integration, or AI model management.</p>
+<p>Deploying MCP servers can be done in various environments, including local development environments, cloud platforms, or on-premises infrastructure. For instance, Cloudflare provides a robust platform for building and deploying remote MCP servers, making it easier to manage and scale MCP deployments. This flexibility ensures that MCP servers can be tailored to meet the specific needs of different applications and environments, whether it’s a local setup for development or a cloud-based solution for production.</p>
+<p>By focusing on a well-designed architecture and leveraging the flexibility of MCP, developers can create powerful and scalable MCP servers that enhance the capabilities of AI models, enabling them to interact seamlessly with external data sources and tools.</p></div></div>
+<div class="pair" id="mcp-introduction-0012"><div class="zh side"><div class="tag">中文</div><h2 id="hmcp-">MCP 客户端与工具</h2>
+<p>MCP 客户端和工具是 Model Context Protocol 生态中不可或缺的组件。MCP 客户端是连接 MCP 服务器、以访问外部数据源或工具的应用。这些客户端可以用各种编程语言和框架构建，例如 Python、JavaScript 或 Java，让开发者能灵活挑选最合适的工具来满足具体需求。</p>
+<p>另一方面，MCP 工具是向 MCP 客户端提供特定能力或函数的软件组件。这些工具可以与 MCP 服务器集成，启用数据处理、AI 模型管理或工具集成等功能。MCP 工具的例子包括 Claude Desktop（提供与 AI 模型交互的聊天界面）和 Cursor（提供用于扩展 AI 能力的插件系统）。</p>
+<p>开发者可以构建自定义的 MCP 客户端和工具，以满足特定的使用场景或需求。这种灵活性让 MCP 生态能够创新与试验，帮助开发者创造出令人耳目一新的应用。无论是一个面向数据分析的专用工具，还是一个可对接多个 MCP 服务器的客户端应用，可能性都极其广阔。</p>
+<p>借助 MCP 客户端和工具，开发者可以打造稳健而通用的应用，充分发挥 AI 模型的潜力，让它们与广泛的外部数据源和工具无缝交互。</p>
+<h2 id="h-mcp-">将 MCP 与其他方案对比</h2>
+<h4 id="hmcp">MCP</h4>
+<h4 id="h-">定制集成</h4>
+<h4 id="hchatgpt-">ChatGPT 插件</h4>
+<h4 id="hlangchain-">LangChain 与各类框架</h4>
+<h4 id="h-">集成速度</h4></div><div class="en side"><div class="tag">EN</div><h2 id="hmcp-clients-and-tools">MCP clients and tools</h2>
+<p>MCP clients and tools are essential components of the Model Context Protocol ecosystem. MCP clients are applications that connect to MCP servers to access external data sources or tools. These clients can be built using various programming languages and frameworks, such as Python, JavaScript, or Java, providing developers with the flexibility to choose the best tools for their specific needs.</p>
+<p>MCP tools, on the other hand, are software components that provide specific capabilities or functions to MCP clients. These tools can be integrated with MCP servers to enable features such as data processing, AI model management, or tool integration. Examples of MCP tools include Claude Desktop, which provides a chat interface for interacting with AI models, and Cursor, which offers a plugin system for extending AI capabilities.</p>
+<p>Developers can build custom MCP clients and tools to meet specific use cases or requirements. This flexibility allows for innovation and experimentation in the MCP ecosystem, enabling developers to create new and exciting applications. Whether it’s a specialized tool for data analysis or a client application that integrates with multiple MCP servers, the possibilities are vast.</p>
+<p>By leveraging MCP clients and tools, developers can create robust and versatile applications that harness the full potential of AI models, enabling them to interact with a wide range of external data sources and tools seamlessly.</p>
+<h2 id="hcomparing-mcp-to-other-approaches">Comparing MCP to other approaches</h2>
+<h4 id="hmcp">MCP</h4>
+<h4 id="hcustom-integrations">Custom Integrations</h4>
+<h4 id="hchatgpt-plugins">ChatGPT Plugins</h4>
+<h4 id="hlangchain-frameworks">LangChain &amp; Frameworks</h4>
+<h4 id="hintegration-speed">Integration Speed</h4></div></div>
+<div class="pair" id="mcp-introduction-0013"><div class="zh side"><div class="tag">中文</div><h4 id="h-">集成速度</h4>
+<p>✅ 快，即插即用</p>
+<p>❌ 慢，需要定制代码</p>
+<p>⚠️ 中等，专有</p>
+<p>⚠️ 中等，需要定制代码</p>
+<h4 id="h-">认证</h4>
+<h4 id="h-">认证</h4>
+<p>✅ OAuth 标准</p>
+<p>❌ 手工管理 API 密钥</p>
+<p>⚠️ 插件专用的 OAuth</p>
+<p>❌ 视实现而定</p>
+<h4 id="h-">交互类型</h4>
+<h4 id="h-">交互类型</h4>
+<p>✅ 持续且上下文丰富</p>
+<p>❌ 临时性交互</p>
+<p>❌ 单次交互</p>
+<p>⚠️ 受上下文限制</p>
+<h4 id="h-">开放标准</h4></div><div class="en side"><div class="tag">EN</div><h4 id="hintegration-speed">Integration Speed</h4>
+<p>✅ Fast, plug-and-play</p>
+<p>❌ Slow, custom code</p>
+<p>⚠️ Medium, proprietary</p>
+<p>⚠️ Medium, custom code</p>
+<h4 id="hauthentication">Authentication</h4>
+<h4 id="hauthentication">Authentication</h4>
+<p>✅ OAuth standard</p>
+<p>❌ Manual API keys</p>
+<p>⚠️ Plugin-specific OAuth</p>
+<p>❌ Varies by implementation</p>
+<h4 id="hinteraction-type">Interaction Type</h4>
+<h4 id="hinteraction-type">Interaction Type</h4>
+<p>✅ Continuous &amp; context-rich</p>
+<p>❌ Ad-hoc interactions</p>
+<p>❌ Single-shot interactions</p>
+<p>⚠️ Context limited</p>
+<h4 id="hopen-standard">Open Standard</h4></div></div>
+<div class="pair" id="mcp-introduction-0014"><div class="zh side"><div class="tag">中文</div><h4 id="h-">开放标准</h4>
+<p>✅ 是</p>
+<p>❌ 否</p>
+<p>❌ 否</p>
+<p>⚠️ 取决于框架</p>
+<p>下面对比几种在 MCP 之前或与 MCP 并行的做法：</p>
+<ul>
+<li>定制集成与 API 密钥管理：最常见的传统做法是为每个服务编写定制代码，并把凭据（API 密钥或 token）交给 LLM 去使用这些集成。例如，你可以写一个查询 API 的 Python 函数，让 LLM 有能力调用这个函数，并在自己的后端里手动处理 API 密钥。这种做法费工且难以扩展——每接入一个数据源都要写新代码，每套环境都必须安全管理 API 密钥。由于每个集成都不一样，系统往往很脆弱。相比之下，MCP 把这些交互集中并标准化：AI 智能体只需处理 MCP 协议，任何 MCP 服务器（对应任何服务）都能即插即用地工作。新增服务器完全不必改动客户端代码。此外，MCP 为认证提供了正式结构（后文详述），把 API 密钥交给 AI 不再是随手为之，而是通过安全协议完成。</li>
+</ul>
+<ul>
+<li>ChatGPT 插件（OpenAI Plugins）：2023 年，OpenAI 为 ChatGPT 推出了一套插件系统，允许模型调用由 OpenAPI 规格说明定义的外部 API。这是走向标准化工具调用的早期一步，但它也有局限。每个插件本质上都是一套自带 API schema 和认证的迷你集成，而且需要单独构建／托管。由于这是专有方案，只有特定平台（比如 ChatGPT 或 Bing Chat）才能使用这些插件。插件大多也只是一次性调用——模型调一次 API、拿到信息，并没有持久连接和持续交换。MCP 的不同之处在于它是开放且通用的（不绑定任何单一厂商或界面），并且支持丰富的双向交互和连续上下文。把 ChatGPT 插件想成封闭工具箱里的专用工具，而 MCP 则是任何开发者或 AI 平台都能使用的开放标准工具包。MCP 的标准化认证（尤其是 OAuth）还意味着，它能以比 ChatGPT 那种逐插件 OAuth 流程更统一的方式处理对用户数据的安全访问。总的来说，ChatGPT 插件展示了为 LLM 标准化 API 访问的价值，而 MCP 更进一步：把它变成开放协议，并支持 AI 与服务之间的持久“对话”。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h4 id="hopen-standard">Open Standard</h4>
+<p>✅ Yes</p>
+<p>❌ No</p>
+<p>❌ No</p>
+<p>⚠️ Framework-dependent</p>
+<p>Let’s compare a few approaches that existed before or alongside MCP:</p>
+<ul>
+<li>Custom Integrations &amp; API Key Management: The most common traditional approach was to write custom code for each service and supply the LLM with credentials (API keys or tokens) to use those integrations. For example, you might write a Python function to query an API, give the LLM the ability to call that function, and manually handle the API key in your backend. This approach is labor-intensive and doesn’t scale – each new data source requires new code, and each environment must securely manage API keys. It often led to brittle systems, since every integration was unique. By contrast, MCP centralizes and standardizes these interactions: the AI agent just needs to handle the MCP protocol, and any MCP server (for any service) will work in a plug-and-play way. New servers can be added without changing the client’s code at all. Moreover, MCP provides a formal structure for authentication (discussed later) so that handing API keys to the AI isn’t done ad-hoc but through a secure protocol.</li>
+</ul>
+<ul>
+<li>ChatGPT Plugins (OpenAI Plugins): In 2023, OpenAI introduced a plugins system for ChatGPT that allowed models to call external APIs defined by an OpenAPI spec. This was an early step toward standardized tool use, but it has limitations. Each plugin is essentially its own mini-integration (with its own API schema and authentication), and they need to be built/hosted individually. Only certain platforms (like ChatGPT or Bing Chat) can use those plugins, since it was a proprietary approach. Plugins also were mostly one-shot calls – the model would call an API and get info, without a persistent connection or ongoing exchange. MCP differs in that it’s open and universal (not tied to one provider or interface) and it supports rich two-way interactions and continuous context. Think of ChatGPT plugins as specialized tools in a closed toolbox, whereas MCP is an open-standard toolkit that any developer or AI platform can utilize. MCP’s standardized auth (especially OAuth) also means it can handle secure access to user data in a more uniform way than the plugin-by-plugin OAuth flows in ChatGPT’s system. In summary, ChatGPT plugins showed the value of standardizing API access for LLMs, but MCP takes it further by making it an open protocol and by enabling a persistent “conversation” between AI and services.</li>
+</ul></div></div>
+<div class="pair" id="mcp-introduction-0015"><div class="zh side"><div class="tag">中文</div><ul>
+<li>LLM 工具框架（LangChain、各类智能体式库）：在 MCP 之前，许多开发者用 LangChain 之类的框架来给模型提供工具。在这类方案中，你要定义一组工具函数（带描述）以及智能体的提示逻辑，由 LLM 决定是否使用它们。这套办法可行，但每个工具在幕后仍然需要定制实现——LangChain 最终在自己的库里维护了数百个工具集成。本质上，LangChain 提供的是面向开发者的标准（一个 Python 类接口），用于把工具集成进智能体的代码库，但模型在运行时并没有任何手段去动态发现新工具。MCP 与这些框架是互补关系：它把标准化挪到了面向模型的那一层。有了 MCP，智能体可以发现并使用任何 MCP 服务器提供的工具，哪怕智能体的代码事先并没有显式包含这个工具。事实上，LangChain 也已经增加了相应支持，把 MCP 服务器当作另一种工具来源——这意味着用 LangChain 构建的智能体可以轻松调用 MCP 工具，用上不断壮大的 MCP 服务器生态。区别在于，MCP 用一个协议（JSON-RPC，带元数据等）把接口正式化，因此更容易接入不同环境，而不只是 Python 框架。同理，OpenAI 的原生函数调用功能可以理解为负责函数调用的格式化（模型输出一段 JSON 函数调用），而 MCP 负责以标准化的方式执行该调用。OpenAI 的函数调用和 MCP 往往协同工作：LLM 生成结构化调用，由 MCP 客户端／服务器执行并返回结果，两者合起来实现了顺畅无阻的工具调用。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><ul>
+<li>LLM Tool Frameworks (LangChain, Agentic libraries): Before MCP, many developers used frameworks like LangChain to give models tools. In these setups, you define a set of tool functions (with descriptions) and the agent’s prompting logic so the LLM can decide to use them. This works, but each tool still requires custom implementation behind the scenes – LangChain ended up with hundreds of tool integrations maintained in its library. Essentially, LangChain provided a developer-facing standard (a Python class interface) for integrating tools into an agent’s codebase, but nothing for the model to dynamically discover new tools at runtime. MCP is complementary to these frameworks, shifting the standardization to be model-facing. With MCP, an agent can discover and use any tool that an MCP server provides, even if the agent’s code didn’t explicitly include that tool ahead of time. In fact, LangChain has added support so it can treat MCP servers as just another tool source – meaning an agent built with LangChain can call MCP tools easily, leveraging the growing ecosystem of MCP servers. The difference is that MCP formalizes the interface over a protocol (JSON-RPC, with metadata, etc.), making it easier to plug into different environments, not just Python frameworks. Similarly, OpenAI’s native function calling feature can be seen as handling the formatting of a function call (the model outputs a JSON function call), whereas MCP handles the execution of that call in a standardized way . OpenAI’s function calling and MCP often work in tandem: the LLM produces a structured call, and the MCP client/server execute it and return the result, which together enables seamless tool use.</li>
+</ul></div></div>
+<div class="pair" id="mcp-introduction-0016"><div class="zh side"><div class="tag">中文</div><p>本质上，MCP 并不是把 LLM 与外部 API 连接起来的第一次尝试，但它从这些过往方案（插件、工具库等）汲取了经验，并把解法统一了起来。它提供了一套开放的、与模型无关的协议，简化了集成与认证。特别是在安全与认证方面，MCP 的设计（支持 OAuth）避免了“每个插件各配一把密钥”或“把原始 API 密钥直接交给模型”这种拼凑做法。取而代之，认证可以作为协议的一部分，用一致、标准化的流程来完成——相比现状，这是一次显著的升级。</p></div><div class="en side"><div class="tag">EN</div><p>In essence, MCP isn’t the first attempt to connect LLMs with external APIs – but it learns from those past approaches (plugins, tool libraries, etc.) and unifies the solution. It provides an open, model-agnostic protocol that simplifies integration and authentication. Particularly around security and auth, MCP’s design (with OAuth support) avoids the patchwork of per-plugin keys or giving raw API keys to the model. Instead, authentication can be handled in a consistent, standardized flow as part of the protocol – a major step up from the status quo.</p></div></div>
+<div class="pair" id="mcp-introduction-0017"><div class="zh side"><div class="tag">中文</div><h2 id="hmcp-">MCP 实战：技术深入解析</h2>
+<p>我们一步步走过一次典型的 MCP 交互，弄清它到底怎么工作，也顺便看一些代码。设想我们有一个 AI 助手，希望使用某个提供了一组工具的 MCP 服务器（比如某个虚构的“Neon”数据库服务）。整体流程如下：</p>
+<ol>
+<li>连接到 MCP 服务器——宿主应用（AI 助手）初始化一个 MCP 客户端，并与服务器建立连接。根据服务器所在位置，这可能通过本地进程（stdio（标准输入输出））完成，也可能通过远程 HTTP 流（SSE（服务器推送事件））完成。在底层，客户端会发送一条 initialize 消息来协商协议版本与能力。</li>
+</ol>
+<ol>
+<li>发现可用的工具／资源——随后客户端查询服务器提供什么。如前所示，它可能发送 {"method": "tools/list"}，然后拿回一份工具定义列表。助手可以据此向 LLM 补充信息（例如把工具列表放进系统提示词，或通过模型的函数 schema 提供，具体取决于实现方式）。比如在使用 SDK 时，这可能只是一行代码：</li>
+</ol></div><div class="en side"><div class="tag">EN</div><h2 id="hmcp-in-action-technical-deep-dive">MCP in action: technical deep dive</h2>
+<p>Let’s walk through a typical MCP interaction step-by-step to solidify how it works, and look at a bit of code. Imagine we have an AI assistant that wants to use an MCP server providing a set of tools (say, for a hypothetical “Neon” database service). The high-level flow is:</p>
+<ol>
+<li>Connect to the MCP Server – The host application (AI assistant) initializes an MCP client and establishes a connection to the server. Depending on the server location, this could be via a local process (stdio) or a remote HTTP stream (SSE). Under the hood, the client sends an initialize message to handshake protocol versions and capabilities.</li>
+</ol>
+<ol>
+<li>Discover Available Tools/Resources – The client then queries what the server offers. As shown earlier, it might send {"method": "tools/list"} and get back a list of tool definitions. The assistant can use this to inform the LLM (for example, by including the tool list in a system prompt or via the model’s function schema, depending on implementation). For instance, using an SDK, this could be one line of code like:</li>
+</ol></div></div>
+<div class="pair" id="mcp-introduction-0018"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+const tools = await mcpClient.request({ method: &#x27;tools/list&#x27; }, ListToolsResultSchema);
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+const tools = await mcpClient.request({ method: &#x27;tools/list&#x27; }, ListToolsResultSchema);
+</code></pre></div></div>
+<div class="pair" id="mcp-introduction-0019"><div class="zh side"><div class="tag">中文</div><p>它会返回一份结构化的工具列表。每个工具条目都有名称、描述和输入的 JSON schema，这样 AI 就知道自己能做什么。</p>
+<ol>
+<li>LLM 选择工具——当用户提出一个需要外部动作的问题时，LLM 会判断（通常借助提示工程或函数调用能力）应该使用某个工具。比如用户问：“AAPL 股票的最新价格是多少？”LLM 会意识到应当调用 get_current_stock_price(company="AAPL", format="USD")。宿主应用会捕获这一意图（例如，OpenAI 的函数调用 API 会以 JSON 返回函数名和参数）。</li>
+</ol>
+<ol>
+<li>通过 MCP 调用工具——客户端这时把选定的工具名和参数作为 tools/call 请求发给服务器。前面我们已经看过相应的 JSON 示例。在代码里使用 SDK 时，可能长这样：</li>
+</ol></div><div class="en side"><div class="tag">EN</div><p>which returns a structured list of tools. Each tool entry has a name, description, and JSON schema for inputs, so the AI knows what it can do.</p>
+<ol>
+<li>LLM Chooses a Tool – When a user asks the AI something that requires external action, the LLM determines (often via prompt engineering or function calling capabilities) that a certain tool should be used. For example, user asks: “What’s the latest price of AAPL stock?” The LLM sees it should call get_current_stock_price(company="AAPL", format="USD"). The host application captures this intent (e.g., OpenAI’s function calling API would return a function name and arguments in JSON).</li>
+</ol>
+<ol>
+<li>Invoke the Tool via MCP – The client now sends a tools/call request to the server with the chosen tool name and parameters. We saw an example JSON for this earlier. In code, using an SDK, it might look like:</li>
+</ol></div></div>
+<div class="pair" id="mcp-introduction-0020"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+const result = await mcpClient.request({
+    method: &#x27;tools/call&#x27;,
+    params: { name: toolName, arguments: toolArgs }
+}, CallToolResultSchema);
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+const result = await mcpClient.request({
+    method: &#x27;tools/call&#x27;,
+    params: { name: toolName, arguments: toolArgs }
+}, CallToolResultSchema);
+</code></pre></div></div>
+<div class="pair" id="mcp-introduction-0021"><div class="zh side"><div class="tag">中文</div><p>这会让服务器在它那一侧执行该工具的处理函数。服务器可能会调用外部 API、执行数据库查询，或运行该工具封装的任意逻辑。结果（可能是一个简单值，也可能是一个复杂的 JSON 对象）会通过 MCP 响应的 result 字段返回。</p>
+<ol>
+<li>把结果返回给 LLM——MCP 客户端收到工具的输出。现在宿主应用可以把它整合进 AI 的回复中。在许多智能体方案里，常见做法是把结果注入对话，然后请模型继续。比如助手接着会给出：“AAPL 当前股价为 173.22 美元（USD）。”如果用的是自动化循环，结果可以直接交给模型（也许作为一条系统消息追加到对话里，比如“get_current_stock_price 的结果：……”），模型据此继续回答用户的查询。</li>
+</ol>
+<p>下面是使用 Anthropic 的 Claude（原生支持工具调用）在对话中调用工具并使用结果的简化示意：</p></div><div class="en side"><div class="tag">EN</div><p>This will cause the server to execute the tool’s handler on its side. The server might be calling an external API, performing a database query, or whatever logic that tool encapsulates. The result (could be a simple value or a complex JSON object) is sent back in a result field of the MCP response.</p>
+<ol>
+<li>Return the Result to the LLM – The MCP client receives the tool’s output. Now the host application can integrate that back into the AI’s response. In many agent setups, the pattern is to inject the result into the conversation and ask the model to continue. For example, the assistant might then present: “The current stock price of AAPL is $173.22 (USD).” If using an automated loop, the result can be given to the model (perhaps appended to the conversation as a system message like “Result of get_current_stock_price: ...”) and the model can continue answering the user’s query with that information in mind.</li>
+</ol>
+<p>Here’s a simplified illustration of calling a tool and using the result in a conversation using Anthropic’s Claude (which natively supports tool use):</p></div></div>
+<div class="pair" id="mcp-introduction-0022"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+// 1. Send user prompt to LLM with available tools context
+const response = await anthropicClient.complete({
+  prompt: &quot;User: Can you list my projects?\nAssistant: &quot;,
+  model: &quot;claude-3.5&quot;,
+  tools: tools // list of tools from MCP server
+});
+for (const msg of response.messages) {
+  if (msg.type === &#x27;tool_use&#x27;) {
+    // 2. LLM decided to use a tool
+    const { name, args } = msg;
+    // 3. Call the tool via MCP
+    const toolRes = await mcpClient.request({ method: &#x27;tools/call&#x27;, params: { name, arguments: args } });
+    // 4. Inject tool result and resume LLM
+    await anthropicClient.send({ role: &#x27;system&#x27;, content: `Tool result: ${toolRes.result}` });
+  } else {
+    // 5. Handle normal LLM reply (tool result likely integrated)
+    console.log(&quot;Assistant:&quot;, msg.content);
+  }
+}
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+// 1. Send user prompt to LLM with available tools context
+const response = await anthropicClient.complete({
+  prompt: &quot;User: Can you list my projects?\nAssistant: &quot;,
+  model: &quot;claude-3.5&quot;,
+  tools: tools // list of tools from MCP server
+});
+for (const msg of response.messages) {
+  if (msg.type === &#x27;tool_use&#x27;) {
+    // 2. LLM decided to use a tool
+    const { name, args } = msg;
+    // 3. Call the tool via MCP
+    const toolRes = await mcpClient.request({ method: &#x27;tools/call&#x27;, params: { name, arguments: args } });
+    // 4. Inject tool result and resume LLM
+    await anthropicClient.send({ role: &#x27;system&#x27;, content: `Tool result: ${toolRes.result}` });
+  } else {
+    // 5. Handle normal LLM reply (tool result likely integrated)
+    console.log(&quot;Assistant:&quot;, msg.content);
+  }
+}
+</code></pre></div></div>
+<div class="pair" id="mcp-introduction-0023"><div class="zh side"><div class="tag">中文</div><p>现实中，框架会替你处理其中很大一部分，但上面的伪代码勾勒了 MCP 在整个循环中的位置。关键在于，MCP 为工具执行提供了标准化的调用／响应层，AI 智能体代码可以直接接进来。无论你用的是 OpenAI、Anthropic 还是别的大语言模型，MCP 都不变——它是模型意图与外部动作之间的黏合剂。</p>
+<p>使用 MCP，开发者就得到了一条清晰、结构化的扩展 AI 能力的流水线。代码更好维护（因为调用的是通用的 mcpClient.request，而不是到处写某个服务专属的代码），AI 也更强（因为它能接入任何已连 MCP 的服务）。调试同样更容易——你可以直接监控 JSON-RPC 消息，看清究竟请求了什么、返回了什么，而不必去解析模型生成的文本找线索。</p></div><div class="en side"><div class="tag">EN</div><p>In reality, frameworks handle a lot of this for you, but the above pseudo-code sketches how MCP fits into the loop. The key point is that MCP provides the standardized call/response layer for tool execution, which the AI agent code can hook into. Whether you’re using OpenAI, Anthropic, or another LLM, MCP stays the same – it’s the glue between the model’s intents and the external actions.</p>
+<p>By using MCP, developers get a clear, structured pipeline for extending AI capabilities. The code becomes more maintainable (since you’re calling a generic mcpClient.request rather than service-specific code in each place) and the AI becomes more powerful (since it can tap into any MCP-connected service). Debugging is also easier – you can monitor the JSON-RPC messages to see exactly what was requested and returned, rather than parsing model-generated text for clues.</p></div></div>
+<div class="pair" id="mcp-introduction-0024"><div class="zh side"><div class="tag">中文</div><h2 id="h-">早期局限（没有内置认证）</h2>
+<p>MCP 刚出现时（2024 年底），它提供了用于工具与数据交换的核心协议，但缺少连接远程服务器的标准化认证机制。实践中，早期的 MCP 演示和实现往往要求把 MCP 服务器运行在本地或可信环境中，那里认证不是个大问题（因为 AI 和服务器跑在同一台机器上）。比如，开发者可以在自己的 localhost 上运行一个面向 Google Drive 的 MCP 服务器，配上事先获取的 token，然后让 AI 应用指向它。但如果要在互联网上或对接第三方服务时使用 MCP，没有正式的认证流程就会很棘手。</p>
+<p>早期很多 MCP 服务器假定用户会在启动时手动提供凭据或 API 密钥。举个例子，Anthropic 的快速入门文档建议通过配置或命令行提供你自己的凭据（API 密钥、token）来运行预置服务器。这意味着服务器本身就能拿到你的密钥，而 MCP 客户端只是信任这个服务器。对个人或单用户场景来说这行得通，但对多用户应用或云端托管的智能体就很难扩展。行业里没有一个标准握手让 AI 智能体能说：“嘿，我有权代表用户 X 访问这个服务，这是我的凭据。”</p>
+<p>本质上，早期 MCP 客户端除了走带外方式（比如预共享 token，或干脆不认证）之外，没有别的办法向 MCP 服务器证明身份。这是个明显的短板——MCP 的设计初衷是开放、面向互联网的，但没有认证标准，安全的远程使用就缚住了手脚。</p>
+<p>缺少认证标准意味着，MCP 客户端无法自行安全地连接到任意服务器。你要么把客户端 ID／API 密钥硬编码进客户端（在分布式应用里并不理想），要么只能在无认证的情况下运行，并假定只有获授权的用户才连得到服务器（往往靠把它留在本地）。显然，要让 MCP 充分发挥潜力（例如把 AI 智能体以安全方式连到云端托管的数据源），需要一种更好的方案。好消息是，社区认识到了这一点，并投入精力把基于 OAuth 的认证做进 MCP。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hearly-limitations-no-built-in-authentication-">Early limitations (no built-in authentication)</h2>
+<p>When MCP first emerged (late 2024), it offered the core protocol for tool and data exchange, but it lacked a standardized authentication mechanism for connecting to remote servers. In practice, early MCP demos and implementations often required running the MCP server locally or in a trusted environment, where authentication wasn’t a big concern (since the AI and server ran on the same machine). For example, developers could run an MCP server for Google Drive on their localhost with a pre-obtained token, then point their AI app to it. But using MCP over the internet or with third-party services was tricky without a formal auth flow.</p>
+<p>Many initial MCP servers assumed the user would manually provide credentials or API keys to the server at startup. As an example, Anthropic’s quickstart suggested running pre-built servers by supplying your own credentials (API keys, tokens) via config or command-line. That means the server itself had access to your keys and the MCP client just trusted that server. While this works for personal or single-user scenarios, it doesn’t scale well for multi-user applications or cloud-hosted agents. There was no standard handshake for an AI agent to say, “Hey, I’m allowed to access this service on behalf of User X; here are my credentials.”</p>
+<p>Essentially, early MCP clients had no way to authenticate to an MCP server except by out-of-band means (like pre-sharing a token or running without auth). This was a notable limitation – MCP was designed to be open and internet-based, but without an auth standard, secure remote use was handicapped.</p>
+<p>The lack of authentication standard meant that MCP clients couldn’t safely connect to arbitrary servers on their own. You either hard-coded a client ID/API key into the client (which is not ideal in distributed apps), or you had to run without auth and assume only authorized users could even reach the server (often by keeping it local). Clearly, for MCP to reach its full potential (e.g. connecting an AI agent to a cloud-hosted data source in a secure way), a better approach was needed. The good news is that the community recognized this, and work was done to bake OAuth-based authentication into MCP.</p></div></div>
+<div class="pair" id="mcp-introduction-0025"><div class="zh side"><div class="tag">中文</div><h3 id="hoauth-2-0-">OAuth 2.0 认证流程</h3>
+<p>为解决最初的认证局限、增强安全连接能力，MCP 采纳了 OAuth 2.0——一项被广泛认可且稳健的认证标准。OAuth 2.0 提供了一套安全、可扩展的框架，让 MCP 客户端能够与远程服务器、云端托管资源和多用户环境安全交互。把 OAuth 2.0 集成进 MCP 的关键组件与好处包括：</p>
+<ul>
+<li>动态客户端注册（DCR）：Model Context Protocol 支持动态客户端注册，允许客户端自动向 OAuth 服务器注册。这免去了手工配置客户端或硬编码凭据的麻烦，大幅简化了开发者的部署流程。</li>
+</ul>
+<ul>
+<li>自动端点发现：MCP 使用标准化的元数据 URL（遵循 OAuth 的发现协议），让客户端能够自动发现 OAuth 端点。这降低了配置负担，也让 MCP 部署更轻松、更灵活。</li>
+</ul>
+<ul>
+<li>安全的授权与 token 管理：客户端安全地获取与用户权限和访问范围精确匹配的 OAuth token。这确保客户端只能访问用户明确许可的资源，提升了安全性和合规性，在多用户和云环境中尤其如此。</li>
+</ul>
+<ul>
+<li>可扩展且安全的多用户支持：OAuth 2.0 的设计天然支持多个并发用户和服务，解决了 MCP 早期一个重要局限。应用现在可以无缝地同时处理大量用户的授权流程，这对云端大规模采用至关重要。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h3 id="hoauth-2-0-authentication-flow">OAuth 2.0 authentication flow</h3>
+<p>To address the initial authentication limitations and enhance secure connectivity, MCP adopted OAuth 2.0, a widely-recognized and robust authentication standard. OAuth 2.0 provides a secure, scalable framework enabling MCP clients to interact safely with remote servers, cloud-hosted resources, and multi-user environments. The key components and benefits of integrating OAuth 2.0 into MCP include:</p>
+<ul>
+<li>Dynamic Client Registration (DCR): Model Context Protocol supports Dynamic Client Registration, allowing clients to register automatically with OAuth servers. This removes the need for manual client setup or hard-coded credentials, significantly streamlining deployment for developers.</li>
+</ul>
+<ul>
+<li>Automatic Endpoint Discovery: MCP utilizes standardized metadata URLs (following OAuth's discovery protocol) to allow clients to automatically discover OAuth endpoints. This reduces configuration overhead and makes MCP deployments easier and more flexible.</li>
+</ul>
+<ul>
+<li>Secure Authorization and Token Management: Clients securely obtain OAuth tokens tailored precisely to user permissions and access scopes. This ensures that clients access only the resources explicitly permitted by the user, improving security and compliance, especially in multi-user and cloud environments.</li>
+</ul>
+<ul>
+<li>Scalable and Secure Multi-User Support: OAuth 2.0's design inherently supports multiple concurrent users and services, addressing one of MCP's significant early limitations. Applications can now seamlessly handle authorization flows for numerous users simultaneously, critical for widespread cloud adoption.</li>
+</ul></div></div>
+<div class="pair" id="mcp-introduction-0026"><div class="zh side"><div class="tag">中文</div><h2 id="h-">调试与排障</h2>
+<p>调试与排障是使用 MCP 服务器和客户端时不可或缺的关键环节。MCP 提供了各种工具和方法来帮助调试排障，确保开发者能高效定位并解决问题。这套过程中的关键工具之一是 MCP Inspector——一个面向 MCP 服务器的交互式调试工具。</p>
+<p>MCP Inspector 让开发者能够测试并检查 MCP 服务器，定位并解决 MCP 服务器集成中的问题。它提供了 MCP 客户端与服务器之间交互的详细视图，让问题更容易定位、底层原因更容易理解。此外，MCP 还提供了一份完整的调试指南，列举常见问题与解决方案，帮助开发者快速排障并解决问题。</p>
+<p>调试 MCP 服务器时，务必考虑系统的架构与设计。开发者应当定位到具体是哪些组件或模块出了问题，并借助 MCP Inspector 之类的工具来诊断和解决。通过采用系统化的调试思路、用好现有工具，开发者就能确保自己的 MCP 集成稳健可靠。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hdebugging-and-troubleshooting">Debugging and troubleshooting</h2>
+<p>Debugging and troubleshooting are critical aspects of working with MCP servers and clients. MCP provides various tools and techniques for debugging and troubleshooting, ensuring that developers can identify and resolve issues efficiently. One of the key tools in this process is the MCP Inspector, an interactive debugging tool for MCP servers.</p>
+<p>The MCP Inspector allows developers to test and inspect MCP servers, identifying and resolving issues with MCP server integrations. This tool provides a detailed view of the interactions between MCP clients and servers, making it easier to pinpoint problems and understand the underlying causes. Additionally, MCP provides a comprehensive debugging guide that outlines common issues and solutions, helping developers to troubleshoot and resolve problems quickly.</p>
+<p>When debugging MCP servers, it’s essential to consider the architecture and design of the system. Developers should identify the specific components or modules that are causing issues and use tools like the MCP Inspector to diagnose and resolve problems. By focusing on a systematic approach to debugging and leveraging the available tools, developers can ensure that their MCP integrations are robust and reliable.</p></div></div>
+<div class="pair" id="mcp-introduction-0027"><div class="zh side"><div class="tag">中文</div><h2 id="hmcp-">MCP 的真实世界应用</h2>
+<p>Model Context Protocol (MCP) 在各行各业和领域都有真实的应用场景。MCP 的主要用例之一是 AI 集成：它让 AI 模型与外部数据源或工具之间能够无缝通信与交换数据。</p>
+<p>MCP 可以用于各种应用场景，例如：</p>
+<ul>
+<li>构建 AI 驱动的聊天机器人：这类聊天机器人可以访问外部数据源或工具，为用户提供准确且最新的信息。</li>
+</ul>
+<ul>
+<li>创建 AI 驱动的工作流：MCP 让 AI 模型能与外部系统或数据源集成，自动化复杂工作流并提升效率。</li>
+</ul>
+<ul>
+<li>开发 AI 模型：这类模型可以与外部工具或数据源交互，增强自身能力，输出更准确、更贴合需求的结果。</li>
+</ul>
+<ul>
+<li>支撑 AI 驱动的自动化：在金融、医疗、制造等行业，MCP 可以自动化任务与流程，提升生产效率并减少错误。</li>
+</ul>
+<p>MCP 的灵活性与适应性，使它对希望在其应用中用上 AI 和机器学习的开发者和组织颇具吸引力。通过为 AI 模型与数据源、工具的交互提供标准化接口，MCP 让 AI 生态中的创新与试验成为可能。这种标准化做法不仅简化了集成流程，还确保 AI 模型能拿到发挥最佳水平所需的数据与工具。</p>
+<p>总而言之，MCP 为 AI 应用打开了一个充满可能的世界，让开发者能够打造更集成、更自主、更可扩展的方案。无论是用 AI 聊天机器人提升客服体验，还是在工业环境中自动化复杂工作流，MCP 都提供了把这些创新落地所需的工具与框架。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hreal-world-applications-of-mcp">Real-world applications of MCP</h2>
+<p>The Model Context Protocol (MCP) has various real-world applications across industries and domains. One of the primary use cases for MCP is in AI integrations, where MCP enables seamless communication and data exchange between AI models and external data sources or tools.</p>
+<p>MCP can be used in various applications, such as:</p>
+<ul>
+<li>Building AI-powered chatbots: These chatbots can access external data sources or tools, providing users with accurate and up-to-date information.</li>
+</ul>
+<ul>
+<li>Creating AI-driven workflows: MCP enables the integration of AI models with external systems or data sources, automating complex workflows and improving efficiency.</li>
+</ul>
+<ul>
+<li>Developing AI models: These models can interact with external tools or data sources, enhancing their capabilities and providing more accurate and relevant outputs.</li>
+</ul>
+<ul>
+<li>Enabling AI-powered automation: In industries such as finance, healthcare, or manufacturing, MCP can automate tasks and processes, improving productivity and reducing errors.</li>
+</ul>
+<p>MCP’s flexibility and adaptability make it an attractive solution for developers and organizations looking to leverage AI and machine learning in their applications. By providing a standardized interface for AI models to interact with data sources and tools, MCP enables innovation and experimentation in the AI ecosystem. This standardized approach not only simplifies the integration process but also ensures that AI models can access the data and tools they need to perform at their best.</p>
+<p>In summary, MCP opens up a world of possibilities for AI applications, allowing developers to create more integrated, autonomous, and scalable solutions. Whether it’s enhancing customer service with AI-powered chatbots or automating complex workflows in industrial settings, MCP provides the tools and framework needed to bring these innovations to life.</p></div></div>
+<div class="pair" id="mcp-introduction-0028"><div class="zh side"><div class="tag">中文</div><h2 id="h-">结语</h2>
+<p>Model Context Protocol (MCP) 是 AI 开发领域一项令人振奋的进展，因为它让开发者能够安全、高效地把日益聪明的语言模型，与过去难以连接的广阔软件和数据世界连在一起。通过引入一套通用协议，MCP 让我们能够构建更集成、更自主、更易扩展的 AI 系统。我们不必再为每个新工具编写一次性插件，或给模型下达脆弱的命令，而有了一个连贯的框架：AI 智能体可以即时发现并使用工具，同时有完善的监督与安全保障。</p>
+<p>虽然这个协议仍在演进（认证是近期才加入的特性，服务器发现等标准化能力也在路上），但显然，MCP 或类似的东西将在下一代 AI 应用中扮演关键角色。对开发者来说，现在正是熟悉 MCP 概念的好时机。无论你是想用公司专属知识增强聊天机器人，还是构建自动化工作流的 AI 智能体，MCP 都能替你处理工具集成的“管道工程”，省下时间和麻烦。而且它是一项有不断壮大的社区（以及 Anthropic 等公司）支持的开放标准，很可能成为未来 AI 基础设施的基石。</p>
+<p>总而言之，Model Context Protocol 让一个世界成为可能：AI 助手不再是孤立的天才，而是装备精良的工程师与助理——能够对接众多系统、遵循既定流程、按需获取或创建信息，而这一切都通过统一、安全的接口完成。这是一幅强劲的愿景，而 MCP 正让它迅速成为现实。</p>
+<p>在 Stytch，我们专注于为客户轻松解决远程 MCP 服务器的认证问题，让他们可以为自己的应用快速搭建 MCP 服务器，允许终端用户提供授权访问给 MCP 客户端。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hconclusion">Conclusion</h2>
+<p>Model Context Protocol (MCP) is an exciting development in AI development because it allows developers to safely and efficiently connect our increasingly intelligent language models to the extensive world of software and data previously difficult to connect with. By introducing a common protocol, MCP lets us build AI systems that are more integrated, autonomous, and easier to scale. Instead of writing one-off plugins or giving the model brittle instructions for each new tool, we have a coherent framework where AI agents can discover and use tools on the fly, with proper oversight and security.</p>
+<p>While the protocol is still evolving (authentication was a recent addition, and more features like standardized server discovery are on the horizon, it’s clear that MCP or something like it will play a key role in the next generation of AI applications. For developers, now is a great time to familiarize yourself with MCP concepts. Whether you’re enhancing a chatbot with company-specific knowledge or building an AI agent that automates workflows, MCP can save you time and headaches by handling the “plumbing” of tool integration. And since it’s an open standard backed by a growing community (and companies like Anthropic), it’s likely to become a foundational piece of AI infrastructure moving forward.</p>
+<p>In summary, Model Context Protocol enables a world where AI assistants are not siloed geniuses but well-equipped engineers and assistants – able to interface with many systems, follow procedures, and fetch or create information as needed, all through a unified, secure interface. That’s a powerful vision, and one that is quickly becoming reality with MCP.</p>
+<p>At Stytch, we’re focused on easily solving the remote MCP server auth problem for customers, so they can easily stand up MCP servers for their applications to allow end users to provide permissioned access to MCP clients.</p></div></div>
+<div class="pair" id="mcp-introduction-0029"><div class="zh side"><div class="tag">中文</div><h3 id="h-stytch-mcp-">用 Stytch 做 MCP 认证</h3>
+<p>用 Stytch Connected Apps 构建与 MCP 服务器的认证</p>
+<p>阅读文档</p>
+<p>分享这篇文章</p>
+<p>LinkedIn</p>
+<p>X</p>
+<p>Facebook</p>
+<p>产品</p>
+<p>2025 年 2 月 20 日</p></div><div class="en side"><div class="tag">EN</div><h3 id="hmcp-auth-with-stytch">MCP auth with Stytch</h3>
+<p>Use Stytch Connected Apps to build authentication with MCP servers</p>
+<p>Read the docs</p>
+<p>Share this article</p>
+<p>LinkedIn</p>
+<p>X</p>
+<p>Facebook</p>
+<p>Product</p>
+<p>Feb 20, 2025</p></div></div>
+<div class="pair" id="mcp-introduction-0030"><div class="zh side"><div class="tag">中文</div><h3 id="hstytch-connected-apps-ai-oauth-">Stytch Connected Apps：让任何应用都能成为面向集成与 AI 智能体的 OAuth 提供方</h3>
+<p>认证与身份</p>
+<p>2025 年 2 月 8 日</p>
+<h3 id="h-">智能体体验的时代</h3>
+<p>认证与身份</p>
+<p>2025 年 2 月 15 日</p></div><div class="en side"><div class="tag">EN</div><h3 id="hstytch-connected-apps-make-any-app-an-oauth-provider-for-integrations-and-ai-agents">Stytch Connected Apps: Make any app an OAuth provider for integrations and AI agents</h3>
+<p>Auth &amp; identity</p>
+<p>Feb 8, 2025</p>
+<h3 id="hthe-age-of-agent-experience">The age of agent experience</h3>
+<p>Auth &amp; identity</p>
+<p>Feb 15, 2025</p></div></div>
+<div class="pair" id="mcp-introduction-0031"><div class="zh side"><div class="tag">中文</div><h3 id="h-ai-">识别 AI 智能体的使用与滥用</h3>
+<p>开始使用</p>
+<p>Stytch</p>
+<p>免费开始构建探索我们的文档</p></div><div class="en side"><div class="tag">EN</div><h3 id="hdetecting-ai-agent-use-abuse">Detecting AI agent use &amp; abuse</h3>
+<p>Get started</p>
+<p>with Stytch</p>
+<p>Start building for freeExplore our docs</p></div></div>
+<div class="pair" id="mcp-introduction-0032"><div class="zh side"><div class="tag">中文</div><h4 id="h-">认证与授权</h4>
+<p>面向消费级应用</p>
+<p>面向 B2B SaaS 应用</p>
+<p>管理门户</p>
+<p>Connected Apps</p>
+<p>单点登录</p>
+<h4 id="h-">欺诈与风险防范</h4>
+<p>设备指纹</p>
+<p>主动风险评估</p>
+<p>细粒度管控</p></div><div class="en side"><div class="tag">EN</div><h4 id="hauthentication-authorization">Authentication &amp; Authorization</h4>
+<p>For consumer applications</p>
+<p>For B2B SaaS applications</p>
+<p>Admin Portal</p>
+<p>Connected Apps</p>
+<p>Single sign-on</p>
+<h4 id="hfraud-risk-prevention">Fraud &amp; Risk Prevention</h4>
+<p>Fingerprinting</p>
+<p>Active risk assessment</p>
+<p>Fine-grained enforcement</p></div></div>
+<div class="pair" id="mcp-introduction-0033"><div class="zh side"><div class="tag">中文</div><h4 id="h-stytch">为什么选择 Stytch</h4>
+<p>Stytch vs. Auth0</p>
+<p>Stytch vs. Firebase</p>
+<p>Stytch vs. Cognito</p>
+<p>Stytch vs. Fingerprint</p>
+<h4 id="h-">公司</h4>
+<p>关于我们</p>
+<p>招聘</p>
+<p>联系我们</p>
+<h4 id="h-">资源</h4>
+<p>定价</p>
+<p>文档</p>
+<p>更新日志</p>
+<p>产品路线图</p>
+<p>API 状态</p>
+<p>博客</p>
+<h4 id="h-">社区</h4>
+<p>Slack 社区</p>
+<p>技术支持</p>
+<p>客户案例</p></div><div class="en side"><div class="tag">EN</div><h4 id="hwhy-stytch">Why Stytch</h4>
+<p>Stytch vs. Auth0</p>
+<p>Stytch vs. Firebase</p>
+<p>Stytch vs. Cognito</p>
+<p>Stytch vs. Fingerprint</p>
+<h4 id="hcompany">Company</h4>
+<p>About us</p>
+<p>Careers</p>
+<p>Contact</p>
+<h4 id="hresources">Resources</h4>
+<p>Pricing</p>
+<p>Docs</p>
+<p>Changelog</p>
+<p>Product roadmap</p>
+<p>API status</p>
+<p>Blog</p>
+<h4 id="hcommunity">Community</h4>
+<p>Slack community</p>
+<p>Technical support</p>
+<p>Customer stories</p></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#mcp-introduction-0000">第 1 段</a></li><li><a href="#mcp-introduction-0001">第 2 段</a></li><li><a href="#mcp-introduction-0002">第 3 段</a></li><li><a href="#mcp-introduction-0003">第 4 段</a></li><li><a href="#mcp-introduction-0004">第 5 段</a></li><li><a href="#mcp-introduction-0005">第 6 段</a></li><li><a href="#mcp-introduction-0006">第 7 段</a></li><li><a href="#mcp-introduction-0008">第 9 段</a></li><li><a href="#mcp-introduction-0010">第 11 段</a></li><li><a href="#mcp-introduction-0011">第 12 段</a></li><li><a href="#mcp-introduction-0012">第 13 段</a></li><li><a href="#mcp-introduction-0013">第 14 段</a></li><li><a href="#mcp-introduction-0014">第 15 段</a></li><li><a href="#mcp-introduction-0015">第 16 段</a></li><li><a href="#mcp-introduction-0016">第 17 段</a></li><li><a href="#mcp-introduction-0017">第 18 段</a></li><li><a href="#mcp-introduction-0019">第 20 段</a></li><li><a href="#mcp-introduction-0021">第 22 段</a></li><li><a href="#mcp-introduction-0023">第 24 段</a></li><li><a href="#mcp-introduction-0024">第 25 段</a></li><li><a href="#mcp-introduction-0025">第 26 段</a></li><li><a href="#mcp-introduction-0026">第 27 段</a></li><li><a href="#mcp-introduction-0027">第 28 段</a></li><li><a href="#mcp-introduction-0028">第 29 段</a></li><li><a href="#mcp-introduction-0029">第 30 段</a></li><li><a href="#mcp-introduction-0030">第 31 段</a></li><li><a href="#mcp-introduction-0031">第 32 段</a></li><li><a href="#mcp-introduction-0032">第 33 段</a></li><li><a href="#mcp-introduction-0033">第 34 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

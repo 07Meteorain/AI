@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0045",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "1f614a9daa97c637603a49dae654cfbaa38d5bd3",
+ "zh": "#### 示例：\n\n我们给智能体灌入了「新增一条服务路由时该照做的具体流程」这套知识，包括它在前端和后端每一处需要添加模板代码的位置。结果现在这类任务很容易就委派给 AI 了。\n\n实务考量\n\n## 自主智能体的局限",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

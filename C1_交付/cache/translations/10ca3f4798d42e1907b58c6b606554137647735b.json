@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0004",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "10ca3f4798d42e1907b58c6b606554137647735b",
+ "zh": "### 提示词格式\n\n提示词的结构和风格对引导 AI 的回应影响很大。不同模型对特定格式的响应可能更好，例如：\n\n提示词的格式对 AI 如何理解你的需求影响很大。不同模型对特定格式的响应可能更好，比如自然语言提问、直接命令，或带特定字段的结构化输入。了解模型的能力和偏好的格式，是设计出高效提示词的关键。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

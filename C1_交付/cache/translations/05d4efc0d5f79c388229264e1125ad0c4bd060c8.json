@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0012",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "05d4efc0d5f79c388229264e1125ad0c4bd060c8",
+ "zh": "### 零样本思维链提示\n\n把思维链提示与零样本提示结合起来，让模型执行推理步骤，这种做法往往能产出更好的结果。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

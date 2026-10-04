@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0011",
+ "doc_id": "observability-basics",
+ "fingerprint": "d8eedee990c5de284cce057c14b858b7b4e919af",
+ "zh": "## 追踪实施指南：工具与框架\n\n准备给你的系统加上追踪了？下面是你需要的东西：",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

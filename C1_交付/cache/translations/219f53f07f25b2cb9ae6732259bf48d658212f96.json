@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0035",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "219f53f07f25b2cb9ae6732259bf48d658212f96",
+ "zh": "### 为最重复的工作创建快捷方式\n\n工程团队经常遇到重复性的例行任务。这些正是用智能体自动化的理想对象。常见例子包括：\n\n- 移除 feature flag\n\n- 升级依赖\n\n- 为新功能的 PR 修复并补充测试\n\n要高效搭起这套东西，通常由一位资深工程师写一个稳健、可复用的提示词模板。[2] 在 Devin 中，这被称为 playbooks，可以针对这类场景反复运行。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

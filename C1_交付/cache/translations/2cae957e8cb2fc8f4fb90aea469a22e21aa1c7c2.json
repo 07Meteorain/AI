@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0011",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "2cae957e8cb2fc8f4fb90aea469a22e21aa1c7c2",
+ "zh": "#### 目标\n\n攻击者的目的是识别目标应用中的所有参与者智能体。这类信息通常可由编排智能体访问，因为它负责任务分派，必须了解所有参与者智能体及其职能。\n\n图 3 表明，我们的目标是仅从编排智能体一处提取这些信息。\n\n图 3. 识别智能体式应用中的 AI 智能体。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

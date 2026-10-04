@@ -1,0 +1,10 @@
+{
+ "seg_id": "how-to-review-code-effectively#0018",
+ "doc_id": "how-to-review-code-effectively",
+ "fingerprint": "dcae74b13af461336136e6c1f8313997d5dea56e",
+ "zh": "### 如何用 GitHub Copilot 提升你的代码评审和拉取请求\n\n通过来自我们工程团队的真实提示词、示例和工作流技巧，看看 GitHub Copilot 如何简化代码评审、拉取请求和日常工程任务。\n\nMelissa Pastore",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

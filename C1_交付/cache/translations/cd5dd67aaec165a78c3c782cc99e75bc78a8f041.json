@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0010",
+ "doc_id": "course-homepage",
+ "fingerprint": "cd5dd67aaec165a78c3c782cc99e75bc78a8f041",
+ "zh": "#### 阅读\n\n- 通过提示注入攻破 GitHub Copilot 实现远程代码执行（RCE）\n\n- 用 Claude Code 与 OpenAI Codex 在现代 Web 应用中发现漏洞\n\n- 智能体 AI 威胁：身份仿冒与冒充风险\n\n- OWASP 十大风险：头号 Web 应用安全风险\n\n- 上下文腐化：理解 AI 上下文窗口中的表现衰减\n\n#### 作业\n\n- 编写安全的 AI 代码",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

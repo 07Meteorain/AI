@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0010",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "1a18ad7df1e7064bc67425631947496d16fd56e2",
+ "zh": "### 单样本、少样本与多样本提示\n\n这种方法是在给出实际提示词之前，先向模型提供一到几个期望的输入-输出对示例。这能帮助模型更好地理解任务，生成更准确的回应。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

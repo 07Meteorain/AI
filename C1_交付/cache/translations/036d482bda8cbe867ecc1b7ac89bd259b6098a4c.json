@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0003",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "036d482bda8cbe867ecc1b7ac89bd259b6098a4c",
+ "zh": "### AI 代码评审的收益\n\n- 效率更高——自动化缩短了评审时间，并提前发现问题\n\n- 更一致——AI 在所有代码评审中套用同一套标准\n\n- 知识共享——开发者通过 AI 的建议学到最佳实践\n\n- 更低的认知负担——AI 处理常规检查，让人专注复杂逻辑\n\n- 持续改进——AI 系统会随着数据增多而不断变好\n\n### 实现 AI 代码评审",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

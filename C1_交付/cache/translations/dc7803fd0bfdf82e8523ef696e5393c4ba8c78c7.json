@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0022",
+ "doc_id": "observability-basics",
+ "fingerprint": "dc7803fd0bfdf82e8523ef696e5393c4ba8c78c7",
+ "zh": "### 应避免的追踪反模式\n\n过度埋点：创建过多跨度会引发性能问题\n上下文缺失：上下文传播失败会让追踪在服务边界处断裂\n命名不一致：使用不同的命名标准会让追踪难以解读\n数据过多：把大段负载放进跨度会让追踪后端不堪重负\n忽略第三方服务：外部调用缺失跨度会造成盲区\n\n💡\n\n深入了解可观测性在 LLM 性能与可靠性方面如何发挥关键作用：LLM Observability。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

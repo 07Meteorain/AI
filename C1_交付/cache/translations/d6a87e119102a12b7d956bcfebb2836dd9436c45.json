@@ -1,0 +1,10 @@
+{
+ "seg_id": "owasp-top-ten#0014",
+ "doc_id": "owasp-top-ten",
+ "fingerprint": "d6a87e119102a12b7d956bcfebb2836dd9436c45",
+ "zh": "### 未验证的数据贡献\n\n情形 4：提交者匿名。（我们是否应支持？）\n\n当未验证的数据属于被分析数据集的一部分时，数据分析将谨慎地区分对待这些数据。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

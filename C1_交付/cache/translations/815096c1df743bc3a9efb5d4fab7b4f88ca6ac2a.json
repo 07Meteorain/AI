@@ -1,0 +1,10 @@
+{
+ "seg_id": "sre-introduction#0011",
+ "doc_id": "sre-introduction",
+ "fingerprint": "815096c1df743bc3a9efb5d4fab7b4f88ca6ac2a",
+ "zh": "错误预算的使用化解了开发与 SRE 之间激励上的结构性冲突。SRE 的目标不再是“零故障”；相反，SRE 和产品开发者的目标是把错误预算花出去，以获得最高的功能发布速度。这一改变带来了天壤之别。故障不再是“坏事”——它是创新过程中预期的一部分，是开发和 SRE 团队会去管理而不是去恐惧的一种偶发事件。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

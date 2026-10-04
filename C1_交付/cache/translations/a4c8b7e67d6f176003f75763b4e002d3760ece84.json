@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0010",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "a4c8b7e67d6f176003f75763b4e002d3760ece84",
+ "zh": "### 识别参与者智能体",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

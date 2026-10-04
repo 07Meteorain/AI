@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0003",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "5cefe2753342c18563f49a5748937c6180d6fc8d",
+ "zh": "## 选择一种方案\n\nAgents SDK 提供了多种创建 MCP 服务器的方式。选择最适合你的使用场景的那一种：\n\n- createMcpHandler() 是让无状态 MCP 服务器跑起来最快的方式。当你的工具不需要按会话维护状态时，使用它。\n\n- McpAgent 为每个会话提供一个 Durable Object，内置状态管理、elicit（引导请求）支持，以及 SSE 和 Streamable HTTP 两种传输层。\n\n- Raw transport 在你想直接使用 @modelcontextprotocol/sdk 而不借助 Agents SDK 辅助能力时，给你完全的控制权。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

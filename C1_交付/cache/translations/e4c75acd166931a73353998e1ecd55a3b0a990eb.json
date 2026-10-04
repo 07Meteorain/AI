@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-introduction#0012",
+ "doc_id": "mcp-introduction",
+ "fingerprint": "e4c75acd166931a73353998e1ecd55a3b0a990eb",
+ "zh": "## MCP 客户端与工具\n\nMCP 客户端和工具是 Model Context Protocol 生态中不可或缺的组件。MCP 客户端是连接 MCP 服务器、以访问外部数据源或工具的应用。这些客户端可以用各种编程语言和框架构建，例如 Python、JavaScript 或 Java，让开发者能灵活挑选最合适的工具来满足具体需求。\n\n另一方面，MCP 工具是向 MCP 客户端提供特定能力或函数的软件组件。这些工具可以与 MCP 服务器集成，启用数据处理、AI 模型管理或工具集成等功能。MCP 工具的例子包括 Claude Desktop（提供与 AI 模型交互的聊天界面）和 Cursor（提供用于扩展 AI 能力的插件系统）。\n\n开发者可以构建自定义的 MCP 客户端和工具，以满足特定的使用场景或需求。这种灵活性让 MCP 生态能够创新与试验，帮助开发者创造出令人耳目一新的应用。无论是一个面向数据分析的专用工具，还是一个可对接多个 MCP 服务器的客户端应用，可能性都极其广阔。\n\n借助 MCP 客户端和工具，开发者可以打造稳健而通用的应用，充分发挥 AI 模型的潜力，让它们与广泛的外部数据源和工具无缝交互。\n\n## 将 MCP 与其他方案对比\n\n#### MCP\n\n#### 定制集成\n\n#### ChatGPT 插件\n\n#### LangChain 与各类框架\n\n#### 集成速度",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

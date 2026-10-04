@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0007",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "0f00af6c432415a8361bf4c4ab376bad1a0f00ce",
+ "zh": "### 多轮对话\n\n为多轮对话设计提示词，能让用户与 AI 模型展开连续、感知上下文的交互，提升整体使用体验。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

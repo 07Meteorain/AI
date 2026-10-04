@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0017",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "44defbdce17fe29304d49691b5c1525f0c47b1e7",
+ "zh": "如果你已经把这个 MCP 服务器所在的 git 仓库连接到了 Worker，那么只要推送一次变更，或把拉取请求（PR）合并到仓库主分支，就能部署你的 MCP 服务器。\n\nMCP 服务器将部署到你的 *.workers.dev 子域名：https://remote-mcp-server-authless.your-account.workers.dev/mcp。\n\n- 要测试这个远程 MCP 服务器，把已部署 MCP 服务器的 URL（https://remote-mcp-server-authless.your-account.workers.dev/mcp）填入运行在 http://localhost:5173 的 MCP inspector。\n\n现在你就拥有了一个 MCP 客户端可以连接的远程 MCP 服务器。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

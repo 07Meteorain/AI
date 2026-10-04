@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0048",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "5f0674ffa632810d4e669091c5f062e6eec5f34a",
+ "zh": "警告\n\n当你创建第一个密钥时，Wrangler 会询问是否要创建一个新的 Worker。输入“Y”以创建新 Worker 并保存密钥。\n\n- 设置一个 KV 命名空间\n\na. 创建 KV 命名空间：\n\n终端窗口",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0006",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "646ac990a5cfb5d0378f1e3a2b682886e6b96718",
+ "zh": "#### 示例：\n\n不要只说「添加单元测试」，而要具体说明要测试的功能，指出重要的边界情况，并说清楚有没有需要 mock 的部分。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

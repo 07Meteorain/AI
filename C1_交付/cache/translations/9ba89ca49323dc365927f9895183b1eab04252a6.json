@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0004",
+ "doc_id": "course-homepage",
+ "fingerprint": "9ba89ca49323dc365927f9895183b1eab04252a6",
+ "zh": "### 办公时间\n\nMihail Eric：周五 12:00–12:30 PM\n\n Febie Lin：周三 9:00–11:00 AM（Huang Basement）\n\n### 作业截止时间\n\n课程日历（Google Sheets）\n\n## 团队\n\nMihail Eric\n\n讲师\n\nFebie Lin\n\n助教\n\nBrent Ju\n\n助教\n\n## 课程日程\n\n第 1 周：编码用大语言模型与 AI 开发导论\n\n#### 主题\n\n#### 阅读\n\n#### 作业\n\n- LLM 提示词练习场",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

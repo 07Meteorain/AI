@@ -1,0 +1,10 @@
+{
+ "seg_id": "sre-introduction#0001",
+ "doc_id": "sre-introduction",
+ "fingerprint": "badcb585b2cc19bfcdcff3522e7940f1ed42cf67",
+ "zh": "## 导论\n\nBenjamin Treynor Sloss6 撰写\nBetsy Beyer 编辑\n\n> 希望不是一种策略。\n\nSRE 的传统说法\n\n有一句人所共知的真理：系统不会自己运行。那么，一个系统——尤其是大规模运行的复杂计算系统——究竟该如何被运行？",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

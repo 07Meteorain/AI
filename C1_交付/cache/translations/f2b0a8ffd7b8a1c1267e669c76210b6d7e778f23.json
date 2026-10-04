@@ -1,0 +1,10 @@
+{
+ "seg_id": "owasp-top-ten#0020",
+ "doc_id": "owasp-top-ten",
+ "fingerprint": "f2b0a8ffd7b8a1c1267e669c76210b6d7e778f23",
+ "zh": "#### 注意：\n\n如果一位贡献者有两类数据集，一类来自 HaT 来源，另一类来自 TaH 来源，建议将它们作为两个独立的数据集分别提交。\n\nHaT = 人类辅助工具（数量/频率更高，主要来自工具）\n\nTaH = 工具辅助人类（数量/频率更低，主要来自人工测试）",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

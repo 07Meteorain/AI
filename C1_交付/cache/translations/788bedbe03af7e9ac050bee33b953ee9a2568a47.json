@@ -1,0 +1,10 @@
+{
+ "seg_id": "kubernetes-troubleshooting-ai#0010",
+ "doc_id": "kubernetes-troubleshooting-ai",
+ "fingerprint": "788bedbe03af7e9ac050bee33b953ee9a2568a47",
+ "zh": "### 如何评测一个可用于生产的 AI SRE\n\n了解如何评测 AI SRE，确保它能在你独特的生产环境中稳定运行。这份指南讲解了五个智能体支柱、六个关键评测维度，以及区分“可用于生产的 AI SRE”与实验性方案的企业级就绪标准。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

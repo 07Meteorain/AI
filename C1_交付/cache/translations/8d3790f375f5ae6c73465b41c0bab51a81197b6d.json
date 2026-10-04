@@ -1,0 +1,10 @@
+{
+ "seg_id": "claude-code-best-practices#0001",
+ "doc_id": "claude-code-best-practices",
+ "fingerprint": "8d3790f375f5ae6c73465b41c0bab51a81197b6d",
+ "zh": "##### 入门\n\n- 概览\n\n##### 核心概念\n\n##### 使用 Claude Code\n\n##### 平台与集成\n\n- 下一步\n\n入门",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

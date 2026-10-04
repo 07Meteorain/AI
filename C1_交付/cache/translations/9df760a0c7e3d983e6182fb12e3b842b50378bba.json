@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0019",
+ "doc_id": "observability-basics",
+ "fingerprint": "9df760a0c7e3d983e6182fb12e3b842b50378bba",
+ "zh": "### 追踪、指标与日志之间的关联\n\n可观测性的真正力量来自把不同的信号连接起来：\n\n- 示例追踪（Exemplar traces）：把指标与产生它们的追踪关联起来\n\n- 日志中的追踪 ID：在日志消息中加入追踪 ID 以便交叉引用\n\n- 自定义属性：在所有遥测类型中使用一致的属性",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

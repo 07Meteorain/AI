@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0051",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "fe9665f22889878fbad7c5a7c4195dba2401cb50",
+ "zh": "#### Weaponizing the Protectors: TeamPCP 针对安全基础设施的多阶段供应链攻击\n\n- CVE-2025-55182\n\n- GitHub\n\n- Infostealer\n\n立即阅读\n\n威胁研究 2026 年 3 月 31 日",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

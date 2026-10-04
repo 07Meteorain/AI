@@ -1,0 +1,10 @@
+{
+ "seg_id": "sre-introduction#0007",
+ "doc_id": "sre-introduction",
+ "fingerprint": "8fca2258bf3860102e7525fda6866223730b346d",
+ "zh": "# DevOps 还是 SRE？\n\n“DevOps”这个说法于 2008 年底在业界出现，到本文写作时（2016 年初）仍处于不断变化之中。它的核心原则——让 IT 职能参与系统设计与开发的每个阶段、相对人力而言重度依赖自动化、把工程实践和工具应用到运维任务上——与 SRE 的许多原则和实践是一致的。人们可以把 DevOps 看作把若干 SRE 核心原则推广到更广泛的组织、管理结构和人员上的一种泛化；也可以同样地把 SRE 看作 DevOps 的一种具体实现，外加一些独具特色的扩展。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

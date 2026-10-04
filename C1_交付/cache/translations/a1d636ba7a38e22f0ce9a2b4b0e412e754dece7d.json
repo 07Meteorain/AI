@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0021",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "a1d636ba7a38e22f0ce9a2b4b0e412e754dece7d",
+ "zh": "#### 我该怎么处理 AI 代码评审带来的误报？\n\n建立一个反馈闭环，让开发者可以把建议标记为误报。大多数工具都允许你调节灵敏度设置，并为特定代码模式创建忽略规则。定期复盘误报，有助于随时间推移提升系统的准确率。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

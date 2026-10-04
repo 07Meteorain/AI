@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0042",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "68d056bc20dd2514d8b5145b482690406412ff7d",
+ "zh": "- 在 inspector 中，输入你的 MCP 服务器 URL：http://localhost:8788/mcp\n\n- 在右侧的主面板里，点击 OAuth Settings 按钮，然后点击 Quick OAuth Flow。\n\n你应当会被重定向到 GitHub 的登录或授权页面。授权 MCP 客户端（即 inspector）访问你的 GitHub 账户后，你会被重定向回 inspector。\n\n- 点击侧边栏中的 Connect，此时你应当能看到“List Tools”按钮，它会列出你的 MCP 服务器暴露的工具。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

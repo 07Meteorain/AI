@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0009",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "aed23f77da65d8866826f4f1697532877c991e9d",
+ "zh": "### 直接提示（零样本）\n\n零样本提示是指只给模型一条直接的指令或问题，不附带任何额外上下文或示例。\n\n一个例子是创意构思，让模型生成创意点子或头脑风暴解决方案。另一个例子是摘要生成或翻译，让模型概括或翻译某段内容。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

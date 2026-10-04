@@ -1,0 +1,10 @@
+{
+ "seg_id": "kubernetes-troubleshooting-ai#0007",
+ "doc_id": "kubernetes-troubleshooting-ai",
+ "fingerprint": "4503d9dac7a8919973d2acf43b1d882a8dd055f1",
+ "zh": "### AI SRE 采购指南\n\n了解如何评测并在生产中采用 AI SRE。\n\n下载\n\n内容\n\n- Kubernetes 排查的困境\n\n- 智能体 AI 如何改变排查\n\n- 智能体 AI 实战\n\n- 既然可以轻松，何必硬扛？",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

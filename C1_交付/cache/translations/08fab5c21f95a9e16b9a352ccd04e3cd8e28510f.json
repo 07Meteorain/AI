@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0012",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "08fab5c21f95a9e16b9a352ccd04e3cd8e28510f",
+ "zh": "查看命令输出中的本地端口。在这个例子里，MCP 服务器运行在 8788 端口，MCP 端点 URL 是 http://localhost:8788/mcp。\n\n注意\n\n你无法直接在浏览器里打开 /mcp 这个 URL 来与 MCP 服务器交互。/mcp 端点期望 MCP 客户端发送 MCP 协议消息，而浏览器默认不会这么做。下一步，我们会演示如何用 MCP 客户端连接该服务器。\n\n- 要在本地测试服务器：\n\n- 在一个新终端里，运行 MCP inspector。MCP inspector 是一个交互式 MCP 客户端，能让你从浏览器连接自己的 MCP 服务器并调用工具。\n\n终端窗口",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

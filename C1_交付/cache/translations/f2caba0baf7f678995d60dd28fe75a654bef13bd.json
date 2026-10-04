@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0028",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "f2caba0baf7f678995d60dd28fe75a654bef13bd",
+ "zh": "现在，MCP 服务器已经搭建完成，依赖也已安装。进入该项目目录：\n\n终端窗口",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0028",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "a2d21dfe6703070ad47b0e1871a280e68f75bf55",
+ "zh": "### 模型表现提升\n\n精心设计的提示词给出了清晰的指令和上下文，让 AI 模型的输出更准确、更切题、更有信息量。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

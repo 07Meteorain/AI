@@ -1,0 +1,10 @@
+{
+ "seg_id": "owasp-top-ten#0018",
+ "doc_id": "owasp-top-ten",
+ "fingerprint": "8936d89aeba45ea0572a0b911df69f05e94d7b9a",
+ "zh": "### 元数据\n\n- 地理区域（全球、北美、欧盟、亚洲、其他）\n\n- 所属行业（多个、金融、工业、软件、？？）\n\n- 数据中是否包含复测或同一批应用多次出现（是/否）",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

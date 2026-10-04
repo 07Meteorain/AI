@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0048",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "f7ef8d366bc9c7010de9d54e1f30b85217074a83",
+ "zh": "## 延伸资源\n\n- ScrapeWebsiteTool – CrewAI GitHub 仓库\n\n- Hierarchical Process – CrewAI 文档\n\n- About VM metadata – Google Cloud 文档\n\n- OWASP Agentic AI Threats and Mitigation – OWASP\n\n更新于 2025 年 5 月 2 日太平洋时间下午 2:20，以更新产品表述。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>代码评审：别想太多，干就完了 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>代码评审：别想太多，干就完了</h1>
+  <div class="meta">
+    <span>分类：Week 7 · 代码评审</span><span>原文 928 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://blog.codinghorror.com/code-reviews-just-do-it/" target="_blank" rel="noopener">https://blog.codinghorror.com/code-reviews-just-do-it/</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="code-reviews-just-do-it-0000"><div class="zh side"><div class="tag">中文</div><h1 id="h-">代码评审：别想太多，干就完了</h1></div><div class="en side"><div class="tag">EN</div><h1 id="hcode-reviews-just-do-it">Code Reviews: Just Do It</h1></div></div>
+<div class="pair" id="code-reviews-just-do-it-0001"><div class="zh side"><div class="tag">中文</div><h4 id="hjeff-atwood">Jeff Atwood</h4>
+<p>2006 年 1 月 21 日</p>
+<p> — 阅读时长 2 分钟</p>
+<p> — 评论</p>
+<p>在《Humanizing Peer Reviews》中，Karl Wiegers 以一句颇为有力的话开篇：</p>
+<blockquote>同伴评审——由软件交付物的作者之外的人检查缺陷与改进机会的活动——是现有最强大的软件质量工具之一。同伴评审的方法包括检查、走查、同伴桌面检查，以及其他类似活动。在体验了同伴评审的好处近十五年之后，如果一个团队不做同伴评审，我绝不会在其中工作。</blockquote>
+<p>在 Vertigo 这里参与代码评审一段时间之后，我深信同伴代码评审是你能做的、对改进自己代码最有帮助的一件事。如果你现在还没有和另一位开发者一起做代码评审，那你就是在漏掉代码中的大量 bug，也是在骗自己，错过了关键的职业成长机会。对我来说，我的代码只有在我和一位同行开发者一起过过之后，才算写完。</p>
+<p>不过别只听我一面之词。McConnell 在《Code Complete》中为代码评审的有效性提供了大量证据：</p>
+<blockquote>……单靠软件测试的效果有限——单元测试的平均缺陷检出率只有 25%，功能测试是 35%，集成测试是 45%。相比之下，设计检查和代码检查的平均有效性分别达到 55% 和 60%。关于评审结果的案例研究也相当惊人：</blockquote>
+<ul>
+<li>在一家软件维护组织中，引入代码评审之前，单行维护改动中有 55% 存在错误。引入评审之后，只有 2% 的改动存在错误。综合所有改动来看，引入评审后有 95% 的改动一次即正确。引入评审之前，一次即正确的不到 20%。</li>
+</ul>
+<ul>
+<li>在由同一批人开发的 11 个程序中，前 5 个没有评审就开发了，剩下 6 个是在评审下开发的。所有程序发布到生产环境后，前 5 个平均每 100 行代码有 4.5 个错误。接受过检查的那 6 个平均每 100 行只有 0.82 个错误。评审把错误减少了 80% 以上。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h4 id="hjeff-atwood">Jeff Atwood</h4>
+<p>21 Jan 2006</p>
+<p> — 2 min read</p>
+<p> — Comments</p>
+<p>In Humanizing Peer Reviews, Karl Wiegers starts with a powerful pronouncement:</p>
+<blockquote>Peer review – an activity in which people other than the author of a software deliverable examine it for defects and improvement opportunities – is one of the most powerful software quality tools available. Peer review methods include inspections, walkthroughs, peer desk checks, and other similar activities. After experiencing the benefits of peer reviews for nearly fifteen years, I would never work in a team that did not perform them.</blockquote>
+<p>After participating in code reviews for a while here at Vertigo, I believe that peer code reviews are the single biggest thing you can do to improve your code. If you’re not doing code reviews right now with another developer, you’re missing a lot of bugs in your code and cheating yourself out of some key professional development opportunities. As far as I’m concerned, my code isn’t done until I’ve gone over it with a fellow developer.</p>
+<p>But don’t take my word for it. McConnell provides plenty of evidence for the efficacy of code reviews in Code Complete:</p>
+<blockquote>... software testing alone has limited effectiveness – the average defect detection rate is only 25 percent for unit testing, 35 percent for function testing, and 45 percent for integration testing. In contrast, the average effectiveness of design and code inspections are 55 and 60 percent. Case studies of review results have been impressive:</blockquote>
+<ul>
+<li>In a software-maintenance organization, 55 percent of one-line maintenance changes were in error before code reviews were introduced. After reviews were introduced, only 2 percent of the changes were in error. When all changes were considered, 95 percent were correct the first time after reviews were introduced. Before reviews were introduced, under 20 percent were correct the first time.</li>
+</ul>
+<ul>
+<li>In a group of 11 programs developed by the same group of people, the first 5 were developed without reviews. The remaining 6 were developed with reviews. After all the programs were released to production, the first 5 had an average of 4.5 errors per 100 lines of code. The 6 that had been inspected had an average of only 0.82 errors per 100. Reviews cut the errors by over 80 percent.</li>
+</ul></div></div>
+<div class="pair" id="code-reviews-just-do-it-0002"><div class="zh side"><div class="tag">中文</div><ul>
+<li>Aetna Insurance Company 通过检查发现了一个程序中 82% 的错误，并因此把开发资源减少了 20%。</li>
+</ul>
+<ul>
+<li>IBM 50 万行代码的 Orbit 项目使用了 11 层检查。它提前交付，错误只有通常预期的约 1%。</li>
+</ul>
+<ul>
+<li>一项针对 AT&amp;T 一家 200 多人组织的研究报告称，该组织引入评审后，效率提升了 14%，缺陷减少了 90%。</li>
+</ul>
+<ul>
+<li>Jet Propulsion Laboratories 估计，通过在早期发现并修复缺陷，每次检查大约能节省 25,000 美元。</li>
+</ul>
+<p>做一次代码评审唯一的障碍，是找到一个你尊敬的开发者来做这件事，以及腾出执行评审的时间。一旦开始，我猜你很快就会发现，你在代码评审上花掉的每一分钟都会得到十倍的回报。</p>
+<p>如果你的组织刚开始接触代码评审，我强烈推荐 Karl 的书《Peer Reviews in Software: A Practical Guide》。Karl 在他网站上提供的样例章节同样是极好的入门材料。</p>
+<p>软件开发</p>
+<p> 代码评审</p>
+<p> 同伴评审</p>
+<p> 代码质量</p>
+<p> 职业发展</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>The Aetna Insurance Company found 82 percent of the errors in a program by using inspections and was able to decrease its development resources by 20 percent.</li>
+</ul>
+<ul>
+<li>IBM’s 500,000 line Orbit project used 11 levels of inspections. It was delivered early and had only about 1 percent of the errors that would normally be expected.</li>
+</ul>
+<ul>
+<li>A study of an organization at AT&amp;T with more than 200 people reported a 14 percent increase in productivity and a 90 percent decrease in defects after the organization introduced reviews.</li>
+</ul>
+<ul>
+<li>Jet Propulsion Laboratories estimates that it saves about $25,000 per inspection by finding and fixing defects at an early stage.</li>
+</ul>
+<p>The only hurdle to a code review is finding a developer you respect to do it, and making the time to perform the review. Once you get started, I think you’ll quickly find that every minute you spend in a code review is paid back tenfold.</p>
+<p>If your organization is new to code reviews, I highly recommend Karl’s book, Peer Reviews in Software: A Practical Guide. The sample chapters Karl provides on his website are a great primer, too.</p>
+<p>software development</p>
+<p> code reviews</p>
+<p> peer reviews</p>
+<p> code quality</p>
+<p> professional development</p></div></div>
+<div class="pair" id="code-reviews-just-do-it-0003"><div class="zh side"><div class="tag">中文</div><h3 id="h-">文明对话构建套件</h3>
+<p>偶尔也会有初创公司来向我请教。这挺遗憾，因为我是那种最不适合被请教的人。对话通常是这样的：</p>
+<p>我们很想听听您对我们这个产品的专业建议。</p>
+<p>我大概没用过你们的东西。就算我试了</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcivilized-discourse-construction-kit">Civilized Discourse Construction Kit</h3>
+<p>Occasionally, startups will ask me for advice. That’s a shame, because I am a terrible person to ask for advice. The conversation usually goes something like this:</p>
+<p>We’d love to get your expert advice on our thing.</p>
+<p>I probably don’t use your thing. Even if I tried</p></div></div>
+<div class="pair" id="code-reviews-just-do-it-0004"><div class="zh side"><div class="tag">中文</div><h3 id="h-">如何不再拉垮，转而变得很出色</h3>
+<p>过去八年，我主要靠这个博客在人生中取得了一些成就；过去四年，又靠创办 Stack Overflow 和 Stack Exchange 有所收获。伴随我们双胞胎女儿的出生，我终于有几个月时间来</p></div><div class="en side"><div class="tag">EN</div><h3 id="hhow-to-stop-sucking-and-be-awesome-instead">How to Stop Sucking and Be Awesome Instead</h3>
+<p>I’ve been fortunate to have some measure of success in my life, primarily through this very blog over the last eight years, and in creating Stack Overflow and Stack Exchange over the last four years. With the birth of our twin girls, I’ve had a few months to</p></div></div>
+<div class="pair" id="code-reviews-just-do-it-0005"><div class="zh side"><div class="tag">中文</div><h3 id="h-">书籍：比特还是原子</h3>
+<p>我热爱文字，但面对现实吧：书籍很糟。</p>
+<p>更具体地说，过去几个世纪里，那么多美好的想法都被无助地困在由原子做成的实体书籍里。书籍糟在哪儿？让我数一数：</p>
+<ul>
+<li>它们很重。</li>
+<li>它们太占空间。</li>
+<li>它们必须</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h3 id="hbooks-bits-vs-atoms">Books: Bits vs. Atoms</h3>
+<p>I adore words, but let’s face it: books suck.</p>
+<p>More specifically, so many beautiful ideas have been helplessly trapped in physical made-of-atoms books for the last few centuries. How do books suck? Let me count the ways:</p>
+<ul>
+<li>They are heavy.</li>
+<li>They take up too much space.</li>
+<li>They have to</li>
+</ul></div></div>
+<div class="pair" id="code-reviews-just-do-it-0006"><div class="zh side"><div class="tag">中文</div><h3 id="h-">辽阔而无边的大海</h3>
+<p>我们创建 Stack Overflow 之后，有些人认定我们造出了一个稍好一点的问答捕鼠器。随之而来的猜测必然发生了：我们能不能用你的引擎做一个关于 {topic} 的问答网站？我们的答案是 Stack Exchange。每月付我们 129 美元（以及</p>
+<h2 id="h-">近期文章</h2></div><div class="en side"><div class="tag">EN</div><h3 id="hthe-vast-and-endless-sea">The Vast and Endless Sea</h3>
+<p>After we created Stack Overflow, some people were convinced we had built a marginally better mousetrap for asking and answering questions. The inevitable speculation began: can we use your engine to build a Q&amp;A site about {topic}? Our answer was Stack Exchange. Pay us $129 a month (and</p>
+<h2 id="hrecent-posts">Recent Posts</h2></div></div>
+<div class="pair" id="code-reviews-just-do-it-0007"><div class="zh side"><div class="tag">中文</div><h3 id="h-">启动“乡村保障最低收入”倡议</h3>
+<p>距离我邀请美国人加入我们、共同承诺“共享美国梦”，已经过去一年了：</p>
+<ol>
+<li>支持那些你认为正在切实帮助全美最需要帮助者的组织。</li>
+</ol>
+<ol>
+<li>在未来五年内，还要公开贡献自己的时间，或</li>
+</ol></div><div class="en side"><div class="tag">EN</div><h3 id="hlaunching-the-rural-guaranteed-minimum-income-initiative">Launching The Rural Guaranteed Minimum Income Initiative</h3>
+<p>It's been a year since I invited Americans to join us in a pledge to Share the American Dream:</p>
+<ol>
+<li>Support organizations you feel are effectively helping those most in need across America right now.</li>
+</ol>
+<ol>
+<li>Within the next five years, also contribute public dedications of time or</li>
+</ol></div></div>
+<div class="pair" id="code-reviews-just-do-it-0008"><div class="zh side"><div class="tag">中文</div><h3 id="h-">未选择的那条路就是保障最低收入</h3>
+<p>只有与我们美国同胞分享，这个梦想才算完整。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hthe-road-not-taken-is-guaranteed-minimum-income">The Road Not Taken is Guaranteed Minimum Income</h3>
+<p>The dream is incomplete until we share it with our fellow Americans.</p></div></div>
+<div class="pair" id="code-reviews-just-do-it-0009"><div class="zh side"><div class="tag">中文</div><h3 id="h-">聊聊美国梦</h3>
+<p>几个月前我写过，保持本色意味着什么——守住我们自身、我们的社区以及美国梦本身最好的部分。但保持本色并不是被动的事。它需要努力，需要行动，需要那些逼着我们直面</p></div><div class="en side"><div class="tag">EN</div><h3 id="hlet-s-talk-about-the-american-dream">Let's Talk About The American Dream</h3>
+<p>A few months ago I wrote about what it means to stay gold — to hold on to the best parts of ourselves, our communities, and the American Dream itself. But staying gold isn’t passive. It takes work. It takes action. It takes hard conversations that ask us to confront</p></div></div>
+<div class="pair" id="code-reviews-just-do-it-0010"><div class="zh side"><div class="tag">中文</div><h3 id="h-">美国，保持本色</h3>
+<p>我们正处在美国历史上一个前所未有的节点，我担心我们会看不见美国梦。</p>
+<p>我感觉运气不太好……🎲</p>
+<p> 查看全部文章</p></div><div class="en side"><div class="tag">EN</div><h3 id="hstay-gold-america">Stay Gold, America</h3>
+<p>We are at an unprecedented point in American history, and I'm concerned we may lose sight of the American Dream.</p>
+<p>I’m feeling unlucky... 🎲</p>
+<p> See All Posts</p></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#code-reviews-just-do-it-0000">第 1 段</a></li><li><a href="#code-reviews-just-do-it-0001">第 2 段</a></li><li><a href="#code-reviews-just-do-it-0002">第 3 段</a></li><li><a href="#code-reviews-just-do-it-0003">第 4 段</a></li><li><a href="#code-reviews-just-do-it-0004">第 5 段</a></li><li><a href="#code-reviews-just-do-it-0005">第 6 段</a></li><li><a href="#code-reviews-just-do-it-0006">第 7 段</a></li><li><a href="#code-reviews-just-do-it-0007">第 8 段</a></li><li><a href="#code-reviews-just-do-it-0008">第 9 段</a></li><li><a href="#code-reviews-just-do-it-0009">第 10 段</a></li><li><a href="#code-reviews-just-do-it-0010">第 11 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

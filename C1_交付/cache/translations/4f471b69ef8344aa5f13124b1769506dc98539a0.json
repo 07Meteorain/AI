@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0009",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "4f471b69ef8344aa5f13124b1769506dc98539a0",
+ "zh": "### 学会防御性地写提示词\n\n想象一下你把同一段提示词交给一位新来的实习生。困惑或错误最可能出现在哪里？提前想到这些点，主动把指令说清楚，避免歧义。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

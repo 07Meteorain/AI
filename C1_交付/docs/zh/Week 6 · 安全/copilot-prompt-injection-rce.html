@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Copilot 提示注入导致远程代码执行 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>Copilot 提示注入导致远程代码执行</h1>
+  <div class="meta">
+    <span>分类：Week 6 · 安全</span><span>原文 1,247 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/" target="_blank" rel="noopener">https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="copilot-prompt-injection-rce-0000"><div class="zh side"><div class="tag">中文</div><h1 id="h-">拥抱红队</h1>
+<p>wunderwuzzi 的博客</p>
+<p> learn the hacks, stop the attacks.</p>
+<p>Home</p>
+<p> RSS</p>
+<p> Subscribe</p></div><div class="en side"><div class="tag">EN</div><h1 id="hembrace-the-red">Embrace The Red</h1>
+<p>wunderwuzzi's blog</p>
+<p>learn the hacks, stop the attacks.</p>
+<p>Home</p>
+<p> RSS</p>
+<p> Subscribe</p></div></div>
+<div class="pair" id="copilot-prompt-injection-rce-0001"><div class="zh side"><div class="tag">中文</div><h1 id="hgithub-copilot-cve-2025-53773-">GitHub Copilot：通过提示注入实现远程代码执行（CVE-2025-53773）</h1>
+<p>发布于</p>
+<p> 2025 年 8 月 12 日</p>
+<p>#llm</p>
+<p> #agents</p>
+<p> #month of ai bugs</p>
+<p>本文讲的是一次重要但也令人不安的提示注入发现：它会导致 GitHub Copilot 和 VS Code 中开发者的机器被彻底攻陷。</p>
+<p>实现方式是把 Copilot 置于 YOLO 模式——修改项目的 settings.json 文件即可。</p>
+<p>几天前谈 Amp 时提到过，智能体中有一类容易被忽视的漏洞模式：如果一个智能体能够写入文件、修改自身配置或更新与安全相关的设置，就可能导致远程代码执行。这并不罕见，也是做安全评审时始终应该排查的方向。</p></div><div class="en side"><div class="tag">EN</div><h1 id="hgithub-copilot-remote-code-execution-via-prompt-injection-cve-2025-53773-">GitHub Copilot: Remote Code Execution via Prompt Injection (CVE-2025-53773)</h1>
+<p>Posted on</p>
+<p> Aug 12, 2025</p>
+<p>#llm</p>
+<p> #agents</p>
+<p> #month of ai bugs</p>
+<p>This post is about an important, but also scary, prompt injection discovery that leads to full system compromise of the developer’s machine in GitHub Copilot and VS Code.</p>
+<p>It is achieved by placing Copilot into YOLO mode by modifying the project’s settings.json file.</p>
+<p>As described a few days ago with Amp, a vulnerability pattern in agents that might be overlooked is that if an agent can write to files and modify its own configuration or update security-relevant settings it can lead to remote code execution. This is not uncommon and is an area to always look for when performing a security review.</p></div></div>
+<div class="pair" id="copilot-prompt-injection-rce-0002"><div class="zh side"><div class="tag">中文</div><h2 id="h-">背景研究</h2>
+<p>在查看 VS Code 和 GitHub Copilot 智能体模式时，我注意到一个奇怪的行为——它可以在未经用户批准的情况下创建并写入工作区中的文件。</p>
+<p>这些编辑会立即持久化，不是留在内存里等待评审的差异。修改会直接写入磁盘。</p>
+<p>这正是作为红队一员的人一看就知道不太妙的东西……所以我就在琢磨，这能不能被用来提权并执行代码。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hbackground-research">Background Research</h2>
+<p>When looking at VS Code and GitHub Copilot Agent Mode I noticed a strange behavior... it can create and write to files in the workspace without user approval.</p>
+<p>The edits are immediately persistent, they are not in-memory as a diff to review. The modifications are written to disk right away.</p>
+<p>It’s one of these things that as a red teamer you know is probably not good... so I was looking if this could be used to escalate privileges and execute code.</p></div></div>
+<div class="pair" id="copilot-prompt-injection-rce-0003"><div class="zh side"><div class="tag">中文</div><h3 id="hyolo-">YOLO 模式</h3>
+<p>接下来，我研究了 VS Code 中那些依赖项目/工作区文件夹内设置的功能，很快发现了一个有意思的。</p>
+<p>结果是，在 .vscode/settings.json 文件里可以加上这样一行：</p>
+<p>"chat.tools.autoApprove": true</p>
+<p>这会让 GitHub Copilot 进入 YOLO 模式。</p>
+<p>而且它会关掉所有用户确认，我们就可以运行 shell 命令、浏览网页等等！</p>
+<p>有意思的是，这是一项实验性功能，但默认情况下它依然存在。我并没有下载特殊版本，也没有把 VS Code 整体设成实验模式。</p>
+<p>而且它在 Windows、macOS 和 Linux 上都能用。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hyolo-mode">YOLO Mode</h3>
+<p>So, next I researched features in VS Code that depend on settings that are within the project/workspace folder, and quickly found an interesting one.</p>
+<p>It turns out that in the .vscode/settings.json file one can add the following line:</p>
+<p>"chat.tools.autoApprove": true</p>
+<p>This will put GitHub Copilot in YOLO mode.</p>
+<p>And it disables all user confirmations, and we can run shell commands, browse the web, and more!</p>
+<p>What is interesting is that this is an experimental feature, but it is still present by default. I did not download a special version or set my VS Code overall into an experimental mode.</p>
+<p>Furthermore, it works on Windows, macOS and also Linux.</p></div></div>
+<div class="pair" id="copilot-prompt-injection-rce-0004"><div class="zh side"><div class="tag">中文</div><h2 id="h-">漏洞利用链解析</h2>
+<p>劫持 Copilot 并提权的概念验证漏洞利用链如下：</p>
+<ul>
+<li>攻击从埋入源代码文件、网页、GitHub issue、工具调用响应或其他内容中的提示注入开始……攻击载荷也可以利用不可见文本来充当指令。</li>
+</ul>
+<ul>
+<li>提示注入首先往 ~/.vscode/settings.json 文件里加上 "chat.tools.autoApprove": true 这一行。如果文件夹和文件还不存在，会自动创建。</li>
+</ul>
+<ul>
+<li>GitHub Copilot 立刻进入 YOLO 模式！</li>
+</ul>
+<ul>
+<li>攻击执行一条终端命令。借助条件式提示注入，我们实际上可以根据操作系统来决定运行什么。</li>
+</ul>
+<ul>
+<li>我们实现了由提示注入驱动的远程代码执行（RCE）。</li>
+</ul>
+<p>下面这张截图展示了带提示注入的演示文件、右侧在聊天框里与该文件交互的开发者，以及弹出来的计算器！</p>
+<p>当然，任何其他提示注入的投递方式——比如网页，或从 MCP 服务器返回的数据——都是一种攻击角度。我只是把攻击载荷放在源代码文件里，因为这样最容易测试。</p>
+<h2 id="h-">视频演示</h2></div><div class="en side"><div class="tag">EN</div><h2 id="hexploit-chain-explained">Exploit Chain Explained</h2>
+<p>The proof-of-concept exploit chain to hijack Copilot and escalate privileges is as follows:</p>
+<ul>
+<li>The attack starts with a prompt injection planted in a source code file, web page, GitHub issue, tool call response, or other content... The payload can also use invisible text as instructions.</li>
+</ul>
+<ul>
+<li>The prompt injection first adds the line “chat.tools.autoApprove”: true, to the ~/.vscode/settings.json file. Folder and file will be created if they don’t exist yet.</li>
+</ul>
+<ul>
+<li>GitHub Copilot immediately enters YOLO mode!</li>
+</ul>
+<ul>
+<li>Attack runs a Terminal command. And using conditional prompt injection we can actually target what to run based on the operating system.</li>
+</ul>
+<ul>
+<li>We achieved Remote Code Execution powered by Prompt Injection.</li>
+</ul>
+<p>Here is a screenshot that shows the demo file with the prompt injection, the developer interacting with the file on the right side in the chat box, and the calculator popping up!</p>
+<p>Of course any other means of prompt injection delivery, like web or data coming back from an MCP server is an attack angle. I just used it inside the source code file because it’s easiest to test with.</p>
+<h2 id="hvideo-walkthrough">Video Walkthrough</h2></div></div>
+<div class="pair" id="copilot-prompt-injection-rce-0005"><div class="zh side"><div class="tag">中文</div><h3 id="h-">短视频演示</h3>
+<p>下面这段演示视频展示了在 Windows 上的代码执行。</p>
+<p>这段是 macOS 上的：</p></div><div class="en side"><div class="tag">EN</div><h3 id="hshort-demos">Short Demos</h3>
+<p>Here is a demonstration video that shows the code execution on Windows.</p>
+<p>And this one on macOS:</p></div></div>
+<div class="pair" id="copilot-prompt-injection-rce-0006"><div class="zh side"><div class="tag">中文</div><h3 id="h-">完整走查</h3>
+<p>下面这段更长的视频详细讲解了这次发现与漏洞利用：</p>
+<p>能给自己设置权限和配置设置的 AI，简直离谱！</p></div><div class="en side"><div class="tag">EN</div><h3 id="hwalkthrough">Walkthrough</h3>
+<p>Here is a longer form video explaining the discovery and exploit in detail:</p>
+<p>AI that can set its own permissions and configuration settings is wild!</p></div></div>
+<div class="pair" id="copilot-prompt-injection-rce-0007"><div class="zh side"><div class="tag">中文</div><h2 id="h-zombais">把工作站接入僵尸网络——ZombAIs</h2>
+<p>当然，这意味着我们可以把开发者的机器作为 ZombAI 接入僵尸网络。</p>
+<p>另外，玩一下的话，我们还可以修改 settings.json 文件，把 VS Code 切换成红色配色之类。</p>
+<p>不过还没完！这也意味着我们可以造出真正的 AI 病毒：让它附着在文件上，随着开发者下载并打开被感染的文件而传播。</p>
+<p>最后但同样重要的是，为了证明我们完全控制了这台开发者的主机，我们展示 Copilot 可以被劫持去下载恶意软件，并接入远程命令与控制服务器。</p>
+<p>这等于为恶意软件、勒索软件、信息窃取程序之类的东西敞开了大门。</p>
+<p>挺吓人的。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hjoining-the-workstation-to-a-botnet-zombais">Joining the Workstation to a Botnet - ZombAIs</h2>
+<p>Of course, this means we can join the developer’s machine to a botnet as a ZombAI.</p>
+<p>Also, for fun we can modified the settings.json file to switch VS Code into a Red color scheme and similar things.</p>
+<p>It doesn’t end here though! This also means we can build an actual AI virus that attaches to files and propagates as developers download and interact with infected files.</p>
+<p>Last but not least, to demonstrate that we have full control of the developer’s host, we show that Copilot can be hijacked to download malware, and join a remote command and control server.</p>
+<p>This means the door is open for malware, ransomware, info stealers, etc.</p>
+<p>Scary stuff.</p></div></div>
+<div class="pair" id="copilot-prompt-injection-rce-0008"><div class="zh side"><div class="tag">中文</div><h2 id="h-ai-">打造 AI 病毒</h2>
+<p>看到这里就会发现，这基本上等于允许制造病毒。攻击者可以嵌入指令，一旦拿到代码执行能力，就可以用额外的恶意软件去攻陷其他 Git 项目（以及 RAG 数据源），把恶意指令嵌进去，然后提交改动，甚至强制推送到上游。</p>
+<p>这会进一步扩散，因为其他开发者会在不知情的情况下传播被感染的代码。</p>
+<p>最后，我们还得聊聊不可见指令！</p></div><div class="en side"><div class="tag">EN</div><h2 id="hbuilding-an-ai-virus">Building an AI Virus</h2>
+<p>When seeing this, one will notice that this basically allows the creation of a virus. An attacker can embed instructions and once they gain code execution, additional malware can compromise other Git projects (and RAG sources) to embed the malicious instructions, and commit the changes or even force push them upstream.</p>
+<p>This can lead to further spread as other developers unknowingly propagate the infected code.</p>
+<p>Finally, we also need to talk about invisible instructions!</p></div></div>
+<div class="pair" id="copilot-prompt-injection-rce-0009"><div class="zh side"><div class="tag">中文</div><h2 id="h-">利用不可见指令</h2>
+<p>有人可能会说，如果指令以注释形式嵌入，很快就会被发现。所以为了让演示更有意思一点，我干脆做了一个不可见的载荷，能够完成整条攻击链，但用户看不到它。这种方式没那么可靠，但确实管用：</p>
+<p>注意：虽然我这里用不可见指令的演示多次成功，但使用不可见指令往往会让漏洞利用变得非常不可靠，而且模型通常也会拒绝执行；另外 VS Code 通常还会显示 Unicode 字符的视觉提示。不过，攻击（和模型）都会随时间变强。还要强调一点：并非所有模型都容易受到这类不可见提示注入攻击的影响。</p></div><div class="en side"><div class="tag">EN</div><h2 id="husing-invisible-instructions">Using Invisible Instructions</h2>
+<p>One might say that it would be quickly discovered if instructions are embedded as comments. So in order to make it a bit more interesting, I went ahead and created an invisible payload that achieves the attack chain, but is not visible to users. This was not as reliable, but it still worked:</p>
+<p>Note: Although the demo here with invisible instructions worked multiple times for me, using invisible instructions often leads to the exploit being very unreliable, and is also commonly also refused by the model and there is also typically a visual indicator that VS Code shows about Unicode characters. However, attacks (and models) get better over time. It’s also worth highlighting that not all models are vulnerable to such invisible prompt injection attacks.</p></div></div>
+<div class="pair" id="copilot-prompt-injection-rce-0010"><div class="zh side"><div class="tag">中文</div><h2 id="h-">建议与修复</h2>
+<p>除了我分享的 YOLO 模式之外，实际还有更多攻击角度。微软问我是否还有更多信息时，我又多看了一些，发现还有其他存在风险的地方，比如 AI 可以写入的 .vscode/tasks.json，或者添加伪造的恶意 MCP 服务器等，都可能导致代码执行。而且 AI 还能重新配置项目的用户界面和配置设置。</p>
+<p>最近我注意到开发者经常同时使用多个智能体，因此还存在覆盖其他智能体配置文件的风险（放行 bash 命令白名单、添加 MCP 服务器等等），因为这些文件通常也放在项目文件夹里。</p>
+<p>理想情况下，AI 不应该在未经人类事先批准的情况下修改文件。很多其他编辑器会展示差异，然后由开发者来批准。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hrecommendations-and-fix">Recommendations and Fix</h2>
+<p>There are actually more attack angles then just the YOLO mode example I shared. When Microsoft asked me if there is any more info I have, I had looked a bit more and noticed there are other problematic places, for instance .vscode/tasks.json that the AI can write to, or adding fake malicious MCP servers, etc which can lead to code execution. And the AI can reconfigure the user interface and configuration settings of the project.</p>
+<p>Recently I noticed that developers often use multiple agents, so there is also the threat of overwriting other agent configuration files (allow-list bash commands, add MCP servers...), as they are commonly in the project folder as well.</p>
+<p>Ideally, the AI would not be able to modify files without a human first approving it. Many other editors do show the diff, which then can be approved by the developer.</p></div></div>
+<div class="pair" id="copilot-prompt-injection-rce-0011"><div class="zh side"><div class="tag">中文</div><h2 id="h-">负责任披露</h2>
+<p>2025 年 6 月 29 日报告该漏洞后，微软确认了复现结果，并追问了一些问题。几周后，MSRC 指出这是他们已经在跟踪的问题，并表示会在 8 月之前修复。随着 8 月的补丁星期二（Patch Tuesday）发布，这个问题现已修复。</p>
+<p>要感谢 Persistent Security 的 Markus Vervier，他也独立发现并向微软报告了这个漏洞。你可以在这里找到他们的分析文章。同时也要感谢 Ari Marzuk，他似乎也并行地发现了这个问题。</p>
+<p>感谢 MSRC 和产品团队的成员协助推进缓解工作。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hresponsible-disclosure">Responsible Disclosure</h2>
+<p>After reporting the vulnerability on June 29, 2025 Microsoft confirmed the repro and asked a few follow up questions. A few weeks later MSRC pointed out that it is an issue they were already tracking, and that it will be patched by August. With the August Patch Tuesday release this is now fixed.</p>
+<p>Shout out to Markus Vervier from Persistent Security who has also identified and reported this vulnerability to Microsoft. You can find their write-up here. And also a shout out to Ari Marzuk who seems to also have discovered it in parallel.</p>
+<p>Thanks to the members of the MSRC and product team for the help in getting it mitigated.</p></div></div>
+<div class="pair" id="copilot-prompt-injection-rce-0012"><div class="zh side"><div class="tag">中文</div><h2 id="h-">结论</h2>
+<p>这又一个例子说明，AI 智能体可能并不会老老实实待在自己的框里！通过修改自身运行环境，GitHub Copilot 能够提权并执行代码，从而攻陷开发者的机器。正如我所发现的，这在智能体式系统中是一种并不罕见的设计缺陷。</p>
+<p>继续留意这类设计缺陷吧，它们在威胁建模阶段就应该能被轻易发现。</p>
+<p>祝好。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hconclusion">Conclusion</h2>
+<p>This is another example of how an AI agent might not stay in its box! By modifying its own environment GitHub Copilot can escalate privileges and execute code to compromise the developer’s machine. It’s a not uncommon design flaw in agentic systems as I have discovered.</p>
+<p>Keep looking out for such design flaws, these should be easily caught during threat modeling.</p>
+<p>Cheers.</p></div></div>
+<div class="pair" id="copilot-prompt-injection-rce-0013"><div class="zh side"><div class="tag">中文</div><h2 id="h-">参考资料</h2>
+<ul>
+<li>Month of AI Bugs 2025</li>
+</ul>
+<ul>
+<li>Amp Code: Arbitrary Command Execution via Prompt Injection Fixed</li>
+</ul>
+<ul>
+<li>CVE-2025-53773: GitHub Copilot and Visual Studio Remote Code Execution Vulnerability</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h2 id="hreferences">References</h2>
+<ul>
+<li>Month of AI Bugs 2025</li>
+</ul>
+<ul>
+<li>Amp Code: Arbitrary Command Execution via Prompt Injection Fixed</li>
+</ul>
+<ul>
+<li>CVE-2025-53773: GitHub Copilot and Visual Studio Remote Code Execution Vulnerability</li>
+</ul></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#copilot-prompt-injection-rce-0000">第 1 段</a></li><li><a href="#copilot-prompt-injection-rce-0001">第 2 段</a></li><li><a href="#copilot-prompt-injection-rce-0002">第 3 段</a></li><li><a href="#copilot-prompt-injection-rce-0003">第 4 段</a></li><li><a href="#copilot-prompt-injection-rce-0004">第 5 段</a></li><li><a href="#copilot-prompt-injection-rce-0005">第 6 段</a></li><li><a href="#copilot-prompt-injection-rce-0006">第 7 段</a></li><li><a href="#copilot-prompt-injection-rce-0007">第 8 段</a></li><li><a href="#copilot-prompt-injection-rce-0008">第 9 段</a></li><li><a href="#copilot-prompt-injection-rce-0009">第 10 段</a></li><li><a href="#copilot-prompt-injection-rce-0010">第 11 段</a></li><li><a href="#copilot-prompt-injection-rce-0011">第 12 段</a></li><li><a href="#copilot-prompt-injection-rce-0012">第 13 段</a></li><li><a href="#copilot-prompt-injection-rce-0013">第 14 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

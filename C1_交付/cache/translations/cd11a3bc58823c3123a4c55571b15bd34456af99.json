@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0013",
+ "doc_id": "observability-basics",
+ "fingerprint": "cd11a3bc58823c3123a4c55571b15bd34456af99",
+ "zh": "### 追踪工具箱\n\n有几个工具可以帮助你采集、存储和可视化追踪数据：\n\n如果你在找一款符合预算的可观测性方案，Last9 值得看看。它按摄入的事件量计费，费用可预测。而且我们的平台可以大规模处理高基数数据，并与 OpenTelemetry 和 Prometheus 集成，把你的指标、日志和追踪汇聚到一处。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

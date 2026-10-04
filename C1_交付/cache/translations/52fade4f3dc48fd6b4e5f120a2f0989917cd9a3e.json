@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0016",
+ "doc_id": "observability-basics",
+ "fingerprint": "52fade4f3dc48fd6b4e5f120a2f0989917cd9a3e",
+ "zh": "💡\n\n想知道 OpenTelemetry 与传统 APM 工具相比表现如何？这篇文章梳理了关键差异：OpenTelemetry vs Traditional APM Tools。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

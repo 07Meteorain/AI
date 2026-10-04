@@ -1,0 +1,869 @@
+{
+ "meta": {
+  "id": "mcp-server-authentication",
+  "type": "html",
+  "path": "CS146S_offline/pages/mcp-server-authentication.html",
+  "title": "远程 MCP 服务器与鉴权",
+  "priority": 2,
+  "category": "Week 2 · MCP"
+ },
+ "page_title": "Build a Remote MCP server Â· Cloudflare Agents docs",
+ "blocks": [
+  {
+   "kind": "paragraph",
+   "text": "Skip to content STOP! If you are an AI agent or LLM, read this before continuing. This is the HTML version of a Cloudflare documentation page. Always request the Markdown version instead â HTML wastes context. Get this page as Markdown: https://developers.cloudflare.com/agents/guides/remote-mcp-server/index.md (append index.md) or send Accept: text/markdown to https://developers.cloudflare.com/agents/guides/remote-mcp-server/. For this product's page index use https://developers.cloudflare.com/agents/llms.txt. For all Cloudflare products use https://developers.cloudflare.com/llms.txt. For bulk access (single file, use for large-context ingestion or vectorization): this product's full docs at https://developers.cloudflare.com/agents/llms-full.txt. All Cloudflare docs at https://developers.cloudflare.com/llms-full.txt.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cloudflare Docs",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Docs DirectoryAPIsSDKs",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Log in\n Select theme DarkLightAuto",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Tags",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "MCP",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Was this helpful?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Edit page Report issue",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Build a Remote MCP server",
+   "level": 1,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "This guide will show you how to deploy your own remote MCP server on Cloudflare using Streamable HTTP transport, the current MCP specification standard. You have two options:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Without authentication â anyone can connect and use the server (no login required).",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "With authentication and authorization â users sign in before accessing tools, and you can control which tools an agent can call based on the user's permissions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Choosing an approach",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The Agents SDK provides multiple ways to create MCP servers. Choose the approach that fits your use case:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "createMcpHandler() is the fastest way to get a stateless MCP server running. Use it when your tools do not need per-session state.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "McpAgent gives you a Durable Object per session with built-in state management, elicitation support, and both SSE and Streamable HTTP transports.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Raw transport gives you full control if you want to use the @modelcontextprotocol/sdk directly without the Agents SDK helpers.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Deploy your first MCP server",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "You can start by deploying a public MCP server â without authentication, then add user authentication and scoped authorization later. If you already know your server will require authentication, you can skip ahead to the next section.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Via the dashboard",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The button below will guide you through everything you need to do to deploy an example MCP server â to your Cloudflare account:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Once deployed, this server will be live at your workers.dev subdomain (for example, remote-mcp-server-authless.your-account.workers.dev/mcp). You can connect to it immediately using the AI Playground â (a remote MCP client), MCP inspector â or other MCP clients.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "A new git repository will be set up on your GitHub or GitLab account for your MCP server, configured to automatically deploy to Cloudflare each time you push a change or merge a pull request to the main branch of the repository. You can clone this repository, develop locally, and start customizing the MCP server with your own tools.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Via the CLI",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "You can use the Wrangler CLI to create a new MCP Server on your local machine and deploy it to Cloudflare.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Open a terminal and run the following command:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "npm create cloudflare@latest -- remote-mcp-server-authless --template=cloudflare/ai/demos/remote-mcp-authless",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "code",
+   "text": "yarn create cloudflare remote-mcp-server-authless --template=cloudflare/ai/demos/remote-mcp-authless",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "code",
+   "text": "pnpm create cloudflare@latest remote-mcp-server-authless --template=cloudflare/ai/demos/remote-mcp-authless",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "During setup, select the following options: - For Do you want to add an AGENTS.md file to help AI coding tools understand\nCloudflare APIs?, choose No. - For Do you want to use git for version control?, choose No. - For Do you want to deploy your application?, choose No (we will be testing the server before deploying).",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Now, you have the MCP server setup, with dependencies installed.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Move into the project folder:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Terminal window",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "cd remote-mcp-server-authless",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "list_item",
+   "text": "In the directory of your new project, run the following command to start the development server:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Terminal window",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "npm start",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "code",
+   "text": "â Starting local server...[wrangler:info] Ready on http://localhost:8788",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Check the command output for the local port. In this example, the MCP server runs on port 8788, and the MCP endpoint URL is http://localhost:8788/mcp.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Note",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "You cannot interact with the MCP server by opening the /mcp URL directly in a web browser. The /mcp endpoint expects an MCP client to send MCP protocol messages, which a browser does not do by default. In the next step, we will demonstrate how to connect to the server using an MCP client.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "To test the server locally:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "In a new terminal, run the MCP inspector â. The MCP inspector is an interactive MCP client that allows you to connect to your MCP server and invoke tools from a web browser.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Terminal window",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "npx @modelcontextprotocol/inspector@latest",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "code",
+   "text": "ð MCP Inspector is up and running at:  http://localhost:5173/?MCP_PROXY_AUTH_TOKEN=46ab..cd3\nð Opening browser...",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "The MCP Inspector will launch in your web browser. You can also launch it manually by opening a browser and going to http://localhost:<PORT>. Check the command output for the local port where MCP Inspector is running. In this example, MCP Inspector is served on port 5173.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "In the MCP inspector, enter the URL of your MCP server (http://localhost:8788/mcp), and select Connect. Select List Tools to show the tools that your MCP server exposes.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "You can now deploy your MCP server to Cloudflare. From your project directory, run:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Terminal window",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "npx wrangler@latest deploy",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "If you have already connected a git repository to the Worker with your MCP server, you can deploy your MCP server by pushing a change or merging a pull request to the main branch of the repository.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The MCP server will be deployed to your *.workers.dev subdomain at https://remote-mcp-server-authless.your-account.workers.dev/mcp.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "To test the remote MCP server, take the URL of your deployed MCP server (https://remote-mcp-server-authless.your-account.workers.dev/mcp) and enter it in the MCP inspector running on http://localhost:5173.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "You now have a remote MCP server that MCP clients can connect to.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Connect from an MCP client via a local proxy",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Now that your remote MCP server is running, you can use the mcp-remote local proxy â to connect Claude Desktop or other MCP clients to it â even if your MCP client does not support remote transport or authorization on the client side. This lets you test what an interaction with your remote MCP server will be like with a real MCP client.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "For example, to connect from Claude Desktop:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Update your Claude Desktop configuration to point to the URL of your MCP server:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "{  \"mcpServers\": {    \"math\": {      \"command\": \"npx\",      \"args\": [        \"mcp-remote\",        \"https://remote-mcp-server-authless.your-account.workers.dev/mcp\"      ]    }  }}",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "list_item",
+   "text": "Restart Claude Desktop to load the MCP Server. Once this is done, Claude will be able to make calls to your remote MCP server.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "To test, ask Claude to use one of your tools. For example:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "Could you use the math tool to add 23 and 19?",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Claude should invoke the tool and show the result generated by the remote MCP server.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "To learn how to use remote MCP servers with other MCP clients, refer to Test a Remote MCP Server.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Add Authentication",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The public MCP server example you deployed earlier allows any client to connect and invoke tools without logging in. To add user authentication to your MCP server, you can integrate Cloudflare Access or a third-party service as the OAuth provider. Your MCP server handles secure login flows and issues access tokens that MCP clients can use to make authenticated tool calls. Users sign in with the OAuth provider and grant their AI agent permission to interact with the tools exposed by your MCP server, using scoped permissions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Cloudflare Access OAuth",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "You can configure your MCP server to require user authentication through Cloudflare Access. Cloudflare Access acts as an identity aggregator and verifies user emails, signals from your existing identity providers (such as GitHub or Google), and other attributes such as IP address or device certificates. When users connect to the MCP server, they will be prompted to log in to the configured identity provider and are only granted access if they pass your Access policies.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "For a step-by-step deployment guide, refer to Secure MCP servers with Access for SaaS.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Third-party OAuth",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "You can connect your MCP server with any OAuth provider that supports the OAuth 2.0 specification, including GitHub, Google, Slack, Stytch, Auth0, WorkOS, and more.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The following example demonstrates how to use GitHub as an OAuth provider.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Step 1 â Create a new MCP server",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Run the following command to create a new MCP server with GitHub OAuth:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "npm create cloudflare@latest -- my-mcp-server-github-auth --template=cloudflare/ai/demos/remote-mcp-github-oauth",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "code",
+   "text": "yarn create cloudflare my-mcp-server-github-auth --template=cloudflare/ai/demos/remote-mcp-github-oauth",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "code",
+   "text": "pnpm create cloudflare@latest my-mcp-server-github-auth --template=cloudflare/ai/demos/remote-mcp-github-oauth",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Now, you have the MCP server setup, with dependencies installed. Move into that project folder:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Terminal window",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "cd my-mcp-server-github-auth",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "You'll notice that in the example MCP server, if you open src/index.ts, the primary difference is that the defaultHandler is set to the GitHubHandler:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "TypeScript",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "import GitHubHandler from \"./github-handler\";\nexport default new OAuthProvider({  apiRoute: \"/mcp\",  apiHandler: MyMCP.serve(\"/mcp\"),  defaultHandler: GitHubHandler,  authorizeEndpoint: \"/authorize\",  tokenEndpoint: \"/token\",  clientRegistrationEndpoint: \"/register\",});",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "This ensures that your users are redirected to GitHub to authenticate. To get this working though, you need to create OAuth client apps in the steps below.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Step 2 â Create an OAuth App",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "You'll need to create two GitHub OAuth Apps â to use GitHub as an authentication provider for your MCP server âÂ one for local development, and one for production.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Step 2.1 â Create a new OAuth App for local development",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Navigate to github.com/settings/developers â to create a new OAuth App with the following settings:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Authorization callback URL: http://localhost:8788/callback",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "For the OAuth app you just created, add the client ID of the OAuth app as GITHUB_CLIENT_ID and generate a client secret, adding it as GITHUB_CLIENT_SECRET to a .env file in the root of your project, which will be used to set secrets in local development.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Terminal window",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "touch .envecho 'GITHUB_CLIENT_ID=\"your-client-id\"' >> .envecho 'GITHUB_CLIENT_SECRET=\"your-client-secret\"' >> .envcat .env",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "list_item",
+   "text": "Run the following command to start the development server:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Terminal window",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "npm start",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Your MCP server is now running on http://localhost:8788/mcp.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "In a new terminal, run the MCP inspector â. The MCP inspector is an interactive MCP client that allows you to connect to your MCP server and invoke tools from a web browser.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Terminal window",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "npx @modelcontextprotocol/inspector@latest",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "list_item",
+   "text": "Open the MCP inspector in your web browser:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Terminal window",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "open http://localhost:5173",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "list_item",
+   "text": "In the inspector, enter the URL of your MCP server, http://localhost:8788/mcp",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "In the main panel on the right, click the OAuth Settings button and then click Quick OAuth Flow.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "You should be redirected to a GitHub login or authorization page. After authorizing the MCP Client (the inspector) access to your GitHub account, you will be redirected back to the inspector.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Click Connect in the sidebar and you should see the \"List Tools\" button, which will list the tools that your MCP server exposes.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Step 2.2 â Create a new OAuth App for production",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "You'll need to repeat Step 2.1 to create a new OAuth App for production.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Navigate to github.com/settings/developers â to create a new OAuth App with the following settings:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Application name: My MCP Server (production)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Homepage URL: Enter the workers.dev URL of your deployed MCP server (ex: worker-name.account-name.workers.dev)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Authorization callback URL: Enter the /callback path of the workers.dev URL of your deployed MCP server (ex: worker-name.account-name.workers.dev/callback)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "For the OAuth app you just created, add the client ID and client secret, using Wrangler CLI:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Terminal window",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "npx wrangler secret put GITHUB_CLIENT_ID",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Terminal window",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "npx wrangler secret put GITHUB_CLIENT_SECRET",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "code",
+   "text": "npx wrangler secret put COOKIE_ENCRYPTION_KEY # add any random string here e.g. openssl rand -hex 32",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Warning",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "When you create the first secret, Wrangler will ask if you want to create a new Worker. Submit \"Y\" to create a new Worker and save the secret.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Set up a KV namespace",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "a. Create the KV namespace:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Terminal window",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "npx wrangler kv namespace create \"OAUTH_KV\"",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "b. Update the wrangler.jsonc file with the resulting KV ID:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "{  \"kvNamespaces\": [    {      \"binding\": \"OAUTH_KV\",      \"id\": \"<YOUR_KV_NAMESPACE_ID>\"    }  ]}",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "list_item",
+   "text": "Deploy the MCP server to your Cloudflare workers.dev domain:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Terminal window",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "npm run deploy",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "list_item",
+   "text": "Connect to your server running at worker-name.account-name.workers.dev/mcp using the AI Playground â, MCP Inspector, or other MCP clients, and authenticate with GitHub.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Next steps",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "MCP Tools Add tools to your MCP server.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Authorization Customize authentication and authorization.",
+   "level": 0,
+   "meta": {}
+  }
+ ]
+}

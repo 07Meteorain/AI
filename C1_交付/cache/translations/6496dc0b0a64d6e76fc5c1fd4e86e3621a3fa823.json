@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0030",
+ "doc_id": "observability-basics",
+ "fingerprint": "6496dc0b0a64d6e76fc5c1fd4e86e3621a3fa823",
+ "zh": "### 追踪和跨度与其他可观测性信号是什么关系？\n\n追踪是指标和日志的补充。指标从宏观层面展示系统健康状况，日志提供详细事件，追踪则把点连接起来，展示跨服务的请求流向。\n\n主题\n\n可观测性　监控\n\n关于作者\n\nAnjali Udasi\n\n致力于让技术不那么吓人。I\n\n#### 目录",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

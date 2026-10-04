@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0045",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "5ce20e18e7a92bacc47fc1dc5e0cbb08b66d7d15",
+ "zh": "### 工具漏洞扫描\n\n所有被集成进智能体式系统的工具都应定期接受安全评估，包括：\n\n- 用 SAST 做源代码级代码分析\n\n- 用 DAST 分析运行时行为\n\n- 用 SCA 检测存在漏洞的依赖和第三方库\n\n这些实践有助于识别配置错误、不安全逻辑和过期组件——它们都可以通过工具滥用被利用。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0012",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "43fd09db33029b7d994e187fc3c1a6bf429d2d1e",
+ "zh": "### 6. 性能优化\n\n训练 AI 评审流程去识别性能隐患，比如：\n\n- 检查有没有不必要的重复计算\n\n- 找出低效的数据结构\n\n接下来应由人类评审者评估：\n\n- 在这个场景下，列表推导式真的更高效吗？\n\n- 它提升了可读性吗？\n\n- 这个操作是否干脆更适合另一种数据结构？\n\nGraphite Agent 会自动识别你 PR 中的性能瓶颈，帮助你在低效进入生产之前抓住它们。它的上下文分析理解你的整个代码库，从而给出可执行的性能建议。\n\n### 常用的 AI 代码评审工具",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

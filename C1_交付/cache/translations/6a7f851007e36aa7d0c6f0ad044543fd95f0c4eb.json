@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0020",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "6a7f851007e36aa7d0c6f0ad044543fd95f0c4eb",
+ "zh": "#### 示例：\n\n在我们团队，工程师提交改动后，再让智能体更新所有相关文档和面向用户的文案，是很常见的做法。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0050",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "ffc4e0d2b26c26c7fca82f03acae67de78e71324",
+ "zh": "- Google Workspace Essentials\n\n为团队提供安全的视频会议和现代化协作。\n\n- Cloud Identity\n\n供 IT 管理员统一管理用户设备和应用的平台。\n\n- Chrome Enterprise\n\n为企业打造的 ChromeOS、Chrome 浏览器和 Chrome 设备。\n\n安全与身份\n\n- Cloud IAM\n\nGoogle Cloud 资源的权限管理系统。\n\n- Sensitive Data Protection\n\n发现、分类并保护你宝贵的数据资产。\n\n- Mandiant Managed Defense\n\n7×24 全天候有把握地查找并消除威胁。\n\n- Google Threat Intelligence\n\n看清谁在针对你。\n\n- Security Command Center\n\n用于防御针对 Google Cloud 资产之威胁的平台。\n\n- Cloud Key Management\n\n管理 Google Cloud 上的加密密钥。\n\n- Mandiant Incident Response\n\n把入侵造成的损失降到最低。\n\n- Chrome Enterprise Premium\n\n获得端点广泛可见性加持的安全企业浏览。\n\n- Assured Workloads\n\n面向敏感工作负载的合规与安全控制。\n\n- Google Security Operations\n\n检测、调查并响应网络威胁。\n\n- Mandiant Consulting\n\n在故障事件之前、之中、之后都获得专家指导。\n\n- 没找到你想要的产品？\n\n- 查看全部安全与身份类产品\n\n无服务器\n\n- Cloud Run\n\n运行容器化应用的全托管环境。\n\n- Cloud Functions\n\n用于创建响应云事件函数的平台。\n\n- App Engine\n\n面向应用和后端的无服务器应用平台。\n\n- Workflows\n\n面向无服务器产品和 API 服务的工作流编排。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

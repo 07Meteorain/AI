@@ -1,0 +1,10 @@
+{
+ "seg_id": "sre-introduction#0018",
+ "doc_id": "sre-introduction",
+ "fingerprint": "6061b470a57dae7831a50d3929c10f7950a6143f",
+ "zh": "# 结束的开始\n\n站点可靠性工程代表了对业界既有的管理大型复杂服务的最佳实践的一次重大突破。它最初的动机只是朴素的个人经验——“作为软件工程师，我希望把时间投入到这类重复性任务上”——但如今它已经远不止于此：一套原则、一套实践、一套激励机制，以及软件工程这一更大学科中的一个新领域。本书余下部分将详细探讨 SRE 之道。\n\n6Google 工程副总裁，Google SRE 创始人\n\n7参见 Disaster Role Playing。\n\n8关于这种协作在实践中如何运作的进一步讨论，参见 Communications: Production Meetings。\n\n第 I 部分 - 导论\n\n第 2 章 - 站在 SRE 视角看 Google 的生产环境\n\n版权所有 © 2017 Google, Inc. 由 O'Reilly Media, Inc. 出版。基于 CC BY-NC-ND 4.0 授权",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

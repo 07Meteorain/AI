@@ -1,0 +1,10 @@
+{
+ "seg_id": "context-rot#0023",
+ "doc_id": "context-rot",
+ "fingerprint": "112f3b7323b90e7c5bca03ad3eaf7dcd0ddf8366",
+ "zh": "重复词 —— 样本提示词，其中 'apple' 是重复词，'apples' 是独特词对于给定的词组合，我们构造出 1090 种上下文长度与独特词位置的组合：\n\n- 词数：25, 50, 75, 100, 250, 500, 750, 1000, 2500, 5000, 7500, 10000\n\n- 位置：\n\n- num_words <= 100 时的所有可能位置\n\n我们在以下词组合上执行这项任务：\n\n- 重复词：\"apple\" | 独特词：\"apples\"\n\n- 重复词：\"apples\" | 独特词：\"apple\"\n\n- 重复词：\"golden\" | 独特词：\"Golden\"\n\n- 重复词：\"orange\" | 独特词：\"run\"\n\n- 重复词：\"orange\" | 独特词：\"San Francisco\"\n\n- 重复词：\"San Francisco\" | 独特词：\"sf\"\n\n- 重复词：\"Golden Gate Bridge\" | 独特词：\"Golden Gate Park\"\n\n注意：\"San Francisco\" 算 1 个词，\"Golden Gate Bridge/Park\" 算 1 个词\n\n模型配置：\n\n- max_output_tokens = input_tokens *2（不超过模型的最大输出 token 上限，老模型的这个上限通常更低）\n\n- temperature = 0\n\n- thinking = max(0, minimum_thinking_budget)\n\n对推理模型，我们的做法是把思考预算设为 0 或最小值，比如 Gemini 2.5 Pro 为 128 个 token。我们排除了 OpenAI 的 o3，因为它不支持基于 token 的思考预算，也无法配置固定输出长度，而后者对保持各次评测的一致性是必需的。\n\n分数由归一化的 Levenshtein 距离计算得出。\n\n我们遇到模型不尝试完成任务的情况，判定方式如下：",
+ "meta": {
+  "source": "../work/tr_g02.json",
+  "batch": "tr_g02"
+ }
+}

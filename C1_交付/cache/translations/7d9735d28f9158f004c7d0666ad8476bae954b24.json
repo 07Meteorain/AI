@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0033",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "7d9735d28f9158f004c7d0666ad8476bae954b24",
+ "zh": "## 相关的 Google Cloud 产品与服务\n\n查看全部 AI 产品与解决方案\n\nVertex AI Platform\n\n一个统一的平台，供数据科学家和工程师创建、训练、测试、监控、调优和部署 ML 与 AI 模型。\n\nVertex AI 上的生成式 AI\n\n快速做原型并测试生成式 AI 模型。试用示例提示词，设计你自己的提示词，并定制基础模型和 LLM。\n\nAI API\n\n借助 Google Cloud 的 AI 与机器学习 API，轻松把 AI 集成到你的应用中。\n\n- 解决方案\n\nVertex AI 上的 Model Garden\n\n一个入口就能发现、定制并部署来自 Google 及 Google 合作伙伴的各种模型，快速启动你的 ML 项目。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

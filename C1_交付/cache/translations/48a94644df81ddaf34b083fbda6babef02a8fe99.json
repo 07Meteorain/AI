@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0044",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "48a94644df81ddaf34b083fbda6babef02a8fe99",
+ "zh": "### 把内容加入智能体的知识库\n\n如果你的智能体总是犯某些常见错误，那就是把你的反馈固化进它知识库的好时机。在 Devin 中有专门的知识管理系统。很多产品提供 .rules 文件、.md 文件，让智能体永久吸收。别只告诉它你用的是哪个框架，还要告诉它项目的整体架构。告诉它不同类型的任务通常该怎么做测试、重要命令怎么跑、你推荐使用哪些工具。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

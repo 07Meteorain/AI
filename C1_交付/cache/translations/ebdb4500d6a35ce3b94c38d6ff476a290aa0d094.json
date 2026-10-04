@@ -1,0 +1,10 @@
+{
+ "seg_id": "multi-agent-systems-ai-native#0006",
+ "doc_id": "multi-agent-systems-ai-native",
+ "fingerprint": "ebdb4500d6a35ce3b94c38d6ff476a290aa0d094",
+ "zh": "### 关于 Resolve AI\n\nResolve AI 是你全天候在线的 AI SRE，帮助你解决故障事件、运维生产系统。包括 Salesforce、Zscaler 和 Coinbase 在内的 Resolve AI 客户，通过让机器替人类值班、让工程师只需写代码，提升了工程速度与系统可靠性。想进一步了解 AI 原生工程工作流，请访问 resolve.ai。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

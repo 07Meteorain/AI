@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-introduction#0019",
+ "doc_id": "mcp-introduction",
+ "fingerprint": "20ca6a0322781a8da3ae9b9df1d01eebaebc35ef",
+ "zh": "它会返回一份结构化的工具列表。每个工具条目都有名称、描述和输入的 JSON schema，这样 AI 就知道自己能做什么。\n\n3. LLM 选择工具——当用户提出一个需要外部动作的问题时，LLM 会判断（通常借助提示工程或函数调用能力）应该使用某个工具。比如用户问：“AAPL 股票的最新价格是多少？”LLM 会意识到应当调用 get_current_stock_price(company=\"AAPL\", format=\"USD\")。宿主应用会捕获这一意图（例如，OpenAI 的函数调用 API 会以 JSON 返回函数名和参数）。\n\n4. 通过 MCP 调用工具——客户端这时把选定的工具名和参数作为 tools/call 请求发给服务器。前面我们已经看过相应的 JSON 示例。在代码里使用 SDK 时，可能长这样：",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

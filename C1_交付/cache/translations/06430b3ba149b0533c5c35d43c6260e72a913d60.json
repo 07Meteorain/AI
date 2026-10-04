@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0008",
+ "doc_id": "course-homepage",
+ "fingerprint": "06430b3ba149b0533c5c35d43c6260e72a913d60",
+ "zh": "#### 讲座\n\n周一 10/13：Claude Code 深入剖析 —— 幻灯片\n\n周五 10/17：嘉宾：Boris Cherney（Claude Code）—— 幻灯片\n\n第 5 周：Warp 与 AI 终端\n\n#### 主题\n\n- AI 原生的终端开发\n\n#### 阅读\n\n#### 作业\n\n- 用 Warp 做智能体式开发",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

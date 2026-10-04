@@ -1,0 +1,10 @@
+{
+ "seg_id": "kubernetes-troubleshooting-ai#0005",
+ "doc_id": "kubernetes-troubleshooting-ai",
+ "fingerprint": "38036582ea9759ee9aa4c4a9bb3b21633851e37d",
+ "zh": "### 智能体 AI 实战\n\n想象一下：\n\n你收到某个 pod 崩溃的告警。你不用去和 kubectl 较劲、也不用在命令行里解析没完没了的日志，AI Production Engineer 登场了：\n\n1. 重建事件时间线\n\n它把导致崩溃的来龙去脉拼起来——无论是资源争用、CrashLoopBackOff 循环、容器镜像配置错误，还是外部限流。\n\n2. 跨集群关联问题\n\n借助知识图谱，它检查 pod、节点或 namespace 中是否存在类似异常，判断问题是孤立的还是更大范围 Kubernetes 集群问题的一部分。它还会检查权限问题、Docker registry 错误和端点配置错误这些可能的诱因。\n\n3. 执行自动化调查\n\n智能体 AI 通过执行自动化操作手册并分析实时 Kubernetes 事件，来检验“是 OOMKilled 错误吗，原因是 CPU 还是内存限制？”或“这个 pod 失败是不是因为启动命令配置错了？”这类假设。Resolve AI 的 AI 智能体不只是呈现信息。它们真的会在你的技术栈中执行工作流，从可观测性数据、GitHub 部署历史和基础设施状态中取材，拼出完整图景。\n\n4. 给出解决方案\n\n如果找到了根因，智能体会给出修复步骤，并随时准备执行它（这项能力即将到来）。如果没有，它会列出清晰的后续步骤和优化后的工作流，节省时间和精力。\n\n这一切都在你正去喝杯咖啡的时候发生……更好的是，在你还在睡觉的时候。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

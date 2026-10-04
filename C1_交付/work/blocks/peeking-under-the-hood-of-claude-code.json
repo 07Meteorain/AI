@@ -1,0 +1,37 @@
+{
+ "meta": {
+  "id": "peeking-under-the-hood-of-claude-code",
+  "type": "html",
+  "path": "CS146S_offline/pages/peeking-under-the-hood-of-claude-code.html",
+  "title": "Claude Code 内部机制探秘（占位页）",
+  "priority": 3,
+  "category": "Week 4 · Claude Code"
+ },
+ "page_title": "Peeking Under the Hood of Claude Code",
+ "blocks": [
+  {
+   "kind": "heading",
+   "text": "Peeking Under the Hood of Claude Code",
+   "level": 1,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "This article is hosted on Medium and requires a browser to access.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Original URL: https://medium.com/@outsightai/peeking-under-the-hood-of-claude-code-70f5a94a9a62",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Medium blocks automated downloads. Please visit the link above when you have internet access.",
+   "level": 0,
+   "meta": {}
+  }
+ ]
+}

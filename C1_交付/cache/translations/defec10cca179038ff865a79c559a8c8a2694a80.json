@@ -1,0 +1,10 @@
+{
+ "seg_id": "code-review-essentials#0010",
+ "doc_id": "code-review-essentials",
+ "fingerprint": "defec10cca179038ff865a79c559a8c8a2694a80",
+ "zh": "程序员喜欢解决问题、指出问题，所以从本性上\n说，他们喜欢发现并指出缺陷。很容易把代码\n评审当成一种证明自己有多聪明的办法——在\n同伴的代码里找出问题。别这么做。代码评审是\n让一次改动多几双眼睛、把关键问题揪出来的方式，\n但你的目标应该是以一种能鼓励团队成员在修复\n手头问题的同时提升自己技能的方式去做评审。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

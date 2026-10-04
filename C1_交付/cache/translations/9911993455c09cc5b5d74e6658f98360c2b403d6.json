@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0023",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "9911993455c09cc5b5d74e6658f98360c2b403d6",
+ "zh": "## 添加认证\n\n你之前部署的公开 MCP 服务器示例允许任何客户端在不登录的情况下连接并调用工具。要给你的 MCP 服务器加上用户认证，你可以集成 Cloudflare Access，或某个第三方服务作为 OAuth 提供方。你的 MCP 服务器负责处理安全的登录流程，并签发访问 token，MCP 客户端可用它们发起带认证的工具调用。用户通过 OAuth 提供方登录，并使用带范围的权限授予其 AI 智能体与你的 MCP 服务器所暴露的工具交互的权限。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

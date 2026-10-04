@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0018",
+ "doc_id": "observability-basics",
+ "fingerprint": "5cc66f2ab3dd11a248e0d954a330359baabbf9bb",
+ "zh": "### 分布式上下文管理\n\n在复杂系统中，你需要管理的不只是追踪 ID。W3C Trace Context 规范为以下内容提供了标准：\n\n- traceparent：包含追踪 ID 和父跨度 ID\n\n- tracestate：允许厂商添加自定义上下文数据\n\n使用这些头可以确保你的追踪在不同服务和厂商之间都能正常工作。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

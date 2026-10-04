@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0011",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "f6ebc432699d2acfaf0d0961b236eddfe01db17d",
+ "zh": "#### 5. 安全优先的思维\n\n在评审 AI 生成的代码建议时，永远把安全放在第一位：\n\n- 验证 AI 的建议不会引入新的漏洞\n\n- 对处理以下内容的 AI 生成代码尤其谨慎：",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

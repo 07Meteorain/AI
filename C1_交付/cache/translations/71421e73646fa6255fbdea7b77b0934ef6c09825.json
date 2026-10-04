@@ -1,0 +1,10 @@
+{
+ "seg_id": "owasp-top-ten#0001",
+ "doc_id": "owasp-top-ten",
+ "fingerprint": "71421e73646fa6255fbdea7b77b0934ef6c09825",
+ "zh": "# OWASP Web 应用十大风险\n\n目前发布的最新版本是 OWASP 十大风险 2025。\n\n更早的版本可见 OWASP Top Ten 2021 和 OWASP Top 10 2017（PDF）。更早的版本可在 Github 仓库中获取。\n\nOWASP 十大风险是面向开发者和 Web 应用安全的标准意识文档。它代表了对 Web 应用最关键安全风险的广泛共识。\n\n被开发者普遍视为迈向更安全编码的第一步。\n\n企业应当采纳本文件，并启动相应的工作流程，确保其 Web 应用把这些风险降到最低。采纳 OWASP 十大风险，或许是推动组织内软件开发文化转向、产出更安全代码的第一步。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

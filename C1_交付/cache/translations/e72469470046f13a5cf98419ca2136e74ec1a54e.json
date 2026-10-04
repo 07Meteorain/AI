@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0033",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "e72469470046f13a5cf98419ca2136e74ec1a54e",
+ "zh": "#### 示例：\n\n我们团队先加强了代码库中某个关键部分的单元测试，然后才把「把实现从 Python 翻译成 C」这件事交给 AI。\n\n（高级）",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

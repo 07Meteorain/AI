@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0005",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "c2d2b6ea95e58c0d1d10f4f8eed0b24a79719a1f",
+ "zh": "### 通过仪表盘部署\n\n下面的按钮会引导你完成把示例 MCP 服务器部署到 Cloudflare 账户所需的一切步骤：\n\n部署完成后，这个服务器会运行在你的 workers.dev 子域名下（例如，remote-mcp-server-authless.your-account.workers.dev/mcp）。你可以立刻用 AI Playground（一个远程 MCP 客户端）、MCP inspector 或其他 MCP 客户端连接它。\n\n系统会在你的 GitHub 或 GitLab 账户下为这个 MCP 服务器创建一个新的 git 仓库，并配置成每次你推送变更或把拉取请求（PR）合并到仓库主分支时自动部署到 Cloudflare。你可以克隆这个仓库，在本地开发，并用你自己的工具开始定制这个 MCP 服务器。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

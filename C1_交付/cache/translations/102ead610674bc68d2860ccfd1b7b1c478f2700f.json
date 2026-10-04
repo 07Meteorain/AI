@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0048",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "102ead610674bc68d2860ccfd1b7b1c478f2700f",
+ "zh": "- Transcoder API\n\n转换视频文件并打包，为高效分发做准备。\n\n- Video Stitcher API\n\n用于动态或服务端广告插入的服务。\n\n迁移\n\n- Migration Center\n\n用于在 Google Cloud 上迁移和现代化升级的统一平台。\n\n- Application Migration\n\n把应用迁移上云，实现低成本刷新周期。\n\n- 迁移到虚拟机\n\n把虚拟机和物理服务器迁移到 Compute Engine 的组件。\n\n- Cloud Foundation Toolkit\n\n面向 Deployment Manager 和 Terraform 的参考模板。\n\n- Database Migration Service\n\n迁移到 Cloud SQL 的无服务器、低停机方案。\n\n- 迁移到容器\n\n把虚拟机迁入 GKE 系统容器的组件。\n\n- BigQuery Migration Services\n\n简化数据仓库和数据湖迁移的工具与激励方案。\n\n- 快速迁移与现代化计划\n\n端到端迁移计划，简化你走向云的路径。\n\n- Transfer Appliance\n\n用于把大规模数据搬进 Google Cloud 的存储服务器。\n\n- Storage Transfer Service\n\n把数据从线上和本地源传输到 Cloud Storage。\n\n- VMware Engine\n\n在 Google Cloud 上原生迁移并运行 VMware 工作负载。\n\n- 混合现实\n\n- Immersive Stream for XR\n\n承载、渲染并串流 3D 与 XR 体验。\n\n网络\n\n- Cloud Armor\n\n安全策略与针对 Web 和 DDoS 攻击的防御。\n\n- Cloud CDN and Media CDN\n\n用于分发 Web 和视频内容的内容交付网络。\n\n- Cloud DNS\n\n实现可靠低延迟名称解析的域名系统。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

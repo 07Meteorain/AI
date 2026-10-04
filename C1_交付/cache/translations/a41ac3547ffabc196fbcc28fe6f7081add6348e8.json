@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0030",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "a41ac3547ffabc196fbcc28fe6f7081add6348e8",
+ "zh": "### 现有的 TypeScript 代码评审工具\n\n本指南探讨最适合 TypeScript 的代码评审工具，重点是如何强制落实最佳实践……\n\n最后修改于 11 个月前\n\n0 分钟阅读\n\n- 了解 AI 代码评审\n\n- AI 代码评审的收益\n\n- 结论\n\n- 常见问题\n\n分享\n\n源于 Git 的设计\n\nGraphite 的 CLI 和 VS Code 扩展让使用 Git 变得毫不费力。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

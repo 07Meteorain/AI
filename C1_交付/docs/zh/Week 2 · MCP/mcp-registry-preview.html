@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MCP Registry 预览 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>MCP Registry 预览</h1>
+  <div class="meta">
+    <span>分类：Week 2 · MCP</span><span>原文 847 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/" target="_blank" rel="noopener">https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="mcp-registry-preview-0000"><div class="zh side"><div class="tag">中文</div><p>跳到正文</p>
+<p>首页 » 文章</p></div><div class="en side"><div class="tag">EN</div><p>Skip to content</p>
+<p>Home » Posts</p></div></div>
+<div class="pair" id="mcp-registry-preview-0001"><div class="zh side"><div class="tag">中文</div><h1 id="hmcp-">MCP 注册表隆重推出</h1>
+<p>MCP 注册表开启预览：一个用于发现公开可用 MCP 服务器的开放目录与 API。</p>
+<p>2025 年 9 月 8 日 · 4 分钟 · David Soria Parra（首席维护者）、Adam Jones（注册表维护者）、Tadas Antanavicius（注册表维护者）、Toby Padilla（注册表维护者）、Theodora Chu（Anthropic 的 MCP 产品经理）</p>
+<p>今天，我们正式推出 Model Context Protocol (MCP) 注册表——一个面向公开可用 MCP 服务器的开放目录与 API，旨在提升其可发现性与可实现性。通过标准化服务器的发布与发现方式，我们扩大了它们的触达范围，也让客户端更容易接入。</p>
+<p>MCP 注册表现已开放预览。要开始使用：</p>
+<ul>
+<li>按照《Adding Servers to the MCP Registry》指南添加你的服务器（面向服务器维护者）</li>
+</ul>
+<ul>
+<li>按照《Accessing MCP Registry Data》指南访问服务器数据（面向客户端维护者）</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h1 id="hintroducing-the-mcp-registry">Introducing the MCP Registry</h1>
+<p>Launching the MCP Registry in preview: an open catalog and API for discovering publicly available MCP servers.</p>
+<p>September 8, 2025 · 4 min · David Soria Parra (Lead Maintainer), Adam Jones (Registry Maintainer), Tadas Antanavicius (Registry Maintainer), Toby Padilla (Registry Maintainer), Theodora Chu (MCP PM at Anthropic)</p>
+<p>Today, we’re launching the Model Context Protocol (MCP) Registry—an open catalog and API for publicly available MCP servers to improve discoverability and implementation. By standardizing how servers are distributed and discovered, we’re expanding their reach while making it easier for clients to get connected.</p>
+<p>The MCP Registry is now available in preview. To get started:</p>
+<ul>
+<li>Add your server by following our guide on Adding Servers to the MCP Registry (for server maintainers)</li>
+</ul>
+<ul>
+<li>Access server data by following our guide on Accessing MCP Registry Data (for client maintainers)</li>
+</ul></div></div>
+<div class="pair" id="mcp-registry-preview-0002"><div class="zh side"><div class="tag">中文</div><h1 id="hmcp-">MCP 服务器的单一可信来源#</h1>
+<p>2025 年 3 月，我们曾表示希望为 MCP 生态建立一个中央注册表。今天我们宣布，https://registry.modelcontextprotocol.io 已作为官方 MCP 注册表上线。作为 MCP 项目的一部分，MCP 注册表及其上层 OpenAPI 规格说明均为开源——让所有人都能构建兼容的子注册表。</p>
+<p>我们的目标是标准化服务器的发布与发现方式，提供一个主可信来源，供各类子注册表在其基础上继续构建。反过来，这也将扩大服务器的触达范围，并帮助客户端在整个 MCP 生态中更容易地找到服务器。</p></div><div class="en side"><div class="tag">EN</div><h1 id="hsingle-source-of-truth-for-mcp-servers-">Single source of truth for MCP servers#</h1>
+<p>In March 2025, we shared that we wanted to build a central registry for the MCP ecosystem. Today we are announcing that we’ve launched https://registry.modelcontextprotocol.io as the official MCP Registry. As part of the MCP project, the MCP Registry, as well as a parent OpenAPI specification, are open source—allowing everyone to build a compatible sub-registry.</p>
+<p>Our goal is to standardize how servers are distributed and discovered, providing a primary source of truth that sub-registries can build upon. In turn, this will expand server reach and help clients find servers more easily across the MCP ecosystem.</p></div></div>
+<div class="pair" id="mcp-registry-preview-0003"><div class="zh side"><div class="tag">中文</div><h2 id="h-">公有与私有子注册表#</h2>
+<p>在建设中央注册表的过程中，我们非常重要的一点是不去削弱社区和企业已经建成的各类注册表。MCP 注册表充当公开可用 MCP 服务器的主可信来源，而各组织可以按自定义标准创建子注册表。例如：</p>
+<p>与每个 MCP 客户端相关联的、有自己主张的“MCP 市场”这类公有子注册表，可以自由扩充和增强它们从上游 MCP 注册表摄取的数据。每一种 MCP 终端用户角色都有不同需求，而如何以自己主张的方式服务好终端用户，取决于各个 MCP 客户端市场。</p>
+<p>私有子注册表会存在于那些有严格隐私与安全要求的企业内部，而 MCP 注册表为这些企业提供了一个可供其构建的上游数据来源。至少，我们的目标是与这些私有实现共享 API schema，以便相关的 SDK 和工具能在整个生态中共享。</p>
+<p>无论哪种情况，MCP 注册表都是起点——它是那个集中的位置，MCP 服务器维护者在这里发布并维护自己上报的信息，供下游消费者加工后交付给各自的终端用户。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hpublic-and-private-sub-registries-">Public and private sub-registries#</h2>
+<p>In building a central registry, it was important to us not to take away from existing registries that the community and companies have built. The MCP Registry serves as a primary source of truth for publicly available MCP servers, and organizations can choose to create sub-registries based on custom criteria. For example:</p>
+<p>Public subregistries like opinionated “MCP marketplaces” associated with each MCP client are free to augment and enhance data they ingest from the upstream MCP Registry. Every MCP end-user persona will have different needs, and it is up to the MCP client marketplaces to properly serve their end-users in opinionated ways.</p>
+<p>Private subregistries will exist within enterprises that have strict privacy and security requirements, but the MCP Registry gives these enterprises a single upstream data source they can build upon. At a minimum, we aim to share API schemas with these private implementations so that associated SDKs and tooling can be shared across the ecosystem.</p>
+<p>In both cases, the MCP Registry is the starting point – it’s the centralized location where MCP server maintainers publish and maintain their self-reported information for these downstream consumers to massage and deliver to their end-users.</p></div></div>
+<div class="pair" id="mcp-registry-preview-0004"><div class="zh side"><div class="tag">中文</div><h2 id="h-">由社区驱动的治理机制#</h2>
+<p>MCP 注册表是 MCP 官方项目，由注册表工作组维护，采用宽松许可。社区成员可以提交 issue，举报违反 MCP 治理准则的服务器——例如含有垃圾内容、恶意代码，或冒充合法服务的服务器。注册表维护者随后可以将这些条目加入拒绝列表，并追溯性地将其从公开访问中移除。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hcommunity-driven-mechanism-for-moderation-">Community-driven mechanism for moderation#</h2>
+<p>The MCP Registry is an official MCP project maintained by the registry working group and permissively licensed. Community members can submit issues to flag servers that violate the MCP moderation guidelines—such as those containing spam, malicious code, or impersonating legitimate services. Registry maintainers can then denylist these entries and retroactively remove them from public access.</p></div></div>
+<div class="pair" id="mcp-registry-preview-0005"><div class="zh side"><div class="tag">中文</div><h1 id="h-">快速上手#</h1>
+<p>要开始使用：</p>
+<ul>
+<li>按照《Adding Servers to the MCP Registry》指南添加你的服务器（面向服务器维护者）</li>
+</ul>
+<ul>
+<li>按照《Accessing MCP Registry Data》指南访问服务器数据（面向客户端维护者）</li>
+</ul>
+<p>MCP 注册表的这次预览，目的是让我们在正式可用之前改进用户体验，不提供数据持久性保证或其他形式的担保。我们建议 MCP 采用者密切关注开发进展，因为注册表在正式可用之前可能还会出现破坏性变更。</p>
+<p>随着我们继续开发注册表，欢迎在 modelcontextprotocol/registry 这个 GitHub 仓库上反馈和贡献：讨论、issue 和拉取请求（PR）都非常欢迎。</p></div><div class="en side"><div class="tag">EN</div><h1 id="hgetting-started-">Getting started#</h1>
+<p>To get started:</p>
+<ul>
+<li>Add your server by following our guide on Adding Servers to the MCP Registry (for server maintainers)</li>
+</ul>
+<ul>
+<li>Access server data by following our guide on Accessing MCP Registry Data (for client maintainers)</li>
+</ul>
+<p>This preview of the MCP Registry is meant to help us improve the user experience before general availability and does not provide data durability guarantees or other warranties. We advise MCP adopters to watch development closely as breaking changes may occur before the registry is made generally available.</p>
+<p>As we continue to develop the registry, we encourage feedback and contributions on the modelcontextprotocol/registry GitHub repository: Discussion, Issues, and Pull Requests are all welcome.</p></div></div>
+<div class="pair" id="mcp-registry-preview-0006"><div class="zh side"><div class="tag">中文</div><h1 id="h-mcp-">感谢 MCP 社区#</h1>
+<p>MCP 注册表从一开始就是协作的成果，我们对更广泛开发者社区的热情与支持深怀感激。</p>
+<p>2025 年 2 月，它以草根项目的形式起步：MCP 的创建者 David Soria Parra 和 Justin Spahr-Summers 请 PulseMCP 和 Goose 团队帮忙构建一个集中的社区注册表。来自 PulseMCP 的注册表维护者 Tadas Antanavicius 牵头完成了最初的工作，并与来自 Block 的 Alex Hancock 合作。他们很快又迎来了注册表维护者、GitHub 的 MCP 负责人 Toby Padilla；最近，来自 Anthropic 的 Adam Jones 也加入担任注册表维护者，推动项目走向今天的正式发布。MCP 注册表开发的首发公告列出了来自至少 9 家不同公司的 16 位贡献者。</p>
+<p>还有许多人为把这个项目落到实处做出了关键贡献：来自 Stacklok 的 Radoslav Dimitrov、来自 GitHub 的 Avinash Sridhar、来自 VS Code 的 Connor Peet、来自 NuGet 的 Joel Verhagen、来自 Last9 的 Preeti Dewani、来自 Microsoft 的 Avish Porwal、Jonathan Hefner，以及许多提供代码评审与开发支持的 Anthropic 和 GitHub 员工。我们也感谢注册表贡献者日志上的每一个人，以及参与讨论和 issue 的每一个人。</p>
+<p>我们由衷感谢每一位在这项基础性开源设施上投入的人。我们正在共同帮助全球的开发者和组织构建更可靠、更具上下文感知能力的 AI 应用。谨代表 MCP 社区，向大家道谢。</p></div><div class="en side"><div class="tag">EN</div><h1 id="hthanks-to-the-mcp-community-">Thanks to the MCP community#</h1>
+<p>The MCP Registry has been a collaborative effort from the beginning and we are incredibly grateful for the enthusiasm and support from the broader developer community.</p>
+<p>In February 2025, it began as a grassroots project when MCP creators David Soria Parra and Justin Spahr-Summers asked the PulseMCP and Goose teams to help build a centralized community registry. Registry Maintainer Tadas Antanavicius from PulseMCP spearheaded the initial effort in collaboration with Alex Hancock from Block. They were soon joined by Registry Maintainer Toby Padilla, Head of MCP at GitHub, and more recently, Adam Jones from Anthropic joined as Registry Maintainer to drive the project towards the launch today. The initial announcement of the MCP Registry’s development lists 16 contributing individuals from at least 9 different companies.</p>
+<p>Many others made crucial contributions to bring this project to life: Radoslav Dimitrov from Stacklok, Avinash Sridhar from GitHub, Connor Peet from VS Code, Joel Verhagen from NuGet, Preeti Dewani from Last9, Avish Porwal from Microsoft, Jonathan Hefner, and many Anthropic and GitHub employees that provided code reviews and development support. We are also grateful to everyone on the Registry’s contributors log and those who participated in discussions and issues.</p>
+<p>We deeply appreciate everyone investing in this foundational open source infrastructure. Together, we’re helping developers and organizations worldwide to build more reliable, context-aware AI applications. On behalf of the MCP community, thank you.</p></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#mcp-registry-preview-0000">第 1 段</a></li><li><a href="#mcp-registry-preview-0001">第 2 段</a></li><li><a href="#mcp-registry-preview-0002">第 3 段</a></li><li><a href="#mcp-registry-preview-0003">第 4 段</a></li><li><a href="#mcp-registry-preview-0004">第 5 段</a></li><li><a href="#mcp-registry-preview-0005">第 6 段</a></li><li><a href="#mcp-registry-preview-0006">第 7 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

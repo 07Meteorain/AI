@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0005",
+ "doc_id": "course-homepage",
+ "fingerprint": "9fb136a6ab3acb2c3718e0435c194f557c91c2ec",
+ "zh": "#### 讲座\n\n周一 9/22：大语言模型是怎样炼成的 —— 幻灯片\n\n周五 9/26：为大语言模型写好提示词 —— 幻灯片\n\n第 2 周：编码智能体的内部构造\n\n#### 主题\n\n- 工具调用与函数调用\n\n#### 阅读\n\n#### 作业\n\n- AI IDE 上手",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

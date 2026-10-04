@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0000",
+ "doc_id": "course-homepage",
+ "fingerprint": "da02050fbede4f1b83e03c2461d52a4b589f0671",
+ "zh": "# CS146S：现代软件开发者 OFFLINE CACHE\n\nStanford University • 2025 秋季学期 • 授课教师：Mihail Eric\n\n离线缓存 — 这是 themodernsoftware.dev 于 2026 年 4 月 2 日抓取并保存在本地的版本。\n文章页面保存在 pages/ 目录，PDF 文档位于 pdfs/ 目录。\n视频链接（YouTube）与 Google Slides 仍为外部链接。",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0032",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "b5ee121472713dc99dc822a3b2a53701ed6cb92e",
+ "zh": "##### 攻击载荷说明\n\n表 8 中的提示词示例指示智能体用攻击者提供的输入调用 View Transactions 工具，该输入中包含一段 SQL 注入载荷。这段载荷被精心构造用于从交易历史表中提取数据行。为避免触及语言模型的输出上下文上限，该查询把返回的行数限制为 20 行。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

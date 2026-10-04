@@ -1,0 +1,10 @@
+{
+ "seg_id": "sast-vs-dast#0023",
+ "doc_id": "sast-vs-dast",
+ "fingerprint": "04ee87153f87252fecee4ada365a2b637be98a35",
+ "zh": "## 有韧性的安全始于主动测试\n\n把 SAST、DAST 和 RASP 结合起来，可以覆盖整个软件开发生命周期，提供稳健的安全能力。\n\n通过把这些方法集成进 CI/CD 流水线并利用 AI 领域的进展，组织可以主动应对新出现的威胁。这些方法合在一起，为守护现代应用免受漏洞侵害提供了全局性的方案。\n\n/en_us/blog/fragments/disclaimer-with-divider\n\n/en_us/blog/fragments/top-50-security-threats\n\nStyle\n\ntwo-column\n\nTitle\n\nFilter\n\nCategory\n\nBlog Limit\n\n3\n\nCategory\n\nlearn\n\nSort Category Shuffle Order\n\ntrue\n\nLearn6 Minute Read",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

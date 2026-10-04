@@ -1,0 +1,10 @@
+{
+ "seg_id": "context-rot#0035",
+ "doc_id": "context-rot",
+ "fingerprint": "619fc07985502ca5ef9fd7e23e9c4dd7cfc91827",
+ "zh": "干扰项的影响：按干扰项数量划分的表现 —— PG 文章草堆/arXiv 针\n\n干扰项的影响：按单个干扰项划分的表现 —— PG 文章草堆/arXiv 针\n\n干扰项的影响：失败分析 —— arXiv 草堆/arXiv 针\n\n干扰项的影响：失败分析 —— PG 文章草堆/PG 文章针\n\n干扰项的影响：失败分析 —— PG 文章草堆/arXiv 针\n\n重复词#\n\n重复词：位置准确率 —— GPT 家族\n\n重复词：位置准确率 —— Gemini 家族\n\n重复词：位置准确率 —— Qwen 家族\n\n重复词：词数差 —— GPT 家族\n\n重复词：词数差 —— Gemini 家族\n\n重复词：词数差 —— Qwen 家族",
+ "meta": {
+  "source": "../work/tr_g02.json",
+  "batch": "tr_g02"
+ }
+}

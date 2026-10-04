@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0050",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "42e9f3aba2cfd9d648c624af8255aaa87ad6924b",
+ "zh": "b. 用得到的 KV ID 更新 wrangler.jsonc 文件：",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

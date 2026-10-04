@@ -1,0 +1,875 @@
+{
+ "meta": {
+  "id": "ai-code-review-best-practices",
+  "type": "html",
+  "path": "CS146S_offline/pages/ai-code-review-best-practices.html",
+  "title": "AI 代码评审最佳实践",
+  "priority": 2,
+  "category": "Week 7 · 代码评审"
+ },
+ "page_title": "AI code review implementation and best practices",
+ "blocks": [
+  {
+   "kind": "paragraph",
+   "text": "Cursor Cloud Agents are now in Graphite. Create, review, and ship without leaving your PR.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Log inG",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Index",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Series",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Merge queues",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "merge queue",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "AI code review implementation and best practices",
+   "level": 1,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Greg Foster",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Graphite software engineer",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Try Graphite",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "As artificial intelligence becomes increasingly integrated into software development workflows, AI code review has emerged as a useful tool for improving code quality and developer productivity. This technical guide explores the implementation of AI code review systems and outlines best practices for effectively leveraging these tools in your development process.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Understanding AI code review",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Conclusion",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Frequently asked questions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "As artificial intelligence becomes increasingly integrated into software development workflows, AI code review has emerged as a powerful tool for improving code quality and developer productivity. This technical guide explores the implementation of AI code review systems and outlines best practices for effectively leveraging these tools in your development process.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "AI code review tools like Graphite Agent are transforming how teams approach code quality assurance, enabling faster iteration cycles while maintaining high standards. This guide will help you understand how to implement and optimize AI code review in your organization.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Understanding AI code review",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "AI code review refers to the use of machine learning and natural language processing technologies to automatically analyze code for issues including:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Bugs and potential runtime errors",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Performance inefficiencies",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Unlike traditional static analyzers, modern AI code review tools can understand code context, suggest improvements, and even generate fixes automatically.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Benefits of AI code review",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Increased efficiency - Automation reduces review time and catches issues early",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Consistency - AI applies the same standards across all code reviews",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Knowledge sharing - Developers learn best practices through AI suggestions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Reduced cognitive load - AI handles routine checks, letting humans focus on complex logic",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Continuous improvement - AI systems improve over time with more data",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Implementing AI Code Review",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Step 1: Choose the Right Tool",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Several AI code review tools are available, with varying capabilities:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Graphite Agent: Offers immediate, actionable feedback via contextual code analysis with PR automation",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "GitHub Copilot: Provides real-time suggestions while coding to provide cleaner code for reviews",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "SonarQube with AI: Combines traditional static analysis with AI capabilities",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "DeepCode: Focuses on detecting security vulnerabilities",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "When selecting an AI code review tool, it's important to consider:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Customization options",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Step 2: Integration into development workflow",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "For effective AI code review implementation:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Set up webhooks or integrations to trigger reviews automatically on pull requests",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Create configuration files specifying severity levels and focus areas",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Set up ignore patterns for generated code",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Introduce teams to AI review capabilities and limitations",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Establish guidelines for interpreting and acting on AI suggestions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Step 3: Customization and fine tuning",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Most AI code review tools allow customization, including:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Rule sensitivity: Adjust thresholds for different types of issues",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Domain-specific patterns: Define custom rules for your codebase",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Integration depth: Configure how deeply the AI integrates with your workflow",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Best practices for AI code review",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "1. Establish clear expectations",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Define what the AI should and shouldn't review:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "DO: use AI for style consistency, basic logic errors, and security scanning",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "DON'T: rely solely on AI for architectural decisions or complex business logic",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "DO: establish clear acceptance criteria for automated reviews",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "2. Human-in-the-loop approach",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The most effective AI code review implementations maintain human oversight:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Use AI as a first pass to catch obvious issues",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Have human reviewers validate AI suggestions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Track which AI suggestions are accepted vs. rejected to improve the system",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "3. Focus on actionable feedback",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Train developers to analyze AI suggestions critically. For example, encourage your team to:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Understand the reasoning behind suggestions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Challenge suggestions that don't make sense in context.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Document recurring false positives.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Example of evaluating AI feedback:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "4. Continuous learning",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Implement feedback loops to improve both AI and human performance, which could include:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Tracking which AI suggestions developers accept vs. reject.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Periodically reviewing false positives and false negatives.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Updating review configurations based on findings.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "5. Security-first mindset",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "When reviewing AI code suggestions, always prioritize security:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Verify AI suggestions don't introduce new vulnerabilities",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Be especially cautious with AI-generated code that handles:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "6. Performance optimization",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Train the AI review process to identify performance concerns, such as:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Check for unnecessary recomputation",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Identify inefficient data structures",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "A human reviewer should then evaluate:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Is the list comprehension actually more efficient in this case?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Does it improve readability?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Is the operation suited for a different data structure altogether?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Graphite Agent automatically identifies performance bottlenecks in your PRs, helping you catch inefficiencies before they reach production. Its contextual analysis understands your entire codebase to provide actionable performance recommendations.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Popular AI code review tools",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Graphite Graphite Agent",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Graphite Agent tool stands out for its deep integration with development workflows and contextual understanding of code. Key features include:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Contextual code understanding across entire repositories",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Automatic PR summaries and descriptions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Intelligent code suggestions that respect project patterns",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Deep integration with GitHub",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "![screenshot of Graphite Agent comment](/images/content/guides/ai-code-review-implementation-best-practices/Graphite Agent-comment.png)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Graphite Agent excels at understanding not just isolated code snippets but entire codebases, making its suggestions more relevant and aligned with project standards.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Other notable tools",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "DeepCode: Strong in security vulnerability detection",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Codacy: Combines traditional analysis with AI capabilities",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "SonarQube AI: Enterprise-grade code quality platform",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Measuring success",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "To evaluate the effectiveness of your AI code review implementation, you can pay attention to these metrics:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Common challenges and solutions",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "table_row",
+   "text": "Graphite Agent is designed to address many of these common challenges out of the box. With intelligent filtering, contextual understanding, and seamless GitHub integration, it helps teams avoid false positive fatigue while maintaining high code quality standards.",
+   "level": 0,
+   "meta": {
+    "cells": [
+     "Use AI suggestions as teaching opportunities"
+    ]
+   }
+  },
+  {
+   "kind": "heading",
+   "text": "Conclusion",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "AI code review tools like Graphite Agent are transforming development practices by providing faster, more consistent analysis while reducing the burden on human reviewers. By implementing the best practices outlined in this guide and approaching AI code review as a complement to human expertise rather than a replacement, teams can significantly improve code quality, security, and developer productivity.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Remember that AI code review is most effective when it's part of a comprehensive quality strategy that includes testing, documentation, and thoughtful human oversight. The goal is not to eliminate human judgment but to enhance it by automating routine checks and providing valuable insights.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Frequently asked questions",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "How accurate are AI code review tools?",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "AI code review tools typically achieve 70-90% accuracy for common issues like syntax errors, style violations, and basic security vulnerabilities. However, accuracy varies significantly based on the complexity of the issue and the specific tool. For architectural decisions and complex business logic, human review remains essential.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Can AI code review replace human reviewers entirely?",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "No, AI code review should complement rather than replace human reviewers. While AI excels at catching routine issues and maintaining consistency, human reviewers are still needed for architectural decisions, business logic validation, and complex problem-solving. The most effective approach combines AI automation with human expertise.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "How do I convince my team to adopt AI code review?",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Start with a pilot program involving enthusiastic team members. Demonstrate clear value by showing time savings, improved code quality metrics, and reduced bug rates. Address concerns about job security by positioning AI as a productivity tool that allows developers to focus on higher-value work.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "How do I handle false positives from AI code review?",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Implement a feedback loop where developers can mark suggestions as false positives. Most tools allow you to tune sensitivity settings and create ignore patterns for specific code patterns. Regular review of false positives helps improve the system's accuracy over time.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Is my code secure when using AI code review tools?",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Security depends on the tool and deployment model. Cloud-based tools may process your code on external servers, while on-premises solutions keep code within your infrastructure. Review each tool's data handling policies and consider your organization's security requirements when choosing a solution.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Will AI code review slow down my development process?",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Initially, there may be a slight learning curve, but most teams see net time savings within 2-4 weeks. AI catches issues early, reducing debugging time and review cycles. The key is proper configuration to focus on high-impact issues rather than overwhelming developers with minor suggestions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "How do I integrate AI code review with my existing CI/CD pipeline?",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Most AI code review tools offer API integrations and webhook support. You can typically integrate them as a step in your CI pipeline or as automated checks on pull requests. Start with basic integration and gradually add more sophisticated workflows as your team becomes comfortable.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "How do I balance AI suggestions with team coding standards?",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Configure the AI tool to align with your existing coding standards and style guides. Most tools allow customization of rules and can learn from your codebase patterns. Regularly review and adjust configurations based on team feedback and evolving standards.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "How do I measure the success of my AI code review implementation?",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Track metrics like reduction in production bugs, time saved in code reviews, developer satisfaction scores, and code quality improvements. Set baseline measurements before implementation and compare results after 3-6 months of usage.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "The AI is missing important issues that human reviewers catch. How can I improve this?",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "This is common and expected. AI tools excel at pattern recognition but may miss context-specific issues. Supplement AI review with human oversight, especially for complex logic and architectural decisions. Use AI feedback to improve the tool's configuration and consider custom rules for domain-specific patterns.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Related guides",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Balancing code quality and delivery speed in software teams",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "This guide explores current and timeless best practices to optimize code standards and team producti...",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Best practices for pair programming with AI assistants",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "This guide explores essential best practices for pair programming with AI assistants, including code...",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Existing code review tools for TypeScript",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "This guide explores the best code review tools for TypeScript, focusing on enforcing best practices ...",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Last modified 11 months ago",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "0 min read",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Understanding AI code review",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Benefits of AI code review",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Conclusion",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Frequently asked questions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Share",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Git inspired",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Graphite's CLI and VS Code extension make working with Git effortless.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Built for the world’s fastest engineering teams, now available for everyone.",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Request a demo",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Start free trial",
+   "level": 0,
+   "meta": {}
+  }
+ ]
+}

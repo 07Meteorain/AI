@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0025",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "ef90ff0bcea1467d88708ac3dd28e69408239468",
+ "zh": "### 5. 反复迭代与实验：\n\n策略\n\n做法\n\n尝试不同的措辞和关键词\n\n用同义词或不同的句式改写你的提示词。\n\n调整细节程度和具体程度\n\n增删信息来微调输出。\n\n测试不同长度的提示词\n\n长短提示词都试一遍，找出最佳平衡点。\n\n策略\n\n做法\n\n尝试不同的措辞和关键词\n\n用同义词或不同的句式改写你的提示词。\n\n调整细节程度和具体程度\n\n增删信息来微调输出。\n\n测试不同长度的提示词\n\n长短提示词都试一遍，找出最佳平衡点。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

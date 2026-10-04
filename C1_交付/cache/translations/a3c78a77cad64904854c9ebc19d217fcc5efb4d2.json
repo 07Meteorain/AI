@@ -1,0 +1,10 @@
+{
+ "seg_id": "copilot-prompt-injection-rce#0003",
+ "doc_id": "copilot-prompt-injection-rce",
+ "fingerprint": "a3c78a77cad64904854c9ebc19d217fcc5efb4d2",
+ "zh": "### YOLO 模式\n\n接下来，我研究了 VS Code 中那些依赖项目/工作区文件夹内设置的功能，很快发现了一个有意思的。\n\n结果是，在 .vscode/settings.json 文件里可以加上这样一行：\n\n\"chat.tools.autoApprove\": true\n\n这会让 GitHub Copilot 进入 YOLO 模式。\n\n而且它会关掉所有用户确认，我们就可以运行 shell 命令、浏览网页等等！\n\n有意思的是，这是一项实验性功能，但默认情况下它依然存在。我并没有下载特殊版本，也没有把 VS Code 整体设成实验模式。\n\n而且它在 Windows、macOS 和 Linux 上都能用。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

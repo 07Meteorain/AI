@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0024",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "1c3bbf814de00596f433fc7e05c7ffd7d4032eb8",
+ "zh": "### Cloudflare Access OAuth\n\n你可以把 MCP 服务器配置为通过 Cloudflare Access 强制要求用户认证。Cloudflare Access 充当身份聚合器，核验用户邮箱、来自你现有身份提供商（如 GitHub 或 Google）的信号，以及 IP 地址、设备证书等其他属性。用户连接 MCP 服务器时，会被提示登录到所配置的身份提供商，并且只有通过你的 Access 策略才会被授予访问权限。\n\n有关分步部署指南，请参阅 Secure MCP servers with Access for SaaS。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

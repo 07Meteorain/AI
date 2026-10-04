@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 原生的多智能体系统 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>AI 原生的多智能体系统</h1>
+  <div class="meta">
+    <span>分类：Week 9 · SRE 与可观测性</span><span>原文 1,805 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://resolve.ai/blog/role-of-multi-agent-systems-AI-native-engineering" target="_blank" rel="noopener">https://resolve.ai/blog/role-of-multi-agent-systems-AI-native-engineering</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="multi-agent-systems-ai-native-0000"><div class="zh side"><div class="tag">中文</div><p>采纳 AI 智能体的 4 条工作流：不只是代码生成</p>
+<p>获取实用指南</p>
+<p>联系我们</p>
+<p>立即试用</p>
+<p>立即试用</p></div><div class="en side"><div class="tag">EN</div><p>4 workflows to adopt AI agents, beyond code generation</p>
+<p>Get the practical guide</p>
+<p>Contact us</p>
+<p>Try now</p>
+<p>Try now</p></div></div>
+<div class="pair" id="multi-agent-systems-ai-native-0001"><div class="zh side"><div class="tag">中文</div><h4 id="h-">社交</h4>
+<ul>
+<li>LinkedIn</li>
+</ul>
+<ul>
+<li>YouTube</li>
+</ul>
+<ul>
+<li>X</li>
+</ul>
+<p>立即试用</p>
+<p>隐私政策服务条款©Resolve.ai - 保留所有权利</p>
+<h3 id="h-">让机器替人类值班</h3>
+<p>联系我们</p>
+<h4 id="h-">加入讨论</h4>
+<p>服务条款隐私政策</p>
+<p>技术</p></div><div class="en side"><div class="tag">EN</div><h4 id="hsocial">Social</h4>
+<ul>
+<li>Linkedin</li>
+</ul>
+<ul>
+<li>Youtube</li>
+</ul>
+<ul>
+<li>X</li>
+</ul>
+<p>Try now</p>
+<p>Privacy PolicyTerms of Service©Resolve.ai - All rights reserved</p>
+<h3 id="hmachines-on-call-for-humans">Machines on call for humans</h3>
+<p>Contact us</p>
+<h4 id="hjoin-the-conversation">Join the conversation</h4>
+<p>Terms of ServicePrivacy Policy</p>
+<p>Technology</p></div></div>
+<div class="pair" id="multi-agent-systems-ai-native-0002"><div class="zh side"><div class="tag">中文</div><h1 id="h-ai-">多智能体系统在让软件工程师成为 AI 原生中的角色</h1>
+<p>2026/03/20</p>
+<p>分享：</p>
+<p>生成式 AI 对软件开发的改造极其剧烈，你可以在几小时内搭起一整套服务，但要弄清这些服务出了什么问题，仍需要在碎片化的工具之间做艰苦的排查。从代码生成到代码评审，编码智能体承担了构建那一侧的工作。但生产环境调试呢？那仍然是手动的。不妨看下面这个例子：</p>
+<p>问题不在于 AI 的能力，而在于我们如何设计 AI 系统。大多数工程团队仍然只是用 AI 驱动的工具把同样的工作流执行得更快，而没有重新构想软件开发与生产运维从端到端应该怎样进行。</p>
+<p>在 Resolve AI，我们一直在为工程师构建多智能体系统，让他们在生产系统上开展工作。我们一直在主张工程实践应当是 AI 原生的（即工程师主要与自主智能体协作来操作生产系统），而当下软件工程领域大多数生成式 AI 的讨论却都围绕着借助副驾驶和编码助手编写 AI 生成的代码。</p>
+<p>我们最近向 Stanford 的研究生 AI 项目介绍了我们的做法，深入讲解了那些让 AI 原生工程工作流成为可能的 AI 智能体及其架构模式。</p></div><div class="en side"><div class="tag">EN</div><h1 id="hthe-role-of-multi-agent-systems-in-making-software-engineers-ai-native">The role of multi agent systems in making software engineers AI-native</h1>
+<p>03/20/2026</p>
+<p>Share:</p>
+<p>Generative AI has transformed software development so dramatically that you can spin up entire services in hours, yet understanding what went wrong with those services still demands painstaking work across fragmented tools. From code generation to code review, coding agents handle the build side. But production debugging? That's still manual. Take the following example:</p>
+<p>The problem isn't AI's capability; it's how we architect AI systems. Most engineering teams still use AI-powered tools to execute the same workflows faster, not reimagining how software development and production operations should work end-to-end.</p>
+<p>At Resolve AI, we've been building multi-agent systems for engineers to work on production systems. We've been advocating that engineering should be AI-native (where engineers primarily interface with autonomous agents to work on production systems), while most gen AI conversations in software engineering were centered on writing AI generated code with copilots and coding assistants.</p>
+<p>We recently presented our approach to Stanford's graduate AI program, diving deep into the AI agents and their architectural patterns that enable AI-native engineering workflows.</p></div></div>
+<div class="pair" id="multi-agent-systems-ai-native-0003"><div class="zh side"><div class="tag">中文</div><h3 id="h-ai-">什么是 AI 原生工程？为什么重要？</h3>
+<p>AI 原生工程是指工程师主要与 AI 交互来编排自己的工作：无论是编写代码，还是操作生产系统。AI 原生与单纯“使用 AI”有显著区别——后者中工程师仍然在自己的系统和工具之间操作，只是用 AI 加快流程中的单个步骤。</p>
+<p>下面用一个示例工作流来展示这个区别。</p>
+<p>AI 辅助：你用 AI 工具在复杂任务上工作得更快。工作流仍然以人为中心：工程师 → 系统与工具 → 关联分析 → 行动。</p>
+<p>工程师仍然在和工具打交道，只是用 AI 把单个任务做得更快</p>
+<p>AI 原生：AI 成为你开展生产工作的主要接口。工作流变成由 AI 主导：工程师 → 自然语言请求 → AI 系统 → 响应 / 行动。</p>
+<p>工程师设定目标，让 AI 智能体去处理运维工作</p>
+<p>以故障事件响应为例。在 AI 辅助的工作流中，你仍然要生成假设、判断哪些证据重要，并在各个工具之间手动关联信号。AI 帮你检索和分析数据，但调查的脏活累活还是你干。</p>
+<p>AI 原生的故障事件响应则不同：AI 智能体对调查优先级做实时分诊，并行提出多个竞争性假设，再基于跨系统证据通过一轮轮迭代完善理论。你不再问“你能分析这些日志吗”，而是说“解决这个结账失败”，然后由智能体协调整个调查。</p>
+<p>这不只是在提速。它改变了哪些问题值得工程师关注。当 AI 智能体承担起日志分析、指标关联和部署时间线重建的工作，工程师就能在更高层面上工作，专注于架构决策和系统设计，而不是战术性的排查。</p>
+<p>这种转变需要的是持久运行的 AI 智能体，而不只是 AI 工具。像 OpenAI 或 Anthropic 这样的 AI 模型可以加速单个任务，但只有有状态的智能体才能维持调查上下文、跨多个工具协同，并在整个故障事件生命周期中自主执行复杂任务。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hwhat-is-ai-native-engineering-why-is-it-important-">What is AI-native engineering? Why is it important?</h3>
+<p>AI-Native Engineering is where engineers primarily interface with AI to orchestrate their work: be it writing code or working on production systems. AI-native is a significant departure from just “using AI” where engineers are still interfacing with their systems and tools, but using AI to speed up individual steps of the process.</p>
+<p>Here is an example workflow to showcase the distinction.</p>
+<p>AI-Assisted: You use AI tools to work faster on complex tasks. The workflow remains human-centric: Engineer → Systems and tools → Correlation → Action.</p>
+<p>Engineers still interface with tools, just using AI to perform individual tasks faster</p>
+<p>AI-Native: AI becomes your primary interface for production work. The workflow becomes AI-led: Engineer → Natural Language Request → AI System → Response / Action.</p>
+<p>Engineers set goals and let AI agents handle the operational work</p>
+<p>Take incident response as an example. In AI-assisted workflows, you're still generating hypotheses, deciding which evidence matters, and manually correlating signals across tools. AI helps with data retrieval and analysis, but you're doing the heavy lifting in investigation.</p>
+<p>AI-native incident response operates differently: AI agents perform real-time triage of investigation priorities, generate competing hypotheses in parallel, and refine theories through successive iterations based on cross-system evidence. Instead of asking "Can you analyze these logs?" you say "Resolve this checkout failure" and agents coordinate the entire investigation.</p>
+<p>This isn't just faster. It changes what problems deserve engineering attention. When AI agents handle log analysis, metric correlation, and deployment timeline reconstruction, engineers operate at a higher-level, focusing on architectural decision-making and system design rather than tactical investigation.</p>
+<p>The shift requires persistent AI agents, not just AI tools. While AI models like those from OpenAI or Anthropic can accelerate individual tasks, only stateful agents can maintain investigation context, coordinate across multiple tools, and execute complex tasks across the full incident lifecycle autonomously.</p></div></div>
+<div class="pair" id="multi-agent-systems-ai-native-0004"><div class="zh side"><div class="tag">中文</div><h3 id="h-ai-">为什么多智能体系统是让工程 AI 原生的关键？</h3>
+<p>现代生产系统具有学界所说的“不可约的相互依赖”：要理解它们，需要跨多个领域的专门知识，而这些知识无法整合进一个连贯的单一模型。这正是多数构建者会忽略的洞察：没有任何单一 AI 工具或一组 AI 模型，能在协调实时调查的同时维持所有这些领域上的专家级知识。</p>
+<p>举例来说：当关键故障事件期间 API 延迟飙升 10 倍，调查需要多个专门智能体同时做实时分析：跨 50 多个微服务关联追踪、分析慢数据库查询与连接池耗尽、检查最近的部署和基础设施变更、扫描认证日志寻找安全异常、结合当前负载模式评估自动扩缩容函数，以及结合 SLA（服务等级协议）语境分析支持工单对客户的影响。这些工作每一项都需要领域专长和上下文数据，任何单一系统都无法有效维持。</p>
+<p>在更大规模上，随着系统复杂度上升，单个 AI 工具不具备应对上下文需求指数级增长的适应能力。这正是多智能体系统能够通过结合编排与各领域专长来实现扩展的地方。这张矩阵为工程负责人提供了概览。找到与你当前状态对应的那一行，就能理解它的局限：</p>
+<p>这个框架揭示了每一层的技术限制：</p>
+<p>这种递进揭示了一条根本的架构事实：每一层都会撞上不同的可扩展性天花板。大语言模型缺乏持久状态。加了工具的大语言模型无法在多轮对话之间维持调查上下文。即便有精巧的提示工程，单个智能体也会随着系统复杂度增长而成为决策瓶颈。只有多智能体系统才能突破那道限制所有既有方法的串行推理约束。它们能并行检验多个假设，而单个智能体只能串行调查，这使后者从根本上不适合生产故障事件的时间要求。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hwhy-are-multi-agent-systems-essential-to-make-engineering-ai-native-">Why are multi-agent systems essential to make engineering AI-native?</h3>
+<p>Modern production systems exhibit what academics call "irreducible interdependence": understanding them requires specialized knowledge across domains that cannot be unified into a single coherent model. This is the insight most builders miss: No single AI tool or set of AI models can maintain expert-level knowledge across all these domains while coordinating a real-time investigation.</p>
+<p>For example: When API latency spikes 10x during a critical incident, the investigation requires simultaneous specialized agents performing real-time analysis: correlating traces across 50+ microservices, analyzing slow database queries and connection pool exhaustion, checking recent deployments and infrastructure changes, scanning auth logs for security anomalies, evaluating auto-scaling functions against current load patterns, and analyzing support tickets for customer impact with SLA context. Each of these functions requires domain-specific expertise and contextual data that no single system could effectively maintain.</p>
+<p>At large-scale, as system complexity increases, individual AI tools lack the adaptability to handle exponential growth in context requirements. This is where multi-agent systems can scale by combining orchestration and individual domain specialization. This matrix provides an overview for engineering leaders. Find the row that matches your current state to understand its limitations:</p>
+<p>This framework reveals the technical limitations at each level:</p>
+<p>The progression reveals a fundamental architectural truth: Each level hits a different scalability ceiling. LLMs lack a persistent state. Tool-augmented LLMs can't maintain investigation context across multiple chats. Even with sophisticated prompt engineering, single agents become decision-making bottlenecks as system complexity grows. Only multi-agent systems can break through the sequential reasoning constraint that limits all previous approaches. They enable parallel hypothesis testing while single agents must investigate sequentially, making them fundamentally unsuitable for the temporal demands of production incidents.</p></div></div>
+<div class="pair" id="multi-agent-systems-ai-native-0005"><div class="zh side"><div class="tag">中文</div><h3 id="h-">构建多智能体系统是一个困难的工程问题</h3>
+<p>没有哪个现成的智能体框架（如 LangChain）能单独解决这件事。构建可用于生产的多智能体系统，需要深度领域专长与 AI 工程能力的罕见结合。大多数尝试之所以失败，是因为团队只在一个方面有专长，而没有两者兼备。为什么需要这种双专精，原因如下：</p>
+<ul>
+<li>领域专长决定架构：不了解生产现实，就无法设计智能体架构。只有在 DevOps 或 SRE 岗位上凌晨三点调试过生产系统的人，才知道日志模式和指标异常需要从根本上不同的调查策略。当支付失败率飙升时，你既需要数据库专长，也需要基础设施专长，才能判断根因。这样的决策不是 AI 问题，而是生产决策，它们决定你如何构建自己的多智能体系统。</li>
+</ul>
+<ul>
+<li>AI 专长让智能体协同工作：一旦把问题拆解开，你就撞上了计算机科学里最难的部分。智能体之间的上下文传播不是靠直觉，而是要管理信息流的有向无环图，每个智能体的输出会喂给下一个智能体的输入。编排并行智能体需要正式的协调协议来防止竞态条件和死锁。系统需要同时从交互和短暂出现的故障模式中持续学习。智能体协调中只要有一步走错，你的系统就会逐步变差，而不是变好。</li>
+</ul>
+<ul>
+<li>两者交汇才产生突破性系统：没有 AI 架构的领域知识只是昂贵的咨询。没有领域知识的 AI 架构只会产出“调查了错误的东西”的结果。突破发生在两者结合之时：既知道数据库连接池在负载下会怎样表现（领域），又能构建把连接池健康检查、部署时间线分析和上游服务校验协调起来的智能体（AI 系统），并且这一切并行运行、互不干扰。</li>
+</ul>
+<p>在 Resolve AI，我们的团队包括在生产系统领域有二十多年经验的工程师、参与共同创建 OpenTelemetry（这个生态中最具影响力的开源可观测性项目之一）的创始人，以及具备深厚人工智能专长的研究人员——他们正是 Google DeepResearch 和 Gemini Agents 背后的智囊。这一结合让我们能够构建这样的系统：它们不只知道“支付失败很糟糕”，还知道要去检查连接池指标并与上游服务劣化做关联。同时，这套系统还在管理复杂的智能体编排，避免循环调查，并在并行执行路径之间保持连贯的叙事线索。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hbuilding-multi-agent-systems-is-a-hard-engineering-problem">Building multi-agent systems is a hard engineering problem</h3>
+<p>No off-the-shelf agent framework like LangChain solves this alone. Building production-ready multi-agent systems requires a rare combination of deep domain expertise and AI engineering prowess. Most attempts fail because teams have expertise in one area but not both. Here’s why this dual expertise is needed:</p>
+<ul>
+<li>Domain expertise determines architecture: You can't architect agents without understanding production realities. Only someone who's debugged production at 3 AM in a DevOps or SRE role knows that log patterns and metric anomalies require fundamentally different investigation strategies. When payment failures spike, you need both database expertise and infrastructure expertise to determine the root cause. Decisions like this aren’t AI problems. They're production decisions that shape how you build your multi agent system.</li>
+</ul>
+<ul>
+<li>AI expertise makes agents work together: Once you've decomposed the problem, you hit the hard part of computer science. Context propagation between agents isn't intuition. It is managing directed acyclic graphs of information flow where each agent's output feeds into the next agent's input. Orchestrating parallel agents requires formal coordination protocols to prevent race conditions and deadlocks. The system needs to learn continuously both from interactions and ephemeral failure modes. Get one step wrong in coordinating agents and your system gets progressively worse, not better.</li>
+</ul>
+<ul>
+<li>The intersection creates breakthrough systems: Domain knowledge without AI architecture is just expensive consulting. AI architecture without domain knowledge produces output that investigates the wrong things. The breakthrough happens when you combine both: knowing what database connection pools do under load (domain) with building agents that can coordinate pool health checks with deployment timeline analysis and upstream service validation: all running in parallel without stepping on each other (AI systems).</li>
+</ul>
+<p>At Resolve AI, our team includes engineers with over two decades of experience in production systems, founders who co-created OpenTelemetry (one of the most impactful open-source observability projects in the ecosystem) and researchers with deep artificial intelligence expertise who are the minds behind Google DeepResearch and Gemini Agents. This combination lets us build systems that don't just understand that "payment failures are bad" but know to check connection pool metrics and correlate with upstream service degradation. All the while managing complex agent orchestration that prevents circular investigations and maintains coherent narrative threads across parallel execution paths.</p></div></div>
+<div class="pair" id="multi-agent-systems-ai-native-0006"><div class="zh side"><div class="tag">中文</div><h3 id="h-resolve-ai">关于 Resolve AI</h3>
+<p>Resolve AI 是你全天候在线的 AI SRE，帮助你解决故障事件、运维生产系统。包括 Salesforce、Zscaler 和 Coinbase 在内的 Resolve AI 客户，通过让机器替人类值班、让工程师只需写代码，提升了工程速度与系统可靠性。想进一步了解 AI 原生工程工作流，请访问 resolve.ai。</p></div><div class="en side"><div class="tag">EN</div><h3 id="habout-resolve-ai">About Resolve AI</h3>
+<p>Resolve AI is your always-on AI SRE that helps you resolve incidents and run production. With Resolve AI customers like Salesforce, Zscaler, and Coinbase have increased engineering velocity and systems reliability by putting machines on-call for humans and letting engineers just code. Learn more about AI-native engineering workflows at resolve.ai.</p></div></div>
+<div class="pair" id="multi-agent-systems-ai-native-0007"><div class="zh side"><div class="tag">中文</div><h3 id="hai-sre-">AI SRE 采购指南</h3>
+<p>了解如何评测并在生产中采用 AI SRE。</p>
+<p>下载</p>
+<p>Spiros Xanthos</p>
+<p>创始人兼 CEO</p>
+<p>Spiros 是 Resolve AI 的创始人兼 CEO。他热爱从客户那里学习并动手构建。他参与创建了 OpenTelemetry，并创办了 Log Insight（被 VMware 收购）和 Omnition（被 Splunk 收购），最近曾任 Splunk 可观测性业务的 SVP 兼总经理。</p>
+<p>Gabor Angeli</p>
+<p>研究工程师</p>
+<p>Gabor Angeli 具备深厚的 AI 专长，最近任职于 Google DeepMind 和 Square。他参与构建的 Gemini 和 Square Assistant 等产品每天触达数百万用户。他加入 Resolve AI，是为了构建智能体 AI 系统，帮助工程师理解并驾驭生产系统。</p>
+<p>Bharat Khandelwal</p>
+<p>研究工程师</p>
+<p>@ Resolve AI</p>
+<p>Bharat 是 Resolve AI 的研究工程师，他在那里构建智能体系统，让大语言模型能够调试并运维生产软件基础设施。在加入 Resolve 之前，他曾在 WorldQuant 主导机器学习项目，设计用于宏观经济预测的基于 transformer 的架构，并从非结构化数据中引入由大语言模型驱动的情绪信号。他还曾在 Moveworks 参与企业 NLP 系统的研发，并在 Tower Research Capital 开发面向高频交易的低延迟机器学习策略。Bharat 拥有 Stanford University 计算机科学硕士学位（人工智能方向），以及 IIT Bombay 计算机科学工学学士学位（荣誉）。</p>
+<p>内容</p></div><div class="en side"><div class="tag">EN</div><h3 id="hai-sre-buyer-s-guide">AI SRE Buyer's Guide</h3>
+<p>Learn how to evaluate and adopt AI SRE in production.</p>
+<p>Download</p>
+<p>Spiros Xanthos</p>
+<p>Founder and CEO</p>
+<p>Spiros is the Founder and CEO of Resolve AI. He loves learning from customers and building. He helped create OpenTelemetry and started Log Insight (acquired by VMware) and Omnition (acquired by Splunk), most recently he was an SVP and the GM of the Observability business at Splunk.</p>
+<p>Gabor Angeli</p>
+<p>Research Engineer</p>
+<p>Gabor Angeli brings extensive AI expertise, most recently at Google DeepMind and Square. His work on products like Gemini and Square Assistant touches millions of users daily. He joined Resolve AI to build Agentic AI systems that help engineers understand and navigate production systems.</p>
+<p>Bharat Khandelwal</p>
+<p>Research Engineer</p>
+<p>@ Resolve AI</p>
+<p>Bharat is a Research Engineer at Resolve AI, where he builds agentic systems that enable large language models to debug and operate production software infrastructure. Prior to Resolve, he led machine learning initiatives at WorldQuant, designing transformer-based architectures for macroeconomic forecasting and incorporating LLM-driven sentiment signals from unstructured data. He has also worked at Moveworks on enterprise NLP systems and at Tower Research Capital, where he developed low-latency ML strategies for high-frequency trading. Bharat holds an M.S. in Computer Science from Stanford University, with a specialization in Artificial Intelligence, and a B.Tech. (Honors) in Computer Science from IIT Bombay.</p>
+<p>Content</p></div></div>
+<div class="pair" id="multi-agent-systems-ai-native-0008"><div class="zh side"><div class="tag">中文</div><h3 id="hai-for-prod-">AI for prod 电子书</h3>
+<p>了解顶尖工程团队如何用 AI 运维生产系统。</p>
+<p>下载</p>
+<p>Spiros Xanthos</p>
+<p>创始人兼 CEO</p>
+<p>Spiros 是 Resolve AI 的创始人兼 CEO。他热爱从客户那里学习并动手构建。他参与创建了 OpenTelemetry，并创办了 Log Insight（被 VMware 收购）和 Omnition（被 Splunk 收购），最近曾任 Splunk 可观测性业务的 SVP 兼总经理。</p>
+<p>Gabor Angeli</p>
+<p>研究工程师</p>
+<p>Gabor Angeli 具备深厚的 AI 专长，最近任职于 Google DeepMind 和 Square。他参与构建的 Gemini 和 Square Assistant 等产品每天触达数百万用户。他加入 Resolve AI，是为了构建智能体 AI 系统，帮助工程师理解并驾驭生产系统。</p>
+<p>Bharat Khandelwal</p>
+<p>研究工程师</p>
+<p>@ Resolve AI</p>
+<p>Bharat 是 Resolve AI 的研究工程师，他在那里构建智能体系统，让大语言模型能够调试并运维生产软件基础设施。在加入 Resolve 之前，他曾在 WorldQuant 主导机器学习项目，设计用于宏观经济预测的基于 transformer 的架构，并从非结构化数据中引入由大语言模型驱动的情绪信号。他还曾在 Moveworks 参与企业 NLP 系统的研发，并在 Tower Research Capital 开发面向高频交易的低延迟机器学习策略。Bharat 拥有 Stanford University 计算机科学硕士学位（人工智能方向），以及 IIT Bombay 计算机科学工学学士学位（荣誉）。</p>
+<h3 id="h-">相关文章</h3></div><div class="en side"><div class="tag">EN</div><h3 id="hai-for-prod-ebook">AI for prod ebook</h3>
+<p>Learn how top engineering teams use AI to run production.</p>
+<p>Download</p>
+<p>Spiros Xanthos</p>
+<p>Founder and CEO</p>
+<p>Spiros is the Founder and CEO of Resolve AI. He loves learning from customers and building. He helped create OpenTelemetry and started Log Insight (acquired by VMware) and Omnition (acquired by Splunk), most recently he was an SVP and the GM of the Observability business at Splunk.</p>
+<p>Gabor Angeli</p>
+<p>Research Engineer</p>
+<p>Gabor Angeli brings extensive AI expertise, most recently at Google DeepMind and Square. His work on products like Gemini and Square Assistant touches millions of users daily. He joined Resolve AI to build Agentic AI systems that help engineers understand and navigate production systems.</p>
+<p>Bharat Khandelwal</p>
+<p>Research Engineer</p>
+<p>@ Resolve AI</p>
+<p>Bharat is a Research Engineer at Resolve AI, where he builds agentic systems that enable large language models to debug and operate production software infrastructure. Prior to Resolve, he led machine learning initiatives at WorldQuant, designing transformer-based architectures for macroeconomic forecasting and incorporating LLM-driven sentiment signals from unstructured data. He has also worked at Moveworks on enterprise NLP systems and at Tower Research Capital, where he developed low-latency ML strategies for high-frequency trading. Bharat holds an M.S. in Computer Science from Stanford University, with a specialization in Artificial Intelligence, and a B.Tech. (Honors) in Computer Science from IIT Bombay.</p>
+<h3 id="hrelated-post">Related Post</h3></div></div>
+<div class="pair" id="multi-agent-systems-ai-native-0009"><div class="zh side"><div class="tag">中文</div><h3 id="h-finserv-ai-for-prod-">炉边对话：FinServ 公司如何用 AI for Prod 优化成本</h3>
+<p>听听 Affirm、MSCI 和 SoFi 等 FinServ 公司的工程负责人分享他们的 AI 策略与做法。</p>
+<p>技术</p></div><div class="en side"><div class="tag">EN</div><h3 id="hfireside-chat-how-finserv-companies-optimize-cost-with-ai-for-prod">Fireside Chat: How FinServ Companies Optimize Cost with AI for Prod</h3>
+<p>Hear AI strategies and approaches from engineering leaders at FinServ companies including Affirm, MSCI, and SoFi.</p>
+<p>Technology</p></div></div>
+<div class="pair" id="multi-agent-systems-ai-native-0010"><div class="zh side"><div class="tag">中文</div><h3 id="h-ai-sre">如何评测一个可用于生产的 AI SRE</h3>
+<p>了解如何评测 AI SRE，确保它能在你独特的生产环境中稳定运行。这份指南讲解了五个智能体支柱、六个关键评测维度，以及区分“可用于生产的 AI SRE”与实验性方案的企业级就绪标准。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hhow-to-evaluate-a-production-ready-ai-sre">How to Evaluate a Production Ready AI SRE</h3>
+<p>Learn how to evaluate an AI SRE to ensure they run in your unique production environments. This guide explains the five agentic pillars, six key evaluation dimensions, and enterprise readiness criteria that separate production-ready AI SRE from experiments.</p></div></div>
+<div class="pair" id="multi-agent-systems-ai-native-0011"><div class="zh side"><div class="tag">中文</div><h3 id="h-ai-">超越构建：用智能体 AI 加速工程速度</h3>
+<p>100 位软件工程高管与 Resolve AI 及其他重量级人物一道，探讨智能体 AI 在软件工程中的加速演进——从编码走向管理生产系统。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hbeyond-the-build-accelerating-engineering-velocity-with-agentic-ai">Beyond the Build: Accelerating Engineering Velocity with Agentic AI</h3>
+<p>100 Engineering software engineering executives joined Resolve AI and other luminary leaders to discuss the accelerated evolution of agentic AI in software engineering from coding to managing production systems.</p></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#multi-agent-systems-ai-native-0000">第 1 段</a></li><li><a href="#multi-agent-systems-ai-native-0001">第 2 段</a></li><li><a href="#multi-agent-systems-ai-native-0002">第 3 段</a></li><li><a href="#multi-agent-systems-ai-native-0003">第 4 段</a></li><li><a href="#multi-agent-systems-ai-native-0004">第 5 段</a></li><li><a href="#multi-agent-systems-ai-native-0005">第 6 段</a></li><li><a href="#multi-agent-systems-ai-native-0006">第 7 段</a></li><li><a href="#multi-agent-systems-ai-native-0007">第 8 段</a></li><li><a href="#multi-agent-systems-ai-native-0008">第 9 段</a></li><li><a href="#multi-agent-systems-ai-native-0009">第 10 段</a></li><li><a href="#multi-agent-systems-ai-native-0010">第 11 段</a></li><li><a href="#multi-agent-systems-ai-native-0011">第 12 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

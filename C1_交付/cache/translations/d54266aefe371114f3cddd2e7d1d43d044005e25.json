@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0024",
+ "doc_id": "observability-basics",
+ "fingerprint": "d54266aefe371114f3cddd2e7d1d43d044005e25",
+ "zh": "## 结论\n\n追踪和跨度给了你对分布式系统的 X 光视野。它们揭示服务之间隐藏的关联，精准定位性能瓶颈，并大幅加快调试速度。\n\n随着系统愈发复杂，这类可观测性不是奢侈品——而是必需品。\n\n💡\n\n如果你想继续深入讨论分布式追踪和可观测性，欢迎加入我们的 Discord 社区，DevOps 从业者在那里分享经验和最佳实践！\n\n## 常见问题",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

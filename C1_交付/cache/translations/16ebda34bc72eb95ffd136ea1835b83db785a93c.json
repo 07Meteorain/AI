@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-introduction#0032",
+ "doc_id": "mcp-introduction",
+ "fingerprint": "16ebda34bc72eb95ffd136ea1835b83db785a93c",
+ "zh": "#### 认证与授权\n\n面向消费级应用\n\n面向 B2B SaaS 应用\n\n管理门户\n\nConnected Apps\n\n单点登录\n\n#### 欺诈与风险防范\n\n设备指纹\n\n主动风险评估\n\n细粒度管控",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

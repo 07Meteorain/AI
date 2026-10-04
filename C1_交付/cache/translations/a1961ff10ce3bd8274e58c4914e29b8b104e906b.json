@@ -1,0 +1,10 @@
+{
+ "seg_id": "sast-vs-dast#0017",
+ "doc_id": "sast-vs-dast",
+ "fingerprint": "a1961ff10ce3bd8274e58c4914e29b8b104e906b",
+ "zh": "## 哪个更有效：SAST 还是 DAST？\n\nSAST 或 DAST 的效果取决于：\n\n- 所处的 SDLC 阶段\n\n- 所针对的漏洞类型\n\nSAST 最适合在开发早期使用，主要用于识别源代码中的漏洞、降低成本并推动安全编码实践。相比之下，DAST 关注预生产或已部署应用程序中的运行时漏洞，能就配置错误、集成不安全之类的问题提供洞察。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

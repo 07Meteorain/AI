@@ -1,0 +1,10 @@
+{
+ "seg_id": "copilot-prompt-injection-rce#0006",
+ "doc_id": "copilot-prompt-injection-rce",
+ "fingerprint": "d3f4ed3e15ef1846de65bec51c8b38466f4dbaeb",
+ "zh": "### 完整走查\n\n下面这段更长的视频详细讲解了这次发现与漏洞利用：\n\n能给自己设置权限和配置设置的 AI，简直离谱！",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

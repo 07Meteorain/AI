@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0014",
+ "doc_id": "course-homepage",
+ "fingerprint": "4a5458fe1279ecec47333fe4086fc8eb838fe5bf",
+ "zh": "#### 讲座\n\n周一 11/10：全栈 AI 开发 —— 幻灯片\n\n周五 11/14：嘉宾：Gaspar Garcia（Vercel）—— 幻灯片\n\n第 9 周：SRE、可观测性与智能体式值班\n\n#### 主题\n\n- 站点可靠性工程基础",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

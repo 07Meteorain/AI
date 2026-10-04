@@ -1,0 +1,12 @@
+# Python 虚拟环境（复跑时用 README 里的命令重建即可）
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# 本地工作记忆（不属于交付内容）
+.workbuddy/
+
+# 系统文件
+.DS_Store
+Thumbs.db

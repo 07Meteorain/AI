@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0034",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "975d8b954fc92479bcbb91dce5597bcb790fb169",
+ "zh": "#### 第 2.1 步——为本地开发创建一个新的 OAuth 应用\n\n- 访问 github.com/settings/developers，创建一个新的 OAuth 应用，设置如下：\n\n- 授权回调 URL：http://localhost:8788/callback\n\n- 对于刚创建的 OAuth 应用，把该 OAuth 应用的客户端 ID 添加为 GITHUB_CLIENT_ID，并生成一个客户端密钥，把它作为 GITHUB_CLIENT_SECRET 添加到项目根目录下的 .env 文件中，本地开发将用它来设置密钥。\n\n终端窗口",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

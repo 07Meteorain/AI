@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0021",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "42f132afa195623abdbff8a1843f8940be53db9e",
+ "zh": "### 别再纠结到无法行动\n\n拿不准一次重构到底能不能让代码更简单？在两种架构方案之间选不出来？让智能体把两个方案都实现一遍。有具体的例子可比，决策就变得直截了当，而且扔掉其中一个方案也不会伤害任何人的感情。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

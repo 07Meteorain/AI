@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-registry-preview#0005",
+ "doc_id": "mcp-registry-preview",
+ "fingerprint": "d914d425c4ba0d16976ca3100a31eaf36867b544",
+ "zh": "# 快速上手#\n\n要开始使用：\n\n- 按照《Adding Servers to the MCP Registry》指南添加你的服务器（面向服务器维护者）\n\n- 按照《Accessing MCP Registry Data》指南访问服务器数据（面向客户端维护者）\n\nMCP 注册表的这次预览，目的是让我们在正式可用之前改进用户体验，不提供数据持久性保证或其他形式的担保。我们建议 MCP 采用者密切关注开发进展，因为注册表在正式可用之前可能还会出现破坏性变更。\n\n随着我们继续开发注册表，欢迎在 modelcontextprotocol/registry 这个 GitHub 仓库上反馈和贡献：讨论、issue 和拉取请求（PR）都非常欢迎。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

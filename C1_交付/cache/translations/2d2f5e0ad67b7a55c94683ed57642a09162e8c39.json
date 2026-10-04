@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0051",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "2d2f5e0ad67b7a55c94683ed57642a09162e8c39",
+ "zh": "### 让你的尝试多元化\n\n如果你是刚开始和智能体打交道，我们建议一开始就把赌注摊开：多试几种不同的提示词和思路。哪些任务你发现智能体天然做得好，就在这些上加大投入；它们做不好的，及早止损。不必要求每次都非让智能体成功不可。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

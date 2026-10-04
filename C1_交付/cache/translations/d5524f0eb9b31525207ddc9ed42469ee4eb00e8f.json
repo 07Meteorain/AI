@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-food-for-thought#0001",
+ "doc_id": "mcp-food-for-thought",
+ "fingerprint": "d5524f0eb9b31525207ddc9ed42469ee4eb00e8f",
+ "zh": "## API 不是好的 MCP 工具\n\n2025 年 8 月 5 日\n \n \n 阅读约 4 分钟\n\nModel Context Protocol (MCP) 眼下是个大热门。它已经成为让 LLM 用上别人写的工具的事实标准，而这些工具也正是让它们成为智能体的关键。但为新的 MCP 服务器编写工具并不容易，于是人们常常提议把现有 API 自动转换成 MCP 工具，通常会利用 OpenAPI 元数据（1、2）。\n\n依我的经验，这事能做，但做不好。原因有几个：",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

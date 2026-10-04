@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0007",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "a0b9639d089e9588f5a6cb3f00b08b5f46d62ef5",
+ "zh": "#### 1. 明确预期\n\n界定 AI 该评审什么、不该评审什么：\n\n- 应该：把风格一致性、基础逻辑错误和安全扫描交给 AI\n\n- 不应该：架构决策或复杂业务逻辑不要只依赖 AI\n\n- 应该：为自动化的评审建立清晰的验收标准",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

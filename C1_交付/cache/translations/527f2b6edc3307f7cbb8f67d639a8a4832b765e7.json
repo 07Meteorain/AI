@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0012",
+ "doc_id": "observability-basics",
+ "fingerprint": "527f2b6edc3307f7cbb8f67d639a8a4832b765e7",
+ "zh": "### OpenTelemetry：行业标准\n\nOpenTelemetry 已经成为实现追踪和跨度的首选框架。它提供：\n\n- 覆盖所有主流编程语言的库\n\n- 针对流行框架的自动埋点\n\n- 一致的采集与导出数据的方式",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

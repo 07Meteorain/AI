@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0008",
+ "doc_id": "observability-basics",
+ "fingerprint": "9bbfd7fb5cd58b30ebb94f5d5982a913f3ae22fc",
+ "zh": "### 追踪上下文与传播\n\n要让追踪能够跨服务边界工作，每个服务都需要知道自己处理的是同一个请求的一部分。这靠的是上下文传播——在服务之间传递追踪 ID 和跨度 ID。\n\n当一个请求首次进入你的系统时，它会被分配一个唯一的追踪 ID。当请求在服务之间流转时，这个 ID 会随之传递（通常放在 HTTP 头里）。随后每个服务创建自己的跨度，但把它们都关联到同一条追踪上。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

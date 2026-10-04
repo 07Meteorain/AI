@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0029",
+ "doc_id": "observability-basics",
+ "fingerprint": "7f30523f68a9cf850b937c90c646bf04cbbcdf7c",
+ "zh": "### 追踪对安全与合规有帮助吗？\n\n有！追踪为请求在系统中的流转建立了审计轨迹。加上合适的属性，你就能追踪哪些用户或服务在何时访问了哪些数据。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

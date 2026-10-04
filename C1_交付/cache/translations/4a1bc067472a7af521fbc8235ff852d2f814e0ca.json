@@ -1,0 +1,10 @@
+{
+ "seg_id": "claude-code-best-practices#0020",
+ "doc_id": "claude-code-best-practices",
+ "fingerprint": "4a1bc067472a7af521fbc8235ff852d2f814e0ca",
+ "zh": "用 CLI 串联、编写脚本并自动化\n\nClaude Code 可组合，遵循 Unix 理念。把日志经由输入流传给它、在 CI 中运行它，或者与其他工具串联起来：",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

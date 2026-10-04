@@ -1,0 +1,10 @@
+{
+ "seg_id": "sast-vs-dast#0000",
+ "doc_id": "sast-vs-dast",
+ "fingerprint": "fdf31150412b66cd94555402bdfb47a62e19d640",
+ "zh": "# SAST 与 DAST 与 RASP：应用安全测试方法对比\n\nLearn 2024 年 12 月 18 日 Shanika Wickramasinghe \n \n 全球信息安全支出预计到 2025 年将达到 2120 亿美元，较 2024 年增长 15%。Gartner 分析机构指出，生成式 AI 的兴起与云上业务的普及是这一快速增长的主要原因。该机构进一步预测，到 2027 年，生成式 AI 将参与 17% 的网络攻击。\n\n企业需要超越传统方法的高级安全策略，才能应对这些不断增长的威胁。这正是企业所有者需要了解 SAST、DAST 和 RASP 等安全方案的原因，它们能为应用提供多层次的防护。\n\n（延伸阅读：应用安全解析与常见的软件测试方法。）",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

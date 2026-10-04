@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0017",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "66945c4d3bf78a025b282f6455a27f2d24aab9f8",
+ "zh": "### 随时随地写代码\n\n想象你在通勤或出差路上，突然冒出一个紧急缺陷，或者你意识到自己可能在代码里留下了一处错误。别担心！自主智能体通常支持移动端访问，让你立刻处理这些问题。无论是通过 Slack 的移动应用还是专门的移动应用，很多智能体都能让你在路途中解决问题，哪怕 wifi 信号很不稳定。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

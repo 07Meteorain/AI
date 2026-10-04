@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0034",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "c18dae66aa40d7911c5ef620e54260bbd13cefb8",
+ "zh": "##### 目标\n\n攻击者利用智能体某个工具中的对象级授权失效（BOLA）漏洞，访问其他用户的交易历史。\n\n攻击者以上文图 9 所示的相同方式发送漏洞利用载荷。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

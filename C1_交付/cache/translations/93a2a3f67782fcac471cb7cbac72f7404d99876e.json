@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0012",
+ "doc_id": "course-homepage",
+ "fingerprint": "93a2a3f67782fcac471cb7cbac72f7404d99876e",
+ "zh": "#### 阅读\n\n- 用 AI 辅助评估现代代码评审中的编码实践\n\n- AI 代码评审落地的最佳实践\n\n- 软件团队的代码评审要义\n\n#### 作业\n\n- 代码评审基本功训练",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

@@ -1,0 +1,3190 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>提示工程是什么（What Is Prompt Engineering） · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>提示工程是什么（What Is Prompt Engineering）</h1>
+  <div class="meta">
+    <span>分类：Week 1 · 提示工程</span><span>原文 6,975 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://cloud.google.com/discover/what-is-prompt-engineering" target="_blank" rel="noopener">https://cloud.google.com/discover/what-is-prompt-engineering</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="prompt-engineering-overview-0000"><div class="zh side"><div class="tag">中文</div><h1 id="h-">提示工程：概览与指南</h1>
+<p>最后更新：01/14/2026</p>
+<p>大语言模型（LLM）的兴起为人机交互带来了令人兴奋的可能性。然而，要充分发挥这些强大 AI 模型的潜力，需要一项关键技能：提示工程。这是一门新兴领域，核心在于设计出高效的提示词，释放 LLM 的能力，让它们理解意图、遵循指令、生成期望的输出。随着我们在各类应用中与 AI 交互日益频繁，提示工程在保证交互准确、相关、安全方面起着至关重要的作用。</p>
+<p>免费开始使用</p>
+<p>试用对话提示词</p>
+<p>1:53</p>
+<p>成为世界级提示工程师的技巧</p></div><div class="en side"><div class="tag">EN</div><h1 id="hprompt-engineering-overview-and-guide">Prompt engineering: overview and guide</h1>
+<p>Last Updated: 01/14/2026</p>
+<p>The rise of large language models (LLMs) has brought forth exciting possibilities for human-computer interaction. However, harnessing the full potential of these powerful AI models requires a crucial skill: prompt engineering. This burgeoning field focuses on crafting effective prompts that unlock the capabilities of LLMs, enabling them to understand intent, follow instructions, and generate desired outputs. As we increasingly interact with AI in various applications, prompt engineering plays a vital role in ensuring accurate, relevant, and safe interactions.</p>
+<p>Get started for free</p>
+<p>Try chat prompts</p>
+<p>1:53</p>
+<p>Tips to becoming a world-class Prompt Engineer</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0001"><div class="zh side"><div class="tag">中文</div><h2 id="h-">什么是提示工程？</h2>
+<p>提示工程是设计并优化提示词的艺术与科学，用来引导 AI 模型（尤其是 LLM）生成期望的回答。通过精心设计提示词，你为模型提供上下文、指令和示例，帮助它理解你的意图，给出有意义的回应。可以把它理解为给 AI 画一张路线图，把它引向你想要的输出。</p>
+<p>想更深入探索提示设计的世界、看看它有哪些应用，可以读读 Google Cloud 上的 Introduction to Prompt Design。</p>
+<p>想亲手试试 LLM 和提示工程？试试 Vertex AI 的免费试用，亲身体验这项技术的威力。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hwhat-is-prompt-engineering-">What is prompt engineering?</h2>
+<p>Prompt engineering is the art and science of designing and optimizing prompts to guide AI models, particularly LLMs, towards generating the desired responses. By carefully crafting prompts, you provide the model with context, instructions, and examples that help it understand your intent and respond in a meaningful way. Think of it as providing a roadmap for the AI, steering it towards the specific output you have in mind.</p>
+<p>To dive deeper into the world of prompt design and explore its applications, check out the Introduction to Prompt Design on Google Cloud.</p>
+<p>Ready to experiment with LLMs and prompt engineering firsthand? Try the Vertex AI free trial and experience the power of this technology.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0002"><div class="zh side"><div class="tag">中文</div><h2 id="h-ai-">什么是 AI 的提示词？</h2>
+<p>在 AI 语境中，提示词就是你提供给模型、用来引出特定回应的输入。它可以有各种形式，从简单的问题或关键词，到复杂的指令、代码片段，甚至创意写作样例。提示词的有效性直接影响 AI 输出的质量与相关性。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hwhat-is-a-prompt-for-ai-">What is a prompt for AI?</h2>
+<p>In the context of AI, a prompt is the input you provide to the model to elicit a specific response. This can take various forms, ranging from simple questions or keywords to complex instructions, code snippets, or even creative writing samples. The effectiveness of your prompt directly influences the quality and relevance of the AI's output.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0003"><div class="zh side"><div class="tag">中文</div><h2 id="h-">做提示工程需要什么？</h2>
+<p>有几个关键要素决定了提示工程的效果。掌握它们，你就能与 AI 模型高效沟通，释放它们的全部潜力。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hwhat-do-you-need-for-prompt-engineering-">What do you need for prompt engineering?</h2>
+<p>Several key elements contribute to effective prompt engineering. Mastering these allows you to communicate effectively with AI models and unlock their full potential.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0004"><div class="zh side"><div class="tag">中文</div><h3 id="h-">提示词格式</h3>
+<p>提示词的结构和风格对引导 AI 的回应影响很大。不同模型对特定格式的响应可能更好，例如：</p>
+<p>提示词的格式对 AI 如何理解你的需求影响很大。不同模型对特定格式的响应可能更好，比如自然语言提问、直接命令，或带特定字段的结构化输入。了解模型的能力和偏好的格式，是设计出高效提示词的关键。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hprompt-format">Prompt format</h3>
+<p>The structure and style of your prompt play a significant role in guiding the AI's response. Different models may respond better to specific formats, such as:</p>
+<p>The format of your prompt plays a significant role in how the AI interprets your request. Different models may respond better to specific formats, such as natural language questions, direct commands, or structured inputs with specific fields. Understanding the model's capabilities and preferred format is essential for crafting effective prompts.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0005"><div class="zh side"><div class="tag">中文</div><h3 id="h-">上下文与示例</h3>
+<p>在提示词中提供上下文和相关示例，能帮助 AI 理解任务目标，生成更准确、更相关的内容。比如，如果你想要一个创意故事，附上几句描述期望语气或主题的话，效果会显著提升。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcontext-and-examples">Context and examples</h3>
+<p>Providing context and relevant examples within your prompt helps the AI understand the desired task and generate more accurate and relevant outputs. For instance, if you're looking for a creative story, including a few sentences describing the desired tone or theme can significantly improve the results.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0006"><div class="zh side"><div class="tag">中文</div><h3 id="h-">微调与适配</h3>
+<p>用定制好的提示词在特定任务或领域上对 AI 模型做微调，能提升它的表现。此外，根据用户反馈或模型输出不断调整提示词，还能让模型的回应随时间进一步改善。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hfine-tuning-and-adapting">Fine-tuning and adapting</h3>
+<p>Fine-tuning the AI model on specific tasks or domains using tailored prompts can enhance its performance. Additionally, adapting prompts based on user feedback or model outputs can further improve the model's responses over time.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0007"><div class="zh side"><div class="tag">中文</div><h3 id="h-">多轮对话</h3>
+<p>为多轮对话设计提示词，能让用户与 AI 模型展开连续、感知上下文的交互，提升整体使用体验。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hmulti-turn-conversations">Multi-turn conversations</h3>
+<p>Designing prompts for multi-turn conversations allows users to engage in continuous and context-aware interactions with the AI model, enhancing the overall user experience.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0008"><div class="zh side"><div class="tag">中文</div><h2 id="h-">提示词的类型</h2>
+<p>AI 中使用的提示词有各种类型，各自服务于特定目的：</p></div><div class="en side"><div class="tag">EN</div><h2 id="htypes-of-prompts">Types of prompts</h2>
+<p>There are various types of prompts used in AI, each serving a specific purpose:</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0009"><div class="zh side"><div class="tag">中文</div><h3 id="h-">直接提示（零样本）</h3>
+<p>零样本提示是指只给模型一条直接的指令或问题，不附带任何额外上下文或示例。</p>
+<p>一个例子是创意构思，让模型生成创意点子或头脑风暴解决方案。另一个例子是摘要生成或翻译，让模型概括或翻译某段内容。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hdirect-prompts-zero-shot-">Direct prompts (Zero-shot)</h3>
+<p>Zero-shot prompting involves providing the model with a direct instruction or question without any additional context or examples.</p>
+<p>An example of this is idea generation, where the model is prompted to generate creative ideas or brainstorming solutions. Another example is summarization, or translation, where the model is asked to summarize or translate some piece of content.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0010"><div class="zh side"><div class="tag">中文</div><h3 id="h-">单样本、少样本与多样本提示</h3>
+<p>这种方法是在给出实际提示词之前，先向模型提供一到几个期望的输入-输出对示例。这能帮助模型更好地理解任务，生成更准确的回应。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hone-few-and-multi-shot-prompts">One-, few- and multi-shot prompts</h3>
+<p>This method involves providing the model with one or more examples of the desired input-output pairs before presenting the actual prompt. This can help the model better understand the task and generate more accurate responses.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0011"><div class="zh side"><div class="tag">中文</div><h3 id="h-">思维链提示</h3>
+<p>思维链提示鼓励模型把复杂推理拆解成一系列中间步骤，从而得到更全面、更有条理的最终输出。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hchain-of-thought-prompts">Chain of Thought Prompts</h3>
+<p>CoT prompting encourages the model to break down complex reasoning into a series of intermediate steps, leading to a more comprehensive and well-structured final output.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0012"><div class="zh side"><div class="tag">中文</div><h3 id="h-">零样本思维链提示</h3>
+<p>把思维链提示与零样本提示结合起来，让模型执行推理步骤，这种做法往往能产出更好的结果。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hzero-shot-cot-prompts">Zero-shot CoT Prompts</h3>
+<p>Combines chain of thought prompting with zero-shot prompting by asking the model to perform reasoning steps, which may often produce better output.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0013"><div class="zh side"><div class="tag">中文</div><h2 id="h-">提示工程的用例与示例</h2>
+<p>下面这些具体示例和用例，展示提示工程如何帮助产出定制化、切题的内容。</p></div><div class="en side"><div class="tag">EN</div><h2 id="huse-cases-and-examples-of-prompt-engineering">Use cases and examples of prompt engineering</h2>
+<p>Here are some specific examples and use cases showing how prompt engineering helps produce customized and relevant output.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0014"><div class="zh side"><div class="tag">中文</div><h3 id="h-">语言与文本生成</h3>
+<p>场景</p>
+<p>说明</p>
+<p>提示词示例</p>
+<p>创意写作</p>
+<p>设计提示词，明确体裁、语气、风格和情节点，引导 AI 生成引人入胜的叙事。</p>
+<p>"写一个短篇故事：一位年轻女子在自家阁楼里发现了一扇传送门。"</p>
+<p>摘要生成</p>
+<p>把文本交给 AI，要求它生成抓住关键信息的简明摘要。</p>
+<p>“总结以下这篇气候变化新闻报道的要点。"</p>
+<p>翻译</p>
+<p>指定源语言和目标语言，让 AI 在保留含义和上下文的前提下准确翻译文本。</p>
+<p>"把下面这段文本从英文翻译成西班牙语：‘敏捷的棕色狐狸跳过了懒狗。’"</p>
+<p>对话</p>
+<p>设计模拟对话的提示词，让 AI 生成模仿人类交流的回应，并保持上下文。</p>
+<p>"你是一个友好的聊天机器人，帮用户排查电脑问题。请回应用户的提问：‘我的电脑开不了机。’"</p>
+<p>场景</p>
+<p>说明</p>
+<p>提示词示例</p>
+<p>创意写作</p>
+<p>设计提示词，明确体裁、语气、风格和情节点，引导 AI 生成引人入胜的叙事。</p>
+<p>"写一个短篇故事：一位年轻女子在自家阁楼里发现了一扇传送门。"</p>
+<p>摘要生成</p>
+<p>把文本交给 AI，要求它生成抓住关键信息的简明摘要。</p>
+<p>“总结以下这篇气候变化新闻报道的要点。"</p>
+<p>翻译</p>
+<p>指定源语言和目标语言，让 AI 在保留含义和上下文的前提下准确翻译文本。</p>
+<p>"把下面这段文本从英文翻译成西班牙语：‘敏捷的棕色狐狸跳过了懒狗。’"</p>
+<p>对话</p>
+<p>设计模拟对话的提示词，让 AI 生成模仿人类交流的回应，并保持上下文。</p>
+<p>"你是一个友好的聊天机器人，帮用户排查电脑问题。请回应用户的提问：‘我的电脑开不了机。’"</p></div><div class="en side"><div class="tag">EN</div><h3 id="hlanguage-and-text-generation">Language and Text Generation</h3>
+<p>Scenario</p>
+<p>Instructions</p>
+<p>Example Prompt</p>
+<p>Creative Writing</p>
+<p>Craft prompts that specify genre, tone, style, and plot points to guide the AI in generating engaging narratives.</p>
+<p>"Write a short story about a young woman who discovers a magical portal in her attic."</p>
+<p>Summarization</p>
+<p>Provide the AI with text and instruct it to generate concise summaries that capture key information.</p>
+<p>“Summarize the main points of the following news article on climate change."</p>
+<p>Translation</p>
+<p>Specify the source and target languages to enable the AI to accurately translate text while preserving meaning and context.</p>
+<p>"Translate the following text from English to Spanish: 'The quick brown fox jumps over the lazy dog.'"</p>
+<p>Dialogue</p>
+<p>Design prompts that simulate conversations, allowing the AI to generate responses that mimic human interaction and maintain context.</p>
+<p>"You are a friendly chatbot helping users troubleshoot their computer problems. Respond to the user's query: 'My computer won't turn on.'"</p>
+<p>Scenario</p>
+<p>Instructions</p>
+<p>Example Prompt</p>
+<p>Creative Writing</p>
+<p>Craft prompts that specify genre, tone, style, and plot points to guide the AI in generating engaging narratives.</p>
+<p>"Write a short story about a young woman who discovers a magical portal in her attic."</p>
+<p>Summarization</p>
+<p>Provide the AI with text and instruct it to generate concise summaries that capture key information.</p>
+<p>“Summarize the main points of the following news article on climate change."</p>
+<p>Translation</p>
+<p>Specify the source and target languages to enable the AI to accurately translate text while preserving meaning and context.</p>
+<p>"Translate the following text from English to Spanish: 'The quick brown fox jumps over the lazy dog.'"</p>
+<p>Dialogue</p>
+<p>Design prompts that simulate conversations, allowing the AI to generate responses that mimic human interaction and maintain context.</p>
+<p>"You are a friendly chatbot helping users troubleshoot their computer problems. Respond to the user's query: 'My computer won't turn on.'"</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0015"><div class="zh side"><div class="tag">中文</div><h3 id="h-">问答</h3>
+<p>场景</p>
+<p>说明</p>
+<p>提示词示例</p>
+<p>开放式问题</p>
+<p>设计提示词，鼓励 AI 基于自身知识给出全面且有信息量的回答。</p>
+<p>"解释量子计算的概念，以及它可能对技术未来产生的影响。"</p>
+<p>具体问题</p>
+<p>设计瞄准特定信息的提示词，让 AI 从给定的上下文或内部知识库中检索出精确答案。</p>
+<p>"法国的首都是哪里？"或"根据提供的文本，森林砍伐的主要成因是什么？"</p>
+<p>选择题</p>
+<p>给出带选项的提示词，引导 AI 分析并依据它对上下文的理解选出最合适的答案。</p>
+<p>"《哈利·波特》系列是谁写的？A) J.R.R. Tolkien，B) J.K. Rowling，C) Stephen King"</p>
+<p>假设性问题</p>
+<p>设计探讨假设情境的提示词，让 AI 进行推理、推测，并给出可能的结果或解决方案。</p>
+<p>"如果人类能以光速旅行，会发生什么？"</p>
+<p>观点类问题</p>
+<p>设计提示词，让 AI 就某个话题表达看法或观点，并鼓励它给出理由和依据。</p>
+<p>"你认为人工智能最终会超越人类智能吗？为什么（或为什么不会）？"</p>
+<p>场景</p>
+<p>说明</p>
+<p>提示词示例</p>
+<p>开放式问题</p>
+<p>设计提示词，鼓励 AI 基于自身知识给出全面且有信息量的回答。</p>
+<p>"解释量子计算的概念，以及它可能对技术未来产生的影响。"</p>
+<p>具体问题</p>
+<p>设计瞄准特定信息的提示词，让 AI 从给定的上下文或内部知识库中检索出精确答案。</p>
+<p>"法国的首都是哪里？"或"根据提供的文本，森林砍伐的主要成因是什么？"</p>
+<p>选择题</p>
+<p>给出带选项的提示词，引导 AI 分析并依据它对上下文的理解选出最合适的答案。</p>
+<p>"《哈利·波特》系列是谁写的？A) J.R.R. Tolkien，B) J.K. Rowling，C) Stephen King"</p>
+<p>假设性问题</p>
+<p>设计探讨假设情境的提示词，让 AI 进行推理、推测，并给出可能的结果或解决方案。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hquestion-answering">Question Answering</h3>
+<p>Scenario</p>
+<p>Instructions</p>
+<p>Example Prompt</p>
+<p>Open-Ended Questions</p>
+<p>Formulate prompts that encourage the AI to provide comprehensive and informative answers based on its knowledge base.</p>
+<p>"Explain the concept of quantum computing and its potential impact on the future of technology."</p>
+<p>Specific Questions</p>
+<p>Design prompts that target specific information, enabling the AI to retrieve precise answers from the provided context or its internal knowledge base.</p>
+<p>"What is the capital of France?" or "According to the provided text, what are the main causes of deforestation?"</p>
+<p>Multiple Choice Questions</p>
+<p>Present prompts with options, prompting the AI to analyze and select the most appropriate answer based on its understanding of the context.</p>
+<p>"Who wrote the Harry Potter series? A) J.R.R. Tolkien, B) J.K. Rowling, C) Stephen King"</p>
+<p>Hypothetical Questions</p>
+<p>Craft prompts that explore hypothetical situations, allowing the AI to reason, speculate, and provide potential outcomes or solutions.</p>
+<p>"What would happen if humans could travel at the speed of light?"</p>
+<p>Opinion-Based Questions</p>
+<p>Design prompts that elicit the AI's perspective or opinion on a specific topic, encouraging it to provide reasoning and justification for its stance.</p>
+<p>"Do you believe that artificial intelligence will eventually surpass human intelligence? Why or why not?"</p>
+<p>Scenario</p>
+<p>Instructions</p>
+<p>Example Prompt</p>
+<p>Open-Ended Questions</p>
+<p>Formulate prompts that encourage the AI to provide comprehensive and informative answers based on its knowledge base.</p>
+<p>"Explain the concept of quantum computing and its potential impact on the future of technology."</p>
+<p>Specific Questions</p>
+<p>Design prompts that target specific information, enabling the AI to retrieve precise answers from the provided context or its internal knowledge base.</p>
+<p>"What is the capital of France?" or "According to the provided text, what are the main causes of deforestation?"</p>
+<p>Multiple Choice Questions</p>
+<p>Present prompts with options, prompting the AI to analyze and select the most appropriate answer based on its understanding of the context.</p>
+<p>"Who wrote the Harry Potter series? A) J.R.R. Tolkien, B) J.K. Rowling, C) Stephen King"</p>
+<p>Hypothetical Questions</p>
+<p>Craft prompts that explore hypothetical situations, allowing the AI to reason, speculate, and provide potential outcomes or solutions.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0016"><div class="zh side"><div class="tag">中文</div><p>"如果人类能以光速旅行，会发生什么？"</p>
+<p>观点类问题</p>
+<p>设计提示词，让 AI 就某个话题表达看法或观点，并鼓励它给出理由和依据。</p>
+<p>"你认为人工智能最终会超越人类智能吗？为什么（或为什么不会）？"</p></div><div class="en side"><div class="tag">EN</div><p>"What would happen if humans could travel at the speed of light?"</p>
+<p>Opinion-Based Questions</p>
+<p>Design prompts that elicit the AI's perspective or opinion on a specific topic, encouraging it to provide reasoning and justification for its stance.</p>
+<p>"Do you believe that artificial intelligence will eventually surpass human intelligence? Why or why not?"</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0017"><div class="zh side"><div class="tag">中文</div><h3 id="h-">代码生成</h3>
+<p>场景</p>
+<p>说明</p>
+<p>提示词示例</p>
+<p>代码补全</p>
+<p>给 AI 一段不完整的代码，让它根据上下文和编程语言提示补全或补写剩余代码。</p>
+<p>"写一个 Python 函数，计算给定数字的阶乘。"</p>
+<p>代码翻译</p>
+<p>指定源语言和目标编程语言，让 AI 在保留功能和语法的前提下翻译代码。</p>
+<p>"把下面这段 Python 代码翻译成 JavaScript：def greet(name): print('Hello,', name)"</p>
+<p>代码优化</p>
+<p>提示 AI 分析现有代码，并从效率、可读性或性能角度提出改进建议。</p>
+<p>"优化下面这段 Python 代码，减少它的执行时间。"</p>
+<p>代码调试</p>
+<p>给 AI 一段含有错误的代码，让它定位问题并提出可能的解决方案。</p>
+<p>"调试下面这段 Java 代码，解释它为什么抛出 NullPointerException。"</p>
+<p>场景</p>
+<p>说明</p>
+<p>提示词示例</p>
+<p>代码补全</p>
+<p>给 AI 一段不完整的代码，让它根据上下文和编程语言提示补全或补写剩余代码。</p>
+<p>"写一个 Python 函数，计算给定数字的阶乘。"</p>
+<p>代码翻译</p>
+<p>指定源语言和目标编程语言，让 AI 在保留功能和语法的前提下翻译代码。</p>
+<p>"把下面这段 Python 代码翻译成 JavaScript：def greet(name): print('Hello,', name)"</p>
+<p>代码优化</p>
+<p>提示 AI 分析现有代码，并从效率、可读性或性能角度提出改进建议。</p>
+<p>"优化下面这段 Python 代码，减少它的执行时间。"</p>
+<p>代码调试</p>
+<p>给 AI 一段含有错误的代码，让它定位问题并提出可能的解决方案。</p>
+<p>"调试下面这段 Java 代码，解释它为什么抛出 NullPointerException。"</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcode-generation">Code Generation</h3>
+<p>Scenario</p>
+<p>Instructions</p>
+<p>Example Prompt</p>
+<p>Code Completion</p>
+<p>Provide the AI with a partial code snippet and prompt it to suggest or complete the remaining code based on the context and programming language.</p>
+<p>"Write a Python function to calculate the factorial of a given number."</p>
+<p>Code Translation</p>
+<p>Specify the source and target programming languages to enable the AI to translate code while preserving functionality and syntax.</p>
+<p>"Translate the following Python code to JavaScript: def greet(name): print('Hello,', name)"</p>
+<p>Code Optimization</p>
+<p>Prompt the AI to analyze existing code and suggest improvements for efficiency, readability, or performance.</p>
+<p>"Optimize the following Python code to reduce its execution time."</p>
+<p>Code Debugging</p>
+<p>Provide the AI with code containing errors and prompt it to identify and suggest potential solutions for the identified issues.</p>
+<p>"Debug the following Java code and explain why it is throwing a NullPointerException."</p>
+<p>Scenario</p>
+<p>Instructions</p>
+<p>Example Prompt</p>
+<p>Code Completion</p>
+<p>Provide the AI with a partial code snippet and prompt it to suggest or complete the remaining code based on the context and programming language.</p>
+<p>"Write a Python function to calculate the factorial of a given number."</p>
+<p>Code Translation</p>
+<p>Specify the source and target programming languages to enable the AI to translate code while preserving functionality and syntax.</p>
+<p>"Translate the following Python code to JavaScript: def greet(name): print('Hello,', name)"</p>
+<p>Code Optimization</p>
+<p>Prompt the AI to analyze existing code and suggest improvements for efficiency, readability, or performance.</p>
+<p>"Optimize the following Python code to reduce its execution time."</p>
+<p>Code Debugging</p>
+<p>Provide the AI with code containing errors and prompt it to identify and suggest potential solutions for the identified issues.</p>
+<p>"Debug the following Java code and explain why it is throwing a NullPointerException."</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0018"><div class="zh side"><div class="tag">中文</div><h3 id="h-">图像生成</h3>
+<p>场景</p>
+<p>说明</p>
+<p>提示词示例</p>
+<p>照片级真实图像</p>
+<p>设计提示词，细致描述期望的画面，包括物体、景别、光线和风格，从而生成逼真且高质量的图像。</p>
+<p>"一张照片级真实的图像：海面日落，棕榈树的剪影映在天空中。"</p>
+<p>艺术风格图像</p>
+<p>设计提示词，明确艺术风格、技法和题材，引导 AI 创作出模仿特定艺术流派或唤起某种情感的图像。</p>
+<p>"一幅印象派画作：雨中繁忙的城市街道，行人撑着伞走过。"</p>
+<p>抽象图像</p>
+<p>设计提示词，鼓励 AI 生成留有解读空间的图像，用形状、色彩和纹理唤起情绪或概念。</p>
+<p>"一张代表希望这一概念的抽象图像，用明亮的色彩和流动的形状。"</p>
+<p>图像编辑</p>
+<p>给 AI 一张现有图像并说明想要做的修改，让它按指令编辑和优化图像。</p>
+<p>"把这张照片的背景换成星空夜景，并加上一轮满月。"或"把图中的人移除，换成一只猫。"</p>
+<p>场景</p>
+<p>说明</p>
+<p>提示词示例</p>
+<p>照片级真实图像</p>
+<p>设计提示词，细致描述期望的画面，包括物体、景别、光线和风格，从而生成逼真且高质量的图像。</p>
+<p>"一张照片级真实的图像：海面日落，棕榈树的剪影映在天空中。"</p>
+<p>艺术风格图像</p>
+<p>设计提示词，明确艺术风格、技法和题材，引导 AI 创作出模仿特定艺术流派或唤起某种情感的图像。</p>
+<p>"一幅印象派画作：雨中繁忙的城市街道，行人撑着伞走过。"</p>
+<p>抽象图像</p>
+<p>设计提示词，鼓励 AI 生成留有解读空间的图像，用形状、色彩和纹理唤起情绪或概念。</p>
+<p>"一张代表希望这一概念的抽象图像，用明亮的色彩和流动的形状。"</p>
+<p>图像编辑</p>
+<p>给 AI 一张现有图像并说明想要做的修改，让它按指令编辑和优化图像。</p></div><div class="en side"><div class="tag">EN</div><h3 id="himage-generation">Image Generation</h3>
+<p>Scenario</p>
+<p>Instructions</p>
+<p>Example Prompt</p>
+<p>Photorealistic Images</p>
+<p>Craft prompts that describe the desired image in detail, including objects, scenery, lighting, and style, to generate realistic and high-quality images.</p>
+<p>"A photorealistic image of a sunset over the ocean with palm trees silhouetted against the sky."</p>
+<p>Artistic Images</p>
+<p>Design prompts that specify art styles, techniques, and subject matter to guide the AI in creating images that mimic specific artistic movements or evoke certain emotions.</p>
+<p>"An impressionist painting of a bustling city street with people walking under umbrellas in the rain."</p>
+<p>Abstract Images</p>
+<p>Formulate prompts that encourage the AI to generate images that are open to interpretation, utilizing shapes, colors, and textures to evoke feelings or concepts.</p>
+<p>"An abstract image representing the concept of hope, using bright colors and flowing shapes."</p>
+<p>Image Editing</p>
+<p>Provide the AI with an existing image and specify desired modifications, enabling it to edit and enhance the image according to the given instructions.</p>
+<p>"Change the background of this photo to a starry night sky and add a full moon." or "Remove the person from this image and replace them with a cat."</p>
+<p>Scenario</p>
+<p>Instructions</p>
+<p>Example Prompt</p>
+<p>Photorealistic Images</p>
+<p>Craft prompts that describe the desired image in detail, including objects, scenery, lighting, and style, to generate realistic and high-quality images.</p>
+<p>"A photorealistic image of a sunset over the ocean with palm trees silhouetted against the sky."</p>
+<p>Artistic Images</p>
+<p>Design prompts that specify art styles, techniques, and subject matter to guide the AI in creating images that mimic specific artistic movements or evoke certain emotions.</p>
+<p>"An impressionist painting of a bustling city street with people walking under umbrellas in the rain."</p>
+<p>Abstract Images</p>
+<p>Formulate prompts that encourage the AI to generate images that are open to interpretation, utilizing shapes, colors, and textures to evoke feelings or concepts.</p>
+<p>"An abstract image representing the concept of hope, using bright colors and flowing shapes."</p>
+<p>Image Editing</p>
+<p>Provide the AI with an existing image and specify desired modifications, enabling it to edit and enhance the image according to the given instructions.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0019"><div class="zh side"><div class="tag">中文</div><p>"把这张照片的背景换成星空夜景，并加上一轮满月。"或"把图中的人移除，换成一只猫。"</p></div><div class="en side"><div class="tag">EN</div><p>"Change the background of this photo to a starry night sky and add a full moon." or "Remove the person from this image and replace them with a cat."</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0020"><div class="zh side"><div class="tag">中文</div><h2 id="h-">写出更好提示词的策略</h2>
+<p>设计出高效的提示词需要一套方法。下面这些策略能帮你提升提示工程水平：</p></div><div class="en side"><div class="tag">EN</div><h2 id="hstrategies-for-writing-better-prompts">Strategies for writing better prompts</h2>
+<p>Developing effective prompts requires a strategic approach. Consider these strategies to enhance your prompt engineering skills:</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0021"><div class="zh side"><div class="tag">中文</div><h3 id="h1-">1. 设定清晰的目标：</h3>
+<p>策略</p>
+<p>提示词示例</p>
+<p>用动作动词明确期望的动作</p>
+<p>"写一份要点列表，总结所附论文的核心发现"</p>
+<p>确定输出期望的长度和格式</p>
+<p>"写一篇 500 词的短文，讨论气候变化对沿海社区的影响。"</p>
+<p>指明目标受众</p>
+<p>"为一条新的有机护肤品系列写产品描述，面向关注可持续发展的年轻成年人。"</p>
+<p>策略</p>
+<p>提示词示例</p>
+<p>用动作动词明确期望的动作</p>
+<p>"写一份要点列表，总结所附论文的核心发现"</p>
+<p>确定输出期望的长度和格式</p>
+<p>"写一篇 500 词的短文，讨论气候变化对沿海社区的影响。"</p>
+<p>指明目标受众</p>
+<p>"为一条新的有机护肤品系列写产品描述，面向关注可持续发展的年轻成年人。"</p></div><div class="en side"><div class="tag">EN</div><h3 id="h1-set-clear-goals-and-objectives-">1. Set Clear Goals and Objectives:</h3>
+<p>Tactic</p>
+<p>Prompt Example</p>
+<p>Use action verbs to specify the desired action</p>
+<p>"Write a bulleted list that summarizes the key findings of the attached research paper"</p>
+<p>Define the desired length and format of the output</p>
+<p>"Compose a 500-word essay discussing the impact of climate change on coastal communities."</p>
+<p>Specify the target audience</p>
+<p>"Write a product description for a new line of organic skincare products, targeting young adults concerned with sustainability."</p>
+<p>Tactic</p>
+<p>Prompt Example</p>
+<p>Use action verbs to specify the desired action</p>
+<p>"Write a bulleted list that summarizes the key findings of the attached research paper"</p>
+<p>Define the desired length and format of the output</p>
+<p>"Compose a 500-word essay discussing the impact of climate change on coastal communities."</p>
+<p>Specify the target audience</p>
+<p>"Write a product description for a new line of organic skincare products, targeting young adults concerned with sustainability."</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0022"><div class="zh side"><div class="tag">中文</div><h3 id="h2-">2. 提供上下文与背景信息：</h3>
+<p>策略</p>
+<p>提示词示例</p>
+<p>纳入相关事实与数据</p>
+<p>"鉴于工业化前以来全球气温已上升 1 摄氏度，讨论海平面上升可能带来的后果。"</p>
+<p>引用具体的来源或文档</p>
+<p>"基于所附财报，分析该公司过去五年的盈利能力。"</p>
+<p>界定关键术语与概念</p>
+<p>"用通俗的语言解释量子计算的概念，让非技术受众也能看懂。"</p>
+<p>策略</p>
+<p>提示词示例</p>
+<p>纳入相关事实与数据</p>
+<p>"鉴于工业化前以来全球气温已上升 1 摄氏度，讨论海平面上升可能带来的后果。"</p>
+<p>引用具体的来源或文档</p>
+<p>"基于所附财报，分析该公司过去五年的盈利能力。"</p>
+<p>界定关键术语与概念</p>
+<p>"用通俗的语言解释量子计算的概念，让非技术受众也能看懂。"</p></div><div class="en side"><div class="tag">EN</div><h3 id="h2-provide-context-and-background-information-">2. Provide Context and Background Information:</h3>
+<p>Tactic</p>
+<p>Prompt Example</p>
+<p>Include relevant facts and data</p>
+<p>"Given that global temperatures have risen by 1 degree Celsius since the pre-industrial era, discuss the potential consequences for sea level rise."</p>
+<p>Reference specific sources or documents</p>
+<p>"Based on the attached financial report, analyze the company's profitability over the past five years."</p>
+<p>Define key terms and concepts</p>
+<p>"Explain the concept of quantum computing in simple terms, suitable for a non-technical audience."</p>
+<p>Tactic</p>
+<p>Prompt Example</p>
+<p>Include relevant facts and data</p>
+<p>"Given that global temperatures have risen by 1 degree Celsius since the pre-industrial era, discuss the potential consequences for sea level rise."</p>
+<p>Reference specific sources or documents</p>
+<p>"Based on the attached financial report, analyze the company's profitability over the past five years."</p>
+<p>Define key terms and concepts</p>
+<p>"Explain the concept of quantum computing in simple terms, suitable for a non-technical audience."</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0023"><div class="zh side"><div class="tag">中文</div><h3 id="h3-">3. 使用少样本提示：</h3>
+<p>策略</p>
+<p>提示词示例</p>
+<p>提供几个期望的输入-输出对示例</p>
+<p>输入："猫" 输出："一种长着胡须的小型毛茸茸哺乳动物。" 输入："狗" 输出："一种以忠诚著称的家养犬科动物。" 提示词："大象"</p>
+<p>示范期望的风格或语气</p>
+<p>示例 1（幽默）："这位政治家的演讲无聊到能治失眠。" 示例 2（正式）："这位政要发表了一场既有料又生动的讲话。" 提示词："写一句话描述这位喜剧演员的单口表演。"</p>
+<p>展示期望的细节程度</p>
+<p>示例 1（简短）："这部电影讲的是一个与外星人交上朋友的男孩。" 示例 2（详细）："这部科幻电影讲述了孤独男孩 Elliot 的故事，他发现了一个滞留地球的外星人，并与它建立起独一无二的纽带。" 提示词："总结你刚读完的这本小说的情节。"</p>
+<p>策略</p>
+<p>提示词示例</p>
+<p>提供几个期望的输入-输出对示例</p>
+<p>输入："猫" 输出："一种长着胡须的小型毛茸茸哺乳动物。" 输入："狗" 输出："一种以忠诚著称的家养犬科动物。" 提示词："大象"</p>
+<p>示范期望的风格或语气</p>
+<p>示例 1（幽默）："这位政治家的演讲无聊到能治失眠。" 示例 2（正式）："这位政要发表了一场既有料又生动的讲话。" 提示词："写一句话描述这位喜剧演员的单口表演。"</p>
+<p>展示期望的细节程度</p>
+<p>示例 1（简短）："这部电影讲的是一个与外星人交上朋友的男孩。" 示例 2（详细）："这部科幻电影讲述了孤独男孩 Elliot 的故事，他发现了一个滞留地球的外星人，并与它建立起独一无二的纽带。" 提示词："总结你刚读完的这本小说的情节。"</p></div><div class="en side"><div class="tag">EN</div><h3 id="h3-use-few-shot-prompting-">3. Use Few-Shot Prompting:</h3>
+<p>Tactic</p>
+<p>Prompt Example</p>
+<p>Provide a few examples of desired input-output pairs</p>
+<p>Input: "Cat" Output: "A small furry mammal with whiskers." Input: "Dog" Output: "A domesticated canine known for its loyalty." Prompt: "Elephant"</p>
+<p>Demonstrate the desired style or tone</p>
+<p>Example 1 (humorous): "The politician's speech was so dull, it could cure insomnia." Example 2 (formal): "The dignitary delivered an address that was both informative and engaging." Prompt: "Write a sentence describing the comedian's stand-up routine."</p>
+<p>Show the desired level of detail</p>
+<p>Example 1 (brief): "The movie was about a young boy who befriends an alien." Example 2 (detailed): "The science fiction film follows the story of Elliot, a lonely boy who discovers and forms a unique bond with an extraterrestrial stranded on Earth." Prompt: "Summarize the plot of the novel you just finished reading."</p>
+<p>Tactic</p>
+<p>Prompt Example</p>
+<p>Provide a few examples of desired input-output pairs</p>
+<p>Input: "Cat" Output: "A small furry mammal with whiskers." Input: "Dog" Output: "A domesticated canine known for its loyalty." Prompt: "Elephant"</p>
+<p>Demonstrate the desired style or tone</p>
+<p>Example 1 (humorous): "The politician's speech was so dull, it could cure insomnia." Example 2 (formal): "The dignitary delivered an address that was both informative and engaging." Prompt: "Write a sentence describing the comedian's stand-up routine."</p>
+<p>Show the desired level of detail</p>
+<p>Example 1 (brief): "The movie was about a young boy who befriends an alien." Example 2 (detailed): "The science fiction film follows the story of Elliot, a lonely boy who discovers and forms a unique bond with an extraterrestrial stranded on Earth." Prompt: "Summarize the plot of the novel you just finished reading."</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0024"><div class="zh side"><div class="tag">中文</div><h3 id="h4-">4. 写得具体：</h3>
+<p>策略</p>
+<p>提示词示例</p>
+<p>用精准的语言，避免歧义</p>
+<p>不要写"写点关于气候变化的东西"，而要写"写一篇议论文，主张实施更严格的碳排放监管。"</p>
+<p>尽可能量化你的要求</p>
+<p>不要写"写一首长诗"，而要写"写一首 14 行的十四行诗，探讨爱与失去的主题。"</p>
+<p>把复杂任务拆成更小的步骤</p>
+<p>不要写"制定一份营销方案"，而要写"1. 确定目标受众。2. 提炼核心营销信息。3. 选择合适的营销渠道。"</p>
+<p>策略</p>
+<p>提示词示例</p>
+<p>用精准的语言，避免歧义</p>
+<p>不要写"写点关于气候变化的东西"，而要写"写一篇议论文，主张实施更严格的碳排放监管。"</p>
+<p>尽可能量化你的要求</p>
+<p>不要写"写一首长诗"，而要写"写一首 14 行的十四行诗，探讨爱与失去的主题。"</p>
+<p>把复杂任务拆成更小的步骤</p>
+<p>不要写"制定一份营销方案"，而要写"1. 确定目标受众。2. 提炼核心营销信息。3. 选择合适的营销渠道。"</p></div><div class="en side"><div class="tag">EN</div><h3 id="h4-be-specific-">4. Be Specific:</h3>
+<p>Tactic</p>
+<p>Prompt Example</p>
+<p>Use precise language and avoid ambiguity</p>
+<p>Instead of: "Write something about climate change," use: "Write a persuasive essay arguing for the implementation of stricter carbon emission regulations."</p>
+<p>Quantify your requests whenever possible</p>
+<p>Instead of: "Write a long poem," use: "Write a sonnet with 14 lines that explores themes of love and loss."</p>
+<p>Break down complex tasks into smaller steps</p>
+<p>Instead of: "Create a marketing plan," use: "1. Identify the target audience. 2. Develop key marketing messages. 3. Choose appropriate marketing channels."</p>
+<p>Tactic</p>
+<p>Prompt Example</p>
+<p>Use precise language and avoid ambiguity</p>
+<p>Instead of: "Write something about climate change," use: "Write a persuasive essay arguing for the implementation of stricter carbon emission regulations."</p>
+<p>Quantify your requests whenever possible</p>
+<p>Instead of: "Write a long poem," use: "Write a sonnet with 14 lines that explores themes of love and loss."</p>
+<p>Break down complex tasks into smaller steps</p>
+<p>Instead of: "Create a marketing plan," use: "1. Identify the target audience. 2. Develop key marketing messages. 3. Choose appropriate marketing channels."</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0025"><div class="zh side"><div class="tag">中文</div><h3 id="h5-">5. 反复迭代与实验：</h3>
+<p>策略</p>
+<p>做法</p>
+<p>尝试不同的措辞和关键词</p>
+<p>用同义词或不同的句式改写你的提示词。</p>
+<p>调整细节程度和具体程度</p>
+<p>增删信息来微调输出。</p>
+<p>测试不同长度的提示词</p>
+<p>长短提示词都试一遍，找出最佳平衡点。</p>
+<p>策略</p>
+<p>做法</p>
+<p>尝试不同的措辞和关键词</p>
+<p>用同义词或不同的句式改写你的提示词。</p>
+<p>调整细节程度和具体程度</p>
+<p>增删信息来微调输出。</p>
+<p>测试不同长度的提示词</p>
+<p>长短提示词都试一遍，找出最佳平衡点。</p></div><div class="en side"><div class="tag">EN</div><h3 id="h5-iterate-and-experiment-">5. Iterate and Experiment:</h3>
+<p>Tactic</p>
+<p>Action</p>
+<p>Try different phrasings and keywords</p>
+<p>Rephrase your prompt using synonyms or alternative sentence structures.</p>
+<p>Adjust the level of detail and specificity</p>
+<p>Add or remove information to fine-tune the output.</p>
+<p>Test different prompt lengths</p>
+<p>Experiment with both shorter and longer prompts to find the optimal balance.</p>
+<p>Tactic</p>
+<p>Action</p>
+<p>Try different phrasings and keywords</p>
+<p>Rephrase your prompt using synonyms or alternative sentence structures.</p>
+<p>Adjust the level of detail and specificity</p>
+<p>Add or remove information to fine-tune the output.</p>
+<p>Test different prompt lengths</p>
+<p>Experiment with both shorter and longer prompts to find the optimal balance.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0026"><div class="zh side"><div class="tag">中文</div><h3 id="h6-">6. 用好思维链提示：</h3>
+<p>策略</p>
+<p>提示词示例</p>
+<p>鼓励逐步推理</p>
+<p>"一步步解决这个问题：John 有 5 个苹果，他吃了 2 个。他还剩几个苹果？第 1 步：John 最初有 5 个苹果。第 2 步：他吃了 2 个苹果，所以要用 5 减 2。第 3 步：5 - 2 = 3。答案：John 还剩 3 个苹果。"</p>
+<p>让模型解释它的推理过程</p>
+<p>"说明你是如何判断这条影评的情感倾向的：‘演技很棒，但剧情太老套。’"</p>
+<p>引导模型走一遍有逻辑的思考顺序</p>
+<p>"要把这封邮件判定为垃圾邮件还是非垃圾邮件，请考虑以下几点：1. 发件人是否已知？2. 主题行里是否含有可疑关键词？3. 这封邮件给出的东西是不是好得不太真实？"</p>
+<p>想进一步了解提示工程的最佳实践</p>
+<p>策略</p>
+<p>提示词示例</p>
+<p>鼓励逐步推理</p>
+<p>"一步步解决这个问题：John 有 5 个苹果，他吃了 2 个。他还剩几个苹果？第 1 步：John 最初有 5 个苹果。第 2 步：他吃了 2 个苹果，所以要用 5 减 2。第 3 步：5 - 2 = 3。答案：John 还剩 3 个苹果。"</p>
+<p>让模型解释它的推理过程</p>
+<p>"说明你是如何判断这条影评的情感倾向的：‘演技很棒，但剧情太老套。’"</p>
+<p>引导模型走一遍有逻辑的思考顺序</p>
+<p>"要把这封邮件判定为垃圾邮件还是非垃圾邮件，请考虑以下几点：1. 发件人是否已知？2. 主题行里是否含有可疑关键词？3. 这封邮件给出的东西是不是好得不太真实？"，可以读读 Google Cloud 上的 Five Best Practices for Prompt Engineering。</p></div><div class="en side"><div class="tag">EN</div><h3 id="h6-leverage-chain-of-thought-prompting-">6. Leverage Chain of Thought Prompting:</h3>
+<p>Tactic</p>
+<p>Prompt Example</p>
+<p>Encourage step-by-step reasoning</p>
+<p>"Solve this problem step-by-step: John has 5 apples, he eats 2. How many apples does he have left? Step 1: John starts with 5 apples. Step 2: He eats 2 apples, so we need to subtract 2 from 5. Step 3: 5 - 2 = 3. Answer: John has 3 apples left."</p>
+<p>Ask the model to explain its reasoning process</p>
+<p>"Explain your thought process in determining the sentiment of this movie review: 'The acting was superb, but the plot was predictable.'"</p>
+<p>Guide the model through a logical sequence of thought</p>
+<p>"To classify this email as spam or not spam, consider the following: 1. Is the sender known? 2. Does the subject line contain suspicious keywords? 3. Is the email offering something too good to be true?"</p>
+<p>Tactic</p>
+<p>Prompt Example</p>
+<p>Encourage step-by-step reasoning</p>
+<p>"Solve this problem step-by-step: John has 5 apples, he eats 2. How many apples does he have left? Step 1: John starts with 5 apples. Step 2: He eats 2 apples, so we need to subtract 2 from 5. Step 3: 5 - 2 = 3. Answer: John has 3 apples left."</p>
+<p>Ask the model to explain its reasoning process</p>
+<p>"Explain your thought process in determining the sentiment of this movie review: 'The acting was superb, but the plot was predictable.'"</p>
+<p>Guide the model through a logical sequence of thought</p>
+<p>"To classify this email as spam or not spam, consider the following: 1. Is the sender known? 2. Does the subject line contain suspicious keywords? 3. Is the email offering something too good to be true?"</p>
+<p>For further guidance on prompt engineering best practices, explore the Five Best Practices for Prompt Engineering on Google Cloud.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0027"><div class="zh side"><div class="tag">中文</div><h2 id="h-">提示工程的收益</h2>
+<p>高效的提示工程带来多方面的收益，提升 AI 模型的能力与可用性：</p></div><div class="en side"><div class="tag">EN</div><h2 id="hbenefits-of-prompt-engineering">Benefits of prompt engineering</h2>
+<p>Effective prompt engineering offers numerous benefits, enhancing the capabilities and usability of AI models:</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0028"><div class="zh side"><div class="tag">中文</div><h3 id="h-">模型表现提升</h3>
+<p>精心设计的提示词给出了清晰的指令和上下文，让 AI 模型的输出更准确、更切题、更有信息量。</p></div><div class="en side"><div class="tag">EN</div><h3 id="himproved-model-performance">Improved model performance</h3>
+<p>Well-crafted prompts lead to more accurate, relevant, and informative outputs from AI models, as they provide clear instructions and context.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0029"><div class="zh side"><div class="tag">中文</div><h3 id="h-">减少偏见与有害回应</h3>
+<p>通过精心控制输入、把准 AI 的关注点，提示工程有助于缓解偏见，最大限度降低生成不当或冒犯内容的风险。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hreduced-bias-and-harmful-responses">Reduced bias and harmful responses</h3>
+<p>By carefully controlling the input and guiding the AI's focus, prompt engineering helps mitigate bias and minimize the risk of generating inappropriate or offensive content.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0030"><div class="zh side"><div class="tag">中文</div><h3 id="h-">更强的可控性与可预测性</h3>
+<p>提示工程让你能够影响 AI 的行为，确保回应稳定可预期，与你期望的目标保持一致。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hincreased-control-and-predictability">Increased control and predictability</h3>
+<p>Prompt engineering empowers you to influence the AI's behavior and ensure consistent and predictable responses aligned with your desired outcomes.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0031"><div class="zh side"><div class="tag">中文</div><h3 id="h-">更好的用户体验</h3>
+<p>清晰简洁的提示词让用户更容易与 AI 模型高效互动，带来更直观、更令人满意的体验。</p></div><div class="en side"><div class="tag">EN</div><h3 id="henhanced-user-experience">Enhanced user experience</h3>
+<p>Clear and concise prompts make it easier for users to interact effectively with AI models, leading to more intuitive and satisfying experiences.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0032"><div class="zh side"><div class="tag">中文</div><h3 id="h-google-cloud-ai-">用 Google Cloud 开启你的 AI 之旅</h3>
+<p>新客户可获得 300 美元免费额度，用于 Google Cloud。</p>
+<p>立即开始</p>
+<p>联系 Google Cloud 销售专员，更详细地聊聊你的具体挑战。</p>
+<p>联系我们</p></div><div class="en side"><div class="tag">EN</div><h3 id="hstart-your-ai-journey-with-google-cloud">Start your AI journey with Google Cloud</h3>
+<p>New customers get $300 in free credits to spend on Google Cloud.</p>
+<p>Get started</p>
+<p>Talk to a Google Cloud sales specialist to discuss your unique challenge in more detail.</p>
+<p>Contact us</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0033"><div class="zh side"><div class="tag">中文</div><h2 id="h-google-cloud-">相关的 Google Cloud 产品与服务</h2>
+<p>查看全部 AI 产品与解决方案</p>
+<p>Vertex AI Platform</p>
+<p>一个统一的平台，供数据科学家和工程师创建、训练、测试、监控、调优和部署 ML 与 AI 模型。</p>
+<p>Vertex AI 上的生成式 AI</p>
+<p>快速做原型并测试生成式 AI 模型。试用示例提示词，设计你自己的提示词，并定制基础模型和 LLM。</p>
+<p>AI API</p>
+<p>借助 Google Cloud 的 AI 与机器学习 API，轻松把 AI 集成到你的应用中。</p>
+<ul>
+<li>解决方案</li>
+</ul>
+<p>Vertex AI 上的 Model Garden</p>
+<p>一个入口就能发现、定制并部署来自 Google 及 Google 合作伙伴的各种模型，快速启动你的 ML 项目。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hrelated-google-cloud-products-and-services">Related Google Cloud products and services</h2>
+<p>See all AI products and solutions</p>
+<p>Vertex AI Platform</p>
+<p>A single platform for data scientists and engineers to create, train, test, monitor, tune, and deploy ML and AI models.</p>
+<p>Generative AI on Vertex AI</p>
+<p>Rapidly prototype and test generative AI models. Test sample prompts, design your own prompts, and customize foundation models and LLMs.</p>
+<p>AI APIs</p>
+<p>Easily integrate AI into your applications with Google Cloud's AI and machine learning APIs.</p>
+<ul>
+<li>Solution</li>
+</ul>
+<p>Model Garden on Vertex AI</p>
+<p>Jumpstart your ML project with a single place to discover, customize, and deploy a wide variety of models from Google and Google partners.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0034"><div class="zh side"><div class="tag">中文</div><h4 id="h-">帮你上手的更多学习资源</h4>
+<p>刚接触 Google Cloud 或生成式 AI？新客户可获得 300 美元免费额度，用于运行、测试和部署工作负载。</p>
+<ul>
+<li>培训：免费生成式 AI 基础课程</li>
+</ul>
+<ul>
+<li>文档：Introduction to prompt design</li>
+</ul>
+<ul>
+<li>文档：General prompt design strategies</li>
+</ul>
+<ul>
+<li>文档：Generative AI prompt samples</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h4 id="hadditional-learning-resources-to-get-started">Additional learning resources to get started</h4>
+<p>New to Google Cloud or generative AI? New customers get $300 in free credits to run, test, and deploy workloads.</p>
+<ul>
+<li>Training: No cost generative AI fundamentals course</li>
+</ul>
+<ul>
+<li>Documentation: Introduction to prompt design</li>
+</ul>
+<ul>
+<li>Documentation: General prompt design strategies</li>
+</ul>
+<ul>
+<li>Documentation: Generative AI prompt samples</li>
+</ul></div></div>
+<div class="pair" id="prompt-engineering-overview-0035"><div class="zh side"><div class="tag">中文</div><h4 id="h-">迈出下一步</h4>
+<p>用 300 美元免费额度和 20 多款始终免费的产品，在 Google Cloud 上开始构建。</p>
+<p>免费开始使用</p>
+<h5 id="h-">需要入门帮助？</h5>
+<p>联系销售</p>
+<h5 id="h-">与值得信赖的合作伙伴合作</h5>
+<p>查找合作伙伴</p></div><div class="en side"><div class="tag">EN</div><h4 id="htake-the-next-step">Take the next step</h4>
+<p>Start building on Google Cloud with $300 in free credits and 20+ always free products.</p>
+<p>Get started for free</p>
+<h5 id="hneed-help-getting-started-">Need help getting started?</h5>
+<p>Contact sales</p>
+<h5 id="hwork-with-a-trusted-partner">Work with a trusted partner</h5>
+<p>Find a partner</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0036"><div class="zh side"><div class="tag">中文</div><h5 id="h-">继续浏览</h5>
+<p>查看全部产品</p>
+<p>.libra-icon</p>
+<p>文档支持</p>
+<p>控制台登录</p>
+<p>免费开始</p>
+<p>免费开始</p>
+<p>联系我们</p>
+<ul>
+<li>加速你的数字化转型</li>
+</ul>
+<ul>
+<li>无论你的业务刚起步，还是已在数字化转型路上走了一段，Google Cloud 都能帮你解决最棘手的挑战。</li>
+</ul>
+<ul>
+<li>为什么选择 Google Cloud</li>
+</ul>
+<p>企业选择我们的首要理由。</p>
+<ul>
+<li>AI 与 ML</li>
+</ul>
+<p>可交付企业级的 AI。</p>
+<ul>
+<li>多云</li>
+</ul>
+<p>应用跑在你需要它们的地方。</p>
+<ul>
+<li>全球基础设施</li>
+</ul>
+<p>构建在与 Google 相同的基础设施之上。</p>
+<ul>
+<li>Data Cloud</li>
+</ul>
+<p>用统一的数据做出更明智的决策。</p>
+<ul>
+<li>现代化基础设施云</li>
+</ul>
+<p>下一代云基础设施。</p>
+<ul>
+<li>安全</li>
+</ul>
+<p>保护你的用户、数据和应用。</p>
+<ul>
+<li>效率与协作</li>
+</ul>
+<p>用 AI 驱动的应用连接你的团队。</p>
+<ul>
+<li>报告与洞察</li>
+</ul>
+<ul>
+<li>高管洞察</li>
+</ul>
+<p>精心策划的决策层视角。</p>
+<ul>
+<li>分析师报告</li>
+</ul>
+<p>看看行业分析师如何评价我们。</p>
+<ul>
+<li>白皮书</li>
+</ul>
+<p>浏览并下载热门白皮书。</p>
+<ul>
+<li>客户故事</li>
+</ul>
+<p>探索案例研究与视频。</p>
+<ul>
+<li>行业解决方案</li>
+</ul>
+<ul>
+<li>安全</li>
+</ul>
+<ul>
+<li>初创企业与中小企业</li>
+</ul>
+<p>查看全部解决方案</p>
+<p>行业解决方案</p>
+<p>降低成本、提升运营敏捷性，抓住新的市场机会。</p>
+<p>零售</p>
+<p>面向零售价值链的分析与协作工具。</p>
+<p>快速消费品</p>
+<p>面向快速消费品数字化转型与品牌增长的解决方案。</p>
+<p>金融服务</p>
+<p>面向金融服务的计算、数据管理与分析工具。</p>
+<p>医疗与生命科学</p>
+<p>大规模推进研究，赋能医疗创新。</p>
+<p>媒体与娱乐</p>
+<p>面向内容生产与分发运营的解决方案.</p>
+<p>电信</p>
+<p>混合云与多云服务，帮助部署 5G 并实现变现。</p>
+<p>游戏</p>
+<p>AI 驱动的方案，更快构建和扩展游戏。</p>
+<p>制造</p>
+<p>迁移与 AI 工具，优化制造价值链。</p>
+<p>供应链与物流</p>
+<p>让供应链和物流运营的数据驱动型业务更可持续、更高效、更有韧性。</p>
+<p>政府</p>
+<p>面向政府机构的数据存储、AI 与分析方案。</p>
+<p>教育</p>
+<p>教学工具，带来更吸引人的学习体验。</p>
+<ul>
+<li>没找到你想要的产品？</li>
+</ul>
+<ul>
+<li>查看全部行业解决方案</li>
+</ul>
+<p>应用现代化</p>
+<p>评估、规划、实施并度量软件实践与能力，让组织的业务应用组合更现代、更简化。</p></div><div class="en side"><div class="tag">EN</div><h5 id="hcontinue-browsing">Continue browsing</h5>
+<p>See all products</p>
+<p></p>
+<p>DocsSupport</p>
+<p>ConsoleSign in</p>
+<p>Start free</p>
+<p>Start free</p>
+<p>Contact us</p>
+<ul>
+<li>Accelerate your digital transformation</li>
+</ul>
+<ul>
+<li>Whether your business is early in its journey or well on its way to digital transformation, Google Cloud can help solve your toughest challenges.</li>
+</ul>
+<ul>
+<li>Why Google Cloud</li>
+</ul>
+<p>Top reasons businesses choose us.</p>
+<ul>
+<li>AI and ML</li>
+</ul>
+<p>Get enterprise-ready AI.</p>
+<ul>
+<li>Multicloud</li>
+</ul>
+<p>Run your apps wherever you need them.</p>
+<ul>
+<li>Global infrastructure</li>
+</ul>
+<p>Build on the same infrastructure as Google.</p>
+<ul>
+<li>Data Cloud</li>
+</ul>
+<p>Make smarter decisions with unified data.</p>
+<ul>
+<li>Modern Infrastructure Cloud</li>
+</ul>
+<p>Next generation of cloud infrastructure.</p>
+<ul>
+<li>Security</li>
+</ul>
+<p>Protect your users, data, and apps.</p>
+<ul>
+<li>Productivity and collaboration</li>
+</ul>
+<p>Connect your teams with AI-powered apps.</p>
+<ul>
+<li>Reports and insights</li>
+</ul>
+<ul>
+<li>Executive insights</li>
+</ul>
+<p>Curated C-suite perspectives.</p>
+<ul>
+<li>Analyst reports</li>
+</ul>
+<p>Read what industry analysts say about us.</p>
+<ul>
+<li>Whitepapers</li>
+</ul>
+<p>Browse and download popular whitepapers.</p>
+<ul>
+<li>Customer stories</li>
+</ul>
+<p>Explore case studies and videos.</p>
+<ul>
+<li>Industry Solutions</li>
+</ul>
+<ul>
+<li>Security</li>
+</ul>
+<ul>
+<li>Startups and SMB</li>
+</ul>
+<p>See all solutions</p>
+<p>Industry Solutions</p>
+<p>Reduce cost, increase operational agility, and capture new market opportunities.</p>
+<p>Retail</p>
+<p>Analytics and collaboration tools for the retail value chain.</p>
+<p>Consumer Packaged Goods</p>
+<p>Solutions for CPG digital transformation and brand growth.</p>
+<p>Financial Services</p>
+<p>Computing, data management, and analytics tools for financial services.</p>
+<p>Healthcare and Life Sciences</p>
+<p>Advance research at scale and empower healthcare innovation.</p>
+<p>Media and Entertainment</p>
+<p>Solutions for content production and distribution operations.</p>
+<p>Telecommunications</p>
+<p>Hybrid and multi-cloud services to deploy and monetize 5G.</p>
+<p>Games</p>
+<p>AI-driven solutions to build and scale games faster.</p>
+<p>Manufacturing</p>
+<p>Migration and AI tools to optimize the manufacturing value chain.</p>
+<p>Supply Chain and Logistics</p>
+<p>Enable sustainable, efficient, and resilient data-driven operations across supply chain and logistics operations.</p>
+<p>Government</p>
+<p>Data storage, AI, and analytics solutions for government agencies.</p>
+<p>Education</p>
+<p>Teaching tools to provide more engaging learning experiences.</p>
+<ul>
+<li>Not seeing what you're looking for?</li>
+</ul>
+<ul>
+<li>See all industry solutions</li>
+</ul>
+<p>Application Modernization</p>
+<p>Assess, plan, implement, and measure software practices and capabilities to modernize and simplify your organization’s business application portfolios.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0037"><div class="zh side"><div class="tag">中文</div><ul>
+<li>CAMP</li>
+</ul>
+<p>用 DORA 提升软件交付能力的项目。</p>
+<ul>
+<li>传统应用现代化</li>
+</ul>
+<p>分析传统工作负载并完成分类，开始云迁移。</p>
+<ul>
+<li>从 PaaS 迁移：Cloud Foundry、Openshift</li>
+</ul>
+<p>把现有容器搬进 Google 托管容器服务的工具。</p>
+<ul>
+<li>从大型机迁移</li>
+</ul>
+<p>把大型机应用迁上云的自动化工具与实践指导。</p>
+<ul>
+<li>软件交付现代化</li>
+</ul>
+<p>软件供应链最佳实践——内循环效率、CI/CD（持续集成与持续交付）与 S3C。</p>
+<ul>
+<li>DevOps 最佳实践</li>
+</ul>
+<p>在组织内落地 DevOps 的流程与资源。</p>
+<ul>
+<li>SRE（站点可靠性工程）原则</li>
+</ul>
+<p>在组织内采用 SRE 的工具与资源。</p>
+<ul>
+<li>平台工程</li>
+</ul>
+<p>完整的管理式服务与 Golden Paths 套件，用于构建、管理和扩展 IDP。</p>
+<ul>
+<li>在边缘运行应用</li>
+</ul>
+<p>在 Google 硬件无关的边缘解决方案上运行本地化、低延迟应用的实践指导。</p>
+<ul>
+<li>面向多云做架构设计</li>
+</ul>
+<p>用一致的平台管理跨多个云的工作负载。</p>
+<ul>
+<li>转向无服务器</li>
+</ul>
+<p>用于开发、部署和扩展应用的全托管环境。</p>
+<p>人工智能</p>
+<p>用 AI 与机器学习为你的业务增添智能和效率。</p>
+<ul>
+<li>搭载 Google AI 的 Customer Engagement Suite</li>
+</ul>
+<p>端到端应用，融合我们最先进的对话式 AI。</p>
+<ul>
+<li>Document AI</li>
+</ul>
+<p>大规模自动化的文档处理与数据采集。</p>
+<ul>
+<li>面向商业场景的 Vertex AI Search</li>
+</ul>
+<p>为零售商提供 Google 品质的搜索与商品推荐。</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>CAMP</li>
+</ul>
+<p>Program that uses DORA to improve your software delivery capabilities.</p>
+<ul>
+<li>Modernize Traditional Applications</li>
+</ul>
+<p>Analyze, categorize, and get started with cloud migration on traditional workloads.</p>
+<ul>
+<li>Migrate from PaaS: Cloud Foundry, Openshift</li>
+</ul>
+<p>Tools for moving your existing containers into Google's managed container services.</p>
+<ul>
+<li>Migrate from Mainframe</li>
+</ul>
+<p>Automated tools and prescriptive guidance for moving your mainframe apps to the cloud.</p>
+<ul>
+<li>Modernize Software Delivery</li>
+</ul>
+<p>Software supply chain best practices - innerloop productivity, CI/CD and S3C.</p>
+<ul>
+<li>DevOps Best Practices</li>
+</ul>
+<p>Processes and resources for implementing DevOps in your org.</p>
+<ul>
+<li>SRE Principles</li>
+</ul>
+<p>Tools and resources for adopting SRE in your org.</p>
+<ul>
+<li>Platform Engineering</li>
+</ul>
+<p>Comprehensive suite of managed services and Golden Paths to build, manage, and scale IDPs.</p>
+<ul>
+<li>Run Applications at the Edge</li>
+</ul>
+<p>Guidance for localized and low latency apps on Google’s hardware agnostic edge solution.</p>
+<ul>
+<li>Architect for Multicloud</li>
+</ul>
+<p>Manage workloads across multiple clouds with a consistent platform.</p>
+<ul>
+<li>Go Serverless</li>
+</ul>
+<p>Fully managed environment for developing, deploying and scaling apps.</p>
+<p>Artificial Intelligence</p>
+<p>Add intelligence and efficiency to your business with AI and machine learning.</p>
+<ul>
+<li>Customer Engagement Suite with Google AI</li>
+</ul>
+<p>End-to-end application that combines our most advanced conversational AI.</p>
+<ul>
+<li>Document AI</li>
+</ul>
+<p>Document processing and data capture automated at scale.</p>
+<ul>
+<li>Vertex AI Search for commerce</li>
+</ul>
+<p>Google-quality search and product recommendations for retailers.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0038"><div class="zh side"><div class="tag">中文</div><ul>
+<li>Google Cloud 与 Gemini 强强联合</li>
+</ul>
+<p>助力应用开发、编码等场景的 AI 助手。</p>
+<ul>
+<li>Google Cloud 上的生成式 AI</li>
+</ul>
+<p>用生成式 AI 的力量重塑内容创作与发现、研究、客户服务和开发者效率。</p>
+<p>API 与应用</p>
+<p>借助 API、应用和自动化，无需写代码也能加快创新节奏。</p>
+<ul>
+<li>用 API 开辟全新业务渠道</li>
+</ul>
+<p>吸引并赋能开发者与合作伙伴生态。</p>
+<ul>
+<li>用 API 激活存量应用</li>
+</ul>
+<p>用于扩展和现代化改造存量应用的云服务。</p>
+<ul>
+<li>Open Banking APIx</li>
+</ul>
+<p>简化并加速交付符合开放银行规范的 API。</p>
+<p>数据分析</p>
+<p>借助无服务器的全托管分析平台，显著简化分析工作，随时从任意规模的数据中即时获得洞察。</p>
+<ul>
+<li>数据迁移</li>
+</ul>
+<p>用 AI 驱动的迁移服务，迁移并现代化升级你的数据仓库和数据湖。</p>
+<ul>
+<li>Data Lakehouse</li>
+</ul>
+<p>用高性能开放数据湖仓统一治理你的多模态数据。</p>
+<ul>
+<li>实时分析</li>
+</ul>
+<p>从事件流的接入、处理和分析中获得洞察。</p>
+<ul>
+<li>营销分析</li>
+</ul>
+<p>用于采集、分析并激活客户数据的解决方案。</p>
+<ul>
+<li>数据集</li>
+</ul>
+<p>来自 Google、公开渠道和商业供应商的数据，为你的分析与 AI 项目补充能量。</p>
+<ul>
+<li>商业智能</li>
+</ul>
+<p>用于现代化升级 BI 技术栈、打造丰富数据体验的解决方案。</p>
+<ul>
+<li>数据分析领域的 AI</li>
+</ul>
+<p>用数据分析领域的 AI 编写 SQL、构建预测模型并可视化数据。</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Google Cloud with Gemini</li>
+</ul>
+<p>AI assistants for application development, coding, and more.</p>
+<ul>
+<li>Generative AI on Google Cloud</li>
+</ul>
+<p>Transform content creation and discovery, research, customer service, and developer efficiency with the power of generative AI.</p>
+<p>APIs and Applications</p>
+<p>Speed up the pace of innovation without coding, using APIs, apps, and automation.</p>
+<ul>
+<li>New Business Channels Using APIs</li>
+</ul>
+<p>Attract and empower an ecosystem of developers and partners.</p>
+<ul>
+<li>Unlocking Legacy Applications Using APIs</li>
+</ul>
+<p>Cloud services for extending and modernizing legacy apps.</p>
+<ul>
+<li>Open Banking APIx</li>
+</ul>
+<p>Simplify and accelerate secure delivery of open banking compliant APIs.</p>
+<p>Data Analytics</p>
+<p>Generate instant insights from data at any scale with a serverless, fully managed analytics platform that significantly simplifies analytics.</p>
+<ul>
+<li>Data Migration</li>
+</ul>
+<p>Migrate and modernize your data warehouse and data lakes with AI-powered migration services.</p>
+<ul>
+<li>Data Lakehouse</li>
+</ul>
+<p>Unify and govern your multimodal data with a high-performance and open data lakehouse.</p>
+<ul>
+<li>Real-time Analytics</li>
+</ul>
+<p>Insights from ingesting, processing, and analyzing event streams.</p>
+<ul>
+<li>Marketing Analytics</li>
+</ul>
+<p>Solutions for collecting, analyzing, and activating customer data.</p>
+<ul>
+<li>Datasets</li>
+</ul>
+<p>Data from Google, public, and commercial providers to enrich your analytics and AI initiatives.</p>
+<ul>
+<li>Business Intelligence</li>
+</ul>
+<p>Solutions for modernizing your BI stack and creating rich data experiences.</p>
+<ul>
+<li>AI for Data Analytics</li>
+</ul>
+<p>Write SQL, build predictive models, and visualize data with AI for data analytics.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0039"><div class="zh side"><div class="tag">中文</div><ul>
+<li>地理空间分析</li>
+</ul>
+<p>一个全面平台，用于规模化解决地理空间用例。</p>
+<p>数据库</p>
+<p>安全、可靠、高可用、全托管的数据服务，帮你迁移和管理企业数据。</p>
+<ul>
+<li>数据库迁移</li>
+</ul>
+<p>简化数据库迁移生命周期的指南与工具。</p>
+<ul>
+<li>数据库现代化</li>
+</ul>
+<p>通过升级让运营数据库基础设施实现现代化。</p>
+<ul>
+<li>游戏数据库</li>
+</ul>
+<p>用 Google Cloud 数据库打造全球化的实时游戏。</p>
+<ul>
+<li>Google Cloud Databases</li>
+</ul>
+<p>用于迁移、管理和现代化升级数据的数据库服务。</p>
+<ul>
+<li>将 Oracle 工作负载迁移到 Google Cloud</li>
+</ul>
+<p>对 Oracle 工作负载重新托管、重新平台化或重写。</p>
+<ul>
+<li>开放源数据库</li>
+</ul>
+<p>企业级支持的完全托管开放源数据库。</p>
+<ul>
+<li>Google Cloud 上的 SQL Server</li>
+</ul>
+<p>在 Google Cloud 上运行 SQL Server 虚拟机的多种选择。</p>
+<ul>
+<li>面向数据库的 Gemini</li>
+</ul>
+<p>用 AI 全面加速数据库的开发与管理。</p>
+<p>基础设施现代化</p>
+<p>借助面向 SAP、VMware、Windows、Oracle 等工作负载的方案，实现快速迁移。</p>
+<ul>
+<li>应用迁移</li>
+</ul>
+<p>用于迁往云端的发现与分析工具。</p>
+<ul>
+<li>Google Cloud 上的 SAP</li>
+</ul>
+<p>运行 SAP 应用和 SAP HANA 的认证。</p>
+<ul>
+<li>高性能计算</li>
+</ul>
+<p>支撑任意工作负载的计算、存储和网络选项。</p>
+<ul>
+<li>Google Cloud 上的 Windows</li>
+</ul>
+<p>运行 Windows 工作负载的工具与合作伙伴。</p>
+<ul>
+<li>数据中心迁移</li>
+</ul>
+<p>面向虚拟机、应用、数据库等对象的迁移方案。</p>
+<ul>
+<li>Active Assist</li>
+</ul>
+<p>自动优化云资源，并提升安全性。</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Geospatial Analytics</li>
+</ul>
+<p>A comprehensive platform to solve for geospatial use cases at scale.</p>
+<p>Databases</p>
+<p>Migrate and manage enterprise data with security, reliability, high availability, and fully managed data services.</p>
+<ul>
+<li>Database Migration</li>
+</ul>
+<p>Guides and tools to simplify your database migration life cycle.</p>
+<ul>
+<li>Database Modernization</li>
+</ul>
+<p>Upgrades to modernize your operational database infrastructure.</p>
+<ul>
+<li>Databases for Games</li>
+</ul>
+<p>Build global, live games with Google Cloud databases.</p>
+<ul>
+<li>Google Cloud Databases</li>
+</ul>
+<p>Database services to migrate, manage, and modernize data.</p>
+<ul>
+<li>Migrate Oracle workloads to Google Cloud</li>
+</ul>
+<p>Rehost, replatform, rewrite your Oracle workloads.</p>
+<ul>
+<li>Open Source Databases</li>
+</ul>
+<p>Fully managed open source databases with enterprise-grade support.</p>
+<ul>
+<li>SQL Server on Google Cloud</li>
+</ul>
+<p>Options for running SQL Server virtual machines on Google Cloud.</p>
+<ul>
+<li>Gemini for Databases</li>
+</ul>
+<p>Supercharge database development and management with AI.</p>
+<p>Infrastructure Modernization</p>
+<p>Migrate quickly with solutions for SAP, VMware, Windows, Oracle, and other workloads.</p>
+<ul>
+<li>Application Migration</li>
+</ul>
+<p>Discovery and analysis tools for moving to the cloud.</p>
+<ul>
+<li>SAP on Google Cloud</li>
+</ul>
+<p>Certifications for running SAP applications and SAP HANA.</p>
+<ul>
+<li>High Performance Computing</li>
+</ul>
+<p>Compute, storage, and networking options to support any workload.</p>
+<ul>
+<li>Windows on Google Cloud</li>
+</ul>
+<p>Tools and partners for running Windows workloads.</p>
+<ul>
+<li>Data Center Migration</li>
+</ul>
+<p>Migration solutions for VMs, apps, databases, and more.</p>
+<ul>
+<li>Active Assist</li>
+</ul>
+<p>Automatic cloud resource optimization and increased security.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0040"><div class="zh side"><div class="tag">中文</div><ul>
+<li>虚拟桌面</li>
+</ul>
+<p>面向桌面和应用的远程办公解决方案（VDI 与 DaaS）。</p>
+<ul>
+<li>快速迁移与现代化计划</li>
+</ul>
+<p>端到端迁移计划，简化你走向云的路径。</p>
+<ul>
+<li>备份与灾难恢复</li>
+</ul>
+<p>确保你的业务连续性需求得到满足。</p>
+<ul>
+<li>Google Cloud 上的 Red Hat</li>
+</ul>
+<p>Google 与 Red Hat 共同提供面向传统本地部署和定制应用的企业级平台。</p>
+<ul>
+<li>跨云网络</li>
+</ul>
+<p>简化混合云与多云组网，并保护你的工作负载、数据和用户。</p>
+<ul>
+<li>可观测性</li>
+</ul>
+<p>端到端可见性，监控、排查并改进应用性能。</p>
+<p>效率与协作</p>
+<p>以人为中心、专为产生实际影响而设计的方案，改变团队的工作方式。</p>
+<ul>
+<li>Google Workspace</li>
+</ul>
+<p>面向企业的协作与效率工具。</p>
+<ul>
+<li>Google Workspace Essentials</li>
+</ul>
+<p>为团队提供安全的视频会议和现代化协作。</p>
+<ul>
+<li>Cloud Identity</li>
+</ul>
+<p>供 IT 管理员统一管理用户设备和应用的平台。</p>
+<ul>
+<li>Chrome Enterprise</li>
+</ul>
+<p>为企业打造的 ChromeOS、Chrome 浏览器和 Chrome 设备。</p>
+<p>安全</p>
+<p>发现、调查并响应在线威胁，帮助保护你的业务。</p>
+<ul>
+<li>智能体式 SOC</li>
+</ul>
+<p>用 AI 智能体交付更好的安全成果。</p>
+<ul>
+<li>Web App and API Protection</li>
+</ul>
+<p>为你的 Web 应用和 API 提供威胁与欺诈防护。</p>
+<ul>
+<li>安全与韧性框架</li>
+</ul>
+<p>覆盖安全与韧性生命周期每个阶段的解决方案。</p>
+<ul>
+<li>以代码驱动的风险与合规（RCaC）</li>
+</ul>
+<p>用自动化手段现代化升级治理、风险与合规职能的方案。</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Virtual Desktops</li>
+</ul>
+<p>Remote work solutions for desktops and applications (VDI &amp; DaaS).</p>
+<ul>
+<li>Rapid Migration and Modernization Program</li>
+</ul>
+<p>End-to-end migration program to simplify your path to the cloud.</p>
+<ul>
+<li>Backup and Disaster Recovery</li>
+</ul>
+<p>Ensure your business continuity needs are met.</p>
+<ul>
+<li>Red Hat on Google Cloud</li>
+</ul>
+<p>Google and Red Hat provide an enterprise-grade platform for traditional on-prem and custom applications.</p>
+<ul>
+<li>Cross-Cloud Network</li>
+</ul>
+<p>Simplify hybrid and multicloud networking, and secure your workloads, data, and users.</p>
+<ul>
+<li>Observability</li>
+</ul>
+<p>Monitor, troubleshoot, and improve app performance with end-to-end visibility.</p>
+<p>Productivity and Collaboration</p>
+<p>Change the way teams work with solutions designed for humans and built for impact.</p>
+<ul>
+<li>Google Workspace</li>
+</ul>
+<p>Collaboration and productivity tools for enterprises.</p>
+<ul>
+<li>Google Workspace Essentials</li>
+</ul>
+<p>Secure video meetings and modern collaboration for teams.</p>
+<ul>
+<li>Cloud Identity</li>
+</ul>
+<p>Unified platform for IT admins to manage user devices and apps.</p>
+<ul>
+<li>Chrome Enterprise</li>
+</ul>
+<p>ChromeOS, Chrome Browser, and Chrome devices built for business.</p>
+<p>Security</p>
+<p>Detect, investigate, and respond to online threats to help protect your business.</p>
+<ul>
+<li>Agentic SOC</li>
+</ul>
+<p>Delivering better security outcomes with AI agents.</p>
+<ul>
+<li>Web App and API Protection</li>
+</ul>
+<p>Threat and fraud protection for your web applications and APIs.</p>
+<ul>
+<li>Security and Resilience Framework</li>
+</ul>
+<p>Solutions for each phase of the security and resilience life cycle.</p>
+<ul>
+<li>Risk and compliance as code (RCaC)</li>
+</ul>
+<p>Solution to modernize your governance, risk, and compliance function with automation.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0041"><div class="zh side"><div class="tag">中文</div><ul>
+<li>软件供应链安全</li>
+</ul>
+<p>改进端到端软件供应链安全性的方案。</p>
+<ul>
+<li>Security Foundation</li>
+</ul>
+<p>帮助达成良好安全态势的推荐产品。</p>
+<ul>
+<li>Google Cloud CybershieldTM</li>
+</ul>
+<p>强化全国范围内的网络防御。</p>
+<p>初创企业与中小企业</p>
+<p>用定制化方案和计划，加速初创企业与中小企业的成长。</p>
+<ul>
+<li>初创企业计划</li>
+</ul>
+<p>获得财务、商业和技术支持，把你的初创企业推向下一个阶段。</p>
+<ul>
+<li>中小企业</li>
+</ul>
+<p>探索 Web 托管、应用开发、AI 和分析方面的解决方案。</p>
+<ul>
+<li>SaaS</li>
+</ul>
+<p>打造更好的 SaaS 产品，高效扩展，持续增长业务。</p>
+<ul>
+<li>精选产品</li>
+</ul>
+<ul>
+<li>Web3</li>
+</ul>
+<p>查看全部产品（100 多款）</p>
+<ul>
+<li>精选产品</li>
+</ul>
+<p>Compute Engine</p>
+<p>运行在 Google 数据中心的虚拟机。</p>
+<p>Cloud Storage</p>
+<p>安全、耐用、可扩展的对象存储。</p>
+<p>BigQuery</p>
+<p>面向分析与数据科学的自主数据到 AI 平台。</p>
+<p>Cloud Run</p>
+<p>运行容器化应用的全托管环境。</p>
+<p>Google Kubernetes Engine</p>
+<p>运行容器化应用的托管环境。</p>
+<p>Vertex AI</p>
+<p>ML 模型与生成式 AI 的统一平台。</p>
+<p>Looker</p>
+<p>BI、数据应用与嵌入式分析平台。</p>
+<p>Apigee API Management</p>
+<p>在任何地方管理 API 的完整生命周期，尽享可见性与可控性。</p>
+<p>Cloud SQL</p>
+<p>面向 MySQL、PostgreSQL 和 SQL Server 的关系型数据库服务。</p>
+<p>Gemini Enterprise</p>
+<p>用于发现、创建、运行和治理 AI 智能体的安全平台。</p>
+<p>Cloud CDN</p>
+<p>用于分发 Web 与视频的内容交付网络。</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Software Supply Chain Security</li>
+</ul>
+<p>Solution for improving end-to-end software supply chain security.</p>
+<ul>
+<li>Security Foundation</li>
+</ul>
+<p>Recommended products to help achieve a strong security posture.</p>
+<ul>
+<li>Google Cloud CybershieldTM</li>
+</ul>
+<p>Strengthen nationwide cyber defense.</p>
+<p>Startups and SMB</p>
+<p>Accelerate startup and SMB growth with tailored solutions and programs.</p>
+<ul>
+<li>Startup Program</li>
+</ul>
+<p>Get financial, business, and technical support to take your startup to the next level.</p>
+<ul>
+<li>Small and Medium Business</li>
+</ul>
+<p>Explore solutions for web hosting, app development, AI, and analytics.</p>
+<ul>
+<li>Software as a Service</li>
+</ul>
+<p>Build better SaaS products, scale efficiently, and grow your business.</p>
+<ul>
+<li>Featured Products</li>
+</ul>
+<ul>
+<li>Web3</li>
+</ul>
+<p>See all products (100+)</p>
+<ul>
+<li>Featured Products</li>
+</ul>
+<p>Compute Engine</p>
+<p>Virtual machines running in Google’s data center.</p>
+<p>Cloud Storage</p>
+<p>Object storage that’s secure, durable, and scalable.</p>
+<p>BigQuery</p>
+<p>Autonomous data to AI platform for analytics and data science.</p>
+<p>Cloud Run</p>
+<p>Fully managed environment for running containerized apps.</p>
+<p>Google Kubernetes Engine</p>
+<p>Managed environment for running containerized apps.</p>
+<p>Vertex AI</p>
+<p>Unified platform for ML models and generative AI.</p>
+<p>Looker</p>
+<p>Platform for BI, data applications, and embedded analytics.</p>
+<p>Apigee API Management</p>
+<p>Manage the full life cycle of APIs anywhere with visibility and control.</p>
+<p>Cloud SQL</p>
+<p>Relational database services for MySQL, PostgreSQL and SQL Server.</p>
+<p>Gemini Enterprise</p>
+<p>Secure platform to discover, create, run, and govern AI agents.</p>
+<p>Cloud CDN</p>
+<p>Content delivery network for delivering web and video.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0042"><div class="zh side"><div class="tag">中文</div><ul>
+<li>没找到你想要的产品？</li>
+</ul>
+<ul>
+<li>查看全部 AI 与机器学习产品</li>
+</ul>
+<p>AI 与机器学习</p>
+<ul>
+<li>Vertex AI Platform</li>
+</ul>
+<p>ML 模型与生成式 AI 的统一平台。</p>
+<ul>
+<li>Vertex AI Studio</li>
+</ul>
+<p>在 Vertex AI 上构建、调优和部署基础模型。</p>
+<ul>
+<li>Vertex AI Agent Builder</li>
+</ul>
+<p>构建并部署生成式 AI 体验。</p>
+<ul>
+<li>Conversational Agents</li>
+</ul>
+<p>兼具确定性能力与生成式 AI 能力的对话式 AI。</p>
+<ul>
+<li>Vertex AI Search</li>
+</ul>
+<p>为你的企业应用和体验打造 Google 品质的搜索。</p>
+<ul>
+<li>Speech-to-Text</li>
+</ul>
+<p>覆盖 125 种语言的语音识别与转写。</p>
+<ul>
+<li>Text-to-Speech</li>
+</ul>
+<p>支持 220 多种音色、40 多种语言的语音合成。</p>
+<ul>
+<li>Translation AI</li>
+</ul>
+<p>语言检测、翻译和术语表支持。</p>
+<ul>
+<li>Gemini Enterprise</li>
+</ul>
+<p>用于发现、创建、运行和治理 AI 智能体的安全平台。</p>
+<ul>
+<li>Vision AI</li>
+</ul>
+<p>自定义与预训练模型，可检测情绪、文字等。</p>
+<ul>
+<li>Contact Center as a Service</li>
+</ul>
+<p>云原生的全渠道联络中心方案。</p>
+<ul>
+<li>没找到你想要的产品？</li>
+</ul>
+<ul>
+<li>查看全部 AI 与机器学习产品</li>
+</ul>
+<ul>
+<li>商业智能</li>
+</ul>
+<ul>
+<li>Looker</li>
+</ul>
+<p>BI、数据应用与嵌入式分析平台。</p>
+<ul>
+<li>Looker Studio</li>
+</ul>
+<p>用于仪表盘、报表和分析的交互式数据套件。</p>
+<p>计算</p>
+<ul>
+<li>Compute Engine</li>
+</ul>
+<p>运行在 Google 数据中心的虚拟机。</p>
+<ul>
+<li>App Engine</li>
+</ul>
+<p>面向应用和后端的无服务器应用平台。</p>
+<ul>
+<li>Cloud GPUs</li>
+</ul>
+<p>用于 ML、科学计算和 3D 可视化的 GPU。</p>
+<ul>
+<li>迁移到虚拟机</li>
+</ul>
+<p>把服务器和虚拟机迁移到 Compute Engine。</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Not seeing what you're looking for?</li>
+</ul>
+<ul>
+<li>See all products (100+)</li>
+</ul>
+<p>AI and Machine Learning</p>
+<ul>
+<li>Vertex AI Platform</li>
+</ul>
+<p>Unified platform for ML models and generative AI.</p>
+<ul>
+<li>Vertex AI Studio</li>
+</ul>
+<p>Build, tune, and deploy foundation models on Vertex AI.</p>
+<ul>
+<li>Vertex AI Agent Builder</li>
+</ul>
+<p>Build and deploy gen AI experiences.</p>
+<ul>
+<li>Conversational Agents</li>
+</ul>
+<p>Build conversational AI with both deterministic and gen AI functionality.</p>
+<ul>
+<li>Vertex AI Search</li>
+</ul>
+<p>Build Google-quality search for your enterprise apps and experiences.</p>
+<ul>
+<li>Speech-to-Text</li>
+</ul>
+<p>Speech recognition and transcription across 125 languages.</p>
+<ul>
+<li>Text-to-Speech</li>
+</ul>
+<p>Speech synthesis in 220+ voices and 40+ languages.</p>
+<ul>
+<li>Translation AI</li>
+</ul>
+<p>Language detection, translation, and glossary support.</p>
+<ul>
+<li>Gemini Enterprise</li>
+</ul>
+<p>Secure platform to discover, create, run, and govern AI agents.</p>
+<ul>
+<li>Vision AI</li>
+</ul>
+<p>Custom and pre-trained models to detect emotion, text, and more.</p>
+<ul>
+<li>Contact Center as a Service</li>
+</ul>
+<p>Omnichannel contact center solution that is native to the cloud.</p>
+<ul>
+<li>Not seeing what you're looking for?</li>
+</ul>
+<ul>
+<li>See all AI and machine learning products</li>
+</ul>
+<ul>
+<li>Business Intelligence</li>
+</ul>
+<ul>
+<li>Looker</li>
+</ul>
+<p>Platform for BI, data applications, and embedded analytics.</p>
+<ul>
+<li>Looker Studio</li>
+</ul>
+<p>Interactive data suite for dashboarding, reporting, and analytics.</p>
+<p>Compute</p>
+<ul>
+<li>Compute Engine</li>
+</ul>
+<p>Virtual machines running in Google’s data center.</p>
+<ul>
+<li>App Engine</li>
+</ul>
+<p>Serverless application platform for apps and back ends.</p>
+<ul>
+<li>Cloud GPUs</li>
+</ul>
+<p>GPUs for ML, scientific computing, and 3D visualization.</p>
+<ul>
+<li>Migrate to Virtual Machines</li>
+</ul>
+<p>Server and virtual machine migration to Compute Engine.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0043"><div class="zh side"><div class="tag">中文</div><ul>
+<li>Spot VMs</li>
+</ul>
+<p>面向批处理任务和容错工作负载的计算实例。</p>
+<ul>
+<li>Batch</li>
+</ul>
+<p>用于调度批处理任务的全托管服务。</p>
+<ul>
+<li>Sole-Tenant Nodes</li>
+</ul>
+<p>满足合规、许可和管理需求的专用硬件。</p>
+<ul>
+<li>Bare Metal</li>
+</ul>
+<p>在 Google Cloud 上运行专用工作负载的基础设施。</p>
+<ul>
+<li>Recommender</li>
+</ul>
+<p>针对 Google Cloud 产品与服务的使用建议。</p>
+<ul>
+<li>VMware Engine</li>
+</ul>
+<p>完全托管、原生的 VMware Cloud Foundation 软件栈。</p>
+<ul>
+<li>Cloud Run</li>
+</ul>
+<p>运行容器化应用的全托管环境。</p>
+<ul>
+<li>没找到你想要的产品？</li>
+</ul>
+<ul>
+<li>查看全部计算产品</li>
+</ul>
+<p>容器</p>
+<ul>
+<li>Google Kubernetes Engine</li>
+</ul>
+<p>运行容器化应用的托管环境。</p>
+<ul>
+<li>Cloud Run</li>
+</ul>
+<p>运行容器化应用的全托管环境。</p>
+<ul>
+<li>Cloud Build</li>
+</ul>
+<p>在 Docker 容器中运行构建步骤的方案。</p>
+<ul>
+<li>Artifact Registry</li>
+</ul>
+<p>管理构建产物和依赖的包管理器。</p>
+<ul>
+<li>Cloud Code</li>
+</ul>
+<p>在 IDE 中编写、运行和调试 Kubernetes 应用的辅助能力。</p>
+<ul>
+<li>Cloud Deploy</li>
+</ul>
+<p>面向 GKE 和 Cloud Run 的全托管持续交付。</p>
+<ul>
+<li>迁移到容器</li>
+</ul>
+<p>把虚拟机迁入 GKE 系统容器的组件。</p>
+<ul>
+<li>Deep Learning Containers</li>
+</ul>
+<p>内置数据科学框架、库和工具的容器。</p>
+<ul>
+<li>Knative</li>
+</ul>
+<p>用于构建 Kubernetes 原生云软件的组件。</p>
+<p>数据分析</p>
+<ul>
+<li>BigQuery</li>
+</ul>
+<p>面向分析与数据科学的自主数据到 AI 平台。</p>
+<ul>
+<li>Looker</li>
+</ul>
+<p>BI、数据应用与嵌入式分析平台。</p>
+<ul>
+<li>Dataflow</li>
+</ul>
+<p>用于流式和批处理的实时分析。</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Spot VMs</li>
+</ul>
+<p>Compute instances for batch jobs and fault-tolerant workloads.</p>
+<ul>
+<li>Batch</li>
+</ul>
+<p>Fully managed service for scheduling batch jobs.</p>
+<ul>
+<li>Sole-Tenant Nodes</li>
+</ul>
+<p>Dedicated hardware for compliance, licensing, and management.</p>
+<ul>
+<li>Bare Metal</li>
+</ul>
+<p>Infrastructure to run specialized workloads on Google Cloud.</p>
+<ul>
+<li>Recommender</li>
+</ul>
+<p>Usage recommendations for Google Cloud products and services.</p>
+<ul>
+<li>VMware Engine</li>
+</ul>
+<p>Fully managed, native VMware Cloud Foundation software stack.</p>
+<ul>
+<li>Cloud Run</li>
+</ul>
+<p>Fully managed environment for running containerized apps.</p>
+<ul>
+<li>Not seeing what you're looking for?</li>
+</ul>
+<ul>
+<li>See all compute products</li>
+</ul>
+<p>Containers</p>
+<ul>
+<li>Google Kubernetes Engine</li>
+</ul>
+<p>Managed environment for running containerized apps.</p>
+<ul>
+<li>Cloud Run</li>
+</ul>
+<p>Fully managed environment for running containerized apps.</p>
+<ul>
+<li>Cloud Build</li>
+</ul>
+<p>Solution for running build steps in a Docker container.</p>
+<ul>
+<li>Artifact Registry</li>
+</ul>
+<p>Package manager for build artifacts and dependencies.</p>
+<ul>
+<li>Cloud Code</li>
+</ul>
+<p>IDE support to write, run, and debug Kubernetes applications.</p>
+<ul>
+<li>Cloud Deploy</li>
+</ul>
+<p>Fully managed continuous delivery to GKE and Cloud Run.</p>
+<ul>
+<li>Migrate to Containers</li>
+</ul>
+<p>Components for migrating VMs into system containers on GKE.</p>
+<ul>
+<li>Deep Learning Containers</li>
+</ul>
+<p>Containers with data science frameworks, libraries, and tools.</p>
+<ul>
+<li>Knative</li>
+</ul>
+<p>Components to create Kubernetes-native cloud-based software.</p>
+<p>Data Analytics</p>
+<ul>
+<li>BigQuery</li>
+</ul>
+<p>Autonomous data to AI platform for analytics and data science.</p>
+<ul>
+<li>Looker</li>
+</ul>
+<p>Platform for BI, data applications, and embedded analytics.</p>
+<ul>
+<li>Dataflow</li>
+</ul>
+<p>Real-time analytics for stream and batch processing.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0044"><div class="zh side"><div class="tag">中文</div><ul>
+<li>Pub/Sub</li>
+</ul>
+<p>用于事件接入与投递的消息服务。</p>
+<ul>
+<li>Dataproc</li>
+</ul>
+<p>运行 Apache Spark 和 Apache Hadoop 集群的托管服务。</p>
+<ul>
+<li>Google Cloud Serverless for Apache Spark</li>
+</ul>
+<p>为 Spark 工作负载带来极速虚拟机启动和动态自动扩缩。</p>
+<ul>
+<li>Cloud Composer</li>
+</ul>
+<p>基于 Apache Airflow 的工作流编排服务。</p>
+<ul>
+<li>BigLake</li>
+</ul>
+<p>用 Apache Iceberg 构建数据湖仓的存储引擎。</p>
+<ul>
+<li>Dataplex Universal Catalog</li>
+</ul>
+<p>面向所有 Google Cloud 服务的统一数据到 AI 治理底座。</p>
+<ul>
+<li>BigQuery Migration Services</li>
+</ul>
+<p>免费使用、云原生、AI 驱动的数据迁移服务。</p>
+<ul>
+<li>Managed Service for Apache Kafka</li>
+</ul>
+<p>用于运行高可用 Apache Kafka 集群的托管 Kafka 服务。</p>
+<ul>
+<li>没找到你想要的产品？</li>
+</ul>
+<ul>
+<li>查看全部数据分析产品</li>
+</ul>
+<p>数据库</p>
+<ul>
+<li>AlloyDB for PostgreSQL</li>
+</ul>
+<p>面向企业工作负载、完全托管且兼容 PostgreSQL 的数据库。</p>
+<ul>
+<li>Cloud SQL</li>
+</ul>
+<p>面向 MySQL、PostgreSQL 和 SQL Server 的全托管数据库。</p>
+<ul>
+<li>Firestore</li>
+</ul>
+<p>高扩展的无服务器 NoSQL 文档数据库，兼容 MongoDB。</p>
+<ul>
+<li>Spanner</li>
+</ul>
+<p>云原生关系型数据库，扩展能力无上限，可用性达 99.999%。</p>
+<ul>
+<li>Bigtable</li>
+</ul>
+<p>面向大规模低延迟工作负载的云原生宽列数据库。</p>
+<ul>
+<li>Datastream</li>
+</ul>
+<p>无服务器的数据变更捕获与复制服务。</p>
+<ul>
+<li>Database Migration Service</li>
+</ul>
+<p>迁移到 Cloud SQL 的无服务器、低停机方案。</p>
+<ul>
+<li>Bare Metal Solution</li>
+</ul>
+<p>面向 Oracle 工作负载的全托管基础设施。</p>
+<ul>
+<li>Memorystore</li>
+</ul>
+<p>全托管的 Redis 和 Memcached，实现亚毫秒级数据访问。</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Pub/Sub</li>
+</ul>
+<p>Messaging service for event ingestion and delivery.</p>
+<ul>
+<li>Dataproc</li>
+</ul>
+<p>Managed service for running Apache Spark and Apache Hadoop clusters.</p>
+<ul>
+<li>Google Cloud Serverless for Apache Spark</li>
+</ul>
+<p>Quick VM startup and dynamic autoscaling for Spark workloads.</p>
+<ul>
+<li>Cloud Composer</li>
+</ul>
+<p>Workflow orchestration service built on Apache Airflow.</p>
+<ul>
+<li>BigLake</li>
+</ul>
+<p>Storage engine for building data lakehouses with Apache Iceberg.</p>
+<ul>
+<li>Dataplex Universal Catalog</li>
+</ul>
+<p>A unified data-to-AI governance fabric for all Google Cloud services.</p>
+<ul>
+<li>BigQuery Migration Services</li>
+</ul>
+<p>Free-to-use, cloud-native and AI-powered data migration services.</p>
+<ul>
+<li>Managed Service for Apache Kafka</li>
+</ul>
+<p>Managed Kafka service to operate highly available Apache Kafka clusters.</p>
+<ul>
+<li>Not seeing what you're looking for?</li>
+</ul>
+<ul>
+<li>See all data analytics products</li>
+</ul>
+<p>Databases</p>
+<ul>
+<li>AlloyDB for PostgreSQL</li>
+</ul>
+<p>Fully managed, PostgreSQL-compatible database for enterprise workloads.</p>
+<ul>
+<li>Cloud SQL</li>
+</ul>
+<p>Fully managed database for MySQL, PostgreSQL, and SQL Server.</p>
+<ul>
+<li>Firestore</li>
+</ul>
+<p>Highly scalable and serverless NoSQL document database, with MongoDB compatibility.</p>
+<ul>
+<li>Spanner</li>
+</ul>
+<p>Cloud-native relational database with unlimited scale and 99.999% availability.</p>
+<ul>
+<li>Bigtable</li>
+</ul>
+<p>Cloud-native wide-column database for large-scale, low-latency workloads.</p>
+<ul>
+<li>Datastream</li>
+</ul>
+<p>Serverless change data capture and replication service.</p>
+<ul>
+<li>Database Migration Service</li>
+</ul>
+<p>Serverless, minimal downtime migrations to Cloud SQL.</p>
+<ul>
+<li>Bare Metal Solution</li>
+</ul>
+<p>Fully managed infrastructure for your Oracle workloads.</p>
+<ul>
+<li>Memorystore</li>
+</ul>
+<p>Fully managed Redis and Memcached for sub-millisecond data access.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0045"><div class="zh side"><div class="tag">中文</div><p>开发者工具</p>
+<ul>
+<li>Artifact Registry</li>
+</ul>
+<p>管理构建产物和依赖的通用包管理器。</p>
+<ul>
+<li>Cloud Code</li>
+</ul>
+<p>在 IDE 中编写、运行和调试 Kubernetes 应用的辅助能力。</p>
+<ul>
+<li>Cloud Build</li>
+</ul>
+<p>持续集成与持续交付（CI/CD）平台。</p>
+<ul>
+<li>Cloud Deploy</li>
+</ul>
+<p>面向 GKE 和 Cloud Run 的全托管持续交付。</p>
+<ul>
+<li>Cloud Deployment Manager</li>
+</ul>
+<p>用于创建和管理 Google Cloud 资源的服务。</p>
+<ul>
+<li>Cloud SDK</li>
+</ul>
+<p>Google Cloud 的命令行工具和库。</p>
+<ul>
+<li>Cloud Scheduler</li>
+</ul>
+<p>用于任务自动化和管理的 Cron 作业调度器。</p>
+<ul>
+<li>Cloud Source Repositories</li>
+</ul>
+<p>用于存储、管理和追踪代码的私有 Git 仓库。</p>
+<ul>
+<li>Infrastructure Manager</li>
+</ul>
+<p>用 Terraform 实现基础设施管理自动化。</p>
+<ul>
+<li>Cloud Workstations</li>
+</ul>
+<p>云上托管且安全的开发环境。</p>
+<ul>
+<li>Gemini Code Assist</li>
+</ul>
+<p>贯穿 Google Cloud 和你的 IDE 的 AI 助手。</p>
+<ul>
+<li>没找到你想要的产品？</li>
+</ul>
+<ul>
+<li>查看全部开发者工具</li>
+</ul>
+<p>分布式云</p>
+<ul>
+<li>Google Distributed Cloud Connected</li>
+</ul>
+<p>面向边缘工作负载的分布式云服务。</p>
+<ul>
+<li>Google Distributed Cloud Air-gapped</li>
+</ul>
+<p>面向隔离工作负载的分布式云。</p>
+<ul>
+<li>混合云与多云</li>
+</ul>
+<ul>
+<li>Google Kubernetes Engine</li>
+</ul>
+<p>运行容器化应用的托管环境。</p>
+<ul>
+<li>Apigee API Management</li>
+</ul>
+<p>API 管理、开发与安全平台。</p>
+<ul>
+<li>迁移到容器</li>
+</ul>
+<p>把工作负载和现有应用迁到 GKE 的工具。</p>
+<ul>
+<li>Cloud Build</li>
+</ul>
+<p>在 Google Cloud 基础设施上执行构建的服务。</p>
+<ul>
+<li>可观测性</li>
+</ul>
+<p>监控、日志与应用性能套件。</p></div><div class="en side"><div class="tag">EN</div><p>Developer Tools</p>
+<ul>
+<li>Artifact Registry</li>
+</ul>
+<p>Universal package manager for build artifacts and dependencies.</p>
+<ul>
+<li>Cloud Code</li>
+</ul>
+<p>IDE support to write, run, and debug Kubernetes applications.</p>
+<ul>
+<li>Cloud Build</li>
+</ul>
+<p>Continuous integration and continuous delivery platform.</p>
+<ul>
+<li>Cloud Deploy</li>
+</ul>
+<p>Fully managed continuous delivery to GKE and Cloud Run.</p>
+<ul>
+<li>Cloud Deployment Manager</li>
+</ul>
+<p>Service for creating and managing Google Cloud resources.</p>
+<ul>
+<li>Cloud SDK</li>
+</ul>
+<p>Command-line tools and libraries for Google Cloud.</p>
+<ul>
+<li>Cloud Scheduler</li>
+</ul>
+<p>Cron job scheduler for task automation and management.</p>
+<ul>
+<li>Cloud Source Repositories</li>
+</ul>
+<p>Private Git repository to store, manage, and track code.</p>
+<ul>
+<li>Infrastructure Manager</li>
+</ul>
+<p>Automate infrastructure management with Terraform.</p>
+<ul>
+<li>Cloud Workstations</li>
+</ul>
+<p>Managed and secure development environments in the cloud.</p>
+<ul>
+<li>Gemini Code Assist</li>
+</ul>
+<p>AI-powered assistant available across Google Cloud and your IDE.</p>
+<ul>
+<li>Not seeing what you're looking for?</li>
+</ul>
+<ul>
+<li>See all developer tools</li>
+</ul>
+<p>Distributed Cloud</p>
+<ul>
+<li>Google Distributed Cloud Connected</li>
+</ul>
+<p>Distributed cloud services for edge workloads.</p>
+<ul>
+<li>Google Distributed Cloud Air-gapped</li>
+</ul>
+<p>Distributed cloud for air-gapped workloads.</p>
+<ul>
+<li>Hybrid and Multicloud</li>
+</ul>
+<ul>
+<li>Google Kubernetes Engine</li>
+</ul>
+<p>Managed environment for running containerized apps.</p>
+<ul>
+<li>Apigee API Management</li>
+</ul>
+<p>API management, development, and security platform.</p>
+<ul>
+<li>Migrate to Containers</li>
+</ul>
+<p>Tool to move workloads and existing applications to GKE.</p>
+<ul>
+<li>Cloud Build</li>
+</ul>
+<p>Service for executing builds on Google Cloud infrastructure.</p>
+<ul>
+<li>Observability</li>
+</ul>
+<p>Monitoring, logging, and application performance suite.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0046"><div class="zh side"><div class="tag">中文</div><ul>
+<li>Cloud Service Mesh</li>
+</ul>
+<p>基于 Envoy 和 Istio 的全托管服务网格。</p>
+<ul>
+<li>Google Distributed Cloud</li>
+</ul>
+<p>面向边缘和数据中心场景的全托管解决方案。</p>
+<ul>
+<li>行业专属</li>
+</ul>
+<ul>
+<li>Anti Money Laundering AI</li>
+</ul>
+<p>用 AI 检测可疑的潜在洗钱活动。</p>
+<ul>
+<li>Cloud Healthcare API</li>
+</ul>
+<p>连接 Google Cloud 上现有医疗系统与应用的方案。</p>
+<ul>
+<li>Device Connect for Fitbit</li>
+</ul>
+<p>接入 Google Cloud 上的 Fitbit 数据，获得 360 度患者视图。</p>
+<ul>
+<li>Telecom Network Automation</li>
+</ul>
+<p>开箱即用的云原生电信网络自动化方案。</p>
+<ul>
+<li>Telecom Data Fabric</li>
+</ul>
+<p>以自动化方式实现电信数据管理与分析。</p>
+<ul>
+<li>Telecom Subscriber Insights</li>
+</ul>
+<p>接入数据，改善用户获取与留存。</p>
+<ul>
+<li>Spectrum Access System (SAS)</li>
+</ul>
+<p>控制对 Citizens Broadband Radio Service (CBRS) 频谱的接入。</p>
+<p>集成服务</p>
+<ul>
+<li>Application Integration</li>
+</ul>
+<p>连接第三方应用，无需代码即可实现数据一致性。</p>
+<ul>
+<li>Workflows</li>
+</ul>
+<p>面向无服务器产品和 API 服务的工作流编排。</p>
+<ul>
+<li>Apigee API Management</li>
+</ul>
+<p>在任何地方管理 API 的完整生命周期，尽享可见性与可控性。</p>
+<ul>
+<li>Cloud Tasks</li>
+</ul>
+<p>用于异步执行任务的任务管理服务。</p>
+<ul>
+<li>Cloud Scheduler</li>
+</ul>
+<p>用于任务自动化和管理的 Cron 作业调度器。</p>
+<ul>
+<li>Dataproc</li>
+</ul>
+<p>运行 Apache Spark 和 Apache Hadoop 集群的服务。</p>
+<ul>
+<li>Cloud Data Fusion</li>
+</ul>
+<p>用于构建和管理数据流水线的数据集成方案。</p>
+<ul>
+<li>Cloud Composer</li>
+</ul>
+<p>基于 Apache Airflow 的工作流编排服务。</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Cloud Service Mesh</li>
+</ul>
+<p>Fully managed service mesh based on Envoy and Istio.</p>
+<ul>
+<li>Google Distributed Cloud</li>
+</ul>
+<p>Fully managed solutions for the edge and data centers.</p>
+<ul>
+<li>Industry Specific</li>
+</ul>
+<ul>
+<li>Anti Money Laundering AI</li>
+</ul>
+<p>Detect suspicious, potential money laundering activity with AI.</p>
+<ul>
+<li>Cloud Healthcare API</li>
+</ul>
+<p>Solution for bridging existing care systems and apps on Google Cloud.</p>
+<ul>
+<li>Device Connect for Fitbit</li>
+</ul>
+<p>Gain a 360-degree patient view with connected Fitbit data on Google Cloud.</p>
+<ul>
+<li>Telecom Network Automation</li>
+</ul>
+<p>Ready to use cloud-native automation for telecom networks.</p>
+<ul>
+<li>Telecom Data Fabric</li>
+</ul>
+<p>Telecom data management and analytics with an automated approach.</p>
+<ul>
+<li>Telecom Subscriber Insights</li>
+</ul>
+<p>Ingests data to improve subscriber acquisition and retention.</p>
+<ul>
+<li>Spectrum Access System (SAS)</li>
+</ul>
+<p>Controls fundamental access to the Citizens Broadband Radio Service (CBRS).</p>
+<p>Integration Services</p>
+<ul>
+<li>Application Integration</li>
+</ul>
+<p>Connect to 3rd party apps and enable data consistency without code.</p>
+<ul>
+<li>Workflows</li>
+</ul>
+<p>Workflow orchestration for serverless products and API services.</p>
+<ul>
+<li>Apigee API Management</li>
+</ul>
+<p>Manage the full life cycle of APIs anywhere with visibility and control.</p>
+<ul>
+<li>Cloud Tasks</li>
+</ul>
+<p>Task management service for asynchronous task execution.</p>
+<ul>
+<li>Cloud Scheduler</li>
+</ul>
+<p>Cron job scheduler for task automation and management.</p>
+<ul>
+<li>Dataproc</li>
+</ul>
+<p>Service for running Apache Spark and Apache Hadoop clusters.</p>
+<ul>
+<li>Cloud Data Fusion</li>
+</ul>
+<p>Data integration for building and managing data pipelines.</p>
+<ul>
+<li>Cloud Composer</li>
+</ul>
+<p>Workflow orchestration service built on Apache Airflow.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0047"><div class="zh side"><div class="tag">中文</div><ul>
+<li>Pub/Sub</li>
+</ul>
+<p>用于事件接入与投递的消息服务。</p>
+<ul>
+<li>Eventarc</li>
+</ul>
+<p>构建可连接任意服务的事件驱动架构。</p>
+<p>管理工具</p>
+<ul>
+<li>Cloud Shell</li>
+</ul>
+<p>内置命令行的交互式 shell 环境。</p>
+<ul>
+<li>Cloud console</li>
+</ul>
+<p>用于管理和监控云应用的 Web 界面。</p>
+<ul>
+<li>Cloud Endpoints</li>
+</ul>
+<p>Google Cloud 上 API 的部署与开发管理。</p>
+<ul>
+<li>Cloud IAM</li>
+</ul>
+<p>Google Cloud 资源的权限管理系统。</p>
+<ul>
+<li>Cloud APIs</li>
+</ul>
+<p>Google Cloud 服务的编程接口。</p>
+<ul>
+<li>Service Catalog</li>
+</ul>
+<p>供管理员管理内部企业解决方案的服务目录。</p>
+<ul>
+<li>Cost Management</li>
+</ul>
+<p>用于监控、控制和优化成本的工具。</p>
+<ul>
+<li>可观测性</li>
+</ul>
+<p>监控、日志与应用性能套件。</p>
+<ul>
+<li>Carbon Footprint</li>
+</ul>
+<p>用于查看和导出 Google Cloud 碳排放报告的仪表盘。</p>
+<ul>
+<li>Config Connector</li>
+</ul>
+<p>用于管理 Google Cloud 资源的 Kubernetes 插件。</p>
+<ul>
+<li>Active Assist</li>
+</ul>
+<p>轻松管理性能、安全和成本的工具。</p>
+<ul>
+<li>没找到你想要的产品？</li>
+</ul>
+<ul>
+<li>查看全部管理工具</li>
+</ul>
+<p>地图与地理空间</p>
+<ul>
+<li>Earth Engine</li>
+</ul>
+<p>用于地球观测数据与分析的地理空间平台。</p>
+<ul>
+<li>Google Maps Platform</li>
+</ul>
+<p>打造沉浸式的位置体验，改进业务运营。</p>
+<ul>
+<li>媒体服务</li>
+</ul>
+<ul>
+<li>Cloud CDN</li>
+</ul>
+<p>用于分发 Web 和视频内容的内容交付网络。</p>
+<ul>
+<li>Live Stream API</li>
+</ul>
+<p>把直播视频转码并打包用于流式传输的服务。</p>
+<ul>
+<li>OpenCue</li>
+</ul>
+<p>用于视觉特效和动画的开源渲染管理器。</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Pub/Sub</li>
+</ul>
+<p>Messaging service for event ingestion and delivery.</p>
+<ul>
+<li>Eventarc</li>
+</ul>
+<p>Build an event-driven architecture that can connect any service.</p>
+<p>Management Tools</p>
+<ul>
+<li>Cloud Shell</li>
+</ul>
+<p>Interactive shell environment with a built-in command line.</p>
+<ul>
+<li>Cloud console</li>
+</ul>
+<p>Web-based interface for managing and monitoring cloud apps.</p>
+<ul>
+<li>Cloud Endpoints</li>
+</ul>
+<p>Deployment and development management for APIs on Google Cloud.</p>
+<ul>
+<li>Cloud IAM</li>
+</ul>
+<p>Permissions management system for Google Cloud resources.</p>
+<ul>
+<li>Cloud APIs</li>
+</ul>
+<p>Programmatic interfaces for Google Cloud services.</p>
+<ul>
+<li>Service Catalog</li>
+</ul>
+<p>Service catalog for admins managing internal enterprise solutions.</p>
+<ul>
+<li>Cost Management</li>
+</ul>
+<p>Tools for monitoring, controlling, and optimizing your costs.</p>
+<ul>
+<li>Observability</li>
+</ul>
+<p>Monitoring, logging, and application performance suite.</p>
+<ul>
+<li>Carbon Footprint</li>
+</ul>
+<p>Dashboard to view and export Google Cloud carbon emissions reports.</p>
+<ul>
+<li>Config Connector</li>
+</ul>
+<p>Kubernetes add-on for managing Google Cloud resources.</p>
+<ul>
+<li>Active Assist</li>
+</ul>
+<p>Tools for easily managing performance, security, and cost.</p>
+<ul>
+<li>Not seeing what you're looking for?</li>
+</ul>
+<ul>
+<li>See all management tools</li>
+</ul>
+<p>Maps and Geospatial</p>
+<ul>
+<li>Earth Engine</li>
+</ul>
+<p>Geospatial platform for Earth observation data and analysis.</p>
+<ul>
+<li>Google Maps Platform</li>
+</ul>
+<p>Create immersive location experiences and improve business operations.</p>
+<ul>
+<li>Media Services</li>
+</ul>
+<ul>
+<li>Cloud CDN</li>
+</ul>
+<p>Content delivery network for serving web and video content.</p>
+<ul>
+<li>Live Stream API</li>
+</ul>
+<p>Service to convert live video and package for streaming.</p>
+<ul>
+<li>OpenCue</li>
+</ul>
+<p>Open source render manager for visual effects and animation.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0048"><div class="zh side"><div class="tag">中文</div><ul>
+<li>Transcoder API</li>
+</ul>
+<p>转换视频文件并打包，为高效分发做准备。</p>
+<ul>
+<li>Video Stitcher API</li>
+</ul>
+<p>用于动态或服务端广告插入的服务。</p>
+<p>迁移</p>
+<ul>
+<li>Migration Center</li>
+</ul>
+<p>用于在 Google Cloud 上迁移和现代化升级的统一平台。</p>
+<ul>
+<li>Application Migration</li>
+</ul>
+<p>把应用迁移上云，实现低成本刷新周期。</p>
+<ul>
+<li>迁移到虚拟机</li>
+</ul>
+<p>把虚拟机和物理服务器迁移到 Compute Engine 的组件。</p>
+<ul>
+<li>Cloud Foundation Toolkit</li>
+</ul>
+<p>面向 Deployment Manager 和 Terraform 的参考模板。</p>
+<ul>
+<li>Database Migration Service</li>
+</ul>
+<p>迁移到 Cloud SQL 的无服务器、低停机方案。</p>
+<ul>
+<li>迁移到容器</li>
+</ul>
+<p>把虚拟机迁入 GKE 系统容器的组件。</p>
+<ul>
+<li>BigQuery Migration Services</li>
+</ul>
+<p>简化数据仓库和数据湖迁移的工具与激励方案。</p>
+<ul>
+<li>快速迁移与现代化计划</li>
+</ul>
+<p>端到端迁移计划，简化你走向云的路径。</p>
+<ul>
+<li>Transfer Appliance</li>
+</ul>
+<p>用于把大规模数据搬进 Google Cloud 的存储服务器。</p>
+<ul>
+<li>Storage Transfer Service</li>
+</ul>
+<p>把数据从线上和本地源传输到 Cloud Storage。</p>
+<ul>
+<li>VMware Engine</li>
+</ul>
+<p>在 Google Cloud 上原生迁移并运行 VMware 工作负载。</p>
+<ul>
+<li>混合现实</li>
+</ul>
+<ul>
+<li>Immersive Stream for XR</li>
+</ul>
+<p>承载、渲染并串流 3D 与 XR 体验。</p>
+<p>网络</p>
+<ul>
+<li>Cloud Armor</li>
+</ul>
+<p>安全策略与针对 Web 和 DDoS 攻击的防御。</p>
+<ul>
+<li>Cloud CDN and Media CDN</li>
+</ul>
+<p>用于分发 Web 和视频内容的内容交付网络。</p>
+<ul>
+<li>Cloud DNS</li>
+</ul>
+<p>实现可靠低延迟名称解析的域名系统。</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Transcoder API</li>
+</ul>
+<p>Convert video files and package them for optimized delivery.</p>
+<ul>
+<li>Video Stitcher API</li>
+</ul>
+<p>Service for dynamic or server side ad insertion.</p>
+<p>Migration</p>
+<ul>
+<li>Migration Center</li>
+</ul>
+<p>Unified platform for migrating and modernizing with Google Cloud.</p>
+<ul>
+<li>Application Migration</li>
+</ul>
+<p>App migration to the cloud for low-cost refresh cycles.</p>
+<ul>
+<li>Migrate to Virtual Machines</li>
+</ul>
+<p>Components for migrating VMs and physical servers to Compute Engine.</p>
+<ul>
+<li>Cloud Foundation Toolkit</li>
+</ul>
+<p>Reference templates for Deployment Manager and Terraform.</p>
+<ul>
+<li>Database Migration Service</li>
+</ul>
+<p>Serverless, minimal downtime migrations to Cloud SQL.</p>
+<ul>
+<li>Migrate to Containers</li>
+</ul>
+<p>Components for migrating VMs into system containers on GKE.</p>
+<ul>
+<li>BigQuery Migration Services</li>
+</ul>
+<p>Streamlined data warehouse and data lake migration tooling and incentives.</p>
+<ul>
+<li>Rapid Migration and Modernization Program</li>
+</ul>
+<p>End-to-end migration program to simplify your path to the cloud.</p>
+<ul>
+<li>Transfer Appliance</li>
+</ul>
+<p>Storage server for moving large volumes of data to Google Cloud.</p>
+<ul>
+<li>Storage Transfer Service</li>
+</ul>
+<p>Data transfers from online and on-premises sources to Cloud Storage.</p>
+<ul>
+<li>VMware Engine</li>
+</ul>
+<p>Migrate and run your VMware workloads natively on Google Cloud.</p>
+<ul>
+<li>Mixed Reality</li>
+</ul>
+<ul>
+<li>Immersive Stream for XR</li>
+</ul>
+<p>Hosts, renders, and streams 3D and XR experiences.</p>
+<p>Networking</p>
+<ul>
+<li>Cloud Armor</li>
+</ul>
+<p>Security policies and defense against web and DDoS attacks.</p>
+<ul>
+<li>Cloud CDN and Media CDN</li>
+</ul>
+<p>Content delivery network for serving web and video content.</p>
+<ul>
+<li>Cloud DNS</li>
+</ul>
+<p>Domain name system for reliable and low-latency name lookups.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0049"><div class="zh side"><div class="tag">中文</div><ul>
+<li>Cloud Load Balancing</li>
+</ul>
+<p>在应用和区域之间分发流量的服务。</p>
+<ul>
+<li>Cloud NAT</li>
+</ul>
+<p>为私有实例提供互联网访问的 NAT 服务。</p>
+<ul>
+<li>Cloud Connectivity</li>
+</ul>
+<p>面向 VPN、对等互连和企业需求的连接选项。</p>
+<ul>
+<li>Network Connectivity Center</li>
+</ul>
+<p>连接管理平台，帮助简化和扩展网络。</p>
+<ul>
+<li>Network Intelligence Center</li>
+</ul>
+<p>网络监控、验证和优化平台。</p>
+<ul>
+<li>Network Service Tiers</li>
+</ul>
+<p>按性能、可用性和成本划分的云网络选项。</p>
+<ul>
+<li>Virtual Private Cloud</li>
+</ul>
+<p>为整个组织提供单一 VPC，并在项目内彼此隔离。</p>
+<ul>
+<li>Private Service Connect</li>
+</ul>
+<p>在你的 VPC 与服务之间建立安全连接。</p>
+<ul>
+<li>没找到你想要的产品？</li>
+</ul>
+<ul>
+<li>查看全部网络产品</li>
+</ul>
+<p>运维</p>
+<ul>
+<li>Cloud Logging</li>
+</ul>
+<p>Google Cloud 审计日志、平台日志和应用日志管理。</p>
+<ul>
+<li>Cloud Monitoring</li>
+</ul>
+<p>以丰富的指标掌握基础设施和应用健康状况。</p>
+<ul>
+<li>Error Reporting</li>
+</ul>
+<p>应用错误的定位与分析。</p>
+<ul>
+<li>Managed Service for Prometheus</li>
+</ul>
+<p>Google Cloud 上完全托管的 Prometheus。</p>
+<ul>
+<li>Cloud Trace</li>
+</ul>
+<p>从应用中采集延迟数据的追踪系统。</p>
+<ul>
+<li>Cloud Profiler</li>
+</ul>
+<p>用于分析应用性能的 CPU 和堆性能分析器。</p>
+<ul>
+<li>Cloud Quotas</li>
+</ul>
+<p>管理所有 Google Cloud 服务的配额。</p>
+<ul>
+<li>效率与协作</li>
+</ul>
+<ul>
+<li>AppSheet</li>
+</ul>
+<p>用于构建和扩展应用的无代码开发平台。</p>
+<ul>
+<li>Gemini Enterprise</li>
+</ul>
+<p>用于发现、创建、运行和治理 AI 智能体的安全平台。</p>
+<ul>
+<li>Google Workspace</li>
+</ul>
+<p>面向个人和组织的协作与效率工具。</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Cloud Load Balancing</li>
+</ul>
+<p>Service for distributing traffic across applications and regions.</p>
+<ul>
+<li>Cloud NAT</li>
+</ul>
+<p>NAT service for giving private instances internet access.</p>
+<ul>
+<li>Cloud Connectivity</li>
+</ul>
+<p>Connectivity options for VPN, peering, and enterprise needs.</p>
+<ul>
+<li>Network Connectivity Center</li>
+</ul>
+<p>Connectivity management to help simplify and scale networks.</p>
+<ul>
+<li>Network Intelligence Center</li>
+</ul>
+<p>Network monitoring, verification, and optimization platform.</p>
+<ul>
+<li>Network Service Tiers</li>
+</ul>
+<p>Cloud network options based on performance, availability, and cost.</p>
+<ul>
+<li>Virtual Private Cloud</li>
+</ul>
+<p>Single VPC for an entire organization, isolated within projects.</p>
+<ul>
+<li>Private Service Connect</li>
+</ul>
+<p>Secure connection between your VPC and services.</p>
+<ul>
+<li>Not seeing what you're looking for?</li>
+</ul>
+<ul>
+<li>See all networking products</li>
+</ul>
+<p>Operations</p>
+<ul>
+<li>Cloud Logging</li>
+</ul>
+<p>Google Cloud audit, platform, and application logs management.</p>
+<ul>
+<li>Cloud Monitoring</li>
+</ul>
+<p>Infrastructure and application health with rich metrics.</p>
+<ul>
+<li>Error Reporting</li>
+</ul>
+<p>Application error identification and analysis.</p>
+<ul>
+<li>Managed Service for Prometheus</li>
+</ul>
+<p>Fully-managed Prometheus on Google Cloud.</p>
+<ul>
+<li>Cloud Trace</li>
+</ul>
+<p>Tracing system collecting latency data from applications.</p>
+<ul>
+<li>Cloud Profiler</li>
+</ul>
+<p>CPU and heap profiler for analyzing application performance.</p>
+<ul>
+<li>Cloud Quotas</li>
+</ul>
+<p>Manage quotas for all Google Cloud services.</p>
+<ul>
+<li>Productivity and Collaboration</li>
+</ul>
+<ul>
+<li>AppSheet</li>
+</ul>
+<p>No-code development platform to build and extend applications.</p>
+<ul>
+<li>Gemini Enterprise</li>
+</ul>
+<p>Secure platform to discover, create, run, and govern AI agents.</p>
+<ul>
+<li>Google Workspace</li>
+</ul>
+<p>Collaboration and productivity tools for individuals and organizations.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0050"><div class="zh side"><div class="tag">中文</div><ul>
+<li>Google Workspace Essentials</li>
+</ul>
+<p>为团队提供安全的视频会议和现代化协作。</p>
+<ul>
+<li>Cloud Identity</li>
+</ul>
+<p>供 IT 管理员统一管理用户设备和应用的平台。</p>
+<ul>
+<li>Chrome Enterprise</li>
+</ul>
+<p>为企业打造的 ChromeOS、Chrome 浏览器和 Chrome 设备。</p>
+<p>安全与身份</p>
+<ul>
+<li>Cloud IAM</li>
+</ul>
+<p>Google Cloud 资源的权限管理系统。</p>
+<ul>
+<li>Sensitive Data Protection</li>
+</ul>
+<p>发现、分类并保护你宝贵的数据资产。</p>
+<ul>
+<li>Mandiant Managed Defense</li>
+</ul>
+<p>7×24 全天候有把握地查找并消除威胁。</p>
+<ul>
+<li>Google Threat Intelligence</li>
+</ul>
+<p>看清谁在针对你。</p>
+<ul>
+<li>Security Command Center</li>
+</ul>
+<p>用于防御针对 Google Cloud 资产之威胁的平台。</p>
+<ul>
+<li>Cloud Key Management</li>
+</ul>
+<p>管理 Google Cloud 上的加密密钥。</p>
+<ul>
+<li>Mandiant Incident Response</li>
+</ul>
+<p>把入侵造成的损失降到最低。</p>
+<ul>
+<li>Chrome Enterprise Premium</li>
+</ul>
+<p>获得端点广泛可见性加持的安全企业浏览。</p>
+<ul>
+<li>Assured Workloads</li>
+</ul>
+<p>面向敏感工作负载的合规与安全控制。</p>
+<ul>
+<li>Google Security Operations</li>
+</ul>
+<p>检测、调查并响应网络威胁。</p>
+<ul>
+<li>Mandiant Consulting</li>
+</ul>
+<p>在故障事件之前、之中、之后都获得专家指导。</p>
+<ul>
+<li>没找到你想要的产品？</li>
+</ul>
+<ul>
+<li>查看全部安全与身份类产品</li>
+</ul>
+<p>无服务器</p>
+<ul>
+<li>Cloud Run</li>
+</ul>
+<p>运行容器化应用的全托管环境。</p>
+<ul>
+<li>Cloud Functions</li>
+</ul>
+<p>用于创建响应云事件函数的平台。</p>
+<ul>
+<li>App Engine</li>
+</ul>
+<p>面向应用和后端的无服务器应用平台。</p>
+<ul>
+<li>Workflows</li>
+</ul>
+<p>面向无服务器产品和 API 服务的工作流编排。</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Google Workspace Essentials</li>
+</ul>
+<p>Secure video meetings and modern collaboration for teams.</p>
+<ul>
+<li>Cloud Identity</li>
+</ul>
+<p>Unified platform for IT admins to manage user devices and apps.</p>
+<ul>
+<li>Chrome Enterprise</li>
+</ul>
+<p>ChromeOS, Chrome browser, and Chrome devices built for business.</p>
+<p>Security and Identity</p>
+<ul>
+<li>Cloud IAM</li>
+</ul>
+<p>Permissions management system for Google Cloud resources.</p>
+<ul>
+<li>Sensitive Data Protection</li>
+</ul>
+<p>Discover, classify, and protect your valuable data assets.</p>
+<ul>
+<li>Mandiant Managed Defense</li>
+</ul>
+<p>Find and eliminate threats with confidence 24x7.</p>
+<ul>
+<li>Google Threat Intelligence</li>
+</ul>
+<p>Know who’s targeting you.</p>
+<ul>
+<li>Security Command Center</li>
+</ul>
+<p>Platform for defending against threats to your Google Cloud assets.</p>
+<ul>
+<li>Cloud Key Management</li>
+</ul>
+<p>Manage encryption keys on Google Cloud.</p>
+<ul>
+<li>Mandiant Incident Response</li>
+</ul>
+<p>Minimize the impact of a breach.</p>
+<ul>
+<li>Chrome Enterprise Premium</li>
+</ul>
+<p>Get secure enterprise browsing with extensive endpoint visibility.</p>
+<ul>
+<li>Assured Workloads</li>
+</ul>
+<p>Compliance and security controls for sensitive workloads.</p>
+<ul>
+<li>Google Security Operations</li>
+</ul>
+<p>Detect, investigate, and respond to cyber threats.</p>
+<ul>
+<li>Mandiant Consulting</li>
+</ul>
+<p>Get expert guidance before, during, and after an incident.</p>
+<ul>
+<li>Not seeing what you're looking for?</li>
+</ul>
+<ul>
+<li>See all security and identity products</li>
+</ul>
+<p>Serverless</p>
+<ul>
+<li>Cloud Run</li>
+</ul>
+<p>Fully managed environment for running containerized apps.</p>
+<ul>
+<li>Cloud Functions</li>
+</ul>
+<p>Platform for creating functions that respond to cloud events.</p>
+<ul>
+<li>App Engine</li>
+</ul>
+<p>Serverless application platform for apps and back ends.</p>
+<ul>
+<li>Workflows</li>
+</ul>
+<p>Workflow orchestration for serverless products and API services.</p></div></div>
+<div class="pair" id="prompt-engineering-overview-0051"><div class="zh side"><div class="tag">中文</div><ul>
+<li>API Gateway</li>
+</ul>
+<p>用全托管网关开发、部署、保护和管理 API。</p>
+<p>存储</p>
+<ul>
+<li>Cloud Storage</li>
+</ul>
+<p>安全、耐用、可扩展的对象存储。</p>
+<ul>
+<li>Block Storage</li>
+</ul>
+<p>面向 AI、分析、数据库和企业应用的高性能存储。</p>
+<ul>
+<li>Filestore</li>
+</ul>
+<p>高扩展且安全的文件存储。</p>
+<ul>
+<li>Persistent Disk</li>
+</ul>
+<p>面向运行在 Google Cloud 上的虚拟机实例的块存储。</p>
+<ul>
+<li>Cloud Storage for Firebase</li>
+</ul>
+<p>用于存储和分发用户生成内容的对象存储。</p>
+<ul>
+<li>Local SSD</li>
+</ul>
+<p>本地挂载的块存储，满足高性能需求。</p>
+<ul>
+<li>Storage Transfer Service</li>
+</ul>
+<p>把数据从线上和本地源传输到 Cloud Storage。</p>
+<ul>
+<li>Google Cloud Managed Lustre</li>
+</ul>
+<p>高性能托管并行文件系统。</p>
+<ul>
+<li>Google Cloud NetApp Volumes</li>
+</ul>
+<p>面向 NFS、SMB 和多协议环境的文件存储服务。</p>
+<ul>
+<li>Backup and DR Service</li>
+</ul>
+<p>集中化、应用一致的数据保护服务。</p>
+<p>Web3</p>
+<ul>
+<li>Blockchain Node Engine</li>
+</ul>
+<p>用于在区块链上开发的全托管节点托管服务。</p>
+<ul>
+<li>Blockchain RPC</li>
+</ul>
+<p>用于在区块链上构建的企业级 RPC。</p>
+<ul>
+<li>用我们透明的定价方式省钱</li>
+</ul>
+<ul>
+<li>Google Cloud 的按量计费定价会根据月度用量自动给出优惠，并为预付费资源提供折扣费率。今天就联系我们获取报价。</li>
+</ul>
+<ul>
+<li>申请报价</li>
+</ul>
+<ul>
+<li>Google Cloud 定价</li>
+</ul>
+<p>只为用到的部分付费，不锁定。</p>
+<ul>
+<li>定价计算器</li>
+</ul>
+<p>算算你在云上能省多少。</p>
+<ul>
+<li>Google Cloud 免费额度</li>
+</ul></div><div class="en side"><div class="tag">EN</div><ul>
+<li>API Gateway</li>
+</ul>
+<p>Develop, deploy, secure, and manage APIs with a fully managed gateway.</p>
+<p>Storage</p>
+<ul>
+<li>Cloud Storage</li>
+</ul>
+<p>Object storage that’s secure, durable, and scalable.</p>
+<ul>
+<li>Block Storage</li>
+</ul>
+<p>High-performance storage for AI, analytics, databases, and enterprise applications.</p>
+<ul>
+<li>Filestore</li>
+</ul>
+<p>File storage that is highly scalable and secure.</p>
+<ul>
+<li>Persistent Disk</li>
+</ul>
+<p>Block storage for virtual machine instances running on Google Cloud.</p>
+<ul>
+<li>Cloud Storage for Firebase</li>
+</ul>
+<p>Object storage for storing and serving user-generated content.</p>
+<ul>
+<li>Local SSD</li>
+</ul>
+<p>Block storage that is locally attached for high-performance needs.</p>
+<ul>
+<li>Storage Transfer Service</li>
+</ul>
+<p>Data transfers from online and on-premises sources to Cloud Storage.</p>
+<ul>
+<li>Google Cloud Managed Lustre</li>
+</ul>
+<p>High performance managed parallel file service.</p>
+<ul>
+<li>Google Cloud NetApp Volumes</li>
+</ul>
+<p>File storage service for NFS, SMB, and multi-protocol environments.</p>
+<ul>
+<li>Backup and DR Service</li>
+</ul>
+<p>Service for centralized, application-consistent data protection.</p>
+<p>Web3</p>
+<ul>
+<li>Blockchain Node Engine</li>
+</ul>
+<p>Fully managed node hosting for developing on the blockchain.</p>
+<ul>
+<li>Blockchain RPC</li>
+</ul>
+<p>Enterprise-grade RPC for building on the blockchain.</p>
+<ul>
+<li>Save money with our transparent approach to pricing</li>
+</ul>
+<ul>
+<li>Google Cloud's pay-as-you-go pricing offers automatic savings based on monthly usage and discounted rates for prepaid resources. Contact us today to get a quote.</li>
+</ul>
+<ul>
+<li>Request a quote</li>
+</ul>
+<ul>
+<li>Google Cloud pricing</li>
+</ul>
+<p>Pay only for what you use with no lock-in.</p>
+<ul>
+<li>Pricing calculator</li>
+</ul>
+<p>Calculate your cloud savings.</p>
+<ul>
+<li>Google Cloud free tier</li>
+</ul></div></div>
+<div class="pair" id="prompt-engineering-overview-0052"><div class="zh side"><div class="tag">中文</div><p>探索每月都有免费额度可用的产品。</p>
+<ul>
+<li>成本优化框架</li>
+</ul>
+<p>获取优化工作负载成本的最佳实践。</p>
+<ul>
+<li>成本管理工具</li>
+</ul>
+<p>用于监控和控制成本的工具。</p>
+<ul>
+<li>产品专属定价</li>
+</ul>
+<ul>
+<li>Google Cloud 免费计划</li>
+</ul>
+<p>300 美元免费额度和 20 多款免费产品。</p>
+<ul>
+<li>方案生成器</li>
+</ul>
+<p>获取 AI 生成的方案建议。</p>
+<ul>
+<li>快速入门</li>
+</ul>
+<p>获取教程和操作演练。</p>
+<ul>
+<li>博客</li>
+</ul>
+<p>了解我们的最新产品动态与故事。</p>
+<ul>
+<li>学习中心</li>
+</ul>
+<p>通过按角色划分的培训拓展职业发展。</p>
+<ul>
+<li>Google Cloud 认证</li>
+</ul>
+<p>备考并报名参加认证。</p>
+<ul>
+<li>云计算基础</li>
+</ul>
+<p>进一步了解云计算基础。</p>
+<ul>
+<li>云架构中心</li>
+</ul>
+<p>获取参考架构与最佳实践。</p>
+<ul>
+<li>联系</li>
+</ul>
+<ul>
+<li>Innovators</li>
+</ul>
+<p>加入 Google Cloud 开发者计划。</p>
+<ul>
+<li>开发者中心</li>
+</ul>
+<p>掌握最新动态，与社区保持联系。</p>
+<ul>
+<li>活动与网络研讨会</li>
+</ul>
+<p>浏览即将举行和可点播的活动。</p>
+<ul>
+<li>Google Cloud 社区</li>
+</ul>
+<p>提问、找答案、建立连接。</p>
+<ul>
+<li>咨询与合作伙伴</li>
+</ul>
+<ul>
+<li>Google Cloud Consulting</li>
+</ul>
+<p>与我们的专家合作推进云项目。</p>
+<ul>
+<li>Google Cloud Marketplace</li>
+</ul>
+<p>几步点击部署开箱即用的解决方案。</p>
+<ul>
+<li>查找合作伙伴</li>
+</ul>
+<p>探索与合作伙伴合作带来的好处。</p>
+<ul>
+<li>Google Cloud 合作伙伴</li>
+</ul>
+<p>了解这个生态与配套资源。</p>
+<ul>
+<li>概览</li>
+</ul>
+<ul>
+<li>从 PaaS 迁移：Cloud Foundry、Openshift</li>
+</ul>
+<ul>
+<li>快速迁移与现代化计划</li>
+</ul>
+<ul>
+<li>快速迁移与现代化计划</li>
+</ul>
+<ul>
+<li>用我们透明的定价方式省钱</li>
+</ul></div><div class="en side"><div class="tag">EN</div><p>Explore products with free monthly usage.</p>
+<ul>
+<li>Cost optimization framework</li>
+</ul>
+<p>Get best practices to optimize workload costs.</p>
+<ul>
+<li>Cost management tools</li>
+</ul>
+<p>Tools to monitor and control your costs.</p>
+<ul>
+<li>Product-specific Pricing</li>
+</ul>
+<ul>
+<li>Google Cloud Free Program</li>
+</ul>
+<p>$300 in free credits and 20+ free products.</p>
+<ul>
+<li>Solution Generator</li>
+</ul>
+<p>Get AI generated solution recommendations.</p>
+<ul>
+<li>Quickstarts</li>
+</ul>
+<p>Get tutorials and walkthroughs.</p>
+<ul>
+<li>Blog</li>
+</ul>
+<p>Read our latest product news and stories.</p>
+<ul>
+<li>Learning Hub</li>
+</ul>
+<p>Grow your career with role-based training.</p>
+<ul>
+<li>Google Cloud certification</li>
+</ul>
+<p>Prepare and register for certifications.</p>
+<ul>
+<li>Cloud computing basics</li>
+</ul>
+<p>Learn more about cloud computing basics.</p>
+<ul>
+<li>Cloud Architecture Center</li>
+</ul>
+<p>Get reference architectures and best practices.</p>
+<ul>
+<li>Connect</li>
+</ul>
+<ul>
+<li>Innovators</li>
+</ul>
+<p>Join Google Cloud's developer program.</p>
+<ul>
+<li>Developer Center</li>
+</ul>
+<p>Stay in the know and stay connected.</p>
+<ul>
+<li>Events and webinars</li>
+</ul>
+<p>Browse upcoming and on demand events.</p>
+<ul>
+<li>Google Cloud Community</li>
+</ul>
+<p>Ask questions, find answers, and connect.</p>
+<ul>
+<li>Consulting and Partners</li>
+</ul>
+<ul>
+<li>Google Cloud Consulting</li>
+</ul>
+<p>Work with our experts on cloud projects.</p>
+<ul>
+<li>Google Cloud Marketplace</li>
+</ul>
+<p>Deploy ready-to-go solutions in a few clicks.</p>
+<ul>
+<li>Find a partner</li>
+</ul>
+<p>Explore the benefits of working with a partner.</p>
+<ul>
+<li>Google Cloud partners</li>
+</ul>
+<p>Learn about the ecosystem and resources.</p>
+<ul>
+<li>Overview</li>
+</ul>
+<ul>
+<li>Migrate from PaaS: Cloud Foundry, Openshift</li>
+</ul>
+<ul>
+<li>Rapid Migration and Modernization Program</li>
+</ul>
+<ul>
+<li>Rapid Migration and Modernization Program</li>
+</ul>
+<ul>
+<li>Save money with our transparent approach to pricing</li>
+</ul></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#prompt-engineering-overview-0000">第 1 段</a></li><li><a href="#prompt-engineering-overview-0001">第 2 段</a></li><li><a href="#prompt-engineering-overview-0002">第 3 段</a></li><li><a href="#prompt-engineering-overview-0003">第 4 段</a></li><li><a href="#prompt-engineering-overview-0004">第 5 段</a></li><li><a href="#prompt-engineering-overview-0005">第 6 段</a></li><li><a href="#prompt-engineering-overview-0006">第 7 段</a></li><li><a href="#prompt-engineering-overview-0007">第 8 段</a></li><li><a href="#prompt-engineering-overview-0008">第 9 段</a></li><li><a href="#prompt-engineering-overview-0009">第 10 段</a></li><li><a href="#prompt-engineering-overview-0010">第 11 段</a></li><li><a href="#prompt-engineering-overview-0011">第 12 段</a></li><li><a href="#prompt-engineering-overview-0012">第 13 段</a></li><li><a href="#prompt-engineering-overview-0013">第 14 段</a></li><li><a href="#prompt-engineering-overview-0014">第 15 段</a></li><li><a href="#prompt-engineering-overview-0015">第 16 段</a></li><li><a href="#prompt-engineering-overview-0016">第 17 段</a></li><li><a href="#prompt-engineering-overview-0017">第 18 段</a></li><li><a href="#prompt-engineering-overview-0018">第 19 段</a></li><li><a href="#prompt-engineering-overview-0019">第 20 段</a></li><li><a href="#prompt-engineering-overview-0020">第 21 段</a></li><li><a href="#prompt-engineering-overview-0021">第 22 段</a></li><li><a href="#prompt-engineering-overview-0022">第 23 段</a></li><li><a href="#prompt-engineering-overview-0023">第 24 段</a></li><li><a href="#prompt-engineering-overview-0024">第 25 段</a></li><li><a href="#prompt-engineering-overview-0025">第 26 段</a></li><li><a href="#prompt-engineering-overview-0026">第 27 段</a></li><li><a href="#prompt-engineering-overview-0027">第 28 段</a></li><li><a href="#prompt-engineering-overview-0028">第 29 段</a></li><li><a href="#prompt-engineering-overview-0029">第 30 段</a></li><li><a href="#prompt-engineering-overview-0030">第 31 段</a></li><li><a href="#prompt-engineering-overview-0031">第 32 段</a></li><li><a href="#prompt-engineering-overview-0032">第 33 段</a></li><li><a href="#prompt-engineering-overview-0033">第 34 段</a></li><li><a href="#prompt-engineering-overview-0034">第 35 段</a></li><li><a href="#prompt-engineering-overview-0035">第 36 段</a></li><li><a href="#prompt-engineering-overview-0036">第 37 段</a></li><li><a href="#prompt-engineering-overview-0037">第 38 段</a></li><li><a href="#prompt-engineering-overview-0038">第 39 段</a></li><li><a href="#prompt-engineering-overview-0039">第 40 段</a></li><li><a href="#prompt-engineering-overview-0040">第 41 段</a></li><li><a href="#prompt-engineering-overview-0041">第 42 段</a></li><li><a href="#prompt-engineering-overview-0042">第 43 段</a></li><li><a href="#prompt-engineering-overview-0043">第 44 段</a></li><li><a href="#prompt-engineering-overview-0044">第 45 段</a></li><li><a href="#prompt-engineering-overview-0045">第 46 段</a></li><li><a href="#prompt-engineering-overview-0046">第 47 段</a></li><li><a href="#prompt-engineering-overview-0047">第 48 段</a></li><li><a href="#prompt-engineering-overview-0048">第 49 段</a></li><li><a href="#prompt-engineering-overview-0049">第 50 段</a></li><li><a href="#prompt-engineering-overview-0050">第 51 段</a></li><li><a href="#prompt-engineering-overview-0051">第 52 段</a></li><li><a href="#prompt-engineering-overview-0052">第 53 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0032",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "6817aecc23bc2e0b3df0adf67b4be528d06381fb",
+ "zh": "### 在 AI 热点区域加大测试覆盖\n\n目前，智能体还不具备把各种场景都彻底地交互式测试一遍的能力。加大那些被 AI 大量改动区域的测试覆盖率，才能对智能体的输出更有信心。扎实的测试意味着看起来正确的代码可以放心合并。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

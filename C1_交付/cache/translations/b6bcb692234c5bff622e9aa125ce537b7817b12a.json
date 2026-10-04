@@ -1,0 +1,10 @@
+{
+ "seg_id": "sast-vs-dast#0013",
+ "doc_id": "sast-vs-dast",
+ "fingerprint": "b6bcb692234c5bff622e9aa125ce537b7817b12a",
+ "zh": "### DAST 的缺点\n\n- 只关注应用的外层，可能漏掉更深层的漏洞。\n\n- 在 SDLC 后期才应用，因此修复成本更高、更耗时。\n\n- 会漏掉一些 SAST 工具能通过源代码分析发现的漏洞。举个例子，某个 Web 应用程序用不安全的随机数生成器（例如 JavaScript 中的 Math.random()）生成会话 token。DAST 可能发现不了这个缺陷，因为它只测试运行时行为。（但 SAST 能检测出来。）\n\n- 大型项目需要自定义基础设施来让应用多个实例并行运行，因此资源消耗大。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

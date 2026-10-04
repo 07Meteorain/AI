@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0019",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "0ad28520ccf2afeb2fdae931b08f7800e91e9397",
+ "zh": "#### 目标\n\n攻击者的目标是提取每个智能体的工具 schema。用户虽然只能直接访问编排智能体，但可以明确指示编排智能体把查询转发给特定智能体。图 5 表明，攻击者利用智能体之间的通信通道，可以把同一个漏洞利用载荷投递给每一个智能体。\n\n图 5. 提取智能体工具 schema。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

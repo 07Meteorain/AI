@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0013",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "4cb9fc22fc230a909439b8972fcae3da70378594",
+ "zh": "#### Graphite Graphite Agent\n\nGraphite Agent 这款工具的突出之处在于它与开发工作流的深度整合，以及对代码的上下文理解。它的主要特性包括：\n\n- 跨整个仓库的上下文代码理解\n\n- 自动生成 PR 摘要和描述\n\n- 尊重项目模式的智能代码建议\n\n- 与 GitHub 深度整合\n\n![Graphite Agent 评论截图](/images/content/guides/ai-code-review-implementation-best-practices/Graphite Agent-comment.png)\n\nGraphite Agent 擅长的不只是理解孤立的代码片段，而是理解整个代码库，因此它的建议更切题、更符合项目标准。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0036",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "8664d081826cf212bd1e9fdb5a28baebe02740bb",
+ "zh": "#### 示例：\n\n我们有一位客户，只要开发了新功能，就会自动触发三个专门负责编写单元测试的智能体。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

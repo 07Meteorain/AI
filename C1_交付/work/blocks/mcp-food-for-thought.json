@@ -1,0 +1,397 @@
+{
+ "meta": {
+  "id": "mcp-food-for-thought",
+  "type": "html",
+  "path": "CS146S_offline/pages/mcp-food-for-thought.html",
+  "title": "API 不是好的 MCP 工具（APIs Don't Make Good MCP Tools）",
+  "priority": 2,
+  "category": "Week 2 · MCP"
+ },
+ "page_title": "APIs don't make good MCP tools",
+ "blocks": [
+  {
+   "kind": "heading",
+   "text": "Reilly Wood",
+   "level": 1,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "APIs don't make good MCP tools",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "August 5, 2025\n \n \n 4 minute read",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The Model Context Protocol (MCP) is a pretty big deal these days. It’s become the de facto standard for giving LLMs access to tools that someone else wrote, which, of course, turns them into agents. But writing tools for a new MCP server is hard, and so people often propose auto-converting existing APIs into MCP tools; typically using OpenAPI metadata (1, 2).",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "In my experience, this can work but it doesn’t work well. Here are a few reasons why:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Agents don’t do well with large numbers of tools",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Infamously, VS Code has a hard limit of 128 tools - but many models struggle with accurate tool calling well before that number. Also, each tool and its description takes up valuable context window space.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Most web APIs weren’t designed with these constraints in mind! It’s fine to have umpteen APIs for a single product area when those APIs are called from code, but if each of those APIs is mapped to an MCP tool the results might not be great.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "MCP tools designed from the ground up are typically much more flexible than individual web APIs, with each tool being able to do the work of several individual APIs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "APIs can blow through context windows quickly",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Imagine an API that returns 100 records at a time, and each record is very wide (say, 50 fields). Sending those results to an agent as-is will use up a lot of tokens; even if a query can be satisfied with only a few fields, every field ends up in the context window.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "APIs are typically paginated by the number of records, but records can vary a lot in size. One record might contain a large text field that takes up 100,000 tokens, while another might contain 10. Putting these API results directly into an agent’s context window is a gamble; sometimes it works, sometimes it will blow up.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The format of the data can also be an issue. Most web APIs these days return JSON, but JSON is a very token-inefficient format. Take this:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "[\n  {\n    \"firstName\": \"Alice\",\n    \"lastName\": \"Johnson\",\n    \"age\": 28\n  },\n  {\n    \"firstName\": \"Bob\",\n    \"lastName\": \"Smith\",\n    \"age\": 35\n  }\n]",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Compare to the same data in CSV format:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "firstName,lastName,age\nAlice,Johnson,28\nBob,Smith,35",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "The CSV data is much more succinct - it uses up half as many tokens per record. Typically CSV, TSV, or YAML (for nested data) are better choices than JSON.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "None of these issues are insurmountable. You could imagine automatically adding tool arguments that let agents project fields, automatically truncating or summarizing large results, and automatically converting JSON results to CSV (or YAML for nested data). But most servers I’ve seen do none of those things.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "APIs don’t make the most of agents’ unique capabilities",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "APIs return structured data for programmatic consumption. That’s often what agents want from tool calls... but agents can also handle other, more free-form instructions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "For example an ask_question tool could perform a RAG query over some documentation, then return information in plain text that is used to inform the next tool call - skipping structured data entirely.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Or, a call to a search_cities tool could return a structured list of cities and a suggestion of what to call next:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "city_name,population,country,region\nTokyo,37194000,Japan,Asia\nDelhi,32941000,India,Asia\nShanghai,28517000,China,Asia\n\nSuggestion: To get more specific information (weather, attractions, demographics), try calling get_city_details with the city_name parameter.",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "That sort of layering and tool chaining can be very effective in MCP servers, and it’s something you’ll miss out on completely if auto-converting APIs to tools.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "If an agent needs to call an API, it could just do that",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Agents like Claude Code are remarkably capable of writing+executing code these days, including scripts that call web APIs. Some people take this so far as to argue that MCP isn’t needed at all!",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "I disagree with that conclusion, but I do think we should skate to where the puck is going. Sandboxing of agents is improving rapidly, and if it’s easy+safe for an agent to call APIs directly then we might as well do that and cut out the middleman.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Conclusion",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Agents are fundamentally different from the typical consumers of APIs. It’s possible to automatically create MCP tools from existing APIs, but doing that is unlikely to work well. Agents do best when given tools that are designed for their unique capabilities and limitations.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Land Values and Affordability",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Cities & Code",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Recent Posts",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "💻 2025 Retrospective",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "December 28, 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "💻 What's MCP good for, anyway?",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "December 26, 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "💻 Tool Calls Are Expensive And Finite",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "September 18, 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "💻 APIs don't make good MCP tools",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "August 5, 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "🏗️ Land Values and Affordability",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "June 26, 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "📝 My encounter with evil SEO",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "June 16, 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "View more posts",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Top Categories",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Software\n \n \n \n \n 42\n \n \n \n \n \n \n \n \n Urban Planning\n \n \n \n \n 11\n \n \n \n \n \n \n \n \n Recently\n \n \n \n \n 10\n \n \n \n \n \n \n \n \n Rust\n \n \n \n \n 9\n \n \n \n \n \n \n \n \n Web\n \n \n \n \n 9\n \n \n \n \n \n \n \n \n Databases\n \n \n \n \n 8\n \n \n \n \n \n \n \n \n LLMs\n \n \n \n \n 8\n \n \n \n \n \n \n \n \n Nushell\n \n \n \n \n 7\n \n \n \n \n\n View all categories",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Home",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "About",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Projects",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Recent Posts",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "2025 Retrospective",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "December 28, 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "What's MCP good for, anyway?",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "December 26, 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Tool Calls Are Expensive And Finite",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "September 18, 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "APIs don't make good MCP tools",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "August 5, 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Land Values and Affordability",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "June 26, 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "My encounter with evil SEO",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "June 16, 2025\n \n \n \n \n \n View more posts",
+   "level": 0,
+   "meta": {}
+  }
+ ]
+}

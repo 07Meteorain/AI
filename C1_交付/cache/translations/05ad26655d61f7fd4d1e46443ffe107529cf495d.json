@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-introduction#0008",
+ "doc_id": "mcp-introduction",
+ "fingerprint": "05ad26655d61f7fd4d1e46443ffe107529cf495d",
+ "zh": "服务器会回复一份结构化的 JSON，列出各个工具（每个工具都有名称、描述和输入 schema）。比如，某个服务器可能会声明一个 get_weather 工具，并说明它需要哪些输入。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

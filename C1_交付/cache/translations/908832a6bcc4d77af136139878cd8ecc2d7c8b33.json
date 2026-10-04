@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0017",
+ "doc_id": "observability-basics",
+ "fingerprint": "908832a6bcc4d77af136139878cd8ecc2d7c8b33",
+ "zh": "## 进阶追踪技巧\n\n基础追踪落地之后，下面这些进阶技巧能让你的可观测性再上一个台阶。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

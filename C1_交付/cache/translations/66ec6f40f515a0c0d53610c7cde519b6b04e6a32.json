@@ -1,0 +1,10 @@
+{
+ "seg_id": "copilot-prompt-injection-rce#0005",
+ "doc_id": "copilot-prompt-injection-rce",
+ "fingerprint": "66ec6f40f515a0c0d53610c7cde519b6b04e6a32",
+ "zh": "### 短视频演示\n\n下面这段演示视频展示了在 Windows 上的代码执行。\n\n这段是 macOS 上的：",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

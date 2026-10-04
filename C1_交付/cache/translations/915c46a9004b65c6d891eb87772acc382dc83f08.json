@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0008",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "915c46a9004b65c6d891eb87772acc382dc83f08",
+ "zh": "#### 2. 人在环路中的做法\n\n最有效的 AI 代码评审实现都保留了人的监督：\n\n- 把 AI 当作第一轮，用来抓显而易见的问题\n\n- 由人类评审者来验证 AI 的建议\n\n- 统计哪些 AI 建议被采纳、哪些被拒绝，以改进系统",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

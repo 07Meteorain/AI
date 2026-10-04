@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Warp 与 Claude Code 对比 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>Warp 与 Claude Code 对比</h1>
+  <div class="meta">
+    <span>分类：Week 5 · AI 原生开发</span><span>原文 630 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://www.warp.dev/university/getting-started/warp-vs-claude-code" target="_blank" rel="noopener">https://www.warp.dev/university/getting-started/warp-vs-claude-code</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="warp-vs-claude-code-0000"><div class="zh side"><div class="tag">中文</div><p>隆重推出 Oz：面向云端智能体的编排平台。了解更多。</p>
+<p>Warp</p>
+<p>⌘Ctrlk</p>
+<p>Warp</p>
+<ul>
+<li>快速上手</li>
+</ul>
+<ul>
+<li>Warp 与 Oz 快速上手</li>
+</ul>
+<ul>
+<li>团队管理面板</li>
+</ul>
+<ul>
+<li>会话共享</li>
+</ul>
+<p>由 GitBook 提供支持</p></div><div class="en side"><div class="tag">EN</div><p>Introducing Oz: the orchestration platform for cloud agents.Learn more.</p>
+<p>Warp</p>
+<p>⌘Ctrlk</p>
+<p>Warp</p>
+<ul>
+<li>Getting started</li>
+</ul>
+<ul>
+<li>Getting started with Warp and Oz</li>
+</ul>
+<ul>
+<li>Team Admin Panel</li>
+</ul>
+<ul>
+<li>Session sharing</li>
+</ul>
+<p>Powered by GitBook</p></div></div>
+<div class="pair" id="warp-vs-claude-code-0001"><div class="zh side"><div class="tag">中文</div><h1 id="hwarp-oz-">Warp 与 Oz 快速上手</h1>
+<p>开始使用 Warp——智能体式开发环境，以及 Oz——面向云端智能体的编排平台。</p>
+<p>Warp 是一个智能体式开发环境：把现代终端与强大的智能体结合起来，帮助你构建、测试、部署和调试代码。Warp 的 AI 由 Oz 这一面向云端智能体的编排平台驱动。</p>
+<p>Warp 把现代终端与 Oz（面向云端智能体的编排平台）结合在一起</p>
+<p>Warp</p>
+<p>Warp 是你干活的地方——一个为「与智能体一起写代码」打造的迅捷现代终端。</p>
+<p>核心能力：</p>
+<p>智能体形态：在用于敲命令的干净终端与用于多轮智能体工作流的专用对话视图之间随时切换。</p>
+<p>现代终端体验：光标移动、基于块的导航、多行编辑、语法高亮和丰富的补全。以 Rust 构建，性能拉满。</p>
+<p>代码编辑器：文件树、支持 LSP 的代码编辑器，以及交互式的代码评审体验。</p>
+<p>编码智能体集成：语音输入、@-选择等可直接处理终端内图片的功能。兼容 Oz，也兼容 Claude Code、Codex 这类智能体。</p>
+<p>深入了解 Warp 的核心功能</p>
+<p>Oz：面向云端智能体的编排平台</p>
+<p>Oz 是面向云端智能体的编排平台，驱动着 Warp 的全部智能功能。Oz 的设计目标是大规模调度智能体——理解你的代码库、自主执行任务，并贴合你的工作流。Oz 在设计之初就是多模型的，让你能够为每项任务灵活挑选最合适的 LLM。</p>
+<p>Oz 有两种运行模式：</p>
+<p>本地智能体</p>
+<p>直接跑在 Warp 应用里，提供实时、交互式的编码辅助。</p>
+<p>在整个代码库中编写和重构代码</p>
+<p>排查问题、修复错误</p>
+<p>执行命令并解读结果</p>
+<p>规划并执行多步任务</p>
+<p>本地智能体让你始终掌握主动权：可以查看改动、在任务进行到一半时调整方向，并在动作执行前予以确认。</p>
+<p>→ 开始使用本地智能体</p>
+<p>云端智能体</p>
+<p>Oz 云端智能体在 Warp 的基础设施（或你自己的基础设施）上于后台运行，实现大规模自动化。</p>
+<p>触发器：响应来自 Slack、Linear、GitHub 或自定义 webhook 的事件</p>
+<p>定时任务：执行依赖升级、死代码清理等周期性任务</p>
+<p>并行：跨仓库或跨任务并发运行多个智能体</p></div><div class="en side"><div class="tag">EN</div><h1 id="hgetting-started-with-warp-and-oz">Getting started with Warp and Oz</h1>
+<p>Get started with Warp, the Agentic Development Environment, and Oz, the orchestration platform for cloud agents.</p>
+<p>Warp is an Agentic Development Environment, a modern terminal combined with powerful agents that help you build, test, deploy, and debug code. Warp's AI is powered by Oz, the orchestration platform for cloud agents.</p>
+<p>Warp combines a modern terminal with Oz, the orchestration platform for cloud agents</p>
+<p>Warp</p>
+<p>Warp is where you work — a fast, modern terminal built for coding with agents.</p>
+<p>Key capabilities:</p>
+<p>Agent Modality: Switch between a clean terminal for commands and a dedicated conversation view for multi-turn agent workflows.</p>
+<p>Modern terminal UX: Cursor movement, block-based navigation, multi-line editing, syntax highlighting, and rich completions. Built with Rust for high performance.</p>
+<p>Code editor: File tree, code editor with LSP support, and interactive code review experience.</p>
+<p>Coding agent integrations: Features like voice input, and @-selection for working with terminal based images. Compatible with Oz or agents like Claude Code and Codex.</p>
+<p>Deep dive into Warp's core features</p>
+<p>Oz: The orchestration platform for cloud agents</p>
+<p>Oz is the orchestration platform for cloud agents that powers all of Warp's intelligent features. Oz is designed to coordinate agents at scale—understanding your codebase, executing tasks autonomously, and adapting to your workflows. Oz is multi-model by design, giving you flexibility to choose the best LLM for each task.</p>
+<p>Oz operates in two modes:</p>
+<p>Local agents</p>
+<p>Run directly in the Warp app for real-time, interactive coding assistance.</p>
+<p>Write and refactor code across your codebase</p>
+<p>Debug issues and fix errors</p>
+<p>Run commands and interpret results</p>
+<p>Plan and execute multi-step tasks</p>
+<p>Local agents keep you in control. You can review changes, steer the agent mid-task, and approve actions before they execute.</p>
+<p>→ Get started with local agents</p>
+<p>Cloud agents</p>
+<p>Oz Cloud Agents run in the background on Warp's infrastructure (or your own) for automation at scale.</p>
+<p>Triggers: React to events from Slack, Linear, GitHub, or custom webhooks</p>
+<p>Schedules: Run recurring tasks like dependency updates or dead code removal</p>
+<p>Parallelism: Run many agents concurrently across repos or tasks</p></div></div>
+<div class="pair" id="warp-vs-claude-code-0002"><div class="zh side"><div class="tag">中文</div><p>可观测性：每次运行都有记录、可审计、可分享给团队</p>
+<p>云端智能体适合那些不必你即时盯着的工作，比如 PR 评审、issue 分派、日常维护，以及由集成事件驱动的工作流。</p>
+<p>→ 了解云端智能体</p>
+<p>二者如何协同</p>
+<p>Warp 与 Oz 在本地和云端开发之间提供统一体验：</p>
+<p>同一个智能体，随处可用：无论你是在 Warp 中以交互方式工作，还是在云端运行智能体，用的都是同一套底层智能体能力。</p>
+<p>无缝接力：在云端起步的任务，你想亲手掌控时就在 Warp 本地接手，既不丢进度，也不丢上下文。</p>
+<p>共享上下文：Warp Drive、Rules 和 MCP 服务器在本地与云端智能体中都能用，团队的知识和工具始终触手可及。</p>
+<p>团队协作：共享智能体会话、评审智能体的动作、引导正在运行的任务，无论它们是谁发起的。</p>
+<p>多模型支持</p>
+<p>Oz 在设计之初就是多模型的。你可以从精选的一批顶尖模型中挑选自己偏好的 LLM。</p>
+<p>隐私与安全</p>
+<p>Warp 已通过 SOC 2 合规认证，并与所有签约的 LLM 供应商达成零数据保留（Zero Data Retention）政策。客户的 AI 数据不会被保留、存储，也不会用于训练。</p>
+<p>Warp 的 AI 功能可在 Settings &gt; AI 中全局关闭。</p>
+<p>→ 进一步了解数据隐私</p>
+<p>后续步骤</p>
+<p>快速上手指南：装好 Warp，开始写代码</p>
+<p>本地智能体概览：看看 Warp 里有哪些 AI 功能</p></div><div class="en side"><div class="tag">EN</div><p>Observability: Every run is tracked, auditable, and shareable with your team</p>
+<p>Cloud agents are ideal for work that doesn't need your immediate attention, like PR reviews, issue triage, routine maintenance, and integration-driven workflows.</p>
+<p>→ Learn about cloud agents</p>
+<p>How they work together</p>
+<p>Warp and Oz provide a unified experience across local and cloud development:</p>
+<p>Same agent, anywhere: Whether you're working interactively in Warp or running agents in the cloud, you're using the same underlying agent capabilities.</p>
+<p>Seamless handoff: Start a task in the cloud and take over locally in Warp when you want hands-on control, without losing progress or context.</p>
+<p>Shared context: Warp Drive, Rules, and MCP servers work across both local and cloud agents, so your team's knowledge and tools are always available.</p>
+<p>Team collaboration: Share agent sessions, review agents' actions, and steer running tasks, regardless of who started them.</p>
+<p>Multi-model support</p>
+<p>Oz is multi-model by design. You can choose your preferred LLM from a curated set of top models.</p>
+<p>Privacy and security</p>
+<p>Warp is SOC 2 compliant and has Zero Data Retention policies with all contracted LLM providers. No customer AI data is retained, stored, or used for training.</p>
+<p>Warp's AI features can be globally disabled in Settings &gt; AI.</p>
+<p>→ Read more about data privacy</p>
+<p>Next steps</p>
+<p>Quickstart Guide: Get Warp installed and start coding</p>
+<p>Local Agents Overview: Explore all AI features available in Warp</p></div></div>
+<div class="pair" id="warp-vs-claude-code-0003"><div class="zh side"><div class="tag">中文</div><p>云端智能体概览：配置后台自动化</p>
+<p>Oz 平台：了解 CLI、API、SDK 和基础设施</p>
+<p>下一页快速上手</p>
+<p>3 天前更新</p>
+<p>这些内容有帮助吗？</p>
+<ul>
+<li>Warp</li>
+</ul>
+<ul>
+<li>Oz：面向云端智能体的编排平台</li>
+</ul>
+<p>这些内容有帮助吗？</p></div><div class="en side"><div class="tag">EN</div><p>Cloud Agents Overview: Set up background automation</p>
+<p>Oz Platform: Learn about the CLI, API, SDK, and infrastructure</p>
+<p>NextQuickstart</p>
+<p>Last updated 3 days ago</p>
+<p>Was this helpful?</p>
+<ul>
+<li>Warp</li>
+</ul>
+<ul>
+<li>Oz: The orchestration platform for cloud agents</li>
+</ul>
+<p>Was this helpful?</p></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#warp-vs-claude-code-0000">第 1 段</a></li><li><a href="#warp-vs-claude-code-0001">第 2 段</a></li><li><a href="#warp-vs-claude-code-0002">第 3 段</a></li><li><a href="#warp-vs-claude-code-0003">第 4 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

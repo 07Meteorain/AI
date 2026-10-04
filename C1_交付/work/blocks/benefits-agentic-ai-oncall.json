@@ -1,0 +1,385 @@
+{
+ "meta": {
+  "id": "benefits-agentic-ai-oncall",
+  "type": "html",
+  "path": "CS146S_offline/pages/benefits-agentic-ai-oncall.html",
+  "title": "智能体 AI 值班带来的收益",
+  "priority": 3,
+  "category": "Week 9 · SRE 与可观测性"
+ },
+ "page_title": "The Top 5 Benefits of Agentic AI in On-call Engineering | Resolve AI Blog",
+ "blocks": [
+  {
+   "kind": "paragraph",
+   "text": "4 workflows to adopt AI agents, beyond code generation",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Get the practical guide",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Contact us",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Try now",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Try now",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Social",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Linkedin",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Youtube",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "X",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Try now",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Privacy PolicyTerms of Service©Resolve.ai - All rights reserved",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Machines on call for humans",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Contact us",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Join the conversation",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Terms of ServicePrivacy Policy",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Technology",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "The Top 5 Benefits of Agentic AI in On-call Engineering",
+   "level": 1,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "07/25/2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "4 min read",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Share:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "As production systems become more complex, engineering teams face increasing challenges in maintaining reliability and responding to a growing volume of alerts and incidents. Agentic AI, a next-generation approach to automation, is revolutionizing how teams handle on-call responsibilities and incident resolution. Here are the top five ways agentic AI transforms incident response.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "1. Eliminating Alert Fatigue",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "When an alert fires, agentic AI jumps into action. Much like an on-call engineer, it starts by diving into all the relevant data to investigate. It dynamically generates and executes real-time runbooks, analyzing metrics, dashboards, recent code changes, deployments, and logs.\nIn under a minute, the agentic AI identifies a likely root cause and suggests actionable steps to resolve the issue. Unlike humans, it doesn’t tire, doesn’t need sleep, and works tirelessly around the clock with consistency and precision. By shouldering the burden of incident response, it eliminates alert fatigue, ensuring no detail is overlooked while keeping operations running smoothly.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "2. Maintaining Dynamic Knowledge",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "One of the standout capabilities of agentic AI is its ability to continuously learn from every incident. Unlike static runbooks, which quickly become outdated, learning agents dynamically update their knowledge as they interact with the system.\nWhen a key team member leaves, their expertise is no longer lost. Instead, agentic AI retains and evolves institutional knowledge, ensuring teams are always equipped with the most relevant and up-to-date information. This ability to adapt to new patterns and environments ensures long-term system resilience.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "3. Consistent and Comprehensive Investigations",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Human engineers often take varied approaches to troubleshooting similar issues, leading to inconsistent outcomes. Agentic AI eliminates this variability by deploying investigation agents that follow consistent workflows while adapting to the unique context of each incident.\nFor example, one agent might specialize in checking system logs, while another focuses on application metrics. Together, these agents collaborate systematically to ensure that no critical step is missed, establishing a reliable and repeatable troubleshooting process across the organization.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "4. Seamless Collaboration Supported by Evidence",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Agentic AI isn’t just about problem-solving—it also enhances team collaboration. Platforms like Resolve AI integrate with communication tools like Slack and document every action in real time. Investigation steps, findings, and resolution actions are automatically presented with supporting evidence.\nThe collected evidence not only helps teams resolve incidents faster but also provide valuable insights for post-incident reviews and long-term optimizations. Moreover, the agents provide clear, contextual recommendations, enabling teams to make confident, data-driven decisions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "5. Proactive Incident Resolution",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The hallmark of agentic AI is its ability to act proactively. AI agents analyze patterns in metrics, logs, and system behavior to identify potential issues before they become incidents. Resolution agents can then either automatically resolve the issue or provide actionable recommendations to the team.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "This proactive approach reduces downtime, improves user experience, and alleviates the stress associated with reactive incident management. For example, Resolve AI’s agentic AI system uses generative models to address issues early and prevent them from escalating.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "How Agentic AI Works: The Resolve AI Approach",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Resolve AI’s agentic AI system sets a new standard in incident management. Its AI agents work together seamlessly to map and understand production environments without manual training. Each agent is designed for a specific function, such as root cause analysis, resolution, or understanding observability data, and they collaborate like a team of specialists to handle incidents.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "This multi-agent approach allows Resolve AI to manage both routine and novel issues effectively, adapting to the unique needs of any infrastructure. By acting autonomously and collaboratively, Resolve AI’s agentic AI ensures faster, more reliable incident management.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The Future of On-call Engineering Lies in Agentic AI",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Agentic AI redefines incident management by automating the heavy lifting, enabling teams to shift their focus from reactive firefighting to strategic innovation. These systems not only handle routine tasks but also enhance system reliability through continuous learning, proactive resolution, and seamless collaboration.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "As agentic AI continues to evolve, it will unlock even more sophisticated capabilities, further reducing operational burdens and transforming how engineering teams approach reliability.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Key Takeaways",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Agentic AI isn’t just the next step in automation—it’s a paradigm shift in incident management. By leveraging independent yet collaborative AI agents, teams can eliminate alert fatigue, retain critical knowledge, standardize workflows, and proactively address potential issues.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "With platforms like Resolve AI, agentic AI is already delivering measurable benefits, freeing engineering teams to focus on strategic improvements while maintaining the highest levels of reliability. Embrace agentic AI today to future-proof your operations and unlock the full potential of your team.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "AI SRE Buyer's Guide",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Learn how to evaluate and adopt AI SRE in production.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Download",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Mitch Wakefield",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Product Researcher",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Mitch is a Product Researcher at Resolve AI. He has worked across various domains, including healthcare, gaming, and foodtech.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Content",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "AI for prod ebook",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Learn how top engineering teams use AI to run production.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Download",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Mitch Wakefield",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Product Researcher",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Mitch is a Product Researcher at Resolve AI. He has worked across various domains, including healthcare, gaming, and foodtech.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Related Post",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Fireside Chat: How FinServ Companies Optimize Cost with AI for Prod",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Hear AI strategies and approaches from engineering leaders at FinServ companies including Affirm, MSCI, and SoFi.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Technology",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "How to Evaluate a Production Ready AI SRE",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Learn how to evaluate an AI SRE to ensure they run in your unique production environments. This guide explains the five agentic pillars, six key evaluation dimensions, and enterprise readiness criteria that separate production-ready AI SRE from experiments.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Beyond the Build: Accelerating Engineering Velocity with Agentic AI",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "100 Engineering software engineering executives joined Resolve AI and other luminary leaders to discuss the accelerated evolution of agentic AI in software engineering from coding to managing production systems.",
+   "level": 0,
+   "meta": {}
+  }
+ ]
+}

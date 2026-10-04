@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-food-for-thought#0008",
+ "doc_id": "mcp-food-for-thought",
+ "fingerprint": "6871f492f31875a1c7962aedc0f60b9ae14af1c7",
+ "zh": "## API 无法充分发挥智能体的独特能力\n\nAPI 返回结构化数据，供程序消费。这往往正是智能体从工具调用中想要的东西……但智能体还能处理其他更自由形式的指令。\n\n比如，一个 ask_question 工具可以对某份文档做一次 RAG（检索增强生成）查询，然后以纯文本返回信息，用来支撑下一次工具调用——完全跳过结构化数据。\n\n又或者，一次 search_cities 工具调用可以返回一份结构化的城市列表，外加下一步该调用什么的建议：",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

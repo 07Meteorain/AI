@@ -1,0 +1,10 @@
+{
+ "seg_id": "writing-effective-tools-for-agents#0004",
+ "doc_id": "writing-effective-tools-for-agents",
+ "fingerprint": "3b333b4550f5826fa07aa731d3d7db23baad3f5f",
+ "zh": "### 构建原型\n\n不亲自动手做一遍，很难预判哪些工具对智能体顺手、哪些不顺手。先快速搭起你的工具原型。如果你在用 Claude Code 写这些工具（可能一次成型），那么把工具依赖的任何软件库、API 或 SDK 的文档提供给 Claude 会很有帮助（包括可能用到的 MCP SDK）。对 LLM 友好的文档通常能在官方文档网站上的扁平 llms.txt 文件里找到（这是我们 API 的 llms.txt）。\n\n把工具包进一个本地 MCP 服务器或桌面扩展（DXT），你就能在 Claude Code 或 Claude 桌面应用里连接并测试它们。\n\n要把本地 MCP 服务器连到 Claude Code，运行 claude mcp add <name> <command> [args...]。\n\n要把本地 MCP 服务器或 DXT 连到 Claude 桌面应用，分别进入 Settings > Developer 或 Settings > Extensions。\n\n工具也可以直接传给 Anthropic API 调用，用于程序化测试。\n\n自己先测一遍工具，找出其中的毛刺。收集用户的反馈，建立直觉：你的工具预期要支撑哪些用例和提示词。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0033",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "fdd13a6ab580d19849870bfdb4cf897a5927b4c0",
+ "zh": "#### 第 2 步——创建一个 OAuth 应用\n\n你需要创建两个 GitHub OAuth 应用，才能把 GitHub 用作 MCP 服务器的认证提供方——一个用于本地开发，一个用于生产。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

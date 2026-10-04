@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0035",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "8087e05597e4ea617b58fecf6710f60bf8550076",
+ "zh": "##### 攻击载荷说明\n\n表 9 中的查询示例要求助手返回某个特定 ID 的交易记录。与前面的 SQL 注入示例不同，攻击者提供的函数输入看不出任何恶意迹象。攻击者只需给出一个属于其他用户的交易 ID，助手就会使用 Get TransactionByID 工具取出该交易。由于 BOLA 的根本原因是后端访问控制不足，利用它通常非常直接，无需精心构造的载荷。这也使得 BOLA 攻击难以被检测。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

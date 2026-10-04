@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0038",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "602b6caf1b6acce2d1deb9107923c74e001871d2",
+ "zh": "#### 攻击载荷说明\n\n表 10 中被注入的提示词指示助手调用网页读取工具，访问一个由攻击者控制的 URL，其中带有特殊的查询参数 [SUMMARY]。假设攻击者已知该工具的名称和 schema，这些恶意指令会明确指定调用哪个工具以及如何构造请求。该结构要求把用户的对话历史嵌入 [SUMMARY] 参数中。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

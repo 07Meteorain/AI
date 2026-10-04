@@ -1,0 +1,10 @@
+{
+ "seg_id": "finding-vulnerabilities-claude-codex#0026",
+ "doc_id": "finding-vulnerabilities-claude-codex",
+ "fingerprint": "2126af125f5e638786ad27a0d63530bbc371f281",
+ "zh": "### 在构建时间之前发现并修复真正要紧的问题\n\nSemgrep 帮助组织在不付出开发者效率代价的前提下把安全左移。\n \n \n \n \n Get started in minutes\n\n \n \n \n Book a demo",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

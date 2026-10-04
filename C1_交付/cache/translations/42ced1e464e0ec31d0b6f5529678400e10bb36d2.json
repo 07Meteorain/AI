@@ -1,0 +1,10 @@
+{
+ "seg_id": "specs-are-the-new-source-code#0010",
+ "doc_id": "specs-are-the-new-source-code",
+ "fingerprint": "42ced1e464e0ec31d0b6f5529678400e10bb36d2",
+ "zh": "#### 关于本文的讨论\n\n3 月\n\n2025 年 7 月 31 日\n\n感谢你勾勒出了一个不容易被理解的问题！这个问题我们在 Gluecharm 每天都会遇到。规格说明、以及做规格说明的方式和参与者，确实是前进的方向。大概也是唯一的方向！\n\n回复\n\n分享\n\nRavi Mehta 的 1 条回复\n\nHarsh Chaudhary\n\n2025 年 8 月 1 日\n\n同意，规格说明是通往基础设施的一种接口。\n\n但规格说明从来都不是关于代码的——它是想法、价值观和优先级的代理。\n\n所以没错，更多人可以从想法更快地走到原型。但正如你所说，两端——反馈、取舍、决策——仍然以人的速度推进。\n\n在我看来，这不是技术问题，而更多是系统与文化的问题。\n\n更多内容见 -> https://hchau.substack.com/p/ais-uneven-acceleration\n\n回复\n\n分享\n\nRavi Mehta 的 1 条回复\n\n另有 14 条评论……\n\n没有更多帖子",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

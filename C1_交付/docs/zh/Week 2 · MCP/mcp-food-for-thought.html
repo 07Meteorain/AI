@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>API 不是好的 MCP 工具（APIs Don&#x27;t Make Good MCP Tools） · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>API 不是好的 MCP 工具（APIs Don&#x27;t Make Good MCP Tools）</h1>
+  <div class="meta">
+    <span>分类：Week 2 · MCP</span><span>原文 794 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://www.reillywood.com/blog/apis-dont-make-good-mcp-tools/" target="_blank" rel="noopener">https://www.reillywood.com/blog/apis-dont-make-good-mcp-tools/</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="mcp-food-for-thought-0000"><div class="zh side"><div class="tag">中文</div><h1 id="hreilly-wood">Reilly Wood</h1></div><div class="en side"><div class="tag">EN</div><h1 id="hreilly-wood">Reilly Wood</h1></div></div>
+<div class="pair" id="mcp-food-for-thought-0001"><div class="zh side"><div class="tag">中文</div><h2 id="hapi-mcp-">API 不是好的 MCP 工具</h2>
+<p>2025 年 8 月 5 日</p>
+<p> 阅读约 4 分钟</p>
+<p>Model Context Protocol (MCP) 眼下是个大热门。它已经成为让 LLM 用上别人写的工具的事实标准，而这些工具也正是让它们成为智能体的关键。但为新的 MCP 服务器编写工具并不容易，于是人们常常提议把现有 API 自动转换成 MCP 工具，通常会利用 OpenAPI 元数据（1、2）。</p>
+<p>依我的经验，这事能做，但做不好。原因有几个：</p></div><div class="en side"><div class="tag">EN</div><h2 id="hapis-don-t-make-good-mcp-tools">APIs don't make good MCP tools</h2>
+<p>August 5, 2025</p>
+<p> 4 minute read</p>
+<p>The Model Context Protocol (MCP) is a pretty big deal these days. It’s become the de facto standard for giving LLMs access to tools that someone else wrote, which, of course, turns them into agents. But writing tools for a new MCP server is hard, and so people often propose auto-converting existing APIs into MCP tools; typically using OpenAPI metadata (1, 2).</p>
+<p>In my experience, this can work but it doesn’t work well. Here are a few reasons why:</p></div></div>
+<div class="pair" id="mcp-food-for-thought-0002"><div class="zh side"><div class="tag">中文</div><h2 id="h-">智能体应付不了大量工具</h2>
+<p>众所周知，VS Code 有 128 个工具的硬上限——但很多模型远在达到这个数字之前，就已经在准确调用工具上力不从心了。此外，每个工具及其描述都要占用宝贵的上下文窗口空间。</p>
+<p>大多数 Web API 在设计时并没有考虑这些约束！如果这些 API 是由代码调用的，那么某个产品领域里有个几十个 API 没什么问题；但如果把其中每个 API 都映射成一个 MCP 工具，效果可能就不太好了。</p>
+<p>从零开始设计的 MCP 工具，通常比单个 Web API 灵活得多——一个工具往往能完成好几个独立 API 的工作。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hagents-don-t-do-well-with-large-numbers-of-tools">Agents don’t do well with large numbers of tools</h2>
+<p>Infamously, VS Code has a hard limit of 128 tools - but many models struggle with accurate tool calling well before that number. Also, each tool and its description takes up valuable context window space.</p>
+<p>Most web APIs weren’t designed with these constraints in mind! It’s fine to have umpteen APIs for a single product area when those APIs are called from code, but if each of those APIs is mapped to an MCP tool the results might not be great.</p>
+<p>MCP tools designed from the ground up are typically much more flexible than individual web APIs, with each tool being able to do the work of several individual APIs.</p></div></div>
+<div class="pair" id="mcp-food-for-thought-0003"><div class="zh side"><div class="tag">中文</div><h2 id="hapi-">API 会迅速撑爆上下文窗口</h2>
+<p>设想一个 API，一次返回 100 条记录，每条记录又很宽（比如 50 个字段）。把这些结果原样发给智能体，会消耗大量 token；即便某个查询只需要少数字段，最终每个字段都会进上下文窗口。</p>
+<p>API 通常按记录数分页，但记录的体积差异可能很大。一条记录里也许有个占 100,000 个 token 的大文本字段，另一条却只有 10 个。把这些 API 结果直接塞进智能体的上下文窗口是一场赌博：有时能奏效，有时就会把窗口撑爆。</p>
+<p>数据格式同样可能成为问题。如今大多数 Web API 返回 JSON，但 JSON 是个非常浪费 token 的格式。看看这个：</p></div><div class="en side"><div class="tag">EN</div><h2 id="hapis-can-blow-through-context-windows-quickly">APIs can blow through context windows quickly</h2>
+<p>Imagine an API that returns 100 records at a time, and each record is very wide (say, 50 fields). Sending those results to an agent as-is will use up a lot of tokens; even if a query can be satisfied with only a few fields, every field ends up in the context window.</p>
+<p>APIs are typically paginated by the number of records, but records can vary a lot in size. One record might contain a large text field that takes up 100,000 tokens, while another might contain 10. Putting these API results directly into an agent’s context window is a gamble; sometimes it works, sometimes it will blow up.</p>
+<p>The format of the data can also be an issue. Most web APIs these days return JSON, but JSON is a very token-inefficient format. Take this:</p></div></div>
+<div class="pair" id="mcp-food-for-thought-0004"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+[
+  {
+    &quot;firstName&quot;: &quot;Alice&quot;,
+    &quot;lastName&quot;: &quot;Johnson&quot;,
+    &quot;age&quot;: 28
+  },
+  {
+    &quot;firstName&quot;: &quot;Bob&quot;,
+    &quot;lastName&quot;: &quot;Smith&quot;,
+    &quot;age&quot;: 35
+  }
+]
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+[
+  {
+    &quot;firstName&quot;: &quot;Alice&quot;,
+    &quot;lastName&quot;: &quot;Johnson&quot;,
+    &quot;age&quot;: 28
+  },
+  {
+    &quot;firstName&quot;: &quot;Bob&quot;,
+    &quot;lastName&quot;: &quot;Smith&quot;,
+    &quot;age&quot;: 35
+  }
+]
+</code></pre></div></div>
+<div class="pair" id="mcp-food-for-thought-0005"><div class="zh side"><div class="tag">中文</div><p>对比一下同样数据用 CSV 格式表示：</p></div><div class="en side"><div class="tag">EN</div><p>Compare to the same data in CSV format:</p></div></div>
+<div class="pair" id="mcp-food-for-thought-0006"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+firstName,lastName,age
+Alice,Johnson,28
+Bob,Smith,35
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+firstName,lastName,age
+Alice,Johnson,28
+Bob,Smith,35
+</code></pre></div></div>
+<div class="pair" id="mcp-food-for-thought-0007"><div class="zh side"><div class="tag">中文</div><p>CSV 数据要简洁得多——每条记录消耗的 token 只有一半。通常来说，CSV、TSV 或 YAML（用于嵌套数据）比 JSON 更合适。</p>
+<p>这些问题没有哪个是无解的。你可以设想自动添加工具参数，让智能体能够投影字段；自动截断或摘要过大的结果；再自动把 JSON 结果转成 CSV（嵌套数据则转成 YAML）。但我见过的服务器大多一件都没做。</p></div><div class="en side"><div class="tag">EN</div><p>The CSV data is much more succinct - it uses up half as many tokens per record. Typically CSV, TSV, or YAML (for nested data) are better choices than JSON.</p>
+<p>None of these issues are insurmountable. You could imagine automatically adding tool arguments that let agents project fields, automatically truncating or summarizing large results, and automatically converting JSON results to CSV (or YAML for nested data). But most servers I’ve seen do none of those things.</p></div></div>
+<div class="pair" id="mcp-food-for-thought-0008"><div class="zh side"><div class="tag">中文</div><h2 id="hapi-">API 无法充分发挥智能体的独特能力</h2>
+<p>API 返回结构化数据，供程序消费。这往往正是智能体从工具调用中想要的东西……但智能体还能处理其他更自由形式的指令。</p>
+<p>比如，一个 ask_question 工具可以对某份文档做一次 RAG（检索增强生成）查询，然后以纯文本返回信息，用来支撑下一次工具调用——完全跳过结构化数据。</p>
+<p>又或者，一次 search_cities 工具调用可以返回一份结构化的城市列表，外加下一步该调用什么的建议：</p></div><div class="en side"><div class="tag">EN</div><h2 id="hapis-don-t-make-the-most-of-agents-unique-capabilities">APIs don’t make the most of agents’ unique capabilities</h2>
+<p>APIs return structured data for programmatic consumption. That’s often what agents want from tool calls... but agents can also handle other, more free-form instructions.</p>
+<p>For example an ask_question tool could perform a RAG query over some documentation, then return information in plain text that is used to inform the next tool call - skipping structured data entirely.</p>
+<p>Or, a call to a search_cities tool could return a structured list of cities and a suggestion of what to call next:</p></div></div>
+<div class="pair" id="mcp-food-for-thought-0009"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+city_name,population,country,region
+Tokyo,37194000,Japan,Asia
+Delhi,32941000,India,Asia
+Shanghai,28517000,China,Asia
+
+Suggestion: To get more specific information (weather, attractions, demographics), try calling get_city_details with the city_name parameter.
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+city_name,population,country,region
+Tokyo,37194000,Japan,Asia
+Delhi,32941000,India,Asia
+Shanghai,28517000,China,Asia
+
+Suggestion: To get more specific information (weather, attractions, demographics), try calling get_city_details with the city_name parameter.
+</code></pre></div></div>
+<div class="pair" id="mcp-food-for-thought-0010"><div class="zh side"><div class="tag">中文</div><p>这种分层与工具链式调用在 MCP 服务器里可以非常有效，而如果你只是把 API 自动转换成工具，就会彻底错过它。</p></div><div class="en side"><div class="tag">EN</div><p>That sort of layering and tool chaining can be very effective in MCP servers, and it’s something you’ll miss out on completely if auto-converting APIs to tools.</p></div></div>
+<div class="pair" id="mcp-food-for-thought-0011"><div class="zh side"><div class="tag">中文</div><h2 id="h-api-">如果智能体需要调用 API，它本来就可以直接调</h2>
+<p>如今像 Claude Code 这样的智能体，在编写并执行代码方面能力惊人，包括调用 Web API 的脚本。有些人甚至据此认为根本不需要 MCP！</p>
+<p>我不同意这个结论，但我确实认为我们该顺势而为。智能体的沙箱能力正在快速改进，如果让智能体直接调用 API 既简单又安全，那我们不妨就这么做，去掉中间人。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hif-an-agent-needs-to-call-an-api-it-could-just-do-that">If an agent needs to call an API, it could just do that</h2>
+<p>Agents like Claude Code are remarkably capable of writing+executing code these days, including scripts that call web APIs. Some people take this so far as to argue that MCP isn’t needed at all!</p>
+<p>I disagree with that conclusion, but I do think we should skate to where the puck is going. Sandboxing of agents is improving rapidly, and if it’s easy+safe for an agent to call APIs directly then we might as well do that and cut out the middleman.</p></div></div>
+<div class="pair" id="mcp-food-for-thought-0012"><div class="zh side"><div class="tag">中文</div><h2 id="h-">结语</h2>
+<p>智能体与 API 的典型消费方有着本质区别。从现有 API 自动生成 MCP 工具是可行的，但这样做大概率效果不好。只有当工具是针对智能体独特的能力与局限设计时，智能体才能发挥得最好。</p>
+<ul>
+<li>土地价值与可负担性</li>
+</ul>
+<h2 id="h-">城市与代码</h2>
+<h3 id="h-">近期文章</h3>
+<h3 id="h-2025-">💻 2025 年回顾</h3>
+<p>2025 年 12 月 28 日</p>
+<h3 id="h-mcp-">💻 说到底，MCP 适合做什么？</h3>
+<p>2025 年 12 月 26 日</p>
+<h3 id="h-">💻 工具调用既昂贵又有限</h3>
+<p>2025 年 9 月 18 日</p>
+<h3 id="h-api-mcp-">💻 API 不是好的 MCP 工具</h3>
+<p>2025 年 8 月 5 日</p>
+<h3 id="h-">🏗️ 土地价值与可负担性</h3>
+<p>2025 年 6 月 26 日</p>
+<h3 id="h-seo-">📝 我与邪恶 SEO 的遭遇</h3>
+<p>2025 年 6 月 16 日</p>
+<p>查看更多文章</p></div><div class="en side"><div class="tag">EN</div><h2 id="hconclusion">Conclusion</h2>
+<p>Agents are fundamentally different from the typical consumers of APIs. It’s possible to automatically create MCP tools from existing APIs, but doing that is unlikely to work well. Agents do best when given tools that are designed for their unique capabilities and limitations.</p>
+<ul>
+<li>Land Values and Affordability</li>
+</ul>
+<h2 id="hcities-code">Cities &amp; Code</h2>
+<h3 id="hrecent-posts">Recent Posts</h3>
+<h3 id="h-2025-retrospective">💻 2025 Retrospective</h3>
+<p>December 28, 2025</p>
+<h3 id="h-what-s-mcp-good-for-anyway-">💻 What's MCP good for, anyway?</h3>
+<p>December 26, 2025</p>
+<h3 id="h-tool-calls-are-expensive-and-finite">💻 Tool Calls Are Expensive And Finite</h3>
+<p>September 18, 2025</p>
+<h3 id="h-apis-don-t-make-good-mcp-tools">💻 APIs don't make good MCP tools</h3>
+<p>August 5, 2025</p>
+<h3 id="h-land-values-and-affordability">🏗️ Land Values and Affordability</h3>
+<p>June 26, 2025</p>
+<h3 id="h-my-encounter-with-evil-seo">📝 My encounter with evil SEO</h3>
+<p>June 16, 2025</p>
+<p>View more posts</p></div></div>
+<div class="pair" id="mcp-food-for-thought-0013"><div class="zh side"><div class="tag">中文</div><h3 id="h-">热门分类</h3>
+<p>软件</p>
+<p> 42</p>
+<p> 城市规划</p>
+<p> 11</p>
+<p> 近期</p>
+<p> 10</p>
+<p> Rust</p>
+<p> 9</p>
+<p> Web</p>
+<p> 9</p>
+<p> 数据库</p>
+<p> 8</p>
+<p> LLM</p>
+<p> 8</p>
+<p> Nushell</p>
+<p> 7</p>
+<p> 查看全部分类</p>
+<h4 id="h-">首页</h4>
+<h4 id="h-">关于</h4>
+<h4 id="h-">项目</h4>
+<h3 id="h-">近期文章</h3>
+<h3 id="h2025-">2025 年回顾</h3>
+<p>2025 年 12 月 28 日</p>
+<h3 id="h-mcp-">说到底，MCP 适合做什么？</h3>
+<p>2025 年 12 月 26 日</p>
+<h3 id="h-">工具调用既昂贵又有限</h3>
+<p>2025 年 9 月 18 日</p>
+<h3 id="hapi-mcp-">API 不是好的 MCP 工具</h3>
+<p>2025 年 8 月 5 日</p>
+<h3 id="h-">土地价值与可负担性</h3>
+<p>2025 年 6 月 26 日</p>
+<h3 id="h-seo-">我与邪恶 SEO 的遭遇</h3>
+<p>2025 年 6 月 16 日</p>
+<p> 查看更多文章</p></div><div class="en side"><div class="tag">EN</div><h3 id="htop-categories">Top Categories</h3>
+<p>Software</p>
+<p> 42</p>
+<p> Urban Planning</p>
+<p> 11</p>
+<p> Recently</p>
+<p> 10</p>
+<p> Rust</p>
+<p> 9</p>
+<p> Web</p>
+<p> 9</p>
+<p> Databases</p>
+<p> 8</p>
+<p> LLMs</p>
+<p> 8</p>
+<p> Nushell</p>
+<p> 7</p>
+<p> View all categories</p>
+<h4 id="hhome">Home</h4>
+<h4 id="habout">About</h4>
+<h4 id="hprojects">Projects</h4>
+<h3 id="hrecent-posts">Recent Posts</h3>
+<h3 id="h2025-retrospective">2025 Retrospective</h3>
+<p>December 28, 2025</p>
+<h3 id="hwhat-s-mcp-good-for-anyway-">What's MCP good for, anyway?</h3>
+<p>December 26, 2025</p>
+<h3 id="htool-calls-are-expensive-and-finite">Tool Calls Are Expensive And Finite</h3>
+<p>September 18, 2025</p>
+<h3 id="hapis-don-t-make-good-mcp-tools">APIs don't make good MCP tools</h3>
+<p>August 5, 2025</p>
+<h3 id="hland-values-and-affordability">Land Values and Affordability</h3>
+<p>June 26, 2025</p>
+<h3 id="hmy-encounter-with-evil-seo">My encounter with evil SEO</h3>
+<p>June 16, 2025</p>
+<p> View more posts</p></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#mcp-food-for-thought-0000">第 1 段</a></li><li><a href="#mcp-food-for-thought-0001">第 2 段</a></li><li><a href="#mcp-food-for-thought-0002">第 3 段</a></li><li><a href="#mcp-food-for-thought-0003">第 4 段</a></li><li><a href="#mcp-food-for-thought-0005">第 6 段</a></li><li><a href="#mcp-food-for-thought-0007">第 8 段</a></li><li><a href="#mcp-food-for-thought-0008">第 9 段</a></li><li><a href="#mcp-food-for-thought-0010">第 11 段</a></li><li><a href="#mcp-food-for-thought-0011">第 12 段</a></li><li><a href="#mcp-food-for-thought-0012">第 13 段</a></li><li><a href="#mcp-food-for-thought-0013">第 14 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

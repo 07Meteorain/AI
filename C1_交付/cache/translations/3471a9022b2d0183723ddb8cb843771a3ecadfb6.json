@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0017",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "3471a9022b2d0183723ddb8cb843771a3ecadfb6",
+ "zh": "表 3. 提取智能体指令的攻击者输入示例。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

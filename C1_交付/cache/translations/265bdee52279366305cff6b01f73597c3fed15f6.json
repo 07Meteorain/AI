@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-registry-preview#0006",
+ "doc_id": "mcp-registry-preview",
+ "fingerprint": "265bdee52279366305cff6b01f73597c3fed15f6",
+ "zh": "# 感谢 MCP 社区#\n\nMCP 注册表从一开始就是协作的成果，我们对更广泛开发者社区的热情与支持深怀感激。\n\n2025 年 2 月，它以草根项目的形式起步：MCP 的创建者 David Soria Parra 和 Justin Spahr-Summers 请 PulseMCP 和 Goose 团队帮忙构建一个集中的社区注册表。来自 PulseMCP 的注册表维护者 Tadas Antanavicius 牵头完成了最初的工作，并与来自 Block 的 Alex Hancock 合作。他们很快又迎来了注册表维护者、GitHub 的 MCP 负责人 Toby Padilla；最近，来自 Anthropic 的 Adam Jones 也加入担任注册表维护者，推动项目走向今天的正式发布。MCP 注册表开发的首发公告列出了来自至少 9 家不同公司的 16 位贡献者。\n\n还有许多人为把这个项目落到实处做出了关键贡献：来自 Stacklok 的 Radoslav Dimitrov、来自 GitHub 的 Avinash Sridhar、来自 VS Code 的 Connor Peet、来自 NuGet 的 Joel Verhagen、来自 Last9 的 Preeti Dewani、来自 Microsoft 的 Avish Porwal、Jonathan Hefner，以及许多提供代码评审与开发支持的 Anthropic 和 GitHub 员工。我们也感谢注册表贡献者日志上的每一个人，以及参与讨论和 issue 的每一个人。\n\n我们由衷感谢每一位在这项基础性开源设施上投入的人。我们正在共同帮助全球的开发者和组织构建更可靠、更具上下文感知能力的 AI 应用。谨代表 MCP 社区，向大家道谢。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

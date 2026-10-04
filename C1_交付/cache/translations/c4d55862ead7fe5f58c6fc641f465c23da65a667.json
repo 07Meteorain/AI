@@ -1,0 +1,10 @@
+{
+ "seg_id": "finding-vulnerabilities-claude-codex#0007",
+ "doc_id": "finding-vulnerabilities-claude-codex",
+ "fingerprint": "c4d55862ead7fe5f58c6fc641f465c23da65a667",
+ "zh": "- EyeballVul：Timothée Chauvin 推出的较新基准，从开源项目中提取经过人工审定的真实漏洞，并把它们呈现为最小、可复现的测试用例。虽然基于真实代码，但它仍然把漏洞从更大的应用上下文中剥离出来，让搜索问题变得更容易。\n\n- SecVulEval 与 CyberGym：这两套基准用于评测 C 或 C++ 中的漏洞。在各自领域内它们很有价值，但聚焦 C 和 C++ 意味着这些数据并不适用于现代云原生开发中占主导地位的 Python/JavaScript 等面向 Web 的语言。\n\n这些方法各有用处，该用的时候都该用，但它们未必反映现代软件开发的真实状况。真实世界的应用不是干净的孤立函数，而是由依赖、框架和业务逻辑交织成的复杂网络。\n\n我们的做法不同。我们在 11 个大型、基于 Python、仍在积极维护的开源项目上做测试，使用的是常见 Web 框架（Django、Flask、FastAPI）。我们的方法与上述方法是互补的，我们认为它的独特之处在于：a) 目标是代表真实世界中 AI 驱动的漏洞发现（而非小型、孤立的合成样例）；b) 不受模型训练数据污染；c) 代表大多数开发者和公司实际在构建的应用类型——使用现代语言和框架的 Web 应用。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "claude-code-best-practices#0002",
+ "doc_id": "claude-code-best-practices",
+ "fingerprint": "a3c74313e1836a61af3e1127f5210a6a85bfbfa9",
+ "zh": "# Claude Code 概览\n\nClaude Code 是一款智能体式的编码工具，它能读取你的代码库、编辑文件、运行命令，并与你的开发工具集成。可在终端、IDE、桌面应用和浏览器中使用。\n\nClaude Code 是一个由 AI 驱动的编码助手，能帮你构建功能、修复缺陷、自动化开发任务。它理解你整个代码库，能跨多个文件和工具把事情做完。\n\n开始使用\n\n选择你的环境开始上手。大多数形态需要 Claude 订阅或 Anthropic Console 账号。终端 CLI 和 VS Code 也支持第三方提供商。\n\n- 终端\n\n- VS Code\n\n- 桌面应用\n\n功能完备的 CLI，直接在你的终端里使用 Claude Code。从命令行编辑文件、运行命令、管理整个项目。安装 Claude Code 有以下几种方式：\n\n- 原生安装（推荐）\n\n- Homebrew\n\n- WinGet\n\nmacOS、Linux、WSL：",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

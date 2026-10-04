@@ -1,0 +1,10 @@
+{
+ "seg_id": "good-context-good-code#0000",
+ "doc_id": "good-context-good-code",
+ "fingerprint": "c335a6eaccbf7ee05c4fad26103553fec16d20ff",
+ "zh": "# StockApp 工程\n\nStockApp 工程博客\n\n## 输入访问码",
+ "meta": {
+  "source": "../work/tr_g02.json",
+  "batch": "tr_g02"
+ }
+}

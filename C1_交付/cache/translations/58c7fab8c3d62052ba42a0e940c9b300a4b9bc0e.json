@@ -1,0 +1,10 @@
+{
+ "seg_id": "finding-vulnerabilities-claude-codex#0004",
+ "doc_id": "finding-vulnerabilities-claude-codex",
+ "fingerprint": "58c7fab8c3d62052ba42a0e940c9b300a4b9bc0e",
+ "zh": "## 引言\n\n在 Semgrep，我们每天都在做应用安全（AppSec）这件事。很长时间以来我们一直在把 AI 产品化（Assistant 背后的技术、用 promptfoo 测试我们的 AI 工作流、借助安全研究员做分类研判来评测自动分类的表现），同时不断研究传统确定性分析与现代 AI 的上下文能力如何最佳组合，而不是盲目追逐热点。\n\n这项研究正是这一使命的延续。我们要公开做一次深入探索，回答一个所有人都在想的问题：LLM 在查找源代码漏洞这件事上究竟有多有效？",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0039",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "032a7f5df796f99a80ce80e45ecfb4db89abdd9a",
+ "zh": "- 地理空间分析\n\n一个全面平台，用于规模化解决地理空间用例。\n\n数据库\n\n安全、可靠、高可用、全托管的数据服务，帮你迁移和管理企业数据。\n\n- 数据库迁移\n\n简化数据库迁移生命周期的指南与工具。\n\n- 数据库现代化\n\n通过升级让运营数据库基础设施实现现代化。\n\n- 游戏数据库\n\n用 Google Cloud 数据库打造全球化的实时游戏。\n\n- Google Cloud Databases\n\n用于迁移、管理和现代化升级数据的数据库服务。\n\n- 将 Oracle 工作负载迁移到 Google Cloud\n\n对 Oracle 工作负载重新托管、重新平台化或重写。\n\n- 开放源数据库\n\n企业级支持的完全托管开放源数据库。\n\n- Google Cloud 上的 SQL Server\n\n在 Google Cloud 上运行 SQL Server 虚拟机的多种选择。\n\n- 面向数据库的 Gemini\n\n用 AI 全面加速数据库的开发与管理。\n\n基础设施现代化\n\n借助面向 SAP、VMware、Windows、Oracle 等工作负载的方案，实现快速迁移。\n\n- 应用迁移\n\n用于迁往云端的发现与分析工具。\n\n- Google Cloud 上的 SAP\n\n运行 SAP 应用和 SAP HANA 的认证。\n\n- 高性能计算\n\n支撑任意工作负载的计算、存储和网络选项。\n\n- Google Cloud 上的 Windows\n\n运行 Windows 工作负载的工具与合作伙伴。\n\n- 数据中心迁移\n\n面向虚拟机、应用、数据库等对象的迁移方案。\n\n- Active Assist\n\n自动优化云资源，并提升安全性。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

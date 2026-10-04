@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0014",
+ "doc_id": "observability-basics",
+ "fingerprint": "f415c59d89238eecff68674b136894f52a4c9e57",
+ "zh": "### 在代码中实现追踪\n\n下面是一个简化示例，展示如何在 Node.js 应用中使用 OpenTelemetry 创建跨度：",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

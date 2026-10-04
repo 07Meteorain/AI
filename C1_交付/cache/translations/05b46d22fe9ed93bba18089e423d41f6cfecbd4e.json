@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0016",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "05b46d22fe9ed93bba18089e423d41f6cfecbd4e",
+ "zh": "\"如果人类能以光速旅行，会发生什么？\"\n\n观点类问题\n\n设计提示词，让 AI 就某个话题表达看法或观点，并鼓励它给出理由和依据。\n\n\"你认为人工智能最终会超越人类智能吗？为什么（或为什么不会）？\"",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

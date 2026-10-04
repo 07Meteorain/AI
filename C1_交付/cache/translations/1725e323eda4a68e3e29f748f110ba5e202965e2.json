@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0006",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "1725e323eda4a68e3e29f748f110ba5e202965e2",
+ "zh": "### 通过命令行\n\n你可以用 Wrangler CLI 在本地机器上创建一个新的 MCP 服务器，并把它部署到 Cloudflare。\n\n- 打开一个终端，运行下面的命令：",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

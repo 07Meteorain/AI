@@ -1,0 +1,10 @@
+{
+ "seg_id": "writing-effective-tools-for-agents#0009",
+ "doc_id": "writing-effective-tools-for-agents",
+ "fingerprint": "1df235cf866819d4c9f49fbf719d2f799bca7362",
+ "zh": "## 编写高效工具的原则\n\n本节把我们的经验提炼为几条编写高效工具的指导原则。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

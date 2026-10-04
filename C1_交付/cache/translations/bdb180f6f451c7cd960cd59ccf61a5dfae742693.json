@@ -1,0 +1,10 @@
+{
+ "seg_id": "owasp-top-ten#0019",
+ "doc_id": "owasp-top-ten",
+ "fingerprint": "bdb180f6f451c7cd960cd59ccf61a5dfae742693",
+ "zh": "### CWE 数据\n\n- 一份 CWE 清单，附每个 CWE 被发现包含于多少个应用\n\n如果可能，请提供数据中的具体 CWE，而不是 CWE 类别。\n\n这将有助于分析；作为分析一部分所做的任何归一化/聚合操作都会有充分的文档说明。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

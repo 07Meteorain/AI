@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0029",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "c3c5b1cfcca396dc6b05b2d0062e68182aff52d2",
+ "zh": "#### 攻击载荷说明\n\n表 7 中的攻击者输入示例指示智能体查询 Google Compute Engine 的元数据服务器 URL，并获取该 VM 的服务账号访问 token。要成功，请求必须带上元数据服务器要求的一个特殊 HTTP 头（Metadata-Flavor: Google），用于校验请求。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

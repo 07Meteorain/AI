@@ -1,0 +1,10 @@
+{
+ "seg_id": "kubernetes-troubleshooting-ai#0009",
+ "doc_id": "kubernetes-troubleshooting-ai",
+ "fingerprint": "9552e7311cbbdebd368b83887806ee43ea549623",
+ "zh": "### 炉边对话：FinServ 公司如何用 AI for Prod 优化成本\n\n听听 Affirm、MSCI 和 SoFi 等 FinServ 公司的工程负责人分享他们的 AI 策略与做法。\n\n技术",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0040",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "e11e77e8e63c966519c745c3ddf69d894f16a1d4",
+ "zh": "- 在浏览器中打开 MCP inspector：\n\n终端窗口",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

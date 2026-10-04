@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0042",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "1ad0c3af2027d753489589879ef5550358834f24",
+ "zh": "- 没找到你想要的产品？\n\n- 查看全部 AI 与机器学习产品\n\nAI 与机器学习\n\n- Vertex AI Platform\n\nML 模型与生成式 AI 的统一平台。\n\n- Vertex AI Studio\n\n在 Vertex AI 上构建、调优和部署基础模型。\n\n- Vertex AI Agent Builder\n\n构建并部署生成式 AI 体验。\n\n- Conversational Agents\n\n兼具确定性能力与生成式 AI 能力的对话式 AI。\n\n- Vertex AI Search\n\n为你的企业应用和体验打造 Google 品质的搜索。\n\n- Speech-to-Text\n\n覆盖 125 种语言的语音识别与转写。\n\n- Text-to-Speech\n\n支持 220 多种音色、40 多种语言的语音合成。\n\n- Translation AI\n\n语言检测、翻译和术语表支持。\n\n- Gemini Enterprise\n\n用于发现、创建、运行和治理 AI 智能体的安全平台。\n\n- Vision AI\n\n自定义与预训练模型，可检测情绪、文字等。\n\n- Contact Center as a Service\n\n云原生的全渠道联络中心方案。\n\n- 没找到你想要的产品？\n\n- 查看全部 AI 与机器学习产品\n\n- 商业智能\n\n- Looker\n\nBI、数据应用与嵌入式分析平台。\n\n- Looker Studio\n\n用于仪表盘、报表和分析的交互式数据套件。\n\n计算\n\n- Compute Engine\n\n运行在 Google 数据中心的虚拟机。\n\n- App Engine\n\n面向应用和后端的无服务器应用平台。\n\n- Cloud GPUs\n\n用于 ML、科学计算和 3D 可视化的 GPU。\n\n- 迁移到虚拟机\n\n把服务器和虚拟机迁移到 Compute Engine。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

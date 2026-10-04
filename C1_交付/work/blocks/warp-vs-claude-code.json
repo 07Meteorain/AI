@@ -1,0 +1,391 @@
+{
+ "meta": {
+  "id": "warp-vs-claude-code",
+  "type": "html",
+  "path": "CS146S_offline/pages/warp-vs-claude-code.html",
+  "title": "Warp 与 Claude Code 对比",
+  "priority": 2,
+  "category": "Week 5 · AI 原生开发"
+ },
+ "page_title": "Getting started with Warp and Oz | Warp",
+ "blocks": [
+  {
+   "kind": "paragraph",
+   "text": "Introducing Oz: the orchestration platform for cloud agents.Learn more.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Warp",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "⌘Ctrlk",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Warp",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Getting started",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Getting started with Warp and Oz",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Team Admin Panel",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Session sharing",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Powered by GitBook",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Getting started with Warp and Oz",
+   "level": 1,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Get started with Warp, the Agentic Development Environment, and Oz, the orchestration platform for cloud agents.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Warp is an Agentic Development Environment, a modern terminal combined with powerful agents that help you build, test, deploy, and debug code. Warp's AI is powered by Oz, the orchestration platform for cloud agents.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Warp combines a modern terminal with Oz, the orchestration platform for cloud agents",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Warp",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Warp is where you work — a fast, modern terminal built for coding with agents.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Key capabilities:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Agent Modality: Switch between a clean terminal for commands and a dedicated conversation view for multi-turn agent workflows.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Modern terminal UX: Cursor movement, block-based navigation, multi-line editing, syntax highlighting, and rich completions. Built with Rust for high performance.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Code editor: File tree, code editor with LSP support, and interactive code review experience.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Coding agent integrations: Features like voice input, and @-selection for working with terminal based images. Compatible with Oz or agents like Claude Code and Codex.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Deep dive into Warp's core features",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Oz: The orchestration platform for cloud agents",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Oz is the orchestration platform for cloud agents that powers all of Warp's intelligent features. Oz is designed to coordinate agents at scale—understanding your codebase, executing tasks autonomously, and adapting to your workflows. Oz is multi-model by design, giving you flexibility to choose the best LLM for each task.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Oz operates in two modes:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Local agents",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Run directly in the Warp app for real-time, interactive coding assistance.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Write and refactor code across your codebase",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Debug issues and fix errors",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Run commands and interpret results",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Plan and execute multi-step tasks",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Local agents keep you in control. You can review changes, steer the agent mid-task, and approve actions before they execute.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "→ Get started with local agents",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cloud agents",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Oz Cloud Agents run in the background on Warp's infrastructure (or your own) for automation at scale.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Triggers: React to events from Slack, Linear, GitHub, or custom webhooks",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Schedules: Run recurring tasks like dependency updates or dead code removal",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Parallelism: Run many agents concurrently across repos or tasks",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Observability: Every run is tracked, auditable, and shareable with your team",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cloud agents are ideal for work that doesn't need your immediate attention, like PR reviews, issue triage, routine maintenance, and integration-driven workflows.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "→ Learn about cloud agents",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "How they work together",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Warp and Oz provide a unified experience across local and cloud development:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Same agent, anywhere: Whether you're working interactively in Warp or running agents in the cloud, you're using the same underlying agent capabilities.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Seamless handoff: Start a task in the cloud and take over locally in Warp when you want hands-on control, without losing progress or context.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Shared context: Warp Drive, Rules, and MCP servers work across both local and cloud agents, so your team's knowledge and tools are always available.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Team collaboration: Share agent sessions, review agents' actions, and steer running tasks, regardless of who started them.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Multi-model support",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Oz is multi-model by design. You can choose your preferred LLM from a curated set of top models.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Privacy and security",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Warp is SOC 2 compliant and has Zero Data Retention policies with all contracted LLM providers. No customer AI data is retained, stored, or used for training.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Warp's AI features can be globally disabled in Settings > AI.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "→ Read more about data privacy",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Next steps",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Quickstart Guide: Get Warp installed and start coding",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Local Agents Overview: Explore all AI features available in Warp",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cloud Agents Overview: Set up background automation",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Oz Platform: Learn about the CLI, API, SDK, and infrastructure",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "NextQuickstart",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Last updated 3 days ago",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Was this helpful?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Warp",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Oz: The orchestration platform for cloud agents",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Was this helpful?",
+   "level": 0,
+   "meta": {}
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "context-rot#0002",
+ "doc_id": "context-rot",
+ "fingerprint": "f9723108c44e5e3d00af288fc86de8878d8a4059",
+ "zh": "下面是我们完整的技术报告。如果觉得我们的工作有用，欢迎引用：\n\nplaintext",
+ "meta": {
+  "source": "../work/tr_g02.json",
+  "batch": "tr_g02"
+ }
+}

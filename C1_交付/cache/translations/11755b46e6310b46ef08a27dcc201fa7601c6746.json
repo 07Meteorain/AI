@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0025",
+ "doc_id": "observability-basics",
+ "fingerprint": "11755b46e6310b46ef08a27dcc201fa7601c6746",
+ "zh": "### 追踪和日志有什么区别？\n\n日志捕获离散的单个事件，而追踪展示跨服务的操作之间的关系。日志告诉你发生了什么；追踪告诉你它是怎么发生的。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

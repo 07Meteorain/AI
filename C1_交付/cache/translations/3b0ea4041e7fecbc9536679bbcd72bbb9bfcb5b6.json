@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0029",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "3b0ea4041e7fecbc9536679bbcd72bbb9bfcb5b6",
+ "zh": "### 减少偏见与有害回应\n\n通过精心控制输入、把准 AI 的关注点，提示工程有助于缓解偏见，最大限度降低生成不当或冒犯内容的风险。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

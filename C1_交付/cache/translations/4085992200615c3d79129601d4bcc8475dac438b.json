@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0020",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "4085992200615c3d79129601d4bcc8475dac438b",
+ "zh": "- 重启 Claude Desktop 以加载 MCP 服务器。完成后，Claude 就能向你的远程 MCP 服务器发起调用。\n\n- 要测试，可以让 Claude 使用你的某个工具。例如：",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

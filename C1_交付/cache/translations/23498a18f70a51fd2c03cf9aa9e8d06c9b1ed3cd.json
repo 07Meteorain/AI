@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0025",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "23498a18f70a51fd2c03cf9aa9e8d06c9b1ed3cd",
+ "zh": "### 第三方 OAuth\n\n你可以把你的 MCP 服务器接入任何支持 OAuth 2.0 规格说明的 OAuth 提供方，包括 GitHub、Google、Slack、Stytch、Auth0、WorkOS 等。\n\n下面的示例演示如何用 GitHub 作为 OAuth 提供方。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

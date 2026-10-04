@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0017",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "20e1f54a8d02c3ced6dcc226c1cad35c4d7aaf00",
+ "zh": "### 代码生成\n\n场景\n\n说明\n\n提示词示例\n\n代码补全\n\n给 AI 一段不完整的代码，让它根据上下文和编程语言提示补全或补写剩余代码。\n\n\"写一个 Python 函数，计算给定数字的阶乘。\"\n\n代码翻译\n\n指定源语言和目标编程语言，让 AI 在保留功能和语法的前提下翻译代码。\n\n\"把下面这段 Python 代码翻译成 JavaScript：def greet(name): print('Hello,', name)\"\n\n代码优化\n\n提示 AI 分析现有代码，并从效率、可读性或性能角度提出改进建议。\n\n\"优化下面这段 Python 代码，减少它的执行时间。\"\n\n代码调试\n\n给 AI 一段含有错误的代码，让它定位问题并提出可能的解决方案。\n\n\"调试下面这段 Java 代码，解释它为什么抛出 NullPointerException。\"\n\n场景\n\n说明\n\n提示词示例\n\n代码补全\n\n给 AI 一段不完整的代码，让它根据上下文和编程语言提示补全或补写剩余代码。\n\n\"写一个 Python 函数，计算给定数字的阶乘。\"\n\n代码翻译\n\n指定源语言和目标编程语言，让 AI 在保留功能和语法的前提下翻译代码。\n\n\"把下面这段 Python 代码翻译成 JavaScript：def greet(name): print('Hello,', name)\"\n\n代码优化\n\n提示 AI 分析现有代码，并从效率、可读性或性能角度提出改进建议。\n\n\"优化下面这段 Python 代码，减少它的执行时间。\"\n\n代码调试\n\n给 AI 一段含有错误的代码，让它定位问题并提出可能的解决方案。\n\n\"调试下面这段 Java 代码，解释它为什么抛出 NullPointerException。\"",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

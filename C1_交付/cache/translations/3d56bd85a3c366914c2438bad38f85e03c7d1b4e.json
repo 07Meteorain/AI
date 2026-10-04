@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0031",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "3d56bd85a3c366914c2438bad38f85e03c7d1b4e",
+ "zh": "### 更好的用户体验\n\n清晰简洁的提示词让用户更容易与 AI 模型高效互动，带来更直观、更令人满意的体验。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

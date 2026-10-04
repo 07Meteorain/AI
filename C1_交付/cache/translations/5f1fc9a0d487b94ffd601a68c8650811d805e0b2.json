@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0038",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "5f1fc9a0d487b94ffd601a68c8650811d805e0b2",
+ "zh": "#### 示例：\n\n在 Cognition，我们喜欢维护一份「工程师最常犯的错误」清单，并把它提交进代码库。这样一来，我们不用写传统的 lint 规则去捕捉它们（这往往做不到），而是让一个智能体在每个新 PR 上跑一遍，检查这些错误。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

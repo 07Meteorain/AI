@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0037",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "38499d4a02849a0daf3131e5ca78b0d97460a7cc",
+ "zh": "### 智能代码评审与强制执行\n\n虽然已经有 Greptile、CodeRabbit 这类专门做快速代码评审的工具 [3]，但自主智能体也是一个有意思的选择，能给出更准确的判断，尤其是当它们已经索引过你仓库的功能之后。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

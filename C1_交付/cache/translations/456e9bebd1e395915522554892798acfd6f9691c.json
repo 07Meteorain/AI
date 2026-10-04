@@ -1,0 +1,10 @@
+{
+ "seg_id": "owasp-top-ten#0013",
+ "doc_id": "owasp-top-ten",
+ "fingerprint": "456e9bebd1e395915522554892798acfd6f9691c",
+ "zh": "### 已验证的数据贡献\n\n情形 1：提交者身份已知，并同意被标识为贡献方。\n\n情形 2：提交者身份已知，但不希望被公开标识。\n\n情形 3：提交者身份已知，但不希望记录在数据集中。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

@@ -1,0 +1,679 @@
+{
+ "meta": {
+  "id": "specs-are-the-new-source-code",
+  "type": "html",
+  "path": "CS146S_offline/pages/specs-are-the-new-source-code.html",
+  "title": "规格即新源码（Specs Are the New Source Code）",
+  "priority": 1,
+  "category": "Week 3 · 规格驱动开发"
+ },
+ "page_title": "The spec is dead, long live the spec!",
+ "blocks": [
+  {
+   "kind": "heading",
+   "text": "Ravi on Product",
+   "level": 1,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "The spec is dead, long live the spec!",
+   "level": 1,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Prototypes are the new specs and specs are the new.... source code?",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Ravi Mehta and Danny Martinez",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Jul 31, 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Over my career, specs have gotten shorter and shorter. When I started at Microsoft, the worth of a PM was measured in the weight of their specs. Years later, at Tripadvisor, we mythologized the PM who brought a spec—scribbled on a napkin—to Product Review.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Product teams often treat specifications like paperwork—a necessary evil before the \"real work\" of shipping. Engineers get celebrated for elegant code, designers for beautiful UX. PMs get kudos for delivering impact. But specs? They’re typically rushed through, tossed aside, forgotten.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Thanks for reading Ravi on Product! Subscribe for free to receive new posts and support my work.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "This was always a mistake. In my Product Competency Toolkit, Feature Specification sits at the top—first among twelve competencies—for a reason. It underpins Product Execution, along with Product Delivery and Product Quality.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Flawless execution is the foundation of good product management, and a great spec is the starting line.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Today, the way we build is shifting. Engineers are getting faster—much faster. AI can turn rough ideas into working code in minutes. The bottleneck is no longer building. It's knowing what to build, and aligning the team around those requirements.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Suddenly, the humble specification isn't ephemeral paperwork. It’s the foundation of product management—it's becoming the source code itself.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Why PMs are suddenly the bottleneck",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "In his recent talk Building Faster with AI, Andrew Ng noted an unprecedented trend:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "quote",
+   "text": "\"For the first time in my life that I saw managers proposed to me having twice as many PMs as engineers. I still don't know if this proposal is a good idea, but I think it's a sign of where the world is going.\" —Andrew Ng",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "This validates what we predicted in our previous post: as engineers deliver many times faster with AI, companies need more PMs to support those productive engineers, not fewer.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "As product delivery accelerates, that puts intense pressure on every other aspect of product management—understanding customer needs, crafting the right features, validating impact.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "And all of that pressure gets focused into one artifact—the spec.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Specs—the new source code",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "In traditional software development, programmers write human readable “source code” which gets compiled into highly optimized, machine readable “object code”. The “object code” (also known as a binary) is a byproduct that can be recreated with the source code. The source code is literally the source of truth.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Sean Grove, from OpenAI, has a provocative thesis. In his recent talk, The New Code, he argues that a well-written prompt (i.e., the spec) is the new source code.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Seen in that light, we’re doing AI development backwards. We craft careful prompts to communicate our intentions to models. The AI generates code. Then we keep the code and throw away the prompt.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"This feels like you shred the source and then you very carefully version control the binary,\" Grove observes.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Think about that. In traditional programming, source code is sacred. The source contains comments, structure, and documentation—everything needed to understand and modify the system. The binary is just a downstream artifact.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "But with AI, we've flipped this relationship. We treat the generated code as the artifact worth keeping and the specification—the prompt—as disposable.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Grove argues this gets it exactly backwards. Code, even elegant code, is what he calls a \"lossy projection\" from the specification. Just like decompiling a binary won't give you the original comments and variable names, reading code won't tell you the full intent behind it.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The specification, however, contains everything. A sufficiently robust spec can generate \"good TypeScript, good Rust, servers, clients, documentation, tutorials, blog posts, and even podcasts.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "“A sufficiently robust spec can generate good TypeScript, good Rust, servers, clients, documentation, tutorials, blog posts, and even podcasts.” —Sean Grove, OpenAI",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "More importantly, specifications do something code cannot: they align both humans and machines on shared goals. Grove puts it simply: \"A written specification effectively aligns humans and is the artifact that you use to communicate and discuss and debate and refer to and synchronize on.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "He predicts: \"In the near future, the person who communicates most effectively is the most valuable programmer. And literally, if you can communicate effectively, you can program.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The new scarce skill isn't coding. It's writing specifications that fully capture intent and values.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "For product managers, this should sound familiar. It's what we've always done—just now the machines are listening too.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Wait, didn’t prototypes kill the spec?",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Until recently, the product lifecycle had to start with the spec (or PRD or concept doc or napkin) that gets the initial wireframing, designing, prototyping, and MVP development under way.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The traditional approach felt like a necessary evil. Engineers built basic MVPs to get something—anything—into customers' hands. \"If you're not embarrassed by the first version of your product, you've launched too late\" became gospel.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Our entire approach to building products has recently undergone a significant shift, and in this new world, the spec is often the output, not the input.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Today, you don't need to ship a single line of code to get a prototype into customer hands. Tools like v0, Lovable, and Replit let you build functioning prototypes in hours, not weeks. No engineering required.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "This isn't just faster—it's fundamentally different. Armed with a \"vibe coded\" prototype, you can gather real customer feedback before writing a single line of your feature spec. You can test assumptions, iterate on flows, refine interactions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "The old workflow looked like this: vague idea → wireframes → designs → engineer-built MVP → customer feedback → painful spec revision → wireframes → designs → rebuild → pray.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "The new workflow: vague idea → rapid prototype → customer feedback → crystal-clear spec → AI-assisted implementation.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Prototypes haven't killed the spec. They're making specs better.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Spec-driven development in action",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Let's look at a hands-on example of how this all plays out. Danny Martinez is the founder of decimals, a platform (in stealth) that enables experts in the creator economy to place talent from their network into jobs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Are you an AI-first PM looking for a new opportunity? Drop in your details and we’ll let you know when we come across interesting opportunities.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Are you a company looking to hire an AI-first PM? Apply to our talent network and we’ll share a curated shortlist of candidates.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Danny is going to walk us through their spec-driven development process—a process that has had two impacts:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "massively improved communication with engineering for the bigger features, and",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "enabled Danny, despite having no prior coding experience, to go all the way from detailed spec to live feature for the smaller stuff.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Over to Danny...",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Here’s a recent example I worked on. For context, we’re building a product that enables expert influencers to place candidates from their networks into jobs. After shipping a new landing page, we needed to give our experts a quick way of accessing the link to their own page.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "quote",
+   "text": "We need a button in the header that directs to the company-apply page. I'm focused on the emails at the moment. This is vibe code-able if you can pick it up please.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "This was from my co-founder, referring to a simple button that needed to be shipped. Easy enough, and precisely the kind of thing that a non technical person can now ship themselves.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Here’s the setup and steps for how this got shipped within a couple of minutes:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Project management tool: Linear",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "IDE: VS Code",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Extension: GitHub Copilot Pro",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "MCP Server: Linear MCP server to allow Linear tickets to be accessed via Copilot",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Let’s take a look at the steps in the process (follow along in the Loom video above):",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Generate a Linear ticket out of the Slack message from my co-founder (00:14)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Clarify what I want the new copy to be in the ticket above (00:25)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Open up Copilot and prompt Claude to open up the Linear ticket (01:18)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Prompt Claude to review the ticket and analyse it relative to the codebase (01:52)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Prompt Claude to create a branch and implement these changes (02:30)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Test the changes to ensure they’re working as expected. (02:52)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Open a pull request (PR) on GitHub to ship these changes into the codebase (03:55)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Wait for an engineer to review/approve the PR",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Zooming out, the true power of this setup comes into focus. Yes, this is a trivial example, but the point remains: a non-technical person can now go between Linear tickets, a codebase, and an engineer, all with a couple of prompts to Claude via GitHub Copilot.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "And again, the critical part of all of this isn’t the code itself: it’s the spec.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Now, it’s important to caveat the above with what’s needed for it to work well:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Being specific: Using vague specs will only result in a messy codebase. Using Claude to take an initial draft of a ticket, review the codebase, and help make it more specific is an essential part of the process. In our case, we also have guidelines for writing a good spec.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Being selective: Using the above for simpler tasks is ideal. The more complex the ticket, the greater the need for someone who knows what they’re doing to get involved (“self-serve” ends up being anything but, in these cases).",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Gatekeeping: This approach only works well because there’s an actual engineer who knows what they’re doing, reviewing changes and ensuring the balance between simplicity and functionality is maintained.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "But let’s be clear: the rules have changed. Specs are the source of truth for everyone building the product, including the LLM.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "With the proper setup, it is entirely realistic to expect to be contributing to a codebase as a non-technical person. With enough time and patience, you can start to understand the codebase and implement changes yourself, rather than simply relying on Claude to bail you out every time.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "One day, you might even expect an AI agent to ship your ticket whilst you sip your coffee.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "If you’re a PM and worried about what AI is going to do to your job, the key is to realize that the job itself is changing. But that’s also the case for everyone else. The great thing is that the core skills required for an excellent PM are even more valuable in this new world.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "As we predicted in a previous post, the companies that are working in this way will need more, not fewer PMs. And it turns out that prediction is working out rather well:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Long live the spec!",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "William Gibson, the science fiction writer who coined the phrase “cyberspace,” once said:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "quote",
+   "text": "The future is already here—it’s just not very evenly distributed.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "I’m reminded of this when I think about what is and is not possible with AI. Today, AI's gains are profoundly uneven. Some things—generating code, text, images—have made quantum leaps. They operate at AI speed. Other things—talking to customers, discovering their needs, convincing them to buy—still move at human speed.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "This uneven distribution is reshaping product teams. The spotlight is shifting from implementation work to understanding work. The core skills that have always set apart the best PMs—understanding user needs, defining problems clearly, designing elegant solutions—have become exponentially more valuable.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The best PMs turn those insights into specs—specifications that align teams, guide implementation, and serve as the lasting artifact in an increasingly automated development world.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Thanks for reading Ravi on Product! Subscribe for free to receive new posts and support my work.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "table_row",
+   "text": "A guest post by",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Danny Martinez",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "✍️ Writing about hiring",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "table_row",
+   "text": "Subscribe to Danny",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "heading",
+   "text": "Discussion about this post",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Mar",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Jul 31, 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Thank you for outlining a problem that is not easily understood! We see it every day at Gluecharm. Specs and how they are done, and with who, are definitely the way forward. Probably the only one!",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Reply",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Share",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "1 reply by Ravi Mehta",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Harsh Chaudhary",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Aug 1, 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Agree that specs are an interface to infrastructure.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "But specs have never really been about code - they're a proxy for ideas, values, and priorities.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "So yes, more people can go from idea to prototype faster. But like you said, the bookends - feedback, trade-offs, decisions - move at human speed.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "IMO, that's not a tech problem, it's more of a systems and culture problem.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "More here -> https://hchau.substack.com/p/ais-uneven-acceleration",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Reply",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Share",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "1 reply by Ravi Mehta",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "14 more comments...",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "No posts",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Ready for more?",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Start your SubstackGet the app",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Substack is the home for great culture",
+   "level": 0,
+   "meta": {}
+  }
+ ]
+}

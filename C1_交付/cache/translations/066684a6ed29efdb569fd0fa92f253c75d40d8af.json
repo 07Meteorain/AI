@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0040",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "066684a6ed29efdb569fd0fa92f253c75d40d8af",
+ "zh": "### 环境搭建\n\n没有什么比不完整或不匹配的环境更能拖慢智能体。为了让一切顺畅运行，要把智能体的环境配置得和团队完全一致。这包括语言版本、包依赖和自动化检查。例如，pre-commit 应当安装在智能体的环境里，环境配置（密钥、语言版本、虚拟环境、浏览器登录态）应当用 .envrc 之类的工具或对 .bashrc 的自定义配置自动加载。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

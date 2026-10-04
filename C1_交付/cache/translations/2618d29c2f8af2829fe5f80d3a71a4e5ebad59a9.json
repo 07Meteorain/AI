@@ -1,0 +1,10 @@
+{
+ "seg_id": "owasp-top-ten#0007",
+ "doc_id": "owasp-top-ten",
+ "fingerprint": "2618d29c2f8af2829fe5f80d3a71a4e5ebad59a9",
+ "zh": "- 乌克兰语 2013: OWASP Top 10 2013 - Ukrainian PDF\nKateryna Ovechenko, Yuriy Fedko, Gleb Paharenko, Yevgeniya Maskayeva, Sergiy Shabashkevich, Bohdan Serednytsky",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

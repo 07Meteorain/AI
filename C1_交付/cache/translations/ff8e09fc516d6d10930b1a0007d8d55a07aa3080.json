@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0004",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "ff8e09fc516d6d10930b1a0007d8d55a07aa3080",
+ "zh": "## 部署你的第一个 MCP 服务器\n\n你可以先部署一个公开的 MCP 服务器——不带认证，之后再补上用户认证和带范围的授权。如果你已经确定服务器需要认证，可以直接跳到下一节。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

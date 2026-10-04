@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0040",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "55023b746e3d17a280a312c1be577ea6b60d1619",
+ "zh": "- 虚拟桌面\n\n面向桌面和应用的远程办公解决方案（VDI 与 DaaS）。\n\n- 快速迁移与现代化计划\n\n端到端迁移计划，简化你走向云的路径。\n\n- 备份与灾难恢复\n\n确保你的业务连续性需求得到满足。\n\n- Google Cloud 上的 Red Hat\n\nGoogle 与 Red Hat 共同提供面向传统本地部署和定制应用的企业级平台。\n\n- 跨云网络\n\n简化混合云与多云组网，并保护你的工作负载、数据和用户。\n\n- 可观测性\n\n端到端可见性，监控、排查并改进应用性能。\n\n效率与协作\n\n以人为中心、专为产生实际影响而设计的方案，改变团队的工作方式。\n\n- Google Workspace\n\n面向企业的协作与效率工具。\n\n- Google Workspace Essentials\n\n为团队提供安全的视频会议和现代化协作。\n\n- Cloud Identity\n\n供 IT 管理员统一管理用户设备和应用的平台。\n\n- Chrome Enterprise\n\n为企业打造的 ChromeOS、Chrome 浏览器和 Chrome 设备。\n\n安全\n\n发现、调查并响应在线威胁，帮助保护你的业务。\n\n- 智能体式 SOC\n\n用 AI 智能体交付更好的安全成果。\n\n- Web App and API Protection\n\n为你的 Web 应用和 API 提供威胁与欺诈防护。\n\n- 安全与韧性框架\n\n覆盖安全与韧性生命周期每个阶段的解决方案。\n\n- 以代码驱动的风险与合规（RCaC）\n\n用自动化手段现代化升级治理、风险与合规职能的方案。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0001",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "e552ed2441f679fc927483d4ce2505c1374a97f4",
+ "zh": "# AI 代码评审的实现与最佳实践\n\nGreg Foster\n\nGraphite 软件工程师\n\n试用 Graphite\n\n随着人工智能日益融入软件开发工作流，AI 代码评审已成为提升代码质量和开发者效率的有用工具。本技术指南探讨了 AI 代码评审系统的实现方式，并梳理出在开发流程中有效利用这些工具的最佳实践。\n\n- 了解 AI 代码评审\n\n- 结论\n\n- 常见问题\n\n随着人工智能日益融入软件开发工作流，AI 代码评审已成为提升代码质量和开发者效率的有力工具。本技术指南探讨了 AI 代码评审系统的实现方式，并梳理出在开发流程中有效利用这些工具的最佳实践。\n\n像 Graphite Agent 这样的 AI 代码评审工具正在改变团队做代码质量保障的方式，让你在保持高标准的同时加快迭代节奏。本指南将帮助你了解如何在你的组织中实现并优化 AI 代码评审。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

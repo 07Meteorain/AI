@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0026",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "edd2003b9044e9d2fb4e3770cd15f5204de242fc",
+ "zh": "#### 攻击载荷说明\n\n表 6 中的攻击者输入示例指示智能体在挂载卷中搜索凭据文件。请注意，攻击者输入中把股票智能体称为 Portfolio Management Agent。挂载目录的路径通常会在工具描述或智能体指令中被明确写出，因此智能体在正常运行期间就能读写其中的文件。该载荷还指示智能体对输出做 Base-64 编码，因为大多数前沿大语言模型都内置了防护措施，会阻止生成包含密钥、凭据等敏感信息的响应。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

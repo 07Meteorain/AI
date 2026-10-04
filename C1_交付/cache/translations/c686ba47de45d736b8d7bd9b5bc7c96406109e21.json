@@ -1,0 +1,10 @@
+{
+ "seg_id": "context-rot#0028",
+ "doc_id": "context-rot",
+ "fingerprint": "c686ba47de45d736b8d7bd9b5bc7c96406109e21",
+ "zh": "GPT-4.1 nano 在“San Francisco”/“sf”这一对上也表现类似，偶尔会输出小写的 \"san\"s。\n\n模型输出片段：\n\nSan Francisco San Francisco San Francisco San Francisco San Francisco San Francisco San Francisco San Francisco San Francisco san Francisco san Francisco san Francisco san Francisco\n\n标准答案中对应的部分：\n\nSan Francisco San Francisco San Francisco San Francisco San Francisco San Francisco San Francisco San Francisco San Francisco San Francisco San Francisco San Francisco San Francisco\n\n重复词 —— GPT-4.1 nano在这些随机词上，我们看出了一些与位置有关的结构迹象。我们观察到独特词的位置与随机词开始出现的位置之间存在相关性，这或许是未来值得探究的方向。\n\nGPT-4 Turbo 在这个家族中输出变化最大，意味着模型更容易生成随机输出，而且随机输出的种类也更丰富。\n\n重复词 —— Gemini 家族总体上，随着上下文变长，各模型的表现都在下降。在 Gemini 2.5 Pro（蓝色）身上，我们看到起点更低，因为在 50 个词时，模型生成的词数就少于应有数量。\n\n在这个家族的所有词组合和所有模型上——除了 Gemini 2.5 Flash 在“apples”/“apple”这一组——我们都观察到了输入中不存在的随机词。这通常从 500-750 个词左右开始，其中 Gemini 2.5 Pro 的波动最大，其次是 2.0 Flash，再是 2.5 Flash。",
+ "meta": {
+  "source": "../work/tr_g02.json",
+  "batch": "tr_g02"
+ }
+}

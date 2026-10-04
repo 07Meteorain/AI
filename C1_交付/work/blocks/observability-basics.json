@@ -1,0 +1,831 @@
+{
+ "meta": {
+  "id": "observability-basics",
+  "type": "html",
+  "path": "CS146S_offline/pages/observability-basics.html",
+  "title": "可观测性基础",
+  "priority": 2,
+  "category": "Week 9 · SRE 与可观测性"
+ },
+ "page_title": "Traces & Spans: Observability Basics You Should Know | Last9",
+ "blocks": [
+  {
+   "kind": "paragraph",
+   "text": "We use cookies to customize your Last9 experience.\n What's your preference?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Last9 \nBook demo\n Open menu",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Last9 \nBook demo\n Close menu",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Product Discover Explore",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Logs Traces Metrics Control Plane AI RUM Alerting",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Resources Guides Blog Events Changelog",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "More Customers Docs Pricing",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Last9",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Apr 23rd, 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Traces & Spans: Observability Basics You Should Know",
+   "level": 1,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Learn how traces and spans help you see inside distributed systems—so you can troubleshoot faster and build more reliable software.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Anjali Udasi",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Contents",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "In modern software architecture, applications aren't just getting bigger—they're getting more distributed. With microservices, serverless functions, and containers running across multiple environments, understanding what's happening inside your systems can feel like trying to track a single raindrop in a storm.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "That's where traces and spans come in. These observability tools aren't just buzzwords—they're your secret weapon for making sense of complex distributed systems. Let's break down what traces and spans are, why they matter, and how you can use them to troubleshoot faster and build more reliable systems.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Understanding Traces and Spans: Core Concepts",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Traces capture the journey of a request as it moves through your distributed system. Think of a trace as the complete story of a request from start to finish—from when a user clicks a button until they see the result.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Spans are the building blocks of traces. Each span represents a unit of work within that journey—like a database query, an API call, or a function execution. Spans nest within each other to show parent-child relationships between operations.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Here's the relationship in simple terms:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "A trace contains multiple spans",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Each span represents one operation",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Spans have timing data and metadata",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Spans can be nested to show how operations relate to each other",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "Trace\n├── Span (API Gateway)\n│   ├── Span (Auth Service)\n│   └── Span (User Service)\n│       └── Span (Database Query)\n└── Span (Response Formatting)",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "💡",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "If you're curious how traces and spans fit alongside metrics, logs, and events, this post breaks down all four.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Benefits of Traces and Spans for DevOps Professionals",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "You're running a complex system with dozens of microservices. Suddenly, users report the checkout process is slow. Without tracing, you'd need to check each service individually, wasting precious time.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "With traces and spans, you can:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Find bottlenecks instantly: See exactly which service or function is taking too long",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Debug across service boundaries: Follow requests as they jump between services",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Understand dependencies: Visualize how your services connect and depend on each other",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Improve performance: Identify and fix slow operations with precision",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Reduce mean time to recovery (MTTR): Get to the root cause faster when issues arise",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Technical Implementation of Traces and Spans",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Let's get into the nuts and bolts of how tracing works in distributed systems.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Trace Context and Propagation",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "For tracing to work across service boundaries, each service needs to know it's handling part of the same request. This happens through context propagation—passing a trace ID and span ID between services.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "When a request first hits your system, it gets assigned a unique trace ID. As the request moves between services, this ID travels with it (usually as HTTP headers). Each service then creates its own spans but links them to the same trace.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Span Attributes and Events",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Spans aren't just timestamps—they're rich with data:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Name: What operation this span represents",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Attributes: Custom key-value pairs (like user_id or cart_size)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Events: Notable occurrences within the span",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Sampling Strategies",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tracing everything can create massive amounts of data. That's why most systems use sampling—collecting only a percentage of traces. Smart sampling strategies include:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Head-based sampling: Decide whether to sample at the beginning of a request",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Tail-based sampling: Decide after the request completes (better for catching errors)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Priority sampling: Always trace important operations, but sample routine ones",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "💡",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "If you're looking to understand the differences between observability, telemetry, and monitoring, check out this helpful post: Observability vs Telemetry vs Monitoring.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Tracing Implementation Guide: Tools and Frameworks",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Ready to add tracing to your systems? Here's what you need:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "OpenTelemetry: The Industry Standard",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "OpenTelemetry has become the go-to framework for implementing traces and spans. It provides:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Libraries for all major programming languages",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Automatic instrumentation for popular frameworks",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "A consistent way to collect and export data",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "The Tracing Toolbox",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Several tools can help you collect, store, and visualize your traces:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "table_row",
+   "text": "If you're after an observability solution that fits your budget, Last9 is worth checking out. With pricing based on ingested events, it keeps things predictable. Plus, our platform handles high-cardinality data at scale and integrates with OpenTelemetry and Prometheus to bring your metrics, logs, and traces together in one place.",
+   "level": 0,
+   "meta": {
+    "cells": [
+     "Processing and routing telemetry data"
+    ]
+   }
+  },
+  {
+   "kind": "heading",
+   "text": "Implementing Tracing in Your Code",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Here's a simplified example of how to create spans in a Node.js application using OpenTelemetry:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "// Initialize the OpenTelemetry SDK (once in your app)\nconst { NodeTracerProvider } = require('@opentelemetry/sdk-trace-node');\nconst { SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');\nconst { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-http');\n\nconst provider = new NodeTracerProvider();\nconst exporter = new OTLPTraceExporter({\n  url: 'http://localhost:4318/v1/traces',\n});\nprovider.addSpanProcessor(new SimpleSpanProcessor(exporter));\nprovider.register();\n\n// Get a tracer\nconst { trace } = require('@opentelemetry/api');\nconst tracer = trace.getTracer('my-service');\n\n// Create spans in your code\nasync function processOrder(orderId) {\n  const span = tracer.startSpan('process-order');\n  \n  // Add attributes to the span\n  span.setAttribute('order.id', orderId);\n  span.setAttribute('customer.type', 'premium');\n  \n  try {\n    // Do work...\n    \n    // Create a child span\n    const dbSpan = tracer.startSpan('database-query', {\n      parent: span,\n    });\n    \n    try {\n      // Run database query...\n      dbSpan.end();\n    } catch (error) {\n      dbSpan.setStatus({ code: SpanStatusCode.ERROR });\n      dbSpan.recordException(error);\n      dbSpan.end();\n      throw error;\n    }\n    \n    span.end();\n  } catch (error) {\n    span.setStatus({ code: SpanStatusCode.ERROR });\n    span.recordException(error);\n    span.end();\n    throw error;\n  }\n}",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "💡",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Wondering how OpenTelemetry stacks up against traditional APM tools? This post breaks down the key differences: OpenTelemetry vs Traditional APM Tools.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Advanced Tracing Techniques",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Once you've got basic tracing in place, these advanced techniques can take your observability to the next level.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Distributed Context Management",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "In complex systems, you need to manage context beyond just trace IDs. The W3C Trace Context specification provides standards for:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "traceparent: Contains the trace ID and parent span ID",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "tracestate: Allows vendors to add custom context data",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Using these headers ensures your tracing works across different services and vendors.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Correlation Between Traces, Metrics, and Logs",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The real power of observability comes from connecting different signals:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Exemplar traces: Link metrics to the traces that generated them",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Trace IDs in logs: Add trace IDs to log messages for cross-referencing",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Custom attributes: Use consistent attributes across all telemetry types",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Error Handling and Exception Tracking",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "When exceptions occur, spans can provide crucial context:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Record exceptions with stack traces",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Add events to spans that show the error's progression",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Create baggage items that carry error context across service boundaries",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "💡",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "For a deeper look at staying ahead of issues and improving system reliability, check out this post on proactive monitoring: Proactive Monitoring.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Real-World Tracing Patterns and Anti-Patterns",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Effective Tracing Patterns",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Meaningful span names: Use consistent naming conventions like service_name/operation\nRight granularity: Create spans for significant operations, not every function call\nProper context propagation: Ensure trace context flows through all communication channels\nUseful attributes: Add attributes that help with troubleshooting, like user IDs or feature flags\nPerformance awareness: Watch out for the overhead of excessive span creation",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Tracing Anti-Patterns to Avoid",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Over-instrumentation: Creating too many spans can cause performance issues\nMissing context: Failing to propagate context breaks traces across service boundaries\nInconsistent naming: Using different naming standards makes traces harder to interpret\nToo much data: Putting large payloads in spans can overwhelm your tracing backend\nIgnoring third-party services: Missing spans for external calls creates blind spots",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "💡",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Explore how observability plays a crucial role in the performance and reliability of LLMs: LLM Observability.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Business Value of Traces and Spans: Beyond Technical Benefits",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Traces aren't just for troubleshooting—they can provide business insights too:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Track critical user journeys from end-to-end",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Measure the performance of key business operations",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Set SLOs (Service Level Objectives) based on trace data",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Quantify the cost of performance issues in real user terms",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Create business context by adding relevant attributes to spans",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "When you can show how technical improvements affect user experience and business metrics, you bridge the gap between DevOps and business stakeholders.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Conclusion",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Traces and spans give you X-ray vision into your distributed systems. They reveal the hidden connections between services, pinpoint performance bottlenecks, and dramatically speed up debugging.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "As systems grow more complex, this kind of observability isn't a luxury—it's essential.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "💡",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "If you'd like to continue the conversation about distributed tracing and observability, join our Discord Community where DevOps professionals share their experiences and best practices!",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "FAQs",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "What's the difference between tracing and logging?",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Logging captures discrete events, while tracing shows the relationships between operations across services. Logs tell you what happened; traces show you how it happened.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Will adding tracing slow down my application?",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Modern tracing libraries add minimal overhead — typically less than 3% performance impact when properly configured. With sampling, you can further reduce this impact.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Do I need to modify all my code to add tracing?",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Not necessarily. Many frameworks offer automatic instrumentation that adds tracing with minimal code changes. OpenTelemetry provides auto-instrumentation for popular frameworks in most languages.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "How much data does distributed tracing generate?",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "It varies widely based on traffic, sampling rate, and span detail. Plan for anywhere from gigabytes to terabytes per day for busy systems. That's why choosing the right observability platform matters for cost control.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Can traces help with security and compliance?",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Yes! Traces create an audit trail of request flow through your system. With the right attributes, you can track which users or services accessed what data and when.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "How do traces and spans fit with other observability signals?",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Traces complement metrics and logs. Metrics show system health at a high level, logs provide detailed events, and traces connect the dots to show request flows across services.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Topics",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Observability Monitoring",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "About the authors",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Anjali Udasi",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Helping to make the tech a little less intimidating. I",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Contents",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Start observing for free. No lock-in.",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Book demo",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "OPENTELEMETRY • PROMETHEUS Just update your config. Start seeing data on Last9 in seconds.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "DATADOG • NEW RELIC • OTHERS We've got you covered. Bring over your dashboards & alerts in one click.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "BUILT ON OPEN STANDARDS 100+ integrations. OTel native, works with your existing stack.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "4.8/5",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "G2 Reviews",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Gartner Cool Vendor 2025",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "High Performer",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Best Usability",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Highest User Adoption",
+   "level": 0,
+   "meta": {}
+  }
+ ]
+}

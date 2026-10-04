@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0031",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "b6c771a8489ed646b73595c439df9062a6f0e587",
+ "zh": "##### 目标\n\n攻击者利用智能体某个工具中的 SQL 注入漏洞，导出包含所有用户交易历史的数据库表。\n\n图 9 展示了攻击者如何通过提示注入把漏洞利用载荷发送到存在漏洞的函数。\n\n图 9. 利用工具上的漏洞以访问其他用户的数据。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

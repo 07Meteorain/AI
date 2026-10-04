@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SAST 与 DAST 对比 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>SAST 与 DAST 对比</h1>
+  <div class="meta">
+    <span>分类：Week 6 · 安全</span><span>原文 3,006 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://www.splunk.com/en_us/blog/learn/sast-vs-dast.html" target="_blank" rel="noopener">https://www.splunk.com/en_us/blog/learn/sast-vs-dast.html</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="sast-vs-dast-0000"><div class="zh side"><div class="tag">中文</div><h1 id="hsast-dast-rasp-">SAST 与 DAST 与 RASP：应用安全测试方法对比</h1>
+<p>Learn 2024 年 12 月 18 日 Shanika Wickramasinghe </p>
+<p> 全球信息安全支出预计到 2025 年将达到 2120 亿美元，较 2024 年增长 15%。Gartner 分析机构指出，生成式 AI 的兴起与云上业务的普及是这一快速增长的主要原因。该机构进一步预测，到 2027 年，生成式 AI 将参与 17% 的网络攻击。</p>
+<p>企业需要超越传统方法的高级安全策略，才能应对这些不断增长的威胁。这正是企业所有者需要了解 SAST、DAST 和 RASP 等安全方案的原因，它们能为应用提供多层次的防护。</p>
+<p>（延伸阅读：应用安全解析与常见的软件测试方法。）</p></div><div class="en side"><div class="tag">EN</div><h1 id="hsast-vs-dast-vs-rasp-comparing-application-security-testing-methods">SAST vs. DAST vs. RASP: Comparing Application Security Testing Methods</h1>
+<p>Learn December 18, 2024 Shanika Wickramasinghe </p>
+<p> Global spending on information security is set to reach $212 billion by 2025. This represents a growth of 15% from 2024. According to Gartner, the rise of generative AI and cloud adoption are key reasons for this rapid increase. The analyst firm further predicts that GenAI will play a part in 17% of all cyberattacks by 2027.</p>
+<p>Businesses need advanced security strategies that go beyond traditional methods to counter these growing threats. This is why business owners need to be aware of security solutions like SAST, DAST, and RASP, as they offer multi-layered protection for applications.</p>
+<p>(Related reading: application security explained &amp; common software testing methods.)</p></div></div>
+<div class="pair" id="sast-vs-dast-0001"><div class="zh side"><div class="tag">中文</div><h2 id="h-sast-">什么是 SAST？</h2>
+<p>静态应用安全测试（SAST）是一种白盒安全测试方法。SAST 通过应用程序的静态源代码或二进制文件来识别漏洞。这意味着 SAST 工具是在应用程序不运行的情况下对其代码进行分析的。</p>
+<p>开发者用 SAST 检测各类安全风险，例如跨站脚本（XSS）、不安全反序列化、缓冲区溢出，以及代码中的其他 OWASP 漏洞。由于 SAST 单独无法识别只在运行时出现的漏洞，开发者往往要把 SAST 与其他测试方法结合起来，才能实现全面的安全防护。</p>
+<p>SAST 是软件开发生命周期的重要组成部分，因为它能尽早发现漏洞。发现得越早，修复成本越低。由于 SAST 工具可以在开发阶段执行，如今开发者能够在产品发布上线前把代码写好、测上成千上万次（！！）。</p>
+<p>SAST 可以集成到 CI/CD 流水线中，这样做的场景通常被称为“安全 DevOps”或“DevSecOps”。SAST 借助自动化得以大规模扩展。把覆盖 SAST 技术的检测做成自动化测试，让它成为快速应对代码级风险的高效方案。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hwhat-is-sast-">What is SAST?</h2>
+<p>Static Application Security Testing (SAST) is a white-box security testing method. SAST uses an application’s static source code or binaries to identify vulnerabilities. This means SAST tools operate on the application's code when the application is not running.</p>
+<p>Developers use SAST to detect various security risks, such as: cross-site scripting (XSS), insecure deserialization, buffer overflows, and other OWASP vulnerabilities in the code. Since SAST alone cannot identify run-time-specific vulnerabilities, developers have to often combine SAST with other testing methods to achieve comprehensive security.</p>
+<p>SAST is a major component of the software development lifecycle because it detects vulnerabilities early. The earlier you catch them, the least costly they are to fix. As SAST tools can be executed during the development phase, developers are now able to write code and test it even a thousand times (!!) before releasing the product to the market.</p>
+<p>SAST can be integrated into the CI/CD pipeline, and when done so, it is referred to as “Secure DevOps” or “DevSecOps.” SAST is widely scalable through automation. The ability to Implement automated tests covering SAST techniques makes it an efficient solution for addressing code-level risks quickly.</p></div></div>
+<div class="pair" id="sast-vs-dast-0002"><div class="zh side"><div class="tag">中文</div><h2 id="h-dast-">什么是 DAST？</h2>
+<p>动态应用安全测试（DAST）是一种黑盒测试方法。DAST 中的“动态”意味着它在应用程序运行期间评估其安全性。与 SAST 不同，DAST 不需要访问应用程序的源代码。相反，它：</p>
+<ul>
+<li>模拟外部攻击者的行为。</li>
+</ul>
+<ul>
+<li>从外部对应用程序进行测试，找出只在运行时才会暴露的漏洞。</li>
+</ul>
+<p>DAST 能够识别拒绝服务（DoS）漏洞、不安全的服务器配置等各种安全缺陷。通过模拟真实世界的攻击场景，DAST 工具评估应用程序面对这些模拟威胁时的响应。借助这种方式，开发者可以发现 SAST 这类静态测试方法可能遗漏的弱点。</p>
+<p>通常，开发者会在软件开发生命周期的后期执行 DAST，往往就在部署之前。通过在类生产环境中测试应用程序，DAST 能清晰呈现运行时的安全状况，并帮助打造出更能扛住潜在攻击、性能更好的应用程序。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hwhat-is-dast-">What is DAST?</h2>
+<p>Dynamic Application Security Testing is a black-box testing method. The term "Dynamic" in DAST suggests that this method evaluates the security of an application while the application is running. Unlike SAST, DAST does not require access to the application’s source code. Instead, it :</p>
+<ul>
+<li>Simulates the actions of an external attacker.</li>
+</ul>
+<ul>
+<li>Tests the application from the outside to identify vulnerabilities that only emerge during runtime.</li>
+</ul>
+<p>DAST has the capability to identify various security flaws like denial-of-service (DoS) vulnerabilities and insecure server configurations. By mimicking real-world attack scenarios, DAST tools assess how the application responds to these simulated threats. With this approach, developers can identify weaknesses that static testing methods like SAST might miss.</p>
+<p>Typically, developers perform DAST during the later stages of the software development lifecycle, often just before deployment. By testing applications in their live environments, DAST provides a clear overview of runtime security and supports better-performing applications that can withstand potential attacks.</p></div></div>
+<div class="pair" id="sast-vs-dast-0003"><div class="zh side"><div class="tag">中文</div><h2 id="hsast-">SAST 是如何工作的？</h2>
+<p>开发者使用 SAST 工具应用预定义规则和其他检测方法——比如模式匹配和数据流分析——来识别编码错误与其他漏洞。他们把这些工具集成进 IDE 或 CI/CD 流水线，在编码和测试阶段自动执行扫描。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hhow-does-sast-work-">How does SAST work?</h2>
+<p>Developers use SAST tools to apply predefined rules and other detection methods — such as pattern matching and data flow analysis — to identify coding errors and other vulnerabilities. They integrate these tools into their IDEs or CI/CD pipelines to automate scans during the coding and testing phases.</p></div></div>
+<div class="pair" id="sast-vs-dast-0004"><div class="zh side"><div class="tag">中文</div><h3 id="hsast-">SAST 常用方法</h3>
+<p>以下是 SAST 中常用的一些方法。</p>
+<p>模式匹配扫描代码库，寻找已知的不安全编码实践模式，例如使用了弱加密算法或不安全的 API 调用。</p>
+<p>数据流分析跟踪数据在应用中的流动路径。通过追踪不可信输入到敏感操作的路径，它可以识别 SQL 注入、缓冲区溢出这类漏洞。</p>
+<p>控制流分析可以分析应用程序的控制结构，例如循环和条件分支，从而发现逻辑缺陷或竞态条件这类潜在漏洞。</p>
+<p>自定义规则创建。许多工具允许开发者创建自定义规则，用来落实编码最佳实践。以下是一些自定义规则的示例：</p>
+<ul>
+<li>标记 SQL 查询中任何未经净化的输入。</li>
+</ul>
+<ul>
+<li>识别把用户提供的数据未经正确转义就输出到浏览器的代码。</li>
+</ul>
+<ul>
+<li>高亮使用存在漏洞或已弃用函数的地方，例如 JavaScript 中的 eval() 或 C 中的 strcpy()。</li>
+</ul>
+<ul>
+<li>检测源代码中硬编码的 API 密钥和密码，并标出用户提供的数据缺少输入校验的地方。</li>
+</ul>
+<p>依赖扫描。部分 SAST 工具会分析应用程序用到的第三方库和框架，以发现依赖中的漏洞。</p>
+<p>语义分析。通过理解代码的含义而非仅仅看结构，SAST 工具可以发现不安全的配置或 API 误用。</p>
+<p>机器学习模型：先进的 SAST 工具会引入机器学习算法，通过分析大规模数据集中的模式来识别此前未知的漏洞。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcommon-sast-methods">Common SAST methods</h3>
+<p>Here are some methods used in SAST.</p>
+<p>Pattern matching scans the codebase for known patterns of insecure coding practices. For example, the use of weak cryptographic algorithms or insecure API calls.</p>
+<p>Data flow C tracks how data flows through the application. This can identify vulnerabilities like SQL injection or buffer overflows by tracing untrusted input paths to sensitive operations.</p>
+<p>Control flow analysis can analyze the application's control structures. For example, loops and conditionals to uncover logical flaws or potential vulnerabilities like race conditions.</p>
+<p>Custom rule creation. Many tools allow developers to create custom rules to have coding best practices. Here are some examples of these custom rules:</p>
+<ul>
+<li>Flag any use of unsanitized input in SQL queries.</li>
+</ul>
+<ul>
+<li>Identify code that outputs user-provided data to the browser without proper escaping.</li>
+</ul>
+<ul>
+<li>Highlight the use of vulnerable or deprecated functions, such as eval() in JavaScript or strcpy() in C.</li>
+</ul>
+<ul>
+<li>Detect occurrences of hardcoded API keys and passwords in the source code and mark any instance where input validation is missing for user-provided data.</li>
+</ul>
+<p>Dependency scanning. Some SAST tools analyze third-party libraries and frameworks used in the application to identify vulnerabilities in dependencies.</p>
+<p>Semantic analysis. By interpreting the meaning of the code rather than just its structure, SAST tools can detect insecure configurations or misuse of APIs.</p>
+<p>Machine learning models: Advanced SAST tools incorporate machine learning algorithms to recognize previously unknown vulnerabilities by analyzing patterns across large datasets.</p></div></div>
+<div class="pair" id="sast-vs-dast-0005"><div class="zh side"><div class="tag">中文</div><h3 id="h-sast-">使用 SAST 工具时的性能考量</h3>
+<p>SAST 工具通常要占用大量 CPU 和内存资源。在分析大型代码库时，这可能是个大问题。对一百万行代码做一次完整扫描，可能要消耗数 GB 内存。</p>
+<p>SAST 扫描所需时间随代码库规模差异巨大，小项目可能几分钟，企业级应用则可能数小时。这会影响：</p>
+<ul>
+<li>构建流水线的时间安排</li>
+</ul>
+<ul>
+<li>开发者效率</li>
+</ul>
+<p>可以考虑使用支持增量扫描的现代 SAST 工具，这样只分析变更的代码，而不必扫整个代码库。</p>
+<p>此外，通过规则选择和范围定义来做性能调优也很关键。配置不当的 SAST 工具会去分析非关键代码路径，白白浪费时间和资源，却拿不到任何安全收益。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hperformance-considerations-when-using-sast-tools">Performance considerations when using SAST tools</h3>
+<p>SAST tools often require significant CPU and memory resources. This can be a major issue when analyzing large codebases. A full scan of a million lines of code might consume several gigabytes of RAM.</p>
+<p>The time required for SAST scans can vary dramatically based on the size of the codebase, ranging from a few minutes for small projects to several hours for enterprise applications. This can impact:</p>
+<ul>
+<li>Build pipeline timelines</li>
+</ul>
+<ul>
+<li>Developer productivity</li>
+</ul>
+<p>Consider using modern SAST tools that support incremental scanning, allowing you to analyze only the changed code instead of the entire codebase.</p>
+<p>Additionally, performance tuning through rule selection and scope definition is crucial. Poorly configured SAST tools can unnecessarily analyze non-critical code paths, wasting time and resources without providing security benefits.</p></div></div>
+<div class="pair" id="sast-vs-dast-0006"><div class="zh side"><div class="tag">中文</div><h2 id="hdast-">DAST 是如何工作的？</h2>
+<p>DAST 工具模拟真实世界的攻击——例如把各种形式的恶意数据送进输入字段，观察应用程序如何处理它们——以识别应用程序行为与响应中的漏洞和弱点。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hhow-does-dast-work-">How does DAST work?</h2>
+<p>DAST tools simulate real-world attacks — for example, sending various forms of malicious data into input fields to see how the application processes it — to identify vulnerabilities and weaknesses in the application’s behavior and responses.</p></div></div>
+<div class="pair" id="sast-vs-dast-0007"><div class="zh side"><div class="tag">中文</div><h3 id="hdast-">DAST 的步骤</h3>
+<p>整个过程通常包括以下步骤。</p>
+<p>第 1 步：扫描。扫描 Web 应用程序，发现入口点（例如 URL、表单和 API）。这一步梳理出应用程序的结构，并识别出潜在的攻击面。</p>
+<p>第 2 步：攻击模拟。向应用程序发送精心构造的请求，以模拟恶意活动。这些请求通过尝试利用入口点，检验是否存在跨站脚本、跨站请求伪造这类漏洞。</p>
+<p>第 3 步：漏洞检测。分析应用程序的响应，找出安全弱点。它评估应用程序在遭受攻击时的行为是否符合预期。例如，可以注入恶意数据来检测 SQL 注入缺陷。</p>
+<p>第 4 步：报告。生成包含所发现漏洞和缓解措施建议的报告。开发者可以依据报告中的结果修复已识别的问题。</p>
+<p>现代 DAST 方案可以融入 AI 驱动的分析、实时数据集成等高级能力。它们自动生成测试集，动态适配应用程序的结构，并用机器学习算法把误报降到最低。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hsteps-in-dast">Steps in DAST</h3>
+<p>The process typically involves the following steps.</p>
+<p>Step 1: Scanning. Scan the web application to discover entry points (such as URLs, forms, and APIs). This step maps out the application’s structure and identifies potential attack surfaces.</p>
+<p>Step 2: Attack simulation. Simulate malicious activities by sending crafted requests to the application. These requests test for vulnerabilities like cross-site scripting and cross-site request forgery by attempting to exploit the entry points.</p>
+<p>Step 3: Vulnerability detection. Analyze the application’s responses to identify security weaknesses. It evaluates whether the application behaves as expected under attack. For example, malicious data can be injected to detect an SQL injection flaw.</p>
+<p>Step 4: Reporting. Generate reports with detected vulnerabilities and recommendations for remediation. Developers can use the results in the reports to fix the identified issues.</p>
+<p>Modern DAST solutions can incorporate advanced features such as AI-driven analysis and real-time data integration. They automatically create test sets. Dynamically adapt to the application’s structure and minimize false positives using machine learning algorithms.</p></div></div>
+<div class="pair" id="sast-vs-dast-0008"><div class="zh side"><div class="tag">中文</div><h3 id="h-dast-">使用 DAST 工具时的性能考量</h3>
+<p>使用 DAST 工具时，有几个性能瓶颈需要留意。</p>
+<ul>
+<li>DAST 工具会主动与运行中的应用程序交互，在应用程序和 Web 服务器两侧临时抬高 CPU 与内存占用。</li>
+</ul>
+<ul>
+<li>DAST 扫描期间产生的大量并发请求会占用可观的网络带宽。</li>
+</ul>
+<ul>
+<li>DAST 扫描器常通过生成唯一请求来绕过或让应用程序缓存失效，从而削弱缓存机制的效果。</li>
+</ul>
+<ul>
+<li>DAST 工具创建和管理多个测试会话，会增加应用程序服务器的内存占用。</li>
+</ul>
+<p>要避免这些问题、或尽量减小它们的影响，请遵循以下做法。</p>
+<ul>
+<li>把 DAST 扫描安排在应用使用量最低的非高峰时段。</li>
+</ul>
+<ul>
+<li>在与生产环境配置一致的预发布或准生产环境中执行扫描。</li>
+</ul>
+<ul>
+<li>使用 DAST 工具的限流功能来控制并发请求数量。</li>
+</ul>
+<ul>
+<li>在扫描期间增大应用程序服务器的线程池。</li>
+</ul>
+<ul>
+<li>为 DAST 扫描器的 IP 单独配置缓存策略。</li>
+</ul>
+<ul>
+<li>实现性能阈值超限后自动暂停扫描。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h3 id="hperformance-considerations-when-using-dast-tools">Performance considerations when using DAST tools</h3>
+<p>Here are certain performance bottlenecks when using DAST tools that you need to keep in mind.</p>
+<ul>
+<li>DAST tools actively interact with the running application, temporarily increasing CPU and memory usage on both the application and web servers.</li>
+</ul>
+<ul>
+<li>The high volume of concurrent requests generated during DAST scanning can consume significant network bandwidth.</li>
+</ul>
+<ul>
+<li>DAST scanners often bypass or invalidate application caches by generating unique requests, reducing the effectiveness of caching mechanisms.</li>
+</ul>
+<ul>
+<li>The creation and management of multiple test sessions by DAST tools can increase memory usage on application servers.</li>
+</ul>
+<p>To avoid such issues or reduce their impact as much as possible, follow the practices below.</p>
+<ul>
+<li>Schedule DAST scans during off-peak hours when application usage is minimal.</li>
+</ul>
+<ul>
+<li>Conduct scans in a staging or pre-production environment that mirrors the production setup.</li>
+</ul>
+<ul>
+<li>Use throttling features in DAST tools to control the number of simultaneous requests.</li>
+</ul>
+<ul>
+<li>Increase application server thread pools during scanning periods.</li>
+</ul>
+<ul>
+<li>Configure separate caching policies for DAST scanner IPs.</li>
+</ul>
+<ul>
+<li>Implement automatic scan suspension if performance thresholds are exceeded.</li>
+</ul></div></div>
+<div class="pair" id="sast-vs-dast-0009"><div class="zh side"><div class="tag">中文</div><h2 id="hsast-dast-">SAST 与 DAST：关键差异</h2>
+<p>下表汇总了 SAST 与 DAST 的差异。</p>
+<p>对比维度</p>
+<p>SAST</p>
+<p>DAST</p>
+<p>测试类型</p>
+<p>白盒测试。在拥有源代码访问权限的前提下，由内向外测试应用程序。</p>
+<p>黑盒测试。在不访问源代码的前提下，由外向内测试应用程序。</p>
+<p>支持的软件类型</p>
+<p>支持多种类型的软件，包括 Web 应用、Web 服务和胖客户端。</p>
+<p>支持 Web 应用和 Web 服务，但通常不支持其他软件类型。</p>
+<p>在 SDLC 中的阶段</p>
+<p>在软件开发生命周期的早期执行。</p>
+<p>在 SDLC 的较后期进行，通常在部署期间或部署之后。</p>
+<p>检测的漏洞</p>
+<p>识别编码缺陷，例如 SQL 注入、跨站脚本（XSS）、缓冲区溢出等。</p>
+<p>检测运行时问题，例如服务器配置错误、拒绝服务漏洞和应用层缺陷。</p>
+<p>修复漏洞的成本</p>
+<p>成本较低，因为问题在 SDLC 早期就被发现。</p>
+<p>成本较高，因为漏洞发现得晚，往往需要紧急修复才能按期上线。</p>
+<p>运行时与环境问题</p>
+<p>无法检测只在运行时出现或与环境相关的漏洞。</p>
+<p>可以识别只在运行时出现、或由环境因素导致的漏洞。</p>
+<p>深度与广度</p>
+<p>对代码级漏洞提供深入的洞察。</p>
+<p>从外部视角广泛审视应用程序的安全风险。</p>
+<p>工具集成</p>
+<p>可与 IDE 和 CI/CD 流水线集成，实现自动化静态分析。</p>
+<p>可与 CI/CD 流水线集成，实现持续的运行时测试。</p>
+<p>误报与漏报</p>
+<p>由于做深入的代码分析，误报概率较高。</p>
+<p>误报较少，但由于内部可见性有限，漏报风险更高。</p>
+<p>技术依赖</p>
+<p>依赖编程语言和框架；要求与所用工具兼容。</p>
+<p>与应用框架无关，因为它是从外部与应用程序交互。</p>
+<h2 id="hsast-dast-">SAST 与 DAST 的优缺点</h2></div><div class="en side"><div class="tag">EN</div><h2 id="hsast-vs-dast-key-differences">SAST vs. DAST: key differences</h2>
+<p>This table summarizes the difference between SAST and DAST.</p>
+<p>Criteria</p>
+<p>SAST</p>
+<p>DAST</p>
+<p>Type of testing</p>
+<p>White-box testing. Tests the application from the inside out with access to the source code.</p>
+<p>Black-box testing. Tests the application from the outside without access to the source code.</p>
+<p>Software types supported</p>
+<p>Supports various types of software, including web applications, web services, and thick clients.</p>
+<p>Supports web applications and web services but does not typically support other software types.</p>
+<p>Stage in SDLC</p>
+<p>Performed early in the software development life cycle.</p>
+<p>Conducted later in the SDLC, often during or after deployment.</p>
+<p>Vulnerabilities detected</p>
+<p>Identifies coding flaws, such as: SQL injection, cross-site scripting (XSS), buffer overflows, etc.</p>
+<p>Detects runtime issues, such as server configuration errors, denial-of-service vulnerabilities, and application-level flaws.</p>
+<p>Cost of fixing vulnerabilities</p>
+<p>Less expensive since issues are identified early in the SDLC.</p>
+<p>More expensive as vulnerabilities are found later, often requiring emergency fixes in order to deploy on time.</p>
+<p>Runtime and environment issues</p>
+<p>Cannot detect runtime-specific or environment-related vulnerabilities.</p>
+<p>Can identify vulnerabilities that appear only during runtime or due to environmental factors.</p>
+<p>Depth vs. breadth</p>
+<p>Provides deep insights into code-level vulnerabilities.</p>
+<p>Offers a broad view of the application's external security risks.</p>
+<p>Integration with tools</p>
+<p>Integrates with IDEs and CI/CD pipelines for automated static analysis.</p>
+<p>Integrates with CI/CD pipelines for continuous runtime testing.</p>
+<p>False positives and negatives</p>
+<p>Higher chance of false positives due to in-depth code analysis.</p>
+<p>Lower false positives but higher risk of false negatives due to limited internal visibility.</p>
+<p>Technology dependency</p>
+<p>Relies on programming languages and frameworks; requires compatibility with the tool.</p>
+<p>Independent of application frameworks as they interact with the application externally.</p>
+<h2 id="hpros-and-cons-of-sast-and-dast">Pros and cons of SAST and DAST</h2></div></div>
+<div class="pair" id="sast-vs-dast-0010"><div class="zh side"><div class="tag">中文</div><h3 id="hsast-">SAST 的优点</h3>
+<ul>
+<li>能在软件开发生命周期的早期识别安全漏洞。</li>
+</ul>
+<ul>
+<li>分析整个代码库，包括基础函数和复杂分支。</li>
+</ul>
+<ul>
+<li>直接作用于源代码，无需应用程序运行。</li>
+</ul>
+<ul>
+<li>提供实时反馈和全面的洞察，例如漏洞的确切位置。</li>
+</ul>
+<ul>
+<li>生成可导出的报告，可以通过仪表盘追踪。</li>
+</ul>
+<ul>
+<li>支持自动化，因此比人工代码评审更快、更高效。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h3 id="hpros-of-sast">Pros of SAST</h3>
+<ul>
+<li>Identifies security vulnerabilities early in the software development life cycle.</li>
+</ul>
+<ul>
+<li>Analyzes the codebase, including basic functions and complex branches.</li>
+</ul>
+<ul>
+<li>Operates directly on the source code without requiring the application to run.</li>
+</ul>
+<ul>
+<li>Provides real-time feedback with comprehensive insights, such as the exact location of vulnerabilities.</li>
+</ul>
+<ul>
+<li>Generates exportable reports that can be tracked using dashboards.</li>
+</ul>
+<ul>
+<li>Supports automation so that it is faster and more efficient than manual code reviews.</li>
+</ul></div></div>
+<div class="pair" id="sast-vs-dast-0011"><div class="zh side"><div class="tag">中文</div><h3 id="hsast-">SAST 的缺点</h3>
+<ul>
+<li>常常产生大量误报，因此可能需要人工复核。</li>
+</ul>
+<ul>
+<li>无法识别运行时或环境特有的漏洞，例如配置错误。</li>
+</ul>
+<ul>
+<li>需要针对每种编程语言分别适配工具，维护起来比较复杂。</li>
+</ul>
+<ul>
+<li>难以理解外部库、API 和 REST 端点。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h3 id="hcons-of-sast">Cons of SAST</h3>
+<ul>
+<li>Often generates a large number of false positives. Therefore, it may require manual reviews.</li>
+</ul>
+<ul>
+<li>Cannot identify runtime or environment-specific vulnerabilities, such as configuration errors.</li>
+</ul>
+<ul>
+<li>Requires tools specific to each programming language so that maintenance is complex.</li>
+</ul>
+<ul>
+<li>Struggles with understanding external libraries, APIs, and REST endpoints.</li>
+</ul></div></div>
+<div class="pair" id="sast-vs-dast-0012"><div class="zh side"><div class="tag">中文</div><h3 id="hdast-">DAST 的优点</h3>
+<ul>
+<li>能识别只在应用程序执行期间才出现的漏洞。</li>
+</ul>
+<ul>
+<li>从外部工作，无需访问源代码。这对测试第三方应用程序或已编译代码很有效。</li>
+</ul>
+<ul>
+<li>模拟真实攻击场景，发现 SAST 漏掉的风险。</li>
+</ul>
+<ul>
+<li>不依赖应用程序使用的编程语言。</li>
+</ul>
+<ul>
+<li>评估整个应用和系统，包括内存消耗、资源占用和第三方接口。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h3 id="hpros-of-dast">Pros of DAST</h3>
+<ul>
+<li>Identifies vulnerabilities that only appear during application execution.</li>
+</ul>
+<ul>
+<li>Operates externally and no access to source code is required. This is effective for testing third-party applications or compiled code.</li>
+</ul>
+<ul>
+<li>Simulates actual attack scenarios and identifies risks missed by SAST.</li>
+</ul>
+<ul>
+<li>Works independently of the application's programming language.</li>
+</ul>
+<ul>
+<li>Evaluates the entire application and system. This includes memory consumption, resource usage, and third-party interfaces.</li>
+</ul></div></div>
+<div class="pair" id="sast-vs-dast-0013"><div class="zh side"><div class="tag">中文</div><h3 id="hdast-">DAST 的缺点</h3>
+<ul>
+<li>只关注应用的外层，可能漏掉更深层的漏洞。</li>
+</ul>
+<ul>
+<li>在 SDLC 后期才应用，因此修复成本更高、更耗时。</li>
+</ul>
+<ul>
+<li>会漏掉一些 SAST 工具能通过源代码分析发现的漏洞。举个例子，某个 Web 应用程序用不安全的随机数生成器（例如 JavaScript 中的 Math.random()）生成会话 token。DAST 可能发现不了这个缺陷，因为它只测试运行时行为。（但 SAST 能检测出来。）</li>
+</ul>
+<ul>
+<li>大型项目需要自定义基础设施来让应用多个实例并行运行，因此资源消耗大。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h3 id="hcons-of-dast">Cons of DAST</h3>
+<ul>
+<li>Focus only on the outer layers of the application, which may miss vulnerabilities in deeper layers.</li>
+</ul>
+<ul>
+<li>Applied later in the SDLC so that fixes are more expensive and time-consuming.</li>
+</ul>
+<ul>
+<li>Miss certain vulnerabilities that SAST tools can identify through source code analysis. As an example, consider a web application that uses an insecure random number generator (e.g., Math.random() in JavaScript) to create session tokens. DAST may miss this flaw because it only tests runtime behavior. (But SAST can detect it.)</li>
+</ul>
+<ul>
+<li>Require custom infrastructure for large projects and multiple instances of the application to run in parallel and therefore resource intensive.</li>
+</ul></div></div>
+<div class="pair" id="sast-vs-dast-0014"><div class="zh side"><div class="tag">中文</div><h2 id="h-sast-dast-">什么时候该用 SAST，什么时候该用 DAST？</h2>
+<p>SAST 和 DAST 在保障 SDLC 安全方面扮演互补角色。理解各自适用的时机，有助于获得全面的安全覆盖。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hwhen-should-i-use-sast-vs-dast-">When should I use SAST vs. DAST?</h2>
+<p>SAST and DAST play complementary roles in securing SDLC. Understanding when to use each helps to have comprehensive security coverage.</p></div></div>
+<div class="pair" id="sast-vs-dast-0015"><div class="zh side"><div class="tag">中文</div><h3 id="h-sast">何时使用 SAST</h3>
+<p>在开发早期阶段。开发者用 SAST 在 SDLC 早期识别 SQL 注入、硬编码凭据这类漏洞。在部署前就把这些问题拦住，可以降低修复它们的成本和复杂度。</p>
+<p>例如：SAST 工具扫描 Python 代码，标记出源码中嵌有硬编码 API 密钥的漏洞。开发者重构代码，改用环境变量来安全地存储和获取密钥。</p>
+<p>用于代码评审。SAST 集成到版本控制系统后，可以让开发者在提交代码前先扫描一遍，确保进入仓库的只有安全代码。</p>
+<p>示例：SAST 工具可以检测出这样一类漏洞——文件路径未经校验就直接由用户输入拼接而成，使应用暴露在路径遍历攻击之下。开发者通过对输入做净化处理、并使用安全的库函数处理文件路径来修复该问题。</p>
+<p>在持续集成/持续部署流水线中。SAST 在 CI/CD 过程中执行自动化扫描，为开发者提供实时反馈。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hwhen-to-use-sast">When to use SAST</h3>
+<p>During early development phases. Developers use SAST to identify vulnerabilities like SQL injection and hardcoded credentials early in the SDLC. By catching these issues before deployment, they reduce the cost and complexity of fixing them.</p>
+<p>Eg:- A SAST tool scans Python code and flags a vulnerability where hardcoded API keys are embedded in the source code. Developers refactor the code to use environment variables to securely store and retrieve the keys.</p>
+<p>For code reviews. SAST integrates into version control systems. Allows developers to scan their code before committing it. This makes sure that only secure code enters the repository.</p>
+<p>Example: A SAST tool can detect a vulnerability where a file path is constructed directly from user input without validation, exposing the application to path traversal attacks. Developers fix the issue by sanitizing the input and using secure library functions to handle file paths.</p>
+<p>In continuous integration/continuous deployment pipelines. SAST runs automated scans during the CI/CD process. It offers real-time feedback to developers.</p></div></div>
+<div class="pair" id="sast-vs-dast-0016"><div class="zh side"><div class="tag">中文</div><h3 id="h-dast">何时使用 DAST</h3>
+<p>预生产测试。开发者在预发布或 QA 环境中用 DAST 识别运行时漏洞（例如不安全的配置、认证缺陷、访问控制不足）。</p>
+<p>示例：DAST 工具可以检测出会暴露敏感数据的数据库配置错误。这样开发者就能在部署前把配置加固。</p>
+<p>在部署后监控中。DAST 工具会持续扫描已部署的应用程序，找出由环境变化或新出现威胁导致的漏洞。这保证了应用程序随时间推移依然安全。</p>
+<p>测试第三方集成。DAST 可以模拟外部攻击者的视角，找出第三方 API 或互联系统中的漏洞。</p>
+<p>例如：DAST 工具测试某个 Web 应用程序，发现第三方支付 API 存在漏洞——信用卡信息正通过未加密的 HTTP 连接传输。开发者通过对所有 API 通信强制启用 HTTPS 来解决问题。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hwhen-to-use-dast">When to use DAST</h3>
+<p>Pre-production testing. Developers use DAST to identify runtime vulnerabilities (eg:- insecure configurations, authentication flaws, insufficient access controls) in a staging or QA environment.</p>
+<p>Example: A DAST tool can detect a database misconfiguration that exposes sensitive data. Then developers can secure the configuration before deployment.</p>
+<p>In post-deployment monitoring. DAST tools continue to scan deployed applications for vulnerabilities caused by changes in the environment or emerging threats. This guarantees that the application remains secure over time.</p>
+<p>Testing third-party integrations. DAST can mimic an external attacker's perspective to identify vulnerabilities in third-party APIs or interconnected systems.</p>
+<p>For example: A DAST tool tests a web application and discovers a vulnerability in a third-party payment API where credit card details are being transmitted over an unencrypted HTTP connection. Developers resolve the issue by enforcing HTTPS for all API communications.</p></div></div>
+<div class="pair" id="sast-vs-dast-0017"><div class="zh side"><div class="tag">中文</div><h2 id="h-sast-dast-">哪个更有效：SAST 还是 DAST？</h2>
+<p>SAST 或 DAST 的效果取决于：</p>
+<ul>
+<li>所处的 SDLC 阶段</li>
+</ul>
+<ul>
+<li>所针对的漏洞类型</li>
+</ul>
+<p>SAST 最适合在开发早期使用，主要用于识别源代码中的漏洞、降低成本并推动安全编码实践。相比之下，DAST 关注预生产或已部署应用程序中的运行时漏洞，能就配置错误、集成不安全之类的问题提供洞察。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hwhich-is-more-effective-sast-or-dast-">Which is more effective: SAST or DAST?</h2>
+<p>The effectiveness of SAST or DAST depends on:</p>
+<ul>
+<li>The SDLC stage</li>
+</ul>
+<ul>
+<li>The type of vulnerabilities being addressed</li>
+</ul>
+<p>SAST works best in early development, primarily to identify vulnerabilities in the source code, reduce costs, and promote secure coding practices. In contrast, DAST focuses on runtime vulnerabilities in pre-production or deployed applications. It offers insights into issues like misconfigurations and insecure integrations.</p></div></div>
+<div class="pair" id="sast-vs-dast-0018"><div class="zh side"><div class="tag">中文</div><h3 id="h-">采用混合方式</h3>
+<p>与其二选一，不如把 SAST 和 DAST 结合起来，形成多层次的安全策略，同时覆盖静态代码和运行时环境中的漏洞。SAST 可以集成到开发早期阶段，在应用程序编译之前发现并修复代码级问题。待应用程序在测试环境中运行起来后，DAST 可以识别运行时漏洞，并评估应用程序在遭受攻击时的行为。</p>
+<p>把 SAST 和 DAST 扫描都自动化到 CI/CD 流水线中，可以提供持续反馈，在不牺牲安全的前提下加快开发流程。</p>
+<p>对于敏捷或 DevOps 环境，加入 IAST 或 RASP 之类的工具可以进一步增强安全。通过关联 SAST 与 DAST 的结果，组织能够实现更全面、更有效的漏洞管理。</p></div><div class="en side"><div class="tag">EN</div><h3 id="htake-a-hybrid-approach">Take a hybrid approach</h3>
+<p>Instead of choosing one over the other, combining SAST and DAST creates a multi-layered security strategy that addresses vulnerabilities in both static code and runtime environments. SAST can be integrated into early development stages to detect and fix code-level issues before the application is compiled. Once the application is running in a test environment, DAST can identify runtime vulnerabilities and evaluate the application’s behavior under attack conditions.</p>
+<p>Automating both SAST and DAST scans within a CI/CD pipeline provides continuous feedback and accelerates the development process without compromising security.</p>
+<p>For agile or DevOps environments, adding tools like IAST or RASP can further enhance security. By correlating results from both SAST and DAST, organizations can achieve more comprehensive and effective vulnerability management.</p></div></div>
+<div class="pair" id="sast-vs-dast-0019"><div class="zh side"><div class="tag">中文</div><h3 id="h-rasp-sast-dast-">用 RASP 作为 SAST 和 DAST 的补充</h3>
+<p>运行时应用自我保护（Runtime Application Self-Protection，RASP）是一种高级安全方案，直接安装在应用程序运行的服务器上。</p>
+<p>RASP 会嵌入到应用程序的运行时环境中。这种集成方式让 RASP 能够分析应用的逻辑和数据。在分析过程中，它可以：</p>
+<ul>
+<li>即时检测异常行为。</li>
+</ul>
+<ul>
+<li>立即阻断恶意活动。</li>
+</ul>
+<p>一个关键差别在于，RASP 不只是对潜在问题发出告警——它会主动防御，通过隔离和处置威胁来阻止攻击，不依赖外部工具。</p>
+<p>RASP 为 SAST 和 DAST 提供了一种动态替代方案。SAST 分析静态代码，DAST 模拟外部攻击，而 RASP 实时运行。它在应用程序执行期间监控其行为，通过终止会话或向防御方告警来应对实时威胁。</p>
+<p>RASP 在防护那些绕过网络防御、或在开发阶段被遗漏的漏洞方面尤其有效。</p>
+<p>不过，对 RASP 过度自信会让组织忽视安全编码实践。此外，RASP 直接在应用程序的运行时环境中工作，可能影响应用性能。RASP 无法取代修复底层缺陷的必要性，但它能在缓解措施落实期间提供持续防护。</p>
+<p>一位 RASP 用户的评论如下：</p>
+<p>“是否采用 RASP 工具，应当基于对应用程序具体需求和风险画像的全面评估。”</p></div><div class="en side"><div class="tag">EN</div><h3 id="huse-rasp-as-an-alternative-to-sast-and-dast">Use RASP as an alternative to SAST and DAST</h3>
+<p>Runtime Application Self-Protection (RASP) is an advanced security solution installed directly on the server where the application runs.</p>
+<p>RASP embeds itself into the application's runtime environment. This integration allows RASP to analyze the app's logic and data. While analyzing, it can:</p>
+<ul>
+<li>Detect abnormal behaviors as they happen.</li>
+</ul>
+<ul>
+<li>Block malicious activities instantly.</li>
+</ul>
+<p>A key difference is that RASP doesn't just alert on potential issues — it actively prevents attacks by isolating and resolving threats without relying on external tools.</p>
+<p>RASP offers a dynamic alternative to SAST and DAST. Unlike SAST, which analyzes static code, and DAST, which simulates external attacks, RASP operates in real time. It monitors the application’s behavior during execution and responds to live threats by terminating sessions or alerting defenders.</p>
+<p>RASP is particularly effective in protecting applications against vulnerabilities that bypass network defenses or are missed during development.</p>
+<p>However, overconfidence in RASP can lead organizations to neglect secure coding practices. Also, RASP may impact application performance because it operates directly within the application's runtime environment. RASP cannot replace the need to fix underlying flaws, but it provides continuous protection while remediation is underway.</p>
+<p>As one RASP user comments:</p>
+<p>“The decision to use a RASP tool should be based on a thorough assessment of the application's specific requirements and risk profile.”</p></div></div>
+<div class="pair" id="sast-vs-dast-0020"><div class="zh side"><div class="tag">中文</div><h2 id="h-sast-dast-rasp-">未来是用 SAST、DAST 和 RASP 做应用安全测试</h2>
+<p>应用测试的未来在于把 SAST、DAST 和 RASP 结合起来，形成综合性的安全策略。随着安全挑战不断增加，把这些工具集成进 CI/CD 流水线并实现流程自动化将变得不可或缺。</p>
+<p>AI 与机器学习领域的进步会让测试更高效，因为它有助于减少误报并提升威胁检测能力。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hthe-future-is-appsec-testing-with-sast-dast-and-rasp">The future is AppSec testing with SAST, DAST, and RASP</h2>
+<p>The future of application testing lies in combining SAST, DAST, and RASP to create a comprehensive security strategy. As security challenges grow, integrating these tools into CI/CD pipelines and automating their processes will become essential.</p>
+<p>Advances in AI and machine learning will make testing more efficient as it helps to reduce false positives and improve threat detection.</p></div></div>
+<div class="pair" id="sast-vs-dast-0021"><div class="zh side"><div class="tag">中文</div><h3 id="h-">金融与金融服务业</h3>
+<p>在金融领域，AI 驱动的工具将改变漏洞检测与缓解的方式。SAST 和 DAST 会继续在开发和预生产阶段识别编码缺陷与运行时问题。</p>
+<p>但这还没完：RASP 会更进一步，用 AI 监控实时交易。例如，RASP 可以检测出异常模式（比如攻击者正在实时尝试利用某个漏洞），在阻断这些行为的同时通知安全团队。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hfinancial-and-finserv-industries">Financial and FinServ industries</h3>
+<p>In the financial sector, AI-powered tools will transform how vulnerabilities are detected and mitigated. SAST and DAST will continue to identify coding flaws and runtime issues during development and pre-production.</p>
+<p>But you won’t stop there: RASP will take it further by using AI to monitor live transactions. For instance, RASP could detect unusual patterns (Eg:- an attacker attempts to exploit a vulnerability in real time) and block these activities while notifying the security team.</p></div></div>
+<div class="pair" id="sast-vs-dast-0022"><div class="zh side"><div class="tag">中文</div><h3 id="hiot-">IoT、边缘计算与联网设备</h3>
+<p>在 IoT 领域，这些工具的组合将在保护联网设备安全方面发挥重要作用。具体来说：</p>
+<ul>
+<li>SAST 可以确认固件在开发阶段不含漏洞。</li>
+</ul>
+<ul>
+<li>DAST 可以测试设备之间通信协议的安全性。</li>
+</ul>
+<ul>
+<li>RASP 则监控已部署的设备，检测并阻止未授权访问尝试，或由新出现威胁导致的数据泄露。</li>
+</ul>
+<p>同样地，运用多种方法有助于让 IoT 生态保持韧性。正如我们在诸多示例中所说明的，SAST、DAST 与 RASP 组合在一起，预示着一个应用以更强健、更主动的安全措施来构建和部署的未来。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hiot-edge-and-connected-devices">IoT, edge, and connected devices</h3>
+<p>When it comes to IoT, the combination of these tools will play an important role in securing connected devices. Here’s how:</p>
+<ul>
+<li>SAST can confirm that the firmware is free from vulnerabilities during development.</li>
+</ul>
+<ul>
+<li>DAST can test the security of communication protocols between devices.</li>
+</ul>
+<ul>
+<li>RASP, meanwhile, monitors deployed devices and detects and prevents unauthorized access attempts or data leaks caused by emerging threats.</li>
+</ul>
+<p>Likewise, using multiple methods will help IoT ecosystems remain resilient. As explained in our many examples, SAST, DAST, and RASP together promise a future where applications are built and deployed with stronger, more proactive security measures.</p></div></div>
+<div class="pair" id="sast-vs-dast-0023"><div class="zh side"><div class="tag">中文</div><h2 id="h-">有韧性的安全始于主动测试</h2>
+<p>把 SAST、DAST 和 RASP 结合起来，可以覆盖整个软件开发生命周期，提供稳健的安全能力。</p>
+<p>通过把这些方法集成进 CI/CD 流水线并利用 AI 领域的进展，组织可以主动应对新出现的威胁。这些方法合在一起，为守护现代应用免受漏洞侵害提供了全局性的方案。</p>
+<p>/en_us/blog/fragments/disclaimer-with-divider</p>
+<p>/en_us/blog/fragments/top-50-security-threats</p>
+<p>Style</p>
+<p>two-column</p>
+<p>Title</p>
+<p>Filter</p>
+<p>Category</p>
+<p>Blog Limit</p>
+<p>3</p>
+<p>Category</p>
+<p>learn</p>
+<p>Sort Category Shuffle Order</p>
+<p>true</p>
+<p>Learn6 Minute Read</p></div><div class="en side"><div class="tag">EN</div><h2 id="hresilient-security-starts-with-proactive-testing">Resilient security starts with proactive testing</h2>
+<p>Combining SAST, DAST, and RASP together can provide robust security that covers the entire software development lifecycle.</p>
+<p>By integrating these methods into CI/CD pipelines and using advances in AI, organizations can respond proactively to emerging threats. Together, these methods offer a holistic approach to secure modern applications from security vulnerabilities.</p>
+<p>/en_us/blog/fragments/disclaimer-with-divider</p>
+<p>/en_us/blog/fragments/top-50-security-threats</p>
+<p>Style</p>
+<p>two-column</p>
+<p>Title</p>
+<p>Filter</p>
+<p>Category</p>
+<p>Blog Limit</p>
+<p>3</p>
+<p>Category</p>
+<p>learn</p>
+<p>Sort Category Shuffle Order</p>
+<p>true</p>
+<p>Learn6 Minute Read</p></div></div>
+<div class="pair" id="sast-vs-dast-0024"><div class="zh side"><div class="tag">中文</div><h3 id="h-">什么是授权？</h3>
+<p>授权是指在用户完成认证之后，决定该用户可以访问哪些操作、网站的哪些部分或应用程序的哪些部分的过程。</p>
+<p>Learn4 Minute Read</p></div><div class="en side"><div class="tag">EN</div><h3 id="hwhat-is-authorization-">What Is Authorization?</h3>
+<p>Authorization is the process of deciding what actions, parts of a website, or application a given user can access after they have been authenticated.</p>
+<p>Learn4 Minute Read</p></div></div>
+<div class="pair" id="sast-vs-dast-0025"><div class="zh side"><div class="tag">中文</div><h3 id="h-">强化学习简介</h3>
+<p>强化学习是过去十年最引人注目的若干 AI 突破的核心。来这里了解它是如何工作的。</p>
+<p>Learn8 Minute Read</p></div><div class="en side"><div class="tag">EN</div><h3 id="hintroduction-to-reinforcement-learning">Introduction to Reinforcement Learning</h3>
+<p>Reinforcement learning is at the core of some of the most prominent AI breakthroughs in the last decade. Learn how it works here.</p>
+<p>Learn8 Minute Read</p></div></div>
+<div class="pair" id="sast-vs-dast-0026"><div class="zh side"><div class="tag">中文</div><h3 id="h-">数据可观测性：完整入门</h3>
+<p>在这里读懂数据可观测性的完整故事：它是什么、5 大支柱、收益与落地方式，以及最棒的一点——你能用它做的所有事情。</p>
+<p>/en_us/blog/fragments/about-splunk</p>
+<p>/en_us/blog/fragments/subscribe-footer</p></div><div class="en side"><div class="tag">EN</div><h3 id="hdata-observability-the-complete-introduction">Data Observability: The Complete Introduction</h3>
+<p>Get the complete story on data observability here: what itis, the 5 pillars, benefits &amp; implementing — and best of all, ALL the things you can do with it.</p>
+<p>/en_us/blog/fragments/about-splunk</p>
+<p>/en_us/blog/fragments/subscribe-footer</p></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#sast-vs-dast-0000">第 1 段</a></li><li><a href="#sast-vs-dast-0001">第 2 段</a></li><li><a href="#sast-vs-dast-0002">第 3 段</a></li><li><a href="#sast-vs-dast-0003">第 4 段</a></li><li><a href="#sast-vs-dast-0004">第 5 段</a></li><li><a href="#sast-vs-dast-0005">第 6 段</a></li><li><a href="#sast-vs-dast-0006">第 7 段</a></li><li><a href="#sast-vs-dast-0007">第 8 段</a></li><li><a href="#sast-vs-dast-0008">第 9 段</a></li><li><a href="#sast-vs-dast-0009">第 10 段</a></li><li><a href="#sast-vs-dast-0010">第 11 段</a></li><li><a href="#sast-vs-dast-0011">第 12 段</a></li><li><a href="#sast-vs-dast-0012">第 13 段</a></li><li><a href="#sast-vs-dast-0013">第 14 段</a></li><li><a href="#sast-vs-dast-0014">第 15 段</a></li><li><a href="#sast-vs-dast-0015">第 16 段</a></li><li><a href="#sast-vs-dast-0016">第 17 段</a></li><li><a href="#sast-vs-dast-0017">第 18 段</a></li><li><a href="#sast-vs-dast-0018">第 19 段</a></li><li><a href="#sast-vs-dast-0019">第 20 段</a></li><li><a href="#sast-vs-dast-0020">第 21 段</a></li><li><a href="#sast-vs-dast-0021">第 22 段</a></li><li><a href="#sast-vs-dast-0022">第 23 段</a></li><li><a href="#sast-vs-dast-0023">第 24 段</a></li><li><a href="#sast-vs-dast-0024">第 25 段</a></li><li><a href="#sast-vs-dast-0025">第 26 段</a></li><li><a href="#sast-vs-dast-0026">第 27 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

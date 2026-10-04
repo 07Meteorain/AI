@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0010",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "9bd17977a9dc559589d3d3b34a15b1ed509ef7b4",
+ "zh": "#### 示例：\n\n「请修复我们搜索模块的 C++ 绑定，让它通过新的单元测试。注意，你很可能每次改完代码、测试之前都需要重新编译绑定。」",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-food-for-thought#0010",
+ "doc_id": "mcp-food-for-thought",
+ "fingerprint": "23de200c67c043c3a13e5bad5f923f19ff7efa8d",
+ "zh": "这种分层与工具链式调用在 MCP 服务器里可以非常有效，而如果你只是把 API 自动转换成工具，就会彻底错过它。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

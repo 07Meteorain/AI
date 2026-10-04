@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0022",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "2927bc5afdf110b981b8a6234d093bc1535e7576",
+ "zh": "#### 使用 AI 代码评审工具时，我的代码安全吗？\n\n安全性取决于工具和部署模式。基于云的工具可能在外部服务器上处理你的代码，而本地部署方案则把代码留在你自己的基础设施内。选择方案时，请审查每个工具的数据处理政策，并结合你组织的安全要求来考虑。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

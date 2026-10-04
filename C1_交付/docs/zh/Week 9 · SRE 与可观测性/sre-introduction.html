@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SRE 导论 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>SRE 导论</h1>
+  <div class="meta">
+    <span>分类：Week 9 · SRE 与可观测性</span><span>原文 4,056 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://sre.google/sre-book/introduction/" target="_blank" rel="noopener">https://sre.google/sre-book/introduction/</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="sre-introduction-0000"><div class="zh side"><div class="tag">中文</div><h2 id="h-1-">第 1 章 - 导论</h2>
+<ul>
+<li>2. 站在 SRE 视角看 Google 的生产环境</li>
+</ul>
+<ul>
+<li>15. 复盘文化：从失败中学习</li>
+</ul>
+<ul>
+<li>23. 管理关键状态：面向可靠性的分布式共识</li>
+</ul>
+<ul>
+<li>24. 用 Cron 做分布式定时调度</li>
+</ul>
+<ul>
+<li>26. 数据完整性：所读即所写</li>
+</ul>
+<ul>
+<li>28. 让 SRE 更快胜任值班乃至更多</li>
+</ul>
+<ul>
+<li>30. 嵌入 SRE 以应对运维过载</li>
+</ul>
+<ul>
+<li>31. SRE 中的沟通与协作</li>
+</ul>
+<ul>
+<li>33. 从其他行业学到的经验</li>
+</ul>
+<ul>
+<li>附录 B. 生产服务最佳实践集</li>
+</ul>
+<ul>
+<li>附录 C. 故障事件状态文档示例</li>
+</ul>
+<ul>
+<li>附录 E. 发布协调检查清单</li>
+</ul>
+<ul>
+<li>附录 F. 生产会议纪要示例</li>
+</ul>
+<ul>
+<li>参考文献</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h2 id="hchapter-1-introduction">Chapter 1 - Introduction</h2>
+<ul>
+<li>2. The Production Environment at Google, from the Viewpoint of an SRE</li>
+</ul>
+<ul>
+<li>15. Postmortem Culture: Learning from Failure</li>
+</ul>
+<ul>
+<li>23. Managing Critical State: Distributed Consensus for Reliability</li>
+</ul>
+<ul>
+<li>24. Distributed Periodic Scheduling with Cron</li>
+</ul>
+<ul>
+<li>26. Data Integrity: What You Read Is What You Wrote</li>
+</ul>
+<ul>
+<li>28. Accelerating SREs to On-Call and Beyond</li>
+</ul>
+<ul>
+<li>30. Embedding an SRE to Recover from Operational Overload</li>
+</ul>
+<ul>
+<li>31. Communication and Collaboration in SRE</li>
+</ul>
+<ul>
+<li>33. Lessons Learned from Other Industries</li>
+</ul>
+<ul>
+<li>Appendix B. A Collection of Best Practices for Production Services</li>
+</ul>
+<ul>
+<li>Appendix C. Example Incident State Document</li>
+</ul>
+<ul>
+<li>Appendix E. Launch Coordination Checklist</li>
+</ul>
+<ul>
+<li>Appendix F. Example Production Meeting Minutes</li>
+</ul>
+<ul>
+<li>Bibliography</li>
+</ul></div></div>
+<div class="pair" id="sre-introduction-0001"><div class="zh side"><div class="tag">中文</div><h2 id="h-">导论</h2>
+<p>Benjamin Treynor Sloss6 撰写</p>
+<p>Betsy Beyer 编辑</p>
+<blockquote>希望不是一种策略。</blockquote>
+<p>SRE 的传统说法</p>
+<p>有一句人所共知的真理：系统不会自己运行。那么，一个系统——尤其是大规模运行的复杂计算系统——究竟该如何被运行？</p></div><div class="en side"><div class="tag">EN</div><h2 id="hintroduction">Introduction</h2>
+<p>Written by Benjamin Treynor Sloss6</p>
+<p>Edited by Betsy Beyer</p>
+<blockquote>Hope is not a strategy.</blockquote>
+<p>Traditional SRE saying</p>
+<p>It is a truth universally acknowledged that systems do not run themselves. How, then, should a systemâparticularly a complex computing system that operates at a large scaleâbe run?</p></div></div>
+<div class="pair" id="sre-introduction-0002"><div class="zh side"><div class="tag">中文</div><h1 id="h-">系统管理员式的服务管理</h1>
+<p>历史上，各公司一直雇用系统管理员来运行复杂的计算系统。</p>
+<p>这种系统管理员（sysadmin）式的做法，是把现成的软件组件组装起来、部署下去协同工作以对外提供服务。随后，系统管理员要负责运行这个服务，并在事件和更新发生时做出响应。随着系统在复杂度和流量规模上增长，事件和更新也相应增多，系统管理员团队随之扩大以吸收增加的工作量。由于系统管理员这个岗位所需的技能集与产品开发工程师差别很大，开发人员和系统管理员被拆分成彼此独立的团队：“开发”和“运维”（ops）。</p>
+<p>系统管理员式的服务管理模型有若干优势。对于要决定如何运行一个服务、如何为其配备人员的企业来说，这种做法相对容易落地：作为一种行业里成熟的范式，有大量可供借鉴和模仿的先例。对应的人才储备也已经相当充足。现成的工具、软件组件（无论是否开箱即用）和集成公司都可以帮忙运行这些组装起来的系统，因此一个新手系统管理员团队不必从零开始重新发明轮子、设计一套系统。</p>
+<p>系统管理员模式以及随之而来的开发/运维拆分，有不少缺点和陷阱。大致可分为两类：直接成本和间接成本。</p>
+<p>直接成本既不明显也不含糊。如果一个团队在变更管理和事件处理上都依赖人工干预，那么随着服务本身以及进入服务的流量增长，运行成本会不断上升，因为团队规模必然要随系统产生的负载而扩张。</p>
+<p>开发/运维拆分的间接成本则更隐蔽，但对组织造成的代价往往比直接成本更高。这些成本源于两个团队在背景、技能集和激励机制上截然不同。他们用不同的词汇描述同一情势，对风险和技术方案的可能性各持不同假设，对产品稳定性目标也各有不同预期。两个群体之间的分裂很容易从激励机制蔓延到沟通、目标，最终蔓延到信任和尊重。这种结果是一种病态。</p></div><div class="en side"><div class="tag">EN</div><h1 id="hthe-sysadmin-approach-to-service-management">The Sysadmin Approach to Service Management</h1>
+<p>Historically, companies have employed systems administrators to run complex computing systems.</p>
+<p>This systems administrator, or sysadmin, approach involves assembling existing software components and deploying them to work together to produce a service. Sysadmins are then tasked with running the service and responding to events and updates as they occur. As the system grows in complexity and traffic volume, generating a corresponding increase in events and updates, the sysadmin team grows to absorb the additional work. Because the sysadmin role requires a markedly different skill set than that required of a productâs developers, developers and sysadmins are divided into discrete teams: "development" and "operations" or "ops."</p>
+<p>The sysadmin model of service management has several advantages. For companies deciding how to run and staff a service, this approach is relatively easy to implement: as a familiar industry paradigm, there are many examples from which to learn and emulate. A relevant talent pool is already widely available. An array of existing tools, software components (off the shelf or otherwise), and integration companies are available to help run those assembled systems, so a novice sysadmin team doesnât have to reinvent the wheel and design a system from scratch.</p>
+<p>The sysadmin approach and the accompanying development/ops split has a number of disadvantages and pitfalls. These fall broadly into two categories: direct costs and indirect costs.</p>
+<p>Direct costs are neither subtle nor ambiguous. Running a service with a team that relies on manual intervention for both change management and event handling becomes expensive as the service and/or traffic to the service grows, because the size of the team necessarily scales with the load generated by the system.</p>
+<p>The indirect costs of the development/ops split can be subtle, but are often more expensive to the organization than the direct costs. These costs arise from the fact that the two teams are quite different in background, skill set, and incentives. They use different vocabulary to describe situations; they carry different assumptions about both risk and possibilities for technical solutions; they have different assumptions about the target level of product stability. The split between the groups can easily become one of not just incentives, but also communication, goals, and eventually, trust and respect. This outcome is a pathology.</p></div></div>
+<div class="pair" id="sre-introduction-0003"><div class="zh side"><div class="tag">中文</div><p>传统运维团队与产品开发团队中相对应的一方常常陷入冲突，最明显的表现是软件能多快发布到生产环境。归根结底，开发团队想的是发布新功能并看到用户采用；归根结底，运维团队想的是在 自己拿着 pager 值班的时候服务不要挂掉。由于大多数故障是由某种变更引起的——新配置、新功能上线、新的用户流量类型——两个团队的目标从根本上就是相互对立的。</p>
+<p>两组人都明白，把自己的利益用最直白的措辞说出来是不可接受的（“我们想随时随地发布任何东西，不受任何阻碍”对上“系统一旦跑通，我们绝不想再改任何东西”）。而且由于词汇和风险假设不同，双方常常诉诸一种熟悉的堑壕战手段来推进各自利益。运维团队试图通过设置发布门禁和变更门禁，来保护正在运行的系统免受变更风险。举例来说，发布评审里可能包含一道显式检查项，把过去曾导致故障的每个问题都查一遍——这份清单可能长得没有尽头，而且其中并非每一项都提供同等价值。开发团队很快就学会了应对：他们更少做“发布”，更多做“开关切换”、“增量更新”或“cherry-pick”。他们还会采用各种策略，比如把产品分片，从而让更少的功能需要经过发布评审。</p></div><div class="en side"><div class="tag">EN</div><p>Traditional operations teams and their counterparts in product development thus often end up in conflict, most visibly over how quickly software can be released to production. At their core, the development teams want to launch new features and see them adopted by users. At their core, the ops teams want to make sure the service doesnât break while they are holding the pager. Because most outages are caused by some kind of changeâa new configuration, a new feature launch, or a new type of user trafficâthe two teamsâ goals are fundamentally in tension.</p>
+<p>Both groups understand that it is unacceptable to state their interests in the baldest possible terms ("We want to launch anything, any time, without hindrance" versus "We wonât want to ever change anything in the system once it works"). And because their vocabulary and risk assumptions differ, both groups often resort to a familiar form of trench warfare to advance their interests. The ops team attempts to safeguard the running system against the risk of change by introducing launch and change gates. For example, launch reviews may contain an explicit check for every problem that has ever caused an outage in the pastâthat could be an arbitrarily long list, with not all elements providing equal value. The dev team quickly learns how to respond. They have fewer "launches" and more "flag flips," "incremental updates," or "cherrypicks." They adopt tactics such as sharding the product so that fewer features are subject to the launch review.</p></div></div>
+<div class="pair" id="sre-introduction-0004"><div class="zh side"><div class="tag">中文</div><h1 id="hgoogle-">Google 的服务管理之道：站点可靠性工程</h1>
+<p>冲突并不是提供软件服务的必然组成部分。Google 选择用另一种方式来运行我们的系统：我们的站点可靠性工程团队专注于招聘软件工程师来运行我们的产品，并构建系统去完成那些原本通常要由系统管理员手工完成的工作。</p>
+<p>那么，按 Google 目前的定义，站点可靠性工程究竟是什么？我的解释很简单：SRE 就是当你让一位软件工程师来设计一个运维团队时发生的事。2003 年我加入 Google、被要求带领一支七人“生产团队”时，我此前整个人生都在做软件工程。所以我按照自己如果是一名 SRE 时希望团队如何运作的方式，设计和管理了这个团队。这个团队此后成长为 Google 今天的 SRE 团队，至今仍忠实于它最初的起点——一个终身软件工程师的构想。</p>
+<p>Google 服务管理方法的第一块基石，是每个 SRE 团队的构成。整体来看，SRE 可以分为两大类。</p>
+<p>50–60% 是 Google 软件工程师，更准确地说，是通过 Google 软件</p>
+<p>工程师标准流程招聘进来的人。另外 40–50% 是非常接近 Google 软件工程师任职要求的人（即具备所需技能集的 85–99%），此外还拥有一组对 SRE 有用、但多数软件工程师很少具备的技术技能。迄今为止，UNIX 系统内核与网络（第 1 层到第 3 层）方面的专业能力，是我们最常寻找的两类替代性技术技能。</p>
+<p>所有 SRE 共同的特质，是相信并擅长通过开发软件系统来解决复杂问题。在 SRE 内部，我们密切关注这两类人的职业发展，到目前为止没有发现两条通道出身的工程师在表现上有实际差异。事实上，SRE 团队背景的多样性常常造就巧妙的高质量系统，它们显然是多种技能集融合的产物。</p>
+<p>我们为 SRE 招聘所采用的方法带来了这样的结果：团队里的人（a）会很快对手工执行任务感到厌倦，（b）具备必要的技能集去写软件替代他们原先的手工工作，哪怕解决方案很复杂。SRE 与开发组织中其他人也往往具有相近的学术和知识背景。因此，SRE 本质上是在做历史上由运维团队承担的工作，但用的是具备软件专业知识的工程师，并押注一个事实：这些工程师天生既倾向于、也有能力用软件设计和实现自动化来取代人力。</p></div><div class="en side"><div class="tag">EN</div><h1 id="hgoogle-s-approach-to-service-management-site-reliability-engineering">Googleâs Approach to Service Management: Site Reliability Engineering</h1>
+<p>Conflict isnât an inevitable part of offering a software service. Google has chosen to run our systems with a different approach: our Site Reliability Engineering teams focus on hiring software engineers to run our products and to create systems to accomplish the work that would otherwise be performed, often manually, by sysadmins.</p>
+<p>What exactly is Site Reliability Engineering, as it has come to be defined at Google? My explanation is simple: SRE is what happens when you ask a software engineer to design an operations team. When I joined Google in 2003 and was tasked with running a "Production Team" of seven engineers, my entire life up to that point had been software engineering. So I designed and managed the group the way I would want it to work if I worked as an SRE myself. That group has since matured to become Googleâs present-day SRE team, which remains true to its origins as envisioned by a lifelong software engineer.</p>
+<p>A primary building block of Googleâs approach to service management is the composition of each SRE team. As a whole, SREs can be broken down into two main categories.</p>
+<p>50â60% are Google Software Engineers, or more precisely, people who have been hired via the standard procedure for Google Software</p>
+<p> Engineers. The other 40â50% are candidates who were very close to the Google Software Engineering qualifications (i.e., 85â99% of the skill set required), and who in addition had a set of technical skills that is useful to SRE but is rare for most software engineers. By far, UNIX system internals and networking (Layer 1 to Layer 3) expertise are the two most common types of alternate technical skills we seek.</p>
+<p>Common to all SREs is the belief in and aptitude for developing software systems to solve complex problems. Within SRE, we track the career progress of both groups closely, and have to date found no practical difference in performance between engineers from the two tracks. In fact, the somewhat diverse background of the SRE team frequently results in clever, high-quality systems that are clearly the product of the synthesis of several skill sets.</p>
+<p>The result of our approach to hiring for SRE is that we end up with a team of people who (a) will quickly become bored by performing tasks by hand, and (b) have the skill set necessary to write software to replace their previously manual work, even when the solution is complicated. SREs also end up sharing academic and intellectual background with the rest of the development organization. Therefore, SRE is fundamentally doing work that has historically been done by an operations team, but using engineers with software expertise, and banking on the fact that these engineers are inherently both predisposed to, and have the ability to, design and implement automation with software to replace human labor.</p></div></div>
+<div class="pair" id="sre-introduction-0005"><div class="zh side"><div class="tag">中文</div><p>从设计上说，SRE 团队专注工程至关重要。没有持续的工程投入，运维负载会不断上升，团队需要更多的人才能跟上工作量。最终，一个传统运维导向的团队会随服务规模线性膨胀：如果服务支撑的产品做得好，运维负载就会随流量增长。这意味着要不断招人来一遍遍做同样的事。</p>
+<p>为避免这种命运，负责管理服务的团队必须写代码，否则就会被工作量淹没。因此，Google 对所有 SRE 的“运维”工作总量设了 50% 的上限——工单、值班、手工任务等。这个上限确保 SRE 团队的日程里有足够时间把服务做得稳定、可运维。这个上限是一个上界；随着时间推移，如果放任不管，SRE 团队的运维负载应该会变得极低，几乎完全从事开发任务，因为服务基本上能自行运行和自我修复：我们要的是自动化的系统，而不只是被自动化的系统。在实践中，规模和不断新增的功能让 SRE 始终不敢松懈。</p>
+<p>Google 的经验法则是：SRE 团队必须把剩下的 50% 时间真正用在开发上。那么我们怎么强制这条线？首先，我们必须度量 SRE 的时间是怎么花的。有了这个度量结果，我们就确保那些持续把不到 50% 时间花在开发工作上的团队改变做法。这通常意味着把一部分运维负担转移回开发团队，或者给团队增加人手而不给这个团队增加额外的运维职责。有意识地维持运维与开发工作之间的这种平衡，让我们能够确保 SRE 有余力从事有创意的、自主的工程工作，同时仍保留从服务运行一侧获得的智慧。</p></div><div class="en side"><div class="tag">EN</div><p>By design, it is crucial that SRE teams are focused on engineering. Without constant engineering, operations load increases and teams will need more people just to keep pace with the workload. Eventually, a traditional ops-focused group scales linearly with service size: if the products supported by the service succeed, the operational load will grow with traffic. That means hiring more people to do the same tasks over and over again.</p>
+<p>To avoid this fate, the team tasked with managing a service needs to code or it will drown. Therefore, Google places a 50% cap on the aggregate "ops" work for all SREsâtickets, on-call, manual tasks, etc. This cap ensures that the SRE team has enough time in their schedule to make the service stable and operable. This cap is an upper bound; over time, left to their own devices, the SRE team should end up with very little operational load and almost entirely engage in development tasks, because the service basically runs and repairs itself: we want systems that are automatic, not just automated. In practice, scale and new features keep SREs on their toes.</p>
+<p>Googleâs rule of thumb is that an SRE team must spend the remaining 50% of its time actually doing development. So how do we enforce that threshold? In the first place, we have to measure how SRE time is spent. With that measurement in hand, we ensure that the teams consistently spending less than 50% of their time on development work change their practices. Often this means shifting some of the operations burden back to the development team, or adding staff to the team without assigning that team additional operational responsibilities. Consciously maintaining this balance between ops and development work allows us to ensure that SREs have the bandwidth to engage in creative, autonomous engineering, while still retaining the wisdom gleaned from the operations side of running a service.</p></div></div>
+<div class="pair" id="sre-introduction-0006"><div class="zh side"><div class="tag">中文</div><p>我们发现，Google SRE 运行大规模系统的方法有很多优势。由于 SRE 为了让 Google 的系统自行运行而直接修改代码，SRE 团队同时具有快速创新和高接受度变化这两个特征。这类团队相对便宜——用运维导向的团队支撑同一个服务，需要的人数会显著更多。相反，运行、维护和改进一个系统所需的 SRE 人数，会随系统规模次线性增长。最后，SRE 不仅绕开了开发/运维拆分带来的失能，这种结构也同时改善了我们的产品开发团队：产品开发团队与 SRE 团队之间便捷的人员流动能让整个群体接受交叉训练，也提升了那些否则可能很难学会如何构建百万核分布式系统的开发者的技能。</p>
+<p>尽管有这些净收益，SRE 模式也有自己独特的一组挑战。Google 持续面临的一个挑战是招聘 SRE：SRE 不仅要和产品开发的招聘流水线争夺同一批候选人，而且我们把编码和系统工程技能的招聘门槛都设得很高，这意味着可招人群必然很小。由于这个学科相对新且独特，业界关于如何建设和管理一支 SRE 团队的信息并不多（不过希望本书能在这个方向上有所推进！）。而且一旦 SRE 团队建起来，他们可能不太循常规的服务管理方式需要管理层强力的支持。比如，一旦错误预算耗尽就停止本季度剩余的发布，这个决定如果不是管理层强制要求，产品开发团队可能并不会接受。</p></div><div class="en side"><div class="tag">EN</div><p>Weâve found that Google SREâs approach to running large-scale systems has many advantages. Because SREs are directly modifying code in their pursuit of making Googleâs systems run themselves, SRE teams are characterized by both rapid innovation and a large acceptance of change. Such teams are relatively inexpensiveâsupporting the same service with an ops-oriented team would require a significantly larger number of people. Instead, the number of SREs needed to run, maintain, and improve a system scales sublinearly with the size of the system. Finally, not only does SRE circumvent the dysfunctionality of the dev/ops split, but this structure also improves our product development teams: easy transfers between product development and SRE teams cross-train the entire group, and improve skills of developers who otherwise may have difficulty learning how to build a million-core distributed system.</p>
+<p>Despite these net gains, the SRE model is characterized by its own distinct set of challenges. One continual challenge Google faces is hiring SREs: not only does SRE compete for the same candidates as the product development hiring pipeline, but the fact that we set the hiring bar so high in terms of both coding and system engineering skills means that our hiring pool is necessarily small. As our discipline is relatively new and unique, not much industry information exists on how to build and manage an SRE team (although hopefully this book will make strides in that direction!). And once an SRE team is in place, their potentially unorthodox approaches to service management require strong management support. For example, the decision to stop releases for the remainder of the quarter once an error budget is depleted might not be embraced by a product development team unless mandated by their management.</p></div></div>
+<div class="pair" id="sre-introduction-0007"><div class="zh side"><div class="tag">中文</div><h1 id="hdevops-sre-">DevOps 还是 SRE？</h1>
+<p>“DevOps”这个说法于 2008 年底在业界出现，到本文写作时（2016 年初）仍处于不断变化之中。它的核心原则——让 IT 职能参与系统设计与开发的每个阶段、相对人力而言重度依赖自动化、把工程实践和工具应用到运维任务上——与 SRE 的许多原则和实践是一致的。人们可以把 DevOps 看作把若干 SRE 核心原则推广到更广泛的组织、管理结构和人员上的一种泛化；也可以同样地把 SRE 看作 DevOps 的一种具体实现，外加一些独具特色的扩展。</p></div><div class="en side"><div class="tag">EN</div><h1 id="hdevops-or-sre-">DevOps or SRE?</h1>
+<p>The term âDevOpsâ emerged in industry in late 2008 and as of this writing (early 2016) is still in a state of flux. Its core principlesâinvolvement of the IT function in each phase of a systemâs design and development, heavy reliance on automation versus human effort, the application of engineering practices and tools to operations tasksâare consistent with many of SREâs principles and practices. One could view DevOps as a generalization of several core SRE principles to a wider range of organizations, management structures, and personnel. One could equivalently view SRE as a specific implementation of DevOps with some idiosyncratic extensions.</p></div></div>
+<div class="pair" id="sre-introduction-0008"><div class="zh side"><div class="tag">中文</div><h1 id="hsre-">SRE 的基本原则</h1>
+<p>虽然各个 SRE 团队在工作流、优先级和日常运维上的细节各不相同，但它们都承担着一组针对自己所支持服务的基本职责，并遵循同样的核心原则。一般来说，一个 SRE 团队负责其服务的可用性、延迟、性能、效率、变更管理、监控、应急响应和容量规划。我们把 SRE 团队如何与所处环境交互的行动准则和原则明文化——不仅是与生产环境，还包括产品开发团队、测试团队、用户等等。这些规则和工作实践帮助我们把注意力保持在工程工作上，而不是运维工作上。</p>
+<p>下面一节将讨论 Google SRE 的每一条核心原则。</p></div><div class="en side"><div class="tag">EN</div><h1 id="htenets-of-sre">Tenets of SRE</h1>
+<p>While the nuances of workflows, priorities, and day-to-day operations vary from SRE team to SRE team, all share a set of basic responsibilities for the service(s) they support, and adhere to the same core tenets. In general, an SRE team is responsible for the availability, latency, performance, efficiency, change management, monitoring, emergency response, and capacity planning of their service(s). We have codified rules of engagement and principles for how SRE teams interact with their environmentânot only the production environment, but also the product development teams, the testing teams, the users, and so on. Those rules and work practices help us to maintain our focus on engineering work, as opposed to operations work.</p>
+<p>The following section discusses each of the core tenets of Google SRE.</p></div></div>
+<div class="pair" id="sre-introduction-0009"><div class="zh side"><div class="tag">中文</div><h2 id="h-">确保对工程工作的持续专注</h2>
+<p>如前所述，Google 把 SRE 的运维工作限制在其时间的 50%。剩下的时间应当用来把他们的编码技能用在项目工作上。在实践中，做法是监控 SRE 承担的运维工作量，并把超出的运维工作转移回产品开发团队：把 bug 和工单重新指派给开发经理、[重新]让开发人员进入值班 pager 轮转，等等。当运维负载降回 50% 或以下时，这种转移就结束。这同时提供了一套有效的反馈机制，引导开发者构建不需要人工干预的系统。当整个组织——无论 SRE 还是开发——都理解这个安全阀机制为何存在，并支持“因为产品没有产生需要动用它的运维负载，所以不存在溢出事件”这一目标时，这套做法效果很好。</p>
+<p>当 SRE 专注运维工作时，平均而言每个 8–12 小时的值班班次最多应接到两起事件。这个目标量能让值班工程师有足够时间准确快速地处理事件、清理并恢复正常服务，然后做一次复盘。如果每个值班班次经常出现两起以上事件，问题就无法被彻底调查，工程师也会被打压到无法从这些事件中学习。告警疲劳也不会因为规模而改善。反过来，如果值班的 SRE 每个班次都稳定地只接到不到一起事件，让他们一直待在这里就是浪费时间。</p>
+<p>所有重大故障事件都应该写复盘，无论它有没有触发告警（page）；没有触发告警的复盘往往更有价值，因为它们很可能指向明确的监控盲区。这项调查应详细弄清发生了什么，找出事件的所有根本原因，并分派行动以修正问题或改进下次的处理方式。Google 实行无责（blame-free）复盘文化，目的是暴露缺陷并运用工程手段修复缺陷，而不是回避或淡化缺陷。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hensuring-a-durable-focus-on-engineering">Ensuring a Durable Focus on Engineering</h2>
+<p>As already discussed, Google caps operational work for SREs at 50% of their time. Their remaining time should be spent using their coding skills on project work. In practice, this is accomplished by monitoring the amount of operational work being done by SREs, and redirecting excess operational work to the product development teams: reassigning bugs and tickets to development managers, [re]integrating developers into on-call pager rotations, and so on. The redirection ends when the operational load drops back to 50% or lower. This also provides an effective feedback mechanism, guiding developers to build systems that donât need manual intervention. This approach works well when the entire organizationâSRE and development alikeâunderstands why the safety valve mechanism exists, and supports the goal of having no overflow events because the product doesnât generate enough operational load to require it.</p>
+<p>When they are focused on operations work, on average, SREs should receive a maximum of two events per 8â12-hour on-call shift. This target volume gives the on-call engineer enough time to handle the event accurately and quickly, clean up and restore normal service, and then conduct a postmortem. If more than two events occur regularly per on-call shift, problems canât be investigated thoroughly and engineers are sufficiently overwhelmed to prevent them from learning from these events. A scenario of pager fatigue also wonât improve with scale. Conversely, if on-call SREs consistently receive fewer than one event per shift, keeping them on point is a waste of their time.</p>
+<p>Postmortems should be written for all significant incidents, regardless of whether or not they paged; postmortems that did not trigger a page are even more valuable, as they likely point to clear monitoring gaps. This investigation should establish what happened in detail, find all root causes of the event, and assign actions to correct the problem or improve how it is addressed next time. Google operates under a blame-free postmortem culture, with the goal of exposing faults and applying engineering to fix these faults, rather than avoiding or minimizing them.</p></div></div>
+<div class="pair" id="sre-introduction-0010"><div class="zh side"><div class="tag">中文</div><h2 id="h-slo-">在不违反服务 SLO（服务等级目标）的前提下追求最高变更速度</h2>
+<p>产品开发团队和 SRE 团队可以通过消除各自目标之间的结构性冲突来建立高效的工作关系。这个结构性冲突存在于创新速度与产品稳定性之间，如前所述，这种冲突往往以间接的方式表现出来。在 SRE 中，我们把这种冲突摆到台面上，然后通过引入错误预算来解决它。</p>
+<p>错误预算源于这样一个观察：基本上，对几乎所有东西来说，100% 都是错误的可靠性目标（起搏器和防抱死制动系统是显著的例外）。一般来说，对任何软件服务或系统而言，100% 都不是正确的可靠性目标，因为没有用户能分辨出系统是 100% 可用还是 99.999% 可用。在用户与服务之间的路径上还有很多其他系统（他们的笔记本电脑、家里的 WiFi、他们的 ISP、电网……），而这些系统合起来远达不到 99.999% 可用。因此，99.999% 与 100% 之间的边际差异淹没在其他不可用性的噪声里，用户从为此补上最后 0.001% 可用性所需的巨大投入中得不到任何好处。</p>
+<p>如果 100% 是错误的可靠性目标，那么一个系统的正确可靠性目标又是什么？这其实完全不是技术问题——而是产品问题，应当综合考虑以下因素：</p>
+<ul>
+<li>考虑到用户的使用方式，什么样的可用性水平能让他们满意？</li>
+</ul>
+<ul>
+<li>对产品可用性不满意的用户，有哪些替代选择？</li>
+</ul>
+<ul>
+<li>在不同的可用性水平下，用户对产品的使用会发生变化？</li>
+</ul>
+<p>业务方或产品方必须确定系统的可用性目标。一旦目标确定，错误预算就是 1 减去可用性目标。一个可用性为 99.99% 的服务，其不可用性是 0.01%。这被允许的 0.01% 不可用性就是该服务的错误预算。我们可以把这笔预算花在任何我们想花的地方，只要不超支就行。</p>
+<p>那么我们想把错误预算花在哪里？开发团队想发布功能、吸引新用户。理想情况下，我们会把全部错误预算都花在对我们所发布的东西冒险上，以便更快地把它们发布出去。这一基本前提就是错误预算模型的全部含义。一旦 SRE 活动在这个框架下被构想出来，通过分阶段发布和 1% 实验等手段释放错误预算，就能优化发布速度。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hpursuing-maximum-change-velocity-without-violating-a-service-s-slo">Pursuing Maximum Change Velocity Without Violating a Serviceâs SLO</h2>
+<p>Product development and SRE teams can enjoy a productive working relationship by eliminating the structural conflict in their respective goals. The structural conflict is between pace of innovation and product stability, and as described earlier, this conflict often is expressed indirectly. In SRE we bring this conflict to the fore, and then resolve it with the introduction of an error budget.</p>
+<p>The error budget stems from the observation that 100% is the wrong reliability target for basically everything (pacemakers and anti-lock brakes being notable exceptions). In general, for any software service or system, 100% is not the right reliability target because no user can tell the difference between a system being 100% available and 99.999% available. There are many other systems in the path between user and service (their laptop, their home WiFi, their ISP, the power gridâ¦) and those systems collectively are far less than 99.999% available. Thus, the marginal difference between 99.999% and 100% gets lost in the noise of other unavailability, and the user receives no benefit from the enormous effort required to add that last 0.001% of availability.</p>
+<p>If 100% is the wrong reliability target for a system, what, then, is the right reliability target for the system? This actually isnât a technical question at allâitâs a product question, which should take the following considerations into account:</p>
+<ul>
+<li>What level of availability will the users be happy with, given how they use the product?</li>
+</ul>
+<ul>
+<li>What alternatives are available to users who are dissatisfied with the productâs availability?</li>
+</ul>
+<ul>
+<li>What happens to usersâ usage of the product at different availability levels?</li>
+</ul>
+<p>The business or the product must establish the systemâs availability target. Once that target is established, the error budget is one minus the availability target. A service thatâs 99.99% available is 0.01% unavailable. That permitted 0.01% unavailability is the serviceâs error budget. We can spend the budget on anything we want, as long as we donât overspend it.</p>
+<p>So how do we want to spend the error budget? The development team wants to launch features and attract new users. Ideally, we would spend all of our error budget taking risks with things we launch in order to launch them quickly. This basic premise describes the whole model of error budgets. As soon as SRE activities are conceptualized in this framework, freeing up the error budget through tactics such as phased rollouts and 1% experiments can optimize for quicker launches.</p></div></div>
+<div class="pair" id="sre-introduction-0011"><div class="zh side"><div class="tag">中文</div><p>错误预算的使用化解了开发与 SRE 之间激励上的结构性冲突。SRE 的目标不再是“零故障”；相反，SRE 和产品开发者的目标是把错误预算花出去，以获得最高的功能发布速度。这一改变带来了天壤之别。故障不再是“坏事”——它是创新过程中预期的一部分，是开发和 SRE 团队会去管理而不是去恐惧的一种偶发事件。</p></div><div class="en side"><div class="tag">EN</div><p>The use of an error budget resolves the structural conflict of incentives between development and SRE. SREâs goal is no longer "zero outages"; rather, SREs and product developers aim to spend the error budget getting maximum feature velocity. This change makes all the difference. An outage is no longer a "bad" thingâit is an expected part of the process of innovation, and an occurrence that both development and SRE teams manage rather than fear.</p></div></div>
+<div class="pair" id="sre-introduction-0012"><div class="zh side"><div class="tag">中文</div><h2 id="h-">监控</h2>
+<p>监控是服务负责人跟踪系统健康状况和可用性的主要手段之一。因此，监控策略应当经过深思熟虑地构建。监控有一种经典而常见的做法：盯住某个特定的值或条件，一旦该值被超过或该条件出现，就触发一封邮件告警。然而，这类邮件告警并不是有效的解决方案：一个需要人去读邮件、再判断是否需要采取某种行动的系统，从根本上就是有缺陷的。监控绝不应该要求人去解读告警领域的任何部分。解读工作应该由软件来做，只有人需要采取行动时才通知他们。</p>
+<p>有效的监控输出有三类：</p>
+<p>告警</p>
+<p> 表示某件正在发生或即将发生的事情需要人立即采取行动，以改善局面。</p>
+<p>工单</p>
+<p> 表示需要人采取行动，但不紧急。系统无法自动处理该情况，但如果人过几天采取行动，也不会造成损害。</p>
+<p>日志</p>
+<p> 不需要任何人查看，但出于诊断或取证目的被记录下来。预期是：除非有别的东西促使人们去看，否则没人会读日志。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hmonitoring">Monitoring</h2>
+<p>Monitoring is one of the primary means by which service owners keep track of a systemâs health and availability. As such, monitoring strategy should be constructed thoughtfully. A classic and common approach to monitoring is to watch for a specific value or condition, and then to trigger an email alert when that value is exceeded or that condition occurs. However, this type of email alerting is not an effective solution: a system that requires a human to read an email and decide whether or not some type of action needs to be taken in response is fundamentally flawed. Monitoring should never require a human to interpret any part of the alerting domain. Instead, software should do the interpreting, and humans should be notified only when they need to take action.</p>
+<p>There are three kinds of valid monitoring output:</p>
+<p>Alerts</p>
+<p> Signify that a human needs to take action immediately in response to something that is either happening or about to happen, in order to improve the situation.</p>
+<p> Tickets</p>
+<p> Signify that a human needs to take action, but not immediately. The system cannot automatically handle the situation, but if a human takes action in a few days, no damage will result.</p>
+<p> Logging</p>
+<p> No one needs to look at this information, but it is recorded for diagnostic or forensic purposes. The expectation is that no one reads logs unless something else prompts them to do so.</p></div></div>
+<div class="pair" id="sre-introduction-0013"><div class="zh side"><div class="tag">中文</div><h2 id="h-">应急响应</h2>
+<p>可靠性是平均无故障时间（MTTF）和平均修复时间（MTTR）的函数 [Sch15]。评估应急响应有效性最相关的指标，是响应团队把系统恢复健康的速度有多快——也就是 MTTR。</p>
+<p>人会带来延迟。即使某个系统实际发生的故障更多，一个能够避免需要人工介入的紧急情况的系统，可用性也会高于那些必须动手干预的系统。当确实需要人时，我们发现提前思考并把最佳实践记录成一份“操作手册”，相比“临场硬扛”的策略能让 MTTR 大致改善 3 倍。那个孤胆英雄式的全能值班工程师确实能解决问题，但一位练有素、带着操作手册的值班工程师效果要好得多。虽然任何操作手册——无论多么详尽——都无法取代能够临场思考的聪明工程师，但在响应高风险或时间敏感的告警时，清晰而详尽的排查步骤和技巧很有价值。因此，Google SRE 除依赖值班操作手册之外，还通过“厄运轮盘”（Wheel of Misfortune）7 这类演练，让工程师为应对值班事件做好准备。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hemergency-response">Emergency Response</h2>
+<p>Reliability is a function of mean time to failure (MTTF) and mean time to repair (MTTR) [Sch15]. The most relevant metric in evaluating the effectiveness of emergency response is how quickly the response team can bring the system back to healthâthat is, the MTTR.</p>
+<p>Humans add latency. Even if a given system experiences more actual failures, a system that can avoid emergencies that require human intervention will have higher availability than a system that requires hands-on intervention. When humans are necessary, we have found that thinking through and recording the best practices ahead of time in a "playbook" produces roughly a 3x improvement in MTTR as compared to the strategy of "winging it." The hero jack-of-all-trades on-call engineer does work, but the practiced on-call engineer armed with a playbook works much better. While no playbook, no matter how comprehensive it may be, is a substitute for smart engineers able to think on the fly, clear and thorough troubleshooting steps and tips are valuable when responding to a high-stakes or time-sensitive page. Thus, Google SRE relies on on-call playbooks, in addition to exercises such as the "Wheel of Misfortune,"7 to prepare engineers to react to on-call events.</p></div></div>
+<div class="pair" id="sre-introduction-0014"><div class="zh side"><div class="tag">中文</div><h2 id="h-">变更管理</h2>
+<p>SRE 发现大约 70% 的故障源于线上系统发生的变更。这个领域的最佳实践用自动化来完成以下事情：</p>
+<ul>
+<li>实施渐进式发布</li>
+</ul>
+<ul>
+<li>快速准确地发现问题</li>
+</ul>
+<ul>
+<li>出现问题时安全地回滚变更</li>
+</ul>
+<p>这三项实践有效地把暴露在不良变更之下的用户总量和运维总量降到最低。通过把人从环路中移除，这些实践避免了疲劳、熟视无睹/轻敌，以及对高度重复任务的疏忽等常见问题。结果是发布速度和安全性同时提升。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hchange-management">Change Management</h2>
+<p>SRE has found that roughly 70% of outages are due to changes in a live system. Best practices in this domain use automation to accomplish the following:</p>
+<ul>
+<li>Implementing progressive rollouts</li>
+</ul>
+<ul>
+<li>Quickly and accurately detecting problems</li>
+</ul>
+<ul>
+<li>Rolling back changes safely when problems arise</li>
+</ul>
+<p>This trio of practices effectively minimizes the aggregate number of users and operations exposed to bad changes. By removing humans from the loop, these practices avoid the normal problems of fatigue, familiarity/contempt, and inattention to highly repetitive tasks. As a result, both release velocity and safety increase.</p></div></div>
+<div class="pair" id="sre-introduction-0015"><div class="zh side"><div class="tag">中文</div><h2 id="h-">需求预测与容量规划</h2>
+<p>需求预测和容量规划可以理解为：确保有足够的容量和冗余，能够以所需的可用性满足预测的未来需求。这些概念没什么特别之处，只是令人惊讶的是，相当多的服务和团队并没有采取必要步骤，确保所需容量在需要时已经就位。容量规划应当同时考虑有机增长（来自产品被客户自然采用和使用）以及非有机增长（来自功能发布、营销活动或其他业务驱动的变化）。</p>
+<p>容量规划中有几个步骤是必须的：</p>
+<ul>
+<li>准确的有机需求预测，其覆盖范围要超出获取容量所需的交付周期</li>
+</ul>
+<ul>
+<li>把非有机需求来源准确地纳入需求预测</li>
+</ul>
+<ul>
+<li>定期对系统做负载测试，把原始容量（服务器、磁盘等）与服务容量关联起来</li>
+</ul>
+<p>由于容量对可用性至关重要，自然而然地 SRE 团队必须负责容量规划，这也意味着他们必须负责资源供给。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hdemand-forecasting-and-capacity-planning">Demand Forecasting and Capacity Planning</h2>
+<p>Demand forecasting and capacity planning can be viewed as ensuring that there is sufficient capacity and redundancy to serve projected future demand with the required availability. Thereâs nothing particularly special about these concepts, except that a surprising number of services and teams donât take the steps necessary to ensure that the required capacity is in place by the time it is needed. Capacity planning should take both organic growth (which stems from natural product adoption and usage by customers) and inorganic growth (which results from events like feature launches, marketing campaigns, or other business-driven changes) into account.</p>
+<p>Several steps are mandatory in capacity planning:</p>
+<ul>
+<li>An accurate organic demand forecast, which extends beyond the lead time required for acquiring capacity</li>
+</ul>
+<ul>
+<li>An accurate incorporation of inorganic demand sources into the demand forecast</li>
+</ul>
+<ul>
+<li>Regular load testing of the system to correlate raw capacity(servers, disks, and so on) to service capacity</li>
+</ul>
+<p>Because capacity is critical to availability, it naturally follows that the SRE team must be in charge of capacity planning, which means they also must be in charge of provisioning.</p></div></div>
+<div class="pair" id="sre-introduction-0016"><div class="zh side"><div class="tag">中文</div><h2 id="h-">资源供给</h2>
+<p>资源供给把变更管理和容量规划结合在一起。以我们的经验，资源供给必须快速进行，且只在必要时进行，因为容量很昂贵。这项工作也必须做得正确，否则容量在需要时不可用。增加新容量通常涉及启动新的实例或可用区、对现有系统做重大修改（配置文件、负载均衡器、网络），并验证新容量能正常工作、给出正确结果。因此，它比流量调度（后者往往每小时要做多次）风险更高，必须以相应程度加倍的谨慎来对待。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hprovisioning">Provisioning</h2>
+<p>Provisioning combines both change management and capacity planning. In our experience, provisioning must be conducted quickly and only when necessary, as capacity is expensive. This exercise must also be done correctly or capacity doesnât work when needed. Adding new capacity often involves spinning up a new instance or location, making significant modification to existing systems (configuration files, load balancers, networking), and validating that the new capacity performs and delivers correct results. Thus, it is a riskier operation than load shifting, which is often done multiple times per hour, and must be treated with a corresponding degree of extra caution.</p></div></div>
+<div class="pair" id="sre-introduction-0017"><div class="zh side"><div class="tag">中文</div><h2 id="h-">效率与性能</h2>
+<p>只要一个服务在意成本，高效使用资源就很重要。由于最终由 SRE 控制资源供给，任何与利用率相关的工作都必须有 SRE 参与，因为利用率是服务如何工作以及如何被供给的函数。由此可见，密切关注某个服务的供给策略，进而关注其利用率，能为该服务的总成本提供一个非常、非常大的杠杆。</p>
+<p>资源使用是需求（负载）、容量和软件效率的函数。SRE 预测需求、供给容量，并且能够修改软件。这三个因素是服务效率的重要部分（虽然不是全部）。</p>
+<p>随着负载增加，软件系统会变慢。服务变慢就等同于容量损失。到某个点，变慢的系统就停止服务了，这对应于无限慢。SRE 会按特定响应速度下的容量目标来做供给，因此对服务性能非常敏感。SRE 和产品开发者会（也应该）监控并修改服务以提升性能，从而增加容量、提升效率。8</p></div><div class="en side"><div class="tag">EN</div><h2 id="hefficiency-and-performance">Efficiency and Performance</h2>
+<p>Efficient use of resources is important any time a service cares about money. Because SRE ultimately controls provisioning, it must also be involved in any work on utilization, as utilization is a function of how a given service works and how it is provisioned. It follows that paying close attention to the provisioning strategy for a service, and therefore its utilization, provides a very, very big lever on the serviceâs total costs.</p>
+<p>Resource use is a function of demand (load), capacity, and software efficiency. SREs predict demand, provision capacity, and can modify the software. These three factors are a large part (though not the entirety) of a serviceâs efficiency.</p>
+<p>Software systems become slower as load is added to them. A slowdown in a service equates to a loss of capacity. At some point, a slowing system stops serving, which corresponds to infinite slowness. SREs provision to meet a capacity target at a specific response speed, and thus are keenly interested in a serviceâs performance. SREs and product developers will (and should) monitor and modify a service to improve its performance, thus adding capacity and improving efficiency.8</p></div></div>
+<div class="pair" id="sre-introduction-0018"><div class="zh side"><div class="tag">中文</div><h1 id="h-">结束的开始</h1>
+<p>站点可靠性工程代表了对业界既有的管理大型复杂服务的最佳实践的一次重大突破。它最初的动机只是朴素的个人经验——“作为软件工程师，我希望把时间投入到这类重复性任务上”——但如今它已经远不止于此：一套原则、一套实践、一套激励机制，以及软件工程这一更大学科中的一个新领域。本书余下部分将详细探讨 SRE 之道。</p>
+<p>6Google 工程副总裁，Google SRE 创始人</p>
+<p>7参见 Disaster Role Playing。</p>
+<p>8关于这种协作在实践中如何运作的进一步讨论，参见 Communications: Production Meetings。</p>
+<p>第 I 部分 - 导论</p>
+<p>第 2 章 - 站在 SRE 视角看 Google 的生产环境</p>
+<p>版权所有 © 2017 Google, Inc. 由 O'Reilly Media, Inc. 出版。基于 CC BY-NC-ND 4.0 授权</p></div><div class="en side"><div class="tag">EN</div><h1 id="hthe-end-of-the-beginning">The End of the Beginning</h1>
+<p>Site Reliability Engineering represents a significant break from existing industry best practices for managing large, complicated services. Motivated originally by familiarityâ"as a software engineer, this is how I would want to invest my time to accomplish a set of repetitive tasks"âit has become much more: a set of principles, a set of practices, a set of incentives, and a field of endeavor within the larger software engineering discipline. The rest of the book explores the SRE Way in detail.</p>
+<p>6Vice President, Google Engineering, founder of Google SRE</p>
+<p>7See Disaster Role Playing.</p>
+<p>8For further discussion of how this collaboration can work in practice, see Communications: Production Meetings.</p>
+<p>Part I - Introduction</p>
+<p>Chapter 2 - The Production Environment at Google, from the Viewpoint of an SRE</p>
+<p>Copyright Â© 2017 Google, Inc. Published by O'Reilly Media, Inc. Licensed under CC BY-NC-ND 4.0</p></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#sre-introduction-0000">第 1 段</a></li><li><a href="#sre-introduction-0001">第 2 段</a></li><li><a href="#sre-introduction-0002">第 3 段</a></li><li><a href="#sre-introduction-0003">第 4 段</a></li><li><a href="#sre-introduction-0004">第 5 段</a></li><li><a href="#sre-introduction-0005">第 6 段</a></li><li><a href="#sre-introduction-0006">第 7 段</a></li><li><a href="#sre-introduction-0007">第 8 段</a></li><li><a href="#sre-introduction-0008">第 9 段</a></li><li><a href="#sre-introduction-0009">第 10 段</a></li><li><a href="#sre-introduction-0010">第 11 段</a></li><li><a href="#sre-introduction-0011">第 12 段</a></li><li><a href="#sre-introduction-0012">第 13 段</a></li><li><a href="#sre-introduction-0013">第 14 段</a></li><li><a href="#sre-introduction-0014">第 15 段</a></li><li><a href="#sre-introduction-0015">第 16 段</a></li><li><a href="#sre-introduction-0016">第 17 段</a></li><li><a href="#sre-introduction-0017">第 18 段</a></li><li><a href="#sre-introduction-0018">第 19 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

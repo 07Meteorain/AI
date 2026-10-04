@@ -1,0 +1,10 @@
+{
+ "seg_id": "context-rot#0027",
+ "doc_id": "context-rot",
+ "fingerprint": "b2c61442ba1d05ca41c809f1051d87b291feaa43",
+ "zh": "- 正值 = 模型生成不足\n\n- 负值 = 模型生成过量\n\n重复词：词数差 —— Claude 家族在 GPT 家族中，我们观察到 GPT-4.1 的拒答率为 2.55%。这类拒答通常从 2500 个词左右开始出现，回复类似于“I'm sorry, but I can't help with that”。\n\n重复词 —— GPT 家族我们还观察到 GPT-4 turbo 在 500 个词附近有一个局部性能峰值。在 50 到 250 个词之间，模型倾向于过量生成（把重复词一直写到输出上限），但到 500 个词时，它的词数变得更准确。然而越过这个点后，它又开始生成不足——从输入与输出词数之差为正可以看出这一点。\n\n重复词：词数差 —— GPT-4 Turbo位置准确率呈现类似趋势：当独特词出现在输入靠前位置时，GPT 模型也更容易把它放对。\n\n这个家族还有一些更鲜明的模型特有行为。\n\nGPT-4.1 mini 会尝试所有任务，但有时在“Golden Gate Bridge”/”Golden Gate Park”这个组合上会生成随机词。所谓随机输出，是指输入中不存在的词，或词语序列。\n\n模型输出了重复的词，比如“Golden Golden”和“Gate Gate”，它们并不存在于输入中（输入只包含“Golden Gate Bridge”和”Golden Gate Park”）。\n\n这些重复词并不出现在独特词的位置上，而是出现在文本中更靠后的位置。",
+ "meta": {
+  "source": "../work/tr_g02.json",
+  "batch": "tr_g02"
+ }
+}

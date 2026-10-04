@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0029",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "679aabd13ede8f1c36755b1574af0f8b5ece9e31",
+ "zh": "### 与 AI 助手结对编程的最佳实践\n\n本指南探讨与 AI 助手结对编程的核心最佳实践，包括代码……",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

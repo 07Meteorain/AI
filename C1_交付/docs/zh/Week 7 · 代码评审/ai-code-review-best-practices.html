@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 代码评审最佳实践 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>AI 代码评审最佳实践</h1>
+  <div class="meta">
+    <span>分类：Week 7 · 代码评审</span><span>原文 1,651 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://graphite.dev/guides/ai-code-review-implementation-best-practices" target="_blank" rel="noopener">https://graphite.dev/guides/ai-code-review-implementation-best-practices</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="ai-code-review-best-practices-0000"><div class="zh side"><div class="tag">中文</div><p>Cursor Cloud Agents 现已登陆 Graphite。不用离开你的 PR，就能完成创建、评审和发布。</p>
+<p>登录G</p>
+<p>索引</p>
+<ul>
+<li>系列</li>
+</ul>
+<ul>
+<li>合并队列</li>
+</ul>
+<ul>
+<li>合并队列</li>
+</ul></div><div class="en side"><div class="tag">EN</div><p>Cursor Cloud Agents are now in Graphite. Create, review, and ship without leaving your PR.</p>
+<p>Log inG</p>
+<p>Index</p>
+<ul>
+<li>Series</li>
+</ul>
+<ul>
+<li>Merge queues</li>
+</ul>
+<ul>
+<li>merge queue</li>
+</ul></div></div>
+<div class="pair" id="ai-code-review-best-practices-0001"><div class="zh side"><div class="tag">中文</div><h1 id="hai-">AI 代码评审的实现与最佳实践</h1>
+<p>Greg Foster</p>
+<p>Graphite 软件工程师</p>
+<p>试用 Graphite</p>
+<p>随着人工智能日益融入软件开发工作流，AI 代码评审已成为提升代码质量和开发者效率的有用工具。本技术指南探讨了 AI 代码评审系统的实现方式，并梳理出在开发流程中有效利用这些工具的最佳实践。</p>
+<ul>
+<li>了解 AI 代码评审</li>
+</ul>
+<ul>
+<li>结论</li>
+</ul>
+<ul>
+<li>常见问题</li>
+</ul>
+<p>随着人工智能日益融入软件开发工作流，AI 代码评审已成为提升代码质量和开发者效率的有力工具。本技术指南探讨了 AI 代码评审系统的实现方式，并梳理出在开发流程中有效利用这些工具的最佳实践。</p>
+<p>像 Graphite Agent 这样的 AI 代码评审工具正在改变团队做代码质量保障的方式，让你在保持高标准的同时加快迭代节奏。本指南将帮助你了解如何在你的组织中实现并优化 AI 代码评审。</p></div><div class="en side"><div class="tag">EN</div><h1 id="hai-code-review-implementation-and-best-practices">AI code review implementation and best practices</h1>
+<p>Greg Foster</p>
+<p>Graphite software engineer</p>
+<p>Try Graphite</p>
+<p>As artificial intelligence becomes increasingly integrated into software development workflows, AI code review has emerged as a useful tool for improving code quality and developer productivity. This technical guide explores the implementation of AI code review systems and outlines best practices for effectively leveraging these tools in your development process.</p>
+<ul>
+<li>Understanding AI code review</li>
+</ul>
+<ul>
+<li>Conclusion</li>
+</ul>
+<ul>
+<li>Frequently asked questions</li>
+</ul>
+<p>As artificial intelligence becomes increasingly integrated into software development workflows, AI code review has emerged as a powerful tool for improving code quality and developer productivity. This technical guide explores the implementation of AI code review systems and outlines best practices for effectively leveraging these tools in your development process.</p>
+<p>AI code review tools like Graphite Agent are transforming how teams approach code quality assurance, enabling faster iteration cycles while maintaining high standards. This guide will help you understand how to implement and optimize AI code review in your organization.</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0002"><div class="zh side"><div class="tag">中文</div><h3 id="h-ai-">了解 AI 代码评审</h3>
+<p>AI 代码评审是指利用机器学习和自然语言处理技术，自动分析代码中的问题，包括：</p>
+<ul>
+<li>Bug 和潜在的运行时错误</li>
+</ul>
+<ul>
+<li>性能低效</li>
+</ul>
+<p>与传统的静态分析工具不同，现代 AI 代码评审工具能够理解代码上下文、提出改进建议，甚至自动生成修复方案。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hunderstanding-ai-code-review">Understanding AI code review</h3>
+<p>AI code review refers to the use of machine learning and natural language processing technologies to automatically analyze code for issues including:</p>
+<ul>
+<li>Bugs and potential runtime errors</li>
+</ul>
+<ul>
+<li>Performance inefficiencies</li>
+</ul>
+<p>Unlike traditional static analyzers, modern AI code review tools can understand code context, suggest improvements, and even generate fixes automatically.</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0003"><div class="zh side"><div class="tag">中文</div><h3 id="hai-">AI 代码评审的收益</h3>
+<ul>
+<li>效率更高——自动化缩短了评审时间，并提前发现问题</li>
+</ul>
+<ul>
+<li>更一致——AI 在所有代码评审中套用同一套标准</li>
+</ul>
+<ul>
+<li>知识共享——开发者通过 AI 的建议学到最佳实践</li>
+</ul>
+<ul>
+<li>更低的认知负担——AI 处理常规检查，让人专注复杂逻辑</li>
+</ul>
+<ul>
+<li>持续改进——AI 系统会随着数据增多而不断变好</li>
+</ul>
+<h3 id="h-ai-">实现 AI 代码评审</h3></div><div class="en side"><div class="tag">EN</div><h3 id="hbenefits-of-ai-code-review">Benefits of AI code review</h3>
+<ul>
+<li>Increased efficiency - Automation reduces review time and catches issues early</li>
+</ul>
+<ul>
+<li>Consistency - AI applies the same standards across all code reviews</li>
+</ul>
+<ul>
+<li>Knowledge sharing - Developers learn best practices through AI suggestions</li>
+</ul>
+<ul>
+<li>Reduced cognitive load - AI handles routine checks, letting humans focus on complex logic</li>
+</ul>
+<ul>
+<li>Continuous improvement - AI systems improve over time with more data</li>
+</ul>
+<h3 id="himplementing-ai-code-review">Implementing AI Code Review</h3></div></div>
+<div class="pair" id="ai-code-review-best-practices-0004"><div class="zh side"><div class="tag">中文</div><h4 id="h-1-">第 1 步：选对工具</h4>
+<p>目前有多款 AI 代码评审工具可选，能力各不相同：</p>
+<ul>
+<li>Graphite Agent：通过上下文代码分析配合 PR 自动化，提供即时、可执行的反馈</li>
+</ul>
+<ul>
+<li>GitHub Copilot：在写代码时提供实时建议，让待评审的代码更干净</li>
+</ul>
+<ul>
+<li>SonarQube 配合 AI：把传统静态分析与 AI 能力结合起来</li>
+</ul>
+<ul>
+<li>DeepCode：专注于检测安全漏洞</li>
+</ul>
+<p>在选择 AI 代码评审工具时，有几点很重要：</p>
+<ul>
+<li>可定制选项</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h4 id="hstep-1-choose-the-right-tool">Step 1: Choose the Right Tool</h4>
+<p>Several AI code review tools are available, with varying capabilities:</p>
+<ul>
+<li>Graphite Agent: Offers immediate, actionable feedback via contextual code analysis with PR automation</li>
+</ul>
+<ul>
+<li>GitHub Copilot: Provides real-time suggestions while coding to provide cleaner code for reviews</li>
+</ul>
+<ul>
+<li>SonarQube with AI: Combines traditional static analysis with AI capabilities</li>
+</ul>
+<ul>
+<li>DeepCode: Focuses on detecting security vulnerabilities</li>
+</ul>
+<p>When selecting an AI code review tool, it's important to consider:</p>
+<ul>
+<li>Customization options</li>
+</ul></div></div>
+<div class="pair" id="ai-code-review-best-practices-0005"><div class="zh side"><div class="tag">中文</div><h4 id="h-2-">第 2 步：接入开发工作流</h4>
+<p>要有效地实现 AI 代码评审：</p>
+<ul>
+<li>设置 webhook 或集成，让拉取请求自动触发评审</li>
+</ul>
+<ul>
+<li>创建配置文件，指定严重级别和关注范围</li>
+</ul>
+<ul>
+<li>为生成的代码设置忽略规则</li>
+</ul>
+<ul>
+<li>向团队介绍 AI 评审的能力与局限</li>
+</ul>
+<ul>
+<li>制定解读和落实 AI 建议的准则</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h4 id="hstep-2-integration-into-development-workflow">Step 2: Integration into development workflow</h4>
+<p>For effective AI code review implementation:</p>
+<ul>
+<li>Set up webhooks or integrations to trigger reviews automatically on pull requests</li>
+</ul>
+<ul>
+<li>Create configuration files specifying severity levels and focus areas</li>
+</ul>
+<ul>
+<li>Set up ignore patterns for generated code</li>
+</ul>
+<ul>
+<li>Introduce teams to AI review capabilities and limitations</li>
+</ul>
+<ul>
+<li>Establish guidelines for interpreting and acting on AI suggestions</li>
+</ul></div></div>
+<div class="pair" id="ai-code-review-best-practices-0006"><div class="zh side"><div class="tag">中文</div><h4 id="h-3-">第 3 步：定制与微调</h4>
+<p>大多数 AI 代码评审工具都支持定制，包括：</p>
+<ul>
+<li>规则灵敏度：针对不同类型的问题调整阈值</li>
+</ul>
+<ul>
+<li>领域特定模式：为你的代码库定义自定义规则</li>
+</ul>
+<ul>
+<li>集成深度：配置 AI 与你的工作流集成得有多深</li>
+</ul>
+<h3 id="hai-">AI 代码评审的最佳实践</h3></div><div class="en side"><div class="tag">EN</div><h4 id="hstep-3-customization-and-fine-tuning">Step 3: Customization and fine tuning</h4>
+<p>Most AI code review tools allow customization, including:</p>
+<ul>
+<li>Rule sensitivity: Adjust thresholds for different types of issues</li>
+</ul>
+<ul>
+<li>Domain-specific patterns: Define custom rules for your codebase</li>
+</ul>
+<ul>
+<li>Integration depth: Configure how deeply the AI integrates with your workflow</li>
+</ul>
+<h3 id="hbest-practices-for-ai-code-review">Best practices for AI code review</h3></div></div>
+<div class="pair" id="ai-code-review-best-practices-0007"><div class="zh side"><div class="tag">中文</div><h4 id="h1-">1. 明确预期</h4>
+<p>界定 AI 该评审什么、不该评审什么：</p>
+<ul>
+<li>应该：把风格一致性、基础逻辑错误和安全扫描交给 AI</li>
+</ul>
+<ul>
+<li>不应该：架构决策或复杂业务逻辑不要只依赖 AI</li>
+</ul>
+<ul>
+<li>应该：为自动化的评审建立清晰的验收标准</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h4 id="h1-establish-clear-expectations">1. Establish clear expectations</h4>
+<p>Define what the AI should and shouldn't review:</p>
+<ul>
+<li>DO: use AI for style consistency, basic logic errors, and security scanning</li>
+</ul>
+<ul>
+<li>DON'T: rely solely on AI for architectural decisions or complex business logic</li>
+</ul>
+<ul>
+<li>DO: establish clear acceptance criteria for automated reviews</li>
+</ul></div></div>
+<div class="pair" id="ai-code-review-best-practices-0008"><div class="zh side"><div class="tag">中文</div><h4 id="h2-">2. 人在环路中的做法</h4>
+<p>最有效的 AI 代码评审实现都保留了人的监督：</p>
+<ul>
+<li>把 AI 当作第一轮，用来抓显而易见的问题</li>
+</ul>
+<ul>
+<li>由人类评审者来验证 AI 的建议</li>
+</ul>
+<ul>
+<li>统计哪些 AI 建议被采纳、哪些被拒绝，以改进系统</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h4 id="h2-human-in-the-loop-approach">2. Human-in-the-loop approach</h4>
+<p>The most effective AI code review implementations maintain human oversight:</p>
+<ul>
+<li>Use AI as a first pass to catch obvious issues</li>
+</ul>
+<ul>
+<li>Have human reviewers validate AI suggestions</li>
+</ul>
+<ul>
+<li>Track which AI suggestions are accepted vs. rejected to improve the system</li>
+</ul></div></div>
+<div class="pair" id="ai-code-review-best-practices-0009"><div class="zh side"><div class="tag">中文</div><h4 id="h3-">3. 聚焦可落地的反馈</h4>
+<p>训练开发者批判性地分析 AI 建议。比如，鼓励你的团队做到：</p>
+<ul>
+<li>理解建议背后的推理。</li>
+</ul>
+<ul>
+<li>质疑在上下文中不合情理的建议。</li>
+</ul>
+<ul>
+<li>记录反复出现的误报。</li>
+</ul>
+<p>评估 AI 反馈的示例：</p></div><div class="en side"><div class="tag">EN</div><h4 id="h3-focus-on-actionable-feedback">3. Focus on actionable feedback</h4>
+<p>Train developers to analyze AI suggestions critically. For example, encourage your team to:</p>
+<ul>
+<li>Understand the reasoning behind suggestions.</li>
+</ul>
+<ul>
+<li>Challenge suggestions that don't make sense in context.</li>
+</ul>
+<ul>
+<li>Document recurring false positives.</li>
+</ul>
+<p>Example of evaluating AI feedback:</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0010"><div class="zh side"><div class="tag">中文</div><h4 id="h4-">4. 持续学习</h4>
+<p>建立反馈闭环，同时改进 AI 和人的表现，可以包括：</p>
+<ul>
+<li>追踪开发者接受与拒绝了哪些 AI 建议。</li>
+</ul>
+<ul>
+<li>定期复盘误报和漏报。</li>
+</ul>
+<ul>
+<li>根据发现的问题更新评审配置。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h4 id="h4-continuous-learning">4. Continuous learning</h4>
+<p>Implement feedback loops to improve both AI and human performance, which could include:</p>
+<ul>
+<li>Tracking which AI suggestions developers accept vs. reject.</li>
+</ul>
+<ul>
+<li>Periodically reviewing false positives and false negatives.</li>
+</ul>
+<ul>
+<li>Updating review configurations based on findings.</li>
+</ul></div></div>
+<div class="pair" id="ai-code-review-best-practices-0011"><div class="zh side"><div class="tag">中文</div><h4 id="h5-">5. 安全优先的思维</h4>
+<p>在评审 AI 生成的代码建议时，永远把安全放在第一位：</p>
+<ul>
+<li>验证 AI 的建议不会引入新的漏洞</li>
+</ul>
+<ul>
+<li>对处理以下内容的 AI 生成代码尤其谨慎：</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h4 id="h5-security-first-mindset">5. Security-first mindset</h4>
+<p>When reviewing AI code suggestions, always prioritize security:</p>
+<ul>
+<li>Verify AI suggestions don't introduce new vulnerabilities</li>
+</ul>
+<ul>
+<li>Be especially cautious with AI-generated code that handles:</li>
+</ul></div></div>
+<div class="pair" id="ai-code-review-best-practices-0012"><div class="zh side"><div class="tag">中文</div><h3 id="h6-">6. 性能优化</h3>
+<p>训练 AI 评审流程去识别性能隐患，比如：</p>
+<ul>
+<li>检查有没有不必要的重复计算</li>
+</ul>
+<ul>
+<li>找出低效的数据结构</li>
+</ul>
+<p>接下来应由人类评审者评估：</p>
+<ul>
+<li>在这个场景下，列表推导式真的更高效吗？</li>
+</ul>
+<ul>
+<li>它提升了可读性吗？</li>
+</ul>
+<ul>
+<li>这个操作是否干脆更适合另一种数据结构？</li>
+</ul>
+<p>Graphite Agent 会自动识别你 PR 中的性能瓶颈，帮助你在低效进入生产之前抓住它们。它的上下文分析理解你的整个代码库，从而给出可执行的性能建议。</p>
+<h3 id="h-ai-">常用的 AI 代码评审工具</h3></div><div class="en side"><div class="tag">EN</div><h3 id="h6-performance-optimization">6. Performance optimization</h3>
+<p>Train the AI review process to identify performance concerns, such as:</p>
+<ul>
+<li>Check for unnecessary recomputation</li>
+</ul>
+<ul>
+<li>Identify inefficient data structures</li>
+</ul>
+<p>A human reviewer should then evaluate:</p>
+<ul>
+<li>Is the list comprehension actually more efficient in this case?</li>
+</ul>
+<ul>
+<li>Does it improve readability?</li>
+</ul>
+<ul>
+<li>Is the operation suited for a different data structure altogether?</li>
+</ul>
+<p>Graphite Agent automatically identifies performance bottlenecks in your PRs, helping you catch inefficiencies before they reach production. Its contextual analysis understands your entire codebase to provide actionable performance recommendations.</p>
+<h3 id="hpopular-ai-code-review-tools">Popular AI code review tools</h3></div></div>
+<div class="pair" id="ai-code-review-best-practices-0013"><div class="zh side"><div class="tag">中文</div><h4 id="hgraphite-graphite-agent">Graphite Graphite Agent</h4>
+<p>Graphite Agent 这款工具的突出之处在于它与开发工作流的深度整合，以及对代码的上下文理解。它的主要特性包括：</p>
+<ul>
+<li>跨整个仓库的上下文代码理解</li>
+</ul>
+<ul>
+<li>自动生成 PR 摘要和描述</li>
+</ul>
+<ul>
+<li>尊重项目模式的智能代码建议</li>
+</ul>
+<ul>
+<li>与 GitHub 深度整合</li>
+</ul>
+<p>!<a href="/images/content/guides/ai-code-review-implementation-best-practices/Graphite Agent-comment.png">Graphite Agent 评论截图</a></p>
+<p>Graphite Agent 擅长的不只是理解孤立的代码片段，而是理解整个代码库，因此它的建议更切题、更符合项目标准。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hgraphite-graphite-agent">Graphite Graphite Agent</h4>
+<p>Graphite Agent tool stands out for its deep integration with development workflows and contextual understanding of code. Key features include:</p>
+<ul>
+<li>Contextual code understanding across entire repositories</li>
+</ul>
+<ul>
+<li>Automatic PR summaries and descriptions</li>
+</ul>
+<ul>
+<li>Intelligent code suggestions that respect project patterns</li>
+</ul>
+<ul>
+<li>Deep integration with GitHub</li>
+</ul>
+<p>!<a href="/images/content/guides/ai-code-review-implementation-best-practices/Graphite Agent-comment.png">screenshot of Graphite Agent comment</a></p>
+<p>Graphite Agent excels at understanding not just isolated code snippets but entire codebases, making its suggestions more relevant and aligned with project standards.</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0014"><div class="zh side"><div class="tag">中文</div><h3 id="h-">其他值得关注的工具</h3>
+<ul>
+<li>DeepCode：擅长安全漏洞检测</li>
+</ul>
+<ul>
+<li>Codacy：把传统分析与 AI 能力结合起来</li>
+</ul>
+<ul>
+<li>SonarQube AI：企业级代码质量平台</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h3 id="hother-notable-tools">Other notable tools</h3>
+<ul>
+<li>DeepCode: Strong in security vulnerability detection</li>
+</ul>
+<ul>
+<li>Codacy: Combines traditional analysis with AI capabilities</li>
+</ul>
+<ul>
+<li>SonarQube AI: Enterprise-grade code quality platform</li>
+</ul></div></div>
+<div class="pair" id="ai-code-review-best-practices-0015"><div class="zh side"><div class="tag">中文</div><h3 id="h-">衡量成效</h3>
+<p>要评估 AI 代码评审实现的有效性，可以关注这些指标：</p></div><div class="en side"><div class="tag">EN</div><h3 id="hmeasuring-success">Measuring success</h3>
+<p>To evaluate the effectiveness of your AI code review implementation, you can pay attention to these metrics:</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0016"><div class="zh side"><div class="tag">中文</div><h3 id="h-">常见挑战与解决方案</h3>
+<p>Graphite Agent 在设计时就考虑到了其中许多常见挑战。凭借智能过滤、上下文理解和与 GitHub 的无缝整合，它帮助团队在保持高代码质量标准的同时避免误报疲劳。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcommon-challenges-and-solutions">Common challenges and solutions</h3>
+<p>Graphite Agent is designed to address many of these common challenges out of the box. With intelligent filtering, contextual understanding, and seamless GitHub integration, it helps teams avoid false positive fatigue while maintaining high code quality standards.</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0017"><div class="zh side"><div class="tag">中文</div><h3 id="h-">结论</h3>
+<p>像 Graphite Agent 这样的 AI 代码评审工具正在改变开发实践：它们提供更快、更一致的分析，同时减轻人类评审者的负担。通过落实本指南中列出的最佳实践，并把 AI 代码评审当作人类专业能力的补充而非替代，团队可以显著提升代码质量、安全性和开发者效率。</p>
+<p>请记住，AI 代码评审只有作为一套包含测试、文档和深思熟虑的人类监督的全面质量策略的一部分时，才最有效。目标不是消除人的判断，而是通过自动化常规检查、提供有价值的洞察来增强它。</p>
+<h3 id="h-">常见问题</h3></div><div class="en side"><div class="tag">EN</div><h3 id="hconclusion">Conclusion</h3>
+<p>AI code review tools like Graphite Agent are transforming development practices by providing faster, more consistent analysis while reducing the burden on human reviewers. By implementing the best practices outlined in this guide and approaching AI code review as a complement to human expertise rather than a replacement, teams can significantly improve code quality, security, and developer productivity.</p>
+<p>Remember that AI code review is most effective when it's part of a comprehensive quality strategy that includes testing, documentation, and thoughtful human oversight. The goal is not to eliminate human judgment but to enhance it by automating routine checks and providing valuable insights.</p>
+<h3 id="hfrequently-asked-questions">Frequently asked questions</h3></div></div>
+<div class="pair" id="ai-code-review-best-practices-0018"><div class="zh side"><div class="tag">中文</div><h4 id="hai-">AI 代码评审工具有多准？</h4>
+<p>对于语法错误、风格违规和基本安全漏洞这类常见问题，AI 代码评审工具的准确率通常在 70%–90%。不过，准确率会随问题的复杂度和具体工具而显著变化。对于架构决策和复杂业务逻辑，人工评审依然不可替代。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hhow-accurate-are-ai-code-review-tools-">How accurate are AI code review tools?</h4>
+<p>AI code review tools typically achieve 70-90% accuracy for common issues like syntax errors, style violations, and basic security vulnerabilities. However, accuracy varies significantly based on the complexity of the issue and the specific tool. For architectural decisions and complex business logic, human review remains essential.</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0019"><div class="zh side"><div class="tag">中文</div><h4 id="hai-">AI 代码评审能完全取代人类评审者吗？</h4>
+<p>不能，AI 代码评审应当是人类评审者的补充，而不是替代。AI 擅长发现例行问题并保持一致性，但在架构决策、业务逻辑验证和复杂问题求解上，仍然需要人类评审者。最有效的做法是把 AI 自动化与人类专业能力结合起来。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hcan-ai-code-review-replace-human-reviewers-entirely-">Can AI code review replace human reviewers entirely?</h4>
+<p>No, AI code review should complement rather than replace human reviewers. While AI excels at catching routine issues and maintaining consistency, human reviewers are still needed for architectural decisions, business logic validation, and complex problem-solving. The most effective approach combines AI automation with human expertise.</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0020"><div class="zh side"><div class="tag">中文</div><h4 id="h-ai-">我怎么说服团队采用 AI 代码评审？</h4>
+<p>先从有热情的团队成员参与的小范围试点开始。用节省下来的时间、变好的代码质量指标和下降的 bug 率来展示明确的价值。至于对岗位安全的顾虑，就把 AI 定位成一个效率工具，让开发者能专注更高价值的工作。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hhow-do-i-convince-my-team-to-adopt-ai-code-review-">How do I convince my team to adopt AI code review?</h4>
+<p>Start with a pilot program involving enthusiastic team members. Demonstrate clear value by showing time savings, improved code quality metrics, and reduced bug rates. Address concerns about job security by positioning AI as a productivity tool that allows developers to focus on higher-value work.</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0021"><div class="zh side"><div class="tag">中文</div><h4 id="h-ai-">我该怎么处理 AI 代码评审带来的误报？</h4>
+<p>建立一个反馈闭环，让开发者可以把建议标记为误报。大多数工具都允许你调节灵敏度设置，并为特定代码模式创建忽略规则。定期复盘误报，有助于随时间推移提升系统的准确率。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hhow-do-i-handle-false-positives-from-ai-code-review-">How do I handle false positives from AI code review?</h4>
+<p>Implement a feedback loop where developers can mark suggestions as false positives. Most tools allow you to tune sensitivity settings and create ignore patterns for specific code patterns. Regular review of false positives helps improve the system's accuracy over time.</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0022"><div class="zh side"><div class="tag">中文</div><h4 id="h-ai-">使用 AI 代码评审工具时，我的代码安全吗？</h4>
+<p>安全性取决于工具和部署模式。基于云的工具可能在外部服务器上处理你的代码，而本地部署方案则把代码留在你自己的基础设施内。选择方案时，请审查每个工具的数据处理政策，并结合你组织的安全要求来考虑。</p></div><div class="en side"><div class="tag">EN</div><h4 id="his-my-code-secure-when-using-ai-code-review-tools-">Is my code secure when using AI code review tools?</h4>
+<p>Security depends on the tool and deployment model. Cloud-based tools may process your code on external servers, while on-premises solutions keep code within your infrastructure. Review each tool's data handling policies and consider your organization's security requirements when choosing a solution.</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0023"><div class="zh side"><div class="tag">中文</div><h4 id="hai-">AI 代码评审会拖慢我的开发流程吗？</h4>
+<p>一开始可能会有一点学习曲线，但大多数团队在 2-4 周内就能看到整体时间上的节省。AI 早早发现问题，减少了调试时间和评审轮次。关键在于合理配置，让它聚焦高影响的问题，而不是用一堆细枝末节的建议淹没开发者。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hwill-ai-code-review-slow-down-my-development-process-">Will AI code review slow down my development process?</h4>
+<p>Initially, there may be a slight learning curve, but most teams see net time savings within 2-4 weeks. AI catches issues early, reducing debugging time and review cycles. The key is proper configuration to focus on high-impact issues rather than overwhelming developers with minor suggestions.</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0024"><div class="zh side"><div class="tag">中文</div><h4 id="h-ai-ci-cd-">我该如何把 AI 代码评审接入现有的 CI/CD 流水线？</h4>
+<p>大多数 AI 代码评审工具都提供 API 集成和 webhook 支持。你通常可以把它作为 CI 流水线中的一个步骤，或作为拉取请求上的自动化检查来接进来。先从基础集成开始，随着团队逐渐适应，再逐步加入更复杂的工作流。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hhow-do-i-integrate-ai-code-review-with-my-existing-ci-cd-pipeline-">How do I integrate AI code review with my existing CI/CD pipeline?</h4>
+<p>Most AI code review tools offer API integrations and webhook support. You can typically integrate them as a step in your CI pipeline or as automated checks on pull requests. Start with basic integration and gradually add more sophisticated workflows as your team becomes comfortable.</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0025"><div class="zh side"><div class="tag">中文</div><h4 id="h-ai-">我该如何平衡 AI 的建议与团队的编码规范？</h4>
+<p>把 AI 工具配置成与现有的编码规范和风格指南一致。大多数工具都允许定制规则，也能从你的代码库模式中学习。要根据团队反馈和不断演进的标准，定期复审并调整配置。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hhow-do-i-balance-ai-suggestions-with-team-coding-standards-">How do I balance AI suggestions with team coding standards?</h4>
+<p>Configure the AI tool to align with your existing coding standards and style guides. Most tools allow customization of rules and can learn from your codebase patterns. Regularly review and adjust configurations based on team feedback and evolving standards.</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0026"><div class="zh side"><div class="tag">中文</div><h4 id="h-ai-">我该如何衡量 AI 代码评审实现的成效？</h4>
+<p>跟踪这些指标：生产 bug 的减少量、代码评审节省下来的时间、开发者满意度评分，以及代码质量的改善。落地前先建立基线测量，使用 3-6 个月后再对比结果。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hhow-do-i-measure-the-success-of-my-ai-code-review-implementation-">How do I measure the success of my AI code review implementation?</h4>
+<p>Track metrics like reduction in production bugs, time saved in code reviews, developer satisfaction scores, and code quality improvements. Set baseline measurements before implementation and compare results after 3-6 months of usage.</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0027"><div class="zh side"><div class="tag">中文</div><h4 id="hai-">AI 漏掉了人类评审能发现的重要问题，该怎么改进？</h4>
+<p>这很常见，也在预期之内。AI 工具擅长模式识别，但可能漏掉与具体上下文相关的问题。要用人类监督来补上 AI 评审，尤其是复杂逻辑和架构决策部分。利用 AI 反馈来改进工具配置，并为领域特定的模式考虑自定义规则。</p>
+<p>相关指南</p></div><div class="en side"><div class="tag">EN</div><h4 id="hthe-ai-is-missing-important-issues-that-human-reviewers-catch-how-can-i-improve-this-">The AI is missing important issues that human reviewers catch. How can I improve this?</h4>
+<p>This is common and expected. AI tools excel at pattern recognition but may miss context-specific issues. Supplement AI review with human oversight, especially for complex logic and architectural decisions. Use AI feedback to improve the tool's configuration and consider custom rules for domain-specific patterns.</p>
+<p>Related guides</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0028"><div class="zh side"><div class="tag">中文</div><h3 id="h-">在软件团队中平衡代码质量与交付速度</h3>
+<p>本指南探讨当前以及历久弥新的最佳实践，以优化代码标准和团队效率……</p></div><div class="en side"><div class="tag">EN</div><h3 id="hbalancing-code-quality-and-delivery-speed-in-software-teams">Balancing code quality and delivery speed in software teams</h3>
+<p>This guide explores current and timeless best practices to optimize code standards and team producti...</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0029"><div class="zh side"><div class="tag">中文</div><h3 id="h-ai-">与 AI 助手结对编程的最佳实践</h3>
+<p>本指南探讨与 AI 助手结对编程的核心最佳实践，包括代码……</p></div><div class="en side"><div class="tag">EN</div><h3 id="hbest-practices-for-pair-programming-with-ai-assistants">Best practices for pair programming with AI assistants</h3>
+<p>This guide explores essential best practices for pair programming with AI assistants, including code...</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0030"><div class="zh side"><div class="tag">中文</div><h3 id="h-typescript-">现有的 TypeScript 代码评审工具</h3>
+<p>本指南探讨最适合 TypeScript 的代码评审工具，重点是如何强制落实最佳实践……</p>
+<p>最后修改于 11 个月前</p>
+<p>0 分钟阅读</p>
+<ul>
+<li>了解 AI 代码评审</li>
+</ul>
+<ul>
+<li>AI 代码评审的收益</li>
+</ul>
+<ul>
+<li>结论</li>
+</ul>
+<ul>
+<li>常见问题</li>
+</ul>
+<p>分享</p>
+<p>源于 Git 的设计</p>
+<p>Graphite 的 CLI 和 VS Code 扩展让使用 Git 变得毫不费力。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hexisting-code-review-tools-for-typescript">Existing code review tools for TypeScript</h3>
+<p>This guide explores the best code review tools for TypeScript, focusing on enforcing best practices ...</p>
+<p>Last modified 11 months ago</p>
+<p>0 min read</p>
+<ul>
+<li>Understanding AI code review</li>
+</ul>
+<ul>
+<li>Benefits of AI code review</li>
+</ul>
+<ul>
+<li>Conclusion</li>
+</ul>
+<ul>
+<li>Frequently asked questions</li>
+</ul>
+<p>Share</p>
+<p>Git inspired</p>
+<p>Graphite's CLI and VS Code extension make working with Git effortless.</p></div></div>
+<div class="pair" id="ai-code-review-best-practices-0031"><div class="zh side"><div class="tag">中文</div><h2 id="h-">为世界上最快的工程团队打造，如今人人可用。</h2>
+<p>申请演示</p>
+<p>开始免费试用</p></div><div class="en side"><div class="tag">EN</div><h2 id="hbuilt-for-the-world-s-fastest-engineering-teams-now-available-for-everyone-">Built for the world’s fastest engineering teams, now available for everyone.</h2>
+<p>Request a demo</p>
+<p>Start free trial</p></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#ai-code-review-best-practices-0000">第 1 段</a></li><li><a href="#ai-code-review-best-practices-0001">第 2 段</a></li><li><a href="#ai-code-review-best-practices-0002">第 3 段</a></li><li><a href="#ai-code-review-best-practices-0003">第 4 段</a></li><li><a href="#ai-code-review-best-practices-0004">第 5 段</a></li><li><a href="#ai-code-review-best-practices-0005">第 6 段</a></li><li><a href="#ai-code-review-best-practices-0006">第 7 段</a></li><li><a href="#ai-code-review-best-practices-0007">第 8 段</a></li><li><a href="#ai-code-review-best-practices-0008">第 9 段</a></li><li><a href="#ai-code-review-best-practices-0009">第 10 段</a></li><li><a href="#ai-code-review-best-practices-0010">第 11 段</a></li><li><a href="#ai-code-review-best-practices-0011">第 12 段</a></li><li><a href="#ai-code-review-best-practices-0012">第 13 段</a></li><li><a href="#ai-code-review-best-practices-0013">第 14 段</a></li><li><a href="#ai-code-review-best-practices-0014">第 15 段</a></li><li><a href="#ai-code-review-best-practices-0015">第 16 段</a></li><li><a href="#ai-code-review-best-practices-0016">第 17 段</a></li><li><a href="#ai-code-review-best-practices-0017">第 18 段</a></li><li><a href="#ai-code-review-best-practices-0018">第 19 段</a></li><li><a href="#ai-code-review-best-practices-0019">第 20 段</a></li><li><a href="#ai-code-review-best-practices-0020">第 21 段</a></li><li><a href="#ai-code-review-best-practices-0021">第 22 段</a></li><li><a href="#ai-code-review-best-practices-0022">第 23 段</a></li><li><a href="#ai-code-review-best-practices-0023">第 24 段</a></li><li><a href="#ai-code-review-best-practices-0024">第 25 段</a></li><li><a href="#ai-code-review-best-practices-0025">第 26 段</a></li><li><a href="#ai-code-review-best-practices-0026">第 27 段</a></li><li><a href="#ai-code-review-best-practices-0027">第 28 段</a></li><li><a href="#ai-code-review-best-practices-0028">第 29 段</a></li><li><a href="#ai-code-review-best-practices-0029">第 30 段</a></li><li><a href="#ai-code-review-best-practices-0030">第 31 段</a></li><li><a href="#ai-code-review-best-practices-0031">第 32 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

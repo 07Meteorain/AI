@@ -1,0 +1,10 @@
+{
+ "seg_id": "claude-code-best-practices#0012",
+ "doc_id": "claude-code-best-practices",
+ "fingerprint": "9ee16d7e9790f5616291c99ba4c6e707bab5f3cc",
+ "zh": "WinGet 安装不会自动更新。请定期运行 winget upgrade Anthropic.ClaudeCode，以获取最新功能和安全修复。\n\n然后在任何项目中启动 Claude Code：",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

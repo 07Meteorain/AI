@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0024",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "266f4eb31703de4bd63845a26c061bef8835e32c",
+ "zh": "#### 我该如何把 AI 代码评审接入现有的 CI/CD 流水线？\n\n大多数 AI 代码评审工具都提供 API 集成和 webhook 支持。你通常可以把它作为 CI 流水线中的一个步骤，或作为拉取请求上的自动化检查来接进来。先从基础集成开始，随着团队逐渐适应，再逐步加入更复杂的工作流。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

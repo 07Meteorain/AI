@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0010",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "f0a13f3ae608d915b594336e668fcc27b0beecb4",
+ "zh": "#### 4. 持续学习\n\n建立反馈闭环，同时改进 AI 和人的表现，可以包括：\n\n- 追踪开发者接受与拒绝了哪些 AI 建议。\n\n- 定期复盘误报和漏报。\n\n- 根据发现的问题更新评审配置。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

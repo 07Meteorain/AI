@@ -1,0 +1,10 @@
+{
+ "seg_id": "writing-effective-tools-for-agents#0007",
+ "doc_id": "writing-effective-tools-for-agents",
+ "fingerprint": "33c54c27cfcc849e43aa35d2a1dd3f3b7b7c57ee",
+ "zh": "观察智能体在哪里卡住、陷入困惑。通读评测智能体的推理和反馈（或 CoT），找出其中的毛刺。审视原始记录（包括工具调用和工具回应），捕捉智能体 CoT 中没有明确说出的行为。要读出字面之外的意思；记住，你的评测智能体不一定知道正确答案和正确策略。\n\n分析工具调用指标。大量冗余的工具调用，可能意味着该调整分页参数或 token 上限参数了；大量因无效参数导致的工具错误，可能意味着工具需要更清晰的描述或更好的示例。我们上线 Claude 网页搜索工具时发现，Claude 会无谓地在工具的查询参数后加上 2025，导致搜索结果偏向、性能下降（我们通过改进工具描述，把 Claude 引到了正确方向）。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

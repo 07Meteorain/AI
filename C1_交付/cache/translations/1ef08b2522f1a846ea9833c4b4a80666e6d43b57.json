@@ -1,0 +1,10 @@
+{
+ "seg_id": "finding-vulnerabilities-claude-codex#0000",
+ "doc_id": "finding-vulnerabilities-claude-codex",
+ "fingerprint": "1ef08b2522f1a846ea9833c4b4a80666e6d43b57",
+ "zh": "在 RSA 上，我们发布了 Semgrep Multimodal，把 AI 推理与基于规则的检测结合起来 了解更多 →\n\n- Semgrep Code\n 发现并修复代码中真正要紧的问题（SAST）\n\n- Semgrep Supply Chain\n 发现并修复可达的依赖漏洞（SCA）\n\n- Semgrep Secrets\n 用语义分析发现并修复硬编码密钥\n\n- Semgrep Assistant\n 由 AI 给出分类研判与代码修复建议\n\n- Semgrep AppSec Platform\n 在组织内自动化、管理并落实安全策略\n\n- Semgrep Workflows\n 构建并部署把静态分析与规模化 AI 结合的安全流水线\n\n- 产品更新\n 及时了解 Semgrep 平台的大大小小改动\n\n- 安全氛围编码（Secure Vibe Coding）\n 无论是谁（或者什么）在写代码，都能守住它的安全。\n\n- 开源恶意软件防护\n 抵御软件供应链攻击\n\n- 静态应用安全测试\n 在加快开发的同时提升安全性\n\n- OWASP 十大风险\n 防范最关键的 Web 应用安全风险\n\n- 安全护栏\n 用安全护栏保护你的代码\n\n- 金融科技\n 缓解软件供应链风险\n\n- SaaS 与云\n 在加快开发的同时提升安全性\n\n- 文档\n 想读全部文档？从这里开始\n\n- ROI 计算器\n 看看 Semgrep 能帮你省下多少时间和成本\n\n- 社区 Slack\n 加入这个友好的 Slack 群组，提问或分享反馈\n\n- 视频库\n 查看我们的点播网络研讨会库\n\n- 预约演示\n\n \n \n Try for free\n\n安全研究",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

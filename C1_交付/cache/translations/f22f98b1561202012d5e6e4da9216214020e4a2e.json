@@ -1,0 +1,10 @@
+{
+ "seg_id": "owasp-top-ten#0003",
+ "doc_id": "owasp-top-ten",
+ "fingerprint": "f22f98b1561202012d5e6e4da9216214020e4a2e",
+ "zh": "### Top10:2017 已完成的翻译：\n\n- 翻译人员:陈亮、王厚奎、王颉、王文君、王晓飞、吴楠、徐瑞祝、夏天泽、杨璐、张剑钟、赵学文(排名不分先后,按姓氏拼音排列)\n\n- 法语：OWASP Top 10 2017 法语版（Git/Markdown）\n\n- 德语：OWASP Top 10 2017 德语版 V1.0（Pdf）（网页）\n由 Christian Dresen, Alexios Fakos, Louisa Frick, Torsten Gigler, Tobias Glemser, Dr. Frank Gut, Dr. Ingo Hanke, Dr. Thomas Herzog, Dr. Markus Koegel, Sebastian Klipper, Jens Liebau, Ralf Reinhardt, Martin Riedel, Michael Schaefer 编译\n\n- 希伯来语：OWASP Top 10-2017 - Hebrew (PDF) (PPTX)\n由 Eyal Estrin (Twitter: @eyalestrin) 和 Omer Levi Hevroni (Twitter: @omerlh) 翻译。\n\n- 日语：OWASP Top 10-2017 - 日本語版 (PDF)\n 由 Akitsugu ITO, Albert Hsieh, Chie TAZAWA, Hideko IGARASHI, Hiroshi TOKUMARU, Naoto KATSUMI, Riotaro OKADA, Robert DRACEA, Satoru TAKAHASHI, Sen UENO, Shoichi NAKATA, Takanori NAKANOWATARI ,Takanori ANDO, Tomohiro SANAE 翻译并审校。\n\n- 韩语：OWASP Top 10-2017 - 한글 (PDF) (PPTX)\n 번역 프로젝트 관리 및 감수 : 박형근(Hyungkeun Park) / 감수(ᄀᄂᄃ순) : 강용석(YongSeok Kang), 박창렴(Park Changryum), 조민재(Johnny Cho) / 편집 및 감수 : 신상원(Shin Sangwon) / 번역(ᄀᄂᄃ순) : 김영하(Youngha Kim), 박상영(Sangyoung Park), 이민욱(MinWook Lee), 정초아(JUNG CHOAH), 조광렬(CHO KWANG YULL), 최한동(Handong Choi)\n\n- 葡萄牙语：OWASP Top 10 2017 - Portuguese (PDF) (ODP)\n 由 Anabela Nogueira, Carlos Serrão, Guillaume Lopes, João Pinto, João Samouco, Kembolle A. Oliveira, Paulo A. Silva, Ricardo Mourato, Rui Silva, Sérgio Domingues, Tiago Reis, Vítor Magano 翻译。\n\n- 俄语：OWASP Top 10-2017 - на русском языке (PDF)\n 由 JZDLin (@JZDLin), Oleksii Skachkov (@hamster4n), Ivan Kochurkin (@KvanTTT) 和 Taras Ivashchenko 翻译并审校\n\n- 西班牙语：OWASP Top 10-2017 - Español (PDF)\n\n- Gerardo Canedo([email protected] - [Twitter: @GerardoMCanedo])\n\n- Cristian Borghello([email protected] - [Twitter: @seguinfo])",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Code 最佳实践 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>Claude Code 最佳实践</h1>
+  <div class="meta">
+    <span>分类：Week 4 · Claude Code</span><span>原文 1,289 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://www.anthropic.com/engineering/claude-code-best-practices" target="_blank" rel="noopener">https://www.anthropic.com/engineering/claude-code-best-practices</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="claude-code-best-practices-0000"><div class="zh side"><div class="tag">中文</div><p>Claude Code 文档首页</p>
+<p>入门</p>
+<p>用 Claude Code 构建</p>
+<p>部署</p>
+<p>管理</p>
+<p>配置</p>
+<p>参考</p>
+<p>资源</p></div><div class="en side"><div class="tag">EN</div><p>Claude Code Docs home page</p>
+<p>Getting started</p>
+<p>Build with Claude Code</p>
+<p>Deployment</p>
+<p>Administration</p>
+<p>Configuration</p>
+<p>Reference</p>
+<p>Resources</p></div></div>
+<div class="pair" id="claude-code-best-practices-0001"><div class="zh side"><div class="tag">中文</div><h5 id="h-">入门</h5>
+<ul>
+<li>概览</li>
+</ul>
+<h5 id="h-">核心概念</h5>
+<h5 id="h-claude-code">使用 Claude Code</h5>
+<h5 id="h-">平台与集成</h5>
+<ul>
+<li>下一步</li>
+</ul>
+<p>入门</p></div><div class="en side"><div class="tag">EN</div><h5 id="hgetting-started">Getting started</h5>
+<ul>
+<li>Overview</li>
+</ul>
+<h5 id="hcore-concepts">Core concepts</h5>
+<h5 id="huse-claude-code">Use Claude Code</h5>
+<h5 id="hplatforms-and-integrations">Platforms and integrations</h5>
+<ul>
+<li>Next steps</li>
+</ul>
+<p>Getting started</p></div></div>
+<div class="pair" id="claude-code-best-practices-0002"><div class="zh side"><div class="tag">中文</div><h1 id="hclaude-code-">Claude Code 概览</h1>
+<p>Claude Code 是一款智能体式的编码工具，它能读取你的代码库、编辑文件、运行命令，并与你的开发工具集成。可在终端、IDE、桌面应用和浏览器中使用。</p>
+<p>Claude Code 是一个由 AI 驱动的编码助手，能帮你构建功能、修复缺陷、自动化开发任务。它理解你整个代码库，能跨多个文件和工具把事情做完。</p>
+<p>开始使用</p>
+<p>选择你的环境开始上手。大多数形态需要 Claude 订阅或 Anthropic Console 账号。终端 CLI 和 VS Code 也支持第三方提供商。</p>
+<ul>
+<li>终端</li>
+</ul>
+<ul>
+<li>VS Code</li>
+</ul>
+<ul>
+<li>桌面应用</li>
+</ul>
+<p>功能完备的 CLI，直接在你的终端里使用 Claude Code。从命令行编辑文件、运行命令、管理整个项目。安装 Claude Code 有以下几种方式：</p>
+<ul>
+<li>原生安装（推荐）</li>
+</ul>
+<ul>
+<li>Homebrew</li>
+</ul>
+<ul>
+<li>WinGet</li>
+</ul>
+<p>macOS、Linux、WSL：</p></div><div class="en side"><div class="tag">EN</div><h1 id="hclaude-code-overview">Claude Code overview</h1>
+<p>Claude Code is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools. Available in your terminal, IDE, desktop app, and browser.</p>
+<p>Claude Code is an AI-powered coding assistant that helps you build features, fix bugs, and automate development tasks. It understands your entire codebase and can work across multiple files and tools to get things done.</p>
+<p>Get started</p>
+<p>Choose your environment to get started. Most surfaces require a Claude subscription or Anthropic Console account. The Terminal CLI and VS Code also support third-party providers.</p>
+<ul>
+<li>Terminal</li>
+</ul>
+<ul>
+<li>VS Code</li>
+</ul>
+<ul>
+<li>Desktop app</li>
+</ul>
+<p>The full-featured CLI for working with Claude Code directly in your terminal. Edit files, run commands, and manage your entire project from the command line.To install Claude Code, use one of the following methods:</p>
+<ul>
+<li>Native Install (Recommended)</li>
+</ul>
+<ul>
+<li>Homebrew</li>
+</ul>
+<ul>
+<li>WinGet</li>
+</ul>
+<p>macOS, Linux, WSL:</p></div></div>
+<div class="pair" id="claude-code-best-practices-0003"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+curl -fsSL https://claude.ai/install.sh | bash
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+curl -fsSL https://claude.ai/install.sh | bash
+</code></pre></div></div>
+<div class="pair" id="claude-code-best-practices-0004"><div class="zh side"><div class="tag">中文</div><p>Windows PowerShell：</p></div><div class="en side"><div class="tag">EN</div><p>Windows PowerShell:</p></div></div>
+<div class="pair" id="claude-code-best-practices-0005"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+irm https://claude.ai/install.ps1 | iex
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+irm https://claude.ai/install.ps1 | iex
+</code></pre></div></div>
+<div class="pair" id="claude-code-best-practices-0006"><div class="zh side"><div class="tag">中文</div><p>Windows CMD：</p></div><div class="en side"><div class="tag">EN</div><p>Windows CMD:</p></div></div>
+<div class="pair" id="claude-code-best-practices-0007"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+curl -fsSL https://claude.ai/install.cmd -o install.cmd &amp;&amp; install.cmd &amp;&amp; del install.cmd
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+curl -fsSL https://claude.ai/install.cmd -o install.cmd &amp;&amp; install.cmd &amp;&amp; del install.cmd
+</code></pre></div></div>
+<div class="pair" id="claude-code-best-practices-0008"><div class="zh side"><div class="tag">中文</div><p>如果你看到 The token '&amp;&amp;' is not a valid statement separator，说明你在 PowerShell 里而不是 CMD 里。请改用上面的 PowerShell 命令。在 PowerShell 中，命令行提示符显示为 PS C:\。Windows 需要 Git for Windows，如果你还没有安装，请先装上。</p>
+<p>原生安装会在后台自动更新，让你的版本保持最新。</p></div><div class="en side"><div class="tag">EN</div><p>If you see The token '&amp;&amp;' is not a valid statement separator, you’re in PowerShell, not CMD. Use the PowerShell command above instead. Your prompt shows PS C:\ when you’re in PowerShell.Windows requires Git for Windows. Install it first if you don’t have it.</p>
+<p>Native installations automatically update in the background to keep you on the latest version.</p></div></div>
+<div class="pair" id="claude-code-best-practices-0009"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+brew install --cask claude-code
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+brew install --cask claude-code
+</code></pre></div></div>
+<div class="pair" id="claude-code-best-practices-0010"><div class="zh side"><div class="tag">中文</div><p>Homebrew 安装不会自动更新。请定期运行 brew upgrade claude-code，以获取最新功能和安全修复。</p></div><div class="en side"><div class="tag">EN</div><p>Homebrew installations do not auto-update. Run brew upgrade claude-code periodically to get the latest features and security fixes.</p></div></div>
+<div class="pair" id="claude-code-best-practices-0011"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+winget install Anthropic.ClaudeCode
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+winget install Anthropic.ClaudeCode
+</code></pre></div></div>
+<div class="pair" id="claude-code-best-practices-0012"><div class="zh side"><div class="tag">中文</div><p>WinGet 安装不会自动更新。请定期运行 winget upgrade Anthropic.ClaudeCode，以获取最新功能和安全修复。</p>
+<p>然后在任何项目中启动 Claude Code：</p></div><div class="en side"><div class="tag">EN</div><p>WinGet installations do not auto-update. Run winget upgrade Anthropic.ClaudeCode periodically to get the latest features and security fixes.</p>
+<p>Then start Claude Code in any project:</p></div></div>
+<div class="pair" id="claude-code-best-practices-0013"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+cd your-project
+claude
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+cd your-project
+claude
+</code></pre></div></div>
+<div class="pair" id="claude-code-best-practices-0014"><div class="zh side"><div class="tag">中文</div><p>首次使用时你会看到登录提示。就这样！继续阅读快速上手 →</p>
+<p>有关其他安装方式、手动更新或卸载说明，请查看高级安装设置。如遇问题，请查阅故障排查。</p>
+<p>VS Code 扩展直接在编辑器内提供内联差异对比、@ 提及、计划评审和对话历史。</p>
+<ul>
+<li>安装到 VS Code</li>
+</ul>
+<ul>
+<li>安装到 Cursor</li>
+</ul>
+<p>也可以在扩展视图（Mac 上是 Cmd+Shift+X，Windows/Linux 上是 Ctrl+Shift+X）中搜索「Claude Code」。安装后，打开命令面板（Cmd+Shift+P / Ctrl+Shift+P），输入「Claude Code」，并选择 Open in New Tab。开始使用 VS Code →</p>
+<p>一款独立应用，让你在 IDE 或终端之外也能运行 Claude Code。直观地查看差异、并行运行多个会话、安排周期性任务，以及启动云端会话。下载并安装：</p>
+<ul>
+<li>macOS（Intel 和 Apple Silicon）</li>
+</ul>
+<ul>
+<li>Windows (x64)</li>
+</ul>
+<ul>
+<li>Windows ARM64（仅远程会话）</li>
+</ul>
+<p>安装后，启动 Claude、登录，然后点击 Code 标签页开始写代码。需要付费订阅。了解更多桌面应用 →</p>
+<p>在浏览器里运行 Claude Code，无需任何本地设置。启动长时间运行的任务，完成后再回来看，操作你本地没有的仓库，或者并行运行多个任务。可在桌面浏览器和 Claude iOS 应用中使用。在 claude.ai/code 开始写代码。开始使用网页版 →</p>
+<p>一款面向 IntelliJ IDEA、PyCharm、WebStorm 等 JetBrains IDE 的插件，支持交互式查看差异和共享选中内容的上下文。从 JetBrains Marketplace 安装 Claude Code 插件，然后重启你的 IDE。开始使用 JetBrains →</p></div><div class="en side"><div class="tag">EN</div><p>You’ll be prompted to log in on first use. That’s it! Continue with the Quickstart →</p>
+<p>See advanced setup for installation options, manual updates, or uninstallation instructions. Visit troubleshooting if you hit issues.</p>
+<p>The VS Code extension provides inline diffs, @-mentions, plan review, and conversation history directly in your editor.</p>
+<ul>
+<li>Install for VS Code</li>
+</ul>
+<ul>
+<li>Install for Cursor</li>
+</ul>
+<p>Or search for “Claude Code” in the Extensions view (Cmd+Shift+X on Mac, Ctrl+Shift+X on Windows/Linux). After installing, open the Command Palette (Cmd+Shift+P / Ctrl+Shift+P), type “Claude Code”, and select Open in New Tab.Get started with VS Code →</p>
+<p>A standalone app for running Claude Code outside your IDE or terminal. Review diffs visually, run multiple sessions side by side, schedule recurring tasks, and kick off cloud sessions.Download and install:</p>
+<ul>
+<li>macOS (Intel and Apple Silicon)</li>
+</ul>
+<ul>
+<li>Windows (x64)</li>
+</ul>
+<ul>
+<li>Windows ARM64 (remote sessions only)</li>
+</ul>
+<p>After installing, launch Claude, sign in, and click the Code tab to start coding. A paid subscription is required.Learn more about the desktop app →</p>
+<p>Run Claude Code in your browser with no local setup. Kick off long-running tasks and check back when they’re done, work on repos you don’t have locally, or run multiple tasks in parallel. Available on desktop browsers and the Claude iOS app.Start coding at claude.ai/code.Get started on the web →</p>
+<p>A plugin for IntelliJ IDEA, PyCharm, WebStorm, and other JetBrains IDEs with interactive diff viewing and selection context sharing.Install the Claude Code plugin from the JetBrains Marketplace and restart your IDE.Get started with JetBrains →</p></div></div>
+<div class="pair" id="claude-code-best-practices-0015"><div class="zh side"><div class="tag">中文</div><p>你可以做什么</p>
+<p>以下是一些使用 Claude Code 的方式：</p>
+<p>把一直拖着没做的事自动化</p>
+<p>Claude Code 会处理那些占用你整天的枯燥任务：为没有测试的代码补写测试、修复整个项目里的 lint 错误、解决合并冲突、更新依赖、撰写发布说明。</p></div><div class="en side"><div class="tag">EN</div><p>What you can do</p>
+<p>Here are some of the ways you can use Claude Code:</p>
+<p>Automate the work you keep putting off</p>
+<p>Claude Code handles the tedious tasks that eat up your day: writing tests for untested code, fixing lint errors across a project, resolving merge conflicts, updating dependencies, and writing release notes.</p></div></div>
+<div class="pair" id="claude-code-best-practices-0016"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+claude &quot;write tests for the auth module, run them, and fix any failures&quot;
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+claude &quot;write tests for the auth module, run them, and fix any failures&quot;
+</code></pre></div></div>
+<div class="pair" id="claude-code-best-practices-0017"><div class="zh side"><div class="tag">中文</div><p>构建功能、修复缺陷</p>
+<p>用日常语言描述你想要什么。Claude Code 会规划做法、跨多个文件编写代码，并验证是否可行。如果是缺陷，粘贴报错信息或描述症状即可。Claude Code 会在你的代码库中追踪问题、定位根因并实现修复。更多例子见常见工作流。</p>
+<p>创建提交和拉取请求</p>
+<p>Claude Code 直接与 git 协作。它能暂存改动、编写提交信息、创建分支并开启拉取请求。</p></div><div class="en side"><div class="tag">EN</div><p>Build features and fix bugs</p>
+<p>Describe what you want in plain language. Claude Code plans the approach, writes the code across multiple files, and verifies it works.For bugs, paste an error message or describe the symptom. Claude Code traces the issue through your codebase, identifies the root cause, and implements a fix. See common workflows for more examples.</p>
+<p>Create commits and pull requests</p>
+<p>Claude Code works directly with git. It stages changes, writes commit messages, creates branches, and opens pull requests.</p></div></div>
+<div class="pair" id="claude-code-best-practices-0018"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+claude &quot;commit my changes with a descriptive message&quot;
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+claude &quot;commit my changes with a descriptive message&quot;
+</code></pre></div></div>
+<div class="pair" id="claude-code-best-practices-0019"><div class="zh side"><div class="tag">中文</div><p>在 CI 中，你可以用 GitHub Actions 或 GitLab CI/CD 自动化代码评审和问题分类。</p>
+<p>用 MCP 连接你的工具</p>
+<p>Model Context Protocol（MCP）是一个把 AI 工具连接到外部数据源的开放标准。借助 MCP，Claude Code 可以读取 Google Drive 中的设计文档、更新 Jira 中的工单、从 Slack 拉取数据，或者使用你自己的自定义工具。</p>
+<p>用指令、skills 和 hooks 定制</p>
+<p>CLAUDE.md 是一个 markdown 文件，你把它放在项目根目录，Claude Code 会在每次会话开始时读取它。用它来设定编码规范、架构决策、常用库和评审清单。Claude 还会一边工作一边自动建立记忆，把构建命令、调试心得这类经验跨会话保存下来，你什么都不用写。创建自定义命令，把团队可以共享的可复用工作流打包进去，比如 /review-pr 或 /deploy-staging。Hooks 让你在 Claude Code 的操作前后运行 shell 命令，比如每次编辑文件后自动格式化，或在提交前先跑一遍 lint。</p>
+<p>运行智能体团队并构建自定义智能体</p>
+<p>派生多个 Claude Code 智能体，让它们同时处理任务的不同部分。由一个主智能体负责协调工作、分配子任务并合并结果。若要实现完全定制的工作流，Agent SDK 让你构建自己的智能体，由 Claude Code 的工具与能力驱动，并对编排、工具访问和权限拥有完全控制权。</p></div><div class="en side"><div class="tag">EN</div><p>In CI, you can automate code review and issue triage with GitHub Actions or GitLab CI/CD.</p>
+<p>Connect your tools with MCP</p>
+<p>The Model Context Protocol (MCP) is an open standard for connecting AI tools to external data sources. With MCP, Claude Code can read your design docs in Google Drive, update tickets in Jira, pull data from Slack, or use your own custom tooling.</p>
+<p>Customize with instructions, skills, and hooks</p>
+<p>CLAUDE.md is a markdown file you add to your project root that Claude Code reads at the start of every session. Use it to set coding standards, architecture decisions, preferred libraries, and review checklists. Claude also builds auto memory as it works, saving learnings like build commands and debugging insights across sessions without you writing anything.Create custom commands to package repeatable workflows your team can share, like /review-pr or /deploy-staging.Hooks let you run shell commands before or after Claude Code actions, like auto-formatting after every file edit or running lint before a commit.</p>
+<p>Run agent teams and build custom agents</p>
+<p>Spawn multiple Claude Code agents that work on different parts of a task simultaneously. A lead agent coordinates the work, assigns subtasks, and merges results.For fully custom workflows, the Agent SDK lets you build your own agents powered by Claude Code’s tools and capabilities, with full control over orchestration, tool access, and permissions.</p></div></div>
+<div class="pair" id="claude-code-best-practices-0020"><div class="zh side"><div class="tag">中文</div><p>用 CLI 串联、编写脚本并自动化</p>
+<p>Claude Code 可组合，遵循 Unix 理念。把日志经由输入流传给它、在 CI 中运行它，或者与其他工具串联起来：</p></div><div class="en side"><div class="tag">EN</div><p>Pipe, script, and automate with the CLI</p>
+<p>Claude Code is composable and follows the Unix philosophy. Pipe logs into it, run it in CI, or chain it with other tools:</p></div></div>
+<div class="pair" id="claude-code-best-practices-0021"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+# Analyze recent log output
+tail -200 app.log | claude -p &quot;Slack me if you see any anomalies&quot;
+
+# Automate translations in CI
+claude -p &quot;translate new strings into French and raise a PR for review&quot;
+
+# Bulk operations across files
+git diff main --name-only | claude -p &quot;review these changed files for security issues&quot;
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+# Analyze recent log output
+tail -200 app.log | claude -p &quot;Slack me if you see any anomalies&quot;
+
+# Automate translations in CI
+claude -p &quot;translate new strings into French and raise a PR for review&quot;
+
+# Bulk operations across files
+git diff main --name-only | claude -p &quot;review these changed files for security issues&quot;
+</code></pre></div></div>
+<div class="pair" id="claude-code-best-practices-0022"><div class="zh side"><div class="tag">中文</div><p>完整的命令和选项集合见 CLI 参考。</p>
+<p>安排周期性任务</p>
+<p>按计划运行 Claude，把重复性的工作自动化：早上评审 PR、隔夜分析 CI 失败、每周做依赖审计，或在 PR 合并后同步文档。</p>
+<ul>
+<li>云端定时任务运行在 Anthropic 托管的基础设施上，因此即使你的电脑关机也能继续运行。可以在网页、桌面应用或 CLI 中运行 /schedule 来创建。</li>
+</ul>
+<ul>
+<li>桌面定时任务在你的机器上运行，可直接访问本地文件和工具</li>
+</ul>
+<ul>
+<li>/loop 在一个 CLI 会话内重复某条提示词，用于快速轮询</li>
+</ul>
+<p>随处工作</p>
+<p>会话并不绑定在单一形态上。你可以随着场景变化在不同环境之间迁移工作：</p>
+<ul>
+<li>离开工位，用手机或任何开启了 Remote Control 的浏览器继续工作</li>
+</ul>
+<ul>
+<li>用 Message Dispatch 从手机上派发任务，并打开它创建的桌面会话</li>
+</ul>
+<ul>
+<li>在网页或 iOS 应用上启动一个长时间运行的任务，然后用 claude --teleport 把它拉回终端</li>
+</ul>
+<ul>
+<li>用 /desktop 把终端会话交给桌面应用，直观地查看差异</li>
+</ul>
+<ul>
+<li>从团队聊天中路由任务：在 Slack 上发一份缺陷报告并 @Claude，拿到一个拉取请求</li>
+</ul>
+<p>随处使用 Claude Code</p>
+<p>每种形态都连接到同一个底层 Claude Code 引擎，因此你的 CLAUDE.md 文件、设置和 MCP 服务器在各形态下都能正常工作。</p>
+<p>除了上面提到的终端、VS Code、JetBrains、桌面和网页环境，Claude Code 还能与 CI/CD、聊天和浏览器工作流集成：</p></div><div class="en side"><div class="tag">EN</div><p>See the CLI reference for the full set of commands and flags.</p>
+<p>Schedule recurring tasks</p>
+<p>Run Claude on a schedule to automate work that repeats: morning PR reviews, overnight CI failure analysis, weekly dependency audits, or syncing docs after PRs merge.</p>
+<ul>
+<li>Cloud scheduled tasks run on Anthropic-managed infrastructure, so they keep running even when your computer is off. Create them from the web, the Desktop app, or by running /schedule in the CLI.</li>
+</ul>
+<ul>
+<li>Desktop scheduled tasks run on your machine, with direct access to your local files and tools</li>
+</ul>
+<ul>
+<li>/loop repeats a prompt within a CLI session for quick polling</li>
+</ul>
+<p>Work from anywhere</p>
+<p>Sessions aren’t tied to a single surface. Move work between environments as your context changes:</p>
+<ul>
+<li>Step away from your desk and keep working from your phone or any browser with Remote Control</li>
+</ul>
+<ul>
+<li>Message Dispatch a task from your phone and open the Desktop session it creates</li>
+</ul>
+<ul>
+<li>Kick off a long-running task on the web or iOS app, then pull it into your terminal with claude --teleport</li>
+</ul>
+<ul>
+<li>Hand off a terminal session to the Desktop app with /desktop for visual diff review</li>
+</ul>
+<ul>
+<li>Route tasks from team chat: mention @Claude in Slack with a bug report and get a pull request back</li>
+</ul>
+<p>Use Claude Code everywhere</p>
+<p>Each surface connects to the same underlying Claude Code engine, so your CLAUDE.md files, settings, and MCP servers work across all of them.</p>
+<p>Beyond the Terminal, VS Code, JetBrains, Desktop, and Web environments above, Claude Code integrates with CI/CD, chat, and browser workflows:</p></div></div>
+<div class="pair" id="claude-code-best-practices-0023"><div class="zh side"><div class="tag">中文</div><p>下一步</p>
+<p>装好 Claude Code 之后，这些指南能帮你走得更深。</p>
+<ul>
+<li>快速上手：带你走完第一个真实任务，从探索代码库到提交修复</li>
+</ul>
+<ul>
+<li>存储指令与记忆：用 CLAUDE.md 文件和自动记忆为 Claude 提供持久指令</li>
+</ul>
+<ul>
+<li>常见工作流与最佳实践：充分发挥 Claude Code 效能的实用范式</li>
+</ul>
+<ul>
+<li>设置：按你的工作流定制 Claude Code</li>
+</ul>
+<ul>
+<li>故障排查：常见问题的解决方案</li>
+</ul>
+<ul>
+<li>code.claude.com：演示、定价和产品详情</li>
+</ul>
+<p>这个页面对你有帮助吗？</p>
+<p>快速上手</p>
+<p>⌘I</p>
+<p>助手</p>
+<p>回复由 AI 生成，可能存在错误。</p></div><div class="en side"><div class="tag">EN</div><p>Next steps</p>
+<p>Once you’ve installed Claude Code, these guides help you go deeper.</p>
+<ul>
+<li>Quickstart: walk through your first real task, from exploring a codebase to committing a fix</li>
+</ul>
+<ul>
+<li>Store instructions and memories: give Claude persistent instructions with CLAUDE.md files and auto memory</li>
+</ul>
+<ul>
+<li>Common workflows and best practices: patterns for getting the most out of Claude Code</li>
+</ul>
+<ul>
+<li>Settings: customize Claude Code for your workflow</li>
+</ul>
+<ul>
+<li>Troubleshooting: solutions for common issues</li>
+</ul>
+<ul>
+<li>code.claude.com: demos, pricing, and product details</li>
+</ul>
+<p>Was this page helpful?</p>
+<p>Quickstart</p>
+<p>⌘I</p>
+<p>Assistant</p>
+<p>Responses are generated using AI and may contain mistakes.</p></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#claude-code-best-practices-0000">第 1 段</a></li><li><a href="#claude-code-best-practices-0001">第 2 段</a></li><li><a href="#claude-code-best-practices-0002">第 3 段</a></li><li><a href="#claude-code-best-practices-0004">第 5 段</a></li><li><a href="#claude-code-best-practices-0006">第 7 段</a></li><li><a href="#claude-code-best-practices-0008">第 9 段</a></li><li><a href="#claude-code-best-practices-0010">第 11 段</a></li><li><a href="#claude-code-best-practices-0012">第 13 段</a></li><li><a href="#claude-code-best-practices-0014">第 15 段</a></li><li><a href="#claude-code-best-practices-0015">第 16 段</a></li><li><a href="#claude-code-best-practices-0017">第 18 段</a></li><li><a href="#claude-code-best-practices-0019">第 20 段</a></li><li><a href="#claude-code-best-practices-0020">第 21 段</a></li><li><a href="#claude-code-best-practices-0022">第 23 段</a></li><li><a href="#claude-code-best-practices-0023">第 24 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

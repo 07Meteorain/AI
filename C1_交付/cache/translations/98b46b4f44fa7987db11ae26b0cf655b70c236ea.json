@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0017",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "98b46b4f44fa7987db11ae26b0cf655b70c236ea",
+ "zh": "### 结论\n\n像 Graphite Agent 这样的 AI 代码评审工具正在改变开发实践：它们提供更快、更一致的分析，同时减轻人类评审者的负担。通过落实本指南中列出的最佳实践，并把 AI 代码评审当作人类专业能力的补充而非替代，团队可以显著提升代码质量、安全性和开发者效率。\n\n请记住，AI 代码评审只有作为一套包含测试、文档和深思熟虑的人类监督的全面质量策略的一部分时，才最有效。目标不是消除人的判断，而是通过自动化常规检查、提供有价值的洞察来增强它。\n\n### 常见问题",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

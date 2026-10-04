@@ -1,0 +1,10 @@
+{
+ "seg_id": "sast-vs-dast#0024",
+ "doc_id": "sast-vs-dast",
+ "fingerprint": "2b45773133678798b239c593db98060b2a92865b",
+ "zh": "### 什么是授权？\n\n授权是指在用户完成认证之后，决定该用户可以访问哪些操作、网站的哪些部分或应用程序的哪些部分的过程。\n\nLearn4 Minute Read",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

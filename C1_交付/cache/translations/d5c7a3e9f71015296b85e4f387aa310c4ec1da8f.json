@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0026",
+ "doc_id": "observability-basics",
+ "fingerprint": "d5c7a3e9f71015296b85e4f387aa310c4ec1da8f",
+ "zh": "### 加入追踪会让我的应用变慢吗？\n\n现代追踪库带来的开销极小——配置得当时通常对性能的影响低于 3%。配合采样，你还能进一步降低这一影响。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

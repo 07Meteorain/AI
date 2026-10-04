@@ -1,0 +1,10 @@
+{
+ "seg_id": "how-anthropic-uses-claude-code-pdf#0000",
+ "doc_id": "how-anthropic-uses-claude-code-pdf",
+ "fingerprint": "9cae01072742303219cf18372f6e8d93fec5ea89",
+ "zh": "Anthropic 团队如何使用 Claude Code Anthropic 的内部团队正在用 Claude Code 改变自己的工作流，让开发者和非技术人员都能攻克复杂项目、自动化各类任务，并弥合此前制约他们效率的技能落差。通过对我们自己那些 Claude Code 熟练用户的访谈，我们整理了不同部门如何发挥 Claude Code 的作用、它对各自工作的影响，以及给其他考虑引入 Claude Code 的组织的建议。 ANTHROP\\C Anthropic 团队如何使用 Claude Code </> Anthropic 的内部团队正在用 Claude Code 改变自己的工作流，让开发者和非技术人员都能攻克复杂项目、自动化各类任务，并弥合此前制约他们效率的技能落差。通过对我们自己那些 Claude Code 熟练用户的访谈，我们整理了不同部门如何发挥 Claude Code 的作用、它对各自工作的影响，以及给其他考虑引入 Claude Code 的组织的建议。\n\n目录 Claude Code 用于数据基础设施 3 Claude Code 用于产品开发 5 Claude Code 用于安全工程 7 Claude Code 用于推理 9 Claude Code 用于数据科学与可视化 11 Claude Code 用于 API 13 Claude Code 用于增长营销 15 Claude Code 用于产品设计 17 Claude Code 用于 RL 工程 19 Claude Code 用于法务 21 2 Anthropic 团队如何使用 Claude Code 目录 2 Claude Code 用于数据基础设施 Claude Code 用于产品开发 Claude Code 用于安全工程 Claude Code 用于推理 Claude Code 用于数据科学与可视化 Claude Code 用于 API Claude Code 用于增长营销 Claude Code 用于产品设计 Claude Code 用于 RL 工程 Claude Code 用于法务 3 5 7 9 11 13 15 17 19 21 ANTHROPIC 团队如何使用 CLAUDE CODE",
+ "meta": {
+  "source": "../work/tr_g03.json",
+  "batch": "tr_g03"
+ }
+}

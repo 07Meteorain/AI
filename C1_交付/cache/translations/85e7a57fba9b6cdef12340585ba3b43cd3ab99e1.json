@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0008",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "85e7a57fba9b6cdef12340585ba3b43cd3ab99e1",
+ "zh": "在安装过程中，选择以下选项：- 对于“你想添加一个 AGENTS.md 文件来帮助 AI 编码工具了解\nCloudflare APIs 吗？”，选 No。- 对于“你想使用 git 做版本控制吗？”，选 No。- 对于“你想部署你的应用吗？”，选 No（我们会在部署前先测试服务器）。\n\n现在，MCP 服务器已经搭建完成，依赖也已安装。\n\n- 进入项目目录：\n\n终端窗口",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

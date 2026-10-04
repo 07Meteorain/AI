@@ -1,0 +1,10 @@
+{
+ "seg_id": "claude-code-best-practices#0017",
+ "doc_id": "claude-code-best-practices",
+ "fingerprint": "2cb2bc4abb82dc473ecccd293430e5163c4e724c",
+ "zh": "构建功能、修复缺陷\n\n用日常语言描述你想要什么。Claude Code 会规划做法、跨多个文件编写代码，并验证是否可行。如果是缺陷，粘贴报错信息或描述症状即可。Claude Code 会在你的代码库中追踪问题、定位根因并实现修复。更多例子见常见工作流。\n\n创建提交和拉取请求\n\nClaude Code 直接与 git 协作。它能暂存改动、编写提交信息、创建分支并开启拉取请求。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

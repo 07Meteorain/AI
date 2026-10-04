@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0038",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "8a2b2818a39f77cef538b73eb8a382cdb264fcd9",
+ "zh": "你的 MCP 服务器现在运行在 http://localhost:8788/mcp。\n\n- 在一个新终端里，运行 MCP inspector。MCP inspector 是一个交互式 MCP 客户端，能让你从浏览器连接自己的 MCP 服务器并调用工具。\n\n终端窗口",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

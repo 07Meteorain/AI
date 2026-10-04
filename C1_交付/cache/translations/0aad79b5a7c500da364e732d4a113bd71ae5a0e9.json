@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0043",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "0aad79b5a7c500da364e732d4a113bd71ae5a0e9",
+ "zh": "#### 示例：\n\n我们有一位客户，做了一个 CLI 工具，只挑出测试套件中第一个失败的用例，效果很好。这个 CLI 会提示智能体只聚焦那一个用例，并附上详细的错误信息；有了它，智能体在长任务上的成功率更高、完成速度也更快。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

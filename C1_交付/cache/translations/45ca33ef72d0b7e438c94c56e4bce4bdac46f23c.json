@@ -1,0 +1,10 @@
+{
+ "seg_id": "how-long-contexts-fail#0009",
+ "doc_id": "how-long-contexts-fail",
+ "fingerprint": "45ca33ef72d0b7e438c94c56e4bce4bdac46f23c",
+ "zh": "- 如果你在看这个榜单，请留意「Live (AST)」这几列。这些指标用的是企业为产品贡献的真实工具定义，从而「避免了数据集污染和基准偏差带来的弊端。」↩",
+ "meta": {
+  "source": "../work/tr_g02.json",
+  "batch": "tr_g02"
+ }
+}

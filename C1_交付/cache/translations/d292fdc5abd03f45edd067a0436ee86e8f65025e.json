@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0023",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "d292fdc5abd03f45edd067a0436ee86e8f65025e",
+ "zh": "#### AI 代码评审会拖慢我的开发流程吗？\n\n一开始可能会有一点学习曲线，但大多数团队在 2-4 周内就能看到整体时间上的节省。AI 早早发现问题，减少了调试时间和评审轮次。关键在于合理配置，让它聚焦高影响的问题，而不是用一堆细枝末节的建议淹没开发者。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

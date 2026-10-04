@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0027",
+ "doc_id": "observability-basics",
+ "fingerprint": "eec43833c71306c6f5773595dcf90488ca31a076",
+ "zh": "### 我需要修改所有代码才能加入追踪吗？\n\n不一定。许多框架都提供自动埋点，只需很少的代码改动就能加入追踪。OpenTelemetry 为大多数语言的主流框架提供了自动埋点。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

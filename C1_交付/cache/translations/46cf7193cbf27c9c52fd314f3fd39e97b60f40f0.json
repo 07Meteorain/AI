@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0052",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "46cf7193cbf27c9c52fd314f3fd39e97b60f40f0",
+ "zh": "- 把 MCP 服务器部署到你的 Cloudflare workers.dev 域名：\n\n终端窗口",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

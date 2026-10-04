@@ -1,0 +1,10 @@
+{
+ "seg_id": "multi-agent-systems-ai-native#0008",
+ "doc_id": "multi-agent-systems-ai-native",
+ "fingerprint": "eba61c72cb8ed7e673e0842b275e3f91a030b271",
+ "zh": "### AI for prod 电子书\n\n了解顶尖工程团队如何用 AI 运维生产系统。\n\n下载\n\nSpiros Xanthos\n\n创始人兼 CEO\n\nSpiros 是 Resolve AI 的创始人兼 CEO。他热爱从客户那里学习并动手构建。他参与创建了 OpenTelemetry，并创办了 Log Insight（被 VMware 收购）和 Omnition（被 Splunk 收购），最近曾任 Splunk 可观测性业务的 SVP 兼总经理。\n\nGabor Angeli\n\n研究工程师\n\nGabor Angeli 具备深厚的 AI 专长，最近任职于 Google DeepMind 和 Square。他参与构建的 Gemini 和 Square Assistant 等产品每天触达数百万用户。他加入 Resolve AI，是为了构建智能体 AI 系统，帮助工程师理解并驾驭生产系统。\n\nBharat Khandelwal\n\n研究工程师\n\n@ Resolve AI\n\nBharat 是 Resolve AI 的研究工程师，他在那里构建智能体系统，让大语言模型能够调试并运维生产软件基础设施。在加入 Resolve 之前，他曾在 WorldQuant 主导机器学习项目，设计用于宏观经济预测的基于 transformer 的架构，并从非结构化数据中引入由大语言模型驱动的情绪信号。他还曾在 Moveworks 参与企业 NLP 系统的研发，并在 Tower Research Capital 开发面向高频交易的低延迟机器学习策略。Bharat 拥有 Stanford University 计算机科学硕士学位（人工智能方向），以及 IIT Bombay 计算机科学工学学士学位（荣誉）。\n\n### 相关文章",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "claude-code-best-practices#0023",
+ "doc_id": "claude-code-best-practices",
+ "fingerprint": "cf90fbe8e9593d3b391fdbabf5ede43ffdb847d6",
+ "zh": "下一步\n\n装好 Claude Code 之后，这些指南能帮你走得更深。\n\n- 快速上手：带你走完第一个真实任务，从探索代码库到提交修复\n\n- 存储指令与记忆：用 CLAUDE.md 文件和自动记忆为 Claude 提供持久指令\n\n- 常见工作流与最佳实践：充分发挥 Claude Code 效能的实用范式\n\n- 设置：按你的工作流定制 Claude Code\n\n- 故障排查：常见问题的解决方案\n\n- code.claude.com：演示、定价和产品详情\n\n这个页面对你有帮助吗？\n\n快速上手\n\n⌘I\n\n助手\n\n回复由 AI 生成，可能存在错误。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

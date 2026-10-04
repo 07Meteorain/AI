@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0026",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "b8eaa0dedd58588e48ffc7dc6e954588aad23980",
+ "zh": "#### 第 1 步——创建一个新的 MCP 服务器\n\n运行下面的命令，创建一个带 GitHub OAuth 的新 MCP 服务器：",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

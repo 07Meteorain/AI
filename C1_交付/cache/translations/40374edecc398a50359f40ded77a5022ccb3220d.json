@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0049",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "40374edecc398a50359f40ded77a5022ccb3220d",
+ "zh": "- Cloud Load Balancing\n\n在应用和区域之间分发流量的服务。\n\n- Cloud NAT\n\n为私有实例提供互联网访问的 NAT 服务。\n\n- Cloud Connectivity\n\n面向 VPN、对等互连和企业需求的连接选项。\n\n- Network Connectivity Center\n\n连接管理平台，帮助简化和扩展网络。\n\n- Network Intelligence Center\n\n网络监控、验证和优化平台。\n\n- Network Service Tiers\n\n按性能、可用性和成本划分的云网络选项。\n\n- Virtual Private Cloud\n\n为整个组织提供单一 VPC，并在项目内彼此隔离。\n\n- Private Service Connect\n\n在你的 VPC 与服务之间建立安全连接。\n\n- 没找到你想要的产品？\n\n- 查看全部网络产品\n\n运维\n\n- Cloud Logging\n\nGoogle Cloud 审计日志、平台日志和应用日志管理。\n\n- Cloud Monitoring\n\n以丰富的指标掌握基础设施和应用健康状况。\n\n- Error Reporting\n\n应用错误的定位与分析。\n\n- Managed Service for Prometheus\n\nGoogle Cloud 上完全托管的 Prometheus。\n\n- Cloud Trace\n\n从应用中采集延迟数据的追踪系统。\n\n- Cloud Profiler\n\n用于分析应用性能的 CPU 和堆性能分析器。\n\n- Cloud Quotas\n\n管理所有 Google Cloud 服务的配额。\n\n- 效率与协作\n\n- AppSheet\n\n用于构建和扩展应用的无代码开发平台。\n\n- Gemini Enterprise\n\n用于发现、创建、运行和治理 AI 智能体的安全平台。\n\n- Google Workspace\n\n面向个人和组织的协作与效率工具。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

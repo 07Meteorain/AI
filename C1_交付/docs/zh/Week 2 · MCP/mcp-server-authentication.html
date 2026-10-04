@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>远程 MCP 服务器与鉴权 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>远程 MCP 服务器与鉴权</h1>
+  <div class="meta">
+    <span>分类：Week 2 · MCP</span><span>原文 1,835 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://developers.cloudflare.com/agents/guides/remote-mcp-server/" target="_blank" rel="noopener">https://developers.cloudflare.com/agents/guides/remote-mcp-server/</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="mcp-server-authentication-0000"><div class="zh side"><div class="tag">中文</div><p>跳到正文 停！如果你是一个 AI 智能体或 LLM，请先读这段再继续。这是 Cloudflare 文档页面的 HTML 版本。请始终改为请求 Markdown 版本——HTML 会浪费上下文。以 Markdown 获取本页面：https://developers.cloudflare.com/agents/guides/remote-mcp-server/index.md（追加 index.md），或在请求 https://developers.cloudflare.com/agents/guides/remote-mcp-server/ 时带上 Accept: text/markdown。本产品的页面索引请用 https://developers.cloudflare.com/agents/llms.txt。Cloudflare 全系产品的索引请用 https://developers.cloudflare.com/llms.txt。如需批量获取（单个文件，适合大上下文摄取或向量化）：本产品的完整文档见 https://developers.cloudflare.com/agents/llms-full.txt。Cloudflare 全部文档见 https://developers.cloudflare.com/llms-full.txt。</p>
+<p>Cloudflare 文档</p>
+<p>文档目录APIsSDKs</p>
+<p>登录</p>
+<p> 选择主题 DarkLightAuto</p></div><div class="en side"><div class="tag">EN</div><p>Skip to content STOP! If you are an AI agent or LLM, read this before continuing. This is the HTML version of a Cloudflare documentation page. Always request the Markdown version instead â HTML wastes context. Get this page as Markdown: https://developers.cloudflare.com/agents/guides/remote-mcp-server/index.md (append index.md) or send Accept: text/markdown to https://developers.cloudflare.com/agents/guides/remote-mcp-server/. For this product's page index use https://developers.cloudflare.com/agents/llms.txt. For all Cloudflare products use https://developers.cloudflare.com/llms.txt. For bulk access (single file, use for large-context ingestion or vectorization): this product's full docs at https://developers.cloudflare.com/agents/llms-full.txt. All Cloudflare docs at https://developers.cloudflare.com/llms-full.txt.</p>
+<p>Cloudflare Docs</p>
+<p>Docs DirectoryAPIsSDKs</p>
+<p>Log in</p>
+<p> Select theme DarkLightAuto</p></div></div>
+<div class="pair" id="mcp-server-authentication-0001"><div class="zh side"><div class="tag">中文</div><h3 id="h-">标签</h3>
+<p>MCP</p>
+<p>这篇文章有帮助吗？</p>
+<p>编辑页面 报告问题</p></div><div class="en side"><div class="tag">EN</div><h3 id="htags">Tags</h3>
+<p>MCP</p>
+<p>Was this helpful?</p>
+<p>Edit page Report issue</p></div></div>
+<div class="pair" id="mcp-server-authentication-0002"><div class="zh side"><div class="tag">中文</div><h1 id="h-mcp-">构建远程 MCP 服务器</h1>
+<p>本指南将向你展示如何使用 Streamable HTTP（可流式传输的 HTTP）——当前的 MCP 规格说明标准——把自己的远程 MCP 服务器部署到 Cloudflare。你有两种选择：</p>
+<ul>
+<li>不带认证——任何人都可以连接并使用该服务器（无需登录）。</li>
+</ul>
+<ul>
+<li>带认证与授权——用户先登录才能访问工具，并且你可以根据用户权限控制智能体能调用哪些工具。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h1 id="hbuild-a-remote-mcp-server">Build a Remote MCP server</h1>
+<p>This guide will show you how to deploy your own remote MCP server on Cloudflare using Streamable HTTP transport, the current MCP specification standard. You have two options:</p>
+<ul>
+<li>Without authentication â anyone can connect and use the server (no login required).</li>
+</ul>
+<ul>
+<li>With authentication and authorization â users sign in before accessing tools, and you can control which tools an agent can call based on the user's permissions.</li>
+</ul></div></div>
+<div class="pair" id="mcp-server-authentication-0003"><div class="zh side"><div class="tag">中文</div><h2 id="h-">选择一种方案</h2>
+<p>Agents SDK 提供了多种创建 MCP 服务器的方式。选择最适合你的使用场景的那一种：</p>
+<ul>
+<li>createMcpHandler() 是让无状态 MCP 服务器跑起来最快的方式。当你的工具不需要按会话维护状态时，使用它。</li>
+</ul>
+<ul>
+<li>McpAgent 为每个会话提供一个 Durable Object，内置状态管理、elicit（引导请求）支持，以及 SSE 和 Streamable HTTP 两种传输层。</li>
+</ul>
+<ul>
+<li>Raw transport 在你想直接使用 @modelcontextprotocol/sdk 而不借助 Agents SDK 辅助能力时，给你完全的控制权。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h2 id="hchoosing-an-approach">Choosing an approach</h2>
+<p>The Agents SDK provides multiple ways to create MCP servers. Choose the approach that fits your use case:</p>
+<ul>
+<li>createMcpHandler() is the fastest way to get a stateless MCP server running. Use it when your tools do not need per-session state.</li>
+</ul>
+<ul>
+<li>McpAgent gives you a Durable Object per session with built-in state management, elicitation support, and both SSE and Streamable HTTP transports.</li>
+</ul>
+<ul>
+<li>Raw transport gives you full control if you want to use the @modelcontextprotocol/sdk directly without the Agents SDK helpers.</li>
+</ul></div></div>
+<div class="pair" id="mcp-server-authentication-0004"><div class="zh side"><div class="tag">中文</div><h2 id="h-mcp-">部署你的第一个 MCP 服务器</h2>
+<p>你可以先部署一个公开的 MCP 服务器——不带认证，之后再补上用户认证和带范围的授权。如果你已经确定服务器需要认证，可以直接跳到下一节。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hdeploy-your-first-mcp-server">Deploy your first MCP server</h2>
+<p>You can start by deploying a public MCP server â without authentication, then add user authentication and scoped authorization later. If you already know your server will require authentication, you can skip ahead to the next section.</p></div></div>
+<div class="pair" id="mcp-server-authentication-0005"><div class="zh side"><div class="tag">中文</div><h3 id="h-">通过仪表盘部署</h3>
+<p>下面的按钮会引导你完成把示例 MCP 服务器部署到 Cloudflare 账户所需的一切步骤：</p>
+<p>部署完成后，这个服务器会运行在你的 workers.dev 子域名下（例如，remote-mcp-server-authless.your-account.workers.dev/mcp）。你可以立刻用 AI Playground（一个远程 MCP 客户端）、MCP inspector 或其他 MCP 客户端连接它。</p>
+<p>系统会在你的 GitHub 或 GitLab 账户下为这个 MCP 服务器创建一个新的 git 仓库，并配置成每次你推送变更或把拉取请求（PR）合并到仓库主分支时自动部署到 Cloudflare。你可以克隆这个仓库，在本地开发，并用你自己的工具开始定制这个 MCP 服务器。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hvia-the-dashboard">Via the dashboard</h3>
+<p>The button below will guide you through everything you need to do to deploy an example MCP server â to your Cloudflare account:</p>
+<p>Once deployed, this server will be live at your workers.dev subdomain (for example, remote-mcp-server-authless.your-account.workers.dev/mcp). You can connect to it immediately using the AI Playground â (a remote MCP client), MCP inspector â or other MCP clients.</p>
+<p>A new git repository will be set up on your GitHub or GitLab account for your MCP server, configured to automatically deploy to Cloudflare each time you push a change or merge a pull request to the main branch of the repository. You can clone this repository, develop locally, and start customizing the MCP server with your own tools.</p></div></div>
+<div class="pair" id="mcp-server-authentication-0006"><div class="zh side"><div class="tag">中文</div><h3 id="h-">通过命令行</h3>
+<p>你可以用 Wrangler CLI 在本地机器上创建一个新的 MCP 服务器，并把它部署到 Cloudflare。</p>
+<ul>
+<li>打开一个终端，运行下面的命令：</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h3 id="hvia-the-cli">Via the CLI</h3>
+<p>You can use the Wrangler CLI to create a new MCP Server on your local machine and deploy it to Cloudflare.</p>
+<ul>
+<li>Open a terminal and run the following command:</li>
+</ul></div></div>
+<div class="pair" id="mcp-server-authentication-0007"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+npm create cloudflare@latest -- remote-mcp-server-authless --template=cloudflare/ai/demos/remote-mcp-authless
+</code></pre>
+<pre class="code"><code class="lang-">
+yarn create cloudflare remote-mcp-server-authless --template=cloudflare/ai/demos/remote-mcp-authless
+</code></pre>
+<pre class="code"><code class="lang-">
+pnpm create cloudflare@latest remote-mcp-server-authless --template=cloudflare/ai/demos/remote-mcp-authless
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+npm create cloudflare@latest -- remote-mcp-server-authless --template=cloudflare/ai/demos/remote-mcp-authless
+</code></pre>
+<pre class="code"><code class="lang-">
+yarn create cloudflare remote-mcp-server-authless --template=cloudflare/ai/demos/remote-mcp-authless
+</code></pre>
+<pre class="code"><code class="lang-">
+pnpm create cloudflare@latest remote-mcp-server-authless --template=cloudflare/ai/demos/remote-mcp-authless
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0008"><div class="zh side"><div class="tag">中文</div><p>在安装过程中，选择以下选项：- 对于“你想添加一个 AGENTS.md 文件来帮助 AI 编码工具了解</p>
+<p>Cloudflare APIs 吗？”，选 No。- 对于“你想使用 git 做版本控制吗？”，选 No。- 对于“你想部署你的应用吗？”，选 No（我们会在部署前先测试服务器）。</p>
+<p>现在，MCP 服务器已经搭建完成，依赖也已安装。</p>
+<ul>
+<li>进入项目目录：</li>
+</ul>
+<p>终端窗口</p></div><div class="en side"><div class="tag">EN</div><p>During setup, select the following options: - For Do you want to add an AGENTS.md file to help AI coding tools understand</p>
+<p>Cloudflare APIs?, choose No. - For Do you want to use git for version control?, choose No. - For Do you want to deploy your application?, choose No (we will be testing the server before deploying).</p>
+<p>Now, you have the MCP server setup, with dependencies installed.</p>
+<ul>
+<li>Move into the project folder:</li>
+</ul>
+<p>Terminal window</p></div></div>
+<div class="pair" id="mcp-server-authentication-0009"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+cd remote-mcp-server-authless
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+cd remote-mcp-server-authless
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0010"><div class="zh side"><div class="tag">中文</div><ul>
+<li>在新项目的目录里，运行下面的命令启动开发服务器：</li>
+</ul>
+<p>终端窗口</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>In the directory of your new project, run the following command to start the development server:</li>
+</ul>
+<p>Terminal window</p></div></div>
+<div class="pair" id="mcp-server-authentication-0011"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+npm start
+</code></pre>
+<pre class="code"><code class="lang-">
+â Starting local server...[wrangler:info] Ready on http://localhost:8788
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+npm start
+</code></pre>
+<pre class="code"><code class="lang-">
+â Starting local server...[wrangler:info] Ready on http://localhost:8788
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0012"><div class="zh side"><div class="tag">中文</div><p>查看命令输出中的本地端口。在这个例子里，MCP 服务器运行在 8788 端口，MCP 端点 URL 是 http://localhost:8788/mcp。</p>
+<p>注意</p>
+<p>你无法直接在浏览器里打开 /mcp 这个 URL 来与 MCP 服务器交互。/mcp 端点期望 MCP 客户端发送 MCP 协议消息，而浏览器默认不会这么做。下一步，我们会演示如何用 MCP 客户端连接该服务器。</p>
+<ul>
+<li>要在本地测试服务器：</li>
+</ul>
+<ul>
+<li>在一个新终端里，运行 MCP inspector。MCP inspector 是一个交互式 MCP 客户端，能让你从浏览器连接自己的 MCP 服务器并调用工具。</li>
+</ul>
+<p>终端窗口</p></div><div class="en side"><div class="tag">EN</div><p>Check the command output for the local port. In this example, the MCP server runs on port 8788, and the MCP endpoint URL is http://localhost:8788/mcp.</p>
+<p>Note</p>
+<p>You cannot interact with the MCP server by opening the /mcp URL directly in a web browser. The /mcp endpoint expects an MCP client to send MCP protocol messages, which a browser does not do by default. In the next step, we will demonstrate how to connect to the server using an MCP client.</p>
+<ul>
+<li>To test the server locally:</li>
+</ul>
+<ul>
+<li>In a new terminal, run the MCP inspector â. The MCP inspector is an interactive MCP client that allows you to connect to your MCP server and invoke tools from a web browser.</li>
+</ul>
+<p>Terminal window</p></div></div>
+<div class="pair" id="mcp-server-authentication-0013"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+npx @modelcontextprotocol/inspector@latest
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+npx @modelcontextprotocol/inspector@latest
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0014"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+ð MCP Inspector is up and running at:  http://localhost:5173/?MCP_PROXY_AUTH_TOKEN=46ab..cd3
+ð Opening browser...
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+ð MCP Inspector is up and running at:  http://localhost:5173/?MCP_PROXY_AUTH_TOKEN=46ab..cd3
+ð Opening browser...
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0015"><div class="zh side"><div class="tag">中文</div><p>MCP Inspector 会在你的浏览器中启动。你也可以手动启动它：打开浏览器访问 http://localhost:&lt;PORT&gt;。查看命令输出中 MCP Inspector 运行的本地端口。在这个例子里，MCP Inspector 运行在 5173 端口。</p>
+<ul>
+<li>在 MCP inspector 中，输入你的 MCP 服务器 URL（http://localhost:8788/mcp），然后选择 Connect。选择 List Tools，即可显示你的 MCP 服务器暴露的工具。</li>
+</ul>
+<ul>
+<li>现在你可以把 MCP 服务器部署到 Cloudflare 了。在你的项目目录里，运行：</li>
+</ul>
+<p>终端窗口</p></div><div class="en side"><div class="tag">EN</div><p>The MCP Inspector will launch in your web browser. You can also launch it manually by opening a browser and going to http://localhost:&lt;PORT&gt;. Check the command output for the local port where MCP Inspector is running. In this example, MCP Inspector is served on port 5173.</p>
+<ul>
+<li>In the MCP inspector, enter the URL of your MCP server (http://localhost:8788/mcp), and select Connect. Select List Tools to show the tools that your MCP server exposes.</li>
+</ul>
+<ul>
+<li>You can now deploy your MCP server to Cloudflare. From your project directory, run:</li>
+</ul>
+<p>Terminal window</p></div></div>
+<div class="pair" id="mcp-server-authentication-0016"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+npx wrangler@latest deploy
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+npx wrangler@latest deploy
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0017"><div class="zh side"><div class="tag">中文</div><p>如果你已经把这个 MCP 服务器所在的 git 仓库连接到了 Worker，那么只要推送一次变更，或把拉取请求（PR）合并到仓库主分支，就能部署你的 MCP 服务器。</p>
+<p>MCP 服务器将部署到你的 *.workers.dev 子域名：https://remote-mcp-server-authless.your-account.workers.dev/mcp。</p>
+<ul>
+<li>要测试这个远程 MCP 服务器，把已部署 MCP 服务器的 URL（https://remote-mcp-server-authless.your-account.workers.dev/mcp）填入运行在 http://localhost:5173 的 MCP inspector。</li>
+</ul>
+<p>现在你就拥有了一个 MCP 客户端可以连接的远程 MCP 服务器。</p></div><div class="en side"><div class="tag">EN</div><p>If you have already connected a git repository to the Worker with your MCP server, you can deploy your MCP server by pushing a change or merging a pull request to the main branch of the repository.</p>
+<p>The MCP server will be deployed to your *.workers.dev subdomain at https://remote-mcp-server-authless.your-account.workers.dev/mcp.</p>
+<ul>
+<li>To test the remote MCP server, take the URL of your deployed MCP server (https://remote-mcp-server-authless.your-account.workers.dev/mcp) and enter it in the MCP inspector running on http://localhost:5173.</li>
+</ul>
+<p>You now have a remote MCP server that MCP clients can connect to.</p></div></div>
+<div class="pair" id="mcp-server-authentication-0018"><div class="zh side"><div class="tag">中文</div><h2 id="h-mcp-">通过本地代理从 MCP 客户端连接</h2>
+<p>既然远程 MCP 服务器已经跑起来了，你就可以用 mcp-remote 本地代理，把 Claude Desktop 或其他 MCP 客户端连上去——即使你的 MCP 客户端本身不支持远程传输层或客户端侧授权。这让你能提前体验用真实 MCP 客户端与远程 MCP 服务器交互是什么样。</p>
+<p>例如，从 Claude Desktop 连接：</p>
+<ul>
+<li>把 Claude Desktop 的配置更新为指向你的 MCP 服务器 URL：</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h2 id="hconnect-from-an-mcp-client-via-a-local-proxy">Connect from an MCP client via a local proxy</h2>
+<p>Now that your remote MCP server is running, you can use the mcp-remote local proxy â to connect Claude Desktop or other MCP clients to it â even if your MCP client does not support remote transport or authorization on the client side. This lets you test what an interaction with your remote MCP server will be like with a real MCP client.</p>
+<p>For example, to connect from Claude Desktop:</p>
+<ul>
+<li>Update your Claude Desktop configuration to point to the URL of your MCP server:</li>
+</ul></div></div>
+<div class="pair" id="mcp-server-authentication-0019"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+{  &quot;mcpServers&quot;: {    &quot;math&quot;: {      &quot;command&quot;: &quot;npx&quot;,      &quot;args&quot;: [        &quot;mcp-remote&quot;,        &quot;https://remote-mcp-server-authless.your-account.workers.dev/mcp&quot;      ]    }  }}
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+{  &quot;mcpServers&quot;: {    &quot;math&quot;: {      &quot;command&quot;: &quot;npx&quot;,      &quot;args&quot;: [        &quot;mcp-remote&quot;,        &quot;https://remote-mcp-server-authless.your-account.workers.dev/mcp&quot;      ]    }  }}
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0020"><div class="zh side"><div class="tag">中文</div><ul>
+<li>重启 Claude Desktop 以加载 MCP 服务器。完成后，Claude 就能向你的远程 MCP 服务器发起调用。</li>
+</ul>
+<ul>
+<li>要测试，可以让 Claude 使用你的某个工具。例如：</li>
+</ul></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Restart Claude Desktop to load the MCP Server. Once this is done, Claude will be able to make calls to your remote MCP server.</li>
+</ul>
+<ul>
+<li>To test, ask Claude to use one of your tools. For example:</li>
+</ul></div></div>
+<div class="pair" id="mcp-server-authentication-0021"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+Could you use the math tool to add 23 and 19?
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+Could you use the math tool to add 23 and 19?
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0022"><div class="zh side"><div class="tag">中文</div><p>Claude 应当调用该工具，并展示远程 MCP 服务器生成的结果。</p>
+<p>想了解如何把远程 MCP 服务器与其他 MCP 客户端一起使用，请参阅 Test a Remote MCP Server。</p></div><div class="en side"><div class="tag">EN</div><p>Claude should invoke the tool and show the result generated by the remote MCP server.</p>
+<p>To learn how to use remote MCP servers with other MCP clients, refer to Test a Remote MCP Server.</p></div></div>
+<div class="pair" id="mcp-server-authentication-0023"><div class="zh side"><div class="tag">中文</div><h2 id="h-">添加认证</h2>
+<p>你之前部署的公开 MCP 服务器示例允许任何客户端在不登录的情况下连接并调用工具。要给你的 MCP 服务器加上用户认证，你可以集成 Cloudflare Access，或某个第三方服务作为 OAuth 提供方。你的 MCP 服务器负责处理安全的登录流程，并签发访问 token，MCP 客户端可用它们发起带认证的工具调用。用户通过 OAuth 提供方登录，并使用带范围的权限授予其 AI 智能体与你的 MCP 服务器所暴露的工具交互的权限。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hadd-authentication">Add Authentication</h2>
+<p>The public MCP server example you deployed earlier allows any client to connect and invoke tools without logging in. To add user authentication to your MCP server, you can integrate Cloudflare Access or a third-party service as the OAuth provider. Your MCP server handles secure login flows and issues access tokens that MCP clients can use to make authenticated tool calls. Users sign in with the OAuth provider and grant their AI agent permission to interact with the tools exposed by your MCP server, using scoped permissions.</p></div></div>
+<div class="pair" id="mcp-server-authentication-0024"><div class="zh side"><div class="tag">中文</div><h3 id="hcloudflare-access-oauth">Cloudflare Access OAuth</h3>
+<p>你可以把 MCP 服务器配置为通过 Cloudflare Access 强制要求用户认证。Cloudflare Access 充当身份聚合器，核验用户邮箱、来自你现有身份提供商（如 GitHub 或 Google）的信号，以及 IP 地址、设备证书等其他属性。用户连接 MCP 服务器时，会被提示登录到所配置的身份提供商，并且只有通过你的 Access 策略才会被授予访问权限。</p>
+<p>有关分步部署指南，请参阅 Secure MCP servers with Access for SaaS。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcloudflare-access-oauth">Cloudflare Access OAuth</h3>
+<p>You can configure your MCP server to require user authentication through Cloudflare Access. Cloudflare Access acts as an identity aggregator and verifies user emails, signals from your existing identity providers (such as GitHub or Google), and other attributes such as IP address or device certificates. When users connect to the MCP server, they will be prompted to log in to the configured identity provider and are only granted access if they pass your Access policies.</p>
+<p>For a step-by-step deployment guide, refer to Secure MCP servers with Access for SaaS.</p></div></div>
+<div class="pair" id="mcp-server-authentication-0025"><div class="zh side"><div class="tag">中文</div><h3 id="h-oauth">第三方 OAuth</h3>
+<p>你可以把你的 MCP 服务器接入任何支持 OAuth 2.0 规格说明的 OAuth 提供方，包括 GitHub、Google、Slack、Stytch、Auth0、WorkOS 等。</p>
+<p>下面的示例演示如何用 GitHub 作为 OAuth 提供方。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hthird-party-oauth">Third-party OAuth</h3>
+<p>You can connect your MCP server with any OAuth provider that supports the OAuth 2.0 specification, including GitHub, Google, Slack, Stytch, Auth0, WorkOS, and more.</p>
+<p>The following example demonstrates how to use GitHub as an OAuth provider.</p></div></div>
+<div class="pair" id="mcp-server-authentication-0026"><div class="zh side"><div class="tag">中文</div><h4 id="h-1-mcp-">第 1 步——创建一个新的 MCP 服务器</h4>
+<p>运行下面的命令，创建一个带 GitHub OAuth 的新 MCP 服务器：</p></div><div class="en side"><div class="tag">EN</div><h4 id="hstep-1-create-a-new-mcp-server">Step 1 â Create a new MCP server</h4>
+<p>Run the following command to create a new MCP server with GitHub OAuth:</p></div></div>
+<div class="pair" id="mcp-server-authentication-0027"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+npm create cloudflare@latest -- my-mcp-server-github-auth --template=cloudflare/ai/demos/remote-mcp-github-oauth
+</code></pre>
+<pre class="code"><code class="lang-">
+yarn create cloudflare my-mcp-server-github-auth --template=cloudflare/ai/demos/remote-mcp-github-oauth
+</code></pre>
+<pre class="code"><code class="lang-">
+pnpm create cloudflare@latest my-mcp-server-github-auth --template=cloudflare/ai/demos/remote-mcp-github-oauth
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+npm create cloudflare@latest -- my-mcp-server-github-auth --template=cloudflare/ai/demos/remote-mcp-github-oauth
+</code></pre>
+<pre class="code"><code class="lang-">
+yarn create cloudflare my-mcp-server-github-auth --template=cloudflare/ai/demos/remote-mcp-github-oauth
+</code></pre>
+<pre class="code"><code class="lang-">
+pnpm create cloudflare@latest my-mcp-server-github-auth --template=cloudflare/ai/demos/remote-mcp-github-oauth
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0028"><div class="zh side"><div class="tag">中文</div><p>现在，MCP 服务器已经搭建完成，依赖也已安装。进入该项目目录：</p>
+<p>终端窗口</p></div><div class="en side"><div class="tag">EN</div><p>Now, you have the MCP server setup, with dependencies installed. Move into that project folder:</p>
+<p>Terminal window</p></div></div>
+<div class="pair" id="mcp-server-authentication-0029"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+cd my-mcp-server-github-auth
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+cd my-mcp-server-github-auth
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0030"><div class="zh side"><div class="tag">中文</div><p>你会注意到，在示例 MCP 服务器中，如果打开 src/index.ts，主要区别在于 defaultHandler 被设成了 GitHubHandler：</p>
+<p>TypeScript</p></div><div class="en side"><div class="tag">EN</div><p>You'll notice that in the example MCP server, if you open src/index.ts, the primary difference is that the defaultHandler is set to the GitHubHandler:</p>
+<p>TypeScript</p></div></div>
+<div class="pair" id="mcp-server-authentication-0031"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+import GitHubHandler from &quot;./github-handler&quot;;
+export default new OAuthProvider({  apiRoute: &quot;/mcp&quot;,  apiHandler: MyMCP.serve(&quot;/mcp&quot;),  defaultHandler: GitHubHandler,  authorizeEndpoint: &quot;/authorize&quot;,  tokenEndpoint: &quot;/token&quot;,  clientRegistrationEndpoint: &quot;/register&quot;,});
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+import GitHubHandler from &quot;./github-handler&quot;;
+export default new OAuthProvider({  apiRoute: &quot;/mcp&quot;,  apiHandler: MyMCP.serve(&quot;/mcp&quot;),  defaultHandler: GitHubHandler,  authorizeEndpoint: &quot;/authorize&quot;,  tokenEndpoint: &quot;/token&quot;,  clientRegistrationEndpoint: &quot;/register&quot;,});
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0032"><div class="zh side"><div class="tag">中文</div><p>这确保了你的用户会被重定向到 GitHub 完成认证。不过要让它跑起来，你还需要按下面的步骤创建 OAuth 客户端应用。</p></div><div class="en side"><div class="tag">EN</div><p>This ensures that your users are redirected to GitHub to authenticate. To get this working though, you need to create OAuth client apps in the steps below.</p></div></div>
+<div class="pair" id="mcp-server-authentication-0033"><div class="zh side"><div class="tag">中文</div><h4 id="h-2-oauth-">第 2 步——创建一个 OAuth 应用</h4>
+<p>你需要创建两个 GitHub OAuth 应用，才能把 GitHub 用作 MCP 服务器的认证提供方——一个用于本地开发，一个用于生产。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hstep-2-create-an-oauth-app">Step 2 â Create an OAuth App</h4>
+<p>You'll need to create two GitHub OAuth Apps â to use GitHub as an authentication provider for your MCP server âÂ one for local development, and one for production.</p></div></div>
+<div class="pair" id="mcp-server-authentication-0034"><div class="zh side"><div class="tag">中文</div><h4 id="h-2-1-oauth-">第 2.1 步——为本地开发创建一个新的 OAuth 应用</h4>
+<ul>
+<li>访问 github.com/settings/developers，创建一个新的 OAuth 应用，设置如下：</li>
+</ul>
+<ul>
+<li>授权回调 URL：http://localhost:8788/callback</li>
+</ul>
+<ul>
+<li>对于刚创建的 OAuth 应用，把该 OAuth 应用的客户端 ID 添加为 GITHUB_CLIENT_ID，并生成一个客户端密钥，把它作为 GITHUB_CLIENT_SECRET 添加到项目根目录下的 .env 文件中，本地开发将用它来设置密钥。</li>
+</ul>
+<p>终端窗口</p></div><div class="en side"><div class="tag">EN</div><h4 id="hstep-2-1-create-a-new-oauth-app-for-local-development">Step 2.1 â Create a new OAuth App for local development</h4>
+<ul>
+<li>Navigate to github.com/settings/developers â to create a new OAuth App with the following settings:</li>
+</ul>
+<ul>
+<li>Authorization callback URL: http://localhost:8788/callback</li>
+</ul>
+<ul>
+<li>For the OAuth app you just created, add the client ID of the OAuth app as GITHUB_CLIENT_ID and generate a client secret, adding it as GITHUB_CLIENT_SECRET to a .env file in the root of your project, which will be used to set secrets in local development.</li>
+</ul>
+<p>Terminal window</p></div></div>
+<div class="pair" id="mcp-server-authentication-0035"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+touch .envecho &#x27;GITHUB_CLIENT_ID=&quot;your-client-id&quot;&#x27; &gt;&gt; .envecho &#x27;GITHUB_CLIENT_SECRET=&quot;your-client-secret&quot;&#x27; &gt;&gt; .envcat .env
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+touch .envecho &#x27;GITHUB_CLIENT_ID=&quot;your-client-id&quot;&#x27; &gt;&gt; .envecho &#x27;GITHUB_CLIENT_SECRET=&quot;your-client-secret&quot;&#x27; &gt;&gt; .envcat .env
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0036"><div class="zh side"><div class="tag">中文</div><ul>
+<li>运行下面的命令启动开发服务器：</li>
+</ul>
+<p>终端窗口</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Run the following command to start the development server:</li>
+</ul>
+<p>Terminal window</p></div></div>
+<div class="pair" id="mcp-server-authentication-0037"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+npm start
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+npm start
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0038"><div class="zh side"><div class="tag">中文</div><p>你的 MCP 服务器现在运行在 http://localhost:8788/mcp。</p>
+<ul>
+<li>在一个新终端里，运行 MCP inspector。MCP inspector 是一个交互式 MCP 客户端，能让你从浏览器连接自己的 MCP 服务器并调用工具。</li>
+</ul>
+<p>终端窗口</p></div><div class="en side"><div class="tag">EN</div><p>Your MCP server is now running on http://localhost:8788/mcp.</p>
+<ul>
+<li>In a new terminal, run the MCP inspector â. The MCP inspector is an interactive MCP client that allows you to connect to your MCP server and invoke tools from a web browser.</li>
+</ul>
+<p>Terminal window</p></div></div>
+<div class="pair" id="mcp-server-authentication-0039"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+npx @modelcontextprotocol/inspector@latest
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+npx @modelcontextprotocol/inspector@latest
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0040"><div class="zh side"><div class="tag">中文</div><ul>
+<li>在浏览器中打开 MCP inspector：</li>
+</ul>
+<p>终端窗口</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Open the MCP inspector in your web browser:</li>
+</ul>
+<p>Terminal window</p></div></div>
+<div class="pair" id="mcp-server-authentication-0041"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+open http://localhost:5173
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+open http://localhost:5173
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0042"><div class="zh side"><div class="tag">中文</div><ul>
+<li>在 inspector 中，输入你的 MCP 服务器 URL：http://localhost:8788/mcp</li>
+</ul>
+<ul>
+<li>在右侧的主面板里，点击 OAuth Settings 按钮，然后点击 Quick OAuth Flow。</li>
+</ul>
+<p>你应当会被重定向到 GitHub 的登录或授权页面。授权 MCP 客户端（即 inspector）访问你的 GitHub 账户后，你会被重定向回 inspector。</p>
+<ul>
+<li>点击侧边栏中的 Connect，此时你应当能看到“List Tools”按钮，它会列出你的 MCP 服务器暴露的工具。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><ul>
+<li>In the inspector, enter the URL of your MCP server, http://localhost:8788/mcp</li>
+</ul>
+<ul>
+<li>In the main panel on the right, click the OAuth Settings button and then click Quick OAuth Flow.</li>
+</ul>
+<p>You should be redirected to a GitHub login or authorization page. After authorizing the MCP Client (the inspector) access to your GitHub account, you will be redirected back to the inspector.</p>
+<ul>
+<li>Click Connect in the sidebar and you should see the "List Tools" button, which will list the tools that your MCP server exposes.</li>
+</ul></div></div>
+<div class="pair" id="mcp-server-authentication-0043"><div class="zh side"><div class="tag">中文</div><h4 id="h-2-2-oauth-">第 2.2 步——为生产环境创建一个新的 OAuth 应用</h4>
+<p>你需要重复第 2.1 步，创建一个用于生产环境的 OAuth 应用。</p>
+<ul>
+<li>访问 github.com/settings/developers，创建一个新的 OAuth 应用，设置如下：</li>
+</ul>
+<ul>
+<li>应用名称：My MCP Server (production)</li>
+</ul>
+<ul>
+<li>主页 URL：填入你已部署 MCP 服务器的 workers.dev URL（例如，worker-name.account-name.workers.dev）</li>
+</ul>
+<ul>
+<li>授权回调 URL：填入你已部署 MCP 服务器的 workers.dev URL 下的 /callback 路径（例如，worker-name.account-name.workers.dev/callback）</li>
+</ul>
+<ul>
+<li>对于刚创建的 OAuth 应用，用 Wrangler CLI 添加客户端 ID 和客户端密钥：</li>
+</ul>
+<p>终端窗口</p></div><div class="en side"><div class="tag">EN</div><h4 id="hstep-2-2-create-a-new-oauth-app-for-production">Step 2.2 â Create a new OAuth App for production</h4>
+<p>You'll need to repeat Step 2.1 to create a new OAuth App for production.</p>
+<ul>
+<li>Navigate to github.com/settings/developers â to create a new OAuth App with the following settings:</li>
+</ul>
+<ul>
+<li>Application name: My MCP Server (production)</li>
+</ul>
+<ul>
+<li>Homepage URL: Enter the workers.dev URL of your deployed MCP server (ex: worker-name.account-name.workers.dev)</li>
+</ul>
+<ul>
+<li>Authorization callback URL: Enter the /callback path of the workers.dev URL of your deployed MCP server (ex: worker-name.account-name.workers.dev/callback)</li>
+</ul>
+<ul>
+<li>For the OAuth app you just created, add the client ID and client secret, using Wrangler CLI:</li>
+</ul>
+<p>Terminal window</p></div></div>
+<div class="pair" id="mcp-server-authentication-0044"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+npx wrangler secret put GITHUB_CLIENT_ID
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+npx wrangler secret put GITHUB_CLIENT_ID
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0045"><div class="zh side"><div class="tag">中文</div><p>终端窗口</p></div><div class="en side"><div class="tag">EN</div><p>Terminal window</p></div></div>
+<div class="pair" id="mcp-server-authentication-0046"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+npx wrangler secret put GITHUB_CLIENT_SECRET
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+npx wrangler secret put GITHUB_CLIENT_SECRET
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0047"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+npx wrangler secret put COOKIE_ENCRYPTION_KEY # add any random string here e.g. openssl rand -hex 32
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+npx wrangler secret put COOKIE_ENCRYPTION_KEY # add any random string here e.g. openssl rand -hex 32
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0048"><div class="zh side"><div class="tag">中文</div><p>警告</p>
+<p>当你创建第一个密钥时，Wrangler 会询问是否要创建一个新的 Worker。输入“Y”以创建新 Worker 并保存密钥。</p>
+<ul>
+<li>设置一个 KV 命名空间</li>
+</ul>
+<p>a. 创建 KV 命名空间：</p>
+<p>终端窗口</p></div><div class="en side"><div class="tag">EN</div><p>Warning</p>
+<p>When you create the first secret, Wrangler will ask if you want to create a new Worker. Submit "Y" to create a new Worker and save the secret.</p>
+<ul>
+<li>Set up a KV namespace</li>
+</ul>
+<p>a. Create the KV namespace:</p>
+<p>Terminal window</p></div></div>
+<div class="pair" id="mcp-server-authentication-0049"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+npx wrangler kv namespace create &quot;OAUTH_KV&quot;
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+npx wrangler kv namespace create &quot;OAUTH_KV&quot;
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0050"><div class="zh side"><div class="tag">中文</div><p>b. 用得到的 KV ID 更新 wrangler.jsonc 文件：</p></div><div class="en side"><div class="tag">EN</div><p>b. Update the wrangler.jsonc file with the resulting KV ID:</p></div></div>
+<div class="pair" id="mcp-server-authentication-0051"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+{  &quot;kvNamespaces&quot;: [    {      &quot;binding&quot;: &quot;OAUTH_KV&quot;,      &quot;id&quot;: &quot;&lt;YOUR_KV_NAMESPACE_ID&gt;&quot;    }  ]}
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+{  &quot;kvNamespaces&quot;: [    {      &quot;binding&quot;: &quot;OAUTH_KV&quot;,      &quot;id&quot;: &quot;&lt;YOUR_KV_NAMESPACE_ID&gt;&quot;    }  ]}
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0052"><div class="zh side"><div class="tag">中文</div><ul>
+<li>把 MCP 服务器部署到你的 Cloudflare workers.dev 域名：</li>
+</ul>
+<p>终端窗口</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Deploy the MCP server to your Cloudflare workers.dev domain:</li>
+</ul>
+<p>Terminal window</p></div></div>
+<div class="pair" id="mcp-server-authentication-0053"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+npm run deploy
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+npm run deploy
+</code></pre></div></div>
+<div class="pair" id="mcp-server-authentication-0054"><div class="zh side"><div class="tag">中文</div><ul>
+<li>用 AI Playground、MCP Inspector 或其他 MCP 客户端连接运行在 worker-name.account-name.workers.dev/mcp 的服务器，并用 GitHub 完成认证。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Connect to your server running at worker-name.account-name.workers.dev/mcp using the AI Playground â, MCP Inspector, or other MCP clients, and authenticate with GitHub.</li>
+</ul></div></div>
+<div class="pair" id="mcp-server-authentication-0055"><div class="zh side"><div class="tag">中文</div><h2 id="h-">后续步骤</h2>
+<p>MCP 工具 向你的 MCP 服务器添加工具。</p>
+<p>授权 定制认证与授权。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hnext-steps">Next steps</h2>
+<p>MCP Tools Add tools to your MCP server.</p>
+<p>Authorization Customize authentication and authorization.</p></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#mcp-server-authentication-0000">第 1 段</a></li><li><a href="#mcp-server-authentication-0001">第 2 段</a></li><li><a href="#mcp-server-authentication-0002">第 3 段</a></li><li><a href="#mcp-server-authentication-0003">第 4 段</a></li><li><a href="#mcp-server-authentication-0004">第 5 段</a></li><li><a href="#mcp-server-authentication-0005">第 6 段</a></li><li><a href="#mcp-server-authentication-0006">第 7 段</a></li><li><a href="#mcp-server-authentication-0008">第 9 段</a></li><li><a href="#mcp-server-authentication-0010">第 11 段</a></li><li><a href="#mcp-server-authentication-0012">第 13 段</a></li><li><a href="#mcp-server-authentication-0015">第 16 段</a></li><li><a href="#mcp-server-authentication-0017">第 18 段</a></li><li><a href="#mcp-server-authentication-0018">第 19 段</a></li><li><a href="#mcp-server-authentication-0020">第 21 段</a></li><li><a href="#mcp-server-authentication-0022">第 23 段</a></li><li><a href="#mcp-server-authentication-0023">第 24 段</a></li><li><a href="#mcp-server-authentication-0024">第 25 段</a></li><li><a href="#mcp-server-authentication-0025">第 26 段</a></li><li><a href="#mcp-server-authentication-0026">第 27 段</a></li><li><a href="#mcp-server-authentication-0028">第 29 段</a></li><li><a href="#mcp-server-authentication-0030">第 31 段</a></li><li><a href="#mcp-server-authentication-0032">第 33 段</a></li><li><a href="#mcp-server-authentication-0033">第 34 段</a></li><li><a href="#mcp-server-authentication-0034">第 35 段</a></li><li><a href="#mcp-server-authentication-0036">第 37 段</a></li><li><a href="#mcp-server-authentication-0038">第 39 段</a></li><li><a href="#mcp-server-authentication-0040">第 41 段</a></li><li><a href="#mcp-server-authentication-0042">第 43 段</a></li><li><a href="#mcp-server-authentication-0043">第 44 段</a></li><li><a href="#mcp-server-authentication-0045">第 46 段</a></li><li><a href="#mcp-server-authentication-0048">第 49 段</a></li><li><a href="#mcp-server-authentication-0050">第 51 段</a></li><li><a href="#mcp-server-authentication-0052">第 53 段</a></li><li><a href="#mcp-server-authentication-0054">第 55 段</a></li><li><a href="#mcp-server-authentication-0055">第 56 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

@@ -1,0 +1,10 @@
+{
+ "seg_id": "copilot-prompt-injection-rce#0001",
+ "doc_id": "copilot-prompt-injection-rce",
+ "fingerprint": "ce65537fbeccd4ef3321b98b9041978d4c3a94cd",
+ "zh": "# GitHub Copilot：通过提示注入实现远程代码执行（CVE-2025-53773）\n\n发布于\n \n 2025 年 8 月 12 日\n\n#llm\n \n #agents\n \n #month of ai bugs\n\n本文讲的是一次重要但也令人不安的提示注入发现：它会导致 GitHub Copilot 和 VS Code 中开发者的机器被彻底攻陷。\n\n实现方式是把 Copilot 置于 YOLO 模式——修改项目的 settings.json 文件即可。\n\n几天前谈 Amp 时提到过，智能体中有一类容易被忽视的漏洞模式：如果一个智能体能够写入文件、修改自身配置或更新与安全相关的设置，就可能导致远程代码执行。这并不罕见，也是做安全评审时始终应该排查的方向。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

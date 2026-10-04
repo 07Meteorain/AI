@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0057",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "03b7234611adefec67410f7107dd7c127dbb76d2",
+ "zh": "#### 开放、封闭与残缺：提示词模糊测试发现 LLM 在开源与闭源模型上依然脆弱\n\n- 绕过\n\n- GenAI\n\n- LLM\n\n立即阅读\n\n威胁研究 2026 年 3 月 12 日",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

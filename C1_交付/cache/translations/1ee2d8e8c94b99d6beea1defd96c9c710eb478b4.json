@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0013",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "1ee2d8e8c94b99d6beea1defd96c9c710eb478b4",
+ "zh": "## 提示工程的用例与示例\n\n下面这些具体示例和用例，展示提示工程如何帮助产出定制化、切题的内容。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

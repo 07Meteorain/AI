@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0055",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "94c9a8a7a4ca73b6cee42bc5ed7afb2b9b4af68a",
+ "zh": "### 只读的 API 密钥\n\n在可能的情况下，只给它只读权限。我们发现，任何与外部服务交互的脚本，仍由人类手动跑一遍会很有帮助。\n\n实务考量",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

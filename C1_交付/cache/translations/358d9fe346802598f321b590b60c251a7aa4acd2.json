@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-food-for-thought#0005",
+ "doc_id": "mcp-food-for-thought",
+ "fingerprint": "358d9fe346802598f321b590b60c251a7aa4acd2",
+ "zh": "对比一下同样数据用 CSV 格式表示：",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

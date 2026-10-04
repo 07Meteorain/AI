@@ -1,0 +1,10 @@
+{
+ "seg_id": "how-to-review-code-effectively#0003",
+ "doc_id": "how-to-review-code-effectively",
+ "fingerprint": "b8d5b1c4a9a1148f386a65ea535ade72a9d01927",
+ "zh": "### 如何找到待评审的拉取请求\n\n我待在 GitHub 通知收件箱里。它是我在浏览器里固定仅有的几个标签页之一，所以随时都能打开。每当我在等 CI、在任务之间、开始一天工作，或者总之有点空闲时，我都喜欢去翻收件箱。我评审的大部分拉取请求都是在那里找到的。GitHub 的团队通常会有一个把某个 Slack 频道当作“大本营”，那是分享待评审拉取请求的好地方——这也是我发现拉取请求的另一条主要途径。\n\n我还很好运地用起了 GitHub 的 Slack 集成，让某个 Slack 频道订阅与我团队相关的新拉取请求。为了过滤出哪些拉取请求出现在 Slack 里，我会用一个团队专属的标签，然后在 Slack 里输入一条类似 /github subscribe your/repo pulls +label:\"your-team-label\" 的‘subscribe’命令。\n\n提示\n\n你可以在查询中重复使用 team-review-requested: 这个限定符，从而拿到归属于许多不同代码归属方的待评审拉取请求。\n\n我喜欢用 is:open archived:false is:pr org:github -is:draft team-review-requested:github/relevant-codeowner-team 这样的查询来搜索可能需要评审的未处理拉取请求。用这条查询，我能找到 GitHub 组织内开放的、未归档的、非草稿的拉取请求，并且它们把相关的代码归属团队列为请求的评审者。我通常会省略 review:required 这个搜索限定符，因为即使同事已经评审过某个拉取请求，我仍然想去评审它。毕竟，评审代码不仅能帮到作者，也能让我及时掌握影响到我负责代码的改动。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

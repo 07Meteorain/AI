@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0054",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "f49c7fa640d7a56d8a53311ab7d2d779aec064ad",
+ "zh": "### 给它一个开发／预发布环境\n\n理想情况下，智能体应当使用与你团队工程师相同的测试配置。我们建议完全不要给它生产服务的访问权限。使用远程智能体时，你可以在智能体的远程机器上运行完全隔离的测试环境。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

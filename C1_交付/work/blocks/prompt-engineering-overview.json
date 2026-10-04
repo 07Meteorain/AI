@@ -1,0 +1,6103 @@
+{
+ "meta": {
+  "id": "prompt-engineering-overview",
+  "type": "html",
+  "path": "CS146S_offline/pages/prompt-engineering-overview.html",
+  "title": "提示工程是什么（What Is Prompt Engineering）",
+  "priority": 1,
+  "category": "Week 1 · 提示工程"
+ },
+ "page_title": "Prompt Engineering for AI Guide | Google Cloud",
+ "blocks": [
+  {
+   "kind": "heading",
+   "text": "Prompt engineering: overview and guide",
+   "level": 1,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Last Updated: 01/14/2026",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The rise of large language models (LLMs) has brought forth exciting possibilities for human-computer interaction. However, harnessing the full potential of these powerful AI models requires a crucial skill: prompt engineering. This burgeoning field focuses on crafting effective prompts that unlock the capabilities of LLMs, enabling them to understand intent, follow instructions, and generate desired outputs. As we increasingly interact with AI in various applications, prompt engineering plays a vital role in ensuring accurate, relevant, and safe interactions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Get started for free",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Try chat prompts",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "1:53",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tips to becoming a world-class Prompt Engineer",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "What is prompt engineering?",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Prompt engineering is the art and science of designing and optimizing prompts to guide AI models, particularly LLMs, towards generating the desired responses. By carefully crafting prompts, you provide the model with context, instructions, and examples that help it understand your intent and respond in a meaningful way. Think of it as providing a roadmap for the AI, steering it towards the specific output you have in mind.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "To dive deeper into the world of prompt design and explore its applications, check out the Introduction to Prompt Design on Google Cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Ready to experiment with LLMs and prompt engineering firsthand? Try the Vertex AI free trial and experience the power of this technology.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "What is a prompt for AI?",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "In the context of AI, a prompt is the input you provide to the model to elicit a specific response. This can take various forms, ranging from simple questions or keywords to complex instructions, code snippets, or even creative writing samples. The effectiveness of your prompt directly influences the quality and relevance of the AI's output.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "What do you need for prompt engineering?",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Several key elements contribute to effective prompt engineering. Mastering these allows you to communicate effectively with AI models and unlock their full potential.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Prompt format",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The structure and style of your prompt play a significant role in guiding the AI's response. Different models may respond better to specific formats, such as:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The format of your prompt plays a significant role in how the AI interprets your request. Different models may respond better to specific formats, such as natural language questions, direct commands, or structured inputs with specific fields. Understanding the model's capabilities and preferred format is essential for crafting effective prompts.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Context and examples",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Providing context and relevant examples within your prompt helps the AI understand the desired task and generate more accurate and relevant outputs. For instance, if you're looking for a creative story, including a few sentences describing the desired tone or theme can significantly improve the results.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Fine-tuning and adapting",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fine-tuning the AI model on specific tasks or domains using tailored prompts can enhance its performance. Additionally, adapting prompts based on user feedback or model outputs can further improve the model's responses over time.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Multi-turn conversations",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Designing prompts for multi-turn conversations allows users to engage in continuous and context-aware interactions with the AI model, enhancing the overall user experience.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Types of prompts",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "There are various types of prompts used in AI, each serving a specific purpose:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Direct prompts (Zero-shot)",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Zero-shot prompting involves providing the model with a direct instruction or question without any additional context or examples.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "An example of this is idea generation, where the model is prompted to generate creative ideas or brainstorming solutions. Another example is summarization, or translation, where the model is asked to summarize or translate some piece of content.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "One-, few- and multi-shot prompts",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "This method involves providing the model with one or more examples of the desired input-output pairs before presenting the actual prompt. This can help the model better understand the task and generate more accurate responses.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Chain of Thought Prompts",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "CoT prompting encourages the model to break down complex reasoning into a series of intermediate steps, leading to a more comprehensive and well-structured final output.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Zero-shot CoT Prompts",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Combines chain of thought prompting with zero-shot prompting by asking the model to perform reasoning steps, which may often produce better output.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Use cases and examples of prompt engineering",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Here are some specific examples and use cases showing how prompt engineering helps produce customized and relevant output.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Language and Text Generation",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "table_row",
+   "text": "Scenario",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Instructions",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Example Prompt",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Creative Writing",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Craft prompts that specify genre, tone, style, and plot points to guide the AI in generating engaging narratives.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Write a short story about a young woman who discovers a magical portal in her attic.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Summarization",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Provide the AI with text and instruct it to generate concise summaries that capture key information.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "“Summarize the main points of the following news article on climate change.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Translation",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Specify the source and target languages to enable the AI to accurately translate text while preserving meaning and context.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Translate the following text from English to Spanish: 'The quick brown fox jumps over the lazy dog.'\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Dialogue",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Design prompts that simulate conversations, allowing the AI to generate responses that mimic human interaction and maintain context.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"You are a friendly chatbot helping users troubleshoot their computer problems. Respond to the user's query: 'My computer won't turn on.'\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Scenario",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Instructions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Example Prompt",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Creative Writing",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Craft prompts that specify genre, tone, style, and plot points to guide the AI in generating engaging narratives.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Write a short story about a young woman who discovers a magical portal in her attic.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Summarization",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Provide the AI with text and instruct it to generate concise summaries that capture key information.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "“Summarize the main points of the following news article on climate change.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Translation",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Specify the source and target languages to enable the AI to accurately translate text while preserving meaning and context.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Translate the following text from English to Spanish: 'The quick brown fox jumps over the lazy dog.'\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Dialogue",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Design prompts that simulate conversations, allowing the AI to generate responses that mimic human interaction and maintain context.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"You are a friendly chatbot helping users troubleshoot their computer problems. Respond to the user's query: 'My computer won't turn on.'\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Question Answering",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "table_row",
+   "text": "Scenario",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Instructions",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Example Prompt",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Open-Ended Questions",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Formulate prompts that encourage the AI to provide comprehensive and informative answers based on its knowledge base.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Explain the concept of quantum computing and its potential impact on the future of technology.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Specific Questions",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Design prompts that target specific information, enabling the AI to retrieve precise answers from the provided context or its internal knowledge base.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"What is the capital of France?\" or \"According to the provided text, what are the main causes of deforestation?\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Multiple Choice Questions",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Present prompts with options, prompting the AI to analyze and select the most appropriate answer based on its understanding of the context.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Who wrote the Harry Potter series? A) J.R.R. Tolkien, B) J.K. Rowling, C) Stephen King\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Hypothetical Questions",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Craft prompts that explore hypothetical situations, allowing the AI to reason, speculate, and provide potential outcomes or solutions.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"What would happen if humans could travel at the speed of light?\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Opinion-Based Questions",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Design prompts that elicit the AI's perspective or opinion on a specific topic, encouraging it to provide reasoning and justification for its stance.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Do you believe that artificial intelligence will eventually surpass human intelligence? Why or why not?\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Scenario",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Instructions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Example Prompt",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Open-Ended Questions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Formulate prompts that encourage the AI to provide comprehensive and informative answers based on its knowledge base.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Explain the concept of quantum computing and its potential impact on the future of technology.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Specific Questions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Design prompts that target specific information, enabling the AI to retrieve precise answers from the provided context or its internal knowledge base.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"What is the capital of France?\" or \"According to the provided text, what are the main causes of deforestation?\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Multiple Choice Questions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Present prompts with options, prompting the AI to analyze and select the most appropriate answer based on its understanding of the context.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Who wrote the Harry Potter series? A) J.R.R. Tolkien, B) J.K. Rowling, C) Stephen King\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Hypothetical Questions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Craft prompts that explore hypothetical situations, allowing the AI to reason, speculate, and provide potential outcomes or solutions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"What would happen if humans could travel at the speed of light?\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Opinion-Based Questions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Design prompts that elicit the AI's perspective or opinion on a specific topic, encouraging it to provide reasoning and justification for its stance.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Do you believe that artificial intelligence will eventually surpass human intelligence? Why or why not?\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Code Generation",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "table_row",
+   "text": "Scenario",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Instructions",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Example Prompt",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Code Completion",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Provide the AI with a partial code snippet and prompt it to suggest or complete the remaining code based on the context and programming language.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Write a Python function to calculate the factorial of a given number.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Code Translation",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Specify the source and target programming languages to enable the AI to translate code while preserving functionality and syntax.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Translate the following Python code to JavaScript: def greet(name): print('Hello,', name)\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Code Optimization",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Prompt the AI to analyze existing code and suggest improvements for efficiency, readability, or performance.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Optimize the following Python code to reduce its execution time.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Code Debugging",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Provide the AI with code containing errors and prompt it to identify and suggest potential solutions for the identified issues.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Debug the following Java code and explain why it is throwing a NullPointerException.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Scenario",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Instructions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Example Prompt",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Code Completion",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Provide the AI with a partial code snippet and prompt it to suggest or complete the remaining code based on the context and programming language.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Write a Python function to calculate the factorial of a given number.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Code Translation",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Specify the source and target programming languages to enable the AI to translate code while preserving functionality and syntax.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Translate the following Python code to JavaScript: def greet(name): print('Hello,', name)\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Code Optimization",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Prompt the AI to analyze existing code and suggest improvements for efficiency, readability, or performance.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Optimize the following Python code to reduce its execution time.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Code Debugging",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Provide the AI with code containing errors and prompt it to identify and suggest potential solutions for the identified issues.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Debug the following Java code and explain why it is throwing a NullPointerException.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Image Generation",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "table_row",
+   "text": "Scenario",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Instructions",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Example Prompt",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Photorealistic Images",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Craft prompts that describe the desired image in detail, including objects, scenery, lighting, and style, to generate realistic and high-quality images.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"A photorealistic image of a sunset over the ocean with palm trees silhouetted against the sky.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Artistic Images",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Design prompts that specify art styles, techniques, and subject matter to guide the AI in creating images that mimic specific artistic movements or evoke certain emotions.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"An impressionist painting of a bustling city street with people walking under umbrellas in the rain.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Abstract Images",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Formulate prompts that encourage the AI to generate images that are open to interpretation, utilizing shapes, colors, and textures to evoke feelings or concepts.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"An abstract image representing the concept of hope, using bright colors and flowing shapes.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Image Editing",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Provide the AI with an existing image and specify desired modifications, enabling it to edit and enhance the image according to the given instructions.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Change the background of this photo to a starry night sky and add a full moon.\" or \"Remove the person from this image and replace them with a cat.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Scenario",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Instructions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Example Prompt",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Photorealistic Images",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Craft prompts that describe the desired image in detail, including objects, scenery, lighting, and style, to generate realistic and high-quality images.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"A photorealistic image of a sunset over the ocean with palm trees silhouetted against the sky.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Artistic Images",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Design prompts that specify art styles, techniques, and subject matter to guide the AI in creating images that mimic specific artistic movements or evoke certain emotions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"An impressionist painting of a bustling city street with people walking under umbrellas in the rain.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Abstract Images",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Formulate prompts that encourage the AI to generate images that are open to interpretation, utilizing shapes, colors, and textures to evoke feelings or concepts.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"An abstract image representing the concept of hope, using bright colors and flowing shapes.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Image Editing",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Provide the AI with an existing image and specify desired modifications, enabling it to edit and enhance the image according to the given instructions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Change the background of this photo to a starry night sky and add a full moon.\" or \"Remove the person from this image and replace them with a cat.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Strategies for writing better prompts",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Developing effective prompts requires a strategic approach. Consider these strategies to enhance your prompt engineering skills:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "1. Set Clear Goals and Objectives:",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "table_row",
+   "text": "Tactic",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Prompt Example",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Use action verbs to specify the desired action",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Write a bulleted list that summarizes the key findings of the attached research paper\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Define the desired length and format of the output",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Compose a 500-word essay discussing the impact of climate change on coastal communities.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Specify the target audience",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Write a product description for a new line of organic skincare products, targeting young adults concerned with sustainability.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tactic",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Prompt Example",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Use action verbs to specify the desired action",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Write a bulleted list that summarizes the key findings of the attached research paper\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Define the desired length and format of the output",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Compose a 500-word essay discussing the impact of climate change on coastal communities.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Specify the target audience",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Write a product description for a new line of organic skincare products, targeting young adults concerned with sustainability.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "2. Provide Context and Background Information:",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "table_row",
+   "text": "Tactic",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Prompt Example",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Include relevant facts and data",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Given that global temperatures have risen by 1 degree Celsius since the pre-industrial era, discuss the potential consequences for sea level rise.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Reference specific sources or documents",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Based on the attached financial report, analyze the company's profitability over the past five years.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Define key terms and concepts",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Explain the concept of quantum computing in simple terms, suitable for a non-technical audience.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tactic",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Prompt Example",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Include relevant facts and data",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Given that global temperatures have risen by 1 degree Celsius since the pre-industrial era, discuss the potential consequences for sea level rise.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Reference specific sources or documents",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Based on the attached financial report, analyze the company's profitability over the past five years.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Define key terms and concepts",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Explain the concept of quantum computing in simple terms, suitable for a non-technical audience.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "3. Use Few-Shot Prompting:",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "table_row",
+   "text": "Tactic",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Prompt Example",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Provide a few examples of desired input-output pairs",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Input: \"Cat\" Output: \"A small furry mammal with whiskers.\" Input: \"Dog\" Output: \"A domesticated canine known for its loyalty.\" Prompt: \"Elephant\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Demonstrate the desired style or tone",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Example 1 (humorous): \"The politician's speech was so dull, it could cure insomnia.\" Example 2 (formal): \"The dignitary delivered an address that was both informative and engaging.\" Prompt: \"Write a sentence describing the comedian's stand-up routine.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Show the desired level of detail",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Example 1 (brief): \"The movie was about a young boy who befriends an alien.\" Example 2 (detailed): \"The science fiction film follows the story of Elliot, a lonely boy who discovers and forms a unique bond with an extraterrestrial stranded on Earth.\" Prompt: \"Summarize the plot of the novel you just finished reading.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tactic",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Prompt Example",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Provide a few examples of desired input-output pairs",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Input: \"Cat\" Output: \"A small furry mammal with whiskers.\" Input: \"Dog\" Output: \"A domesticated canine known for its loyalty.\" Prompt: \"Elephant\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Demonstrate the desired style or tone",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Example 1 (humorous): \"The politician's speech was so dull, it could cure insomnia.\" Example 2 (formal): \"The dignitary delivered an address that was both informative and engaging.\" Prompt: \"Write a sentence describing the comedian's stand-up routine.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Show the desired level of detail",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Example 1 (brief): \"The movie was about a young boy who befriends an alien.\" Example 2 (detailed): \"The science fiction film follows the story of Elliot, a lonely boy who discovers and forms a unique bond with an extraterrestrial stranded on Earth.\" Prompt: \"Summarize the plot of the novel you just finished reading.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "4. Be Specific:",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "table_row",
+   "text": "Tactic",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Prompt Example",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Use precise language and avoid ambiguity",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Instead of: \"Write something about climate change,\" use: \"Write a persuasive essay arguing for the implementation of stricter carbon emission regulations.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Quantify your requests whenever possible",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Instead of: \"Write a long poem,\" use: \"Write a sonnet with 14 lines that explores themes of love and loss.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Break down complex tasks into smaller steps",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Instead of: \"Create a marketing plan,\" use: \"1. Identify the target audience. 2. Develop key marketing messages. 3. Choose appropriate marketing channels.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tactic",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Prompt Example",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Use precise language and avoid ambiguity",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Instead of: \"Write something about climate change,\" use: \"Write a persuasive essay arguing for the implementation of stricter carbon emission regulations.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Quantify your requests whenever possible",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Instead of: \"Write a long poem,\" use: \"Write a sonnet with 14 lines that explores themes of love and loss.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Break down complex tasks into smaller steps",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Instead of: \"Create a marketing plan,\" use: \"1. Identify the target audience. 2. Develop key marketing messages. 3. Choose appropriate marketing channels.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "5. Iterate and Experiment:",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "table_row",
+   "text": "Tactic",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Action",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Try different phrasings and keywords",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Rephrase your prompt using synonyms or alternative sentence structures.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Adjust the level of detail and specificity",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Add or remove information to fine-tune the output.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Test different prompt lengths",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Experiment with both shorter and longer prompts to find the optimal balance.",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tactic",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Action",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Try different phrasings and keywords",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Rephrase your prompt using synonyms or alternative sentence structures.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Adjust the level of detail and specificity",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Add or remove information to fine-tune the output.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Test different prompt lengths",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Experiment with both shorter and longer prompts to find the optimal balance.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "6. Leverage Chain of Thought Prompting:",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "table_row",
+   "text": "Tactic",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Prompt Example",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Encourage step-by-step reasoning",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Solve this problem step-by-step: John has 5 apples, he eats 2. How many apples does he have left? Step 1: John starts with 5 apples. Step 2: He eats 2 apples, so we need to subtract 2 from 5. Step 3: 5 - 2 = 3. Answer: John has 3 apples left.\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Ask the model to explain its reasoning process",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"Explain your thought process in determining the sentiment of this movie review: 'The acting was superb, but the plot was predictable.'\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "Guide the model through a logical sequence of thought",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "table_row",
+   "text": "\"To classify this email as spam or not spam, consider the following: 1. Is the sender known? 2. Does the subject line contain suspicious keywords? 3. Is the email offering something too good to be true?\"",
+   "level": 0,
+   "meta": {
+    "cells": []
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tactic",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Prompt Example",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Encourage step-by-step reasoning",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Solve this problem step-by-step: John has 5 apples, he eats 2. How many apples does he have left? Step 1: John starts with 5 apples. Step 2: He eats 2 apples, so we need to subtract 2 from 5. Step 3: 5 - 2 = 3. Answer: John has 3 apples left.\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Ask the model to explain its reasoning process",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"Explain your thought process in determining the sentiment of this movie review: 'The acting was superb, but the plot was predictable.'\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Guide the model through a logical sequence of thought",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "\"To classify this email as spam or not spam, consider the following: 1. Is the sender known? 2. Does the subject line contain suspicious keywords? 3. Is the email offering something too good to be true?\"",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "For further guidance on prompt engineering best practices, explore the Five Best Practices for Prompt Engineering on Google Cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Benefits of prompt engineering",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Effective prompt engineering offers numerous benefits, enhancing the capabilities and usability of AI models:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Improved model performance",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Well-crafted prompts lead to more accurate, relevant, and informative outputs from AI models, as they provide clear instructions and context.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Reduced bias and harmful responses",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "By carefully controlling the input and guiding the AI's focus, prompt engineering helps mitigate bias and minimize the risk of generating inappropriate or offensive content.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Increased control and predictability",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Prompt engineering empowers you to influence the AI's behavior and ensure consistent and predictable responses aligned with your desired outcomes.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Enhanced user experience",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Clear and concise prompts make it easier for users to interact effectively with AI models, leading to more intuitive and satisfying experiences.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Start your AI journey with Google Cloud",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "New customers get $300 in free credits to spend on Google Cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Get started",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Talk to a Google Cloud sales specialist to discuss your unique challenge in more detail.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Contact us",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Related Google Cloud products and services",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "See all AI products and solutions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Vertex AI Platform",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "A single platform for data scientists and engineers to create, train, test, monitor, tune, and deploy ML and AI models.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Generative AI on Vertex AI",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Rapidly prototype and test generative AI models. Test sample prompts, design your own prompts, and customize foundation models and LLMs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "AI APIs",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Easily integrate AI into your applications with Google Cloud's AI and machine learning APIs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Solution",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Model Garden on Vertex AI",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Jumpstart your ML project with a single place to discover, customize, and deploy a wide variety of models from Google and Google partners.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Additional learning resources to get started",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "New to Google Cloud or generative AI? New customers get $300 in free credits to run, test, and deploy workloads.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Training: No cost generative AI fundamentals course",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Documentation: Introduction to prompt design",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Documentation: General prompt design strategies",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Documentation: Generative AI prompt samples",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Take the next step",
+   "level": 4,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Start building on Google Cloud with $300 in free credits and 20+ always free products.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Get started for free",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Need help getting started?",
+   "level": 5,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Contact sales",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Work with a trusted partner",
+   "level": 5,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Find a partner",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Continue browsing",
+   "level": 5,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "See all products",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "DocsSupport",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "ConsoleSign in",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Start free",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Start free",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Contact us",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Accelerate your digital transformation",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Whether your business is early in its journey or well on its way to digital transformation, Google Cloud can help solve your toughest challenges.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Why Google Cloud",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Top reasons businesses choose us.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "AI and ML",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Get enterprise-ready AI.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Multicloud",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Run your apps wherever you need them.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Global infrastructure",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Build on the same infrastructure as Google.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Data Cloud",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Make smarter decisions with unified data.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Modern Infrastructure Cloud",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Next generation of cloud infrastructure.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Security",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Protect your users, data, and apps.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Productivity and collaboration",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Connect your teams with AI-powered apps.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Reports and insights",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Executive insights",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Curated C-suite perspectives.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Analyst reports",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Read what industry analysts say about us.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Whitepapers",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Browse and download popular whitepapers.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Customer stories",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Explore case studies and videos.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Industry Solutions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Security",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Startups and SMB",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "See all solutions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Industry Solutions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Reduce cost, increase operational agility, and capture new market opportunities.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Retail",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Analytics and collaboration tools for the retail value chain.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Consumer Packaged Goods",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Solutions for CPG digital transformation and brand growth.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Financial Services",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Computing, data management, and analytics tools for financial services.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Healthcare and Life Sciences",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Advance research at scale and empower healthcare innovation.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Media and Entertainment",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Solutions for content production and distribution operations.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Telecommunications",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Hybrid and multi-cloud services to deploy and monetize 5G.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Games",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "AI-driven solutions to build and scale games faster.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Manufacturing",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Migration and AI tools to optimize the manufacturing value chain.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Supply Chain and Logistics",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Enable sustainable, efficient, and resilient data-driven operations across supply chain and logistics operations.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Government",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Data storage, AI, and analytics solutions for government agencies.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Education",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Teaching tools to provide more engaging learning experiences.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Not seeing what you're looking for?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "See all industry solutions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Application Modernization",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Assess, plan, implement, and measure software practices and capabilities to modernize and simplify your organization’s business application portfolios.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "CAMP",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Program that uses DORA to improve your software delivery capabilities.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Modernize Traditional Applications",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Analyze, categorize, and get started with cloud migration on traditional workloads.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Migrate from PaaS: Cloud Foundry, Openshift",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tools for moving your existing containers into Google's managed container services.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Migrate from Mainframe",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Automated tools and prescriptive guidance for moving your mainframe apps to the cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Modernize Software Delivery",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Software supply chain best practices - innerloop productivity, CI/CD and S3C.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "DevOps Best Practices",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Processes and resources for implementing DevOps in your org.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "SRE Principles",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tools and resources for adopting SRE in your org.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Platform Engineering",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Comprehensive suite of managed services and Golden Paths to build, manage, and scale IDPs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Run Applications at the Edge",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Guidance for localized and low latency apps on Google’s hardware agnostic edge solution.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Architect for Multicloud",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Manage workloads across multiple clouds with a consistent platform.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Go Serverless",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed environment for developing, deploying and scaling apps.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Artificial Intelligence",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Add intelligence and efficiency to your business with AI and machine learning.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Customer Engagement Suite with Google AI",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "End-to-end application that combines our most advanced conversational AI.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Document AI",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Document processing and data capture automated at scale.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Vertex AI Search for commerce",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Google-quality search and product recommendations for retailers.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Cloud with Gemini",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "AI assistants for application development, coding, and more.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Generative AI on Google Cloud",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Transform content creation and discovery, research, customer service, and developer efficiency with the power of generative AI.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "APIs and Applications",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Speed up the pace of innovation without coding, using APIs, apps, and automation.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "New Business Channels Using APIs",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Attract and empower an ecosystem of developers and partners.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Unlocking Legacy Applications Using APIs",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cloud services for extending and modernizing legacy apps.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Open Banking APIx",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Simplify and accelerate secure delivery of open banking compliant APIs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Data Analytics",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Generate instant insights from data at any scale with a serverless, fully managed analytics platform that significantly simplifies analytics.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Data Migration",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Migrate and modernize your data warehouse and data lakes with AI-powered migration services.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Data Lakehouse",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Unify and govern your multimodal data with a high-performance and open data lakehouse.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Real-time Analytics",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Insights from ingesting, processing, and analyzing event streams.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Marketing Analytics",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Solutions for collecting, analyzing, and activating customer data.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Datasets",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Data from Google, public, and commercial providers to enrich your analytics and AI initiatives.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Business Intelligence",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Solutions for modernizing your BI stack and creating rich data experiences.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "AI for Data Analytics",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Write SQL, build predictive models, and visualize data with AI for data analytics.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Geospatial Analytics",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "A comprehensive platform to solve for geospatial use cases at scale.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Databases",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Migrate and manage enterprise data with security, reliability, high availability, and fully managed data services.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Database Migration",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Guides and tools to simplify your database migration life cycle.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Database Modernization",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Upgrades to modernize your operational database infrastructure.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Databases for Games",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Build global, live games with Google Cloud databases.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Cloud Databases",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Database services to migrate, manage, and modernize data.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Migrate Oracle workloads to Google Cloud",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Rehost, replatform, rewrite your Oracle workloads.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Open Source Databases",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed open source databases with enterprise-grade support.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "SQL Server on Google Cloud",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Options for running SQL Server virtual machines on Google Cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Gemini for Databases",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Supercharge database development and management with AI.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Infrastructure Modernization",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Migrate quickly with solutions for SAP, VMware, Windows, Oracle, and other workloads.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Application Migration",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Discovery and analysis tools for moving to the cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "SAP on Google Cloud",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Certifications for running SAP applications and SAP HANA.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "High Performance Computing",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Compute, storage, and networking options to support any workload.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Windows on Google Cloud",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tools and partners for running Windows workloads.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Data Center Migration",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Migration solutions for VMs, apps, databases, and more.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Active Assist",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Automatic cloud resource optimization and increased security.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Virtual Desktops",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Remote work solutions for desktops and applications (VDI & DaaS).",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Rapid Migration and Modernization Program",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "End-to-end migration program to simplify your path to the cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Backup and Disaster Recovery",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Ensure your business continuity needs are met.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Red Hat on Google Cloud",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Google and Red Hat provide an enterprise-grade platform for traditional on-prem and custom applications.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cross-Cloud Network",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Simplify hybrid and multicloud networking, and secure your workloads, data, and users.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Observability",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Monitor, troubleshoot, and improve app performance with end-to-end visibility.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Productivity and Collaboration",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Change the way teams work with solutions designed for humans and built for impact.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Workspace",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Collaboration and productivity tools for enterprises.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Workspace Essentials",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Secure video meetings and modern collaboration for teams.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Identity",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Unified platform for IT admins to manage user devices and apps.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Chrome Enterprise",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "ChromeOS, Chrome Browser, and Chrome devices built for business.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Security",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Detect, investigate, and respond to online threats to help protect your business.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Agentic SOC",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Delivering better security outcomes with AI agents.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Web App and API Protection",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Threat and fraud protection for your web applications and APIs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Security and Resilience Framework",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Solutions for each phase of the security and resilience life cycle.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Risk and compliance as code (RCaC)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Solution to modernize your governance, risk, and compliance function with automation.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Software Supply Chain Security",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Solution for improving end-to-end software supply chain security.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Security Foundation",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Recommended products to help achieve a strong security posture.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Cloud CybershieldTM",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Strengthen nationwide cyber defense.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Startups and SMB",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Accelerate startup and SMB growth with tailored solutions and programs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Startup Program",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Get financial, business, and technical support to take your startup to the next level.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Small and Medium Business",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Explore solutions for web hosting, app development, AI, and analytics.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Software as a Service",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Build better SaaS products, scale efficiently, and grow your business.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Featured Products",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Web3",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "See all products (100+)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Featured Products",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Compute Engine",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Virtual machines running in Google’s data center.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cloud Storage",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Object storage that’s secure, durable, and scalable.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "BigQuery",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Autonomous data to AI platform for analytics and data science.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cloud Run",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed environment for running containerized apps.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Google Kubernetes Engine",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Managed environment for running containerized apps.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Vertex AI",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Unified platform for ML models and generative AI.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Looker",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Platform for BI, data applications, and embedded analytics.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Apigee API Management",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Manage the full life cycle of APIs anywhere with visibility and control.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cloud SQL",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Relational database services for MySQL, PostgreSQL and SQL Server.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Gemini Enterprise",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Secure platform to discover, create, run, and govern AI agents.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cloud CDN",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Content delivery network for delivering web and video.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Not seeing what you're looking for?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "See all products (100+)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "AI and Machine Learning",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Vertex AI Platform",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Unified platform for ML models and generative AI.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Vertex AI Studio",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Build, tune, and deploy foundation models on Vertex AI.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Vertex AI Agent Builder",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Build and deploy gen AI experiences.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Conversational Agents",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Build conversational AI with both deterministic and gen AI functionality.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Vertex AI Search",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Build Google-quality search for your enterprise apps and experiences.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Speech-to-Text",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Speech recognition and transcription across 125 languages.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Text-to-Speech",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Speech synthesis in 220+ voices and 40+ languages.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Translation AI",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Language detection, translation, and glossary support.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Gemini Enterprise",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Secure platform to discover, create, run, and govern AI agents.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Vision AI",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Custom and pre-trained models to detect emotion, text, and more.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Contact Center as a Service",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Omnichannel contact center solution that is native to the cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Not seeing what you're looking for?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "See all AI and machine learning products",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Business Intelligence",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Looker",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Platform for BI, data applications, and embedded analytics.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Looker Studio",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Interactive data suite for dashboarding, reporting, and analytics.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Compute",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Compute Engine",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Virtual machines running in Google’s data center.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "App Engine",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Serverless application platform for apps and back ends.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud GPUs",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "GPUs for ML, scientific computing, and 3D visualization.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Migrate to Virtual Machines",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Server and virtual machine migration to Compute Engine.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Spot VMs",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Compute instances for batch jobs and fault-tolerant workloads.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Batch",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed service for scheduling batch jobs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Sole-Tenant Nodes",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Dedicated hardware for compliance, licensing, and management.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Bare Metal",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Infrastructure to run specialized workloads on Google Cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Recommender",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Usage recommendations for Google Cloud products and services.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "VMware Engine",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed, native VMware Cloud Foundation software stack.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Run",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed environment for running containerized apps.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Not seeing what you're looking for?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "See all compute products",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Containers",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Kubernetes Engine",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Managed environment for running containerized apps.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Run",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed environment for running containerized apps.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Build",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Solution for running build steps in a Docker container.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Artifact Registry",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Package manager for build artifacts and dependencies.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Code",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "IDE support to write, run, and debug Kubernetes applications.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Deploy",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed continuous delivery to GKE and Cloud Run.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Migrate to Containers",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Components for migrating VMs into system containers on GKE.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Deep Learning Containers",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Containers with data science frameworks, libraries, and tools.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Knative",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Components to create Kubernetes-native cloud-based software.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Data Analytics",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "BigQuery",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Autonomous data to AI platform for analytics and data science.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Looker",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Platform for BI, data applications, and embedded analytics.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Dataflow",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Real-time analytics for stream and batch processing.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Pub/Sub",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Messaging service for event ingestion and delivery.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Dataproc",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Managed service for running Apache Spark and Apache Hadoop clusters.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Cloud Serverless for Apache Spark",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Quick VM startup and dynamic autoscaling for Spark workloads.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Composer",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Workflow orchestration service built on Apache Airflow.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "BigLake",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Storage engine for building data lakehouses with Apache Iceberg.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Dataplex Universal Catalog",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "A unified data-to-AI governance fabric for all Google Cloud services.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "BigQuery Migration Services",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Free-to-use, cloud-native and AI-powered data migration services.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Managed Service for Apache Kafka",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Managed Kafka service to operate highly available Apache Kafka clusters.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Not seeing what you're looking for?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "See all data analytics products",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Databases",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "AlloyDB for PostgreSQL",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed, PostgreSQL-compatible database for enterprise workloads.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud SQL",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed database for MySQL, PostgreSQL, and SQL Server.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Firestore",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Highly scalable and serverless NoSQL document database, with MongoDB compatibility.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Spanner",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cloud-native relational database with unlimited scale and 99.999% availability.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Bigtable",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cloud-native wide-column database for large-scale, low-latency workloads.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Datastream",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Serverless change data capture and replication service.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Database Migration Service",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Serverless, minimal downtime migrations to Cloud SQL.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Bare Metal Solution",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed infrastructure for your Oracle workloads.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Memorystore",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed Redis and Memcached for sub-millisecond data access.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Developer Tools",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Artifact Registry",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Universal package manager for build artifacts and dependencies.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Code",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "IDE support to write, run, and debug Kubernetes applications.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Build",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Continuous integration and continuous delivery platform.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Deploy",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed continuous delivery to GKE and Cloud Run.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Deployment Manager",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Service for creating and managing Google Cloud resources.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud SDK",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Command-line tools and libraries for Google Cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Scheduler",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cron job scheduler for task automation and management.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Source Repositories",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Private Git repository to store, manage, and track code.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Infrastructure Manager",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Automate infrastructure management with Terraform.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Workstations",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Managed and secure development environments in the cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Gemini Code Assist",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "AI-powered assistant available across Google Cloud and your IDE.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Not seeing what you're looking for?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "See all developer tools",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Distributed Cloud",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Distributed Cloud Connected",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Distributed cloud services for edge workloads.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Distributed Cloud Air-gapped",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Distributed cloud for air-gapped workloads.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Hybrid and Multicloud",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Kubernetes Engine",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Managed environment for running containerized apps.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Apigee API Management",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "API management, development, and security platform.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Migrate to Containers",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tool to move workloads and existing applications to GKE.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Build",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Service for executing builds on Google Cloud infrastructure.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Observability",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Monitoring, logging, and application performance suite.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Service Mesh",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed service mesh based on Envoy and Istio.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Distributed Cloud",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed solutions for the edge and data centers.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Industry Specific",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Anti Money Laundering AI",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Detect suspicious, potential money laundering activity with AI.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Healthcare API",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Solution for bridging existing care systems and apps on Google Cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Device Connect for Fitbit",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Gain a 360-degree patient view with connected Fitbit data on Google Cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Telecom Network Automation",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Ready to use cloud-native automation for telecom networks.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Telecom Data Fabric",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Telecom data management and analytics with an automated approach.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Telecom Subscriber Insights",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Ingests data to improve subscriber acquisition and retention.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Spectrum Access System (SAS)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Controls fundamental access to the Citizens Broadband Radio Service (CBRS).",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Integration Services",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Application Integration",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Connect to 3rd party apps and enable data consistency without code.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Workflows",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Workflow orchestration for serverless products and API services.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Apigee API Management",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Manage the full life cycle of APIs anywhere with visibility and control.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Tasks",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Task management service for asynchronous task execution.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Scheduler",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cron job scheduler for task automation and management.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Dataproc",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Service for running Apache Spark and Apache Hadoop clusters.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Data Fusion",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Data integration for building and managing data pipelines.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Composer",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Workflow orchestration service built on Apache Airflow.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Pub/Sub",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Messaging service for event ingestion and delivery.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Eventarc",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Build an event-driven architecture that can connect any service.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Management Tools",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Shell",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Interactive shell environment with a built-in command line.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud console",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Web-based interface for managing and monitoring cloud apps.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Endpoints",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Deployment and development management for APIs on Google Cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud IAM",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Permissions management system for Google Cloud resources.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud APIs",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Programmatic interfaces for Google Cloud services.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Service Catalog",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Service catalog for admins managing internal enterprise solutions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cost Management",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tools for monitoring, controlling, and optimizing your costs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Observability",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Monitoring, logging, and application performance suite.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Carbon Footprint",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Dashboard to view and export Google Cloud carbon emissions reports.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Config Connector",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Kubernetes add-on for managing Google Cloud resources.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Active Assist",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tools for easily managing performance, security, and cost.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Not seeing what you're looking for?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "See all management tools",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Maps and Geospatial",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Earth Engine",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Geospatial platform for Earth observation data and analysis.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Maps Platform",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Create immersive location experiences and improve business operations.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Media Services",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud CDN",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Content delivery network for serving web and video content.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Live Stream API",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Service to convert live video and package for streaming.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "OpenCue",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Open source render manager for visual effects and animation.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Transcoder API",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Convert video files and package them for optimized delivery.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Video Stitcher API",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Service for dynamic or server side ad insertion.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Migration",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Migration Center",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Unified platform for migrating and modernizing with Google Cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Application Migration",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "App migration to the cloud for low-cost refresh cycles.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Migrate to Virtual Machines",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Components for migrating VMs and physical servers to Compute Engine.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Foundation Toolkit",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Reference templates for Deployment Manager and Terraform.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Database Migration Service",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Serverless, minimal downtime migrations to Cloud SQL.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Migrate to Containers",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Components for migrating VMs into system containers on GKE.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "BigQuery Migration Services",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Streamlined data warehouse and data lake migration tooling and incentives.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Rapid Migration and Modernization Program",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "End-to-end migration program to simplify your path to the cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Transfer Appliance",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Storage server for moving large volumes of data to Google Cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Storage Transfer Service",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Data transfers from online and on-premises sources to Cloud Storage.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "VMware Engine",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Migrate and run your VMware workloads natively on Google Cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Mixed Reality",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Immersive Stream for XR",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Hosts, renders, and streams 3D and XR experiences.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Networking",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Armor",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Security policies and defense against web and DDoS attacks.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud CDN and Media CDN",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Content delivery network for serving web and video content.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud DNS",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Domain name system for reliable and low-latency name lookups.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Load Balancing",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Service for distributing traffic across applications and regions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud NAT",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "NAT service for giving private instances internet access.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Connectivity",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Connectivity options for VPN, peering, and enterprise needs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Network Connectivity Center",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Connectivity management to help simplify and scale networks.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Network Intelligence Center",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Network monitoring, verification, and optimization platform.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Network Service Tiers",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cloud network options based on performance, availability, and cost.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Virtual Private Cloud",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Single VPC for an entire organization, isolated within projects.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Private Service Connect",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Secure connection between your VPC and services.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Not seeing what you're looking for?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "See all networking products",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Operations",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Logging",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Google Cloud audit, platform, and application logs management.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Monitoring",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Infrastructure and application health with rich metrics.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Error Reporting",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Application error identification and analysis.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Managed Service for Prometheus",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully-managed Prometheus on Google Cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Trace",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tracing system collecting latency data from applications.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Profiler",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "CPU and heap profiler for analyzing application performance.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Quotas",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Manage quotas for all Google Cloud services.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Productivity and Collaboration",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "AppSheet",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "No-code development platform to build and extend applications.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Gemini Enterprise",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Secure platform to discover, create, run, and govern AI agents.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Workspace",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Collaboration and productivity tools for individuals and organizations.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Workspace Essentials",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Secure video meetings and modern collaboration for teams.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Identity",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Unified platform for IT admins to manage user devices and apps.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Chrome Enterprise",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "ChromeOS, Chrome browser, and Chrome devices built for business.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Security and Identity",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud IAM",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Permissions management system for Google Cloud resources.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Sensitive Data Protection",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Discover, classify, and protect your valuable data assets.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Mandiant Managed Defense",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Find and eliminate threats with confidence 24x7.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Threat Intelligence",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Know who’s targeting you.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Security Command Center",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Platform for defending against threats to your Google Cloud assets.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Key Management",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Manage encryption keys on Google Cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Mandiant Incident Response",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Minimize the impact of a breach.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Chrome Enterprise Premium",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Get secure enterprise browsing with extensive endpoint visibility.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Assured Workloads",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Compliance and security controls for sensitive workloads.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Security Operations",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Detect, investigate, and respond to cyber threats.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Mandiant Consulting",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Get expert guidance before, during, and after an incident.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Not seeing what you're looking for?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "See all security and identity products",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Serverless",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Run",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed environment for running containerized apps.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Functions",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Platform for creating functions that respond to cloud events.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "App Engine",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Serverless application platform for apps and back ends.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Workflows",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Workflow orchestration for serverless products and API services.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "API Gateway",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Develop, deploy, secure, and manage APIs with a fully managed gateway.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Storage",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Storage",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Object storage that’s secure, durable, and scalable.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Block Storage",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "High-performance storage for AI, analytics, databases, and enterprise applications.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Filestore",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "File storage that is highly scalable and secure.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Persistent Disk",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Block storage for virtual machine instances running on Google Cloud.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Storage for Firebase",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Object storage for storing and serving user-generated content.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Local SSD",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Block storage that is locally attached for high-performance needs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Storage Transfer Service",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Data transfers from online and on-premises sources to Cloud Storage.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Cloud Managed Lustre",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "High performance managed parallel file service.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Cloud NetApp Volumes",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "File storage service for NFS, SMB, and multi-protocol environments.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Backup and DR Service",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Service for centralized, application-consistent data protection.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Web3",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Blockchain Node Engine",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Fully managed node hosting for developing on the blockchain.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Blockchain RPC",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Enterprise-grade RPC for building on the blockchain.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Save money with our transparent approach to pricing",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Cloud's pay-as-you-go pricing offers automatic savings based on monthly usage and discounted rates for prepaid resources. Contact us today to get a quote.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Request a quote",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Cloud pricing",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Pay only for what you use with no lock-in.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Pricing calculator",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Calculate your cloud savings.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Cloud free tier",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Explore products with free monthly usage.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cost optimization framework",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Get best practices to optimize workload costs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cost management tools",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Tools to monitor and control your costs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Product-specific Pricing",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Cloud Free Program",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "$300 in free credits and 20+ free products.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Solution Generator",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Get AI generated solution recommendations.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Quickstarts",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Get tutorials and walkthroughs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Blog",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Read our latest product news and stories.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Learning Hub",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Grow your career with role-based training.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Cloud certification",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Prepare and register for certifications.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud computing basics",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Learn more about cloud computing basics.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud Architecture Center",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Get reference architectures and best practices.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Connect",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Innovators",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Join Google Cloud's developer program.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Developer Center",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Stay in the know and stay connected.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Events and webinars",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Browse upcoming and on demand events.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Cloud Community",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Ask questions, find answers, and connect.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Consulting and Partners",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Cloud Consulting",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Work with our experts on cloud projects.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Cloud Marketplace",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Deploy ready-to-go solutions in a few clicks.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Find a partner",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Explore the benefits of working with a partner.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Google Cloud partners",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Learn about the ecosystem and resources.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Overview",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Migrate from PaaS: Cloud Foundry, Openshift",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Rapid Migration and Modernization Program",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Rapid Migration and Modernization Program",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Save money with our transparent approach to pricing",
+   "level": 0,
+   "meta": {}
+  }
+ ]
+}

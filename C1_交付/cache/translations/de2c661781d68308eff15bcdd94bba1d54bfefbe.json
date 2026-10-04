@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0041",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "de2c661781d68308eff15bcdd94bba1d54bfefbe",
+ "zh": "- 软件供应链安全\n\n改进端到端软件供应链安全性的方案。\n\n- Security Foundation\n\n帮助达成良好安全态势的推荐产品。\n\n- Google Cloud CybershieldTM\n\n强化全国范围内的网络防御。\n\n初创企业与中小企业\n\n用定制化方案和计划，加速初创企业与中小企业的成长。\n\n- 初创企业计划\n\n获得财务、商业和技术支持，把你的初创企业推向下一个阶段。\n\n- 中小企业\n\n探索 Web 托管、应用开发、AI 和分析方面的解决方案。\n\n- SaaS\n\n打造更好的 SaaS 产品，高效扩展，持续增长业务。\n\n- 精选产品\n\n- Web3\n\n查看全部产品（100 多款）\n\n- 精选产品\n\nCompute Engine\n\n运行在 Google 数据中心的虚拟机。\n\nCloud Storage\n\n安全、耐用、可扩展的对象存储。\n\nBigQuery\n\n面向分析与数据科学的自主数据到 AI 平台。\n\nCloud Run\n\n运行容器化应用的全托管环境。\n\nGoogle Kubernetes Engine\n\n运行容器化应用的托管环境。\n\nVertex AI\n\nML 模型与生成式 AI 的统一平台。\n\nLooker\n\nBI、数据应用与嵌入式分析平台。\n\nApigee API Management\n\n在任何地方管理 API 的完整生命周期，尽享可见性与可控性。\n\nCloud SQL\n\n面向 MySQL、PostgreSQL 和 SQL Server 的关系型数据库服务。\n\nGemini Enterprise\n\n用于发现、创建、运行和治理 AI 智能体的安全平台。\n\nCloud CDN\n\n用于分发 Web 与视频的内容交付网络。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

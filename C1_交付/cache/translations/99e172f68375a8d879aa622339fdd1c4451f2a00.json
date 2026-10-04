@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0023",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "99e172f68375a8d879aa622339fdd1c4451f2a00",
+ "zh": "#### 攻击载荷说明\n\n表 5 中的输入示例很直白。由于我们要求助手读取一个“新闻”网站，编排智能体无需任何特殊指令就会把任务分派给新闻智能体。由于 Web Reader 工具拥有不受限制的网络访问能力，攻击者可以利用它扫描并枚举内部网络中的资源。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

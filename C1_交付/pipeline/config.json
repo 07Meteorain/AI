@@ -1,0 +1,90 @@
+{
+  "_readme": [
+    "C1 课程资料翻译管线 · 配置。改这一份文件即可把管线换到另一门课/另一批资料上。",
+    "换源三步：(1) 改 project.source_root；(2) 增删 sources 列表；(3) 跑 run_pipeline.py。",
+    "sources 字段说明：id=稳定标识(决定缓存与文件名，改名会导致重译)；type=html|pdf；",
+    "path=相对 source_root 的路径；title=中文标题；priority=1必译/2重要/3补充；category=归属周次。"
+  ],
+
+  "project": {
+    "name": "CS146S The Modern Software Developer 中文资料包",
+    "course": "CS146S: The Modern Software Developer (Stanford, Fall 2025)",
+    "source_root": "../../materials",
+    "work_dir": "../work",
+    "cache_dir": "../cache/translations",
+    "out_dir": "../translations",
+    "reports_dir": "../reports",
+    "site_dir": "../docs",
+    "glossary": "../glossary/terms.json"
+  },
+
+  "sources": [
+    { "id": "course-homepage", "type": "html", "path": "CS146S_offline/index.html", "title": "课程主页（Overview / Syllabus / FAQ）", "priority": 1, "category": "课程概览" },
+
+    { "id": "prompt-engineering-overview", "type": "html", "path": "CS146S_offline/pages/prompt-engineering-overview.html", "title": "提示工程是什么（What Is Prompt Engineering）", "priority": 1, "category": "Week 1 · 提示工程" },
+    { "id": "prompt-engineering-guide", "type": "html", "path": "CS146S_offline/pages/prompt-engineering-guide.html", "title": "提示工程技巧（Prompt Engineering Techniques）", "priority": 1, "category": "Week 1 · 提示工程" },
+    { "id": "good-context-good-code", "type": "html", "path": "CS146S_offline/pages/good-context-good-code.html", "title": "好上下文，好代码（Good Context, Good Code）", "priority": 2, "category": "Week 1 · 上下文工程" },
+    { "id": "how-long-contexts-fail", "type": "html", "path": "CS146S_offline/pages/how-long-contexts-fail.html", "title": "上下文是如何失效的（How Contexts Fail）", "priority": 2, "category": "Week 1 · 上下文工程" },
+    { "id": "context-rot", "type": "html", "path": "CS146S_offline/pages/context-rot.html", "title": "上下文腐化（Context Rot）", "priority": 1, "category": "Week 1 · 上下文工程" },
+
+    { "id": "mcp-introduction", "type": "html", "path": "CS146S_offline/pages/mcp-introduction.html", "title": "Model Context Protocol 简介", "priority": 1, "category": "Week 2 · MCP" },
+    { "id": "mcp-server-authentication", "type": "html", "path": "CS146S_offline/pages/mcp-server-authentication.html", "title": "远程 MCP 服务器与鉴权", "priority": 2, "category": "Week 2 · MCP" },
+    { "id": "mcp-food-for-thought", "type": "html", "path": "CS146S_offline/pages/mcp-food-for-thought.html", "title": "API 不是好的 MCP 工具（APIs Don't Make Good MCP Tools）", "priority": 2, "category": "Week 2 · MCP" },
+    { "id": "mcp-registry-preview", "type": "html", "path": "CS146S_offline/pages/mcp-registry-preview.html", "title": "MCP Registry 预览", "priority": 3, "category": "Week 2 · MCP" },
+    { "id": "devin-coding-agents-101", "type": "html", "path": "CS146S_offline/pages/devin-coding-agents-101.html", "title": "Devin 编码智能体 101", "priority": 2, "category": "Week 2 · 编码智能体" },
+    { "id": "writing-effective-tools-for-agents", "type": "html", "path": "CS146S_offline/pages/writing-effective-tools-for-agents.html", "title": "为智能体编写高效工具", "priority": 1, "category": "Week 2 · 编码智能体" },
+    { "id": "claude-code-best-practices", "type": "html", "path": "CS146S_offline/pages/claude-code-best-practices.html", "title": "Claude Code 最佳实践", "priority": 1, "category": "Week 4 · Claude Code" },
+    { "id": "peeking-under-the-hood-of-claude-code", "type": "html", "path": "CS146S_offline/pages/peeking-under-the-hood-of-claude-code.html", "title": "Claude Code 内部机制探秘（占位页）", "priority": 3, "category": "Week 4 · Claude Code" },
+
+    { "id": "specs-are-the-new-source-code", "type": "html", "path": "CS146S_offline/pages/specs-are-the-new-source-code.html", "title": "规格即新源码（Specs Are the New Source Code）", "priority": 1, "category": "Week 3 · 规格驱动开发" },
+    { "id": "warp-vs-claude-code", "type": "html", "path": "CS146S_offline/pages/warp-vs-claude-code.html", "title": "Warp 与 Claude Code 对比", "priority": 2, "category": "Week 5 · AI 原生开发" },
+    { "id": "how-warp-uses-warp", "type": "html", "path": "CS146S_offline/pages/how-warp-uses-warp.html", "title": "Warp 如何用 Warp 构建 Warp", "priority": 3, "category": "Week 5 · AI 原生开发" },
+
+    { "id": "sast-vs-dast", "type": "html", "path": "CS146S_offline/pages/sast-vs-dast.html", "title": "SAST 与 DAST 对比", "priority": 2, "category": "Week 6 · 安全" },
+    { "id": "copilot-prompt-injection-rce", "type": "html", "path": "CS146S_offline/pages/copilot-prompt-injection-rce.html", "title": "Copilot 提示注入导致远程代码执行", "priority": 2, "category": "Week 6 · 安全" },
+    { "id": "finding-vulnerabilities-claude-codex", "type": "html", "path": "CS146S_offline/pages/finding-vulnerabilities-claude-codex.html", "title": "用 Claude Code 与 Codex 发现漏洞", "priority": 2, "category": "Week 6 · 安全" },
+    { "id": "agentic-ai-threats", "type": "html", "path": "CS146S_offline/pages/agentic-ai-threats.html", "title": "智能体 AI 威胁", "priority": 2, "category": "Week 6 · 安全" },
+    { "id": "owasp-top-ten", "type": "html", "path": "CS146S_offline/pages/owasp-top-ten.html", "title": "OWASP 十大风险", "priority": 3, "category": "Week 6 · 安全" },
+
+    { "id": "code-reviews-just-do-it", "type": "html", "path": "CS146S_offline/pages/code-reviews-just-do-it.html", "title": "代码评审：别想太多，干就完了", "priority": 3, "category": "Week 7 · 代码评审" },
+    { "id": "how-to-review-code-effectively", "type": "html", "path": "CS146S_offline/pages/how-to-review-code-effectively.html", "title": "如何高效评审代码", "priority": 2, "category": "Week 7 · 代码评审" },
+    { "id": "ai-code-review-best-practices", "type": "html", "path": "CS146S_offline/pages/ai-code-review-best-practices.html", "title": "AI 代码评审最佳实践", "priority": 2, "category": "Week 7 · 代码评审" },
+    { "id": "code-review-essentials", "type": "html", "path": "CS146S_offline/pages/code-review-essentials.html", "title": "代码评审要点", "priority": 3, "category": "Week 7 · 代码评审" },
+
+    { "id": "sre-introduction", "type": "html", "path": "CS146S_offline/pages/sre-introduction.html", "title": "SRE 导论", "priority": 2, "category": "Week 9 · SRE 与可观测性" },
+    { "id": "observability-basics", "type": "html", "path": "CS146S_offline/pages/observability-basics.html", "title": "可观测性基础", "priority": 2, "category": "Week 9 · SRE 与可观测性" },
+    { "id": "multi-agent-systems-ai-native", "type": "html", "path": "CS146S_offline/pages/multi-agent-systems-ai-native.html", "title": "AI 原生的多智能体系统", "priority": 2, "category": "Week 9 · SRE 与可观测性" },
+    { "id": "benefits-agentic-ai-oncall", "type": "html", "path": "CS146S_offline/pages/benefits-agentic-ai-oncall.html", "title": "智能体 AI 值班带来的收益", "priority": 3, "category": "Week 9 · SRE 与可观测性" },
+    { "id": "kubernetes-troubleshooting-ai", "type": "html", "path": "CS146S_offline/pages/kubernetes-troubleshooting-ai.html", "title": "用 AI 排查 Kubernetes 故障", "priority": 3, "category": "Week 9 · SRE 与可观测性" },
+
+    { "id": "how-openai-uses-codex-pdf", "type": "pdf", "path": "CS146S_offline/pdfs/how-openai-uses-codex.pdf", "title": "OpenAI 如何使用 Codex", "priority": 1, "category": "Week 4 · 讲义" },
+    { "id": "how-anthropic-uses-claude-code-pdf", "type": "pdf", "path": "CS146S_offline/pdfs/how-anthropic-uses-claude-code.pdf", "title": "Anthropic 如何使用 Claude Code", "priority": 1, "category": "Week 4 · 讲义" },
+    { "id": "ai-assisted-code-review-assessment-pdf", "type": "pdf", "path": "CS146S_offline/pdfs/ai-assisted-code-review-assessment.pdf", "title": "AI 辅助代码评审评估", "priority": 2, "category": "Week 7 · 讲义" },
+
+    { "id": "vibe-coding-playbook", "type": "pdf", "path": "Vibe_Coding_Playbook.pdf", "title": "The Vibe Coding Playbook（氛围编码实战手册）", "priority": 1, "category": "专题 · Vibe Coding" }
+  ],
+
+  "pipeline": {
+    "segment_target_chars": 1400,
+    "segment_max_chars": 2200,
+    "segment_min_chars": 200,
+    "qc": {
+      "min_coverage": 0.80,
+      "min_term_consistency": 0.98,
+      "max_untranslated_ratio": 0.06,
+      "min_length_ratio": 0.75,
+      "ratio_yellow_low": 0.95,
+      "max_length_ratio": 2.40,
+      "length_ratio_min_words": 25
+    }
+  },
+
+  "translate": {
+    "provider": "cache",
+    "model": "gpt-4o-mini",
+    "api_base": "https://api.openai.com/v1",
+    "api_key_env": "OPENAI_API_KEY",
+    "max_concurrency": 4,
+    "max_retries": 3
+  }
+}

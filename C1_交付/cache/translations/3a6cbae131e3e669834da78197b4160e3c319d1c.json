@@ -1,0 +1,10 @@
+{
+ "seg_id": "claude-code-best-practices#0015",
+ "doc_id": "claude-code-best-practices",
+ "fingerprint": "3a6cbae131e3e669834da78197b4160e3c319d1c",
+ "zh": "你可以做什么\n\n以下是一些使用 Claude Code 的方式：\n\n把一直拖着没做的事自动化\n\nClaude Code 会处理那些占用你整天的枯燥任务：为没有测试的代码补写测试、修复整个项目里的 lint 错误、解决合并冲突、更新依赖、撰写发布说明。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

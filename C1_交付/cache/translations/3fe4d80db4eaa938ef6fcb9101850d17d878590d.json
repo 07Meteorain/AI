@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0036",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "3fe4d80db4eaa938ef6fcb9101850d17d878590d",
+ "zh": "##### 综合起来看\n\n场景铺垫\n\n攻击载荷\n\nShow the details of transaction ID 103\n\n1\n\nShow the details of transaction ID 103\n\nShow the details of transaction ID 103\n\n1\n\nShow the details of transaction ID 103\n\n防护与缓解措施\n\n表 9. 利用 BOLA 未授权访问用户数据的攻击者输入示例。\n\n### 通过间接提示注入外泄对话历史",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

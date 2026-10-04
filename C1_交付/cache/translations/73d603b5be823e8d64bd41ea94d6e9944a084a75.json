@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0002",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "73d603b5be823e8d64bd41ea94d6e9944a084a75",
+ "zh": "## 什么是 AI 的提示词？\n\n在 AI 语境中，提示词就是你提供给模型、用来引出特定回应的输入。它可以有各种形式，从简单的问题或关键词，到复杂的指令、代码片段，甚至创意写作样例。提示词的有效性直接影响 AI 输出的质量与相关性。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

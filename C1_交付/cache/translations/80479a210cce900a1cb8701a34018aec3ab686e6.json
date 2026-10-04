@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-food-for-thought#0007",
+ "doc_id": "mcp-food-for-thought",
+ "fingerprint": "80479a210cce900a1cb8701a34018aec3ab686e6",
+ "zh": "CSV 数据要简洁得多——每条记录消耗的 token 只有一半。通常来说，CSV、TSV 或 YAML（用于嵌套数据）比 JSON 更合适。\n\n这些问题没有哪个是无解的。你可以设想自动添加工具参数，让智能体能够投影字段；自动截断或摘要过大的结果；再自动把 JSON 结果转成 CSV（嵌套数据则转成 YAML）。但我见过的服务器大多一件都没做。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

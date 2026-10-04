@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-guide#0001",
+ "doc_id": "prompt-engineering-guide",
+ "fingerprint": "4d7f051a4c8c43907c1e12cad655390bf760783a",
+ "zh": "# 提示词技巧\n\n提示工程帮助我们高效设计并改进提示词，在 LLM 的各类任务上取得更好的效果。\n\n前面那些基础示例还挺有意思，在这一节里我们会讲更高级的提示工程技术，它们能让我们完成更复杂的任务，并提升 LLM 的可靠性与表现。\n\n提示词示例零样本提示",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

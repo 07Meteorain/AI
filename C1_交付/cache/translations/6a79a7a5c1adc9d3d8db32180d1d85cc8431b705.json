@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0004",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "6a79a7a5c1adc9d3d8db32180d1d85cc8431b705",
+ "zh": "与此同时，AI Access Security 提供了对第三方生成式 AI（GenAI）使用的深度可见性与精细管控。它通过策略执行和用户活动监控，帮助防范影子 AI 风险、数据泄露以及 AI 输出中的恶意内容。这些解决方案共同构成一道分层防线，既保障 AI 系统的运行完整性，也保障外部 AI 工具的安全使用。\n\nUnit 42 AI Security Assessment 可以帮助你主动识别最可能针对你的 AI 环境的威胁。\n\n如果你认为自己可能已遭入侵，或有紧急事项，请联系 Unit 42 Incident Response 团队。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

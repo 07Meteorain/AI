@@ -1,0 +1,10 @@
+{
+ "seg_id": "sast-vs-dast#0003",
+ "doc_id": "sast-vs-dast",
+ "fingerprint": "1bfcd832d38e58dcb5d48b61510a837b498fe318",
+ "zh": "## SAST 是如何工作的？\n\n开发者使用 SAST 工具应用预定义规则和其他检测方法——比如模式匹配和数据流分析——来识别编码错误与其他漏洞。他们把这些工具集成进 IDE 或 CI/CD 流水线，在编码和测试阶段自动执行扫描。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

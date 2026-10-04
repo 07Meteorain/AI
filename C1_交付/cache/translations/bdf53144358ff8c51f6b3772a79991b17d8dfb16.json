@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0047",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "bdf53144358ff8c51f6b3772a79991b17d8dfb16",
+ "zh": "## 结论\n\n智能体式应用既继承了 LLM 的漏洞，也继承了外部工具的漏洞，同时通过复杂的工作流、自主决策和动态工具调用扩大了攻击面。这会放大被攻破后的潜在影响：从信息泄露和未授权访问，可能升级为远程代码执行（RCE）乃至完全接管基础设施。正如我们的模拟攻击所展示的，种类繁多的提示载荷都能触发同一个弱点，这凸显出这些威胁有多么灵活、多么难以察觉。\n\n保护 AI 智能体需要的不只是零散修补。它要求一套纵深防御策略，涵盖提示词加固、输入校验、安全的工具集成以及稳健的运行时监控。\n\n仅靠通用安全机制是不够的。组织必须采用专门为此构建的方案——例如 Palo Alto Networks Prisma AIRS——来发现（Discover）、评估（Assess）并防护（Protect）智能体式应用特有的威胁。\n\nPalo Alto Networks 的客户通过以下产品可获得针对上述威胁更好的防护：\n\nUnit 42 AI Security Assessment 可以帮助你主动识别最可能针对你的 AI 环境的威胁。\n\n如果你认为自己可能已遭入侵，或有紧急事项，请联系 Unit 42 Incident Response 团队，或拨打：\n\n- 北美：免费电话：+1 (866) 486-4842 (866.4.UNIT42)\n\n- 英国：+44.20.3743.3660\n\nPalo Alto Networks 已将这些发现与同为 Cyber Threat Alliance（CTA）成员的同行分享。CTA 成员利用这类情报快速为其客户部署防护，并系统性地挫败恶意网络攻击者。进一步了解 Cyber Threat Alliance。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

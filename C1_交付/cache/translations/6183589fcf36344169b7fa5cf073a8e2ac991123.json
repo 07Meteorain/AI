@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0053",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "6183589fcf36344169b7fa5cf073a8e2ac991123",
+ "zh": "### 为你的智能体创建账号\n\n一个用完即弃的邮箱有助于安全地测试网站。如果智能体需要访问云资源，为它创建自定义 IAM 角色。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

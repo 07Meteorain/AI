@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0005",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "e5438f3754b322b6471d84654c6a950e0154af04",
+ "zh": "### 上下文与示例\n\n在提示词中提供上下文和相关示例，能帮助 AI 理解任务目标，生成更准确、更相关的内容。比如，如果你想要一个创意故事，附上几句描述期望语气或主题的话，效果会显著提升。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

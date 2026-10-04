@@ -1,0 +1,10 @@
+{
+ "seg_id": "finding-vulnerabilities-claude-codex#0021",
+ "doc_id": "finding-vulnerabilities-claude-codex",
+ "fingerprint": "b8aacb995c549b0e3999d4fd83c04b85a7c4811b",
+ "zh": "## 结论\n\nLLM 不是明天就能取代人类安全工程师的银弹；事实上，在端到端地查找高危注入类漏洞这件事上，它们的表现相当薄弱。不过，它们也是极其强大的工具。我们的研究显示：理解它们的长处（上下文推理）和短处（代码的深层语义），并用先进的静态分析引擎在周围构建精密的智能体式系统，我们就能打造出新一代安全工具，其能力远超以往任何方案。\n\n[1] 用于 Claude Code 和 Codex 的脚本化简单提示词",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

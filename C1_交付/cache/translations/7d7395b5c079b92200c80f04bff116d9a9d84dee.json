@@ -1,0 +1,10 @@
+{
+ "seg_id": "owasp-top-ten#0004",
+ "doc_id": "owasp-top-ten",
+ "fingerprint": "7d7395b5c079b92200c80f04bff116d9a9d84dee",
+ "zh": "### Top10:2017 候选发布版翻译团队：\n\n- 阿塞拜疆语：Rashad Aliyev ([email protected])\n\n- 中文 RC2:Rip、包悦忠、李旭勤、王颉、王厚奎、吴楠、徐瑞祝、夏天泽、张家银、张剑钟、赵学文(排名不分先后,按姓氏拼音排列) OWASP Top10 2017 RC2 - 中文 PDF\n\n- 法语：Ludovic Petit: [email protected]，Sébastien Gioria: [email protected]。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

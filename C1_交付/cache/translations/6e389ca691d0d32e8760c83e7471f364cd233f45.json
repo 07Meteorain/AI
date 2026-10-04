@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0016",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "6e389ca691d0d32e8760c83e7471f364cd233f45",
+ "zh": "### 常见挑战与解决方案\n\nGraphite Agent 在设计时就考虑到了其中许多常见挑战。凭借智能过滤、上下文理解和与 GitHub 的无缝整合，它帮助团队在保持高代码质量标准的同时避免误报疲劳。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

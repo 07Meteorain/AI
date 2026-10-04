@@ -1,0 +1,10 @@
+{
+ "seg_id": "sast-vs-dast#0006",
+ "doc_id": "sast-vs-dast",
+ "fingerprint": "4d377f8c25aa6f55d7752a7c8545152b033fe666",
+ "zh": "## DAST 是如何工作的？\n\nDAST 工具模拟真实世界的攻击——例如把各种形式的恶意数据送进输入字段，观察应用程序如何处理它们——以识别应用程序行为与响应中的漏洞和弱点。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

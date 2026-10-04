@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-registry-preview#0001",
+ "doc_id": "mcp-registry-preview",
+ "fingerprint": "8eea5276f54368b5b1c751d4e37f15e5ee77b70d",
+ "zh": "# MCP 注册表隆重推出\n\nMCP 注册表开启预览：一个用于发现公开可用 MCP 服务器的开放目录与 API。\n\n2025 年 9 月 8 日 · 4 分钟 · David Soria Parra（首席维护者）、Adam Jones（注册表维护者）、Tadas Antanavicius（注册表维护者）、Toby Padilla（注册表维护者）、Theodora Chu（Anthropic 的 MCP 产品经理）\n\n今天，我们正式推出 Model Context Protocol (MCP) 注册表——一个面向公开可用 MCP 服务器的开放目录与 API，旨在提升其可发现性与可实现性。通过标准化服务器的发布与发现方式，我们扩大了它们的触达范围，也让客户端更容易接入。\n\nMCP 注册表现已开放预览。要开始使用：\n\n- 按照《Adding Servers to the MCP Registry》指南添加你的服务器（面向服务器维护者）\n\n- 按照《Accessing MCP Registry Data》指南访问服务器数据（面向客户端维护者）",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

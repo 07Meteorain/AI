@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0021",
+ "doc_id": "observability-basics",
+ "fingerprint": "3234523e1262e0f72e392a322981fa9a8648136e",
+ "zh": "### 有效的追踪模式\n\n有意义的跨度名称：采用一致的命名约定，比如 service_name/operation\n合适的粒度：为重要操作创建跨度，而不是每次函数调用都创建\n正确的上下文传播：确保追踪上下文在所有通信渠道中都能流通\n有用的属性：添加有助于排查的属性，比如用户 ID 或功能开关\n性能意识：注意过度创建跨度带来的开销",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

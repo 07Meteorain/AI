@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0010",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "a670c6b44cd93175ca0b37aaf77cd6c35e279d26",
+ "zh": "- 在新项目的目录里，运行下面的命令启动开发服务器：\n\n终端窗口",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

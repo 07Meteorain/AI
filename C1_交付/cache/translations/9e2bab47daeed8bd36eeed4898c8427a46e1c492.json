@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0041",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "9e2bab47daeed8bd36eeed4898c8427a46e1c492",
+ "zh": "## 防护与缓解措施\n\n保护智能体式应用被扩大且复杂的攻击面，需要分层的纵深防御策略。没有任何单一防御能够应对所有威胁——每项缓解措施都只在特定条件下覆盖威胁的一个子集。本节概述与本文演示的攻击场景相关的五项关键缓解策略。\n\n- 提示词加固\n\n- 代码执行器沙箱隔离",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

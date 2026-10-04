@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0028",
+ "doc_id": "observability-basics",
+ "fingerprint": "8821f9a45ee22723cbc4284cea96bdaeb931db47",
+ "zh": "### 分布式追踪会产生多少数据？\n\n差异极大，取决于流量、采样率和跨度细节。对繁忙的系统，要做好每天从几 GB 到几 TB 的准备。正因如此，选对可观测性平台对成本控制很重要。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

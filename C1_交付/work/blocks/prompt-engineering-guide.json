@@ -1,0 +1,55 @@
+{
+ "meta": {
+  "id": "prompt-engineering-guide",
+  "type": "html",
+  "path": "CS146S_offline/pages/prompt-engineering-guide.html",
+  "title": "提示工程技巧（Prompt Engineering Techniques）",
+  "priority": 1,
+  "category": "Week 1 · 提示工程"
+ },
+ "page_title": "Prompting Techniques | Prompt Engineering Guide<!-- -->",
+ "blocks": [
+  {
+   "kind": "paragraph",
+   "text": "🚀 Learn to build apps with Claude Code! Use PROMPTING for 20% off Enroll now →",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Services",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Prompting Techniques",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Prompting Techniques",
+   "level": 1,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Prompt Engineering helps to effectively design and improve prompts to get better results on different tasks with LLMs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "While the previous basic examples were fun, in this section we cover more advanced prompting engineering techniques that allow us to achieve more complex tasks and improve reliability and performance of LLMs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Examples of PromptsZero-shot Prompting",
+   "level": 0,
+   "meta": {}
+  }
+ ]
+}

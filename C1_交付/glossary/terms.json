@@ -1,0 +1,2317 @@
+{
+  "meta": {
+    "name": "CS146S课程翻译术语表",
+    "version": "1.0",
+    "principle": [
+      "① 产品名、协议名、代码标识符一律保留英文原名，不音译、不意译——这是技术文档的第一原则。",
+      "② 有社区共识译法的用共识译法（如 pull request → 拉取请求）；无共识的造词时优先「音译 + 首次括注英文」。",
+      "③ 同一概念全文只允许一种译法。forbidden 字段列出常见错译，QC 脚本会全文扫描并报警。",
+      "④ 频率由 03_qc.py 从语料实测（见 reports/02_qc.json 的 term_frequency），非拍脑袋估计。"
+    ],
+    "how_to_use": [
+      "翻译 prompt 中注入 glossary_prompt_block()，作为硬约束；",
+      "译后用 check_consistency() 扫描禁用译法；",
+      "换新课程时：改本文件 + config.json 的 sources，其余脚本零改动。"
+    ],
+    "ambiguous_note": "ambiguous 字段：这些中文词本身就是常用词（如「背景」=background、「光标」=cursor、「秘密武器」=secret weapon），脚本无法区分「术语误译」与「普通词义」，因此只报为提示（info）不阻塞交付，由人工抽检。"
+  },
+  "terms": [
+    {
+      "en": "Vibe Coding",
+      "zh": "氛围编码",
+      "aliases": [
+        "vibe coding"
+      ],
+      "forbidden": [
+        "感觉编码",
+        "氛围式编码",
+        "凭感觉写代码",
+        "vibe编码"
+      ],
+      "note": "本课程核心概念；首次出现标注英文原名",
+      "category": "核心概念"
+    },
+    {
+      "en": "Prompt Engineering",
+      "zh": "提示工程",
+      "aliases": [
+        "prompt engineering"
+      ],
+      "forbidden": [
+        "提示指令工程",
+        "prompt工程",
+        "提示词工程"
+      ],
+      "note": "不用「提示词工程」，社区共识为「提示工程」",
+      "category": "核心概念"
+    },
+    {
+      "en": "Context Engineering",
+      "zh": "上下文工程",
+      "aliases": [
+        "context engineering"
+      ],
+      "forbidden": [
+        "背景工程",
+        "语境工程",
+        "上下文管理工程"
+      ],
+      "category": "核心概念"
+    },
+    {
+      "en": "Context Window",
+      "zh": "上下文窗口",
+      "aliases": [
+        "context window",
+        "context windows"
+      ],
+      "forbidden": [
+        "上下文视窗",
+        "语境窗口"
+      ],
+      "category": "核心概念"
+    },
+    {
+      "en": "Context Rot",
+      "zh": "上下文腐化",
+      "aliases": [
+        "context rot"
+      ],
+      "forbidden": [
+        "上下文腐烂",
+        "上下文失效",
+        "上下文退化"
+      ],
+      "note": "指输入变长时模型表现衰减的现象",
+      "category": "核心概念"
+    },
+    {
+      "en": "Coding Agent",
+      "zh": "编码智能体",
+      "aliases": [
+        "coding agent",
+        "coding agents"
+      ],
+      "forbidden": [
+        "代码代理",
+        "编程智能体",
+        "写代码的机器人"
+      ],
+      "note": "全文统一「智能体」，不用「代理」",
+      "category": "核心概念"
+    },
+    {
+      "en": "Agentic",
+      "zh": "智能体式",
+      "aliases": [
+        "agentic",
+        "agentic ai",
+        "agentic system"
+      ],
+      "forbidden": [
+        "代理式",
+        "智能体化",
+        "自主代理式"
+      ],
+      "note": "作定语时译「智能体式的」，作名词时译「智能体」",
+      "category": "核心概念"
+    },
+    {
+      "en": "Agentic AI",
+      "zh": "智能体 AI",
+      "aliases": [
+        "agentic ai"
+      ],
+      "forbidden": [
+        "代理人工智能",
+        "自主AI"
+      ],
+      "category": "核心概念"
+    },
+    {
+      "en": "Multi-Agent System",
+      "zh": "多智能体系统",
+      "aliases": [
+        "multi-agent system",
+        "multi agent system",
+        "multi-agent systems"
+      ],
+      "forbidden": [
+        "多代理系统",
+        "多agent系统"
+      ],
+      "category": "核心概念"
+    },
+    {
+      "en": "Subagent",
+      "zh": "子智能体",
+      "aliases": [
+        "subagent",
+        "sub-agent",
+        "subagents"
+      ],
+      "forbidden": [
+        "子代理",
+        "子智能器"
+      ],
+      "category": "核心概念"
+    },
+    {
+      "en": "Orchestration",
+      "zh": "编排",
+      "aliases": [
+        "orchestration",
+        "orchestrate"
+      ],
+      "forbidden": [
+        "编舞",
+        "协调编排",
+        "统筹"
+      ],
+      "category": "核心概念"
+    },
+    {
+      "en": "Model Context Protocol",
+      "zh": "Model Context Protocol（MCP）",
+      "aliases": [
+        "model context protocol",
+        "mcp"
+      ],
+      "forbidden": [
+        "模型上下文协议",
+        "模型背景协议"
+      ],
+      "note": "保留英文原名+缩写，这是协议官方名，不译",
+      "category": "协议与标准"
+    },
+    {
+      "en": "MCP Server",
+      "zh": "MCP 服务器",
+      "aliases": [
+        "mcp server",
+        "mcp servers"
+      ],
+      "forbidden": [
+        "MCP服务端",
+        "MCP服务器端"
+      ],
+      "category": "协议与标准"
+    },
+    {
+      "en": "MCP Client",
+      "zh": "MCP 客户端",
+      "aliases": [
+        "mcp client",
+        "mcp clients"
+      ],
+      "forbidden": [
+        "MCP客户机"
+      ],
+      "category": "协议与标准"
+    },
+    {
+      "en": "MCP Tool",
+      "zh": "MCP 工具",
+      "aliases": [
+        "mcp tool",
+        "mcp tools"
+      ],
+      "forbidden": [
+        "MCP工具函数",
+        "MCP接口"
+      ],
+      "category": "协议与标准"
+    },
+    {
+      "en": "MCP Registry",
+      "zh": "MCP 注册表",
+      "aliases": [
+        "mcp registry"
+      ],
+      "forbidden": [
+        "MCP登记处",
+        "MCP名录"
+      ],
+      "category": "协议与标准"
+    },
+    {
+      "en": "JSON-RPC",
+      "zh": "JSON-RPC",
+      "aliases": [
+        "json-rpc",
+        "json rpc"
+      ],
+      "forbidden": [
+        "JSON远程过程调用"
+      ],
+      "note": "协议名保留",
+      "category": "协议与标准"
+    },
+    {
+      "en": "SSE",
+      "zh": "SSE（服务器推送事件）",
+      "aliases": [
+        "sse",
+        "server-sent events",
+        "server sent events"
+      ],
+      "forbidden": [
+        "服务器推送",
+        "服务端发送事件"
+      ],
+      "note": "首次出现括注中文",
+      "category": "协议与标准"
+    },
+    {
+      "en": "Streamable HTTP",
+      "zh": "Streamable HTTP（可流式传输的 HTTP）",
+      "aliases": [
+        "streamable http",
+        "streamablehttp"
+      ],
+      "forbidden": [
+        "流式HTTP协议",
+        "可流化HTTP"
+      ],
+      "category": "协议与标准"
+    },
+    {
+      "en": "stdio",
+      "zh": "stdio（标准输入输出）",
+      "aliases": [
+        "stdio"
+      ],
+      "forbidden": [
+        "标准输入输出流"
+      ],
+      "category": "协议与标准"
+    },
+    {
+      "en": "OAuth",
+      "zh": "OAuth",
+      "aliases": [
+        "oauth",
+        "oauth 2.0",
+        "oauth2"
+      ],
+      "forbidden": [
+        "授权开放协议",
+        "OAuth认证"
+      ],
+      "note": "OAuth 是授权框架不是认证协议，别译成「认证」",
+      "category": "协议与标准"
+    },
+    {
+      "en": "OWASP Top Ten",
+      "zh": "OWASP 十大风险",
+      "aliases": [
+        "owasp top ten",
+        "owasp top 10",
+        "owasp"
+      ],
+      "forbidden": [
+        "OWASP前十",
+        "OWASP十大威胁"
+      ],
+      "category": "协议与标准"
+    },
+    {
+      "en": "JSON Schema",
+      "zh": "JSON Schema",
+      "aliases": [
+        "json schema",
+        "json schemas"
+      ],
+      "forbidden": [
+        "JSON结构",
+        "JSON模式"
+      ],
+      "category": "协议与标准"
+    },
+    {
+      "en": "gRPC",
+      "zh": "gRPC",
+      "aliases": [
+        "grpc"
+      ],
+      "forbidden": [
+        "谷歌远程过程调用"
+      ],
+      "category": "协议与标准"
+    },
+    {
+      "en": "REST API",
+      "zh": "REST API",
+      "aliases": [
+        "rest api",
+        "rest apis",
+        "rest"
+      ],
+      "forbidden": [
+        "REST接口（首次亦保留英文）",
+        "表述性状态转移接口"
+      ],
+      "category": "协议与标准"
+    },
+    {
+      "en": "Large Language Model",
+      "zh": "大语言模型（LLM）",
+      "aliases": [
+        "large language model",
+        "large language models",
+        "llm",
+        "llms"
+      ],
+      "forbidden": [
+        "大型语言模型",
+        "超大规模语言模型"
+      ],
+      "note": "社区共识是「大语言模型」，不写「大型」",
+      "category": "模型与AI"
+    },
+    {
+      "en": "Foundation Model",
+      "zh": "基础模型",
+      "aliases": [
+        "foundation model",
+        "foundation models"
+      ],
+      "forbidden": [
+        "基石模型",
+        "基座模型"
+      ],
+      "category": "模型与AI"
+    },
+    {
+      "en": "Prompt",
+      "zh": "提示词",
+      "aliases": [
+        "prompt",
+        "prompts"
+      ],
+      "forbidden": [
+        "提示语",
+        "指令词",
+        "咒语"
+      ],
+      "note": "作名词译「提示词」，作动词译「提示」",
+      "category": "模型与AI"
+    },
+    {
+      "en": "System Prompt",
+      "zh": "系统提示词",
+      "aliases": [
+        "system prompt",
+        "system prompts"
+      ],
+      "forbidden": [
+        "系统指令",
+        "系统预设"
+      ],
+      "category": "模型与AI"
+    },
+    {
+      "en": "Token",
+      "zh": "token（词元）",
+      "aliases": [
+        "token",
+        "tokens"
+      ],
+      "forbidden": [
+        "令牌",
+        "词元（单独使用时）"
+      ],
+      "note": "保留 token 原文，读者更熟悉；首次括注「词元」",
+      "category": "模型与AI",
+      "ambiguous": [
+        "标记"
+      ]
+    },
+    {
+      "en": "Context",
+      "zh": "上下文",
+      "aliases": [
+        "context"
+      ],
+      "forbidden": [
+        "上下文环境"
+      ],
+      "category": "模型与AI",
+      "ambiguous": [
+        "背景",
+        "语境"
+      ]
+    },
+    {
+      "en": "Reasoning Model",
+      "zh": "推理模型",
+      "aliases": [
+        "reasoning model",
+        "reasoning models"
+      ],
+      "forbidden": [
+        "理性模型",
+        "思考模型"
+      ],
+      "category": "模型与AI"
+    },
+    {
+      "en": "Chain of Thought",
+      "zh": "思维链",
+      "aliases": [
+        "chain of thought",
+        "chain-of-thought",
+        "cot"
+      ],
+      "forbidden": [
+        "思维链条",
+        "推理链"
+      ],
+      "category": "模型与AI"
+    },
+    {
+      "en": "Hallucination",
+      "zh": "幻觉",
+      "aliases": [
+        "hallucination",
+        "hallucinations"
+      ],
+      "forbidden": [
+        "幻象",
+        "虚妄",
+        "胡言乱语"
+      ],
+      "note": "AI 场景下「幻觉」已是固定译法",
+      "category": "模型与AI"
+    },
+    {
+      "en": "Fine-tuning",
+      "zh": "微调",
+      "aliases": [
+        "fine-tuning",
+        "fine tuning",
+        "finetuning"
+      ],
+      "forbidden": [
+        "精调",
+        "细调",
+        "微调优"
+      ],
+      "note": "作名词用「微调」；注意与「调优(tuning)」区分",
+      "category": "模型与AI"
+    },
+    {
+      "en": "Embedding",
+      "zh": "嵌入向量",
+      "aliases": [
+        "embedding",
+        "embeddings"
+      ],
+      "forbidden": [
+        "内嵌",
+        "向量嵌入（首次亦可）"
+      ],
+      "category": "模型与AI",
+      "ambiguous": [
+        "嵌套"
+      ]
+    },
+    {
+      "en": "RAG",
+      "zh": "RAG（检索增强生成）",
+      "aliases": [
+        "rag",
+        "retrieval-augmented generation",
+        "retrieval augmented generation"
+      ],
+      "forbidden": [
+        "检索增强生成（不括注缩写）",
+        "检索增强"
+      ],
+      "note": "首次出现给中英全称+缩写",
+      "category": "模型与AI"
+    },
+    {
+      "en": "Reranking",
+      "zh": "重排序",
+      "aliases": [
+        "reranking",
+        "re-ranking"
+      ],
+      "forbidden": [
+        "再次排序",
+        "重排（语义弱）"
+      ],
+      "category": "模型与AI"
+    },
+    {
+      "en": "Vector Database",
+      "zh": "向量数据库",
+      "aliases": [
+        "vector database",
+        "vector databases",
+        "vector db"
+      ],
+      "forbidden": [
+        "矢量数据库"
+      ],
+      "category": "模型与AI"
+    },
+    {
+      "en": "Semantic Search",
+      "zh": "语义搜索",
+      "aliases": [
+        "semantic search"
+      ],
+      "forbidden": [
+        "含义搜索",
+        "语义检索（可接受但统一用搜索）"
+      ],
+      "category": "模型与AI"
+    },
+    {
+      "en": "Zero-shot",
+      "zh": "零样本",
+      "aliases": [
+        "zero-shot",
+        "zero shot"
+      ],
+      "forbidden": [
+        "零镜头",
+        "零样例"
+      ],
+      "category": "模型与AI"
+    },
+    {
+      "en": "Few-shot",
+      "zh": "少样本",
+      "aliases": [
+        "few-shot",
+        "few shot"
+      ],
+      "forbidden": [
+        "少镜头",
+        "少量样本学习（展开过长）"
+      ],
+      "category": "模型与AI"
+    },
+    {
+      "en": "In-context Learning",
+      "zh": "上下文学习",
+      "aliases": [
+        "in-context learning",
+        "in context learning"
+      ],
+      "forbidden": [
+        "上下文内学习"
+      ],
+      "category": "模型与AI"
+    },
+    {
+      "en": "RLHF",
+      "zh": "RLHF（基于人类反馈的强化学习）",
+      "aliases": [
+        "rlhf",
+        "reinforcement learning from human feedback"
+      ],
+      "forbidden": [
+        "人类反馈强化学习（不括注缩写）"
+      ],
+      "category": "模型与AI"
+    },
+    {
+      "en": "Temperature",
+      "zh": "temperature（温度参数）",
+      "aliases": [
+        "temperature"
+      ],
+      "forbidden": [
+        "热度",
+        "温度值（脱离参数语境）"
+      ],
+      "note": "采样参数名保留英文",
+      "category": "模型与AI"
+    },
+    {
+      "en": "Inference",
+      "zh": "推理",
+      "aliases": [
+        "inference"
+      ],
+      "forbidden": [
+        "推断",
+        "推论"
+      ],
+      "note": "AI 语境固定译「推理」，不译「推断」",
+      "category": "模型与AI"
+    },
+    {
+      "en": "Structured Output",
+      "zh": "结构化输出",
+      "aliases": [
+        "structured output",
+        "structured outputs"
+      ],
+      "forbidden": [
+        "格式化输出",
+        "结构化响应（统一用输出）"
+      ],
+      "category": "模型与AI"
+    },
+    {
+      "en": "Function Calling",
+      "zh": "函数调用",
+      "aliases": [
+        "function calling",
+        "tool calling"
+      ],
+      "forbidden": [
+        "功能调用"
+      ],
+      "category": "模型与AI"
+    },
+    {
+      "en": "OpenAI",
+      "zh": "OpenAI",
+      "aliases": [
+        "openai"
+      ],
+      "forbidden": [
+        "开放人工智能",
+        "开源AI"
+      ],
+      "note": "公司名不译",
+      "category": "公司与产品"
+    },
+    {
+      "en": "Anthropic",
+      "zh": "Anthropic",
+      "aliases": [
+        "anthropic"
+      ],
+      "forbidden": [
+        "类人智能",
+        "人本人工智能"
+      ],
+      "category": "公司与产品"
+    },
+    {
+      "en": "Claude Code",
+      "zh": "Claude Code",
+      "aliases": [
+        "claude code"
+      ],
+      "forbidden": [
+        "克劳德代码",
+        "Claude编码助手（正文统一用产品名）"
+      ],
+      "note": "产品名保留；正文不另加注解",
+      "category": "公司与产品"
+    },
+    {
+      "en": "Codex",
+      "zh": "Codex",
+      "aliases": [
+        "codex"
+      ],
+      "forbidden": [
+        "代码典",
+        "启示录"
+      ],
+      "category": "公司与产品"
+    },
+    {
+      "en": "Devin",
+      "zh": "Devin",
+      "aliases": [
+        "devin"
+      ],
+      "forbidden": [
+        "德文",
+        "迪文"
+      ],
+      "category": "公司与产品"
+    },
+    {
+      "en": "Warp",
+      "zh": "Warp",
+      "aliases": [
+        "warp"
+      ],
+      "forbidden": [
+        "曲速",
+        "变形"
+      ],
+      "note": "终端产品名；与 warp drive 区分",
+      "category": "公司与产品"
+    },
+    {
+      "en": "GitHub Copilot",
+      "zh": "GitHub Copilot",
+      "aliases": [
+        "github copilot",
+        "copilot"
+      ],
+      "forbidden": [
+        "副驾驶",
+        "领航员"
+      ],
+      "category": "公司与产品"
+    },
+    {
+      "en": "Cursor",
+      "zh": "Cursor",
+      "aliases": [
+        "cursor"
+      ],
+      "forbidden": [],
+      "note": "AI IDE 产品名，与「光标」区分",
+      "category": "公司与产品",
+      "ambiguous": [
+        "光标"
+      ]
+    },
+    {
+      "en": "Scaffold",
+      "zh": "脚手架",
+      "aliases": [
+        "scaffold",
+        "scaffolding"
+      ],
+      "forbidden": [
+        "支架",
+        "构架",
+        "脚手架化"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Scaffolding",
+      "zh": "脚手架",
+      "aliases": [
+        "scaffold",
+        "scaffolding code"
+      ],
+      "forbidden": [
+        "支架",
+        "撑架",
+        "脚手架代码",
+        "搭架子"
+      ],
+      "note": "社区共识译名，指生成项目初始骨架结构（目录/模块/样板文件）。动词用法「搭脚手架」保留，不译作「搭架子」。",
+      "category": "工程实践"
+    },
+    {
+      "en": "Boilerplate",
+      "zh": "模板代码",
+      "aliases": [
+        "boilerplate"
+      ],
+      "forbidden": [
+        "样板代码",
+        "锅炉代码",
+        "重复代码"
+      ],
+      "note": "不用直译「锅炉代码」",
+      "category": "工程实践"
+    },
+    {
+      "en": "Spec",
+      "zh": "规格说明",
+      "aliases": [
+        "spec",
+        "specs",
+        "specification"
+      ],
+      "forbidden": [
+        "规范书",
+        "说明书",
+        "规格书"
+      ],
+      "note": "「Specs Are the New Source Code」=「规格即新源码」",
+      "category": "工程实践"
+    },
+    {
+      "en": "PRD",
+      "zh": "PRD（产品需求文档）",
+      "aliases": [
+        "prd",
+        "product requirements document"
+      ],
+      "forbidden": [
+        "产品需求说明书（不括注缩写）"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Acceptance Criteria",
+      "zh": "验收标准",
+      "aliases": [
+        "acceptance criteria",
+        "acceptance criterion"
+      ],
+      "forbidden": [
+        "受理标准",
+        "接收准则"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Test-Driven Development",
+      "zh": "测试驱动开发（TDD）",
+      "aliases": [
+        "test-driven development",
+        "tdd"
+      ],
+      "forbidden": [
+        "测试先导开发",
+        "检验驱动开发"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Unit Test",
+      "zh": "单元测试",
+      "aliases": [
+        "unit test",
+        "unit tests"
+      ],
+      "forbidden": [
+        "单子测试"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Integration Test",
+      "zh": "集成测试",
+      "aliases": [
+        "integration test",
+        "integration tests"
+      ],
+      "forbidden": [
+        "综合测试（与「综合」混淆）"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Regression",
+      "zh": "回归",
+      "aliases": [
+        "regression",
+        "regression test"
+      ],
+      "forbidden": [
+        "倒退"
+      ],
+      "note": "regression test = 回归测试",
+      "category": "工程实践",
+      "ambiguous": [
+        "回退"
+      ]
+    },
+    {
+      "en": "Flaky Test",
+      "zh": "不稳定测试",
+      "aliases": [
+        "flaky test",
+        "flaky tests"
+      ],
+      "forbidden": [
+        "易变测试",
+        "抖动测试"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Code Review",
+      "zh": "代码评审",
+      "aliases": [
+        "code review",
+        "code reviews"
+      ],
+      "forbidden": [
+        "代码审查（统一用「评审」）",
+        "代码检视"
+      ],
+      "note": "与 review 动词「评审」保持一致",
+      "category": "工程实践"
+    },
+    {
+      "en": "Pull Request",
+      "zh": "拉取请求（PR）",
+      "aliases": [
+        "pull request",
+        "pull requests",
+        "pr"
+      ],
+      "forbidden": [
+        "拉取要求",
+        "合并请求（那是 merge request）"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Codebase",
+      "zh": "代码库",
+      "aliases": [
+        "codebase",
+        "code base"
+      ],
+      "forbidden": [
+        "代码基地"
+      ],
+      "category": "工程实践",
+      "ambiguous": [
+        "码库"
+      ]
+    },
+    {
+      "en": "Repository",
+      "zh": "仓库",
+      "aliases": [
+        "repository",
+        "repositories",
+        "repo"
+      ],
+      "forbidden": [
+        "资料库",
+        "存储库"
+      ],
+      "note": "Git 语境下译「仓库」，不用「存储库」",
+      "category": "工程实践"
+    },
+    {
+      "en": "Commit",
+      "zh": "提交",
+      "aliases": [
+        "commit",
+        "commits"
+      ],
+      "forbidden": [
+        "委托"
+      ],
+      "category": "工程实践",
+      "ambiguous": [
+        "承诺"
+      ]
+    },
+    {
+      "en": "Branch",
+      "zh": "分支",
+      "aliases": [
+        "branch",
+        "branches"
+      ],
+      "forbidden": [
+        "支线"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Merge",
+      "zh": "合并",
+      "aliases": [
+        "merge",
+        "merges",
+        "merge conflict"
+      ],
+      "forbidden": [
+        "归并"
+      ],
+      "note": "merge conflict = 合并冲突",
+      "category": "工程实践",
+      "ambiguous": [
+        "融合"
+      ]
+    },
+    {
+      "en": "Diff",
+      "zh": "差异",
+      "aliases": [
+        "diff",
+        "diffs"
+      ],
+      "forbidden": [
+        "差分（不统一）"
+      ],
+      "category": "工程实践",
+      "ambiguous": [
+        "不同"
+      ]
+    },
+    {
+      "en": "Refactoring",
+      "zh": "重构",
+      "aliases": [
+        "refactoring",
+        "refactor",
+        "refactored"
+      ],
+      "forbidden": [
+        "重构造",
+        "重新构造"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Technical Debt",
+      "zh": "技术债",
+      "aliases": [
+        "technical debt",
+        "tech debt"
+      ],
+      "forbidden": [
+        "技术债务（可用但统一用「债」）"
+      ],
+      "category": "工程实践",
+      "ambiguous": [
+        "技术债务"
+      ]
+    },
+    {
+      "en": "Code Smell",
+      "zh": "代码坏味道",
+      "aliases": [
+        "code smell",
+        "code smells"
+      ],
+      "forbidden": [
+        "代码 smell"
+      ],
+      "note": "沿用 Martin Fowler 的社区译名「坏味道」",
+      "category": "工程实践",
+      "ambiguous": [
+        "代码异味"
+      ]
+    },
+    {
+      "en": "Legacy Code",
+      "zh": "遗留代码",
+      "aliases": [
+        "legacy code"
+      ],
+      "forbidden": [
+        "旧版代码"
+      ],
+      "category": "工程实践",
+      "ambiguous": [
+        "历史代码"
+      ]
+    },
+    {
+      "en": "Lint",
+      "zh": "lint（静态检查）",
+      "aliases": [
+        "lint",
+        "linting",
+        "linter",
+        "linters"
+      ],
+      "forbidden": [
+        "lint检查（不统一）"
+      ],
+      "note": "工具名/命令保留英文",
+      "category": "工程实践",
+      "ambiguous": [
+        "梳理"
+      ]
+    },
+    {
+      "en": "Type Checking",
+      "zh": "类型检查",
+      "aliases": [
+        "type checking",
+        "type check"
+      ],
+      "forbidden": [
+        "类型检验"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "CI/CD",
+      "zh": "CI/CD（持续集成与持续交付）",
+      "aliases": [
+        "ci/cd",
+        "ci",
+        "cd",
+        "continuous integration",
+        "continuous delivery",
+        "continuous deployment"
+      ],
+      "forbidden": [
+        "集成交付（不统一）"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Continuous Integration",
+      "zh": "持续集成",
+      "aliases": [
+        "continuous integration"
+      ],
+      "forbidden": [
+        "连续集成"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Deployment",
+      "zh": "部署",
+      "aliases": [
+        "deployment",
+        "deploy",
+        "deployments"
+      ],
+      "forbidden": [
+        "布署"
+      ],
+      "category": "工程实践",
+      "ambiguous": [
+        "配备"
+      ]
+    },
+    {
+      "en": "Infrastructure",
+      "zh": "基础设施",
+      "aliases": [
+        "infrastructure"
+      ],
+      "forbidden": [
+        "基建"
+      ],
+      "note": "正式文档用全称；口语可用「基建」但正文统一全称",
+      "category": "工程实践"
+    },
+    {
+      "en": "Monorepo",
+      "zh": "单体仓库",
+      "aliases": [
+        "monorepo",
+        "mono-repo"
+      ],
+      "forbidden": [
+        "单一仓库（不统一）"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Serverless",
+      "zh": "无服务器",
+      "aliases": [
+        "serverless"
+      ],
+      "forbidden": [
+        "无主机",
+        "去服务器化"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Observability",
+      "zh": "可观测性",
+      "aliases": [
+        "observability"
+      ],
+      "forbidden": [
+        "可观察性",
+        "可测性"
+      ],
+      "note": "社区共识「可观测性」",
+      "category": "SRE 与运维"
+    },
+    {
+      "en": "Distributed Tracing",
+      "zh": "分布式追踪",
+      "aliases": [
+        "distributed tracing",
+        "tracing",
+        "trace",
+        "traces"
+      ],
+      "forbidden": [
+        "分布式跟踪",
+        "追查"
+      ],
+      "note": "trace=追踪，span=跨度",
+      "category": "SRE 与运维"
+    },
+    {
+      "en": "Span",
+      "zh": "跨度（span）",
+      "aliases": [
+        "span",
+        "spans"
+      ],
+      "forbidden": [
+        "跨距"
+      ],
+      "category": "SRE 与运维",
+      "ambiguous": [
+        "期间"
+      ]
+    },
+    {
+      "en": "Metric",
+      "zh": "指标",
+      "aliases": [
+        "metric",
+        "metrics"
+      ],
+      "forbidden": [
+        "度量衡"
+      ],
+      "category": "SRE 与运维",
+      "ambiguous": [
+        "量度"
+      ]
+    },
+    {
+      "en": "Log",
+      "zh": "日志",
+      "aliases": [
+        "log",
+        "logs",
+        "logging"
+      ],
+      "forbidden": [
+        "纪录（不统一）"
+      ],
+      "category": "SRE 与运维",
+      "ambiguous": [
+        "纪录"
+      ]
+    },
+    {
+      "en": "Alert",
+      "zh": "告警",
+      "aliases": [
+        "alert",
+        "alerts",
+        "alerting"
+      ],
+      "forbidden": [
+        "警报（不统一）",
+        "报警"
+      ],
+      "category": "SRE 与运维",
+      "ambiguous": [
+        "警报"
+      ]
+    },
+    {
+      "en": "Dashboard",
+      "zh": "仪表盘",
+      "aliases": [
+        "dashboard",
+        "dashboards"
+      ],
+      "forbidden": [
+        "看板（不统一）",
+        "驾驶舱"
+      ],
+      "category": "SRE 与运维"
+    },
+    {
+      "en": "SRE",
+      "zh": "SRE（站点可靠性工程）",
+      "aliases": [
+        "sre",
+        "site reliability engineering"
+      ],
+      "forbidden": [
+        "站点可靠工程（漏「性」）"
+      ],
+      "category": "SRE 与运维"
+    },
+    {
+      "en": "SLO",
+      "zh": "SLO（服务等级目标）",
+      "aliases": [
+        "slo",
+        "service level objective",
+        "slos"
+      ],
+      "forbidden": [
+        "服务水平目标（不括注缩写）",
+        "服务级别目标"
+      ],
+      "category": "SRE 与运维"
+    },
+    {
+      "en": "SLA",
+      "zh": "SLA（服务等级协议）",
+      "aliases": [
+        "sla",
+        "service level agreement",
+        "slas"
+      ],
+      "forbidden": [
+        "服务级别协议（统一用「等级」）"
+      ],
+      "category": "SRE 与运维"
+    },
+    {
+      "en": "Error Budget",
+      "zh": "错误预算",
+      "aliases": [
+        "error budget",
+        "error budgets"
+      ],
+      "forbidden": [
+        "故障预算",
+        "容错预算"
+      ],
+      "category": "SRE 与运维"
+    },
+    {
+      "en": "Reliability",
+      "zh": "可靠性",
+      "aliases": [
+        "reliability"
+      ],
+      "forbidden": [
+        "可信性",
+        "健壮性（语义不同）"
+      ],
+      "category": "SRE 与运维"
+    },
+    {
+      "en": "On-call",
+      "zh": "值班",
+      "aliases": [
+        "on-call",
+        "on call",
+        "oncall"
+      ],
+      "forbidden": [
+        "待命",
+        "值班制（不统一）"
+      ],
+      "category": "SRE 与运维"
+    },
+    {
+      "en": "Incident",
+      "zh": "故障事件",
+      "aliases": [
+        "incident",
+        "incidents"
+      ],
+      "forbidden": [
+        "事故（不精确）",
+        "突发事件"
+      ],
+      "note": "SRE 语境固定译「故障事件」",
+      "category": "SRE 与运维"
+    },
+    {
+      "en": "Postmortem",
+      "zh": "复盘",
+      "aliases": [
+        "postmortem",
+        "post-mortem",
+        "postmortems"
+      ],
+      "forbidden": [
+        "验尸",
+        "事后解剖"
+      ],
+      "note": "与本课程 AAR（复盘）同源概念，统一用「复盘」",
+      "category": "SRE 与运维"
+    },
+    {
+      "en": "Runbook",
+      "zh": "操作手册",
+      "aliases": [
+        "runbook",
+        "runbooks"
+      ],
+      "forbidden": [
+        "运行剧本",
+        "操作手册（统一用此）"
+      ],
+      "category": "SRE 与运维"
+    },
+    {
+      "en": "Monitoring",
+      "zh": "监控",
+      "aliases": [
+        "monitoring"
+      ],
+      "forbidden": [
+        "监测（与 observability 混淆）"
+      ],
+      "note": "monitoring 与 observability 要区分：监控=已知指标，观测=未知问题",
+      "category": "SRE 与运维",
+      "ambiguous": [
+        "监测"
+      ]
+    },
+    {
+      "en": "Static Application Security Testing",
+      "zh": "静态应用安全测试（SAST）",
+      "aliases": [
+        "static application security testing",
+        "sast"
+      ],
+      "forbidden": [
+        "静态安全扫描（丢失应用）"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Dynamic Application Security Testing",
+      "zh": "动态应用安全测试（DAST）",
+      "aliases": [
+        "dynamic application security testing",
+        "dast"
+      ],
+      "forbidden": [
+        "动态安全扫描（丢失应用）"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Static Analysis",
+      "zh": "静态分析",
+      "aliases": [
+        "static analysis"
+      ],
+      "forbidden": [
+        "静态解析"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Prompt Injection",
+      "zh": "提示注入",
+      "aliases": [
+        "prompt injection"
+      ],
+      "forbidden": [
+        "提示词注入（统一用「提示」）",
+        "指令注入"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "SQL Injection",
+      "zh": "SQL 注入",
+      "aliases": [
+        "sql injection",
+        "sqli"
+      ],
+      "forbidden": [
+        "SQL注射"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Remote Code Execution",
+      "zh": "远程代码执行（RCE）",
+      "aliases": [
+        "remote code execution",
+        "rce"
+      ],
+      "forbidden": [
+        "远程执行代码（语序颠倒）"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Vulnerability",
+      "zh": "漏洞",
+      "aliases": [
+        "vulnerability",
+        "vulnerabilities"
+      ],
+      "forbidden": [
+        "脆弱性",
+        "易损性"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Exploit",
+      "zh": "漏洞利用",
+      "aliases": [
+        "exploit",
+        "exploits"
+      ],
+      "forbidden": [
+        "利用漏洞（统一用名词）",
+        "开发漏洞利用"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Mitigation",
+      "zh": "缓解措施",
+      "aliases": [
+        "mitigation",
+        "mitigations"
+      ],
+      "forbidden": [
+        "缓和",
+        "减轻（不精确）"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Attack Payload",
+      "zh": "攻击载荷",
+      "aliases": [
+        "attack payload",
+        "attack payloads"
+      ],
+      "forbidden": [
+        "攻击负荷",
+        "攻击有效载荷（可但统一用「载荷」）"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Sandbox",
+      "zh": "沙箱",
+      "aliases": [
+        "sandbox",
+        "sandboxes",
+        "sandboxed"
+      ],
+      "forbidden": [
+        "沙盒",
+        "隔离区（丢失比喻）"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Permission",
+      "zh": "权限",
+      "aliases": [
+        "permission",
+        "permissions"
+      ],
+      "forbidden": [
+        "许可（不精确）",
+        "授权（与 authorization 混淆）"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Authentication",
+      "zh": "认证",
+      "aliases": [
+        "authentication",
+        "authn"
+      ],
+      "forbidden": [
+        "鉴权（口语可，正文统一「认证」）"
+      ],
+      "note": "authentication=认证(你是谁)，authorization=授权(你能做什么)",
+      "category": "安全"
+    },
+    {
+      "en": "Authorization",
+      "zh": "授权",
+      "aliases": [
+        "authorization",
+        "authz",
+        "authorized"
+      ],
+      "forbidden": [
+        "认证（与 authentication 混淆）",
+        "鉴权（统一用「授权」）"
+      ],
+      "category": "安全",
+      "ambiguous": [
+        "认证"
+      ]
+    },
+    {
+      "en": "Secret",
+      "zh": "密钥",
+      "aliases": [
+        "secret",
+        "secrets"
+      ],
+      "forbidden": [
+        "秘钥"
+      ],
+      "note": "指 API key/token 类凭据时译「密钥」",
+      "category": "安全",
+      "ambiguous": [
+        "秘密"
+      ]
+    },
+    {
+      "en": "API Key",
+      "zh": "API 密钥",
+      "aliases": [
+        "api key",
+        "api keys"
+      ],
+      "forbidden": [
+        "API键（不统一）"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Environment Variable",
+      "zh": "环境变量",
+      "aliases": [
+        "environment variable",
+        "environment variables"
+      ],
+      "forbidden": [
+        "环境变数（地区差异）"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Human in the Loop",
+      "zh": "人在环路中",
+      "aliases": [
+        "human in the loop",
+        "human-in-the-loop",
+        "hitl"
+      ],
+      "forbidden": [
+        "人在循环中",
+        "人机循环"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Guardrail",
+      "zh": "护栏",
+      "aliases": [
+        "guardrail",
+        "guardrails"
+      ],
+      "forbidden": [
+        "护栏措施（冗余）",
+        "安全栏"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Tool Use",
+      "zh": "工具调用",
+      "aliases": [
+        "tool use",
+        "tool uses"
+      ],
+      "forbidden": [
+        "工具使用（统一用「调用」）"
+      ],
+      "note": "与 tool call 统一译「工具调用」",
+      "category": "编码智能体",
+      "ambiguous": [
+        "使用工具"
+      ]
+    },
+    {
+      "en": "Tool Call",
+      "zh": "工具调用",
+      "aliases": [
+        "tool call",
+        "tool calls"
+      ],
+      "forbidden": [
+        "工具呼叫",
+        "调用工具（语序不统一）"
+      ],
+      "category": "编码智能体"
+    },
+    {
+      "en": "Tool Schema",
+      "zh": "工具schema（工具结构定义）",
+      "aliases": [
+        "tool schema",
+        "tool schemas"
+      ],
+      "forbidden": [
+        "工具模式",
+        "工具架构"
+      ],
+      "note": "保留 schema 原文，程序员最熟悉",
+      "category": "编码智能体"
+    },
+    {
+      "en": "Subagent",
+      "zh": "子智能体",
+      "aliases": [
+        "sub-agent"
+      ],
+      "forbidden": [],
+      "note": "见核心概念区",
+      "category": "编码智能体"
+    },
+    {
+      "en": "Workflow",
+      "zh": "工作流",
+      "aliases": [
+        "workflow",
+        "workflows"
+      ],
+      "forbidden": [
+        "工作流程（可但统一用「工作流」）"
+      ],
+      "category": "编码智能体"
+    },
+    {
+      "en": "Pipeline",
+      "zh": "流水线",
+      "aliases": [
+        "pipeline",
+        "pipelines"
+      ],
+      "forbidden": [
+        "管道（不统一）"
+      ],
+      "category": "编码智能体"
+    },
+    {
+      "en": "Latency",
+      "zh": "延迟",
+      "aliases": [
+        "latency"
+      ],
+      "forbidden": [
+        "潜伏期",
+        "时延（统一用「延迟」）"
+      ],
+      "category": "性能与成本"
+    },
+    {
+      "en": "Throughput",
+      "zh": "吞吐量",
+      "aliases": [
+        "throughput"
+      ],
+      "forbidden": [
+        "产出量"
+      ],
+      "category": "性能与成本",
+      "ambiguous": [
+        "通过量"
+      ]
+    },
+    {
+      "en": "Token Usage",
+      "zh": "token 用量",
+      "aliases": [
+        "token usage"
+      ],
+      "forbidden": [
+        "令牌使用量",
+        "词元用量"
+      ],
+      "category": "性能与成本"
+    },
+    {
+      "en": "Cost",
+      "zh": "成本",
+      "aliases": [
+        "cost",
+        "costs"
+      ],
+      "forbidden": [
+        "费用（可但统一用「成本」）"
+      ],
+      "category": "性能与成本",
+      "ambiguous": [
+        "费用"
+      ]
+    },
+    {
+      "en": "Rate Limit",
+      "zh": "速率限制",
+      "aliases": [
+        "rate limit",
+        "rate limits",
+        "rate limiting"
+      ],
+      "forbidden": [
+        "频率限制（不统一）",
+        "限速"
+      ],
+      "category": "性能与成本"
+    },
+    {
+      "en": "Quota",
+      "zh": "配额",
+      "aliases": [
+        "quota",
+        "quotas"
+      ],
+      "forbidden": [
+        "定额（不精确）"
+      ],
+      "category": "性能与成本"
+    },
+    {
+      "en": "Idempotency",
+      "zh": "幂等性",
+      "aliases": [
+        "idempotency",
+        "idempotent"
+      ],
+      "forbidden": [
+        "等幂性"
+      ],
+      "category": "性能与成本",
+      "ambiguous": [
+        "重复性"
+      ]
+    },
+    {
+      "en": "Retry",
+      "zh": "重试",
+      "aliases": [
+        "retry",
+        "retries",
+        "retrying"
+      ],
+      "forbidden": [
+        "重attempt",
+        "再次尝试（不统一）"
+      ],
+      "category": "性能与成本",
+      "ambiguous": [
+        "再次尝试"
+      ]
+    },
+    {
+      "en": "Backoff",
+      "zh": "退避",
+      "aliases": [
+        "backoff",
+        "exponential backoff"
+      ],
+      "forbidden": [
+        "后退",
+        "回避"
+      ],
+      "note": "exponential backoff = 指数退避",
+      "category": "性能与成本"
+    },
+    {
+      "en": "Benchmark",
+      "zh": "基准测试",
+      "aliases": [
+        "benchmark",
+        "benchmarks"
+      ],
+      "forbidden": [
+        "基准（不统一）"
+      ],
+      "category": "性能与成本",
+      "ambiguous": [
+        "对标"
+      ]
+    },
+    {
+      "en": "Evaluation",
+      "zh": "评测",
+      "aliases": [
+        "evaluation",
+        "evaluations"
+      ],
+      "forbidden": [
+        "评估（统一用「评测」）"
+      ],
+      "note": "AI 评测语境固定用「评测」",
+      "category": "性能与成本",
+      "ambiguous": [
+        "评价"
+      ]
+    },
+    {
+      "en": "Eval",
+      "zh": "评测",
+      "aliases": [
+        "eval",
+        "evals"
+      ],
+      "forbidden": [
+        "评估（不统一）"
+      ],
+      "category": "性能与成本"
+    },
+    {
+      "en": "Debugging",
+      "zh": "调试",
+      "aliases": [
+        "debugging"
+      ],
+      "forbidden": [
+        "除错",
+        "排错（统一用「调试」）"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Idempotent Retry",
+      "zh": "幂等重试",
+      "aliases": [],
+      "forbidden": [],
+      "category": "性能与成本"
+    },
+    {
+      "en": "Productivity",
+      "zh": "效率",
+      "aliases": [
+        "productivity",
+        "developer productivity"
+      ],
+      "forbidden": [
+        "生产力"
+      ],
+      "note": "开发者语境译「效率」不译「生产力」",
+      "category": "工程实践"
+    },
+    {
+      "en": "Developer Experience",
+      "zh": "开发者体验",
+      "aliases": [
+        "developer experience",
+        "dx"
+      ],
+      "forbidden": [
+        "开发经验",
+        "开发者体验（统一用此）"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Knowledge Sharing",
+      "zh": "知识共享",
+      "aliases": [
+        "knowledge sharing"
+      ],
+      "forbidden": [],
+      "category": "团队与流程"
+    },
+    {
+      "en": "Onboarding",
+      "zh": "新人上手",
+      "aliases": [
+        "onboarding"
+      ],
+      "forbidden": [
+        "入职引导（HR 语境可）"
+      ],
+      "note": "工程语境指新人熟悉项目流程",
+      "category": "团队与流程",
+      "ambiguous": [
+        "入职引导"
+      ]
+    },
+    {
+      "en": "Code Ownership",
+      "zh": "代码归属",
+      "aliases": [
+        "code ownership"
+      ],
+      "forbidden": [
+        "代码所有权（统一用「归属」）"
+      ],
+      "category": "团队与流程",
+      "ambiguous": [
+        "代码所有权"
+      ]
+    },
+    {
+      "en": "Pair Programming",
+      "zh": "结对编程",
+      "aliases": [
+        "pair programming"
+      ],
+      "forbidden": [
+        "配对编程",
+        "两人编程"
+      ],
+      "category": "团队与流程"
+    },
+    {
+      "en": "Context Compression",
+      "zh": "上下文压缩",
+      "aliases": [
+        "context compression"
+      ],
+      "forbidden": [
+        "上下文减容"
+      ],
+      "category": "模型与AI"
+    },
+    {
+      "en": "Summarization",
+      "zh": "摘要生成",
+      "aliases": [
+        "summarization",
+        "summarization"
+      ],
+      "forbidden": [
+        "总结化"
+      ],
+      "category": "模型与AI"
+    },
+    {
+      "en": "Retrieval",
+      "zh": "检索",
+      "aliases": [
+        "retrieval",
+        "retrieve"
+      ],
+      "forbidden": [
+        "回收"
+      ],
+      "category": "模型与AI",
+      "ambiguous": [
+        "取回"
+      ]
+    },
+    {
+      "en": "Needle in a Haystack",
+      "zh": "大海捞针",
+      "aliases": [
+        "needle in a haystack",
+        "niah"
+      ],
+      "forbidden": [
+        "草堆里的针"
+      ],
+      "note": "长上下文检索能力的测试范式",
+      "category": "模型与AI"
+    },
+    {
+      "en": "Blast Radius",
+      "zh": "影响范围",
+      "aliases": [
+        "blast radius"
+      ],
+      "forbidden": [
+        "爆炸半径",
+        "波及范围（统一用此）"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Allowlist",
+      "zh": "允许列表",
+      "aliases": [
+        "allowlist",
+        "allow list"
+      ],
+      "forbidden": [
+        "白名单（建议统一，避免Inclusive 语言争议）"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Denylist",
+      "zh": "拒绝列表",
+      "aliases": [
+        "denylist",
+        "deny list",
+        "blocklist"
+      ],
+      "forbidden": [
+        "黑名单（建议统一）"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Jailbreak",
+      "zh": "越狱",
+      "aliases": [
+        "jailbreak",
+        "jailbreaking"
+      ],
+      "forbidden": [
+        "监狱突破",
+        "脱狱（统一用「越狱」）"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Red Team",
+      "zh": "红队",
+      "aliases": [
+        "red team",
+        "red teaming"
+      ],
+      "forbidden": [
+        "红色团队"
+      ],
+      "category": "安全"
+    },
+    {
+      "en": "Kubernetes",
+      "zh": "Kubernetes",
+      "aliases": [
+        "kubernetes",
+        "k8s"
+      ],
+      "forbidden": [
+        "库伯内特斯（不译）"
+      ],
+      "note": "产品名保留；k8s 是缩写",
+      "category": "基础设施"
+    },
+    {
+      "en": "Docker",
+      "zh": "Docker",
+      "aliases": [
+        "docker"
+      ],
+      "forbidden": [
+        "码头工人（不译）"
+      ],
+      "category": "基础设施"
+    },
+    {
+      "en": "YAML",
+      "zh": "YAML",
+      "aliases": [
+        "yaml"
+      ],
+      "forbidden": [],
+      "category": "基础设施"
+    },
+    {
+      "en": "CI/CD Pipeline",
+      "zh": "CI/CD 流水线",
+      "aliases": [
+        "ci/cd pipeline"
+      ],
+      "forbidden": [],
+      "category": "工程实践"
+    },
+    {
+      "en": "DevOps",
+      "zh": "DevOps",
+      "aliases": [
+        "devops"
+      ],
+      "forbidden": [
+        "开发运营（不译）"
+      ],
+      "category": "工程实践"
+    },
+    {
+      "en": "Platform Engineering",
+      "zh": "平台工程",
+      "aliases": [
+        "platform engineering"
+      ],
+      "forbidden": [],
+      "category": "工程实践"
+    },
+    {
+      "en": "Server",
+      "zh": "服务器",
+      "aliases": [
+        "server",
+        "servers"
+      ],
+      "forbidden": [
+        "服务端（统一用「服务器」）",
+        "服务机"
+      ],
+      "category": "基础设施"
+    },
+    {
+      "en": "Client",
+      "zh": "客户端",
+      "aliases": [
+        "client",
+        "clients"
+      ],
+      "forbidden": [
+        "客户机",
+        "主顾"
+      ],
+      "category": "基础设施"
+    },
+    {
+      "en": "Protocol",
+      "zh": "协议",
+      "aliases": [
+        "protocol",
+        "protocols"
+      ],
+      "forbidden": [
+        "规矩",
+        "约定（丢失技术含义）"
+      ],
+      "category": "基础设施"
+    },
+    {
+      "en": "Schema",
+      "zh": "schema（结构定义）",
+      "aliases": [
+        "schema",
+        "schemas"
+      ],
+      "forbidden": [
+        "架构（不精确）"
+      ],
+      "note": "保留英文，程序员通用",
+      "category": "基础设施",
+      "ambiguous": [
+        "模式"
+      ]
+    },
+    {
+      "en": "Session",
+      "zh": "会话",
+      "aliases": [
+        "session",
+        "sessions"
+      ],
+      "forbidden": [
+        "期间（丢失技术含义）"
+      ],
+      "category": "基础设施",
+      "ambiguous": [
+        "学期"
+      ]
+    },
+    {
+      "en": "Handshake",
+      "zh": "握手",
+      "aliases": [
+        "handshake"
+      ],
+      "forbidden": [
+        "握手协议（冗余）"
+      ],
+      "category": "基础设施"
+    },
+    {
+      "en": "Transport",
+      "zh": "传输层",
+      "aliases": [
+        "transport"
+      ],
+      "forbidden": [
+        "运输（丢失技术含义）"
+      ],
+      "category": "基础设施"
+    },
+    {
+      "en": "Schema Validation",
+      "zh": "结构校验",
+      "aliases": [
+        "schema validation",
+        "validation"
+      ],
+      "forbidden": [
+        "合法性检查（不精确）"
+      ],
+      "category": "基础设施"
+    }
+  ]
+}

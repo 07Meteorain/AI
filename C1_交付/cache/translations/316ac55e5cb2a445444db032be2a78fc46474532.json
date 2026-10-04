@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0019",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "316ac55e5cb2a445444db032be2a78fc46474532",
+ "zh": "#### AI 代码评审能完全取代人类评审者吗？\n\n不能，AI 代码评审应当是人类评审者的补充，而不是替代。AI 擅长发现例行问题并保持一致性，但在架构决策、业务逻辑验证和复杂问题求解上，仍然需要人类评审者。最有效的做法是把 AI 自动化与人类专业能力结合起来。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

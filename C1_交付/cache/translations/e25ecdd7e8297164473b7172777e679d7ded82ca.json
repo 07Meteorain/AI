@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-food-for-thought#0002",
+ "doc_id": "mcp-food-for-thought",
+ "fingerprint": "e25ecdd7e8297164473b7172777e679d7ded82ca",
+ "zh": "## 智能体应付不了大量工具\n\n众所周知，VS Code 有 128 个工具的硬上限——但很多模型远在达到这个数字之前，就已经在准确调用工具上力不从心了。此外，每个工具及其描述都要占用宝贵的上下文窗口空间。\n\n大多数 Web API 在设计时并没有考虑这些约束！如果这些 API 是由代码调用的，那么某个产品领域里有个几十个 API 没什么问题；但如果把其中每个 API 都映射成一个 MCP 工具，效果可能就不太好了。\n\n从零开始设计的 MCP 工具，通常比单个 Web API 灵活得多——一个工具往往能完成好几个独立 API 的工作。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

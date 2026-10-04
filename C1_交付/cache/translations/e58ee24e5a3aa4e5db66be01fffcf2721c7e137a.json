@@ -1,0 +1,10 @@
+{
+ "seg_id": "finding-vulnerabilities-claude-codex#0003",
+ "doc_id": "finding-vulnerabilities-claude-codex",
+ "fingerprint": "e58ee24e5a3aa4e5db66be01fffcf2721c7e137a",
+ "zh": "- 若干关于 AI 漏洞挖掘的开放研究问题\n\n- 我们的 AI 编码智能体实验、数据集，以及我们的经验\n\n- Anthropic 的 /security-review 命令到底有多拉胯\n\n- AI 编码智能体的非确定性，以及它为何会发生\n\n本文最后编辑于 2025 年 9 月 3 日 11:15 UTC\n\n- 2025 年 9 月 3 日 11:15 UTC：补充了所用模型及调用命令的细节",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

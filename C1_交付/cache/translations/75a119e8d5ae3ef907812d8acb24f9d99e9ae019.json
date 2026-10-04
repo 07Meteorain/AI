@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0001",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "75a119e8d5ae3ef907812d8acb24f9d99e9ae019",
+ "zh": "## 什么是提示工程？\n\n提示工程是设计并优化提示词的艺术与科学，用来引导 AI 模型（尤其是 LLM）生成期望的回答。通过精心设计提示词，你为模型提供上下文、指令和示例，帮助它理解你的意图，给出有意义的回应。可以把它理解为给 AI 画一张路线图，把它引向你想要的输出。\n\n想更深入探索提示设计的世界、看看它有哪些应用，可以读读 Google Cloud 上的 Introduction to Prompt Design。\n\n想亲手试试 LLM 和提示工程？试试 Vertex AI 的免费试用，亲身体验这项技术的威力。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

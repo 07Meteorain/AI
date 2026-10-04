@@ -1,0 +1,10 @@
+{
+ "seg_id": "sast-vs-dast#0014",
+ "doc_id": "sast-vs-dast",
+ "fingerprint": "14e232f568517ec12a257d32ec0b6d2a4634f9a0",
+ "zh": "## 什么时候该用 SAST，什么时候该用 DAST？\n\nSAST 和 DAST 在保障 SDLC 安全方面扮演互补角色。理解各自适用的时机，有助于获得全面的安全覆盖。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

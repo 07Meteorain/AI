@@ -1,0 +1,10 @@
+{
+ "seg_id": "context-rot#0029",
+ "doc_id": "context-rot",
+ "fingerprint": "116678f47944233d5baf3f0b19292fdbd365f411",
+ "zh": "\"golden\" | \"Golden\" (2,500 words):\n\n- - \"I'-a-le-le-le-le-le-le-'a-le-le-le-le-le-le-le--le-le-le-le-le-le-le...\n\n\"orange\" | \"run\" (10,000 words):\n\norange orange orange--g.-g/2021/01/20/orange-county-california-sheriff-deputies-wore...\n\n重复词 —— Gemini 2.5 Pro 的样本输出\n\n重复词 —— Qwen 家族我们只在 Qwen3-8B 上观察到不尝试的情况，占全部任务的 4.21%。在这个模型上，我们观察到随机输出从 5000 个词左右开始出现：\n\nOkay, I'm going to take a break. Let me know, I'm not in the mood. I need to chill out. I'm going to go somewhere and get some fresh air. Maybe go to the beach, or just chill out somewhere. I don't know, but I need to take a break. Let me know, I'm not in the mood. I need to chill out. I'm going to go somewhere and get some fresh air. Maybe go to the beach, or just chill out somewhere. I don't know, but I need to take a break. Let me know, I'm not in the mood. I need to chill out. I'm going to go somewhere and get some fresh air. Maybe go to the beach, or just chill out somewhere. I don't know, but I need to take a break. Let me know, I'm not in the mood. I need to chill out. I'm going to go somewhere and get some fresh air. Maybe go to the beach, or just chill out somewhere. I don't know, but I need to take a break. Let me know, I'm not in the mood. I need to chill out. I'm going to go somewhere and...\n\n重复词 —— Qwen3-8B 在 'golden' | 'Golden' 上的输出（5,000 words）",
+ "meta": {
+  "source": "../work/tr_g02.json",
+  "batch": "tr_g02"
+ }
+}

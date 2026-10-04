@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0005",
+ "doc_id": "observability-basics",
+ "fingerprint": "40ff87cb65da39afb994c69a7eed5868c91e3964",
+ "zh": "💡\n\n如果你好奇追踪和跨度与指标、日志、事件之间的关系，这篇文章对这四者做了完整梳理。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

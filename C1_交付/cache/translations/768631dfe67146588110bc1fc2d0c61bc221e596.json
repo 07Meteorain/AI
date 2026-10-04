@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0019",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "768631dfe67146588110bc1fc2d0c61bc221e596",
+ "zh": "\"把这张照片的背景换成星空夜景，并加上一轮满月。\"或\"把图中的人移除，换成一只猫。\"",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

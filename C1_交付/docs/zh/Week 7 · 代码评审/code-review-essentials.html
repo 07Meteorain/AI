@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>代码评审要点 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>代码评审要点</h1>
+  <div class="meta">
+    <span>分类：Week 7 · 代码评审</span><span>原文 1,932 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://blakesmith.me/2015/02/09/code-review-essentials-for-software-teams.html" target="_blank" rel="noopener">https://blakesmith.me/2015/02/09/code-review-essentials-for-software-teams.html</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="code-review-essentials-0000"><div class="zh side"><div class="tag">中文</div><h1 id="hblake-smith">Blake Smith</h1>
+<h2 id="h-">创造。编码。学习。</h2>
+<h2 id="h-">»</h2></div><div class="en side"><div class="tag">EN</div><h1 id="hblake-smith">Blake Smith</h1>
+<h2 id="hcreate-code-learn-">create. code. learn.</h2>
+<h2 id="h-">»</h2></div></div>
+<div class="pair" id="code-review-essentials-0001"><div class="zh side"><div class="tag">中文</div><h2 id="h-">软件团队的代码评审要点</h2>
+<p>2015 年 2 月 9 日</p>
+<p>代码评审是任何协作式软件</p>
+<p>项目中不可或缺的一部分。大型软件系统通常由不止一个人</p>
+<p>编写，因此一个高效运转的软件团队需要一套稳健的</p>
+<p>流程，让成员以及代码库本身都朝着正确的方向前进。</p>
+<p>代码评审是一件强大的工具，它：</p>
+<ul>
+<li>帮助团队成员随着系统</li>
+</ul>
+<p>的变化调整自己的心智模型</p>
+<ul>
+<li>确保改动正确地解决了问题</li>
+</ul>
+<ul>
+<li>为设计的优点和缺点打开讨论</li>
+</ul>
+<ul>
+<li>在 bug 进入生产之前抓住它们</li>
+</ul>
+<ul>
+<li>让代码风格和组织结构保持一致</li>
+</ul>
+<p>把这些收益看成一组层次递进的需求会很有帮助。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hcode-review-essentials-for-software-teams">Code Review Essentials for Software Teams</h2>
+<p>09 Feb 2015</p>
+<p>Code Review is an essential part of any collaborative software</p>
+<p>project. Large software systems are usually written by more than one</p>
+<p>person, and so a highly functioning software team needs a robust</p>
+<p>process to keep its members, as well as the code base itself moving in</p>
+<p>the right direction.</p>
+<p>Code Review is a powerful tool that:</p>
+<ul>
+<li>Helps team members adapt their mental model of the system as it’s</li>
+</ul>
+<p>changing</p>
+<ul>
+<li>Ensures the change correctly solves the problem</li>
+</ul>
+<ul>
+<li>Opens discussion for strengths and weaknesses of a design</li>
+</ul>
+<ul>
+<li>Catches bugs before they get to production</li>
+</ul>
+<ul>
+<li>Keeps the code style and organization consistent</li>
+</ul>
+<p>It’s helpful to think of these benefits as a hierarchy of</p>
+<p>needs.</p></div></div>
+<div class="pair" id="code-review-essentials-0002"><div class="zh side"><div class="tag">中文</div><h2 id="h-">让团队成员保持在同一条船上</h2>
+<p>代码评审最关键的作用，是让团队里的每一位成员</p>
+<p>都朝着正确的方向前进。你无法安全地改动一个</p>
+<p>你不理解的系统，所以代码评审让团队在心智上</p>
+<p>保持同步。当 Bob 为记账子系统提交一个拉取请求时，</p>
+<p>Amy 会在评审 Bob 代码的过程中持续更新自己对该</p>
+<p>系统的理解。Amy 有机会对自己不理解的部分提问，</p>
+<p>而 Bob 既能借此讲清自己的设计决策，也能把</p>
+<p>自己的工作讲给别人听。一个月后，当 Amy</p>
+<p>要改动记账子系统时，她对这个系统的理解</p>
+<p>已经是最新的，可以直接动手。她花在读代码、</p>
+<p>在脑海里拼凑系统上的时间更少，花在思考</p>
+<p>更高层抽象与设计上的时间更多了。所有人都赢，</p>
+<p>因为所有人都保持在同一条船上。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hkeeping-team-members-together">Keeping Team Members Together</h2>
+<p>The most critical function of a Code Review is to keep every member of</p>
+<p>the team moving in the right direction. You can’t safetly change a</p>
+<p>system you don’t understand, and so Code Review keeps the team</p>
+<p>mentally aligned together. When Bob submits a pull request for the</p>
+<p>accounting subsystem, Amy keeps her mental model of that system</p>
+<p>updated as she reviews Bob’s code. Amy gets the chance to ask</p>
+<p>questions about pieces she doesn’t understand, and Bob gets the</p>
+<p>benefit of clarifying his design decisions as well as teaching someone</p>
+<p>else about his work. When Amy has to make a change to the accounting</p>
+<p>subsystem a month later, her mental model of the system is already up</p>
+<p>to date and ready for action. She spends less time reading code and</p>
+<p>trying to piece the system together in her brain, and more time</p>
+<p>thinking about higher level abstractions and designs. Everyone wins,</p>
+<p>because everyone stays together.</p></div></div>
+<div class="pair" id="code-review-essentials-0003"><div class="zh side"><div class="tag">中文</div><h2 id="h-">执行一个好的拉取请求</h2>
+<p>在你为改动系统写第一行代码之前，先问问自己以下</p>
+<p>问题：</p>
+<ul>
+<li>“这是应该做的那件事吗？” 客户、内部团队成员和其他</li>
+</ul>
+<p> 各方的需求永远在互相竞争。在一头扎进去之前，这</p>
+<p> 是一个让你在脑子里理清优先级的好办法。迭代 /</p>
+<p> 冲刺计划会议之类的其他流程也有助于让这件事</p>
+<p> 保持在正轨上。</p>
+<ul>
+<li>“团队是否已经一致认为这个改动是对的？” 如果</li>
+</ul>
+<p> 没有，那最好先通过邮件或者当面开启一场设计讨论。</p>
+<p> 人们在你动手之前就已经对设计达成一致，你的改动</p>
+<p> 才更有可能被接受。</p>
+<ul>
+<li>“我怎样把这次改动拆成容易评审和理解的小块？”</li>
+</ul>
+<p> 小改动更容易思考和理解。好的讨论来自团队能够</p>
+<p> 快速理解你的改动。如果你的改动非常庞大，</p>
+<p> 队友的眼睛会看得发直，你可能只会从他们那里</p>
+<p> 得到几条吹毛求疵的风格意见。</p>
+<ul>
+<li>“我打算怎样测试这个改动，以消灭 bug 并确保</li>
+</ul>
+<p> 正确性？” 你也许有 QA 部门，但把高质量、能用的软件</p>
+<p> 交付出去，仍然是作为开发者的你的职责。容易</p>
+<p> 测试的软件通常耦合更低、拆成了更小的</p>
+<p> 块，也更容易推理。你需要为所有改动</p>
+<p> 准备一份测试计划。</p>
+<p>我发现提前回答这些问题从长远来看替我省去了</p>
+<p>大量麻烦。你最不希望发生的，就是花几天时间把一个</p>
+<p>改动写出来，最后却因为根本性的设计缺陷或团队分歧</p>
+<p>而被否掉。或者你的改动因为没人能验证其正确性而</p>
+<p>被卡住。再说一次，目标是在改动系统的同时让其他</p>
+<p>团队成员了解你的改动。问问自己打算怎样把工作</p>
+<p>拆成一口口能吃下的小块并对这些小块做测试，在很多</p>
+<p>方面都有好处：</p>
+<ul>
+<li>它降低风险</li>
+</ul>
+<ul>
+<li>它让改动更容易推理</li>
+</ul>
+<ul>
+<li>它推动你做出更好的设计</li>
+</ul>
+<p>与其用砍刀划出一道长伤口，你更愿意用手术刀</p>
+<p>做出许多小而精准的切口。多数增量式的场景我都更偏好</p>
+<p>手术刀式的开发，而把砍刀留到该删除大块死代码的时候。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hexecuting-a-good-pull-request">Executing a Good Pull Request</h2>
+<p>Before you even write a line of code changing the system, ask yourself the following</p>
+<p>questions:</p>
+<ul>
+<li>“Is this the right thing to be working on?” There will always be</li>
+</ul>
+<p> competing needs from customers, internal team members and other</p>
+<p> parties. This can be a good way to keep priorities straight in your</p>
+<p> head before you dive in deep. Other processes like iteration /</p>
+<p> sprint planning meetings also help keep this on track.</p>
+<ul>
+<li>“Does the team already agree that the change is the right one?” If</li>
+</ul>
+<p>not, it’d be better to start a design discussion by email or maybe</p>
+<p>in person. Your changes are more likely to get accepted when people</p>
+<p>are in agreement about the design before you change it.</p>
+<ul>
+<li>“How can I break this change into digestable chunks that are easy to</li>
+</ul>
+<p>review and understand?” Small changes are easier to think about and</p>
+<p>understand. Good discussions flow from the team being able to</p>
+<p>comprehend your change quickly. If your change is massive,</p>
+<p>teammate’s eyes will glaze over, and you might only get a few style</p>
+<p>nitpicks from them.</p>
+<ul>
+<li>“How am I going to test this change to kill bugs and ensure</li>
+</ul>
+<p>correctness?” You might have a QA department, but it’s still your</p>
+<p>job as the developer to ship quality working software. Easily</p>
+<p>testable software is usually more decoupled, is broken into smaller</p>
+<p>chunks, and easier to reason about. You need to have a testing plan</p>
+<p>for all your changes.</p>
+<p>I’ve found that answering these questions ahead of time has saved me a</p>
+<p>lot of headache in the long run. The last thing you want to do is</p>
+<p>spend days coding up a change only to have it rejected based on</p>
+<p>fundamental design flaws or team disagreement. Or for your change to</p>
+<p>get held up because no one can verify it for correctness. Again, the</p>
+<p>goal is to change the system while keeping other team members up to</p>
+<p>date with your changes. Asking yourself about how you’re going to</p>
+<p>break your work into bite-sized chunks and test those chunks is</p>
+<p>helpful on many fronts:</p>
+<ul>
+<li>It reduces risk</li>
+</ul>
+<ul>
+<li>It makes changes easier to reason about</li>
+</ul>
+<ul>
+<li>It pushes you towards a better design</li>
+</ul>
+<p>You’d rather make many small, precise cuts with a scalpel than one</p>
+<p>giant gash with a machete. I prefer scalpel driven developement in</p>
+<p>most additive cases, and like to save the machete for when it’s time</p>
+<p>to delete large blocks of dead code.</p></div></div>
+<div class="pair" id="code-review-essentials-0004"><div class="zh side"><div class="tag">中文</div><h2 id="h-">发送拉取请求</h2>
+<p>好，团队已经认可你的改动，你的目标设计也已经</p>
+<p>实现了。那么，怎样才是真正把你的拉取请求发出去的</p>
+<p>最有效方式？你在改动上花了很大力气，你希望团队里</p>
+<p>的其他成员关注你的拉取请求，并给你快速反馈。你该</p>
+<p>怎么做？</p>
+<p>还记得我之前说过，代码评审最重要的部分，是让</p>
+<p>团队的整体心智模型保持良好一致吗？你的其他队友</p>
+<p>很可能在忙完全不同的事，也许在系统里完全不同的</p>
+<p>一部分。他们的大脑处在完全不同的上下文中，所以</p>
+<p>你必须给他们做好评审所需的有益指引，来弥补这一点。</p>
+<p>这意味着要条理清晰地写清你做了哪些改动、为什么</p>
+<p>这么做，以及其他光读代码得不到的相关信息。不要</p>
+<p>让你的队友做超出必要范围的脑力活。</p>
+<p>我们来看几个拉取请求描述的好例子和坏例子：</p>
+<p>糟糕的例子：</p></div><div class="en side"><div class="tag">EN</div><h2 id="hsending-the-pull-request">Sending the Pull Request</h2>
+<p>Ok, so you’ve gotten buy-in from the team that your changes are good,</p>
+<p>and you’ve achieved the design you set out to build. What’s the most</p>
+<p>effective way to actually send your pull request? You’ve been working</p>
+<p>hard on your changes, and you want other members of your team to pay</p>
+<p>attention to your pull request and give you fast feedback. How can you</p>
+<p>do that?</p>
+<p>Remember earlier when I said that the most important part of a code</p>
+<p>review is to keep the team’s collective mental model well aligned?</p>
+<p>Your other teammates are probably working on something completely</p>
+<p>different than you, maybe in a completely different part of the</p>
+<p>system. Their brains are in a completely different context, so you</p>
+<p>must overcome this by giving them the helpful guidance they need to do</p>
+<p>the review. This means writing a well-organized description of the</p>
+<p>changes you made, why you made them and any other relevant information</p>
+<p>they won’t get from just reading the code alone. Don’t make your</p>
+<p>teammates do more mental work than they have to.</p>
+<p>Let’s look at some good and bad examples of pull request descriptions:</p>
+<p>Bad Example:</p></div></div>
+<div class="pair" id="code-review-essentials-0005"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+Title: Fix uninitialized memory bug
+Description: 
+
+This is the bug Bob and I talked about earlier. I had
+trouble with the compiler but managed to make this work. Let me
+know what you guys think.
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+Title: Fix uninitialized memory bug
+Description: 
+
+This is the bug Bob and I talked about earlier. I had
+trouble with the compiler but managed to make this work. Let me
+know what you guys think.
+</code></pre></div></div>
+<div class="pair" id="code-review-essentials-0006"><div class="zh side"><div class="tag">中文</div><p>如果你是这个拉取请求的开发者，先停下来，设身处地</p>
+<p>站在你的代码评审者的角度想一秒。这个标题含糊其辞，</p>
+<p>提出的问题比给出的答案还多：内存 bug 在哪里？这次</p>
+<p>改动有多关键？之前你和 Bob 谈的那个 bug 是什么？</p>
+<p>编译器给你带来了什么麻烦？描述既没有提供任何有助于</p>
+<p>理解问题的背景，也没有提供任何关于你做了哪些改动的</p>
+<p>有用说明。如果这个拉取请求很长，评审者就得一头</p>
+<p>扎进代码里做一番脑力翻腾，试图先获得足够的上下文，</p>
+<p>然后才轮到去思考这次改动如何融入系统连贯的整体设计。</p>
+<p>这是一个改进后的例子，能更清楚地说明这次变更：</p></div><div class="en side"><div class="tag">EN</div><p>If you’re the developer of this pull request, stop and put yourself in</p>
+<p>your code reviewer’s shoes for a second. The title is vague, and</p>
+<p>raises more questions than answers: Where is the memory bug? How</p>
+<p>critical is this change? What was the bug that Bob and you talked</p>
+<p>about earlier? What trouble did you have with the compiler? The</p>
+<p>description doesn’t provide any helpful context about the problem, nor</p>
+<p>does it provide any helpful description of your changes. If this pull</p>
+<p>request is long, the reviewer is going to have to dive into the code</p>
+<p>and do mental gymnastics in an attempt to gain context before even</p>
+<p>getting a chance to think about how this change fits in to the</p>
+<p>coherent design of the system.</p>
+<p>Here’s a improved example that helps clarify the changeset:</p></div></div>
+<div class="pair" id="code-review-essentials-0007"><div class="zh side"><div class="tag">中文</div><pre class="code"><code class="lang-">
+Title: Fix process crash on startup from uninitialized memory [#54633]
+Description:
+
+This bug was causing process crashes on boot due to a memory
+initialization error in our statistics Counter class. I talked this
+over with Bob, and we both agree the crashes are a rare edge case
+that don&#x27;t warrant a hot-fix release. Here&#x27;s a summary of the
+changes:
+
+  - Moved the underlying int variable into the class initializer
+    to prevent ununitialized memory in the Counter.
+  - Reworked the Counter interface to simplify caller conditional
+    logic and prevent further off-by-one counting problems.
+  - Added a unit test that exposes the crash
+
+Testing: I&#x27;ve verified the test suite still passes, and verified
+manually that the crash doesn&#x27;t happen locally.
+</code></pre></div><div class="en side"><div class="tag">EN</div><pre class="code"><code class="lang-">
+Title: Fix process crash on startup from uninitialized memory [#54633]
+Description:
+
+This bug was causing process crashes on boot due to a memory
+initialization error in our statistics Counter class. I talked this
+over with Bob, and we both agree the crashes are a rare edge case
+that don&#x27;t warrant a hot-fix release. Here&#x27;s a summary of the
+changes:
+
+  - Moved the underlying int variable into the class initializer
+    to prevent ununitialized memory in the Counter.
+  - Reworked the Counter interface to simplify caller conditional
+    logic and prevent further off-by-one counting problems.
+  - Added a unit test that exposes the crash
+
+Testing: I&#x27;ve verified the test suite still passes, and verified
+manually that the crash doesn&#x27;t happen locally.
+</code></pre></div></div>
+<div class="pair" id="code-review-essentials-0008"><div class="zh side"><div class="tag">中文</div><p>这个拉取请求描述有几处改进：标题足够有描述性，能给</p>
+<p>评审者一些简短背景，并诱使他们点开邮件了解更多。</p>
+<p>评审者知道这是进程崩溃（这通常是很糟糕的事），</p>
+<p>还有一个 bug 报告编号，如果他们想更深入了解这个</p>
+<p>问题，可以去读 bug 报告的更多细节。新的描述还概述了</p>
+<p>问题发生在哪里，并提供了关于这个修复有多关键的背景。</p>
+<p>其中有一个摘要列出了拉取请求中结构层面的高层改动，</p>
+<p>这会让评审者在还没看代码之前就在脑海里形成改动的</p>
+<p>图景。代码评审者不该在看到内容时感到意外。这个例子</p>
+<p>还列出了做过的测试，这会让评审者相信这些改动经过了</p>
+<p>充分思考、充分测试，可以合并。把你的评审者设置成</p>
+<p>“注定成功”——让他们点“合并”这件事简单到不用动脑子。</p></div><div class="en side"><div class="tag">EN</div><p>A few things that have improved in this pull request description: The</p>
+<p>title is descriptive enough to give the reviewer some short context,</p>
+<p>and entice them to click on the email and learn more. The reviewer</p>
+<p>knows it’s a process crash (which is usually a really bad thing) and</p>
+<p>there’s also a bug report number where the reviewer can read more</p>
+<p>details about the bug report if they’re interested in understand more</p>
+<p>about the problem. The new description also outlines where the problem</p>
+<p>was occuring, and helps give some context about how critical the fix</p>
+<p>is. There’s a summary that lists the high level structural changes in</p>
+<p>the pull request, which will give the reviewer a mental picture of the</p>
+<p>changes before they even look at the code. Code reviewers should not</p>
+<p>be surprised with what they find. This example also outlines testing</p>
+<p>that was performed, which will give reviewers confidence that the</p>
+<p>changes were well thought out, well tested and ready to be merged. Set</p>
+<p>your reviewers up for success by making it stupid easy for them to</p>
+<p>click ‘merge’.</p></div></div>
+<div class="pair" id="code-review-essentials-0009"><div class="zh side"><div class="tag">中文</div><h2 id="h-">评审者：给出建设性反馈</h2>
+<p>评审流程中接下来要考虑的，是给同伴</p>
+<p>建设性反馈。如果目标是清晰和一致，那么给出</p>
+<p>高质量的建设性反馈能帮助所有人更好地理解系统，</p>
+<p>并推动代码变得更好。</p>
+<p>避免说这样的话：</p>
+<ul>
+<li>“这个设计是坏的。” 它坏在哪里？怎么才能改好？</li>
+</ul>
+<p> 这类说法会打击信心、伤害自尊。</p>
+<ul>
+<li>“我不喜欢这个改动。” 你为什么不喜欢？你希望</li>
+</ul>
+<p> 它变成什么样？不喜欢某样东西没关系，但你应该</p>
+<p> 把自己的想法讲清楚，并给出代码可以如何改进的</p>
+<p> 有益线索。</p>
+<ul>
+<li>“你能把这个重写得更清楚一点吗？” 我现在这版</li>
+</ul>
+<p> 有什么问题？该怎么重写？哪里不清楚？这类</p>
+<p> 评论本身就不清楚，也没给出一条简单的</p>
+<p> 前进路径。</p>
+<p>改成说这样的话：</p>
+<ul>
+<li>“这段代码怎么处理负整数？” 这条反馈很具体，</li>
+</ul>
+<p> 会促使开发者自己去推演结果。作为评审者，你可能</p>
+<p> 知道这段代码遇到负整数会崩溃，但让开发者</p>
+<p> 自己领悟到更好。这类问题也可能意味着测试</p>
+<p> 覆盖不足，或者需要进一步明确范围。</p>
+<ul>
+<li>“这一部分让我看不明白，我不理解为什么类 A 要和类 B</li>
+</ul>
+<p> 通信” 如果开发者没有提供有帮助的描述、</p>
+<p> 代码结构也不够清晰，这类评论能推动设计</p>
+<p> 变得更清楚、代码变得更干净。</p>
+<ul>
+<li>“看起来你在这里破坏了一个接口边界。这会怎么</li>
+</ul>
+<p> 影响用户？” 你指出了一个注意到的问题，同时</p>
+<p> 善意地相信他是有意为之。现在他可以权衡破坏</p>
+<p> 接口边界那些看不见的后果，然后要么为</p>
+<p> 自己的决定给出理由，要么选择改掉。</p>
+<p>总的来说，把反馈包装成问题是推动清晰和</p>
+<p>正确性的好办法，同时也能帮助开发者日后</p>
+<p>改进自己的设计。优秀的创作型写作小组通常</p>
+<p>就是这样互相给反馈的。在写作的场合下，说“我不喜欢</p>
+<p>这个人物”是有害的，而同样的意见换个说法可以更清楚：</p>
+<p>“第一章里你的人物温暖又体贴，现在他</p>
+<p>冷漠又冰冷。在我看来他不像个真人。”这样就有了</p>
+<p>具体的反馈，可以进一步追问、把问题弄清楚。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hreviewers-giving-constructive-feedback">Reviewers: Giving Constructive Feedback</h2>
+<p>The next part of the review process to consider is giving constructive</p>
+<p>feedback to your peers. If the goal is clarity and alignment, giving</p>
+<p>quality constructive feedback helps everyone understand the system</p>
+<p>better and push towards better code.</p>
+<p>Avoid saying things like:</p>
+<ul>
+<li>“This design is broken.” Why is it broken? How can it be made</li>
+</ul>
+<p> better? Statements like this hurt confidence and can bruise egos.</p>
+<ul>
+<li>“I don’t like this change.” Why don’t you like it? What would you</li>
+</ul>
+<p> like instead? It’s okay to not like something, but you should</p>
+<p> articulate your thoughts and provide helpful clues about how the</p>
+<p> code can be improved.</p>
+<ul>
+<li>“Can you rewrite this to be more clear?” What’s wrong with what</li>
+</ul>
+<p> I have now? How should I rewrite it? What’s unclear? Comments</p>
+<p> like this are themselves unclear, and don’t give a simple path</p>
+<p> forward.</p>
+<p>Instead, say things like:</p>
+<ul>
+<li>“How does this code handle negative integers?” This feedback is</li>
+</ul>
+<p> specific, and causes the developer to think through the outcomes</p>
+<p> themselves. As a reviewer, you might know that the code in</p>
+<p> question crashes with negative integers, but it’s better to have</p>
+<p> the developer intuit this themselves. Questions like this might</p>
+<p> also be indicative of a testing gap, or a need for further</p>
+<p> specification of scope.</p>
+<ul>
+<li>“This section is confusing to me, I don’t understand why class A</li>
+</ul>
+<p> is talking to class B” If the developer hasn’t provided a helpful</p>
+<p> description, and the code isn’t neatly structured, this kind of</p>
+<p> comment helps drive for clarity of design and cleaner code.</p>
+<ul>
+<li>“It looks like you broke an interface boundary here. How will</li>
+</ul>
+<p> that affect the user?” You’ve pointed out an issue you noticed,</p>
+<p> giving them the benefit of the doubt that they meant to do it. Now</p>
+<p> they can think through the unseen ramifications of breaking the</p>
+<p> interface boundary and either provide a rationale for their</p>
+<p> decision, or choose to change it.</p>
+<p>In general, framing feedback as questions is a good way to drive for</p>
+<p>clarity, correctness, and at the same time help the developer improve</p>
+<p>their designs in the future. This is usually how quality creative</p>
+<p>writing groups give each other feedback. In a creative writing</p>
+<p>setting, it’s harmful to say things like, “I don’t like this</p>
+<p>character.” whereas the same comment can be reframed more clearly: “In</p>
+<p>chapter one your character was warm and compassionate and now he’s</p>
+<p>cold and icey. He doesn’t seem like a real person to me.” Now there’s</p>
+<p>specific feedback that can be clarified to suss out the problem.</p></div></div>
+<div class="pair" id="code-review-essentials-0010"><div class="zh side"><div class="tag">中文</div><p>程序员喜欢解决问题、指出问题，所以从本性上</p>
+<p>说，他们喜欢发现并指出缺陷。很容易把代码</p>
+<p>评审当成一种证明自己有多聪明的办法——在</p>
+<p>同伴的代码里找出问题。别这么做。代码评审是</p>
+<p>让一次改动多几双眼睛、把关键问题揪出来的方式，</p>
+<p>但你的目标应该是以一种能鼓励团队成员在修复</p>
+<p>手头问题的同时提升自己技能的方式去做评审。</p></div><div class="en side"><div class="tag">EN</div><p>Programmers like to solve problems and point out issues, so by nature</p>
+<p>they like to discover and point out flaws. It’s tempting to see code</p>
+<p>reviews as a way to prove how smart you are by finding problems in</p>
+<p>your peer’s code. Don’t do it. Code review is a way to get more eyes</p>
+<p>on a change and suss out critical problems, but your goal should be to</p>
+<p>review in a way that encourages your team members to improve their</p>
+<p>skills while fixing the problems at hand.</p></div></div>
+<div class="pair" id="code-review-essentials-0011"><div class="zh side"><div class="tag">中文</div><h2 id="h-">风格问题</h2>
+<p>大括号位置、变量/函数命名、缩进和空格</p>
+<p>问题应该处理，但它们不是好代码评审的核心目的</p>
+<p>（注意我把它们放在了代码评审金字塔的最</p>
+<p>上面）。如果你发现团队把 90% 的时间</p>
+<p>花在挑缩进和变量名的毛病上，那你多半是在</p>
+<p>把所有人的时间浪费在一件基本可以自动化的事情上。</p>
+<p>写一份风格指南，在代码签入时就强制处理缩进和</p>
+<p>空格问题，把时间花在更高价值的问题上。我并不想</p>
+<p>贬低一致风格的重要性。恰恰相反，拥有</p>
+<p>一致地道的风格，是让你的代码库易于阅读和理解</p>
+<p>最省力的方式之一。不过，如果你把全部代码评审都</p>
+<p>花在这些简单任务上，那要问问自己：是不是</p>
+<p>在回避那些更难也更重要的——让团队在心智上保持一致、</p>
+<p>思考更高层次设计的工作。</p>
+<p>更多文章</p></div><div class="en side"><div class="tag">EN</div><h2 id="hstyle-points">Style Points</h2>
+<p>Brace positions, variable / function names, indentation and spacing</p>
+<p>issues should be addressed, but they are not the central purpose of</p>
+<p>good code review (notice that I put them at the top the code</p>
+<p>review pyramid). If you find that your team is spending 90% of it’s</p>
+<p>time nitpicking indentation and variable names, you’re probably</p>
+<p>wasting everyone’s time on something that could be mostly automated.</p>
+<p>Write up a style guide, enforce indentation and spacing issues on</p>
+<p>check-in and spend your time focusing on higher value issues. I don’t</p>
+<p>want to diminish the importance of a consistent style. On the</p>
+<p>contrary, having a consistent idiomatic style is one of the easiest</p>
+<p>ways to make your codebase easy to read and comprehend. Still, if you</p>
+<p>spend all of your code review focused on these simplistic tasks, ask</p>
+<p>yourself whether you’re avoiding the harder and more important work of</p>
+<p>keeping your team mentally aligned and thinking about higher level</p>
+<p>designs.</p>
+<p>more posts</p></div></div>
+<div class="pair" id="code-review-essentials-0012"><div class="zh side"><div class="tag">中文</div><h3 id="h-">关于作者</h3>
+<p>Blake Smith 是 Sprout Social 的首席</p>
+<p>软件工程师。</p></div><div class="en side"><div class="tag">EN</div><h3 id="habout-the-author">about the author</h3>
+<p>Blake Smith is a Principal</p>
+<p> Software Engineer at Sprout</p>
+<p> Social.</p></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#code-review-essentials-0000">第 1 段</a></li><li><a href="#code-review-essentials-0001">第 2 段</a></li><li><a href="#code-review-essentials-0002">第 3 段</a></li><li><a href="#code-review-essentials-0003">第 4 段</a></li><li><a href="#code-review-essentials-0004">第 5 段</a></li><li><a href="#code-review-essentials-0006">第 7 段</a></li><li><a href="#code-review-essentials-0008">第 9 段</a></li><li><a href="#code-review-essentials-0009">第 10 段</a></li><li><a href="#code-review-essentials-0010">第 11 段</a></li><li><a href="#code-review-essentials-0011">第 12 段</a></li><li><a href="#code-review-essentials-0012">第 13 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

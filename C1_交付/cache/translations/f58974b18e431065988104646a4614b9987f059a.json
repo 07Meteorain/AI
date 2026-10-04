@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0013",
+ "doc_id": "course-homepage",
+ "fingerprint": "f58974b18e431065988104646a4614b9987f059a",
+ "zh": "#### 讲座\n\n周一 11/3：AI 代码评审深入剖析 —— 幻灯片\n\n周五 11/7：嘉宾：Tomas Reimers（Graphite）—— 幻灯片\n\n第 8 周：全栈 AI 开发与部署\n\n#### 主题\n\n- 多技术栈 Web 应用开发\n\n#### 作业\n\n- 多技术栈 Web 应用开发实战",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

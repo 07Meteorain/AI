@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0022",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "4af30709b33afcc737ecdd34f6f390a6df9599a2",
+ "zh": "#### 目标\n\n攻击者滥用网页内容读取工具，访问内部网络上的私有 web 服务器。这次攻击是服务器端请求伪造（SSRF）的一个变种，它依赖未加防护的服务器——此例中是网页读取工具——把漏洞利用载荷转发给内部网络中的另一个目标。图 6 展示了载荷是如何被投递到目标服务器的。\n\n图 6. 未授权访问内部网络。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

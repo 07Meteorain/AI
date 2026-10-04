@@ -1,0 +1,335 @@
+{
+ "meta": {
+  "id": "code-review-essentials",
+  "type": "html",
+  "path": "CS146S_offline/pages/code-review-essentials.html",
+  "title": "代码评审要点",
+  "priority": 3,
+  "category": "Week 7 · 代码评审"
+ },
+ "page_title": "Code Review Essentials for Software Teams » Blake Smith",
+ "blocks": [
+  {
+   "kind": "heading",
+   "text": "Blake Smith",
+   "level": 1,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "create. code. learn.",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "»",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Code Review Essentials for Software Teams",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "09 Feb 2015",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Code Review is an essential part of any collaborative software\nproject. Large software systems are usually written by more than one\nperson, and so a highly functioning software team needs a robust\nprocess to keep its members, as well as the code base itself moving in\nthe right direction.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Code Review is a powerful tool that:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Helps team members adapt their mental model of the system as it’s\nchanging",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Ensures the change correctly solves the problem",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Opens discussion for strengths and weaknesses of a design",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Catches bugs before they get to production",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Keeps the code style and organization consistent",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "It’s helpful to think of these benefits as a hierarchy of\nneeds.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Keeping Team Members Together",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The most critical function of a Code Review is to keep every member of\nthe team moving in the right direction. You can’t safetly change a\nsystem you don’t understand, and so Code Review keeps the team\nmentally aligned together. When Bob submits a pull request for the\naccounting subsystem, Amy keeps her mental model of that system\nupdated as she reviews Bob’s code. Amy gets the chance to ask\nquestions about pieces she doesn’t understand, and Bob gets the\nbenefit of clarifying his design decisions as well as teaching someone\nelse about his work. When Amy has to make a change to the accounting\nsubsystem a month later, her mental model of the system is already up\nto date and ready for action. She spends less time reading code and\ntrying to piece the system together in her brain, and more time\nthinking about higher level abstractions and designs. Everyone wins,\nbecause everyone stays together.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Executing a Good Pull Request",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Before you even write a line of code changing the system, ask yourself the following\nquestions:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "“Is this the right thing to be working on?” There will always be\n competing needs from customers, internal team members and other\n parties. This can be a good way to keep priorities straight in your\n head before you dive in deep. Other processes like iteration /\n sprint planning meetings also help keep this on track.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "“Does the team already agree that the change is the right one?” If\nnot, it’d be better to start a design discussion by email or maybe\nin person. Your changes are more likely to get accepted when people\nare in agreement about the design before you change it.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "“How can I break this change into digestable chunks that are easy to\nreview and understand?” Small changes are easier to think about and\nunderstand. Good discussions flow from the team being able to\ncomprehend your change quickly. If your change is massive,\nteammate’s eyes will glaze over, and you might only get a few style\nnitpicks from them.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "“How am I going to test this change to kill bugs and ensure\ncorrectness?” You might have a QA department, but it’s still your\njob as the developer to ship quality working software. Easily\ntestable software is usually more decoupled, is broken into smaller\nchunks, and easier to reason about. You need to have a testing plan\nfor all your changes.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "I’ve found that answering these questions ahead of time has saved me a\nlot of headache in the long run. The last thing you want to do is\nspend days coding up a change only to have it rejected based on\nfundamental design flaws or team disagreement. Or for your change to\nget held up because no one can verify it for correctness. Again, the\ngoal is to change the system while keeping other team members up to\ndate with your changes. Asking yourself about how you’re going to\nbreak your work into bite-sized chunks and test those chunks is\nhelpful on many fronts:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "It reduces risk",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "It makes changes easier to reason about",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "It pushes you towards a better design",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "You’d rather make many small, precise cuts with a scalpel than one\ngiant gash with a machete. I prefer scalpel driven developement in\nmost additive cases, and like to save the machete for when it’s time\nto delete large blocks of dead code.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Sending the Pull Request",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Ok, so you’ve gotten buy-in from the team that your changes are good,\nand you’ve achieved the design you set out to build. What’s the most\neffective way to actually send your pull request? You’ve been working\nhard on your changes, and you want other members of your team to pay\nattention to your pull request and give you fast feedback. How can you\ndo that?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Remember earlier when I said that the most important part of a code\nreview is to keep the team’s collective mental model well aligned?\nYour other teammates are probably working on something completely\ndifferent than you, maybe in a completely different part of the\nsystem. Their brains are in a completely different context, so you\nmust overcome this by giving them the helpful guidance they need to do\nthe review. This means writing a well-organized description of the\nchanges you made, why you made them and any other relevant information\nthey won’t get from just reading the code alone. Don’t make your\nteammates do more mental work than they have to.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Let’s look at some good and bad examples of pull request descriptions:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Bad Example:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "Title: Fix uninitialized memory bug\nDescription: \n\nThis is the bug Bob and I talked about earlier. I had\ntrouble with the compiler but managed to make this work. Let me\nknow what you guys think.",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "If you’re the developer of this pull request, stop and put yourself in\nyour code reviewer’s shoes for a second. The title is vague, and\nraises more questions than answers: Where is the memory bug? How\ncritical is this change? What was the bug that Bob and you talked\nabout earlier? What trouble did you have with the compiler? The\ndescription doesn’t provide any helpful context about the problem, nor\ndoes it provide any helpful description of your changes. If this pull\nrequest is long, the reviewer is going to have to dive into the code\nand do mental gymnastics in an attempt to gain context before even\ngetting a chance to think about how this change fits in to the\ncoherent design of the system.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Here’s a improved example that helps clarify the changeset:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "Title: Fix process crash on startup from uninitialized memory [#54633]\nDescription:\n\nThis bug was causing process crashes on boot due to a memory\ninitialization error in our statistics Counter class. I talked this\nover with Bob, and we both agree the crashes are a rare edge case\nthat don't warrant a hot-fix release. Here's a summary of the\nchanges:\n\n  - Moved the underlying int variable into the class initializer\n    to prevent ununitialized memory in the Counter.\n  - Reworked the Counter interface to simplify caller conditional\n    logic and prevent further off-by-one counting problems.\n  - Added a unit test that exposes the crash\n\nTesting: I've verified the test suite still passes, and verified\nmanually that the crash doesn't happen locally.",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "A few things that have improved in this pull request description: The\ntitle is descriptive enough to give the reviewer some short context,\nand entice them to click on the email and learn more. The reviewer\nknows it’s a process crash (which is usually a really bad thing) and\nthere’s also a bug report number where the reviewer can read more\ndetails about the bug report if they’re interested in understand more\nabout the problem. The new description also outlines where the problem\nwas occuring, and helps give some context about how critical the fix\nis. There’s a summary that lists the high level structural changes in\nthe pull request, which will give the reviewer a mental picture of the\nchanges before they even look at the code. Code reviewers should not\nbe surprised with what they find. This example also outlines testing\nthat was performed, which will give reviewers confidence that the\nchanges were well thought out, well tested and ready to be merged. Set\nyour reviewers up for success by making it stupid easy for them to\nclick ‘merge’.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Reviewers: Giving Constructive Feedback",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The next part of the review process to consider is giving constructive\nfeedback to your peers. If the goal is clarity and alignment, giving\nquality constructive feedback helps everyone understand the system\nbetter and push towards better code.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Avoid saying things like:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "“This design is broken.” Why is it broken? How can it be made\n better? Statements like this hurt confidence and can bruise egos.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "“I don’t like this change.” Why don’t you like it? What would you\n like instead? It’s okay to not like something, but you should\n articulate your thoughts and provide helpful clues about how the\n code can be improved.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "“Can you rewrite this to be more clear?” What’s wrong with what\n I have now? How should I rewrite it? What’s unclear? Comments\n like this are themselves unclear, and don’t give a simple path\n forward.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Instead, say things like:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "“How does this code handle negative integers?” This feedback is\n specific, and causes the developer to think through the outcomes\n themselves. As a reviewer, you might know that the code in\n question crashes with negative integers, but it’s better to have\n the developer intuit this themselves. Questions like this might\n also be indicative of a testing gap, or a need for further\n specification of scope.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "“This section is confusing to me, I don’t understand why class A\n is talking to class B” If the developer hasn’t provided a helpful\n description, and the code isn’t neatly structured, this kind of\n comment helps drive for clarity of design and cleaner code.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "“It looks like you broke an interface boundary here. How will\n that affect the user?” You’ve pointed out an issue you noticed,\n giving them the benefit of the doubt that they meant to do it. Now\n they can think through the unseen ramifications of breaking the\n interface boundary and either provide a rationale for their\n decision, or choose to change it.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "In general, framing feedback as questions is a good way to drive for\nclarity, correctness, and at the same time help the developer improve\ntheir designs in the future. This is usually how quality creative\nwriting groups give each other feedback. In a creative writing\nsetting, it’s harmful to say things like, “I don’t like this\ncharacter.” whereas the same comment can be reframed more clearly: “In\nchapter one your character was warm and compassionate and now he’s\ncold and icey. He doesn’t seem like a real person to me.” Now there’s\nspecific feedback that can be clarified to suss out the problem.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Programmers like to solve problems and point out issues, so by nature\nthey like to discover and point out flaws. It’s tempting to see code\nreviews as a way to prove how smart you are by finding problems in\nyour peer’s code. Don’t do it. Code review is a way to get more eyes\non a change and suss out critical problems, but your goal should be to\nreview in a way that encourages your team members to improve their\nskills while fixing the problems at hand.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Style Points",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Brace positions, variable / function names, indentation and spacing\nissues should be addressed, but they are not the central purpose of\ngood code review (notice that I put them at the top the code\nreview pyramid). If you find that your team is spending 90% of it’s\ntime nitpicking indentation and variable names, you’re probably\nwasting everyone’s time on something that could be mostly automated.\nWrite up a style guide, enforce indentation and spacing issues on\ncheck-in and spend your time focusing on higher value issues. I don’t\nwant to diminish the importance of a consistent style. On the\ncontrary, having a consistent idiomatic style is one of the easiest\nways to make your codebase easy to read and comprehend. Still, if you\nspend all of your code review focused on these simplistic tasks, ask\nyourself whether you’re avoiding the harder and more important work of\nkeeping your team mentally aligned and thinking about higher level\ndesigns.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "more posts",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "about the author",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Blake Smith is a Principal\n Software Engineer at Sprout\n Social.",
+   "level": 0,
+   "meta": {}
+  }
+ ]
+}

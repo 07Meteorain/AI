@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0022",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "40774f63ff3ae1967ba5002f08d3b837ec5b4ea9",
+ "zh": "#### 示例：\n\n在给文本框选 Lexical 还是 Slate 时，我们让智能体各实现了一版。最终 Slate 的交付效果更好，胜出了。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

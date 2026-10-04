@@ -1,0 +1,31 @@
+{
+ "meta": {
+  "id": "good-context-good-code",
+  "type": "html",
+  "path": "CS146S_offline/pages/good-context-good-code.html",
+  "title": "好上下文，好代码（Good Context, Good Code）",
+  "priority": 2,
+  "category": "Week 1 · 上下文工程"
+ },
+ "page_title": "StockApp Engineering",
+ "blocks": [
+  {
+   "kind": "heading",
+   "text": "StockApp Engineering",
+   "level": 1,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The StockApp engineering blog",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Enter access code",
+   "level": 2,
+   "meta": {}
+  }
+ ]
+}

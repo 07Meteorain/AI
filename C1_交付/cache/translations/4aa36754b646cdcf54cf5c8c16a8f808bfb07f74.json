@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0015",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "4aa36754b646cdcf54cf5c8c16a8f808bfb07f74",
+ "zh": "### 衡量成效\n\n要评估 AI 代码评审实现的有效性，可以关注这些指标：",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

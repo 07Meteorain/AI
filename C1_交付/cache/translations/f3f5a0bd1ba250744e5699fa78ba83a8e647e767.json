@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-food-for-thought#0011",
+ "doc_id": "mcp-food-for-thought",
+ "fingerprint": "f3f5a0bd1ba250744e5699fa78ba83a8e647e767",
+ "zh": "## 如果智能体需要调用 API，它本来就可以直接调\n\n如今像 Claude Code 这样的智能体，在编写并执行代码方面能力惊人，包括调用 Web API 的脚本。有些人甚至据此认为根本不需要 MCP！\n\n我不同意这个结论，但我确实认为我们该顺势而为。智能体的沙箱能力正在快速改进，如果让智能体直接调用 API 既简单又安全，那我们不妨就这么做，去掉中间人。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0029",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "d5c6690931b758f03ab6a20f66eb63c662b22882",
+ "zh": "#### 示例：\n\n「我希望你实现这个功能，它会横跨我们的数据库、后端和多个前端界面。请先规划出需要的数据库 schema 变更，做完告诉我，我好去应用迁移。」 -> 「现在请实现后端改动，并加上测试确保 XYZ 能正常工作。做完告诉我」 -> 「现在在 web 和移动端界面上都实现改动，调用新的后端接口」",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

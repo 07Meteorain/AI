@@ -1,0 +1,10 @@
+{
+ "seg_id": "context-rot#0024",
+ "doc_id": "context-rot",
+ "fingerprint": "cf00a08bbd72a5066b05d5a90f5cff31dc3b0217",
+ "zh": "- 带有停止原因的空输出（即 GPT-3.5 turbo 的 finish_reason='content_filter'）\n\n- 非空输出，但输出无效：\n\n- 纯粹在陈述观察、完全没有尝试：\n\nI notice there's a discrepancy in the text. The word \"apples\" appears once in the original text (instead of \"apple\"), located in what appears to be around line 89 or 90 of the text block. Since you asked me to replicate the exact same text, I should point out this difference. Would you like me to:\n\n- Replicate it exactly as shown (with the one instance of \"apples\")\n\n- Correct it to \"apple\" to match the pattern\n\n- Simply proceed with replicating it exactly as is Please let me know how you'd like me to proceed.\n\n重复词 —— Claude Opus 4 的输出\n\n- 拒绝回答：\n\n- Refusals to answer:\n\n重复词 —— GPT-4.1 的输出\n\n- 随机输出：\n\n-\\n-\\n--\\n-\\n-\\n-\\n-\\n-\\n-\\n-\\n-\\n-\\n-\\n-\\n-...\n\n重复词 —— Gemini 2.5 Pro 的输出我们把这类情况排除，并在结果中单独标注拒答比例和常见模式。我们只计入真正尝试了任务的案例，包括那些以如下短语开头的：\n\nI notice there's a discrepancy in the text. At one point, \"apple\" changes to \"apples\" (with an 's'). I'll replicate the text exactly as provided:\n\napple apple apple apple apple apple apple apple apple...\n\n重复词 —— Claude Opus 4 的输出对于这些案例，我们采用同样的评分流程，对未严格遵循指令的模型施加轻微惩罚。",
+ "meta": {
+  "source": "../work/tr_g02.json",
+  "batch": "tr_g02"
+ }
+}

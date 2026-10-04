@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-introduction#0006",
+ "doc_id": "mcp-introduction",
+ "fingerprint": "6b7894dd896ae15f926635e272a2ce6f91b56371",
+ "zh": "### 客户端—服务器结构\n\nMCP 遵循清晰的客户端—服务器架构：\n\n- MCP 客户端：嵌入在 AI 应用中（聊天机器人、IDE 助手、自动化智能体）。\n\n- MCP 服务器：暴露外部能力，例如函数（工具）、资源（数据）和提示词（模板）。\n\n所有交互都通过标准化的 JSON-RPC 消息完成，保持安全、结构化的交换：\n\nJSON-RPC 请求示例：\n\n例如，要列出可用工具，MCP 客户端会发送如下请求：",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

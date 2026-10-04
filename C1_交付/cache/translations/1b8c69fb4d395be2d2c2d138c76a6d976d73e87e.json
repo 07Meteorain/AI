@@ -1,0 +1,10 @@
+{
+ "seg_id": "sast-vs-dast#0021",
+ "doc_id": "sast-vs-dast",
+ "fingerprint": "1b8c69fb4d395be2d2c2d138c76a6d976d73e87e",
+ "zh": "### 金融与金融服务业\n\n在金融领域，AI 驱动的工具将改变漏洞检测与缓解的方式。SAST 和 DAST 会继续在开发和预生产阶段识别编码缺陷与运行时问题。\n\n但这还没完：RASP 会更进一步，用 AI 监控实时交易。例如，RASP 可以检测出异常模式（比如攻击者正在实时尝试利用某个漏洞），在阻断这些行为的同时通知安全团队。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

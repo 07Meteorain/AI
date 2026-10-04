@@ -1,0 +1,10 @@
+{
+ "seg_id": "finding-vulnerabilities-claude-codex#0009",
+ "doc_id": "finding-vulnerabilities-claude-codex",
+ "fingerprint": "d054efa9427b3421aba84b3f0238dd0624b81a26",
+ "zh": "## 实验：AI 对上真实世界应用的代码\n\n我们在这 11 个应用上做了分析，然后对 445 条发现逐条人工分类研判，并通过动态方式验证了其中大多数（尤其是 IDOR 或认证绕过）。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

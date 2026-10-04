@@ -1,0 +1,10 @@
+{
+ "seg_id": "claude-code-best-practices#0008",
+ "doc_id": "claude-code-best-practices",
+ "fingerprint": "f6be00604569505b2407047a57945b483764f06e",
+ "zh": "如果你看到 The token '&&' is not a valid statement separator，说明你在 PowerShell 里而不是 CMD 里。请改用上面的 PowerShell 命令。在 PowerShell 中，命令行提示符显示为 PS C:\\。Windows 需要 Git for Windows，如果你还没有安装，请先装上。\n\n原生安装会在后台自动更新，让你的版本保持最新。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

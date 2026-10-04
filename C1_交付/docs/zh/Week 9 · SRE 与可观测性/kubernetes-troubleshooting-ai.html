@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>用 AI 排查 Kubernetes 故障 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>用 AI 排查 Kubernetes 故障</h1>
+  <div class="meta">
+    <span>分类：Week 9 · SRE 与可观测性</span><span>原文 1,405 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://resolve.ai/blog/kubernetes-troubleshooting-in-resolve-ai" target="_blank" rel="noopener">https://resolve.ai/blog/kubernetes-troubleshooting-in-resolve-ai</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="kubernetes-troubleshooting-ai-0000"><div class="zh side"><div class="tag">中文</div><p>采纳 AI 智能体的 4 条工作流：不只是代码生成</p>
+<p>获取实用指南</p>
+<p>联系我们</p>
+<p>立即试用</p>
+<p>立即试用</p></div><div class="en side"><div class="tag">EN</div><p>4 workflows to adopt AI agents, beyond code generation</p>
+<p>Get the practical guide</p>
+<p>Contact us</p>
+<p>Try now</p>
+<p>Try now</p></div></div>
+<div class="pair" id="kubernetes-troubleshooting-ai-0001"><div class="zh side"><div class="tag">中文</div><h4 id="h-">社交</h4>
+<ul>
+<li>LinkedIn</li>
+</ul>
+<ul>
+<li>YouTube</li>
+</ul>
+<ul>
+<li>X</li>
+</ul>
+<p>立即试用</p>
+<p>隐私政策服务条款©Resolve.ai - 保留所有权利</p>
+<h3 id="h-">让机器替人类值班</h3>
+<p>联系我们</p>
+<h4 id="h-">加入讨论</h4>
+<p>服务条款隐私政策</p>
+<p>产品</p>
+<h1 id="hresolve-ai-kubernetes-">Resolve AI 中的 Kubernetes 排查</h1>
+<p>2026/03/20</p>
+<p>阅读时长 8 分钟</p>
+<p>分享：</p></div><div class="en side"><div class="tag">EN</div><h4 id="hsocial">Social</h4>
+<ul>
+<li>Linkedin</li>
+</ul>
+<ul>
+<li>Youtube</li>
+</ul>
+<ul>
+<li>X</li>
+</ul>
+<p>Try now</p>
+<p>Privacy PolicyTerms of Service©Resolve.ai - All rights reserved</p>
+<h3 id="hmachines-on-call-for-humans">Machines on call for humans</h3>
+<p>Contact us</p>
+<h4 id="hjoin-the-conversation">Join the conversation</h4>
+<p>Terms of ServicePrivacy Policy</p>
+<p>Product</p>
+<h1 id="hkubernetes-troubleshooting-in-resolve-ai">Kubernetes Troubleshooting in Resolve AI</h1>
+<p>03/20/2026</p>
+<p>8 min read</p>
+<p>Share:</p></div></div>
+<div class="pair" id="kubernetes-troubleshooting-ai-0002"><div class="zh side"><div class="tag">中文</div><h1 id="hresolve-ai-kubernetes-">Resolve AI 中的 Kubernetes 排查</h1>
+<p>自 2014 年 6 月的首次提交以来，Kubernetes 已经发展成容器编排的事实标准，拥有来自 44 个国家、8,000 多家公司的 88,000 多名贡献者。它的自愈能力和声明式特性承诺了毫不费力的扩缩容和高可用。然而，在生产环境中管理 Kubernetes 远非易事。问问任何一位值班工程师或 SRE 就知道了；生产环境的 Kubernetes 排查常常陷入令人沮丧的试错循环。</p>
+<p>许多人发现，凌晨 2 点的告警把他们引向 kubectl CLI，结果发现问题已经神秘地“自己好了”。但好景不长。噪声邻居、行为异常的插件、资源枯竭和隐蔽的内存泄漏之类的问题就潜伏在水面之下。CrashLoopBackOff、OOMKilled 和 ImagePullBackOff 这类 Kubernetes 错误很常见，但要在一个庞大的 Kubernetes 集群中诊断其根因，需要把来自几十个来源的信号拼接起来。排查 Kubernetes 常常让人觉得不像在解谜，更像在追影子。</p>
+<p>如果能把这份费力、猜测和手工劳作都消除掉呢？想象一个由 AI 驱动的自主 AI 智能体，它不只是协助，而是主动在你的 Kubernetes 基础设施及其上运行的应用中展开调查并执行根因分析。这正是我们打造 AI Production Engineer 的原因：优化 Kubernetes 运维、缩短 MTTR（平均解决时间），让值班变得轻松无忧。</p></div><div class="en side"><div class="tag">EN</div><h1 id="hkubernetes-troubleshooting-in-resolve-ai">Kubernetes Troubleshooting in Resolve AI</h1>
+<p>Since its first commit in June 2014, Kubernetes has evolved into the de facto standard for container orchestration, with over 88,000 contributors from more than 8,000 companies spanning 44 countries. Its self-healing and declarative nature promises effortless scaling and high availability. Yet, managing Kubernetes in production is far from straightforward. Just ask any on-call engineer or SRE; kubernetes troubleshooting in production often spirals into a frustrating cycle of trial and error.</p>
+<p>Many find that a 2 a.m. alert leads them to the kubectl CLI, only to find the issue has mysteriously "fixed itself." But not for long. Issues like noisy neighbors, misbehaving add-ons, resource starvation and subtle memory leaks lurk just beneath the surface. Kubernetes errors like CrashLoopBackOff, OOMKilled, and ImagePullBackOff are common, but diagnosing their root cause across a sprawling kubernetes cluster requires stitching together signals from dozens of sources. Troubleshooting Kubernetes often feels less like solving a puzzle and more like chasing shadows.</p>
+<p>What if you could eliminate the strain, guesswork and manual toil? Imagine an AI-powered, autonomous AI agent that not only assists but proactively investigates and performs root cause analysis across your Kubernetes infrastructure and the applications running on it. That's exactly why we built the AI Production Engineer; to optimize kubernetes operations, reduce MTTR (mean time to resolve), and make on-call stress free.</p></div></div>
+<div class="pair" id="kubernetes-troubleshooting-ai-0003"><div class="zh side"><div class="tag">中文</div><h3 id="hkubernetes-">Kubernetes 排查的困境</h3>
+<p>虽然 Kubernetes 自动化了很多事情，但它动态且转瞬即逝的特性给 DevOps 和 SRE 团队带来了新挑战。以下是我们看到的最常见用例：</p>
+<ol>
+<li>狼来了式的噪声告警</li>
+</ol>
+<p>Kubernetes 的控制平面不知疲倦地调整工作负载以匹配期望状态。pod 重启之类的小故障，往往触发那些在你还没反应过来之前就自行解决的告警。结果就是告警疲劳。但埋在这些噪声里，自动扩缩容器配置错误或隐藏的瓶颈这类真问题无人留意，直到它们滚成故障事件。</p>
+<ol>
+<li>短暂的 pod，丢失的上下文</li>
+</ol>
+<p>pod 崩溃时，会把宝贵的排查上下文一并带走。事后对 pod 执行 kubectl describe 通常查不出多少东西。你根本来不及挂上调试器，Kubernetes 的资源和状态就已经重置。等你开始调查时，关键线索早已消失。这就像在证据被清扫干净之后才赶到案发现场。</p>
+<ol>
+<li>可观测性数据的迷宫</li>
+</ol>
+<p>日志散落在各个节点、pod 和容器上，让调试变成一件令人沮丧的事。Kubernetes 产生海量的指标和遥测数据，但针对某条告警真正相关的只有一小部分。在无数仪表盘里翻找、在命令行里敲 kubectl 命令、跨 namespace 关联 CPU 和内存使用情况以找到相关数据，这些都在浪费时间、拖延解决进度，让团队被噪声淹没而不是专注于解决方案。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hthe-kubernetes-troubleshooting-struggle">The Kubernetes Troubleshooting Struggle</h3>
+<p>While Kubernetes automates a lot, its dynamic and ephemeral nature brings new challenges for DevOps and SRE teams. Here are the most common use cases we see:</p>
+<ol>
+<li>Noisy Alerts That Cry Wolf</li>
+</ol>
+<p>Kubernetes' control plane tirelessly adjusts workloads to match the desired state. Minor hiccups like a pod restarting, often trigger alerts that resolve themselves before you even react. The result? Alert fatigue. But buried within that noise, real issues like misconfigured autoscalers or hidden bottlenecks go unnoticed until they snowball into outages.</p>
+<ol>
+<li>Ephemeral Pods, Lost Context</li>
+</ol>
+<p>When pods crash, they take valuable troubleshooting context with them. Running kubectl describe on the pod after the fact often reveals little. It's impossible to attach a debugger in time, and the kubernetes resources and states have already reset. By the time you investigate, critical clues are already gone. It's like arriving at a crime scene after the evidence has been swept away.</p>
+<ol>
+<li>The Observability Data Maze</li>
+</ol>
+<p>Logs are scattered across nodes, pods, and containers, turning debugging into a frustrating exercise. Kubernetes generates a flood of metrics and telemetry, but only a small fraction matter for any given alert. Sifting through endless dashboards, running kubectl commands from the CLI, and correlating CPU and memory usage across namespaces to find relevant data wastes time and delays resolution, leaving teams overwhelmed by noise instead of focused on solutions.</p></div></div>
+<div class="pair" id="kubernetes-troubleshooting-ai-0004"><div class="zh side"><div class="tag">中文</div><h3 id="h-ai-">智能体 AI 如何改变排查</h3>
+<p>现在想象一下：有一个 Kubernetes 排查搭档，它不只是定位问题，还能主动解决问题。Resolve AI 的智能体 AI 是一个由 AI 驱动、7×24 小时在线的 Kubernetes 专家，它把你的线索串联起来，给出可执行的诊断，并在整个 Kubernetes 集群中自动化那些繁琐的调查。</p>
+<p>你不必再从多个来源收集数据、不必和故障事件经理协调通话、也不必向那些“遇到过这种情况”的人升级求助。它理解独特且反复出现的问题，能简化修复工作流、降低运维开销。它加快你的故障事件响应，提供清晰的起点，并让你在采取正确行动时更有信心。</p>
+<p>它的工作方式如下：</p>
+<ol>
+<li>全天候的专业能力</li>
+</ol>
+<p>智能体 AI 不睡觉也不会疲劳。告警一触发，它就扎进你的 Kubernetes 集群，穿行于复杂之中，给出清晰、可执行的洞察——往往在你还没去拿笔记本电脑之前。它监控每一条告警，处理掉那些通常导致告警疲劳的噪声问题，确保值班团队只关注真正重要的事。</p>
+<p>在不久的将来，AI Production Engineer 会更进一步，通过自动化修复流水线，在人类批准的边界内自动解决问题。</p>
+<ol>
+<li>用知识图谱提供上下文与清晰度</li>
+</ol>
+<p>Resolve AI 的核心是一张映射你的 Kubernetes 环境的动态知识图谱。它把 pod、节点、服务、ingress 控制器、API 端点和其他 Kubernetes 资源关联起来，揭示你可能错过的模式。例如：</p>
+<ul>
+<li>各个 namespace 中的 pod 是否都出现了类似的内存飙升？</li>
+</ul>
+<ul>
+<li>是不是某个特定节点因流量不均衡而负载过重？</li>
+</ul>
+<ul>
+<li>后端服务之间的依赖是否引发了级联故障？</li>
+</ul>
+<p>知识图谱把这些点连接起来，浮现出系统性问题，而不是丢给你一堆孤立的症状。</p>
+<ol>
+<li>跨全遥测数据的无噪声分析</li>
+</ol>
+<p>Resolve AI 分析来自 Prometheus 指标、Datadog 日志、Kubernetes 事件、配置变更、AWS 基础设施信号等多样来源的数据，把你的可观测性数据转化为清晰的行动指引。你的数据价值巨大，但只有相关时才有价值。Resolve AI 擅长解析并排序变更事件、资源状态、指标、仪表盘和日志，精准定位与告警直接相关的条目。通过过滤掉无关噪声，它给出一份清晰简明的事件叙述，让你专注于解决问题，而不是在数据里翻找。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hhow-agentic-ai-changes-troubleshooting">How Agentic AI Changes Troubleshooting</h3>
+<p>Now, imagine a kubernetes troubleshooting partner that not only pinpoints problems but actively resolves them. Agentic AI from Resolve AI operates as an AI-powered, 24/7 Kubernetes expert that connects the dots, surfaces actionable diagnostics, and automates tedious investigations across your entire kubernetes cluster.</p>
+<p>It removes the need to gather data from multiple sources, coordinate calls with incident managers, or escalate to those who've "seen this before." It understands unique and recurring issues and it streamlines remediation workflows and minimizes operational overhead. It accelerates your incident response, offers a clear starting point, and instills greater confidence in taking the right actions.</p>
+<p>Here’s how it works:</p>
+<ol>
+<li>Always-On Expertise</li>
+</ol>
+<p>Agentic AI doesn't sleep or tire. When an alert fires, it dives into your kubernetes cluster, navigating the complexity and presenting clear, actionable insights - often before you even reach for your laptop. By monitoring every alert, it handles the flood of noisy issues that usually lead to alert fatigue, ensuring on-call teams only focus on what truly matters.</p>
+<p>In the near future, the AI Production Engineer will go a step further, automatically resolving issues within human-approved boundaries through automated remediation pipelines.</p>
+<ol>
+<li>Knowledge Graphs for Context and Clarity</li>
+</ol>
+<p>At the core of Resolve AI is a dynamic knowledge graph that maps your kubernetes environment. It links pods, nodes, services, ingress controllers, API endpoints, and other kubernetes resources, revealing patterns you might miss. For instance:</p>
+<ul>
+<li>Are pods across namespaces experiencing similar memory spikes?</li>
+</ul>
+<ul>
+<li>Is a specific node overburdened due to unbalanced traffic?</li>
+</ul>
+<ul>
+<li>Are dependencies between backend services causing cascading failures?</li>
+</ul>
+<p>The knowledge graph connects these dots, surfacing systemic issues instead of presenting you with isolated symptoms.</p>
+<ol>
+<li>Noise-Free Analysis Across All Telemetry</li>
+</ol>
+<p>Resolve AI transforms your observability data into actionable clarity by analyzing data from diverse sources like Prometheus metrics, Datadog logs, Kubernetes events, configuration changes, AWS infrastructure signals, and more. Your data holds immense value but only when it's relevant. Resolve AI excels at parsing and prioritizing change events, resource states, metrics, dashboards, and logs, pinpointing the entries directly tied to an alert. By filtering out irrelevant noise, it delivers a clear and concise narrative of what's happening, empowering you to focus on solving issues rather than sifting through data.</p></div></div>
+<div class="pair" id="kubernetes-troubleshooting-ai-0005"><div class="zh side"><div class="tag">中文</div><h3 id="h-ai-">智能体 AI 实战</h3>
+<p>想象一下：</p>
+<p>你收到某个 pod 崩溃的告警。你不用去和 kubectl 较劲、也不用在命令行里解析没完没了的日志，AI Production Engineer 登场了：</p>
+<ol>
+<li>重建事件时间线</li>
+</ol>
+<p>它把导致崩溃的来龙去脉拼起来——无论是资源争用、CrashLoopBackOff 循环、容器镜像配置错误，还是外部限流。</p>
+<ol>
+<li>跨集群关联问题</li>
+</ol>
+<p>借助知识图谱，它检查 pod、节点或 namespace 中是否存在类似异常，判断问题是孤立的还是更大范围 Kubernetes 集群问题的一部分。它还会检查权限问题、Docker registry 错误和端点配置错误这些可能的诱因。</p>
+<ol>
+<li>执行自动化调查</li>
+</ol>
+<p>智能体 AI 通过执行自动化操作手册并分析实时 Kubernetes 事件，来检验“是 OOMKilled 错误吗，原因是 CPU 还是内存限制？”或“这个 pod 失败是不是因为启动命令配置错了？”这类假设。Resolve AI 的 AI 智能体不只是呈现信息。它们真的会在你的技术栈中执行工作流，从可观测性数据、GitHub 部署历史和基础设施状态中取材，拼出完整图景。</p>
+<ol>
+<li>给出解决方案</li>
+</ol>
+<p>如果找到了根因，智能体会给出修复步骤，并随时准备执行它（这项能力即将到来）。如果没有，它会列出清晰的后续步骤和优化后的工作流，节省时间和精力。</p>
+<p>这一切都在你正去喝杯咖啡的时候发生……更好的是，在你还在睡觉的时候。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hagentic-ai-in-action">Agentic AI in Action</h3>
+<p>Picture this:</p>
+<p>You're alerted about a pod crash. Instead of wrestling with kubectl or parsing endless logs from the command-line, the AI Production Engineer steps in:</p>
+<ol>
+<li>Reconstructs the Event Timeline </li>
+</ol>
+<p>It pieces together what led to the crash; be it resource contention, a CrashLoopBackOff loop, a container image misconfiguration, or external throttling. </p>
+<ol>
+<li>Correlates Issues Across the Cluster </li>
+</ol>
+<p>Using the knowledge graph, it checks for similar anomalies across pods, nodes, or namespaces, identifying whether the issue is isolated or part of a broader kubernetes cluster problem. It also checks for permissions issues, Docker registry errors, and endpoint misconfigurations that could be contributing factors. </p>
+<ol>
+<li>Runs Automated Investigations </li>
+</ol>
+<p>Agentic AI tests hypotheses like "Was it an OOMKilled error due to CPU or memory limits?" or "Is the pod failing due to a misconfigured startup command?" by executing automated runbooks and analyzing real-time kubernetes events. Resolve AI's AI agents don't just surface information. They actually execute workflows across your stack, pulling from observability data, GitHub deployment history, and infrastructure state to build a complete picture. </p>
+<ol>
+<li>Provides Resolutions </li>
+</ol>
+<p>If a root cause is found, the agent suggests remediation steps and is poised to act on it (a capability that's just around the corner). If not, it outlines clear next steps and optimized workflows, saving time and effort.</p>
+<p>All this happens while you’re grabbing coffee ... or better yet, still asleep.</p></div></div>
+<div class="pair" id="kubernetes-troubleshooting-ai-0006"><div class="zh side"><div class="tag">中文</div><h3 id="h-">既然可以轻松，何必硬扛？</h3>
+<p>Kubernetes 确实复杂，但排查不必复杂。依赖 kubectl 命令、K8sGPT 之类的开源工具以及手工日志关联的传统做法，跟不上现代 Kubernetes 环境的规模和速度。从第一天起，Resolve AI 就利用内置的专业能力改变你管理 Kubernetes 的方式：消除重复的救火工作、简化 Kubernetes 运维，把你的夜晚和周末还给你。</p>
+<p>你不必再在故障事件期间手忙脚乱地找答案，而是会拥有一个由 AI 驱动的伙伴，它对 Kubernetes 了如指掌。它识别模式，用自然语言而不是复杂查询来自动化调查，让你的集群持续稳定运转。</p>
+<p>下次 Kubernetes 给你来个措手不及时，让 AI Production Engineer 来扛重活吧。未来的你会感谢今天的你。</p>
+<p>预约演示</p></div><div class="en side"><div class="tag">EN</div><h3 id="hwhy-make-it-hard-when-it-can-be-easy-">Why Make It Hard When It Can Be Easy?</h3>
+<p>Kubernetes is complex, but troubleshooting doesn't have to be. Traditional approaches relying on kubectl commands, open source tools like K8sGPT, and manual log correlation can't keep up with the scale and speed of modern kubernetes environments. From day one, Resolve AI transforms the way you manage Kubernetes by leveraging its built-in expertise to eliminate repetitive firefighting, streamline kubernetes operations, and give you back your nights and weekends.</p>
+<p>Instead of scrambling for answers during an outage, you'll have an AI-powered ally that understands Kubernetes inside and out. It spots patterns, automates investigations using natural language instead of complex queries, and keeps your cluster humming.</p>
+<p>The next time Kubernetes throws you a curveball, let an AI Production Engineer handle the heavy lifting. Your future self will thank you.</p>
+<p>Book a demo</p></div></div>
+<div class="pair" id="kubernetes-troubleshooting-ai-0007"><div class="zh side"><div class="tag">中文</div><h3 id="hai-sre-">AI SRE 采购指南</h3>
+<p>了解如何评测并在生产中采用 AI SRE。</p>
+<p>下载</p>
+<p>内容</p>
+<ul>
+<li>Kubernetes 排查的困境</li>
+</ul>
+<ul>
+<li>智能体 AI 如何改变排查</li>
+</ul>
+<ul>
+<li>智能体 AI 实战</li>
+</ul>
+<ul>
+<li>既然可以轻松，何必硬扛？</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h3 id="hai-sre-buyer-s-guide">AI SRE Buyer's Guide</h3>
+<p>Learn how to evaluate and adopt AI SRE in production.</p>
+<p>Download</p>
+<p>Content</p>
+<ul>
+<li>The Kubernetes Troubleshooting Struggle</li>
+</ul>
+<ul>
+<li>How Agentic AI Changes Troubleshooting</li>
+</ul>
+<ul>
+<li>Agentic AI in Action</li>
+</ul>
+<ul>
+<li>Why Make It Hard When It Can Be Easy?</li>
+</ul></div></div>
+<div class="pair" id="kubernetes-troubleshooting-ai-0008"><div class="zh side"><div class="tag">中文</div><h3 id="hai-for-prod-">AI for prod 电子书</h3>
+<p>了解顶尖工程团队如何用 AI 运维生产系统。</p>
+<p>下载</p>
+<h3 id="h-">相关文章</h3></div><div class="en side"><div class="tag">EN</div><h3 id="hai-for-prod-ebook">AI for prod ebook</h3>
+<p>Learn how top engineering teams use AI to run production.</p>
+<p>Download</p>
+<h3 id="hrelated-post">Related Post</h3></div></div>
+<div class="pair" id="kubernetes-troubleshooting-ai-0009"><div class="zh side"><div class="tag">中文</div><h3 id="h-finserv-ai-for-prod-">炉边对话：FinServ 公司如何用 AI for Prod 优化成本</h3>
+<p>听听 Affirm、MSCI 和 SoFi 等 FinServ 公司的工程负责人分享他们的 AI 策略与做法。</p>
+<p>技术</p></div><div class="en side"><div class="tag">EN</div><h3 id="hfireside-chat-how-finserv-companies-optimize-cost-with-ai-for-prod">Fireside Chat: How FinServ Companies Optimize Cost with AI for Prod</h3>
+<p>Hear AI strategies and approaches from engineering leaders at FinServ companies including Affirm, MSCI, and SoFi.</p>
+<p>Technology</p></div></div>
+<div class="pair" id="kubernetes-troubleshooting-ai-0010"><div class="zh side"><div class="tag">中文</div><h3 id="h-ai-sre">如何评测一个可用于生产的 AI SRE</h3>
+<p>了解如何评测 AI SRE，确保它能在你独特的生产环境中稳定运行。这份指南讲解了五个智能体支柱、六个关键评测维度，以及区分“可用于生产的 AI SRE”与实验性方案的企业级就绪标准。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hhow-to-evaluate-a-production-ready-ai-sre">How to Evaluate a Production Ready AI SRE</h3>
+<p>Learn how to evaluate an AI SRE to ensure they run in your unique production environments. This guide explains the five agentic pillars, six key evaluation dimensions, and enterprise readiness criteria that separate production-ready AI SRE from experiments.</p></div></div>
+<div class="pair" id="kubernetes-troubleshooting-ai-0011"><div class="zh side"><div class="tag">中文</div><h3 id="h-ai-">超越构建：用智能体 AI 加速工程速度</h3>
+<p>100 位软件工程高管与 Resolve AI 及其他重量级人物一道，探讨智能体 AI 在软件工程中的加速演进——从编码走向管理生产系统。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hbeyond-the-build-accelerating-engineering-velocity-with-agentic-ai">Beyond the Build: Accelerating Engineering Velocity with Agentic AI</h3>
+<p>100 Engineering software engineering executives joined Resolve AI and other luminary leaders to discuss the accelerated evolution of agentic AI in software engineering from coding to managing production systems.</p></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#kubernetes-troubleshooting-ai-0000">第 1 段</a></li><li><a href="#kubernetes-troubleshooting-ai-0001">第 2 段</a></li><li><a href="#kubernetes-troubleshooting-ai-0002">第 3 段</a></li><li><a href="#kubernetes-troubleshooting-ai-0003">第 4 段</a></li><li><a href="#kubernetes-troubleshooting-ai-0004">第 5 段</a></li><li><a href="#kubernetes-troubleshooting-ai-0005">第 6 段</a></li><li><a href="#kubernetes-troubleshooting-ai-0006">第 7 段</a></li><li><a href="#kubernetes-troubleshooting-ai-0007">第 8 段</a></li><li><a href="#kubernetes-troubleshooting-ai-0008">第 9 段</a></li><li><a href="#kubernetes-troubleshooting-ai-0009">第 10 段</a></li><li><a href="#kubernetes-troubleshooting-ai-0010">第 11 段</a></li><li><a href="#kubernetes-troubleshooting-ai-0011">第 12 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

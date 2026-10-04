@@ -1,0 +1,10 @@
+{
+ "seg_id": "finding-vulnerabilities-claude-codex#0019",
+ "doc_id": "finding-vulnerabilities-claude-codex",
+ "fingerprint": "a1f0478f8bcb4afe4d2022610c0e90bba37951fd",
+ "zh": "- 那这一切的成本呢？遗憾的是，我们没能统一地统计 Claude Code 与 Codex 之间的成本。Claude Code 的总成本是 114 美元，覆盖上述所有漏洞和所有应用（不含非确定性实验和运行 /security-review 命令的部分）。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

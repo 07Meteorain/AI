@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0046",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "add6cfbb7a3e513594aeb53e945f7e5ad06e79e7",
+ "zh": "### 代码执行器沙箱隔离\n\n代码执行器让智能体能够通过实时生成并执行代码来动态解决任务。这项能力虽然强大，却引入了额外风险，包括任意代码执行和横向移动。\n\n大多数智能体框架依赖基于容器的沙箱来隔离执行环境。然而，默认配置往往并不充分。为防止沙箱逃逸或滥用，应施加更严格的运行时控制：\n\n- 限制容器网络：只允许必要的出站域名。阻断对内部服务的访问（例如元数据端点和私有地址）。\n\n- 限制挂载卷：避免挂载范围过广或持久的路径（例如 ./、/home）。使用 tmpfs 把临时数据存放在内存中\n\n- 丢弃不必要的 Linux capabilities：移除 CAP_NET_RAW、CAP_SYS_MODULE 和 CAP_SYS_ADMIN 等特权权限\n\n- 阻断高风险系统调用：禁用 kexec_load、mount、unmount、iopl 和 bpf 等系统调用\n\n- 强制资源配额：施加 CPU 和内存限制，防止拒绝服务（DoS）、代码失控或加密货币挖矿",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

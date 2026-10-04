@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0018",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "f9ce7e0cf5d27c3840fd87b458fb2a8dfb26a3a0",
+ "zh": "### 提取智能体工具 schema",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

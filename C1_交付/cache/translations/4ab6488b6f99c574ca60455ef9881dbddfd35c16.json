@@ -1,0 +1,10 @@
+{
+ "seg_id": "writing-effective-tools-for-agents#0003",
+ "doc_id": "writing-effective-tools-for-agents",
+ "fingerprint": "4ab6488b6f99c574ca60455ef9881dbddfd35c16",
+ "zh": "## 如何编写工具\n\n本节介绍如何与智能体协作，既帮它编写你给它的工具，也帮它改进这些工具。先快速搭起工具原型并在本地测试。接着运行一次全面的评测，衡量之后的改动。在与智能体协作的过程中，你可以反复迭代评测与改进，直到智能体在真实任务上表现出色。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-registry-preview#0002",
+ "doc_id": "mcp-registry-preview",
+ "fingerprint": "d9afd519484044d9612ad6764ea5c609ebb64392",
+ "zh": "# MCP 服务器的单一可信来源#\n\n2025 年 3 月，我们曾表示希望为 MCP 生态建立一个中央注册表。今天我们宣布，https://registry.modelcontextprotocol.io 已作为官方 MCP 注册表上线。作为 MCP 项目的一部分，MCP 注册表及其上层 OpenAPI 规格说明均为开源——让所有人都能构建兼容的子注册表。\n\n我们的目标是标准化服务器的发布与发现方式，提供一个主可信来源，供各类子注册表在其基础上继续构建。反过来，这也将扩大服务器的触达范围，并帮助客户端在整个 MCP 生态中更容易地找到服务器。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "peeking-under-the-hood-of-claude-code#0000",
+ "doc_id": "peeking-under-the-hood-of-claude-code",
+ "fingerprint": "7a381d97bddf96c1420cfef77796d74ad06453e5",
+ "zh": "# 深入 Claude Code 的内部机制\n\n本文托管在 Medium 上，需要用浏览器访问。\n\n原文链接：https://medium.com/@outsightai/peeking-under-the-hood-of-claude-code-70f5a94a9a62\n\nMedium 会拦截自动下载。请在有网络访问时打开上面的链接。",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

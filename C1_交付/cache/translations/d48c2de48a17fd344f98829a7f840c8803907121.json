@@ -1,0 +1,10 @@
+{
+ "seg_id": "sast-vs-dast#0011",
+ "doc_id": "sast-vs-dast",
+ "fingerprint": "d48c2de48a17fd344f98829a7f840c8803907121",
+ "zh": "### SAST 的缺点\n\n- 常常产生大量误报，因此可能需要人工复核。\n\n- 无法识别运行时或环境特有的漏洞，例如配置错误。\n\n- 需要针对每种编程语言分别适配工具，维护起来比较复杂。\n\n- 难以理解外部库、API 和 REST 端点。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

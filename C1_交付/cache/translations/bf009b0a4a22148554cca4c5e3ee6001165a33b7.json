@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0047",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "bf009b0a4a22148554cca4c5e3ee6001165a33b7",
+ "zh": "- Pub/Sub\n\n用于事件接入与投递的消息服务。\n\n- Eventarc\n\n构建可连接任意服务的事件驱动架构。\n\n管理工具\n\n- Cloud Shell\n\n内置命令行的交互式 shell 环境。\n\n- Cloud console\n\n用于管理和监控云应用的 Web 界面。\n\n- Cloud Endpoints\n\nGoogle Cloud 上 API 的部署与开发管理。\n\n- Cloud IAM\n\nGoogle Cloud 资源的权限管理系统。\n\n- Cloud APIs\n\nGoogle Cloud 服务的编程接口。\n\n- Service Catalog\n\n供管理员管理内部企业解决方案的服务目录。\n\n- Cost Management\n\n用于监控、控制和优化成本的工具。\n\n- 可观测性\n\n监控、日志与应用性能套件。\n\n- Carbon Footprint\n\n用于查看和导出 Google Cloud 碳排放报告的仪表盘。\n\n- Config Connector\n\n用于管理 Google Cloud 资源的 Kubernetes 插件。\n\n- Active Assist\n\n轻松管理性能、安全和成本的工具。\n\n- 没找到你想要的产品？\n\n- 查看全部管理工具\n\n地图与地理空间\n\n- Earth Engine\n\n用于地球观测数据与分析的地理空间平台。\n\n- Google Maps Platform\n\n打造沉浸式的位置体验，改进业务运营。\n\n- 媒体服务\n\n- Cloud CDN\n\n\n用于分发 Web 和视频内容的内容交付网络。\n\n- Live Stream API\n\n把直播视频转码并打包用于流式传输的服务。\n\n- OpenCue\n\n用于视觉特效和动画的开源渲染管理器。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0018",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "d009dd2a7c94175ff82394f7c7acc69374937fc9",
+ "zh": "#### AI 代码评审工具有多准？\n\n对于语法错误、风格违规和基本安全漏洞这类常见问题，AI 代码评审工具的准确率通常在 70%–90%。不过，准确率会随问题的复杂度和具体工具而显著变化。对于架构决策和复杂业务逻辑，人工评审依然不可替代。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

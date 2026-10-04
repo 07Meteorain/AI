@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0022",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "b31f39c479e57dd33bd32e79bd71af79e28705fd",
+ "zh": "Claude 应当调用该工具，并展示远程 MCP 服务器生成的结果。\n\n想了解如何把远程 MCP 服务器与其他 MCP 客户端一起使用，请参阅 Test a Remote MCP Server。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

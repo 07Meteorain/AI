@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0002",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "33f90a776c75f178169c55233054d60c1656f499",
+ "zh": "# 构建远程 MCP 服务器\n\n本指南将向你展示如何使用 Streamable HTTP（可流式传输的 HTTP）——当前的 MCP 规格说明标准——把自己的远程 MCP 服务器部署到 Cloudflare。你有两种选择：\n\n- 不带认证——任何人都可以连接并使用该服务器（无需登录）。\n\n- 带认证与授权——用户先登录才能访问工具，并且你可以根据用户权限控制智能体能调用哪些工具。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

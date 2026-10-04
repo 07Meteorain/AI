@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0011",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "c69995116ba97e10aa0d0828374dd8ef2d5c2e3c",
+ "zh": "### 让它能访问 CI、测试、类型和静态检查\n\n智能体的魔力很大程度上来自它们能自己修正错误、对着报错信息反复迭代。通过类型检查器、lint（静态检查）和单元测试这类工具提供更强的反馈回路，能大幅提升它们的表现。优先考虑带类型的 Python 而非纯 Python，TypeScript 而非 JavaScript。教会你的智能体如何运行常见的检查和测试，确保它拥有所需的全部包和访问权限。如果智能体能与浏览器交互，就清楚说明如何运行你的前端开发环境。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

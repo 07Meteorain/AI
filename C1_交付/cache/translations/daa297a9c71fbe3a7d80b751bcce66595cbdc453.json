@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-registry-preview#0004",
+ "doc_id": "mcp-registry-preview",
+ "fingerprint": "daa297a9c71fbe3a7d80b751bcce66595cbdc453",
+ "zh": "## 由社区驱动的治理机制#\n\nMCP 注册表是 MCP 官方项目，由注册表工作组维护，采用宽松许可。社区成员可以提交 issue，举报违反 MCP 治理准则的服务器——例如含有垃圾内容、恶意代码，或冒充合法服务的服务器。注册表维护者随后可以将这些条目加入拒绝列表，并追溯性地将其从公开访问中移除。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "sast-vs-dast#0026",
+ "doc_id": "sast-vs-dast",
+ "fingerprint": "05ddb05de7fd865c2f325762be4f913a81aba32a",
+ "zh": "### 数据可观测性：完整入门\n\n在这里读懂数据可观测性的完整故事：它是什么、5 大支柱、收益与落地方式，以及最棒的一点——你能用它做的所有事情。\n\n/en_us/blog/fragments/about-splunk\n\n/en_us/blog/fragments/subscribe-footer",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

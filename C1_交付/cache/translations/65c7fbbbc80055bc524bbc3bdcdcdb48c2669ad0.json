@@ -1,0 +1,10 @@
+{
+ "seg_id": "copilot-prompt-injection-rce#0012",
+ "doc_id": "copilot-prompt-injection-rce",
+ "fingerprint": "65c7fbbbc80055bc524bbc3bdcdcdb48c2669ad0",
+ "zh": "## 结论\n\n这又一个例子说明，AI 智能体可能并不会老老实实待在自己的框里！通过修改自身运行环境，GitHub Copilot 能够提权并执行代码，从而攻陷开发者的机器。正如我所发现的，这在智能体式系统中是一种并不罕见的设计缺陷。\n\n继续留意这类设计缺陷吧，它们在威胁建模阶段就应该能被轻易发现。\n\n祝好。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

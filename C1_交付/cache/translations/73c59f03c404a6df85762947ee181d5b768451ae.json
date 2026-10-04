@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0027",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "73c59f03c404a6df85762947ee181d5b768451ae",
+ "zh": "#### AI 漏掉了人类评审能发现的重要问题，该怎么改进？\n\n这很常见，也在预期之内。AI 工具擅长模式识别，但可能漏掉与具体上下文相关的问题。要用人类监督来补上 AI 评审，尤其是复杂逻辑和架构决策部分。利用 AI 反馈来改进工具配置，并为领域特定的模式考虑自定义规则。\n\n相关指南",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

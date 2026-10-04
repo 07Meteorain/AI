@@ -1,0 +1,10 @@
+{
+ "seg_id": "finding-vulnerabilities-claude-codex#0010",
+ "doc_id": "finding-vulnerabilities-claude-codex",
+ "fingerprint": "254f26d00c1eef73db795ddcfb5a344ae24240f7",
+ "zh": "#### Anthropic Claude Code（v1.0.32，Sonnet 4）\n\n漏洞类别\n\n真阳性\n\n误报\n\n真阳性率\n\n认证绕过\n\n6\n\n52\n\n10% (6/58)\n\nIDOR\n\n13\n\n46\n\n22% (13/59)\n\n路径遍历\n\n5\n\n31\n\n13% (5/36)\n\nSQL 注入\n\n2\n\n36\n\n5% (2/38)\n\nSSRF\n\n8\n\n57\n\n12% (8/65)\n\nXSS\n\n12\n\n62\n\n16% (12/74)\n\n使用如下命令：",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

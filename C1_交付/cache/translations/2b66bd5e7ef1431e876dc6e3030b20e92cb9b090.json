@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0044",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "2b66bd5e7ef1431e876dc6e3030b20e92cb9b090",
+ "zh": "- Pub/Sub\n\n用于事件接入与投递的消息服务。\n\n- Dataproc\n\n运行 Apache Spark 和 Apache Hadoop 集群的托管服务。\n\n- Google Cloud Serverless for Apache Spark\n\n为 Spark 工作负载带来极速虚拟机启动和动态自动扩缩。\n\n- Cloud Composer\n\n基于 Apache Airflow 的工作流编排服务。\n\n- BigLake\n\n用 Apache Iceberg 构建数据湖仓的存储引擎。\n\n- Dataplex Universal Catalog\n\n面向所有 Google Cloud 服务的统一数据到 AI 治理底座。\n\n- BigQuery Migration Services\n\n免费使用、云原生、AI 驱动的数据迁移服务。\n\n- Managed Service for Apache Kafka\n\n用于运行高可用 Apache Kafka 集群的托管 Kafka 服务。\n\n- 没找到你想要的产品？\n\n- 查看全部数据分析产品\n\n数据库\n\n- AlloyDB for PostgreSQL\n\n面向企业工作负载、完全托管且兼容 PostgreSQL 的数据库。\n\n- Cloud SQL\n\n面向 MySQL、PostgreSQL 和 SQL Server 的全托管数据库。\n\n- Firestore\n\n高扩展的无服务器 NoSQL 文档数据库，兼容 MongoDB。\n\n- Spanner\n\n云原生关系型数据库，扩展能力无上限，可用性达 99.999%。\n\n- Bigtable\n\n面向大规模低延迟工作负载的云原生宽列数据库。\n\n- Datastream\n\n无服务器的数据变更捕获与复制服务。\n\n- Database Migration Service\n\n迁移到 Cloud SQL 的无服务器、低停机方案。\n\n- Bare Metal Solution\n\n面向 Oracle 工作负载的全托管基础设施。\n\n- Memorystore\n\n全托管的 Redis 和 Memcached，实现亚毫秒级数据访问。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

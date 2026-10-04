@@ -1,0 +1,10 @@
+{
+ "seg_id": "how-to-review-code-effectively#0021",
+ "doc_id": "how-to-review-code-effectively",
+ "fingerprint": "c566b55d57aaef5d0940638a00e78460b74e83e3",
+ "zh": "### 用 Copilot SDK 构建 AI 驱动的 GitHub issue 分流\n\n学习如何把 Copilot SDK 集成进 React Native 应用，生成 AI 驱动的 issue 摘要，其中包含用于优雅降级和缓存的生产实践。\n\n开发者技能",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

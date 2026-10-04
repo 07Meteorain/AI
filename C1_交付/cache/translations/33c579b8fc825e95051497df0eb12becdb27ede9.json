@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0009",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "33c579b8fc825e95051497df0eb12becdb27ede9",
+ "zh": "#### 3. 聚焦可落地的反馈\n\n训练开发者批判性地分析 AI 建议。比如，鼓励你的团队做到：\n\n- 理解建议背后的推理。\n\n- 质疑在上下文中不合情理的建议。\n\n- 记录反复出现的误报。\n\n评估 AI 反馈的示例：",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

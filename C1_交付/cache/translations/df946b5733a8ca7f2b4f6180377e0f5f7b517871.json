@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0020",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "df946b5733a8ca7f2b4f6180377e0f5f7b517871",
+ "zh": "## 写出更好提示词的策略\n\n设计出高效的提示词需要一套方法。下面这些策略能帮你提升提示工程水平：",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

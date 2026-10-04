@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0043",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "7b9f18ec21cf46417f2c30f68f656c7628b29a03",
+ "zh": "#### 第 2.2 步——为生产环境创建一个新的 OAuth 应用\n\n你需要重复第 2.1 步，创建一个用于生产环境的 OAuth 应用。\n\n- 访问 github.com/settings/developers，创建一个新的 OAuth 应用，设置如下：\n\n- 应用名称：My MCP Server (production)\n\n- 主页 URL：填入你已部署 MCP 服务器的 workers.dev URL（例如，worker-name.account-name.workers.dev）\n\n- 授权回调 URL：填入你已部署 MCP 服务器的 workers.dev URL 下的 /callback 路径（例如，worker-name.account-name.workers.dev/callback）\n\n- 对于刚创建的 OAuth 应用，用 Wrangler CLI 添加客户端 ID 和客户端密钥：\n\n终端窗口",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

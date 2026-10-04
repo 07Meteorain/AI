@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0007",
+ "doc_id": "course-homepage",
+ "fingerprint": "ad9f80d51136eb69ea9c69e7b3288593bfb331c0",
+ "zh": "#### 讲座\n\n周一 10/6：AI IDE 深入剖析 —— 幻灯片\n\n周五 10/10：嘉宾：Silas Alberti（Cognition）—— 幻灯片\n\n资源：设计文档模板\n\n第 4 周：Claude Code 与智能体式编码\n\n#### 主题\n\n- Claude Code 的架构与内部机制\n\n#### 阅读\n\n#### 作业\n\n- 用 Claude Code 写代码",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

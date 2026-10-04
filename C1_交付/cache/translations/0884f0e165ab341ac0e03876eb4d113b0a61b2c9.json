@@ -1,0 +1,10 @@
+{
+ "seg_id": "owasp-top-ten#0009",
+ "doc_id": "owasp-top-ten",
+ "fingerprint": "0884f0e165ab341ac0e03876eb4d113b0a61b2c9",
+ "zh": "## 2017 项目赞助方\n\nOWASP Top 10 - 2017 项目由 Autodesk 赞助，并得到 OWASP NoVA 分会支持。\n\n## 2003-2013 项目赞助方\n\n感谢 Aspect Security 对更早版本的赞助。\n\n# OWASP Top 10 2025 数据分析计划",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

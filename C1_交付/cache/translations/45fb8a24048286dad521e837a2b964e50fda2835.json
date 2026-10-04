@@ -1,0 +1,10 @@
+{
+ "seg_id": "kubernetes-troubleshooting-ai#0006",
+ "doc_id": "kubernetes-troubleshooting-ai",
+ "fingerprint": "45fb8a24048286dad521e837a2b964e50fda2835",
+ "zh": "### 既然可以轻松，何必硬扛？\n\nKubernetes 确实复杂，但排查不必复杂。依赖 kubectl 命令、K8sGPT 之类的开源工具以及手工日志关联的传统做法，跟不上现代 Kubernetes 环境的规模和速度。从第一天起，Resolve AI 就利用内置的专业能力改变你管理 Kubernetes 的方式：消除重复的救火工作、简化 Kubernetes 运维，把你的夜晚和周末还给你。\n\n你不必再在故障事件期间手忙脚乱地找答案，而是会拥有一个由 AI 驱动的伙伴，它对 Kubernetes 了如指掌。它识别模式，用自然语言而不是复杂查询来自动化调查，让你的集群持续稳定运转。\n\n下次 Kubernetes 给你来个措手不及时，让 AI Production Engineer 来扛重活吧。未来的你会感谢今天的你。\n\n预约演示",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

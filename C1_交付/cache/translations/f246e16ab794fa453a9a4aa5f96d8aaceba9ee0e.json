@@ -1,0 +1,10 @@
+{
+ "seg_id": "owasp-top-ten#0015",
+ "doc_id": "owasp-top-ten",
+ "fingerprint": "f246e16ab794fa453a9a4aa5f96d8aaceba9ee0e",
+ "zh": "## 贡献流程\n\n数据可以通过以下几种方式贡献：\n\n- 将包含数据集的 CSV/Excel 文件通过邮件发送至 [email protected]\n\n- 将 CSV/Excel 文件上传至 https://bit.ly/OWASPTop10Data\n\n模板示例可在 GitHub 找到：https://github.com/OWASP/Top10/tree/master/2025/Data",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "how-to-review-code-effectively#0007",
+ "doc_id": "how-to-review-code-effectively",
+ "fingerprint": "9eb68edd08496cd459e02dd6f51ff4889f336f9e",
+ "zh": "可以改进的地方：\n\n- “这一行干的活儿太多了，能不能简化一下以提升可读性？”\n\n- “我觉得这会有性能问题，因为它是个 n+1 查询。”\n\n- “这个能不能改用 [preferred framework] 的现成方案，而不是自己写一套实现？”\n\n“这样不行。”——为什么这些改动不行？\n\n可以改进的地方：\n\n- “这样不行，因为 [X]，参见这个相关 issue：[issue link]。”\n\n- “这个在 [pull request link] 里已经试过了，因为 [X] 所以行不通。”\n\n- “如果你在 [X] 上遇到问题，可以试试 [alternative approach]。”\n\n“我觉得这修掉了一个 bug。”——我很喜欢这种点明，但有没有额外的上下文，比如一个 issue 链接，能让这句话更清楚？\n\n可以改进的地方：\n\n- “我觉得这修的是 [issue link] 里的问题。”\n\n- “这是在修 [issue link] 里的那个 bug 吗？”\n\n- “这看起来就是我们在 [link to failing build] 时遇到的那个问题。谢谢修复！”",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

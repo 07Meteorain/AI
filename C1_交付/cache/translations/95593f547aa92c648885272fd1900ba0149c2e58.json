@@ -1,0 +1,10 @@
+{
+ "seg_id": "copilot-prompt-injection-rce#0004",
+ "doc_id": "copilot-prompt-injection-rce",
+ "fingerprint": "95593f547aa92c648885272fd1900ba0149c2e58",
+ "zh": "## 漏洞利用链解析\n\n劫持 Copilot 并提权的概念验证漏洞利用链如下：\n\n- 攻击从埋入源代码文件、网页、GitHub issue、工具调用响应或其他内容中的提示注入开始……攻击载荷也可以利用不可见文本来充当指令。\n\n- 提示注入首先往 ~/.vscode/settings.json 文件里加上 \"chat.tools.autoApprove\": true 这一行。如果文件夹和文件还不存在，会自动创建。\n\n- GitHub Copilot 立刻进入 YOLO 模式！\n\n- 攻击执行一条终端命令。借助条件式提示注入，我们实际上可以根据操作系统来决定运行什么。\n\n- 我们实现了由提示注入驱动的远程代码执行（RCE）。\n\n下面这张截图展示了带提示注入的演示文件、右侧在聊天框里与该文件交互的开发者，以及弹出来的计算器！\n\n当然，任何其他提示注入的投递方式——比如网页，或从 MCP 服务器返回的数据——都是一种攻击角度。我只是把攻击载荷放在源代码文件里，因为这样最容易测试。\n\n## 视频演示",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

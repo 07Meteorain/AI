@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-introduction#0033",
+ "doc_id": "mcp-introduction",
+ "fingerprint": "934fdb7fb5760c81038c370f2bc51d9133cd9b0e",
+ "zh": "#### 为什么选择 Stytch\n\nStytch vs. Auth0\n\nStytch vs. Firebase\n\nStytch vs. Cognito\n\nStytch vs. Fingerprint\n\n#### 公司\n\n关于我们\n\n招聘\n\n联系我们\n\n#### 资源\n\n定价\n\n文档\n\n更新日志\n\n产品路线图\n\nAPI 状态\n\n博客\n\n#### 社区\n\nSlack 社区\n\n技术支持\n\n客户案例",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

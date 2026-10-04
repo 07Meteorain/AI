@@ -1,0 +1,10 @@
+{
+ "seg_id": "copilot-prompt-injection-rce#0000",
+ "doc_id": "copilot-prompt-injection-rce",
+ "fingerprint": "ad31405f11525540406affbd58882d8af930c6e1",
+ "zh": "# 拥抱红队\n\nwunderwuzzi 的博客\n \n learn the hacks, stop the attacks.\n\nHome\n \n \n \n \n RSS\n \n \n \n \n Subscribe",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "finding-vulnerabilities-claude-codex#0008",
+ "doc_id": "finding-vulnerabilities-claude-codex",
+ "fingerprint": "533bbed7f96187d70e90c84778f46797e630c9c0",
+ "zh": "## 本篇博客的范围\n\n为了让问题变得可解，我们把范围聚焦在：\n\n- 直接使用 Anthropic Claude Code（v1.0.32，Sonnet 4）和 OpenAI Codex（v0.2.0，o4-mini）各运行 1 次，用一条简单的脚本化提示词 [1]，针对不同类型的漏洞复用同一条提示词。我们要求它们返回 SARIF 格式的安全问题。\n\n- 分析 11 个不同的、规模较大的真实世界开源 Python 项目。\n\n- 聚焦常见且影响重大的漏洞类别：认证绕过、IDOR、路径遍历、SQL 注入、SSRF 和 XSS。\n\n- 用 Anthropic 最新的 /security-review 命令做探索性测试\n\n- 在其中一部分应用上针对 IDOR 探索（非）确定性：在 3 个不同应用上各跑 3 次。\n\n为了让研究站得住脚，我们挑选的是流行且在积极维护的项目。下面是我们所分析应用的规模。请注意，我们今天不会公布这些流行开源 Web 应用的名字，因为我们仍在进行负责任披露；流程结束后我们会发布数据集。\n\n应用 ID\n\n提交数\n截至 2025 年 8 月\n\nGithub Stars\n\nPython 文件数\n\nPython 代码行数\n不含空行与注释\n\nPY-APP-001\n\n>25k\n\n5k\n\n>500\n\n85k\n\nPY-APP-002\n\n>5k\n\n6k\n\n>500\n\n60k\n\nPY-APP-003\n\n>15k\n\n10k\n\n>200\n\n45k\n\nPY-APP-004\n\n>5k\n\n>100\n\n>500\n\n95k\n\nPY-APP-005\n\n>15k\n\n1k\n\n>500\n\n100k\n\nPY-APP-006\n\n>25k\n\n2k\n\n>1000\n\n110k\n\nPY-APP-007\n\n>5k\n\n20k\n\n>1000\n\n250k\n\nPY-APP-008\n\n>1k\n\n>100\n\n>200\n\n40k\n\nPY-APP-009\n\n1k\n\n3k\n\n>50\n\n2k\n\nPY-APP-010\n\n15k\n\n5k\n\n>200\n\n45k\n\nPY-APP-011\n\n>5k\n\n>25k\n\n>200\n\n30k\n\n7k 个文件\n\n>800k 行代码\n\n所有漏洞披露并处理完毕后，我们会公布应用名称。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

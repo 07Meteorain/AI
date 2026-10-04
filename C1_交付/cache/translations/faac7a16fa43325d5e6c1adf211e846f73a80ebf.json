@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0016",
+ "doc_id": "course-homepage",
+ "fingerprint": "faac7a16fa43325d5e6c1adf211e846f73a80ebf",
+ "zh": "#### 讲座\n\n周一 11/17：SRE 与 AI 可观测性 —— 幻灯片\n\n周五 11/21：嘉宾：Mayank Agarwal 与 Milind Ganjoo（Resolve）—— 幻灯片\n\n第 10 周：AI 在软件工程中的未来",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

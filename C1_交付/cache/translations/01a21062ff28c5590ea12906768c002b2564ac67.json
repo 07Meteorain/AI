@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0020",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "01a21062ff28c5590ea12906768c002b2564ac67",
+ "zh": "#### 我怎么说服团队采用 AI 代码评审？\n\n先从有热情的团队成员参与的小范围试点开始。用节省下来的时间、变好的代码质量指标和下降的 bug 率来展示明确的价值。至于对岗位安全的顾虑，就把 AI 定位成一个效率工具，让开发者能专注更高价值的工作。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

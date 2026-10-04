@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0043",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "3b21e8fa01d9d76bb315583f9d0ae0a3cf582dc6",
+ "zh": "### 内容过滤\n\n内容过滤器充当行内防线，实时检查并按需拦截智能体的输入与输出。这类过滤器可以在各种攻击扩散之前就将其检测出来并拦下。\n\n生成式 AI（GenAI）应用长期以来依赖内容过滤器来防御越狱和提示注入攻击。由于智能体式应用继承了这些风险并引入了新的风险，内容过滤仍是一层关键的防线。\n\nPalo Alto Networks AI Runtime Security 等高级方案提供了针对 AI 智能体的深度检查。除了传统的提示词过滤，它们还可以检测：\n\n- 工具 schema 提取\n\n- 工具滥用，包括非预期调用和漏洞利用\n\n- 记忆操纵，例如被注入的指令\n\n- 恶意代码执行，包括 SQL 注入和漏洞利用载荷\n\n- 敏感数据泄露，例如凭据和密钥\n\n- 恶意 URL 和域名引用",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

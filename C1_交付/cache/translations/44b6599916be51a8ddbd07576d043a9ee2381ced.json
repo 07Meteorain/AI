@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0042",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "44b6599916be51a8ddbd07576d043a9ee2381ced",
+ "zh": "### 构建自定义 CLI 工具和 MCP\n\nMCP 已经相当普及，把智能体接到外部工具上也很容易上手，值得快速试一遍 [4]。在 Devin 中，MCP 仍处于 beta 阶段，我们还在摸索最佳的支持方式，欢迎联系我们申请权限！但很多人忽略了给智能体准备一些简单的 CLI 脚本。举个最简单的例子，你可以给智能体一个脚本，让它根据工单 ID 拉取某个 Linear 工单的信息。你也可以给它一个工具，让它可靠地完成工作流中经常重复的环节，比如一个重启本地开发环境的脚本。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

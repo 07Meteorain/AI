@@ -1,0 +1,10 @@
+{
+ "seg_id": "how-to-review-code-effectively#0017",
+ "doc_id": "how-to-review-code-effectively",
+ "fingerprint": "df7f7899dc66013a774695da1173360f3eff9a77",
+ "zh": "## 收尾\n\n代码评审对产品质量的重要性怎么强调都不为过，在 AI 生成代码的时代尤其如此。在我的职业生涯中有很多次，只是因为多了那一双眼睛，就抓住了一个 bug 或避免了一场故障事件。无论时间花在每天的评审上、花在梳理流程上，还是花在构建支撑评审的自动化上，代码评审都完全值得这份投入。让开发者现在把拉取请求彻底评审一遍，比事后去处理一个已经发布到生产的问题要更快、也没那么痛苦。\n\n感谢你足够在意代码质量，读完了我这套代码评审的哲学。你最近查看过自己的评审队列了吗？也许现在正是把这些想法付诸实践的好时机。\n\n如果你想更多了解如何在 GitHub 上使用拉取请求评审，可以看看 GitHub Community 上资深 DevOps 架构师 Mickey Gousset 和资深 DevOps 架构师 Joshua Johanning 讨论“评审一个拉取请求的 5 个建议”的那篇文章。\n\n## 标签：\n\n- 代码评审\n\n## 作者\n\n### Sarah Vessels\n\n@cheshire137\n\n资深软件工程师，GitHub\n\n- 代码评审\n\n## 关于代码评审的更多内容",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

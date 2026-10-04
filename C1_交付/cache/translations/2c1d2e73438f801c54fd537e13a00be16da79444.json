@@ -1,0 +1,10 @@
+{
+ "seg_id": "finding-vulnerabilities-claude-codex#0001",
+ "doc_id": "finding-vulnerabilities-claude-codex",
+ "fingerprint": "2c1d2e73438f801c54fd537e13a00be16da79444",
+ "zh": "# 用 Claude Code 和 OpenAI Codex 发现现代 Web 应用中的漏洞\n\n我们深入评测 AI 编码智能体在发现漏洞方面的能力，结果揭示了令人意外的长处、关键的短板，以及一个严重的稳定性问题。\n\nRomain Gaucher\n\nVasilii Ermilov\n\nClint Gibler\n\n2025 年 9 月 2 日",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

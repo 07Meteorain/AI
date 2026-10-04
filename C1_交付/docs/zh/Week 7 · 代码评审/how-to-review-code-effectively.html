@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>如何高效评审代码 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>如何高效评审代码</h1>
+  <div class="meta">
+    <span>分类：Week 7 · 代码评审</span><span>原文 3,981 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://github.blog/developer-skills/github/how-to-review-code-effectively-a-github-staff-engineers-philosophy/" target="_blank" rel="noopener">https://github.blog/developer-skills/github/how-to-review-code-effectively-a-github-staff-engineers-philosophy/</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="how-to-review-code-effectively-0000"><div class="zh side"><div class="tag">中文</div><p>跳转到内容</p>
+<p> 跳转到侧边栏 </p>
+<p>/</p>
+<p> 博客</p>
+<p> 试用 GitHub Copilot </p>
+<p> 看看有什么新动态</p>
+<p>首页 / 开发者技能 / GitHub</p></div><div class="en side"><div class="tag">EN</div><p>Skip to content </p>
+<p> Skip to sidebar </p>
+<p>/</p>
+<p> Blog</p>
+<p> Try GitHub Copilot </p>
+<p> See what's new</p>
+<p>Home / Developer skills / GitHub</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0001"><div class="zh side"><div class="tag">中文</div><h1 id="h-github-">如何高效评审代码：一位 GitHub 资深工程师的哲学</h1>
+<p>GitHub 资深工程师 Sarah Vessels 讲述了她对代码评审的哲学、好的代码评审与坏的代码评审之间的差别、她寻找和评审代码的策略，以及如何让别人评审自己的代码时收获最大。</p>
+<p>Sarah Vessels·@cheshire137</p>
+<p>2024 年 7 月 23 日</p>
+<p> |</p>
+<p> 16 分钟</p>
+<ul>
+<li>分享：</li>
+</ul>
+<p>作为 GitHub 的一名资深工程师，代码评审是我日常工作的主要重心之一。过去八年里，我评审过 7,000 多个拉取请求。为什么会这么多？因为代码评审对构建优质软件至关重要，而多一双眼睛往往能发现你本来会错过的问题。</p>
+<p>我把代码评审视为我工作中最重要的方面之一。事实上，每当我看到某位同事有一个准备好接受代码评审的拉取请求，我都更愿意放下自己正在处理的分支，去评审他们提议的改动。毕竟，他们的拉取请求已经通过了持续集成（CI）的连环考验，也达到了他们自己判断“做完”的标准，所以它大概比我手上还在进行的工作更接近可发布状态。我宁愿让他们的代码先冲过终点线，也不想再耗上不知多久去完成我自己的代码。</p>
+<p>我给出反馈越早——“这里可能是 nil，会导致错误”“这看起来是个 n+1 查询”“这里最好有一个方法签名”——这些反馈就能被处理得越快，bug 就能被越早压掉、功能就能被越早发布。</p>
+<p>我想分享一下我做代码评审的方式，希望我们都能发布更好的代码。</p></div><div class="en side"><div class="tag">EN</div><h1 id="hhow-to-review-code-effectively-a-github-staff-engineer-s-philosophy">How to review code effectively: A GitHub staff engineer’s philosophy</h1>
+<p>GitHub Staff Engineer Sarah Vessels discusses her philosophy of code review, what separates good code review from bad, her strategy for finding and reviewing code, and how to get the most from reviews of her own code.</p>
+<p>Sarah Vessels·@cheshire137</p>
+<p>July 23, 2024 </p>
+<p> |</p>
+<p> 16 minutes</p>
+<ul>
+<li>Share:</li>
+</ul>
+<p>As a staff engineer at GitHub, code review is one of my main focus areas in my day to day work. Over the past eight years, I’ve reviewed more than 7,000 pull requests. Why so many? Because code review is crucial to building good software and another set of eyes can often spot issues you would have otherwise missed.</p>
+<p>I see code review as one of the most important aspects of my job. In fact, whenever I see that a teammate has a pull request ready for code review, I prefer to drop whatever branch I’m working on to review their proposed changes instead. After all, their pull request has already passed the continuous integration (CI) gauntlet and met the bar for their own judgment of “done,” so it’s probably closer to being shippable than my own in-progress work. I’d rather get their code over the finish line than churn an unknown amount of time more to finish my code.</p>
+<p>The sooner I provide feedback — “This can be nil and cause an error,” “This looks like an n+1 query,” “It would be great to have a method signature on this” — the faster that feedback can be addressed and the bug squashed or feature shipped.</p>
+<p>I’d like to share how I approach code review in hopes that we can all ship better code.</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0002"><div class="zh side"><div class="tag">中文</div><h2 id="h-">什么是代码评审？</h2>
+<p>严格来说，代码评审——也就是 GitHub 上的拉取请求评审——让协作者能够对拉取请求中提出的改动发表评论，表示对这些改动的认可，或者在拉取请求被合并之前要求进一步修改。</p>
+<p>我把拉取请求看作一段对话的开端。我读它的时候，等于作者在说“我觉得这比我们今天现有的东西更好”。代码评审是一次塑造产品实现方式的绝佳机会。作为代码评审者，我的工作就是通过提问、质疑假设，以及总体上充当第二双眼睛，与作者反复讨论，把他们的代码改得更好。</p>
+<p>为什么要评审代码？这对你的职业生涯有好处</p>
+<p>我从其他评审者对我自己代码的视角中学到了很多，而在反复收到“谢谢你及时做代码评审”这类正面反馈之后，我知道我的代码评审评论同样帮助队友们提升了自己。简单说，代码评审是有影响力的，而想升职就需要展示你的影响力。</p>
+<p>代码评审之所以有影响力，是因为它促进知识共享并提升交付速度。它们是漂亮、可链接的产物，同事和主管可以拿它们来展示你有多乐于助人、多有见识。它们能凸显你良好的沟通能力，尤其是在需要处理复杂或有争议的改动时。所以，在代码评审中把自己的理由讲清楚，不仅能引导产品的未来、帮助避免故障事件，对你的职业生涯也有好处。</p>
+<h2 id="h-">精细打磨你的代码评审流程</h2></div><div class="en side"><div class="tag">EN</div><h2 id="hwhat-is-code-review-">What is code review?</h2>
+<p>Strictly speaking, code reviews—via pull request reviews on GitHub—allow collaborators to comment on the changes proposed in pull requests, indicate their approval of the changes, or request further changes before the pull request is merged.</p>
+<p>I see a pull request as the beginning of conversation. I read it as the author saying “I think this improves on what we have today.” Code review is a great opportunity to shape the product’s implementation. As a code reviewer, my job is to go back and forth in discussion with the author to improve their code by asking questions, questioning assumptions, and generally serving as a second set of eyes.</p>
+<p>Why review code? It's good for your career</p>
+<p>I’ve learned a great deal from other reviewers’ perspectives on my own code, and after repeated positive feedback thanking me for timely code reviews, I know that my code review comments have likewise helped level up my teammates. Put simply, code review has impact, and getting a promotion requires showing your impact.</p>
+<p>Code reviews are impactful because they help exchange knowledge and increase shipping velocity. They are nice, linkable artifacts that peers and managers can use to show how helpful and knowledgeable you are. They can highlight good communication skills, particularly if there’s a complex or controversial change needed. So, making your case well in a code review can not only guide the product’s future and help stave off incidents, it can be good for your career.</p>
+<h2 id="hfine-tune-your-code-review-process">Fine-tune your code review process</h2></div></div>
+<div class="pair" id="how-to-review-code-effectively-0003"><div class="zh side"><div class="tag">中文</div><h3 id="h-">如何找到待评审的拉取请求</h3>
+<p>我待在 GitHub 通知收件箱里。它是我在浏览器里固定仅有的几个标签页之一，所以随时都能打开。每当我在等 CI、在任务之间、开始一天工作，或者总之有点空闲时，我都喜欢去翻收件箱。我评审的大部分拉取请求都是在那里找到的。GitHub 的团队通常会有一个把某个 Slack 频道当作“大本营”，那是分享待评审拉取请求的好地方——这也是我发现拉取请求的另一条主要途径。</p>
+<p>我还很好运地用起了 GitHub 的 Slack 集成，让某个 Slack 频道订阅与我团队相关的新拉取请求。为了过滤出哪些拉取请求出现在 Slack 里，我会用一个团队专属的标签，然后在 Slack 里输入一条类似 /github subscribe your/repo pulls +label:"your-team-label" 的‘subscribe’命令。</p>
+<p>提示</p>
+<p>你可以在查询中重复使用 team-review-requested: 这个限定符，从而拿到归属于许多不同代码归属方的待评审拉取请求。</p>
+<p>我喜欢用 is:open archived:false is:pr org:github -is:draft team-review-requested:github/relevant-codeowner-team 这样的查询来搜索可能需要评审的未处理拉取请求。用这条查询，我能找到 GitHub 组织内开放的、未归档的、非草稿的拉取请求，并且它们把相关的代码归属团队列为请求的评审者。我通常会省略 review:required 这个搜索限定符，因为即使同事已经评审过某个拉取请求，我仍然想去评审它。毕竟，评审代码不仅能帮到作者，也能让我及时掌握影响到我负责代码的改动。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hhow-to-find-pull-requests-for-review">How to find pull requests for review</h3>
+<p>I live in my GitHub notifications inbox. It’s one of just a few tabs I pin in my browser, so it’s always available. Any time I’m waiting on CI, I’m in between tasks, starting my day, or generally have a spare moment, I like to check my inbox. I find most of the pull requests I review there. Teams at GitHub tend to have a particular Slack channel they treat as home base, and that’s a good place to share ready-for-review pull requests—it’s one of the other main ways I discover pull requests.</p>
+<p>I also have good luck using the GitHub Slack integration to subscribe a Slack channel to new pull requests relevant to my team. To filter which pull requests show up in Slack, I use a label specific to the team, then a ‘subscribe’ command in Slack like /github subscribe your/repo pulls +label:"your-team-label".</p>
+<p>Tip</p>
+<p>You can repeat the team-review-requested: qualifier in your query to get pull requests for review across many different code owners.</p>
+<p>I like to search for outstanding pull requests that may need review with queries like is:open archived:false is:pr org:github -is:draft team-review-requested:github/relevant-codeowner-team. With that query, I find open, unarchived pull requests within the GitHub organization that are not drafts and have relevant codeowner teams as a requested reviewer. I usually will omit the review:required search qualifier because I’m interested in reviewing a pull request even if a teammate has already reviewed it. After all, reviewing code not only helps the author, it helps me stay up to date with changes affecting code I’m responsible for.</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0004"><div class="zh side"><div class="tag">中文</div><h3 id="h-">用评审者团队管理通知</h3>
+<p>你不会希望代码改动去 ping 一个这么大的团队，以至于团队里的每个人都认为评审这个改动不是自己的责任。那会导致拉取请求要么一直没人评审、搁在那里，要么在该合并之前就被合并了——因为关键评审者在铺天盖地的通知里错过了它们。这两种情况都会影响产品质量。</p>
+<p>如果做得到，我建议把自己所在的代码归属团队数量控制好，让通知保持在你可管理的范围内。这样，落到你收件箱里的拉取请求就不只是噪音，而是你真的觉得应该去评审的东西。大而全的代码归属团队作为兜底选项也许还行，但作为自动评审请求的第一线默认选项并不好。把仓库的 CODEOWNERS 文件组织好，配上界限清晰的代码划分，以限制通知量并帮助评审者避免通知疲劳。</p>
+<p>限制团队通知的另一种办法，是建一个第一响应者团队，然后用自动化按排期增删团队成员。这样你的团队可以专注自己日常的代码库，而排班的第一响应者会收到你团队服务范围内拉取请求的通知。比如用 PagerDuty API，你可以确定某一天由谁担任第一响应者，然后用 Octokit 库来增删团队成员。</p></div><div class="en side"><div class="tag">EN</div><h3 id="huse-reviewer-teams-to-manage-notifications">Use reviewer teams to manage notifications</h3>
+<p>You don’t want code changes to ping such a large team that everyone on the team assumes reviewing the change isn’t their responsibility. That can result in pull requests that either languish unreviewed or get merged before they should, because key reviewers missed them in a deluge of notifications. Both of these scenarios affect the quality of the product.</p>
+<p>I recommend honing the number of code owner teams you’re on, if you’re able, to keep your notifications manageable. That way, pull requests that land in your inbox aren’t just noise, they’re actually something you feel you should review. While big, catch-all code owner teams can be okay as a fallback option, they aren’t great as a first-line default for automatic review requests. Keep your repository’s CODEOWNERS file well organized, with well-defined code boundaries to go along with it, to limit notifications and help reviewers avoid notification fatigue.</p>
+<p>Another way of limiting team-based notifications is to create a first responders team and then use automation to add and remove team members based on a schedule. This can let your team focus on their day-to-day code base, while scheduled first responders get notified of pull requests in your team’s service areas. Using the PagerDuty API, for example, you can determine who is a first responder on a given day. You can then use the Octokit library to add and remove team members.</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0005"><div class="zh side"><div class="tag">中文</div><h3 id="h-">用自动化让各团队的代码评审标准化</h3>
+<p>仓库级别的配置和自动化手段，比如使用 CODEOWNERS 文件和分支保护规则，有助于在各团队之间强制推行评审流程的标准。另一些标准，比如拉取请求中什么值得评论，就得由我们人类来维护。把团队内部的代码评审方式文档化下来，确保任何提供代码评审或提交拉取请求的人都知道，怎样让自己的拉取请求被评审、评审的预期周转时间是多少，以及有哪些自动化工具在辅助评审。</p>
+<p>有些团队用项目看板来跟踪哪些拉取请求进来待评审；我见过一个管理共享 API 的团队这样做效果不错，因为这个区域经常被团队之外的人改动。另一些团队则只依赖 GitHub 通知，当代码归属划分得很紧、团队又自律地做到拉取请求一来就评审时，我也见过这种做法效果不错。</p>
+<p>如果你遵循的是本团队特有的流程，自动化可以帮助你把预期传达给团队之外的人。例如，如果很多其他团队都依赖你团队的评审，你可以用一个机器人，在任何请求你团队评审的拉取请求上自动留一条评论，告诉作者大概什么时候能收到你的反馈。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hstandardize-code-reviews-across-teams-with-automation">Standardize code reviews across teams with automation</h3>
+<p>Repository-level configuration and automation, such as using a CODEOWNERS file and branch protection rules, can be helpful to enforce review process standards across teams. Other standards, such as what’s worth commenting on in a pull request, have to be maintained by us humans. Document how code reviews work within your team to make sure anyone providing a code review or submitting a pull request knows how to get their pull requests reviewed, the expected turnaround time for review, and what automation is in use to facilitate review.</p>
+<p>Some teams use a project board to keep track of which pull requests come in for review; I’ve seen this work well for a team that manages a shared API, an area often modified by those outside the team. Other teams depend on GitHub notifications alone, which I’ve seen work well when code ownership is tightly scoped and the team is disciplined about reviewing pull requests as they come in.</p>
+<p>If you follow a process unique to your specific team, automation can help communicate expectations with those outside your team. For example, if many other teams depend on your team’s reviews, you can use a bot to automatically leave a comment on any pull request where your team’s review is requested, to tell the author when they can expect to hear from you.</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0006"><div class="zh side"><div class="tag">中文</div><h2 id="h-">什么样的代码评审算好，什么样的算差</h2>
+<p>好的代码评审能增加清晰度，并把代码推向比起点更好的状态。</p>
+<p>作为评审者，沟通上的清晰是关键。你需要说清楚哪些评论只是个人偏好，哪些是会卡住通过的阻塞项。给出你所建议做法的示例，能提升你这次代码评审的水平，也让你的意思更清楚。如果你能举一个来自该拉取请求所在同一个仓库的例子，那就更好了——这会以一致的实现方式进一步支撑你的建议。</p>
+<p>相比之下，糟糕的代码评审缺乏清晰度。比如，不带任何评论就一律通过或一律拒绝，会让拉取请求的作者怀疑这次评审到底彻不彻底。即使只是在附上通过的同时重述一遍你对作者意图的理解，也能暴露出你和作者的理解是否一致。</p>
+<p>没有说清建议应该在什么时候落实的代码评审，对作者来说也可能是糟糕的体验。指出已有的、未被改动的代码应该重构、或者应该多处理一种情况，这本身没问题，但重要的是要说明这些是否属于通过的前置条件。如果这个拉取请求没有你的建议也能落地，一定要说清楚。把差异保持得很小、把那些改动拆成单独的拉取请求分别发布，可能更稳妥。</p>
+<p>下面这条代码评审评论既具体，又清楚传达了建议的实现方式：</p>
+<p>“我看到你新增的方法和这个文件里现有的风格一致，接收 [X] 个参数。这么多参数会损害可读性，也暗示这个函数干了太多事。你怎么看：在后续的拉取请求里把这个方法和现有的那些方法一起重构一下，让它们接受的参数更少？”</p>
+<p>这条评论好在哪里：</p>
+<ul>
+<li>提供了具体细节。</li>
+</ul>
+<ul>
+<li>指向了具体的代码或问题。</li>
+</ul>
+<ul>
+<li>提出了问题的解决方案。</li>
+</ul>
+<ul>
+<li>引用了证据或给出了解释</li>
+</ul>
+<p>在光谱的另一端，下面这些评审评论就差点意思：</p>
+<p>“我不喜欢这个。”——评审者不喜欢什么？他们心里有没有一个可以明说出来的替代方案？</p></div><div class="en side"><div class="tag">EN</div><h2 id="hwhat-makes-a-code-review-good-or-bad-">What makes a code review good or bad?</h2>
+<p>Good code reviews add clarity and push code toward a better state than where it started.</p>
+<p>As a reviewer, clarity in communication is key. You’ll want to make clear which of your comments are personal preference and which are blockers for approval. Provide an example of the approach you’re suggesting to elevate your code review and make your meaning even clearer. If you can provide an example from the same repository as the pull request, even better—that further supports your suggestion by encouraging consistent implementations.</p>
+<p>By contrast, poor code reviews lack clarity. For example, a blanket approval or rejection without any comments can leave the pull request author wondering if the review was thorough. Even just reiterating your understanding of the pull request author’s intention with your approval can surface whether you and the author have the same understanding.</p>
+<p>A code review that is unclear about when its suggestions should be implemented can also be a poor experience for the author. It’s fine to note that existing, unchanged code should be refactored, or an additional case should be handled, but it’s important to specify whether those are precursors to approval. If the pull request is okay to land without your suggestions, make sure to say so. It may be safer to keep a small diff and ship those changes separately, as separate pull requests.</p>
+<p>Here’s a code review comment that displays specificity and clearly communicates suggested implementations:</p>
+<p>“I see your new method matches the existing style in this file, taking [X] parameters. Having that many parameters hurts readability and implies the function is doing too much. What do you think about refactoring this method and the existing ones in a later pull request to reduce how many parameters they take?”</p>
+<p>What this comment does well:</p>
+<ul>
+<li>Provides specific details.</li>
+</ul>
+<ul>
+<li>References specific code or issues.</li>
+</ul>
+<ul>
+<li>Suggests a resolution to the problem.</li>
+</ul>
+<ul>
+<li>Cites evidence or provides an explanation</li>
+</ul>
+<p>On the other end of the spectrum, here are some examples of review comments that could be better:</p>
+<p>“I don’t like this.” – What doesn’t the reviewer like? Do they have an alternative in mind that they could explicitly state?</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0007"><div class="zh side"><div class="tag">中文</div><p>可以改进的地方：</p>
+<ul>
+<li>“这一行干的活儿太多了，能不能简化一下以提升可读性？”</li>
+</ul>
+<ul>
+<li>“我觉得这会有性能问题，因为它是个 n+1 查询。”</li>
+</ul>
+<ul>
+<li>“这个能不能改用 [preferred framework] 的现成方案，而不是自己写一套实现？”</li>
+</ul>
+<p>“这样不行。”——为什么这些改动不行？</p>
+<p>可以改进的地方：</p>
+<ul>
+<li>“这样不行，因为 [X]，参见这个相关 issue：[issue link]。”</li>
+</ul>
+<ul>
+<li>“这个在 [pull request link] 里已经试过了，因为 [X] 所以行不通。”</li>
+</ul>
+<ul>
+<li>“如果你在 [X] 上遇到问题，可以试试 [alternative approach]。”</li>
+</ul>
+<p>“我觉得这修掉了一个 bug。”——我很喜欢这种点明，但有没有额外的上下文，比如一个 issue 链接，能让这句话更清楚？</p>
+<p>可以改进的地方：</p>
+<ul>
+<li>“我觉得这修的是 [issue link] 里的问题。”</li>
+</ul>
+<ul>
+<li>“这是在修 [issue link] 里的那个 bug 吗？”</li>
+</ul>
+<ul>
+<li>“这看起来就是我们在 [link to failing build] 时遇到的那个问题。谢谢修复！”</li>
+</ul></div><div class="en side"><div class="tag">EN</div><p>Possible improvements:</p>
+<ul>
+<li>“This line is doing a lot, could we simplify it to improve readability?”</li>
+</ul>
+<ul>
+<li>“I think this will have performance problems because of an n+1 query.”</li>
+</ul>
+<ul>
+<li>“Could we use the [preferred framework]’s solution for this instead of writing a custom implementation?”</li>
+</ul>
+<p>“This won’t work.” – Why won’t the changes work?</p>
+<p>Possible improvements:</p>
+<ul>
+<li>“This won’t work because [X], see this relevant issue: [issue link].”</li>
+</ul>
+<ul>
+<li>“This was tried before in [pull request link] and it didn’t work because of [X].”</li>
+</ul>
+<ul>
+<li>“If you run into problems with [X], you could try [alternative approach] instead.”</li>
+</ul>
+<p>“I think this fixes a bug.” – I love the callout, but is there any additional context, such as an issue link, that could make this more clear?</p>
+<p>Possible improvements:</p>
+<ul>
+<li>“I think this fixes [issue link].”</li>
+</ul>
+<ul>
+<li>“Is this fixing the bug from [issue link]?”</li>
+</ul>
+<ul>
+<li>“This looks like the bug we ran into with [link to failing build]. Thanks for the fix!”</li>
+</ul></div></div>
+<div class="pair" id="how-to-review-code-effectively-0008"><div class="zh side"><div class="tag">中文</div><h2 id="h-">如何给出好的代码评审</h2></div><div class="en side"><div class="tag">EN</div><h2 id="hhow-to-give-a-good-code-review">How to give a good code review</h2></div></div>
+<div class="pair" id="how-to-review-code-effectively-0009"><div class="zh side"><div class="tag">中文</div><h3 id="h-">多提问</h3>
+<p>我把拉取请求的作者视为对这次改动最了解的人。我可以基于自己的经历——在 Ruby on Rails 单体应用、TypeScript，或者大流量数据库上工作的经验——指出我看到的问题，但我信任作者对我问题的回答。我认为他们对这些细节的理解比我的更可靠。</p>
+<p>提示</p>
+<p>如果你刚加入一个代码库或团队，就在代码评审中多提问，以此了解技术栈以及有哪些内部工具和库可用。你评审的每一个拉取请求，都是一次弄清作者为什么偏好这个做法而不是另一个的机会。</p>
+<p>我还很喜欢问那些涉及代码中所做假设的问题。他们处理的数据是什么形状？是否存在与该形状不匹配的数据？代码对此应对得好吗？这段代码资源消耗大吗？性能会好吗？作为评审者，我最喜欢的回答是作者提供一个自动化测试，验证这些场景下的行为。我第二喜欢的回答是实测数据，比如从我们的数据仓库跑出来的一个查询，或者一张 Datadog 图表，说明这些场景不是问题。</p>
+<p>作为拉取请求的作者，我很看重有人提问。当有人提问时，就给了我空间去解释我为什么对自己的改动有信心，必要时可以引用 issue、查询或图表。这也让我能把知识和经验分享给别人。作者看到的不仅是我的回答，还有其他评审者，以及日后可能需要追溯某个过往决定背景的读者。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hask-questions">Ask questions</h3>
+<p>I think of the pull request author as the person with the most context on the changes their pull request is making. I can point out problems I see based on my history—my experience working in a Ruby on Rails monolith, in TypeScript, or with a database that gets a lot of traffic—but I trust the author’s answers to my questions. I treat their understanding of the particulars as better than mine.</p>
+<p>Tip</p>
+<p>If you’re new to a code base or team, ask questions in code reviews to learn about the tech stack and what internal tools and libraries are available. Every pull request you review is a chance to find out why the author preferred one approach to another.</p>
+<p>I also love to ask questions that involve the assumptions made in the code. What is the shape of the data they’re working with? Does data exist that doesn’t match that shape? Does the code respond to that well? Is the code resource intensive? Will it perform well? As a reviewer, my favorite response is for the author to provide an automated test that verifies the behavior in those scenarios. My second favorite response is empirical data, such as a query from our data warehouse or a Datadog graph that shows why those scenarios aren’t a problem.</p>
+<p>As a pull request author, I appreciate receiving questions. When someone asks a question, it makes space for me to explain why I’m confident about my change, citing issues, queries, or graphs as necessary. It also lets me share my knowledge and experience with others. The author not only sees my responses, but also other reviewers and future readers who may be tracking down context on a past decision.</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0010"><div class="zh side"><div class="tag">中文</div><h3 id="h-">给出肯定</h3>
+<p>除了提问之外，对拉取请求中你认同的部分发表评论也是个好习惯。这类评论能表明你确实读了并理解所做的改动，或者你验证了代码里的某个假设。举几个例子：</p>
+<ul>
+<li>“看起来这和这个模块里其他类用的模式一致。”</li>
+</ul>
+<ul>
+<li>“谢谢你为这个补了测试！”</li>
+</ul>
+<ul>
+<li>“这比之前可读性好多了。”</li>
+</ul>
+<p>以我的经验，能收到这样的评论感觉也很好。接收一次代码评审有时会让人感到被消耗。当我同时应付好几个人提出的问题和建议时，能收到几条不要求我做任何事、而是支持并认可我已经投入的工作的评论，会很提气。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hoffer-affirmations">Offer affirmations</h3>
+<p>Beyond asking questions, it’s good practice to comment on the parts of the pull request that you agree with. These comments can highlight that you read and understood what was being changed, or that you verified some assumption in the code. Here are a few examples:</p>
+<ul>
+<li>“Looks like this matches the pattern used in other classes in this module.”</li>
+</ul>
+<ul>
+<li>“Thanks for adding a test for this!”</li>
+</ul>
+<ul>
+<li>“This is much more readable than before.”</li>
+</ul>
+<p>It’s also just nice being on the receiving end of such comments, in my experience. Receiving a code review can sometimes feel draining. When I’m fielding questions and suggestions from several parties, it can be a good boost to get a few comments that don’t ask anything of me and instead support and acknowledge the work I’ve already put in.</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0011"><div class="zh side"><div class="tag">中文</div><h3 id="h-">留意偏见和假设</h3>
+<p>你很容易让自己对评审者的偏见、或对他们所改的那块代码的偏见，影响你的评审。你会习惯某个人一直在某个领域工作、或有某种资历，于是假设他们知道自己在干什么——但每个人都会犯错。用你的眼睛去看他们的改动、用你的问题去检验他们的假设或验证你自己的假设，能在问题被部署之前抓住它。</p>
+<p>我非常推崇写测试，因为测试能消掉一部分偏见。当你写一个测试来检查代码是否正常工作，你不必只凭作者的一面之辞，只要看测试有没有通过就行——当然，前提是这个测试本身写得对。😅</p>
+<p>我也非常支持初级开发者在代码评审中向资深开发者提问，即使他们觉得自己的问题很傻、或答案显而易见。如果对你来说它并不明显，那这个提问就是合理的。对别人来说它也不会明显！把问题问出来，给作者留出写下答案的空间，把这份知识留给后来的人。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hbe-aware-of-biases-and-assumptions">Be aware of biases and assumptions</h3>
+<p>It’s easy to let your biases about the reviewer, or the area of code they’re changing, affect your review. You get used to someone working in an area or having some level of seniority and assume they know what they’re doing—but everyone makes mistakes. Your eyes on their changes, your questions checking their assumptions or validating your own, can catch a problem before it’s deployed.</p>
+<p>I’m big on writing tests because they take some of the bias out. When you write a test to check that code works properly, you don’t have to take the author’s word for it, you just look at whether the test passed—provided you get the test right, of course. 😅</p>
+<p>I’m also big on junior developers asking senior developers questions in code review, even if they think their question is silly or has an obvious answer. If it’s not obvious to you, that’s valid. It won’t be obvious to someone else either! Ask the question, make the space for the author to write down their answer, and preserve that bit of education for those who come later.</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0012"><div class="zh side"><div class="tag">中文</div><h3 id="h-">批还是不批</h3>
+<p>我把自己的评审看作一道会挡住别人的闸门——它可能阻止某个人改进我们的产品——所以我会谨慎地不予通过。我常常有自己的个人偏好，会建议一些我希望作者能做的可选改动，但不会仅凭这些就扣住不给通过。如果我对某人的拉取请求有建议，但这个拉取请求按现状不会搞坏生产、不会对用户造成负面影响、也不会引发其他问题，我就会带着这些评论给出通过。作者可以选择在合并前处理我的反馈，也可以另开一个分支后续跟进。</p>
+<p>提示</p>
+<p>使用功能开关（feature flags），并把拉取请求做小。你的改动越不吓人，在生产上被回滚得就越快，我也就越容易批准它！</p>
+<p>评审代码时，要掂量你那条建议的重要程度。为了让建议被采纳而推迟发布，值得吗？值得让作者经历一整轮流程——看到你的反馈、做出建议的修改、等待 CI、再次评审、部署，最后才合并吗？如果少了这条建议不会让谁的处境变差，那就让作者自己决定要不要改、什么时候改。</p>
+<p>“Request changes”选项会阻止拉取请求被合并，直到评审者回来给出通过。我极少用它，因为通常感觉太粗暴了。我信任我的团队知道什么时候该批准一个拉取请求，所以同事的通过就可以代替我的通过。同样地，我信任拉取请求的作者会重视并考虑我的反馈，而不是因为别人批准了我没批准就盲目合并。我几乎只有在认为存在一个紧迫的安全问题时才会选“Request changes”——因为我担心他们合并前看不到我的顾虑。</p>
+<p>使用 AI 编码工具时，代码评审为什么依然重要</p>
+<p>AI 编码工具通常包含各种防止代码出错或不安全的防护措施，但别被这种虚假的安全感哄睡。作为掌舵的人类评审者，你是最后一道防线，应该以同等严谨的态度评审所有代码。</p>
+<h2 id="h-">如何让代码评审发挥最大价值</h2></div><div class="en side"><div class="tag">EN</div><h3 id="hto-approve-or-not">To approve or not</h3>
+<p>I see my review as a blocking gate that can stop another person from improving our product, so I withhold approval conscientiously. I will often have personal preferences and suggest optional changes I’d like to see the author make, but I won’t withhold an approval based on those alone. If I have suggestions for someone’s pull request, but their pull request as it is won’t break production, negatively impact users, or otherwise cause problems, I will approve with those comments. The author can choose to address my feedback before they merge their pull request, or they can follow up in another branch.</p>
+<p>Tip</p>
+<p>Use feature flags and make your pull requests small. The less scary your change is, the faster it can be reversed in production, the easier it will be for me to approve it!</p>
+<p>Keep in mind the importance of your suggestion when you’re reviewing code. Is it worth delaying the ship to get your suggestion addressed? Is it worth the whole cycle of the author seeing your feedback, making the suggested changes, waiting for CI, a re-review, deployment and finally merging? If a suggestion’s absence isn’t going to make someone’s day worse, let the author decide if or when to make the suggested change.</p>
+<p>The ‘Request changes’ option stops a pull request from being merged until the reviewer comes back and approves it. I very rarely use it, as it usually feels too heavy-handed. I trust my team to know when to approve a pull request, so a teammate’s approval is fine in place of mine. Likewise, I trust the pull request author to respect my feedback and consider it, not just blindly merging because someone else approved but I didn’t. About the only time I’ll choose the ‘Request changes’ option is when I think there is an immediate security issue and I’m worried they won’t see my concern before merging.</p>
+<p>Why code reviews matter when using AI coding tools</p>
+<p>AI coding tools often include various safeguards against incorrect or insecure code, but don’t be lulled into a false sense of security. As the human reviewer at the helm, you are the last line of defense and should review all code with an equal level of diligence.</p>
+<h2 id="hhow-to-get-the-most-out-of-code-reviews">How to get the most out of code reviews</h2></div></div>
+<div class="pair" id="how-to-review-code-effectively-0013"><div class="zh side"><div class="tag">中文</div><h3 id="h-">评审你自己的代码</h3>
+<p>GitHub 资深软件工程师 Paul Smith 教过我，在请别人评审之前先评审自己的拉取请求，我也建议你这么做。先过一遍，对那些不明显的改动——或者你在别人的拉取请求里看到会想问一句的改动——用行内评论的方式标出来。自我评审还能帮你判断一个拉取请求是不是太大了、拆开会更好。</p>
+<p>特别推荐：如果你在意让拉取请求保持小规模，可以用 lerebear/sizeup-action 自动给拉取请求打上标签，标明其复杂度和规模。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hreview-your-own-code">Review your own code</h3>
+<p>GitHub Senior Software Engineer Paul Smith taught me to review my own pull request before asking others to do so, and I would advise you to do the same. Take a first pass and leave comments inline on non-obvious changes or ones you would ask about if you saw them in someone else’s pull request. A self-review can also help determine if a pull request is too big and would benefit from being split up.</p>
+<p>Shout-out: if you care about keeping your pull requests small, you can make use of lerebear/sizeup-action to automatically apply a label to pull requests indicating their complexity and size.</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0014"><div class="zh side"><div class="tag">中文</div><h3 id="h-">欢迎合并之后的评审</h3>
+<p>如果我碰巧在别人有机会评审之前就合并了拉取请求，我依然欢迎他们的评审。如果我的拉取请求弄坏了什么、或者带来了意料之外的后果，那就在拉取请求上尽量多留评论，让这些面包屑小径帮助日后的读者追查当时发生了什么！</p>
+<p>如果我收到针对已合并拉取请求的评审，我会像它还没落地时那样处理这些反馈。可能是一条评论解释我的思路，也可能是再开几个拉取请求来迭代我最初发布的代码，还可能是开几个新 issue 来记录待做的额外工作。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hbe-welcoming-of-post-merge-reviews">Be welcoming of post-merge reviews</h3>
+<p>If I happen to merge a pull request before someone gets a chance to review it, I still welcome their review. If my pull request broke something or had unintended consequences, commenting as much on the pull request leaves that breadcrumb trail to help future readers track down what happened!</p>
+<p>If I receive a review on a merged pull request, I’ll address the feedback like I would have before the pull request landed. Maybe that’ll be a comment to explain my perspective, maybe it’ll be additional pull requests to iterate on the code I originally shipped. Maybe it’ll be opening new issues to capture additional work to be done.</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0015"><div class="zh side"><div class="tag">中文</div><h3 id="h-">使用草稿拉取请求</h3>
+<p>创建新拉取请求时，你可以选择把拉取请求设为草稿。我非常依赖草稿状态来表示我要不要接受评审。比如，如果某个必需的 CI 构建挂了，或者我还没写完，我就把它保持为草稿。我对别人的拉取请求也有同样的预期：如果是草稿，我就认为作者还没准备好接受评审；如果被标记为准备接受评审，我就认为只要拿到足够多的通过，就能发布了。</p>
+<p>草稿状态意味着拉取请求还没完成，所以我在解决合并冲突或处理评审反馈时，会把拉取请求退回草稿状态。如果我必须修改代码，我会先把自己的拉取请求标为草稿，以免把已经评审过的人淹掉。当我把它改回‘准备好’时，GitHub 会给这些评审者发通知，让他们可以再去看一遍。</p></div><div class="en side"><div class="tag">EN</div><h3 id="huse-draft-pull-requests">Use draft pull requests</h3>
+<p>When you create a new pull request, you have the option to set the pull request as a draft. I lean heavily on the draft stage to indicate whether or not I want reviews. For example, if a required CI build is failing or I’m just not finished yet, I’ll keep it as a draft. I tend to expect the same from others’ pull requests: if it’s a draft, I assume the author isn’t ready for reviews. If it’s marked as ready for review, I assume that getting enough approvals is all that’s preventing them from deploying the pull request.</p>
+<p>The draft status implies that a pull request is not finished, so I move pull requests back to draft when resolving merge conflicts or addressing reviewer feedback. If I have to modify the code, I’ll mark my pull request as a draft first so as not to overwhelm people who have already reviewed it. When I move it back to ‘ready’, it sends a GitHub notification to those reviewers so they can look at it again.</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0016"><div class="zh side"><div class="tag">中文</div><h3 id="h-">保持善意</h3>
+<p>我总想起那句话：“用蜂蜜比用醋能招来更多苍蝇。”我希望我的拉取请求能得到评审，所以有人在我的拉取请求上评论时，我总愿意回复——尤其是在我不同意评审者意见的时候。即使我没有对某条评审评论写出回复，我也常用一个 👍 表示我同意，或者用一个 ❤ 表示感谢。</p>
+<p>我希望评审者相信他们的建议不会被忘记，所以我用评论让他们一直知情。如果我认同他们的建议——比如建议进一步重构现有代码——我可能会表示认同，同时又提出这个改动不该放在当前这个拉取请求里。当我在后续的拉取请求里处理了他们的反馈时，我会回来附上链接，让评审者知道他们的反馈没有被忽略。</p>
+<p>我也会在落实这些建议的后续拉取请求里 @ 上他们，并加一句说明：“这条处理了 @某某 在 &lt;previous pull request URL&gt; 提出的反馈。”这既为其他读者提供了上下文，也是对最初评审者的一次致意，把这个想法的功劳归给他们。</p>
+<p>当你兑现承诺、在后续分支里处理了反馈时，这有助于建立评审者对你的信任，也能让他们更自在地批准你以后的拉取请求，因为他们知道你不会把事情留在半途。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hbe-gracious">Be gracious</h3>
+<p>The expression, “You can catch more flies with honey than vinegar,” comes to mind. I want reviews on my pull requests, so I like to reply to comments on my pull requests—especially if I disagree with the reviewer. Even if I don’t write a reply to a review comment, I’ll often react with a 👍 to indicate I agree or a ❤ to say thank you.</p>
+<p>I want reviewers to trust that their suggestions won’t be forgotten, so I keep them in the loop via comments. If I agree with their suggestion—to go further refactoring existing code, for example—I may say as much while also pushing back about making that change in the current pull request. When I address their feedback in a later pull request, I come back to provide a link and let the reviewer know their feedback didn’t go unheard.</p>
+<p>I’ll also tag them in later pull requests where I implement the suggested changes and include a note saying “This addresses @so-and-so’s feedback from &lt;previous pull request URL&gt;.” This both provides context for other readers and acts as a shout-out to the original reviewer, giving them credit for the idea.</p>
+<p>When you follow through on a promise to address feedback in a later branch, that helps build trust with your reviewer, which can help them feel comfortable approving your future pull requests because they know that you won’t leave something incomplete.</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0017"><div class="zh side"><div class="tag">中文</div><h2 id="h-">收尾</h2>
+<p>代码评审对产品质量的重要性怎么强调都不为过，在 AI 生成代码的时代尤其如此。在我的职业生涯中有很多次，只是因为多了那一双眼睛，就抓住了一个 bug 或避免了一场故障事件。无论时间花在每天的评审上、花在梳理流程上，还是花在构建支撑评审的自动化上，代码评审都完全值得这份投入。让开发者现在把拉取请求彻底评审一遍，比事后去处理一个已经发布到生产的问题要更快、也没那么痛苦。</p>
+<p>感谢你足够在意代码质量，读完了我这套代码评审的哲学。你最近查看过自己的评审队列了吗？也许现在正是把这些想法付诸实践的好时机。</p>
+<p>如果你想更多了解如何在 GitHub 上使用拉取请求评审，可以看看 GitHub Community 上资深 DevOps 架构师 Mickey Gousset 和资深 DevOps 架构师 Joshua Johanning 讨论“评审一个拉取请求的 5 个建议”的那篇文章。</p>
+<h2 id="h-">标签：</h2>
+<ul>
+<li>代码评审</li>
+</ul>
+<h2 id="h-">作者</h2>
+<h3 id="hsarah-vessels">Sarah Vessels</h3>
+<p>@cheshire137</p>
+<p>资深软件工程师，GitHub</p>
+<ul>
+<li>代码评审</li>
+</ul>
+<h2 id="h-">关于代码评审的更多内容</h2></div><div class="en side"><div class="tag">EN</div><h2 id="hwrap-up">Wrap-up</h2>
+<p>Code review’s importance for product quality can’t be overstated, especially in the age of AI code generation. Many times in my career, a bug has been caught or an incident avoided simply by having that second set of eyes. Code review is well worth the time investment, whether spent in daily reviews, in ironing out processes, or in building automation to support it. It’s faster and less painful for developers to review pull requests thoroughly now than to deal with a problem later that’s already shipped to production.</p>
+<p>Thank you for caring enough about code quality to read my philosophy on code review. Have you checked your review queue lately? Maybe now is a good time to put these ideas into action.</p>
+<p>If you want to learn more about how to use pull request reviews on GitHub, check out the post on GitHub Community by Staff DevOps Architect Mickey Gousset and Staff DevOps Architect Joshua Johanning discussing 5 Tips for Reviewing a Pull Request.</p>
+<h2 id="htags-">Tags:</h2>
+<ul>
+<li>code review</li>
+</ul>
+<h2 id="hwritten-by">Written by</h2>
+<h3 id="hsarah-vessels">Sarah Vessels</h3>
+<p>@cheshire137</p>
+<p>Staff Software Engineer, GitHub</p>
+<ul>
+<li>code review</li>
+</ul>
+<h2 id="hmore-on-code-review">More on code review</h2></div></div>
+<div class="pair" id="how-to-review-code-effectively-0018"><div class="zh side"><div class="tag">中文</div><h3 id="h-github-copilot-">如何用 GitHub Copilot 提升你的代码评审和拉取请求</h3>
+<p>通过来自我们工程团队的真实提示词、示例和工作流技巧，看看 GitHub Copilot 如何简化代码评审、拉取请求和日常工程任务。</p>
+<p>Melissa Pastore</p></div><div class="en side"><div class="tag">EN</div><h3 id="hhow-to-use-github-copilot-to-level-up-your-code-reviews-and-pull-requests">How to use GitHub Copilot to level up your code reviews and pull requests</h3>
+<p>Discover practical ways GitHub Copilot streamlines code reviews, pull requests, and daily engineering tasks with real prompts, examples, and workflow tips from our engineering team.</p>
+<p>Melissa Pastore</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0019"><div class="zh side"><div class="tag">中文</div><h3 id="hai-">AI 时代的代码评审：为什么合并按钮永远在开发者手里</h3>
+<p>谈到合并代码，最终决定权永远在开发者手里。但我们正在重新思考 GitHub Copilot 这类工具能帮上什么忙。</p>
+<p>Elle Shwer</p>
+<p>开发者技能</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcode-review-in-the-age-of-ai-why-developers-will-always-own-the-merge-button">Code review in the age of AI: Why developers will always own the merge button</h3>
+<p>When it comes to merging code, developers will always make the final decision. But we’re rethinking how tools like GitHub Copilot can help.</p>
+<p>Elle Shwer</p>
+<p>Developer skills</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0020"><div class="zh side"><div class="tag">中文</div><h3 id="hgithub-github-">GitHub 入门：开始使用 GitHub 安全</h3>
+<p>学习如何用 GitHub Advanced Security 保护你的项目、让它们保持安全。</p>
+<p>AI 与机器学习</p></div><div class="en side"><div class="tag">EN</div><h3 id="hgithub-for-beginners-getting-started-with-github-security">GitHub for Beginners: Getting started with GitHub security</h3>
+<p>Learn how to secure your projects and keep them safe with GitHub Advanced Security.</p>
+<p>AI &amp; ML</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0021"><div class="zh side"><div class="tag">中文</div><h3 id="h-copilot-sdk-ai-github-issue-">用 Copilot SDK 构建 AI 驱动的 GitHub issue 分流</h3>
+<p>学习如何把 Copilot SDK 集成进 React Native 应用，生成 AI 驱动的 issue 摘要，其中包含用于优雅降级和缓存的生产实践。</p>
+<p>开发者技能</p></div><div class="en side"><div class="tag">EN</div><h3 id="hbuilding-ai-powered-github-issue-triage-with-the-copilot-sdk">Building AI-powered GitHub issue triage with the Copilot SDK</h3>
+<p>Learn how to integrate the Copilot SDK into a React Native app to generate AI-powered issue summaries, with production patterns for graceful degradation and caching.</p>
+<p>Developer skills</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0022"><div class="zh side"><div class="tag">中文</div><h3 id="hgithub-github-actions">GitHub 入门：开始使用 GitHub Actions</h3>
+<p>在这份操作指南中设置你的第一个 GitHub Actions 工作流。</p>
+<h2 id="h-github-">从 GitHub 了解更多</h2></div><div class="en side"><div class="tag">EN</div><h3 id="hgithub-for-beginners-getting-started-with-github-actions">GitHub for Beginners: Getting started with GitHub Actions</h3>
+<p>Set up your first GitHub Actions workflow in this how-to guide.</p>
+<h2 id="hexplore-more-from-github">Explore more from GitHub</h2></div></div>
+<div class="pair" id="how-to-review-code-effectively-0023"><div class="zh side"><div class="tag">中文</div><h3 id="h-">文档</h3>
+<p>掌握 GitHub 所需的一切，尽在一处。</p>
+<p>前往文档</p></div><div class="en side"><div class="tag">EN</div><h3 id="hdocs">Docs</h3>
+<p>Everything you need to master GitHub, all in one place.</p>
+<p>Go to Docs</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0024"><div class="zh side"><div class="tag">中文</div><h3 id="hgithub">GitHub</h3>
+<p>在 GitHub 上构建下一个未来——这里是任何人、从任何地方都能构建任何东西的地方。</p>
+<p>开始构建</p></div><div class="en side"><div class="tag">EN</div><h3 id="hgithub">GitHub</h3>
+<p>Build what’s next on GitHub, the place for anyone from anywhere to build anything.</p>
+<p>Start building</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0025"><div class="zh side"><div class="tag">中文</div><h3 id="h-">客户案例</h3>
+<p>认识那些用 GitHub 构建产品的公司和工程团队。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcustomer-stories">Customer stories</h3>
+<p>Meet the companies and engineering teams that build with GitHub.</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0026"><div class="zh side"><div class="tag">中文</div><h3 id="hgithub-universe-2024">GitHub Universe 2024</h3>
+<p>来拿门票，参加我们全球开发者大会 10 周年庆典，主题是 AI、DevEx 和安全。</p>
+<p>获取门票</p></div><div class="en side"><div class="tag">EN</div><h3 id="hgithub-universe-2024">GitHub Universe 2024</h3>
+<p>Get tickets to the 10th anniversary of our global developer event on AI, DevEx, and security.</p>
+<p>Get tickets</p></div></div>
+<div class="pair" id="how-to-review-code-effectively-0027"><div class="zh side"><div class="tag">中文</div><h2 id="h-">我们还做邮件通讯</h2>
+<p>在我们的双周刊邮件通讯中，为开发者找到实用的技巧、技术指南和最佳实践。</p>
+<p>你的邮箱地址</p></div><div class="en side"><div class="tag">EN</div><h2 id="hwe-do-newsletters-too">We do newsletters, too</h2>
+<p>Discover tips, technical guides, and best practices in our biweekly newsletter just for devs.</p>
+<p>Your email address</p></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#how-to-review-code-effectively-0000">第 1 段</a></li><li><a href="#how-to-review-code-effectively-0001">第 2 段</a></li><li><a href="#how-to-review-code-effectively-0002">第 3 段</a></li><li><a href="#how-to-review-code-effectively-0003">第 4 段</a></li><li><a href="#how-to-review-code-effectively-0004">第 5 段</a></li><li><a href="#how-to-review-code-effectively-0005">第 6 段</a></li><li><a href="#how-to-review-code-effectively-0006">第 7 段</a></li><li><a href="#how-to-review-code-effectively-0007">第 8 段</a></li><li><a href="#how-to-review-code-effectively-0008">第 9 段</a></li><li><a href="#how-to-review-code-effectively-0009">第 10 段</a></li><li><a href="#how-to-review-code-effectively-0010">第 11 段</a></li><li><a href="#how-to-review-code-effectively-0011">第 12 段</a></li><li><a href="#how-to-review-code-effectively-0012">第 13 段</a></li><li><a href="#how-to-review-code-effectively-0013">第 14 段</a></li><li><a href="#how-to-review-code-effectively-0014">第 15 段</a></li><li><a href="#how-to-review-code-effectively-0015">第 16 段</a></li><li><a href="#how-to-review-code-effectively-0016">第 17 段</a></li><li><a href="#how-to-review-code-effectively-0017">第 18 段</a></li><li><a href="#how-to-review-code-effectively-0018">第 19 段</a></li><li><a href="#how-to-review-code-effectively-0019">第 20 段</a></li><li><a href="#how-to-review-code-effectively-0020">第 21 段</a></li><li><a href="#how-to-review-code-effectively-0021">第 22 段</a></li><li><a href="#how-to-review-code-effectively-0022">第 23 段</a></li><li><a href="#how-to-review-code-effectively-0023">第 24 段</a></li><li><a href="#how-to-review-code-effectively-0024">第 25 段</a></li><li><a href="#how-to-review-code-effectively-0025">第 26 段</a></li><li><a href="#how-to-review-code-effectively-0026">第 27 段</a></li><li><a href="#how-to-review-code-effectively-0027">第 28 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

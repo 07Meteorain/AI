@@ -1,0 +1,10 @@
+{
+ "seg_id": "finding-vulnerabilities-claude-codex#0023",
+ "doc_id": "finding-vulnerabilities-claude-codex",
+ "fingerprint": "23d1381c36c8f2074c38f2de2aef831090f8ed9d",
+ "zh": "#### 关于\n\nSemgrep 让团队能够使用业界领先的 AI 辅助静态应用安全测试（SAST）、供应链依赖扫描（SCA）和密钥检测。Semgrep AppSec Platform 是为那些被噪音困扰的团队打造的，帮助开发团队落实安全编码实践。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

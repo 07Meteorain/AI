@@ -1,0 +1,10 @@
+{
+ "seg_id": "how-long-contexts-fail#0001",
+ "doc_id": "how-long-contexts-fail",
+ "fingerprint": "734ffbc1ee249a68212d14b1d6701b8420097d2a",
+ "zh": "# 长上下文是如何失效的",
+ "meta": {
+  "source": "../work/tr_g02.json",
+  "batch": "tr_g02"
+ }
+}

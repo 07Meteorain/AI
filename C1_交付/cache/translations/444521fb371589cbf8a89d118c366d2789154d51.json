@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0019",
+ "doc_id": "course-homepage",
+ "fingerprint": "444521fb371589cbf8a89d118c366d2789154d51",
+ "zh": "### 这门课我会有什么产出？\n\n学生将完成每周的动手作业，内容涵盖 LLM 提示词、MCP 服务器开发、AI IDE 使用、Claude Code 工作流、安全分析、代码评审自动化和全栈 Web 应用。课程最后以一个展示现代开发实践的最终项目收尾。",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

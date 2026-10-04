@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0051",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "80831aa13d756b156bccb829545639f73e4888c7",
+ "zh": "- API Gateway\n\n用全托管网关开发、部署、保护和管理 API。\n\n存储\n\n- Cloud Storage\n\n安全、耐用、可扩展的对象存储。\n\n- Block Storage\n\n面向 AI、分析、数据库和企业应用的高性能存储。\n\n- Filestore\n\n高扩展且安全的文件存储。\n\n- Persistent Disk\n\n面向运行在 Google Cloud 上的虚拟机实例的块存储。\n\n- Cloud Storage for Firebase\n\n用于存储和分发用户生成内容的对象存储。\n\n- Local SSD\n\n本地挂载的块存储，满足高性能需求。\n\n- Storage Transfer Service\n\n把数据从线上和本地源传输到 Cloud Storage。\n\n- Google Cloud Managed Lustre\n\n高性能托管并行文件系统。\n\n- Google Cloud NetApp Volumes\n\n面向 NFS、SMB 和多协议环境的文件存储服务。\n\n- Backup and DR Service\n\n集中化、应用一致的数据保护服务。\n\nWeb3\n\n- Blockchain Node Engine\n\n用于在区块链上开发的全托管节点托管服务。\n\n- Blockchain RPC\n\n用于在区块链上构建的企业级 RPC。\n\n- 用我们透明的定价方式省钱\n\n- Google Cloud 的按量计费定价会根据月度用量自动给出优惠，并为预付费资源提供折扣费率。今天就联系我们获取报价。\n\n- 申请报价\n\n- Google Cloud 定价\n\n只为用到的部分付费，不锁定。\n\n- 定价计算器\n\n算算你在云上能省多少。\n\n- Google Cloud 免费额度",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

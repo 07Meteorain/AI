@@ -1,0 +1,10 @@
+{
+ "seg_id": "kubernetes-troubleshooting-ai#0003",
+ "doc_id": "kubernetes-troubleshooting-ai",
+ "fingerprint": "67a6f9db57c26dac9f37145837927ce99f574e2a",
+ "zh": "### Kubernetes 排查的困境\n\n虽然 Kubernetes 自动化了很多事情，但它动态且转瞬即逝的特性给 DevOps 和 SRE 团队带来了新挑战。以下是我们看到的最常见用例：\n\n1. 狼来了式的噪声告警\n\nKubernetes 的控制平面不知疲倦地调整工作负载以匹配期望状态。pod 重启之类的小故障，往往触发那些在你还没反应过来之前就自行解决的告警。结果就是告警疲劳。但埋在这些噪声里，自动扩缩容器配置错误或隐藏的瓶颈这类真问题无人留意，直到它们滚成故障事件。\n\n2. 短暂的 pod，丢失的上下文\n\npod 崩溃时，会把宝贵的排查上下文一并带走。事后对 pod 执行 kubectl describe 通常查不出多少东西。你根本来不及挂上调试器，Kubernetes 的资源和状态就已经重置。等你开始调查时，关键线索早已消失。这就像在证据被清扫干净之后才赶到案发现场。\n\n3. 可观测性数据的迷宫\n\n日志散落在各个节点、pod 和容器上，让调试变成一件令人沮丧的事。Kubernetes 产生海量的指标和遥测数据，但针对某条告警真正相关的只有一小部分。在无数仪表盘里翻找、在命令行里敲 kubectl 命令、跨 namespace 关联 CPU 和内存使用情况以找到相关数据，这些都在浪费时间、拖延解决进度，让团队被噪声淹没而不是专注于解决方案。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

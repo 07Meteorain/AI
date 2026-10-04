@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0026",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "b46b12df254181ca10fcd2eab147311357e8f116",
+ "zh": "#### 我该如何衡量 AI 代码评审实现的成效？\n\n跟踪这些指标：生产 bug 的减少量、代码评审节省下来的时间、开发者满意度评分，以及代码质量的改善。落地前先建立基线测量，使用 3-6 个月后再对比结果。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

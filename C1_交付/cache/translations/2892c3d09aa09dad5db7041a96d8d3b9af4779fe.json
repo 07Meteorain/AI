@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0007",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "2892c3d09aa09dad5db7041a96d8d3b9af4779fe",
+ "zh": "### 告诉智能体从哪里入手\n\n想一想如果这件事由你自己来做，你会从哪里开始。即使你不知道具体的文件名或函数名，也要提到相关的仓库、文档和涉及的关键组件。明确指出这些信息能最大限度减少无效努力和困惑。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

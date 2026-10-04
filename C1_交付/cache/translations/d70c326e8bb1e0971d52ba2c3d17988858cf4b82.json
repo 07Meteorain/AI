@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0005",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "d70c326e8bb1e0971d52ba2c3d17988858cf4b82",
+ "zh": "#### 第 2 步：接入开发工作流\n\n要有效地实现 AI 代码评审：\n\n- 设置 webhook 或集成，让拉取请求自动触发评审\n\n- 创建配置文件，指定严重级别和关注范围\n\n- 为生成的代码设置忽略规则\n\n- 向团队介绍 AI 评审的能力与局限\n\n- 制定解读和落实 AI 建议的准则",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

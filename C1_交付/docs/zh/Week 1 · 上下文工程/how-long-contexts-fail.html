@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>上下文是如何失效的（How Contexts Fail） · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>上下文是如何失效的（How Contexts Fail）</h1>
+  <div class="meta">
+    <span>分类：Week 1 · 上下文工程</span><span>原文 1,579 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html" target="_blank" rel="noopener">https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="how-long-contexts-fail-0000"><div class="zh side"><div class="tag">中文</div><p>dbreunig.com</p>
+<p>联系方式</p>
+<p>2025 年 6 月 22 日</p>
+<p>智能体</p>
+<p>LLM</p>
+<p>AI</p>
+<p>提示词</p>
+<p>上下文管理</p></div><div class="en side"><div class="tag">EN</div><p>dbreunig.com</p>
+<p>Contact</p>
+<p>Jun 22, 2025</p>
+<p>AGENTS</p>
+<p>LLM</p>
+<p>AI</p>
+<p>PROMPTING</p>
+<p>CONTEXT MANAGEMENT</p></div></div>
+<div class="pair" id="how-long-contexts-fail-0001"><div class="zh side"><div class="tag">中文</div><h1 id="h-">长上下文是如何失效的</h1></div><div class="en side"><div class="tag">EN</div><h1 id="hhow-long-contexts-fail">How Long Contexts Fail</h1></div></div>
+<div class="pair" id="how-long-contexts-fail-0002"><div class="zh side"><div class="tag">中文</div><h3 id="h-">管理好上下文，是智能体成功的关键</h3>
+<p>随着前沿模型的上下文窗口持续增长1，其中很多已经支持到 1 million token（词元），我看到许多兴奋的讨论：长上下文窗口将如何释放我们梦想中的智能体。毕竟，只要窗口足够大，你完全可以把可能需要的一切都塞进提示词里——工具、文档、指令等等——剩下的交给模型处理。</p>
+<p>长上下文给 RAG（检索增强生成）的热情踩了刹车（反正都能塞进提示词里，不用费心找最匹配的文档了！），给了 MCP 炒作的空间（接上所有工具，模型就能干任何活！），也助长了对智能体的热情2。</p>
+<p>但现实是，更长的上下文并不会带来更好的回答。上下文过载会让你的智能体和应用以出人意料的方式失败。上下文可能被污染、被干扰、变得混乱，或者自相矛盾。这对智能体尤其麻烦，因为它们要靠上下文来收集信息、综合结论、协调整行动。</p>
+<p>下面我们逐一看看上下文会失控的几种方式，再回顾缓解乃至彻底避免上下文失效的方法。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hmanaging-your-context-is-the-key-to-successful-agents">Managing Your Context is the Key to Successful Agents</h3>
+<p>As frontier model context windows continue to grow1, with many supporting up to 1 million tokens, I see many excited discussions about how long context windows will unlock the agents of our dreams. After all, with a large enough window, you can simply throw everything into a prompt you might need – tools, documents, instructions, and more – and let the model take care of the rest.</p>
+<p>Long contexts kneecapped RAG enthusiasm (no need to find the best doc when you can fit it all in the prompt!), enabled MCP hype (connect to every tool and models can do any job!), and fueled enthusiasm for agents2.</p>
+<p>But in reality, longer contexts do not generate better responses. Overloading your context can cause your agents and applications to fail in suprising ways. Contexts can become poisoned, distracting, confusing, or conflicting. This is especially problematic for agents, which rely on context to gather information, synthesize findings, and coordinate actions.</p>
+<p>Let’s run through the ways contexts can get out of hand, then review methods to mitigate or entirely avoid context fails.</p></div></div>
+<div class="pair" id="how-long-contexts-fail-0003"><div class="zh side"><div class="tag">中文</div><h2 id="h-">上下文失效</h2>
+<ul>
+<li>上下文污染：幻觉混进了上下文</li>
+</ul>
+<ul>
+<li>上下文干扰：上下文压过了训练所学</li>
+</ul>
+<ul>
+<li>上下文混乱：多余的内容影响了回答</li>
+</ul>
+<ul>
+<li>上下文冲突：上下文的不同部分彼此矛盾</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h2 id="hcontext-fails">Context Fails</h2>
+<ul>
+<li>Context Poisoning: When a hallucination makes it into the context</li>
+</ul>
+<ul>
+<li>Context Distraction: When the context overwhelms the training</li>
+</ul>
+<ul>
+<li>Context Confusion: When superfluous context influences the response</li>
+</ul>
+<ul>
+<li>Context Clash: When parts of the context disagree</li>
+</ul></div></div>
+<div class="pair" id="how-long-contexts-fail-0004"><div class="zh side"><div class="tag">中文</div><h3 id="h-">上下文污染</h3>
+<p>上下文污染是指幻觉或其他错误混进了上下文，之后又被反复引用。</p>
+<p>Deep Mind 团队在 Gemini 2.5 技术报告里点了上下文污染这件事，我们上周刚拆解过这份报告。玩 Pokémon 的时候，Gemini 智能体偶尔会在游戏过程中产生幻觉，污染自己的上下文：</p>
+<blockquote>这个问题尤其严重的一种形式是「上下文污染」——上下文的许多部分（目标、摘要）被关于游戏状态的错误信息「毒化」，而这些错误往往要花很长时间才能纠正。结果是，模型可能变得执迷于达成根本不可能实现或毫不相关的目标。</blockquote>
+<p>如果它上下文里的「目标」部分被污染了，智能体就会制定出毫无意义的策略，并反复重复某些行为，去追求一个根本无法达成的目标。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcontext-poisoning">Context Poisoning</h3>
+<p>Context Poisoning is when a hallucination or other error makes it into the context, where it is repeatedly referenced.</p>
+<p>The Deep Mind team called out context poisoning in the Gemini 2.5 technical report, which we broke down last week. When playing Pokémon, the Gemini agent would occasionally hallucinate while playing, poisoning its context:</p>
+<blockquote>An especially egregious form of this issue can take place with “context poisoning” – where many parts of the context (goals, summary) are “poisoned” with misinformation about the game state, which can often take a very long time to undo. As a result, the model can become fixated on achieving impossible or irrelevant goals.</blockquote>
+<p>If the “goals” section of its context was poisoned, the agent would develop nonsensical strategies and repeat behaviors in pursuit of a goal that cannot be met.</p></div></div>
+<div class="pair" id="how-long-contexts-fail-0005"><div class="zh side"><div class="tag">中文</div><h3 id="h-">上下文干扰</h3>
+<p>上下文干扰是指上下文长得太长，模型过度关注上下文，反而忽略了训练时学到的东西。</p>
+<p>在智能体式的工作流中，随着模型收集更多信息、积累历史，上下文不断增长——这些累积起来的上下文会从帮手变成干扰。玩 Pokémon 的 Gemini 智能体就清楚地展示了这个问题：</p>
+<blockquote>虽然 Gemini 2.5 Pro 支持 1M+ token 上下文，但要真正让智能体用好它，</blockquote>
+<p>仍是一片新的研究前沿。在这种智能体式设定下，我们观察到：当上下文明显超过 100k tokens 之后，智能体开始倾向于重复它那庞大历史里的动作，而不是综合出新的计划。这一现象虽然只是轶事，却凸显了一个重要区别：用于检索的长上下文，和用于多步生成式推理的长上下文，是两回事。</p>
+<p>智能体没有用训练中学到的东西去制定新策略，反而执着于重复上下文历史里的旧动作。</p>
+<p>对更小的模型来说，干扰上限要低得多。Databricks 的一项研究发现，Llama 3.1 405b 的正确率在 32k 左右开始下滑，更小的模型下滑得更早。</p>
+<p>如果模型在上下文窗口填满之前很久就开始出问题，那超大的上下文窗口还有什么意义？一句话概括：摘要生成3 和事实检索。如果你做的不是这两件事，就该警惕你选的模型能扛到多少 token 才出现干扰。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcontext-distraction">Context Distraction</h3>
+<p>Context Distraction is when a context grows so long that the model over-focuses on the context, neglecting what it learned during training.</p>
+<p>As context grows during an agentic workflow—as the model gathers more information and builds up history—this accumulated context can become distracting rather than helpful. The Pokémon-playing Gemini agent demonstrated this problem clearly:</p>
+<blockquote>While Gemini 2.5 Pro supports 1M+ token context, making effective use of it for agents presents</blockquote>
+<p>a new research frontier. In this agentic setup, it was observed that as the context grew significantly beyond 100k tokens, the agent showed a tendency toward favoring repeating actions from its vast history rather than synthesizing novel plans. This phenomenon, albeit anecdotal, highlights an important distinction between long-context for retrieval and long-context for multi-step, generative reasoning.</p>
+<p>Instead of using its training to develop new strategies, the agent became fixated on repeating past actions from its extensive context history.</p>
+<p>For smaller models, the distraction ceiling is much lower. A Databricks study found that model correctness began to fall around 32k for Llama 3.1 405b and earlier for smaller models.</p>
+<p>If models start to misbehave long before their context windows are filled, what’s the point of super large context windows? In a nutshell: summarization3 and fact retrieval. If you’re not doing either of those, be wary of your chosen model’s distraction ceiling.</p></div></div>
+<div class="pair" id="how-long-contexts-fail-0006"><div class="zh side"><div class="tag">中文</div><h3 id="h-">上下文混乱</h3>
+<p>上下文混乱是指上下文里的多余内容被模型拿来用，生成质量很差的回答。</p>
+<p>有那么一小段时间，看起来真的是所有人都在抢着发布 MCP。一个强大的模型、连上你所有的服务、把那些日常杂事全做完——这个梦想似乎伸手可及。只要把所有工具描述塞进提示词里，点一下开始就行。Claude 的系统提示词给我们指了路，因为那里面大部分就是工具定义，或者使用工具的说明。</p>
+<p>但就算整合与竞争不会拖慢 MCP，上下文混乱会。结果是，「工具太多」这件事真的存在。</p>
+<p>Berkeley Function-Calling Leaderboard 是一个工具使用基准测试，用来评测模型能否有效使用工具来回应对提示词。榜单已经到第 3 个版本，结果显示只要给模型超过一个工具，所有模型的表现都会变差4。更进一步，Berkeley 团队「设计了一些场景，其中提供的函数没有一个是相关的……我们预期模型不会输出任何函数调用」。然而，所有模型都会偶尔调用不相关的工具。</p>
+<p>翻看这个函数调用榜单，你会发现模型越小，这个问题越严重：</p>
+<p>上下文混乱的一个典型例子出自最近一篇论文，它评测了小模型在 GeoEngine 基准上的表现。这个测试包含 46 个不同的工具。团队把全部 46 个工具连同查询一起给了一个量化（压缩）过的 Llama 3.1 8b，模型失败了——尽管上下文还远在 16k 上下文窗口之内。但只给 19 个工具时，它就成功了。</p>
+<p>问题在于：只要你把什么东西放进了上下文，模型就得关注它。它可能是无关信息，也可能是没必要的工具定义，但模型都会把它算进去。大模型，尤其是推理模型，正在变得更善于忽略或丢弃多余上下文，可我们仍然不断看到没价值的信息把智能体绊倒。更长的上下文让我们能塞进更多信息，但这个能力是有代价的。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcontext-confusion">Context Confusion</h3>
+<p>Context Confusion is when superfluous content in the context is used by the model to generate a low-quality response.</p>
+<p>For a minute there, it really seemed like everyone was going to ship an MCP. The dream of a powerful model, connected to all your services and stuff, doing all your mundane tasks felt within reach. Just throw all the tool descriptions into the prompt and hit go. Claude’s system prompt showed us the way, as it’s mostly tool definitions or instructions for using tools.</p>
+<p>But even if consolidation and competition don’t slow MCPs, Context Confusion will. It turns out there can be such a thing as too many tools.</p>
+<p>The Berkeley Function-Calling Leaderboard is a tool-use benchmark that evaluates the ability of models to effectively use tools to respond to prompts. Now on its 3rd version, the leaderboard shows that every model performs worse when provided with more than one tool4. Further, the Berkeley team, “designed scenarios where none of the provided functions are relevant...we expect the model’s output to be no function call.” Yet, all models will occasionally call tools that aren’t relevant.</p>
+<p>Browsing the function-calling leaderboard, you can see the problem get worse as the models get smaller:</p>
+<p>A striking example of context confusion can be seen in a recent paper which evaluated small model performance on the GeoEngine benchmark, a trial that features 46 different tools. When the team gave a quantized (compressed) Llama 3.1 8b a query with all 46 tools it failed, even though the context was well within the 16k context window. But when they only gave the model 19 tools, it succeeded.</p>
+<p>The problem is: if you put something in the context the model has to pay attention to it. It may be irrelevant information or needless tool definitions, but the model will take it into account. Large models, especially reasoning models, are getting better at ignoring or discarding superfluous context, but we continually see worthless information trip up agents. Longer contexts let us stuff in more info, but this ability comes with downsides.</p></div></div>
+<div class="pair" id="how-long-contexts-fail-0007"><div class="zh side"><div class="tag">中文</div><h3 id="h-">上下文冲突</h3>
+<p>上下文冲突是指你在上下文里不断积累新的信息和工具，而这些新内容和上下文里的其他信息互相矛盾。</p>
+<p>这是上下文混乱的一个更棘手的版本：这里的问题内容不是无关的，而是直接和提示词里的其他信息冲突。</p>
+<p>Microsoft 和 Salesforce 的一支团队在最近一篇论文里把这件事记录得非常清楚。团队从多个基准测试里取出提示词，把它们的信息「分片」到多个提示词中。可以这样理解：有时候你坐下来，在按下回车之前把整段内容打进 ChatGPT 或 Claude，把每个必要的细节都想清楚；另一些时候，你先写一个简单的提示词，等聊天机器人给出的答案不满意时，再补充更多细节。Microsoft/Salesforce 团队改造了基准提示词，让它们看起来就像这样的多轮对话：</p>
+<p>左侧提示词里的全部信息，都被拆进了右侧的若干条消息里，而这些消息会在多个聊天轮次中依次呈现。</p>
+<p>分片后的提示词成绩明显更差，平均下降 39%。团队还测了一系列模型——OpenAI 备受吹捧的 o3 分数从 98.1 掉到 64.1。</p>
+<p>这是怎么回事？为什么信息分阶段收集，模型表现反而比一次性收集更差？</p>
+<p>答案是上下文混乱：拼装出来的上下文包含了整段对话，其中保留了模型在拿到全部信息之前、尝试回答这个问题时留下的早期答案。这些错误答案依然待在上下文里，在模型生成最终回答时影响它。团队写道：</p>
+<blockquote>我们发现，大语言模型常常在早期轮次就做出假设，并过早地尝试给出最终方案，然后过度依赖这些方案。说得直白一点，我们发现当大语言模型在对话中走错一步之后，就会迷在里面，出不来。</blockquote>
+<p>这对做智能体的人不是什么好兆头。智能体的上下文来自文档、工具调用，以及被委派子问题的其他模型。所有这些从不同来源拉来的上下文，都有自相矛盾的可能。更进一步，当你接入自己没写的 MCP 工具时，它们的描述和说明更可能和提示词里的其余部分冲突。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcontext-clash">Context Clash</h3>
+<p>Context Clash is when you accrue new information and tools in your context that conflicts with other information in the context.</p>
+<p>This is a more problematic version of Context Confusion: the bad context here isn’t irrelevant, it directly conflicts with other information in the prompt.</p>
+<p>A Microsoft and Salesforce team documented this brilliantly in a recent paper. The team took prompts from multiple benchmarks and ‘sharded’ their information across multiple prompts. Think of it this way: sometimes, you might sit down and type paragraphs into ChatGPT or Claude before you hit enter, considering every necessary detail. Other times, you might start with a simple prompt, then add further details when the chatbot’s answer isn’t satisfactory. The Microsoft/Salesforce team modified benchmark prompts to look like these multistep exchanges:</p>
+<p>All the information from the prompt on the left side is contained within the several messages on the right side, which would be played out in multiple chat rounds.</p>
+<p>The sharded prompts yielded dramatically worse results, with an average drop of 39%. And the team tested a range of models – OpenAI’s vaunted o3’s score dropped from 98.1 to 64.1.</p>
+<p>What’s going on? Why are models performing worse if information is gathered in stages rather than all at once?</p>
+<p>The answer is Context Confusion: the assembled context, containing the entirety of the chat exchange, contains early attempts by the model to answer the challenge before it has all the information. These incorrect answers remain present in the context and influence the model when it generates its final answer. The team writes:</p>
+<blockquote>We find that LLMs often make assumptions in early turns and prematurely attempt to generate final solutions, on which they overly rely. In simpler terms, we discover that when LLMs take a wrong turn in a conversation, they get lost and do not recover.</blockquote>
+<p>This does not bode well for agent builders. Agents assemble context from documents, tool calls, and from other models tasked with subproblems. All of this context, pulled from diverse sources, has the potential to disagree with itself. Further, when you connect to MCP tools you didn’t create there’s a greater chance their descriptions and instructions clash with the rest of your prompt.</p></div></div>
+<div class="pair" id="how-long-contexts-fail-0008"><div class="zh side"><div class="tag">中文</div><p>百万 token 级上下文窗口的到来，感觉像是一次范式转变。把智能体可能需要的一切都塞进提示词里的能力，让人们生出了这样的想象：超级智能助手能访问任何文档、连接每一个工具、拥有完美记忆。</p>
+<p>但我们已经看到，上下文越大，新的失败模式就越多。上下文污染把错误埋进去，并随时间不断放大。上下文干扰让智能体过度依赖上下文，重复过去的动作而不是往前推进。上下文混乱导致它去用无关的工具或文档。上下文冲突制造内部矛盾，让推理脱轨。</p>
+<p>这些失败对智能体打击最大，因为智能体干的恰恰是那些上下文会膨胀的活：从多个来源收集信息、连续发起工具调用、进行多轮推理、积累庞大的历史记录。</p>
+<p>所幸，办法还是有的！接下来的一篇文章里，我们会讲缓解乃至避免这些问题的技术，从动态加载工具的方法，到给上下文建隔离区。</p>
+<p>阅读后续文章《How to Fix Your Context》</p>
+<ul>
+<li>Gemini 2.5 和 GPT-4.1 都有 1 million token 的上下文窗口，大到能把《Infinite Jest》整个塞进去，而且还富余得很。↩</li>
+</ul>
+<ul>
+<li>Gemini 文档里的「Long form text」一节很好地总结了这份乐观。↩</li>
+</ul>
+<ul>
+<li>事实上，在上文引用的 Databricks 研究中，模型拿到长上下文后常见的失败方式是：直接返回所给上下文的摘要，而无视提示词里的任何指令。↩</li>
+</ul></div><div class="en side"><div class="tag">EN</div><p>The arrival of million-token context windows felt transformative. The ability to throw everything an agent might need into the prompt inspired visions of superintelligent assistants that could access any document, connect to every tool, and maintain perfect memory.</p>
+<p>But as we’ve seen, bigger contexts create new failure modes. Context poisoning embeds errors that compound over time. Context distraction causes agents to lean heavily on their context and repeat past actions rather than push forward. Context confusion leads to irrelevant tool or document usage. Context clash creates internal contradictions that derail reasoning.</p>
+<p>These failures hit agents hardest because agents operate in exactly the scenarios where contexts balloon: gathering information from multiple sources, making sequential tool calls, engaging in multi-turn reasoning, and accumulating extensive histories.</p>
+<p>Fortunately, there are solutions! In an upcoming post we’ll cover techniques for mitigating or avoding these issues, from methods for dynamically loading tools to spinning up context quarantines.</p>
+<p>Read the follow up article, “How to Fix Your Context“</p>
+<ul>
+<li>Gemini 2.5 and GPT-4.1 have 1 million token context windows, large enough to throw Infinite Jest in there, with plenty of room to spare. ↩</li>
+</ul>
+<ul>
+<li>The “Long form text” section in the Gemini docs sum up this optmism nicely. ↩</li>
+</ul>
+<ul>
+<li>In fact, in the Databricks study cited above, a frequent way models would fail when given long contexts is they’d return summarizations of the provided context, while ignoring any instructions contained within the prompt. ↩</li>
+</ul></div></div>
+<div class="pair" id="how-long-contexts-fail-0009"><div class="zh side"><div class="tag">中文</div><ul>
+<li>如果你在看这个榜单，请留意「Live (AST)」这几列。这些指标用的是企业为产品贡献的真实工具定义，从而「避免了数据集污染和基准偏差带来的弊端。」↩</li>
+</ul></div><div class="en side"><div class="tag">EN</div><ul>
+<li>If you’re on the leaderboard, pay attention to the, “Live (AST)” columns. These metrics use real-world tool definitions contributed to the product by enterprise, “avoiding the drawbacks of dataset contamination and biased benchmarks.” ↩</li>
+</ul></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#how-long-contexts-fail-0000">第 1 段</a></li><li><a href="#how-long-contexts-fail-0001">第 2 段</a></li><li><a href="#how-long-contexts-fail-0002">第 3 段</a></li><li><a href="#how-long-contexts-fail-0003">第 4 段</a></li><li><a href="#how-long-contexts-fail-0004">第 5 段</a></li><li><a href="#how-long-contexts-fail-0005">第 6 段</a></li><li><a href="#how-long-contexts-fail-0006">第 7 段</a></li><li><a href="#how-long-contexts-fail-0007">第 8 段</a></li><li><a href="#how-long-contexts-fail-0008">第 9 段</a></li><li><a href="#how-long-contexts-fail-0009">第 10 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

@@ -1,0 +1,10 @@
+{
+ "seg_id": "context-rot#0033",
+ "doc_id": "context-rot",
+ "fingerprint": "f342c00bfe1e375c1f151338171e0205ab7b782c",
+ "zh": "[12] jamescalam. (2024). ai-arxiv2 [Dataset]. Hugging Face. Link\n\n[13] Peng, B., Quesnelle, J., Fan, H., and Shippole, E. (2023). YaRN: Efficient Context Window Extension of Large Language Models. arXiv preprint arXiv:2309.00071. Link\n\n[14] McInnes, L., Healy, J., and Melville, J. (2020). UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction. arXiv preprint arXiv:1802.03426. Link\n\n[15] Campello, R. J. G. B., Moulavi, D., and Sander, J. (2013). Density-Based Clustering Based on Hierarchical Density Estimates. In Pei, J., Tseng, V. S., Cao, L., Motoda, H., and Xu, G. (Eds.), Advances in Knowledge Discovery and Data Mining (PAKDD 2013), Lecture Notes in Computer Science, vol 7819. Springer, Berlin, Heidelberg. Link\n\n附录#\n\n清洗后的 LongMemEval 数据集，以及所用的针/干扰项，都可以在此处下载。\n\n大语言模型评审对齐#\n\n我们采用大语言模型评审来评测 NIAH 和 LongMemEval 实验中的输出。这些评审通过以下流程与人类判断校准：\n\n- 人工标注一部分模型输出为错误/正确（NIAH 约 500 条输出，LongMemEval 约 600 条输出）\n\n- 用 GPT-4.1 对同一批模型输出标注为错误/正确。\n\n- 通过测量人类与模型判断一致的比例，算出一致性得分。\n\n- 根据人工检查出的不一致之处迭代提示词。\n\n- 重复第 2-4 步，直到一致性得分 > 0.99。",
+ "meta": {
+  "source": "../work/tr_g02.json",
+  "batch": "tr_g02"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0032",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "0b52ba465abd6e38ecaf317279a248432969e189",
+ "zh": "这确保了你的用户会被重定向到 GitHub 完成认证。不过要让它跑起来，你还需要按下面的步骤创建 OAuth 客户端应用。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

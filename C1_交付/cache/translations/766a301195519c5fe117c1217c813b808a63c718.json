@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0020",
+ "doc_id": "course-homepage",
+ "fingerprint": "766a301195519c5fe117c1217c813b808a63c718",
+ "zh": "### 我们会用到哪些工具？\n\n课程覆盖一批 AI 开发工具，包括 Claude Code、Warp 终端、Cursor/Windsurf IDE、Semgrep、Graphite 和 Vercel。我们还会用到 Model Context Protocol（MCP）以及各类 LLM API。",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

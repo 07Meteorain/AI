@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0045",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "b1964619f6c26685cc580469bdfcc0f2e768cb09",
+ "zh": "开发者工具\n\n- Artifact Registry\n\n管理构建产物和依赖的通用包管理器。\n\n- Cloud Code\n\n在 IDE 中编写、运行和调试 Kubernetes 应用的辅助能力。\n\n- Cloud Build\n\n持续集成与持续交付（CI/CD）平台。\n\n- Cloud Deploy\n\n面向 GKE 和 Cloud Run 的全托管持续交付。\n\n- Cloud Deployment Manager\n\n用于创建和管理 Google Cloud 资源的服务。\n\n- Cloud SDK\n\nGoogle Cloud 的命令行工具和库。\n\n- Cloud Scheduler\n\n用于任务自动化和管理的 Cron 作业调度器。\n\n- Cloud Source Repositories\n\n用于存储、管理和追踪代码的私有 Git 仓库。\n\n- Infrastructure Manager\n\n用 Terraform 实现基础设施管理自动化。\n\n- Cloud Workstations\n\n云上托管且安全的开发环境。\n\n- Gemini Code Assist\n\n贯穿 Google Cloud 和你的 IDE 的 AI 助手。\n\n- 没找到你想要的产品？\n\n- 查看全部开发者工具\n\n分布式云\n\n- Google Distributed Cloud Connected\n\n面向边缘工作负载的分布式云服务。\n\n- Google Distributed Cloud Air-gapped\n\n面向隔离工作负载的分布式云。\n\n- 混合云与多云\n\n- Google Kubernetes Engine\n\n运行容器化应用的托管环境。\n\n- Apigee API Management\n\nAPI 管理、开发与安全平台。\n\n- 迁移到容器\n\n把工作负载和现有应用迁到 GKE 的工具。\n\n- Cloud Build\n\n在 Google Cloud 基础设施上执行构建的服务。\n\n- 可观测性\n\n监控、日志与应用性能套件。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

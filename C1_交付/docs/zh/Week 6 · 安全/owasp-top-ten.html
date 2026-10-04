@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OWASP 十大风险 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>OWASP 十大风险</h1>
+  <div class="meta">
+    <span>分类：Week 6 · 安全</span><span>原文 2,288 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener">https://owasp.org/www-project-top-ten/</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="owasp-top-ten-0000"><div class="zh side"><div class="tag">中文</div><p>本网站使用 cookie 分析我们的流量，并且只把这些信息与我们的分析合作伙伴共享。</p>
+<p>接受</p>
+<p>x</p>
+<p>商店</p>
+<p>捐赠</p>
+<p>加入</p></div><div class="en side"><div class="tag">EN</div><p>This website uses cookies to analyze our traffic and only share that information with our analytics partners.</p>
+<p>Accept</p>
+<p>x</p>
+<p>Store</p>
+<p>Donate</p>
+<p>Join</p></div></div>
+<div class="pair" id="owasp-top-ten-0001"><div class="zh side"><div class="tag">中文</div><h1 id="howasp-web-">OWASP Web 应用十大风险</h1>
+<p>目前发布的最新版本是 OWASP 十大风险 2025。</p>
+<p>更早的版本可见 OWASP Top Ten 2021 和 OWASP Top 10 2017（PDF）。更早的版本可在 Github 仓库中获取。</p>
+<p>OWASP 十大风险是面向开发者和 Web 应用安全的标准意识文档。它代表了对 Web 应用最关键安全风险的广泛共识。</p>
+<p>被开发者普遍视为迈向更安全编码的第一步。</p>
+<p>企业应当采纳本文件，并启动相应的工作流程，确保其 Web 应用把这些风险降到最低。采纳 OWASP 十大风险，或许是推动组织内软件开发文化转向、产出更安全代码的第一步。</p></div><div class="en side"><div class="tag">EN</div><h1 id="howasp-top-ten-web-application-security-risks">OWASP Top Ten Web Application Security Risks</h1>
+<p>The most current released version is the OWASP Top Ten 2025.</p>
+<p>Previous versions are available at OWASP Top Ten 2021 and OWASP Top 10 2017 (PDF). Older versiona are available in the Github repo.</p>
+<p>The OWASP Top 10 is a standard awareness document for developers and web application security. It represents a broad consensus about the most critical security risks to web applications.</p>
+<p>Globally recognized by developers as the first step towards more secure coding.</p>
+<p>Companies should adopt this document and start the process of ensuring that their web applications minimize these risks. Using the OWASP Top 10 is perhaps the most effective first step towards changing the software development culture within your organization into one that produces more secure code.</p></div></div>
+<div class="pair" id="owasp-top-ten-0002"><div class="zh side"><div class="tag">中文</div><h1 id="h-">翻译工作</h1>
+<p>已有多种语言着手翻译 OWASP 十大风险 2025。如果你有意参与，请联系你所贡献语言的团队成员；如果你没有看到自己的语言（无论这里还是 github 上都没有），请发邮件至 [email protected] 告知我们你想参与，我们将为你的语言组建志愿者小组。</p>
+<h3 id="htop10-2025-">Top10:2025 已完成的翻译：</h3>
+<p>翻译进行中 —— 请稍后再来查看！</p>
+<h2 id="h-">历史版本：</h2>
+<h3 id="htop10-2021-">Top10:2021 已完成的翻译：</h3></div><div class="en side"><div class="tag">EN</div><h1 id="htranslation-efforts">Translation Efforts</h1>
+<p>Efforts have been made in numerous languages to translate the OWASP Top 10 - 2025. If you are interested in helping, please contact the members of the team for the language you are interested in contributing to, or if you don’t see your language listed (neither here nor at github), please email [email protected] to let us know that you want to help and we’ll form a volunteer group for your language.</p>
+<h3 id="htop10-2025-completed-translations-">Top10:2025 Completed Translations:</h3>
+<p>Translations in progress - check back soon!</p>
+<h2 id="hhistoric-">Historic:</h2>
+<h3 id="htop10-2021-completed-translations-">Top10:2021 Completed Translations:</h3></div></div>
+<div class="pair" id="owasp-top-ten-0003"><div class="zh side"><div class="tag">中文</div><h3 id="htop10-2017-">Top10:2017 已完成的翻译：</h3>
+<ul>
+<li>翻译人员:陈亮、王厚奎、王颉、王文君、王晓飞、吴楠、徐瑞祝、夏天泽、杨璐、张剑钟、赵学文(排名不分先后,按姓氏拼音排列)</li>
+</ul>
+<ul>
+<li>法语：OWASP Top 10 2017 法语版（Git/Markdown）</li>
+</ul>
+<ul>
+<li>德语：OWASP Top 10 2017 德语版 V1.0（Pdf）（网页）</li>
+</ul>
+<p>由 Christian Dresen, Alexios Fakos, Louisa Frick, Torsten Gigler, Tobias Glemser, Dr. Frank Gut, Dr. Ingo Hanke, Dr. Thomas Herzog, Dr. Markus Koegel, Sebastian Klipper, Jens Liebau, Ralf Reinhardt, Martin Riedel, Michael Schaefer 编译</p>
+<ul>
+<li>希伯来语：OWASP Top 10-2017 - Hebrew (PDF) (PPTX)</li>
+</ul>
+<p>由 Eyal Estrin (Twitter: @eyalestrin) 和 Omer Levi Hevroni (Twitter: @omerlh) 翻译。</p>
+<ul>
+<li>日语：OWASP Top 10-2017 - 日本語版 (PDF)</li>
+</ul>
+<p> 由 Akitsugu ITO, Albert Hsieh, Chie TAZAWA, Hideko IGARASHI, Hiroshi TOKUMARU, Naoto KATSUMI, Riotaro OKADA, Robert DRACEA, Satoru TAKAHASHI, Sen UENO, Shoichi NAKATA, Takanori NAKANOWATARI ,Takanori ANDO, Tomohiro SANAE 翻译并审校。</p>
+<ul>
+<li>韩语：OWASP Top 10-2017 - 한글 (PDF) (PPTX)</li>
+</ul>
+<p> 번역 프로젝트 관리 및 감수 : 박형근(Hyungkeun Park) / 감수(ᄀᄂᄃ순) : 강용석(YongSeok Kang), 박창렴(Park Changryum), 조민재(Johnny Cho) / 편집 및 감수 : 신상원(Shin Sangwon) / 번역(ᄀᄂᄃ순) : 김영하(Youngha Kim), 박상영(Sangyoung Park), 이민욱(MinWook Lee), 정초아(JUNG CHOAH), 조광렬(CHO KWANG YULL), 최한동(Handong Choi)</p>
+<ul>
+<li>葡萄牙语：OWASP Top 10 2017 - Portuguese (PDF) (ODP)</li>
+</ul>
+<p> 由 Anabela Nogueira, Carlos Serrão, Guillaume Lopes, João Pinto, João Samouco, Kembolle A. Oliveira, Paulo A. Silva, Ricardo Mourato, Rui Silva, Sérgio Domingues, Tiago Reis, Vítor Magano 翻译。</p>
+<ul>
+<li>俄语：OWASP Top 10-2017 - на русском языке (PDF)</li>
+</ul>
+<p> 由 JZDLin (@JZDLin), Oleksii Skachkov (@hamster4n), Ivan Kochurkin (@KvanTTT) 和 Taras Ivashchenko 翻译并审校</p>
+<ul>
+<li>西班牙语：OWASP Top 10-2017 - Español (PDF)</li>
+</ul>
+<ul>
+<li>Gerardo Canedo([email protected] - [Twitter: @GerardoMCanedo])</li>
+</ul>
+<ul>
+<li>Cristian Borghello([email protected] - [Twitter: @seguinfo])</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h3 id="htop10-2017-completed-translations-">Top10:2017 Completed Translations:</h3>
+<ul>
+<li>翻译人员:陈亮、王厚奎、王颉、王文君、王晓飞、吴楠、徐瑞祝、夏天泽、杨璐、张剑钟、赵学文(排名不分先后,按姓氏拼音排列)</li>
+</ul>
+<ul>
+<li>French: OWASP Top 10 2017 in French (Git/Markdown)</li>
+</ul>
+<ul>
+<li>German: OWASP Top 10 2017 in German V1.0 (Pdf) (web pages)</li>
+</ul>
+<p>compiled by Christian Dresen, Alexios Fakos, Louisa Frick, Torsten Gigler, Tobias Glemser, Dr. Frank Gut, Dr. Ingo Hanke, Dr. Thomas Herzog, Dr. Markus Koegel, Sebastian Klipper, Jens Liebau, Ralf Reinhardt, Martin Riedel, Michael Schaefer</p>
+<ul>
+<li>Hebrew: OWASP Top 10-2017 - Hebrew (PDF) (PPTX)</li>
+</ul>
+<p>translated by Eyal Estrin (Twitter: @eyalestrin) and Omer Levi Hevroni (Twitter: @omerlh).</p>
+<ul>
+<li>Japanese: OWASP Top 10-2017 - 日本語版 (PDF)</li>
+</ul>
+<p> translated and reviewed by Akitsugu ITO, Albert Hsieh, Chie TAZAWA, Hideko IGARASHI, Hiroshi TOKUMARU, Naoto KATSUMI, Riotaro OKADA, Robert DRACEA, Satoru TAKAHASHI, Sen UENO, Shoichi NAKATA, Takanori NAKANOWATARI ,Takanori ANDO, Tomohiro SANAE.</p>
+<ul>
+<li>Korean: OWASP Top 10-2017 - 한글 (PDF) (PPTX)</li>
+</ul>
+<p> 번역 프로젝트 관리 및 감수 : 박형근(Hyungkeun Park) / 감수(ᄀᄂᄃ순) : 강용석(YongSeok Kang), 박창렴(Park Changryum), 조민재(Johnny Cho) / 편집 및 감수 : 신상원(Shin Sangwon) / 번역(ᄀᄂᄃ순) : 김영하(Youngha Kim), 박상영(Sangyoung Park), 이민욱(MinWook Lee), 정초아(JUNG CHOAH), 조광렬(CHO KWANG YULL), 최한동(Handong Choi)</p>
+<ul>
+<li>Portuguese: OWASP Top 10 2017 - Portuguese (PDF) (ODP)</li>
+</ul>
+<p> translated by Anabela Nogueira, Carlos Serrão, Guillaume Lopes, João Pinto, João Samouco, Kembolle A. Oliveira, Paulo A. Silva, Ricardo Mourato, Rui Silva, Sérgio Domingues, Tiago Reis, Vítor Magano.</p>
+<ul>
+<li>Russian: OWASP Top 10-2017 - на русском языке (PDF)</li>
+</ul>
+<p> translated and reviewed by JZDLin (@JZDLin), Oleksii Skachkov (@hamster4n), Ivan Kochurkin (@KvanTTT) and Taras Ivashchenko</p>
+<ul>
+<li>Spanish: OWASP Top 10-2017 - Español (PDF)</li>
+</ul>
+<ul>
+<li>Gerardo Canedo([email protected] - [Twitter: @GerardoMCanedo])</li>
+</ul>
+<ul>
+<li>Cristian Borghello([email protected] - [Twitter: @seguinfo])</li>
+</ul></div></div>
+<div class="pair" id="owasp-top-ten-0004"><div class="zh side"><div class="tag">中文</div><h3 id="htop10-2017-">Top10:2017 候选发布版翻译团队：</h3>
+<ul>
+<li>阿塞拜疆语：Rashad Aliyev ([email protected])</li>
+</ul>
+<ul>
+<li>中文 RC2:Rip、包悦忠、李旭勤、王颉、王厚奎、吴楠、徐瑞祝、夏天泽、张家银、张剑钟、赵学文(排名不分先后,按姓氏拼音排列) OWASP Top10 2017 RC2 - 中文 PDF</li>
+</ul>
+<ul>
+<li>法语：Ludovic Petit: [email protected]，Sébastien Gioria: [email protected]。</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h3 id="htop10-2017-release-candidate-translation-teams-">Top10:2017 Release Candidate Translation Teams:</h3>
+<ul>
+<li>Azerbaijanian: Rashad Aliyev ([email protected])</li>
+</ul>
+<ul>
+<li>Chinese RC2:Rip、包悦忠、李旭勤、王颉、王厚奎、吴楠、徐瑞祝、夏天泽、张家银、张剑钟、赵学文(排名不分先后,按姓氏拼音排列) OWASP Top10 2017 RC2 - Chinese PDF</li>
+</ul>
+<ul>
+<li>French: Ludovic Petit: [email protected], Sébastien Gioria: [email protected].</li>
+</ul></div></div>
+<div class="pair" id="owasp-top-ten-0005"><div class="zh side"><div class="tag">中文</div><h3 id="htop10-2013-">Top10:2013 已完成的翻译：</h3>
+<ul>
+<li>阿拉伯语：OWASP Top 10 2013 - Arabic PDF</li>
+</ul>
+<p>翻译者：Mohannad Shahat: [email protected], Fahad: @SecurityArk, Abdulellah Alsaheel: [email protected], Khalifa Alshamsi: [email protected] and Sabri(KING SABRI): [email protected], Mohammed Aldossary: [email protected]</p>
+<ul>
+<li>中文 2013:中文版2013 OWASP Top 10 2013 - Chinese (PDF).</li>
+</ul>
+<p>项目组长: Rip、王颉, 参与人员: 陈亮、 顾庆林、 胡晓斌、 李建蒙、 王文君、 杨天识、 张在峰</p>
+<ul>
+<li>捷克语 2013: OWASP Top 10 2013 - Czech (PDF) OWASP Top 10 2013 - Czech (PPTX)</li>
+</ul>
+<p>CSIRT.CZ - CZ.NIC, z.s.p.o. (.cz 域名注册局): Petr Zavodsky: [email protected], Vaclav Klimes, Zuzana Duracinska, Michal Prokop, Edvard Rejthar, Pavel Basta</p>
+<ul>
+<li>法语 2013: OWASP Top 10 2013 - French PDF</li>
+</ul>
+<p>Ludovic Petit: [email protected], Sébastien Gioria: [email protected], Erwan Abgrall: [email protected], Benjamin Avet: [email protected], Jocelyn Aubert: [email protected], Damien Azambour: [email protected], Aline Barthelemy: [email protected], Moulay Abdsamad Belghiti: [email protected], Gregory Blanc: [email protected], Clément Capel: [email protected], Etienne Capgras: [email protected], Julien Cayssol: [email protected], Antonio Fontes: [email protected], Ely de Travieso: [email protected], Nicolas Grégoire: [email protected], Valérie Lasserre: [email protected], Antoine Laureau: [email protected], Guillaume Lopes: [email protected], Gilles Morain: [email protected], Christophe Pekar: [email protected], Olivier Perret: [email protected], Michel Prunet: [email protected], Olivier Revollat: [email protected], Aymeric Tabourin: [email protected]</p>
+<ul>
+<li>德语 2013: OWASP Top 10 2013 - German PDF</li>
+</ul>
+<p>[email protected]，即 Frank Dölitzscher, Torsten Gigler, Tobias Glemser, Dr. Ingo Hanke, Thomas Herzog, Kai Jendrian, Ralf Reinhardt, Michael Schäfer</p>
+<ul>
+<li>希伯来语 2013: OWASP Top 10 2013 - Hebrew PDF</li>
+</ul>
+<p>翻译者：Or Katz, Eyal Estrin, Oran Yitzhak, Dan Peled, Shay Sivan.</p>
+<ul>
+<li>意大利语 2013: OWASP Top 10 2013 - Italian PDF</li>
+</ul>
+<p>翻译者：Michele Saporito: [email protected], Paolo Perego: [email protected], Matteo Meucci: [email protected], Sara Gallo: [email protected], Alessandro Guido: [email protected], Mirko Guido Spezie: [email protected], Giuseppe Di Cesare: [email protected], Paco Schiaffella: [email protected], Gianluca Grasso: [email protected], Alessio D’Ospina: [email protected], Loredana Mancini: [email protected], Alessio Petracca: [email protected], Giuseppe Trotta: [email protected], Simone Onofri: [email protected], Francesco Cossu: [email protected], Marco Lancini: [email protected], Stefano Zanero: [email protected], Giovanni Schmid: [email protected], Igor Falcomata’: [email protected]</p></div><div class="en side"><div class="tag">EN</div><h3 id="htop10-2013-completed-translations-">Top10:2013 Completed Translations:</h3>
+<ul>
+<li>Arabic: OWASP Top 10 2013 - Arabic PDF</li>
+</ul>
+<p>Translated by: Mohannad Shahat: [email protected], Fahad: @SecurityArk, Abdulellah Alsaheel: [email protected], Khalifa Alshamsi: [email protected] and Sabri(KING SABRI): [email protected], Mohammed Aldossary: [email protected]</p>
+<ul>
+<li>Chinese 2013:中文版2013 OWASP Top 10 2013 - Chinese (PDF).</li>
+</ul>
+<p>项目组长: Rip、王颉, 参与人员: 陈亮、 顾庆林、 胡晓斌、 李建蒙、 王文君、 杨天识、 张在峰</p>
+<ul>
+<li>Czech 2013: OWASP Top 10 2013 - Czech (PDF) OWASP Top 10 2013 - Czech (PPTX)</li>
+</ul>
+<p>CSIRT.CZ - CZ.NIC, z.s.p.o. (.cz domain registry): Petr Zavodsky: [email protected], Vaclav Klimes, Zuzana Duracinska, Michal Prokop, Edvard Rejthar, Pavel Basta</p>
+<ul>
+<li>French 2013: OWASP Top 10 2013 - French PDF</li>
+</ul>
+<p>Ludovic Petit: [email protected], Sébastien Gioria: [email protected], Erwan Abgrall: [email protected], Benjamin Avet: [email protected], Jocelyn Aubert: [email protected], Damien Azambour: [email protected], Aline Barthelemy: [email protected], Moulay Abdsamad Belghiti: [email protected], Gregory Blanc: [email protected], Clément Capel: [email protected], Etienne Capgras: [email protected], Julien Cayssol: [email protected], Antonio Fontes: [email protected], Ely de Travieso: [email protected], Nicolas Grégoire: [email protected], Valérie Lasserre: [email protected], Antoine Laureau: [email protected], Guillaume Lopes: [email protected], Gilles Morain: [email protected], Christophe Pekar: [email protected], Olivier Perret: [email protected], Michel Prunet: [email protected], Olivier Revollat: [email protected], Aymeric Tabourin: [email protected]</p>
+<ul>
+<li>German 2013: OWASP Top 10 2013 - German PDF</li>
+</ul>
+<p>[email protected] which is Frank Dölitzscher, Torsten Gigler, Tobias Glemser, Dr. Ingo Hanke, Thomas Herzog, Kai Jendrian, Ralf Reinhardt, Michael Schäfer</p>
+<ul>
+<li>Hebrew 2013: OWASP Top 10 2013 - Hebrew PDF</li>
+</ul>
+<p>Translated by: Or Katz, Eyal Estrin, Oran Yitzhak, Dan Peled, Shay Sivan.</p>
+<ul>
+<li>Italian 2013: OWASP Top 10 2013 - Italian PDF</li>
+</ul>
+<p>Translated by: Michele Saporito: [email protected], Paolo Perego: [email protected], Matteo Meucci: [email protected], Sara Gallo: [email protected], Alessandro Guido: [email protected], Mirko Guido Spezie: [email protected], Giuseppe Di Cesare: [email protected], Paco Schiaffella: [email protected], Gianluca Grasso: [email protected], Alessio D’Ospina: [email protected], Loredana Mancini: [email protected], Alessio Petracca: [email protected], Giuseppe Trotta: [email protected], Simone Onofri: [email protected], Francesco Cossu: [email protected], Marco Lancini: [email protected], Stefano Zanero: [email protected], Giovanni Schmid: [email protected], Igor Falcomata’: [email protected]</p></div></div>
+<div class="pair" id="owasp-top-ten-0006"><div class="zh side"><div class="tag">中文</div><ul>
+<li>日语 2013: OWASP Top 10 2013 - Japanese PDF</li>
+</ul>
+<p>翻译者：Chia-Lung Hsieh: ryusuke.tw(at)gmail.com, 审校者：Hiroshi Tokumaru, Takanori Nakanowatari</p>
+<ul>
+<li>韩语 2013: OWASP Top 10 2013 - Korean PDF (이름가나다순)</li>
+</ul>
+<p>김병효:[email protected], 김지원:[email protected], 김효근:[email protected], 박정훈:[email protected], 성영모:[email protected], 성윤기:[email protected], 송보영:[email protected], 송창기:[email protected], 유정호:[email protected], 장상민:[email protected], 전영재:[email protected], 정가람:[email protected], 정홍순:[email protected], 조민재:[email protected],허성무:[email protected]</p>
+<ul>
+<li>巴西葡萄牙语 2013: OWASP Top 10 2013 - Brazilian Portuguese PDF</li>
+</ul>
+<p>翻译者：Carlos Serrão, Marcio Machry, Ícaro Evangelista de Torres, Carlo Marcelo Revoredo da Silva, Luiz Vieira, Suely Ramalho de Mello, Jorge Olímpia, Daniel Quintão, Mauro Risonho de Paula Assumpção, Marcelo Lopes, Caio Dias, Rodrigo Gularte</p>
+<ul>
+<li>西班牙语 2013: OWASP Top 10 2013 - Spanish PDF</li>
+</ul>
+<p>Gerardo Canedo: [email protected], Jorge Correa: [email protected], Fabien Spychiger: [email protected], Alberto Hill: [email protected], Johnatan Stanley: [email protected], Maximiliano Alonzo: [email protected], Mateo Martinez: [email protected], David Montero: [email protected], Rodrigo Martinez: [email protected], Guillermo Skrilec: [email protected], Felipe Zipitria: [email protected], Fabien Spychiger: [email protected], Rafael Gil: [email protected], Christian Lopez: [email protected], jonathan fernandez [email protected], Paola Rodriguez: [email protected], Hector Aguirre: [email protected], Roger Carhuatocto: [email protected], Juan Carlos Calderon: [email protected], Marc Rivero López: [email protected], Carlos Allendes: [email protected], [email protected]: [email protected], Manuel Ramírez: [email protected], Marco Miranda: [email protected], Mauricio D. Papaleo Mayada: [email protected], Felipe Sanchez: [email protected], Juan Manuel Bahamonde: [email protected], Adrià Massanet: [email protected], Jorge Correa: [email protected], Ramiro Pulgar: [email protected], German Alonso Suárez Guerrero: [email protected], Jose A. Guasch: [email protected], Edgar Salazar: [email protected]</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Japanese 2013: OWASP Top 10 2013 - Japanese PDF</li>
+</ul>
+<p>Translated by: Chia-Lung Hsieh: ryusuke.tw(at)gmail.com, Reviewed by: Hiroshi Tokumaru, Takanori Nakanowatari</p>
+<ul>
+<li>Korean 2013: OWASP Top 10 2013 - Korean PDF (이름가나다순)</li>
+</ul>
+<p>김병효:[email protected], 김지원:[email protected], 김효근:[email protected], 박정훈:[email protected], 성영모:[email protected], 성윤기:[email protected], 송보영:[email protected], 송창기:[email protected], 유정호:[email protected], 장상민:[email protected], 전영재:[email protected], 정가람:[email protected], 정홍순:[email protected], 조민재:[email protected],허성무:[email protected]</p>
+<ul>
+<li>Brazilian Portuguese 2013: OWASP Top 10 2013 - Brazilian Portuguese PDF</li>
+</ul>
+<p>Translated by: Carlos Serrão, Marcio Machry, Ícaro Evangelista de Torres, Carlo Marcelo Revoredo da Silva, Luiz Vieira, Suely Ramalho de Mello, Jorge Olímpia, Daniel Quintão, Mauro Risonho de Paula Assumpção, Marcelo Lopes, Caio Dias, Rodrigo Gularte</p>
+<ul>
+<li>Spanish 2013: OWASP Top 10 2013 - Spanish PDF</li>
+</ul>
+<p>Gerardo Canedo: [email protected], Jorge Correa: [email protected], Fabien Spychiger: [email protected], Alberto Hill: [email protected], Johnatan Stanley: [email protected], Maximiliano Alonzo: [email protected], Mateo Martinez: [email protected], David Montero: [email protected], Rodrigo Martinez: [email protected], Guillermo Skrilec: [email protected], Felipe Zipitria: [email protected], Fabien Spychiger: [email protected], Rafael Gil: [email protected], Christian Lopez: [email protected], jonathan fernandez [email protected], Paola Rodriguez: [email protected], Hector Aguirre: [email protected], Roger Carhuatocto: [email protected], Juan Carlos Calderon: [email protected], Marc Rivero López: [email protected], Carlos Allendes: [email protected], [email protected]: [email protected], Manuel Ramírez: [email protected], Marco Miranda: [email protected], Mauricio D. Papaleo Mayada: [email protected], Felipe Sanchez: [email protected], Juan Manuel Bahamonde: [email protected], Adrià Massanet: [email protected], Jorge Correa: [email protected], Ramiro Pulgar: [email protected], German Alonso Suárez Guerrero: [email protected], Jose A. Guasch: [email protected], Edgar Salazar: [email protected]</p></div></div>
+<div class="pair" id="owasp-top-ten-0007"><div class="zh side"><div class="tag">中文</div><ul>
+<li>乌克兰语 2013: OWASP Top 10 2013 - Ukrainian PDF</li>
+</ul>
+<p>Kateryna Ovechenko, Yuriy Fedko, Gleb Paharenko, Yevgeniya Maskayeva, Sergiy Shabashkevich, Bohdan Serednytsky</p></div><div class="en side"><div class="tag">EN</div><ul>
+<li>Ukrainian 2013: OWASP Top 10 2013 - Ukrainian PDF</li>
+</ul>
+<p>Kateryna Ovechenko, Yuriy Fedko, Gleb Paharenko, Yevgeniya Maskayeva, Sergiy Shabashkevich, Bohdan Serednytsky</p></div></div>
+<div class="pair" id="owasp-top-ten-0008"><div class="zh side"><div class="tag">中文</div><h3 id="h2010-">2010 年已完成的翻译：</h3>
+<ul>
+<li>韩语 2010: OWASP Top 10 2010 - Korean PDF</li>
+</ul>
+<p>Hyungkeun Park, ([email protected])</p>
+<ul>
+<li>西班牙语 2010: OWASP Top 10 2010 - Spanish PDF</li>
+</ul>
+<p> Daniel Cabezas Molina, Edgar Sanchez, Juan Carlos Calderon, Jose Antonio Guasch, Paulo Coronado, Rodrigo Marcos, Vicente Aguilera</p>
+<ul>
+<li>法语 2010: OWASP Top 10 2010 - French PDF</li>
+</ul>
+<p>[email protected], [email protected], [email protected], [email protected], [email protected], [email protected], [email protected]</p>
+<ul>
+<li>德语 2010: OWASP Top 10 2010 - German PDF</li>
+</ul>
+<p>[email protected]，即 Frank Dölitzscher, Tobias Glemser, Dr. Ingo Hanke, Kai Jendrian, Ralf Reinhardt, Michael Schäfer</p>
+<ul>
+<li>印尼语 2010: OWASP Top 10 2010 - Indonesian PDF</li>
+</ul>
+<p>Tedi Heriyanto (协调人), Lathifah Arief, Tri A Sundara, Zaki Akhmad</p>
+<ul>
+<li>意大利语 2010: OWASP Top 10 2010 - Italian PDF</li>
+</ul>
+<p>Simone Onofri, Paolo Perego, Massimo Biagiotti, Edoardo Viscosi, Salvatore Fiorillo, Roberto Battistoni, Loredana Mancini, Michele Nesta, Paco Schiaffella, Lucilla Mancini, Gerardo Di Giacomo, Valentino Squilloni</p>
+<ul>
+<li>日语 2010: OWASP Top 10 2010 - Japanese PDF</li>
+</ul>
+<p>[email protected], Dr. Masayuki Hisada, Yoshimasa Kawamoto, Ryusuke Sakamoto, Keisuke Seki, Shin Umemoto, Takashi Arima</p>
+<ul>
+<li>中文 2010: OWASP Top 10 2010 - Chinese PDF</li>
+</ul>
+<p>感谢以下为中文版本做出贡献的翻译人员和审核人员: Rip Torn, 钟卫林, 高雯, 王颉, 于振东</p>
+<ul>
+<li>越南语 2010: OWASP Top 10 2010 - Vietnamese PDF</li>
+</ul>
+<p>翻译负责人 Cecil Su - 翻译团队: Dang Hoang Vu, Nguyen Ba Tien, Nguyen Tang Hung, Luong Dieu Phuong, Huynh Thien Tam</p>
+<ul>
+<li>希伯来语 2010: OWASP Top 10 Hebrew Project – OWASP Top 10 2010 - Hebrew PDF.</li>
+</ul>
+<p>由 Or Katz 牵头，贡献者名单见翻译页面。</p>
+<h2 id="h2021-">2021 项目赞助方</h2>
+<p>OWASP Top 10:2021 由 Secure Code Warrior 赞助。</p></div><div class="en side"><div class="tag">EN</div><h3 id="h2010-completed-translations-">2010 Completed Translations:</h3>
+<ul>
+<li>Korean 2010: OWASP Top 10 2010 - Korean PDF</li>
+</ul>
+<p>Hyungkeun Park, ([email protected])</p>
+<ul>
+<li>Spanish 2010: OWASP Top 10 2010 - Spanish PDF</li>
+</ul>
+<p> Daniel Cabezas Molina, Edgar Sanchez, Juan Carlos Calderon, Jose Antonio Guasch, Paulo Coronado, Rodrigo Marcos, Vicente Aguilera</p>
+<ul>
+<li>French 2010: OWASP Top 10 2010 - French PDF</li>
+</ul>
+<p>[email protected], [email protected], [email protected], [email protected], [email protected], [email protected], [email protected]</p>
+<ul>
+<li>German 2010: OWASP Top 10 2010 - German PDF</li>
+</ul>
+<p>[email protected] which is Frank Dölitzscher, Tobias Glemser, Dr. Ingo Hanke, Kai Jendrian, Ralf Reinhardt, Michael Schäfer</p>
+<ul>
+<li>Indonesian 2010: OWASP Top 10 2010 - Indonesian PDF</li>
+</ul>
+<p>Tedi Heriyanto (coordinator), Lathifah Arief, Tri A Sundara, Zaki Akhmad</p>
+<ul>
+<li>Italian 2010: OWASP Top 10 2010 - Italian PDF</li>
+</ul>
+<p>Simone Onofri, Paolo Perego, Massimo Biagiotti, Edoardo Viscosi, Salvatore Fiorillo, Roberto Battistoni, Loredana Mancini, Michele Nesta, Paco Schiaffella, Lucilla Mancini, Gerardo Di Giacomo, Valentino Squilloni</p>
+<ul>
+<li>Japanese 2010: OWASP Top 10 2010 - Japanese PDF</li>
+</ul>
+<p>[email protected], Dr. Masayuki Hisada, Yoshimasa Kawamoto, Ryusuke Sakamoto, Keisuke Seki, Shin Umemoto, Takashi Arima</p>
+<ul>
+<li>Chinese 2010: OWASP Top 10 2010 - Chinese PDF</li>
+</ul>
+<p>感谢以下为中文版本做出贡献的翻译人员和审核人员: Rip Torn, 钟卫林, 高雯, 王颉, 于振东</p>
+<ul>
+<li>Vietnamese 2010: OWASP Top 10 2010 - Vietnamese PDF</li>
+</ul>
+<p>Translation lead by Cecil Su - Translation Team: Dang Hoang Vu, Nguyen Ba Tien, Nguyen Tang Hung, Luong Dieu Phuong, Huynh Thien Tam</p>
+<ul>
+<li>Hebrew 2010: OWASP Top 10 Hebrew Project – OWASP Top 10 2010 - Hebrew PDF.</li>
+</ul>
+<p>Lead by Or Katz, see translation page for list of contributors.</p>
+<h2 id="h2021-project-sponsors">2021 Project Sponsors</h2>
+<p>The OWASP Top 10:2021 is sponsored by Secure Code Warrior.</p></div></div>
+<div class="pair" id="owasp-top-ten-0009"><div class="zh side"><div class="tag">中文</div><h2 id="h2017-">2017 项目赞助方</h2>
+<p>OWASP Top 10 - 2017 项目由 Autodesk 赞助，并得到 OWASP NoVA 分会支持。</p>
+<h2 id="h2003-2013-">2003-2013 项目赞助方</h2>
+<p>感谢 Aspect Security 对更早版本的赞助。</p>
+<h1 id="howasp-top-10-2025-">OWASP Top 10 2025 数据分析计划</h1></div><div class="en side"><div class="tag">EN</div><h2 id="h2017-project-sponsors">2017 Project Sponsors</h2>
+<p>The OWASP Top 10 - 2017 project was sponsored by Autodesk, and supported by the OWASP NoVA Chapter.</p>
+<h2 id="h2003-2013-project-sponsors">2003-2013 Project Sponsors</h2>
+<p>Thanks to Aspect Security for sponsoring earlier versions.</p>
+<h1 id="howasp-top-10-2025-data-analysis-plan">OWASP Top 10 2025 Data Analysis Plan</h1></div></div>
+<div class="pair" id="owasp-top-ten-0010"><div class="zh side"><div class="tag">中文</div><h2 id="h-">目标</h2>
+<p>收集迄今为止与已识别应用漏洞相关的最全面数据集，以便支撑十大风险及其他未来研究。这些数据应来自多种来源；安全厂商与咨询机构、漏洞赏金项目，以及企业/组织的贡献。数据将做归一化处理，以便在“人类辅助工具”与“工具辅助人类”之间进行层级比较。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hgoals">Goals</h2>
+<p>To collect the most comprehensive dataset related to identified application vulnerabilities to-date to enable analysis for the Top 10 and other future research as well. This data should come from a variety of sources; security vendors and consultancies, bug bounties, along with company/organizational contributions. Data will be normalized to allow for level comparison between Human assisted Tooling and Tooling assisted Humans.</p></div></div>
+<div class="pair" id="owasp-top-ten-0011"><div class="zh side"><div class="tag">中文</div><h2 id="h-">分析基础设施</h2>
+<p>计划利用 OWASP Azure 云基础设施来收集、分析和存储所贡献的数据。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hanalysis-infrastructure">Analysis Infrastructure</h2>
+<p>Plan to leverage the OWASP Azure Cloud Infrastructure to collect, analyze, and store the data contributed.</p></div></div>
+<div class="pair" id="owasp-top-ten-0012"><div class="zh side"><div class="tag">中文</div><h2 id="h-">贡献</h2>
+<p>我们计划同时支持实名与匿名贡献。我们更倾向于实名贡献；这能极大提升所提交数据的可验证性、质量和可信度。如果提交者希望数据匿名存储，甚至以匿名方式提交数据，那么这些数据就必须被归类为“未验证”而非“已验证”。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hcontributions">Contributions</h2>
+<p>We plan to support both known and pseudo-anonymous contributions. The preference is for contributions to be known; this immensely helps with the validation/quality/confidence of the data submitted. If the submitter prefers to have their data stored anonymously and even go as far as submitting the data anonymously, then it will have to be classified as “unverified” vs. “verified”.</p></div></div>
+<div class="pair" id="owasp-top-ten-0013"><div class="zh side"><div class="tag">中文</div><h3 id="h-">已验证的数据贡献</h3>
+<p>情形 1：提交者身份已知，并同意被标识为贡献方。</p>
+<p>情形 2：提交者身份已知，但不希望被公开标识。</p>
+<p>情形 3：提交者身份已知，但不希望记录在数据集中。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hverified-data-contribution">Verified Data Contribution</h3>
+<p>Scenario 1: The submitter is known and has agreed to be identified as a contributing party.</p>
+<p>Scenario 2: The submitter is known but would rather not be publicly identified.</p>
+<p>Scenario 3: The submitter is known but does not want it recorded in the dataset.</p></div></div>
+<div class="pair" id="owasp-top-ten-0014"><div class="zh side"><div class="tag">中文</div><h3 id="h-">未验证的数据贡献</h3>
+<p>情形 4：提交者匿名。（我们是否应支持？）</p>
+<p>当未验证的数据属于被分析数据集的一部分时，数据分析将谨慎地区分对待这些数据。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hunverified-data-contribution">Unverified Data Contribution</h3>
+<p>Scenario 4: The submitter is anonymous. (Should we support?)</p>
+<p>The analysis of the data will be conducted with a careful distinction when the unverified data is part of the dataset that was analyzed.</p></div></div>
+<div class="pair" id="owasp-top-ten-0015"><div class="zh side"><div class="tag">中文</div><h2 id="h-">贡献流程</h2>
+<p>数据可以通过以下几种方式贡献：</p>
+<ul>
+<li>将包含数据集的 CSV/Excel 文件通过邮件发送至 [email protected]</li>
+</ul>
+<ul>
+<li>将 CSV/Excel 文件上传至 https://bit.ly/OWASPTop10Data</li>
+</ul>
+<p>模板示例可在 GitHub 找到：https://github.com/OWASP/Top10/tree/master/2025/Data</p></div><div class="en side"><div class="tag">EN</div><h2 id="hcontribution-process">Contribution Process</h2>
+<p>There are a few ways that data can be contributed:</p>
+<ul>
+<li>Email a CSV/Excel file with the dataset(s) to [email protected]</li>
+</ul>
+<ul>
+<li>Upload a CSV/Excel file to https://bit.ly/OWASPTop10Data</li>
+</ul>
+<p>Template examples can be found in GitHub: https://github.com/OWASP/Top10/tree/master/2025/Data</p></div></div>
+<div class="pair" id="owasp-top-ten-0016"><div class="zh side"><div class="tag">中文</div><h2 id="h-">贡献周期</h2>
+<p>我们计划接受对新版十大风险的贡献，截止日期为 2025 年 7 月 31 日，数据范围为 2021 年至 2024 年。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hcontribution-period">Contribution Period</h2>
+<p>We plan to accept contributions to the new Top 10 until July 31, 2025, for data dating from 2021 to 2024.</p></div></div>
+<div class="pair" id="owasp-top-ten-0017"><div class="zh side"><div class="tag">中文</div><h2 id="h-">数据结构</h2>
+<p>以下数据元素为必填或选填。</p>
+<p>提供的信息越多，我们的分析就能越准确。</p>
+<p>至少我们需要：时间段、数据集中受测应用的总数，以及 CWE 清单和包含该 CWE 的应用数量。</p>
+<p>如果可能，请尽量提供额外的元数据，因为这将极大帮助我们深入了解当前检测与漏洞的现状。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hdata-structure">Data Structure</h2>
+<p>The following data elements are required or optional. </p>
+<p>The more information provided the more accurate our analysis can be.</p>
+<p>At a bare minimum, we need the time period, total number of applications tested in the dataset, and the list of CWEs and counts of how many applications contained that CWE.</p>
+<p>If at all possible, please provide the additional metadata, because that will greatly help us gain more insights into the current state of testing and vulnerabilities.</p></div></div>
+<div class="pair" id="owasp-top-ten-0018"><div class="zh side"><div class="tag">中文</div><h3 id="h-">元数据</h3>
+<ul>
+<li>地理区域（全球、北美、欧盟、亚洲、其他）</li>
+</ul>
+<ul>
+<li>所属行业（多个、金融、工业、软件、？？）</li>
+</ul>
+<ul>
+<li>数据中是否包含复测或同一批应用多次出现（是/否）</li>
+</ul></div><div class="en side"><div class="tag">EN</div><h3 id="hmetadata">Metadata</h3>
+<ul>
+<li>Geographic Region (Global, North America, EU, Asia, other)</li>
+</ul>
+<ul>
+<li>Primary Industry (Multiple, Financial, Industrial, Software, ??)</li>
+</ul>
+<ul>
+<li>Whether or not data contains retests or the same applications multiple times (T/F)</li>
+</ul></div></div>
+<div class="pair" id="owasp-top-ten-0019"><div class="zh side"><div class="tag">中文</div><h3 id="hcwe-">CWE 数据</h3>
+<ul>
+<li>一份 CWE 清单，附每个 CWE 被发现包含于多少个应用</li>
+</ul>
+<p>如果可能，请提供数据中的具体 CWE，而不是 CWE 类别。</p>
+<p>这将有助于分析；作为分析一部分所做的任何归一化/聚合操作都会有充分的文档说明。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcwe-data">CWE Data</h3>
+<ul>
+<li>A list of CWEs w/ count of applications found to contain that CWE</li>
+</ul>
+<p>If at all possible, please provide core CWEs in the data, not CWE categories.</p>
+<p>This will help with the analysis, any normalization/aggregation done as a part of this analysis will be well documented.</p></div></div>
+<div class="pair" id="owasp-top-ten-0020"><div class="zh side"><div class="tag">中文</div><h4 id="h-">注意：</h4>
+<p>如果一位贡献者有两类数据集，一类来自 HaT 来源，另一类来自 TaH 来源，建议将它们作为两个独立的数据集分别提交。</p>
+<p>HaT = 人类辅助工具（数量/频率更高，主要来自工具）</p>
+<p>TaH = 工具辅助人类（数量/频率更低，主要来自人工测试）</p></div><div class="en side"><div class="tag">EN</div><h4 id="hnote-">Note:</h4>
+<p>If a contributor has two types of datasets, one from HaT and one from TaH sources, then it is recommended to submit them as two separate datasets.</p>
+<p>HaT = Human assisted Tools (higher volume/frequency, primarily from tooling)</p>
+<p>TaH = Tool assisted Human (lower volume/frequency, primarily from human testing)</p></div></div>
+<div class="pair" id="owasp-top-ten-0021"><div class="zh side"><div class="tag">中文</div><h2 id="h-">调查</h2>
+<p>与十大风险 2021 类似，我们计划开展一项调查，找出社区认为重要、但可能尚未在数据中体现的至多两个十大风险类别。我们计划在 2025 年初开展调查，并将像上次一样使用 Google 表单。调查中的 CWE 将来自当前的热门发现、数据中位列十大风险之外的 CWE，以及其他潜在来源。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hsurvey">Survey</h2>
+<p>Similarly to the Top Ten 2021, we plan to conduct a survey to identify up to two categories of the Top Ten that the community believes are important, but may not be reflected in the data yet. We plan to conduct the survey in early 2025, and will be utilizing Google forms in a similar manner as last time. The CWEs on the survey will come from current trending findings, CWEs that are outside the Top Ten in data, and other potential sources.</p></div></div>
+<div class="pair" id="owasp-top-ten-0022"><div class="zh side"><div class="tag">中文</div><h2 id="h-">流程</h2>
+<p>在较高层面，我们计划对数据做一定程度的归一化；不过，我们会保留所贡献原始数据的一个版本，以供未来分析。我们将分析各数据集中的 CWE 分布，并可能对某些 CWE 重新分类，把它们合并到更大的类目中。我们会仔细记录所有归一化操作，以便清楚说明做了哪些处理。</p>
+<p>我们计划沿用 2021 年的模型来计算可能性（likelihood），以发生率（incidence rate）而非频次来衡量某个应用至少含有一个 CWE 实例的可能性。这意味着我们关注的不是应用中某 CWE 的出现频次（发现数量），而是出现过一个或多个该 CWE 实例的应用数量。我们可以根据数据集中受测应用总数与每个 CWE 被发现的应用数量计算出发生率。</p>
+<p>此外，我们还将为前 20-30 个 CWE 制定基础 CWSS 评分，并把潜在影响纳入十大风险的权重。</p>
+<p>此外，我们还希望挖掘从所贡献数据集中可以获得更多洞见，看看还能学到什么对安全与开发社区有用的东西。</p>
+<p>关注</p>
+<p> Star</p>
+<p>OWASP® 基金会通过社区主导的开源软件项目、</p>
+<p> 全球数百个分会、数万名会员，以及举办本地和全球会议，推动软件安全提升。</p>
+<h3 id="h-">项目信息</h3>
+<ul>
+<li>• OWASP Top 10:2025</li>
+</ul>
+<h3 id="h-">下载或社交链接</h3>
+<ul>
+<li>• 其他语言 → 标签页“翻译工作”</li>
+</ul>
+<h3 id="h-">社交</h3>
+<h3 id="h-">代码仓库</h3>
+<h3 id="h-">负责人</h3>
+<h3 id="h-owasp-">即将举行的 OWASP 全球活动</h3></div><div class="en side"><div class="tag">EN</div><h2 id="hprocess">Process</h2>
+<p>At a high level, we plan to perform a level of data normalization; however, we will keep a version of the raw data contributed for future analysis. We will analyze the CWE distribution of the datasets and potentially reclassify some CWEs to consolidate them into larger buckets. We will carefully document all normalization actions taken so it is clear what has been done.</p>
+<p>We plan to calculate likelihood following the model we continued in 2021 to determine incidence rate instead of frequency to rate how likely a given app may contain at least one instance of a CWE. This means we aren’t looking for the frequency rate (number of findings) in an app, rather, we are looking for the number of applications that had one or more instances of a CWE. We can calculate the incidence rate based on the total number of applications tested in the dataset compared to how many applications each CWE was found in.</p>
+<p>In addition, we will be developing base CWSS scores for the top 20-30 CWEs and include potential impact into the Top 10 weighting.</p>
+<p>Also, would like to explore additional insights that could be gleaned from the contributed dataset to see what else can be learned that could be of use to the security and development communities.</p>
+<p>Watch</p>
+<p> Star</p>
+<p>The OWASP® Foundation works to improve the security of software through its community-led open source software projects, </p>
+<p> hundreds of chapters worldwide, tens of thousands of members, and by hosting local and global conferences.</p>
+<h3 id="hproject-information">Project Information</h3>
+<ul>
+<li>• OWASP Top 10:2025</li>
+</ul>
+<h3 id="hdownloads-or-social-links">Downloads or Social Links</h3>
+<ul>
+<li>• Other languages → tab ‘Translation Efforts’</li>
+</ul>
+<h3 id="hsocial">Social</h3>
+<h3 id="hcode-repository">Code Repository</h3>
+<h3 id="hleaders">Leaders</h3>
+<h3 id="hupcoming-owasp-global-events">Upcoming OWASP Global Events</h3></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#owasp-top-ten-0000">第 1 段</a></li><li><a href="#owasp-top-ten-0001">第 2 段</a></li><li><a href="#owasp-top-ten-0002">第 3 段</a></li><li><a href="#owasp-top-ten-0003">第 4 段</a></li><li><a href="#owasp-top-ten-0004">第 5 段</a></li><li><a href="#owasp-top-ten-0005">第 6 段</a></li><li><a href="#owasp-top-ten-0006">第 7 段</a></li><li><a href="#owasp-top-ten-0007">第 8 段</a></li><li><a href="#owasp-top-ten-0008">第 9 段</a></li><li><a href="#owasp-top-ten-0009">第 10 段</a></li><li><a href="#owasp-top-ten-0010">第 11 段</a></li><li><a href="#owasp-top-ten-0011">第 12 段</a></li><li><a href="#owasp-top-ten-0012">第 13 段</a></li><li><a href="#owasp-top-ten-0013">第 14 段</a></li><li><a href="#owasp-top-ten-0014">第 15 段</a></li><li><a href="#owasp-top-ten-0015">第 16 段</a></li><li><a href="#owasp-top-ten-0016">第 17 段</a></li><li><a href="#owasp-top-ten-0017">第 18 段</a></li><li><a href="#owasp-top-ten-0018">第 19 段</a></li><li><a href="#owasp-top-ten-0019">第 20 段</a></li><li><a href="#owasp-top-ten-0020">第 21 段</a></li><li><a href="#owasp-top-ten-0021">第 22 段</a></li><li><a href="#owasp-top-ten-0022">第 23 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

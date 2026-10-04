@@ -1,0 +1,10 @@
+{
+ "seg_id": "context-rot#0021",
+ "doc_id": "context-rot",
+ "fingerprint": "8bda2ee06431a641439d512d708c55da7d181fd0",
+ "zh": "LongMemEval 结果 —— Claude 家族Claude 模型在聚焦提示词与完整提示词之间的差距最为明显。这一落差主要来自含混时弃答、导致模型不确定的行为，与该模型家族在 NIAH 中面对干扰项时的表现如出一辙。这一行为在 Claude Opus 4 和 Sonnet 4 上最为突出：它们在含混时似乎格外保守，因此在完整提示词上的表现低于更早的 Claude 模型。\n\n问题：从我参加园艺工作坊的那天，到我种下番茄苗的那天，中间过了多少天？\n\n正确答案：6 天。7 天（含首尾两天）也可以接受。\n\n模型输出：我无法确定园艺工作坊和种下番茄苗之间相隔多少天，因为对话历史中没有提供这两个事件的具体日期。\n\nLongMemEval —— Claude Sonnet 4（非思考模式）在包含这些日期的完整提示词上的表现聚焦提示词上表现更强的趋势，在 GPT、Gemini 和 Qwen 各家族同样成立。对于支持思考模式的模型，启用后它们在聚焦和完整提示词上都有明显提升。不过，即便在最新模型上开启了完整推理能力，两种输入长度之间仍存在性能差距。\n\nLongMemEval 结果 —— GPT 家族\n\nLongMemEval 结果 —— Gemini 家族",
+ "meta": {
+  "source": "../work/tr_g02.json",
+  "batch": "tr_g02"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0031",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "598efc6655aa0dbc8b1ebe98f7ff773373573349",
+ "zh": "#### 示例：\n\n在 Devin 中，我们会主动提示用户把关键测试流程保存到智能体的长期记忆里，让后续交互更顺畅。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

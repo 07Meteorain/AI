@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0034",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "7853ae8af409465247c44b0e15e91e4f6bde8fdf",
+ "zh": "#### 帮你上手的更多学习资源\n\n刚接触 Google Cloud 或生成式 AI？新客户可获得 300 美元免费额度，用于运行、测试和部署工作负载。\n\n- 培训：免费生成式 AI 基础课程\n\n- 文档：Introduction to prompt design\n\n- 文档：General prompt design strategies\n\n- 文档：Generative AI prompt samples",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

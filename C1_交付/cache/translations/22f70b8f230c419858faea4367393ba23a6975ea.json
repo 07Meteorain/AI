@@ -1,0 +1,10 @@
+{
+ "seg_id": "claude-code-best-practices#0014",
+ "doc_id": "claude-code-best-practices",
+ "fingerprint": "22f70b8f230c419858faea4367393ba23a6975ea",
+ "zh": "首次使用时你会看到登录提示。就这样！继续阅读快速上手 →\n\n有关其他安装方式、手动更新或卸载说明，请查看高级安装设置。如遇问题，请查阅故障排查。\n\nVS Code 扩展直接在编辑器内提供内联差异对比、@ 提及、计划评审和对话历史。\n\n- 安装到 VS Code\n\n- 安装到 Cursor\n\n也可以在扩展视图（Mac 上是 Cmd+Shift+X，Windows/Linux 上是 Ctrl+Shift+X）中搜索「Claude Code」。安装后，打开命令面板（Cmd+Shift+P / Ctrl+Shift+P），输入「Claude Code」，并选择 Open in New Tab。开始使用 VS Code →\n\n一款独立应用，让你在 IDE 或终端之外也能运行 Claude Code。直观地查看差异、并行运行多个会话、安排周期性任务，以及启动云端会话。下载并安装：\n\n- macOS（Intel 和 Apple Silicon）\n\n- Windows (x64)\n\n- Windows ARM64（仅远程会话）\n\n安装后，启动 Claude、登录，然后点击 Code 标签页开始写代码。需要付费订阅。了解更多桌面应用 →\n\n在浏览器里运行 Claude Code，无需任何本地设置。启动长时间运行的任务，完成后再回来看，操作你本地没有的仓库，或者并行运行多个任务。可在桌面浏览器和 Claude iOS 应用中使用。在 claude.ai/code 开始写代码。开始使用网页版 →\n\n一款面向 IntelliJ IDEA、PyCharm、WebStorm 等 JetBrains IDE 的插件，支持交互式查看差异和共享选中内容的上下文。从 JetBrains Marketplace 安装 Claude Code 插件，然后重启你的 IDE。开始使用 JetBrains →",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

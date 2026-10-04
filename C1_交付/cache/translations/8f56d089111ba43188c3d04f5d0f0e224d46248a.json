@@ -1,0 +1,10 @@
+{
+ "seg_id": "how-to-review-code-effectively#0013",
+ "doc_id": "how-to-review-code-effectively",
+ "fingerprint": "8f56d089111ba43188c3d04f5d0f0e224d46248a",
+ "zh": "### 评审你自己的代码\n\nGitHub 资深软件工程师 Paul Smith 教过我，在请别人评审之前先评审自己的拉取请求，我也建议你这么做。先过一遍，对那些不明显的改动——或者你在别人的拉取请求里看到会想问一句的改动——用行内评论的方式标出来。自我评审还能帮你判断一个拉取请求是不是太大了、拆开会更好。\n\n特别推荐：如果你在意让拉取请求保持小规模，可以用 lerebear/sizeup-action 自动给拉取请求打上标签，标明其复杂度和规模。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

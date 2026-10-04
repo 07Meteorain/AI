@@ -1,0 +1,10 @@
+{
+ "seg_id": "copilot-prompt-injection-rce#0011",
+ "doc_id": "copilot-prompt-injection-rce",
+ "fingerprint": "034ef27137f75dc13e06ee44973c28fda9ea9f38",
+ "zh": "## 负责任披露\n\n2025 年 6 月 29 日报告该漏洞后，微软确认了复现结果，并追问了一些问题。几周后，MSRC 指出这是他们已经在跟踪的问题，并表示会在 8 月之前修复。随着 8 月的补丁星期二（Patch Tuesday）发布，这个问题现已修复。\n\n要感谢 Persistent Security 的 Markus Vervier，他也独立发现并向微软报告了这个漏洞。你可以在这里找到他们的分析文章。同时也要感谢 Ari Marzuk，他似乎也并行地发现了这个问题。\n\n感谢 MSRC 和产品团队的成员协助推进缓解工作。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

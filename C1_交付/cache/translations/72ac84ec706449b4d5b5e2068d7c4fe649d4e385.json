@@ -1,0 +1,10 @@
+{
+ "seg_id": "sast-vs-dast#0020",
+ "doc_id": "sast-vs-dast",
+ "fingerprint": "72ac84ec706449b4d5b5e2068d7c4fe649d4e385",
+ "zh": "## 未来是用 SAST、DAST 和 RASP 做应用安全测试\n\n应用测试的未来在于把 SAST、DAST 和 RASP 结合起来，形成综合性的安全策略。随着安全挑战不断增加，把这些工具集成进 CI/CD 流水线并实现流程自动化将变得不可或缺。\n\nAI 与机器学习领域的进步会让测试更高效，因为它有助于减少误报并提升威胁检测能力。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0002",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "e39042ae6529a996902bf713dd66a0d16c6c2961",
+ "zh": "### 了解 AI 代码评审\n\nAI 代码评审是指利用机器学习和自然语言处理技术，自动分析代码中的问题，包括：\n\n- Bug 和潜在的运行时错误\n\n- 性能低效\n\n与传统的静态分析工具不同，现代 AI 代码评审工具能够理解代码上下文、提出改进建议，甚至自动生成修复方案。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0004",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "8c567638122b18a42a38a4e19c3d4ef142583b32",
+ "zh": "#### 第 1 步：选对工具\n\n目前有多款 AI 代码评审工具可选，能力各不相同：\n\n- Graphite Agent：通过上下文代码分析配合 PR 自动化，提供即时、可执行的反馈\n\n- GitHub Copilot：在写代码时提供实时建议，让待评审的代码更干净\n\n- SonarQube 配合 AI：把传统静态分析与 AI 能力结合起来\n\n- DeepCode：专注于检测安全漏洞\n\n在选择 AI 代码评审工具时，有几点很重要：\n\n- 可定制选项",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

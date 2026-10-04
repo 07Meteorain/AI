@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0012",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "98b8b702db5dd6102aa65f78e8bfb8eda7db659c",
+ "zh": "#### 示例：\n\n我们团队从以无类型 Python SDK 为主，全面转为只使用带类型的 SDK（理想情况下，这也正是适合交给编码智能体的任务）。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

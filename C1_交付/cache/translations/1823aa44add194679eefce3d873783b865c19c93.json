@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0054",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "1823aa44add194679eefce3d873783b865c19c93",
+ "zh": "- 用 AI Playground、MCP Inspector 或其他 MCP 客户端连接运行在 worker-name.account-name.workers.dev/mcp 的服务器，并用 GitHub 完成认证。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

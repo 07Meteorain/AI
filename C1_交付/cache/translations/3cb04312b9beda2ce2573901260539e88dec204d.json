@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0009",
+ "doc_id": "course-homepage",
+ "fingerprint": "3cb04312b9beda2ce2573901260539e88dec204d",
+ "zh": "#### 讲座\n\n周一 10/20：Warp 与 AI 终端 —— 幻灯片\n\n周五 10/24：嘉宾：Zach Lloyd（Warp）—— 幻灯片（Figma）\n\n第 6 周：AI 安全与漏洞检测\n\n#### 主题\n\n- 安全测试（SAST 静态应用安全测试 vs DAST 动态应用安全测试）",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "claude-code-best-practices#0010",
+ "doc_id": "claude-code-best-practices",
+ "fingerprint": "5ef17c69b5defda7a6f327edaff3477b3995d513",
+ "zh": "Homebrew 安装不会自动更新。请定期运行 brew upgrade claude-code，以获取最新功能和安全修复。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

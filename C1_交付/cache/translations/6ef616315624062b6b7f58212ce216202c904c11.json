@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0038",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "6ef616315624062b6b7f58212ce216202c904c11",
+ "zh": "- Google Cloud 与 Gemini 强强联合\n\n助力应用开发、编码等场景的 AI 助手。\n\n- Google Cloud 上的生成式 AI\n\n用生成式 AI 的力量重塑内容创作与发现、研究、客户服务和开发者效率。\n\nAPI 与应用\n\n借助 API、应用和自动化，无需写代码也能加快创新节奏。\n\n- 用 API 开辟全新业务渠道\n\n吸引并赋能开发者与合作伙伴生态。\n\n- 用 API 激活存量应用\n\n用于扩展和现代化改造存量应用的云服务。\n\n- Open Banking APIx\n\n简化并加速交付符合开放银行规范的 API。\n\n数据分析\n\n借助无服务器的全托管分析平台，显著简化分析工作，随时从任意规模的数据中即时获得洞察。\n\n- 数据迁移\n\n用 AI 驱动的迁移服务，迁移并现代化升级你的数据仓库和数据湖。\n\n- Data Lakehouse\n\n用高性能开放数据湖仓统一治理你的多模态数据。\n\n- 实时分析\n\n从事件流的接入、处理和分析中获得洞察。\n\n- 营销分析\n\n用于采集、分析并激活客户数据的解决方案。\n\n- 数据集\n\n来自 Google、公开渠道和商业供应商的数据，为你的分析与 AI 项目补充能量。\n\n- 商业智能\n\n用于现代化升级 BI 技术栈、打造丰富数据体验的解决方案。\n\n- 数据分析领域的 AI\n\n用数据分析领域的 AI 编写 SQL、构建预测模型并可视化数据。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

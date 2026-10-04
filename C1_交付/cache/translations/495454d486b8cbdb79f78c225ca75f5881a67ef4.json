@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0002",
+ "doc_id": "course-homepage",
+ "fingerprint": "495454d486b8cbdb79f78c225ca75f5881a67ef4",
+ "zh": "### 课程形式\n\n每周讲座、动手编码环节，以及来自行业界的嘉宾分享。最终项目展示现代开发实践。",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

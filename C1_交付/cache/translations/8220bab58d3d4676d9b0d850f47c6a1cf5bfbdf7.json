@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0010",
+ "doc_id": "observability-basics",
+ "fingerprint": "8220bab58d3d4676d9b0d850f47c6a1cf5bfbdf7",
+ "zh": "### 采样策略\n\n对所有内容都做追踪会产生巨量数据。因此大多数系统会使用采样——只采集一定比例的追踪。比较聪明的采样策略包括：\n\n- 头部采样（Head-based sampling）：在请求开始时决定是否采样\n\n- 尾部采样（Tail-based sampling）：在请求结束后再决定（更适合捕捉错误）\n\n- 优先级采样：始终追踪重要操作，日常操作则采样\n\n💡\n\n如果你想弄清可观测性、遥测和监控之间的区别，看看这篇有用的文章：Observability vs Telemetry vs Monitoring。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "owasp-top-ten#0008",
+ "doc_id": "owasp-top-ten",
+ "fingerprint": "0f9b1ff65a3aabb6d3c96d248fb3b1ba47655062",
+ "zh": "### 2010 年已完成的翻译：\n\n- 韩语 2010: OWASP Top 10 2010 - Korean PDF\nHyungkeun Park, ([email protected])\n\n- 西班牙语 2010: OWASP Top 10 2010 - Spanish PDF\n Daniel Cabezas Molina, Edgar Sanchez, Juan Carlos Calderon, Jose Antonio Guasch, Paulo Coronado, Rodrigo Marcos, Vicente Aguilera\n\n- 法语 2010: OWASP Top 10 2010 - French PDF\n[email protected], [email protected], [email protected], [email protected], [email protected], [email protected], [email protected]\n\n- 德语 2010: OWASP Top 10 2010 - German PDF\n[email protected]，即 Frank Dölitzscher, Tobias Glemser, Dr. Ingo Hanke, Kai Jendrian, Ralf Reinhardt, Michael Schäfer\n\n- 印尼语 2010: OWASP Top 10 2010 - Indonesian PDF\nTedi Heriyanto (协调人), Lathifah Arief, Tri A Sundara, Zaki Akhmad\n\n- 意大利语 2010: OWASP Top 10 2010 - Italian PDF\nSimone Onofri, Paolo Perego, Massimo Biagiotti, Edoardo Viscosi, Salvatore Fiorillo, Roberto Battistoni, Loredana Mancini, Michele Nesta, Paco Schiaffella, Lucilla Mancini, Gerardo Di Giacomo, Valentino Squilloni\n\n- 日语 2010: OWASP Top 10 2010 - Japanese PDF\n[email protected], Dr. Masayuki Hisada, Yoshimasa Kawamoto, Ryusuke Sakamoto, Keisuke Seki, Shin Umemoto, Takashi Arima\n\n- 中文 2010: OWASP Top 10 2010 - Chinese PDF\n感谢以下为中文版本做出贡献的翻译人员和审核人员: Rip Torn, 钟卫林, 高雯, 王颉, 于振东\n\n- 越南语 2010: OWASP Top 10 2010 - Vietnamese PDF\n翻译负责人 Cecil Su - 翻译团队: Dang Hoang Vu, Nguyen Ba Tien, Nguyen Tang Hung, Luong Dieu Phuong, Huynh Thien Tam\n\n- 希伯来语 2010: OWASP Top 10 Hebrew Project – OWASP Top 10 2010 - Hebrew PDF.\n由 Or Katz 牵头，贡献者名单见翻译页面。\n\n## 2021 项目赞助方\n\nOWASP Top 10:2021 由 Secure Code Warrior 赞助。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

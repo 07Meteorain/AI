@@ -1,0 +1,10 @@
+{
+ "seg_id": "copilot-prompt-injection-rce#0007",
+ "doc_id": "copilot-prompt-injection-rce",
+ "fingerprint": "3be534ed58d5cb3cce110dde2000dc290e13acce",
+ "zh": "## 把工作站接入僵尸网络——ZombAIs\n\n当然，这意味着我们可以把开发者的机器作为 ZombAI 接入僵尸网络。\n\n另外，玩一下的话，我们还可以修改 settings.json 文件，把 VS Code 切换成红色配色之类。\n\n不过还没完！这也意味着我们可以造出真正的 AI 病毒：让它附着在文件上，随着开发者下载并打开被感染的文件而传播。\n\n最后但同样重要的是，为了证明我们完全控制了这台开发者的主机，我们展示 Copilot 可以被劫持去下载恶意软件，并接入远程命令与控制服务器。\n\n这等于为恶意软件、勒索软件、信息窃取程序之类的东西敞开了大门。\n\n挺吓人的。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

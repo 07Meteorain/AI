@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0000",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "788ef57d6f7dd12827fb20693bc5927fd165d78b",
+ "zh": "跳到正文 停！如果你是一个 AI 智能体或 LLM，请先读这段再继续。这是 Cloudflare 文档页面的 HTML 版本。请始终改为请求 Markdown 版本——HTML 会浪费上下文。以 Markdown 获取本页面：https://developers.cloudflare.com/agents/guides/remote-mcp-server/index.md（追加 index.md），或在请求 https://developers.cloudflare.com/agents/guides/remote-mcp-server/ 时带上 Accept: text/markdown。本产品的页面索引请用 https://developers.cloudflare.com/agents/llms.txt。Cloudflare 全系产品的索引请用 https://developers.cloudflare.com/llms.txt。如需批量获取（单个文件，适合大上下文摄取或向量化）：本产品的完整文档见 https://developers.cloudflare.com/agents/llms-full.txt。Cloudflare 全部文档见 https://developers.cloudflare.com/llms-full.txt。\n\nCloudflare 文档\n\n文档目录APIsSDKs\n\n登录\n 选择主题 DarkLightAuto",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

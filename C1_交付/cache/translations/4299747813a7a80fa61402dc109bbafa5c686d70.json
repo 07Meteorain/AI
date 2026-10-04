@@ -1,0 +1,10 @@
+{
+ "seg_id": "claude-code-best-practices#0019",
+ "doc_id": "claude-code-best-practices",
+ "fingerprint": "4299747813a7a80fa61402dc109bbafa5c686d70",
+ "zh": "在 CI 中，你可以用 GitHub Actions 或 GitLab CI/CD 自动化代码评审和问题分类。\n\n用 MCP 连接你的工具\n\nModel Context Protocol（MCP）是一个把 AI 工具连接到外部数据源的开放标准。借助 MCP，Claude Code 可以读取 Google Drive 中的设计文档、更新 Jira 中的工单、从 Slack 拉取数据，或者使用你自己的自定义工具。\n\n用指令、skills 和 hooks 定制\n\nCLAUDE.md 是一个 markdown 文件，你把它放在项目根目录，Claude Code 会在每次会话开始时读取它。用它来设定编码规范、架构决策、常用库和评审清单。Claude 还会一边工作一边自动建立记忆，把构建命令、调试心得这类经验跨会话保存下来，你什么都不用写。创建自定义命令，把团队可以共享的可复用工作流打包进去，比如 /review-pr 或 /deploy-staging。Hooks 让你在 Claude Code 的操作前后运行 shell 命令，比如每次编辑文件后自动格式化，或在提交前先跑一遍 lint。\n\n运行智能体团队并构建自定义智能体\n\n派生多个 Claude Code 智能体，让它们同时处理任务的不同部分。由一个主智能体负责协调工作、分配子任务并合并结果。若要实现完全定制的工作流，Agent SDK 让你构建自己的智能体，由 Claude Code 的工具与能力驱动，并对编排、工具访问和权限拥有完全控制权。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

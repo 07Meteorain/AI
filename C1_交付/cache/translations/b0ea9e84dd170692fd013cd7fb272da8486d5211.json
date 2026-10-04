@@ -1,0 +1,10 @@
+{
+ "seg_id": "finding-vulnerabilities-claude-codex#0012",
+ "doc_id": "finding-vulnerabilities-claude-codex",
+ "fingerprint": "b0ea9e84dd170692fd013cd7fb272da8486d5211",
+ "zh": "#### OpenAI Codex（v0.2.0，o4-mini/high reasoning）\n\n漏洞类别\n\n真阳性\n\n误报\n\n真阳性率\n\n认证绕过\n\n5\n\n32\n\n13% (5/37)\n\nIDOR\n\n0\n\n5\n\n0% (0/5)\n\n路径遍历\n\n8\n\n9\n\n47% (8/17)\n\nSQL 注入\n\n0\n\n5\n\n0% (0/5)\n\nSSRF\n\n8\n\n15\n\n34% (8/23)\n\nXSS\n\n0\n\n28\n\n0% (0/28)\n\n使用如下命令：",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

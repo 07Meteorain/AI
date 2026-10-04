@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0011",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "df9aafa5885a0fcdb79e98b167efa9ac684fd34d",
+ "zh": "### 思维链提示\n\n思维链提示鼓励模型把复杂推理拆解成一系列中间步骤，从而得到更全面、更有条理的最终输出。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

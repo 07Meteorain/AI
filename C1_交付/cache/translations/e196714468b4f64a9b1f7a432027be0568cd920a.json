@@ -1,0 +1,10 @@
+{
+ "seg_id": "code-reviews-just-do-it#0002",
+ "doc_id": "code-reviews-just-do-it",
+ "fingerprint": "e196714468b4f64a9b1f7a432027be0568cd920a",
+ "zh": "- Aetna Insurance Company 通过检查发现了一个程序中 82% 的错误，并因此把开发资源减少了 20%。\n\n- IBM 50 万行代码的 Orbit 项目使用了 11 层检查。它提前交付，错误只有通常预期的约 1%。\n\n- 一项针对 AT&T 一家 200 多人组织的研究报告称，该组织引入评审后，效率提升了 14%，缺陷减少了 90%。\n\n- Jet Propulsion Laboratories 估计，通过在早期发现并修复缺陷，每次检查大约能节省 25,000 美元。\n\n做一次代码评审唯一的障碍，是找到一个你尊敬的开发者来做这件事，以及腾出执行评审的时间。一旦开始，我猜你很快就会发现，你在代码评审上花掉的每一分钟都会得到十倍的回报。\n\n如果你的组织刚开始接触代码评审，我强烈推荐 Karl 的书《Peer Reviews in Software: A Practical Guide》。Karl 在他网站上提供的样例章节同样是极好的入门材料。\n\n软件开发\n 代码评审\n 同伴评审\n 代码质量\n 职业发展",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0039",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "8878dcc252f87223c753622dd9fdf5e42cb05554",
+ "zh": "### 接入故障事件与告警\n\n你也可以设置自主智能体在特定事件发生时自动触发。例如，Devin 提供了易用的 API，其他智能体则可以通过 CLI 命令接入自定义工作流。这类配置尤其适合与 MCP 搭配，用来摄取第三方错误日志。\n\n⚠️在对生产服务的问题做分诊时，AI 的调试能力并不出色。与其让 AI 从头到尾修 Bug，通常更务实的做法是让 AI 只把最可疑的错误、变更等标出来。\n\n（高级）\n\n## 定制化与提升性能",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

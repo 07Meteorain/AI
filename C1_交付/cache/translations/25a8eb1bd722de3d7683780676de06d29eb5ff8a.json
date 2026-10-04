@@ -1,0 +1,10 @@
+{
+ "seg_id": "sre-introduction#0000",
+ "doc_id": "sre-introduction",
+ "fingerprint": "25a8eb1bd722de3d7683780676de06d29eb5ff8a",
+ "zh": "## 第 1 章 - 导论\n\n- 2. 站在 SRE 视角看 Google 的生产环境\n\n- 15. 复盘文化：从失败中学习\n\n- 23. 管理关键状态：面向可靠性的分布式共识\n\n- 24. 用 Cron 做分布式定时调度\n\n- 26. 数据完整性：所读即所写\n\n- 28. 让 SRE 更快胜任值班乃至更多\n\n- 30. 嵌入 SRE 以应对运维过载\n\n- 31. SRE 中的沟通与协作\n\n- 33. 从其他行业学到的经验\n\n- 附录 B. 生产服务最佳实践集\n\n- 附录 C. 故障事件状态文档示例\n\n- 附录 E. 发布协调检查清单\n\n- 附录 F. 生产会议纪要示例\n\n- 参考文献",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

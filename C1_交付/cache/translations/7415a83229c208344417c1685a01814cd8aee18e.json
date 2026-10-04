@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0009",
+ "doc_id": "observability-basics",
+ "fingerprint": "7415a83229c208344417c1685a01814cd8aee18e",
+ "zh": "### 跨度属性与事件\n\n跨度不只是时间戳——它们还承载着丰富的数据：\n\n- 名称（Name）：这个跨度代表什么操作\n\n- 属性（Attributes）：自定义的键值对（比如 user_id 或 cart_size）\n\n- 事件（Events）：跨度内值得注意的偶发事件",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

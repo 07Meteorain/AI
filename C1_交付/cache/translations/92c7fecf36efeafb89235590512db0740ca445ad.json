@@ -1,0 +1,10 @@
+{
+ "seg_id": "owasp-top-ten#0017",
+ "doc_id": "owasp-top-ten",
+ "fingerprint": "92c7fecf36efeafb89235590512db0740ca445ad",
+ "zh": "## 数据结构\n\n以下数据元素为必填或选填。\n\n提供的信息越多，我们的分析就能越准确。\n\n至少我们需要：时间段、数据集中受测应用的总数，以及 CWE 清单和包含该 CWE 的应用数量。\n\n如果可能，请尽量提供额外的元数据，因为这将极大帮助我们深入了解当前检测与漏洞的现状。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

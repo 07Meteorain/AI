@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0046",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "46ed90caffb09523b9d893a13ccc72a7119d5cfc",
+ "zh": "- Cloud Service Mesh\n\n基于 Envoy 和 Istio 的全托管服务网格。\n\n- Google Distributed Cloud\n\n面向边缘和数据中心场景的全托管解决方案。\n\n- 行业专属\n\n- Anti Money Laundering AI\n\n用 AI 检测可疑的潜在洗钱活动。\n\n- Cloud Healthcare API\n\n连接 Google Cloud 上现有医疗系统与应用的方案。\n\n- Device Connect for Fitbit\n\n接入 Google Cloud 上的 Fitbit 数据，获得 360 度患者视图。\n\n- Telecom Network Automation\n\n开箱即用的云原生电信网络自动化方案。\n\n- Telecom Data Fabric\n\n以自动化方式实现电信数据管理与分析。\n\n- Telecom Subscriber Insights\n\n接入数据，改善用户获取与留存。\n\n- Spectrum Access System (SAS)\n\n控制对 Citizens Broadband Radio Service (CBRS) 频谱的接入。\n\n集成服务\n\n- Application Integration\n\n连接第三方应用，无需代码即可实现数据一致性。\n\n- Workflows\n\n面向无服务器产品和 API 服务的工作流编排。\n\n- Apigee API Management\n\n在任何地方管理 API 的完整生命周期，尽享可见性与可控性。\n\n- Cloud Tasks\n\n用于异步执行任务的任务管理服务。\n\n- Cloud Scheduler\n\n用于任务自动化和管理的 Cron 作业调度器。\n\n- Dataproc\n\n运行 Apache Spark 和 Apache Hadoop 集群的服务。\n\n- Cloud Data Fusion\n\n用于构建和管理数据流水线的数据集成方案。\n\n- Cloud Composer\n\n基于 Apache Airflow 的工作流编排服务。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "finding-vulnerabilities-claude-codex#0025",
+ "doc_id": "finding-vulnerabilities-claude-codex",
+ "fingerprint": "f6f119b0dc24a478b65e54ad0603fd8db058ce16",
+ "zh": "##### 未来的安全工程师会更多还是更少？\n\nIsaac Evans\n\n2026 年 3 月 18 日\n\n##### 推出 Semgrep Custom Workflows\n\nVivek Khimani\n \n Braden Riggs\n\n2026 年 3 月 16 日\n\n##### 用 Semgrep Autofix 加速并自动化修复\n\nNabeel Saeed\n \n Katie Kent",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

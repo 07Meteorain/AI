@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0008",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "b43d6d84c9e0c0c4fb4b96dbec47feceea2e945c",
+ "zh": "## 提示词的类型\n\nAI 中使用的提示词有各种类型，各自服务于特定目的：",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

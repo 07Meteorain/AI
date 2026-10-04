@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0043",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "97829b5379676d1ed8e894c0a0c15c2fd37b7fd1",
+ "zh": "- Spot VMs\n\n面向批处理任务和容错工作负载的计算实例。\n\n- Batch\n\n用于调度批处理任务的全托管服务。\n\n- Sole-Tenant Nodes\n\n满足合规、许可和管理需求的专用硬件。\n\n- Bare Metal\n\n在 Google Cloud 上运行专用工作负载的基础设施。\n\n- Recommender\n\n针对 Google Cloud 产品与服务的使用建议。\n\n- VMware Engine\n\n完全托管、原生的 VMware Cloud Foundation 软件栈。\n\n- Cloud Run\n\n运行容器化应用的全托管环境。\n\n- 没找到你想要的产品？\n\n- 查看全部计算产品\n\n容器\n\n- Google Kubernetes Engine\n\n运行容器化应用的托管环境。\n\n- Cloud Run\n\n运行容器化应用的全托管环境。\n\n- Cloud Build\n\n在 Docker 容器中运行构建步骤的方案。\n\n- Artifact Registry\n\n管理构建产物和依赖的包管理器。\n\n- Cloud Code\n\n在 IDE 中编写、运行和调试 Kubernetes 应用的辅助能力。\n\n- Cloud Deploy\n\n面向 GKE 和 Cloud Run 的全托管持续交付。\n\n- 迁移到容器\n\n把虚拟机迁入 GKE 系统容器的组件。\n\n- Deep Learning Containers\n\n内置数据科学框架、库和工具的容器。\n\n- Knative\n\n用于构建 Kubernetes 原生云软件的组件。\n\n数据分析\n\n- BigQuery\n\n面向分析与数据科学的自主数据到 AI 平台。\n\n- Looker\n\nBI、数据应用与嵌入式分析平台。\n\n- Dataflow\n\n用于流式和批处理的实时分析。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

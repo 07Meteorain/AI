@@ -1,0 +1,10 @@
+{
+ "seg_id": "how-long-contexts-fail#0003",
+ "doc_id": "how-long-contexts-fail",
+ "fingerprint": "492ac6f4260ccb60403c43d7dfde31a4ec87be0f",
+ "zh": "## 上下文失效\n\n- 上下文污染：幻觉混进了上下文\n\n- 上下文干扰：上下文压过了训练所学\n\n- 上下文混乱：多余的内容影响了回答\n\n- 上下文冲突：上下文的不同部分彼此矛盾",
+ "meta": {
+  "source": "../work/tr_g02.json",
+  "batch": "tr_g02"
+ }
+}

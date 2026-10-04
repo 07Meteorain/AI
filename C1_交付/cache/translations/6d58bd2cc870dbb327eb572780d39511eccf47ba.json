@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0025",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "6d58bd2cc870dbb327eb572780d39511eccf47ba",
+ "zh": "#### 我该如何平衡 AI 的建议与团队的编码规范？\n\n把 AI 工具配置成与现有的编码规范和风格指南一致。大多数工具都允许定制规则，也能从你的代码库模式中学习。要根据团队反馈和不断演进的标准，定期复审并调整配置。",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

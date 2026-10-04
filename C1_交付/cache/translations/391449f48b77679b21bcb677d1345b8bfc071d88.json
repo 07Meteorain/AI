@@ -1,0 +1,10 @@
+{
+ "seg_id": "kubernetes-troubleshooting-ai#0002",
+ "doc_id": "kubernetes-troubleshooting-ai",
+ "fingerprint": "391449f48b77679b21bcb677d1345b8bfc071d88",
+ "zh": "# Resolve AI 中的 Kubernetes 排查\n\n自 2014 年 6 月的首次提交以来，Kubernetes 已经发展成容器编排的事实标准，拥有来自 44 个国家、8,000 多家公司的 88,000 多名贡献者。它的自愈能力和声明式特性承诺了毫不费力的扩缩容和高可用。然而，在生产环境中管理 Kubernetes 远非易事。问问任何一位值班工程师或 SRE 就知道了；生产环境的 Kubernetes 排查常常陷入令人沮丧的试错循环。\n\n许多人发现，凌晨 2 点的告警把他们引向 kubectl CLI，结果发现问题已经神秘地“自己好了”。但好景不长。噪声邻居、行为异常的插件、资源枯竭和隐蔽的内存泄漏之类的问题就潜伏在水面之下。CrashLoopBackOff、OOMKilled 和 ImagePullBackOff 这类 Kubernetes 错误很常见，但要在一个庞大的 Kubernetes 集群中诊断其根因，需要把来自几十个来源的信号拼接起来。排查 Kubernetes 常常让人觉得不像在解谜，更像在追影子。\n\n如果能把这份费力、猜测和手工劳作都消除掉呢？想象一个由 AI 驱动的自主 AI 智能体，它不只是协助，而是主动在你的 Kubernetes 基础设施及其上运行的应用中展开调查并执行根因分析。这正是我们打造 AI Production Engineer 的原因：优化 Kubernetes 运维、缩短 MTTR（平均解决时间），让值班变得轻松无忧。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

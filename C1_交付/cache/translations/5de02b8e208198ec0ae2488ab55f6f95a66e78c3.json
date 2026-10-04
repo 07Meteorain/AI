@@ -1,0 +1,10 @@
+{
+ "seg_id": "specs-are-the-new-source-code#0004",
+ "doc_id": "specs-are-the-new-source-code",
+ "fingerprint": "5de02b8e208198ec0ae2488ab55f6f95a66e78c3",
+ "zh": "新的稀缺技能不是写代码，而是写出能完整承载意图和价值观的规格说明。\n\n对产品经理来说，这话听起来应该很熟悉。这正是我们一直在做的事——只不过现在，机器也在听。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

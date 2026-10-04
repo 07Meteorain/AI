@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Devin 编码智能体 101 · CS146S 中文档</title>
+<link rel="stylesheet" href="../../assets/style.css"></head>
+<body class="mode-both">
+<header class="top"><span class="logo">CS146S 中文档</span>
+<nav><a href="../index.html">← 返回首页</a> · <a href="../glossary.html">术语表（172 条）</a></nav></header>
+<div class="wrap">
+<div class="doc-head">
+  <h1>Devin 编码智能体 101</h1>
+  <div class="meta">
+    <span>分类：Week 2 · 编码智能体</span><span>原文 3,299 词</span><span>覆盖率 100%</span>
+    <span>一手来源：<a href="https://devin.ai/agents101" target="_blank" rel="noopener">https://devin.ai/agents101</a></span>
+  </div>
+  <div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="toolbar">
+  <button data-m="both" class="on">中英对照</button>
+  <button data-m="zh">只看中文</button>
+  <button data-m="en">只看原文</button>
+  <input id="q" placeholder="搜索本页关键词…" style="font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid #e3e6ea;border-radius:7px;flex:1;min-width:180px">
+</div>
+<div class="pair" id="devin-coding-agents-101-0000"><div class="zh side"><div class="tag">中文</div><p>编码智能体指南</p>
+<p>Cognition 团队 2025 年 6 月 · 15 分钟阅读</p></div><div class="en side"><div class="tag">EN</div><p>guide to coding agents</p>
+<p>Cognition Team June 2025 15 minute read</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0001"><div class="zh side"><div class="tag">中文</div><h1 id="h-101-">编码智能体 101：真正把事情做成的艺术</h1>
+<p>现在是 2025 年。编码智能体并不是魔法，但它已经是我们手上最接近魔法的东西了。我们注意到，有些工程师——尤其是 senior 到 staff 这一层级的——用它们取得成功的速度明显快于其他人。这里我们分享一些最有价值的经验，它们来自我们的客户和我们自己的实践。</p>
+<p>关于本指南：</p></div><div class="en side"><div class="tag">EN</div><h1 id="hcoding-agents-101-the-art-of-actually-getting-things-done">Coding Agents 101: The Art of Actually Getting Things Done</h1>
+<p>The year is 2025. Coding agents aren't magic, but they're about the closest thing we have. We've noticed some engineers, in particular at the senior-to-staff level, finding success faster than others. Here we share some top lessons sourced from the experience of our customers and ourselves.</p>
+<p>About this guide:</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0002"><div class="zh side"><div class="tag">中文</div><h2 id="h-">与产品无关</h2>
+<p>我们讨论的那些建议，能帮助你在任何编码智能体上都取得成功。</p>
+<h2 id="h-">战术层面</h2>
+<p>我们给出自己最喜欢的可落地建议。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hproduct-agnostic">Product-agnostic</h2>
+<p>We discuss tips that will help you be successful with any coding agent.</p>
+<h2 id="htactical">Tactical</h2>
+<p>We offer our favorite bits of actionable advice.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0003"><div class="zh side"><div class="tag">中文</div><h2 id="h-">技术层面</h2>
+<p>虽然编码智能体对很多人来说都很有价值，但本指南是写给工程师看的。</p>
+<p>开发者工具这些年来一直在快速演进。十年前，它们是自动补全和 IntelliSense，能建议方法名、执行程序化重构。四年前，它们是副驾驶和 Tab 补全，能替你写出接下来几行代码。两年前，它们是生成式聊天机器人，能辅助你的开发、为你生成整个文件。今天，它们是自主智能体，能从最初的一段描述一路做到最终的拉取请求（PR），几乎不需要人工介入。过去两年，我们一直在通过构建 Devin 来实现这一愿景。如今人们对自主智能体的兴趣达到了新高峰，尤其是近期同类产品接连发布之后。[1] 除了 Devin，近期的同类发布还有 OpenAI 的 Codex 和 Google 的 Jules。Cursor 和 Claude Code 这类本地智能体也可以在并行工作区中运行，达到类似的效果。这些智能体可以以多种形态出现，包括网页应用、移动应用，以及嵌入 Slack、GitHub、Linear、Jira 等常用工具的集成。</p>
+<p>一个人类搭配 AI 助手能取得的成果，超过任何单独的 AI；但自主智能体端到端完成任务的能力，带来了一个全新的多任务层次——它让每位工程师都变成一名工程经理。</p>
+<p>适应与这些新 AI 同事高效协作需要一些时间。有意思的是，我们观察到 senior 到 staff 层级的工程师往往采用这些工具、并熟练掌握它们的速度最快。归根结底，这些工具会在各个层级的工程师中都变得常见。基于我们的经验和客户反馈，我们希望分享关键的洞察与经验教训，帮助每个人把这些工具成功融入自己的工作流。</p>
+<p>（入门）</p></div><div class="en side"><div class="tag">EN</div><h2 id="htechnical">Technical</h2>
+<p>While coding agents can be valuable to many, this guide is written with engineers in mind.</p>
+<p>Developer tooling has been rapidly evolving. Ten years ago, it was autocomplete and intellisense, capable of suggesting method names and carrying out programmatic refactors. Four years ago, it was copilots and tab complete, capable of writing the next couple lines of code for you. Two years ago, it was generative chatbots, capable of assisting your development and generating entire files for you. Today, it is autonomous agents, capable of taking initial descriptions to final pull requests with little human intervention. We've focused on realizing this vision over the past two years by building Devin. Now, interest in autonomous agents is reaching new heights, especially with recent releases of similar products [1] Other than Devin, some recent releases include Codex by OpenAI and Jules by Google. Some local agents like Cursor and Claude Code can be run in parallel workspaces to replicate a similar effect.. These agents can appear in many forms, including web apps, mobile apps, and integrations within popular tools like Slack, GitHub, Linear, and Jira.</p>
+<p>While a human paired with an AI assistant can achieve more than any AI alone, an autonomous agent's ability to handle tasks end to end allows for a new level of multi-tasking, turning every engineer into an engineering manager.</p>
+<p>Adapting to working effectively alongside these new AI colleagues can take some time. Interestingly, we've observed that senior-to-staff level engineers tend to adopt and become proficient with these tools the fastest. Ultimately, these tools will become commonplace across all levels of engineering. Based on our experience and customer feedback, we want to share key insights and lessons learned to help everyone successfully integrate these tools into their workflows.</p>
+<p>(Getting Started)</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0004"><div class="zh side"><div class="tag">中文</div><h2 id="h-">提示词基础</h2>
+<p>这些基本准则会帮助你在 2025 年更有效地与编码智能体交互。如果别的什么都不记，至少要记住这些。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hprompting-basics">Prompting Basics</h2>
+<p>These fundamental guidelines will help you effectively interact with coding agents in 2025. If you take nothing else away, you should at least remember these.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0005"><div class="zh side"><div class="tag">中文</div><h3 id="h-">说明你希望怎么做，而不只是做什么</h3>
+<p>把智能体想象成一位初级编码搭档，它的决策未必可靠。简单的任务可以直接描述，但更复杂的任务，从一开始就要清晰地勾勒出你偏好的方案。提前把整体架构和逻辑交给智能体，不仅能提高它成功的概率，还能减少你评审代码的时间——因为你对预期做法已经熟悉。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hsay-how-you-want-things-done-not-just-what">Say how you want things done, not just what</h3>
+<p>Think of the agent as a junior coding partner whose decision-making can be unreliable. Simple tasks can be described directly, but for more complex tasks, clearly outline your preferred approach from the outset. Providing the agent with the overall architecture and logic upfront not only boosts its chances of success but also reduces your time reviewing code, as you will already be familiar with the intended method.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0006"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>不要只说「添加单元测试」，而要具体说明要测试的功能，指出重要的边界情况，并说清楚有没有需要 mock 的部分。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>Instead of "add unit tests," specify the functionality to test, identify important edge cases, and clarify what needs mocking, if anything.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0007"><div class="zh side"><div class="tag">中文</div><h3 id="h-">告诉智能体从哪里入手</h3>
+<p>想一想如果这件事由你自己来做，你会从哪里开始。即使你不知道具体的文件名或函数名，也要提到相关的仓库、文档和涉及的关键组件。明确指出这些信息能最大限度减少无效努力和困惑。</p></div><div class="en side"><div class="tag">EN</div><h3 id="htell-the-agent-where-to-start">Tell the agent where to start</h3>
+<p>Think about where you'd start if you were handling the task yourself. Even if you don't know specific file or function names, mention the repository, relevant documentation, and key components involved. Clearly indicating these elements minimizes wasted effort and confusion.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0008"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>「请为我们的代码加上对 Google 模型的支持。你应该参考最新的文档<a href="link">这里</a>，并在 model groups 目录下创建一个新的实现文件」</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>"Please add support for Google models to our code. You should look at the latest docs <a href="link">here</a> and create a new implementation file in the model groups directory"</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0009"><div class="zh side"><div class="tag">中文</div><h3 id="h-">学会防御性地写提示词</h3>
+<p>想象一下你把同一段提示词交给一位新来的实习生。困惑或错误最可能出现在哪里？提前想到这些点，主动把指令说清楚，避免歧义。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hpractice-defensive-prompting">Practice defensive prompting</h3>
+<p>Imagine giving the same prompt to a new intern. Where would confusion or errors likely arise? Anticipate these points and proactively clarify your instructions to avoid ambiguity.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0010"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>「请修复我们搜索模块的 C++ 绑定，让它通过新的单元测试。注意，你很可能每次改完代码、测试之前都需要重新编译绑定。」</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>"Please fix the C++ bindings for our search module to pass the new unit tests. Be careful, you will probably need to recompile the bindings each time you change the code before you test."</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0011"><div class="zh side"><div class="tag">中文</div><h3 id="h-ci-">让它能访问 CI、测试、类型和静态检查</h3>
+<p>智能体的魔力很大程度上来自它们能自己修正错误、对着报错信息反复迭代。通过类型检查器、lint（静态检查）和单元测试这类工具提供更强的反馈回路，能大幅提升它们的表现。优先考虑带类型的 Python 而非纯 Python，TypeScript 而非 JavaScript。教会你的智能体如何运行常见的检查和测试，确保它拥有所需的全部包和访问权限。如果智能体能与浏览器交互，就清楚说明如何运行你的前端开发环境。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hgive-access-to-ci-tests-types-and-linters">Give access to CI, tests, types, and linters</h3>
+<p>Much of the magic of agents comes from their ability to fix their own mistakes and iterate against error messages. Providing strong feedback loops through tools like type checkers, linters, and unit tests greatly enhances their performance. Consider typed Python over plain Python, or TypeScript over JavaScript. Teach your agent how to run common checks and tests, ensuring it has all necessary packages and access rights. If the agent can interact with a browser, provide clear instructions on running your front-end development environment.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0012"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>我们团队从以无类型 Python SDK 为主，全面转为只使用带类型的 SDK（理想情况下，这也正是适合交给编码智能体的任务）。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>Our team transitioned from mostly untyped Python SDKs to exclusively typed SDKs (this is also a good task ideally for coding agents).</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0013"><div class="zh side"><div class="tag">中文</div><h3 id="h-">用好你的专业能力</h3>
+<p>当你对自己的代码库足够熟悉时，上面这一切都会变得更容易。即便是简单的任务，也能从你验证逻辑和结果的能力中获益。人工把关依然不可少——最终，代码是否正确，责任在你身上。即使这些工具越来越成熟，主导和验证仍将是人类工程师的关键职责。</p>
+<p>（入门）</p></div><div class="en side"><div class="tag">EN</div><h3 id="hleverage-your-expertise">Leverage your expertise</h3>
+<p>Everything above becomes easier when you're familiar with your codebase. Even simple tasks benefit from your ability to verify logic and results. Human oversight remains essential—ultimately, you hold responsibility for the final correctness of the code. Ownership and verification will continue to be critical responsibilities for human engineers, even as these tools become increasingly sophisticated.</p>
+<p>(Getting Started)</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0014"><div class="zh side"><div class="tag">中文</div><h2 id="h-">把智能体用进你的工作流</h2>
+<p>等你掌握了与智能体对话的基本要领，就该把这些 AI 帮手带进日常工作了。下面是一些让智能体融入日常工作的实用做法：</p></div><div class="en side"><div class="tag">EN</div><h2 id="husing-agents-in-your-workflow">Using Agents in your Workflow</h2>
+<p>Once you've got the basics of talking to an agent down, it's time to bring these AI helpers into your daily workflow. Here are some practical ways to make agents part of your routine:</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0015"><div class="zh side"><div class="tag">中文</div><h3 id="h-">立刻接下新任务</h3>
+<p>想象一位同事给你发消息：「嘿，我们能快速做个 X 吗？」或者「我们得改一下 Y。」别让它打断你的心流，直接给自主智能体发一段简短的提示词，让它去调研或完成这个改动。这样你就能专注在主要任务上。想到了有意思的副业项目？需要快速做个原型、抓取数据或复现某项研究？把它派给你的智能体，稍后再回来收结果。</p></div><div class="en side"><div class="tag">EN</div><h3 id="htake-on-new-tasks-immediately">Take on new tasks immediately</h3>
+<p>Imagine a teammate messaging you, "Hey, could we build X quickly?" or "We need to tweak Y." Instead of letting it interrupt your flow, just send a quick prompt to an autonomous agent to investigate or make the change. This frees you to stay focused on your main tasks. Got an interesting side project idea? Need to quickly prototype something, scrape data, or reproduce research? Delegate to your agent and circle back later.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0016"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>很多团队在 Slack 上讨论缺陷修复或小功能更新时，直接 @Devin 就完事了。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>Many teams simply tag @Devin on Slack when discussing bug fixes or minor feature updates.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0017"><div class="zh side"><div class="tag">中文</div><h3 id="h-">随时随地写代码</h3>
+<p>想象你在通勤或出差路上，突然冒出一个紧急缺陷，或者你意识到自己可能在代码里留下了一处错误。别担心！自主智能体通常支持移动端访问，让你立刻处理这些问题。无论是通过 Slack 的移动应用还是专门的移动应用，很多智能体都能让你在路途中解决问题，哪怕 wifi 信号很不稳定。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcode-on-the-go">Code on the go</h3>
+<p>Picture yourself commuting or traveling when an urgent bug pops up, or you realize you might have left a mistake in your code. No worries! Autonomous agents often support mobile access, letting you address these issues instantly. Whether through Slack's mobile app or a dedicated mobile app, many agents let you resolve problems on the go, even if your wifi is sketchy.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0018"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>有了这种可选能力，我们自己团队在开车和坐飞机时的效率高了很多。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>Having this optionality has made our own team much more productive on car rides and flights.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0019"><div class="zh side"><div class="tag">中文</div><h3 id="h-">把杂活交出去</h3>
+<p>卡在给老提交做二分定位，或为新功能更新文档？把这些重复性的任务交给智能体。你能省下宝贵时间，专注在更有创造性、影响更大的工作上。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hhand-off-your-chores">Hand off your chores</h3>
+<p>Stuck bisecting for old commits or updating documentation for a new feature? Hand these repetitive tasks off to your agent. You'll save precious time and stay focused on more creative and impactful work.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0020"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>在我们团队，工程师提交改动后，再让智能体更新所有相关文档和面向用户的文案，是很常见的做法。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>In our team, it is common for an engineer to ship a change and then have an agent update all the relevant docs &amp; user-facing copy.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0021"><div class="zh side"><div class="tag">中文</div><h3 id="h-">别再纠结到无法行动</h3>
+<p>拿不准一次重构到底能不能让代码更简单？在两种架构方案之间选不出来？让智能体把两个方案都实现一遍。有具体的例子可比，决策就变得直截了当，而且扔掉其中一个方案也不会伤害任何人的感情。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hskip-the-analysis-paralysis">Skip the analysis paralysis</h3>
+<p>Stuck deciding if a refactor will actually simplify your code? Can't choose between two architectural approaches? Have your agent implement both options. With concrete examples to compare, decision-making becomes straightforward, and you won't hurt any feelings by discarding a solution.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0022"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>在给文本框选 Lexical 还是 Slate 时，我们让智能体各实现了一版。最终 Slate 的交付效果更好，胜出了。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>When choosing between Lexical and Slate for text boxes, we had agents implement each. Slate won out for delivering the better end result.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0023"><div class="zh side"><div class="tag">中文</div><h3 id="h-">搭好预览部署</h3>
+<p>把你的 CI/CD 流水线配置成每个新拉取请求（PR）都自动创建一次预览部署，这样你立刻就能拿到一个可访问的 URL。评审 AI 智能体完成的前端任务时，这尤其方便。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hset-up-preview-deployments">Set up preview deployments</h3>
+<p>Set your CI/CD pipeline to automatically create preview deployments with each new PR, giving you an instant live URL. This is particularly handy when reviewing frontend tasks completed by AI agents.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0024"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>Vercel 是一个部署平台，让预览部署变得非常简单。</p>
+<p>（进阶）</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>Vercel is a deployment platform that makes preview deployments super easy.</p>
+<p>(Intermediate)</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0025"><div class="zh side"><div class="tag">中文</div><h2 id="h-">委派更大的任务单</h2>
+<p>当你的拉取请求（PR）规模和复杂度超过几个文件时，一口气处理完就变得很有挑战了。但把中大型任务（通常是 1 到 6 小时的工作量）委派出去，才是自主智能体回报最高的地方。你省下的不只是几分钟，而是几个小时的效率。小任务可能轻轻松松就完成了，但把智能体的能力拉伸到处理更大任务，带来的回报也最大。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hdelegating-larger-tickets">Delegating Larger Tickets</h2>
+<p>As the size and complexity of your pull requests grow beyond just a few files, handling them in a single pass becomes challenging. Yet, mastering how to delegate medium-to-large tasks (typically 1-6 hours of work) is where autonomous agents give the highest ROI. Rather than saving just a few minutes, you can reclaim hours of productivity. Smaller tasks might work effortlessly, but stretching the capabilities of agents to handle larger tasks brings the biggest returns.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0026"><div class="zh side"><div class="tag">中文</div><h3 id="h-">让初稿自动化</h3>
+<p>对于分量较重的任务，用自主智能体先做出拉取请求（PR）的初稿，能快速启动进展、大幅削减你的工作量。成败取决于你是否从一开始就清楚表达了想要的方案。把自己想象成一位指导初级开发者的架构师。清晰、详尽的指令能避免你花不必要的时间，去纠正智能体代码里的根本性误解。</p>
+<p>🛑 请记住，大任务还不能完全放手（目前还不行）。对于更有难度的任务，要预期到多个反馈循环，也要预留一些手工打磨的时间。现实的目标是节省约 80% 的时间，而不是彻底自动化；你的专业判断在验证和最终质量把关上依然关键。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hautomate-your-first-drafts">Automate your first drafts</h3>
+<p>For substantial tasks, using an autonomous agent to create an initial draft of your PR can kickstart progress and dramatically cut down your workload. Success here depends on clearly communicating your desired approach upfront. Think of yourself as the architect guiding junior developers. Clear, detailed instructions help avoid spending unnecessary time correcting fundamental misunderstandings in the agent's code.</p>
+<p>🛑 Remember, large tasks aren't completely hands-free (yet). Expect multiple feedback cycles for more challenging assignments, and anticipate some manual refinements for polish. A realistic goal is around 80% time savings, not complete automation, with your expertise remaining vital for verification and final quality assurance.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0027"><div class="zh side"><div class="tag">中文</div><h3 id="h-prd">共同打磨 PRD</h3>
+<p>对于复杂或定义模糊的任务，与自主智能体协作产出一份详细计划往往非常有效。一开始你并不清楚每个细节或需求，这完全没关系。先用提示词让智能体去探索一些发现问题，比如「我们的认证系统是怎么工作的？」或者「哪些服务可能会受影响？」你也可以让智能体指出具体相关的代码位置，好在早期就确认。</p>
+<p>Devin 和 Claude Code 等智能体提供专门的规划模式，重点是阅读和探索现有代码，而不是立刻动手修改。如果你希望在委派任务前做更充分的准备，deepwiki.com 和 Devin Search 这类专业的代码库检索工具能快速给出对你代码库的洞察，让流程更顺。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hco-develop-a-prd">Co-develop a PRD</h3>
+<p>For tasks that are complex or vaguely defined, collaborating with your autonomous agent to create a detailed plan can be highly effective. It's perfectly okay if you initially don't know every nuance or requirement. Start by prompting your agent to explore discovery questions, like "How does our authentication system function?" or "Which services might be impacted?" You can also ask the agent to identify specific relevant code targets for you to confirm early on.</p>
+<p>Certain agents, such as Devin and Claude Code, offer dedicated planning modes that focus on reading and exploring existing code rather than immediately modifying it. If you'd prefer deeper preparation before delegating a task, specialized codebase search tools like deepwiki.com and Devin Search can quickly provide insights into your codebase, helping streamline the process.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0028"><div class="zh side"><div class="tag">中文</div><h3 id="h-">设置检查点</h3>
+<p>对于多部分任务，尤其是涉及多个代码库的任务，要沿途设立清晰的检查点：</p>
+<p>规划 → 实现一个 chunk → 测试 → 修复 → 检查点评审 → 下一个 chunk</p>
+<p>明确要求它在每个重要阶段后暂停，尤其是跨多个层面（例如数据库、后端、前端）构建的复杂功能。用这些检查点确保实现符合你的预期、澄清疑点（例如「解释一下认证流程并确认它的安全性」），并及早纠偏，避免问题连锁放大。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hset-checkpoints">Set checkpoints</h3>
+<p>For multi-part tasks, especially those involving multiple codebases, establish clear checkpoints along the way:</p>
+<p>Plan → Implement chunk → Test → Fix → Checkpoint review → Next chunk</p>
+<p>Explicitly request pauses after each significant phase, particularly for complex features built across multiple layers (e.g., database, backend, frontend). Use these checkpoints to ensure implementation aligns with your expectations, clarify doubts (ex. "Explain the auth process and confirm its security"), and correct course early to avoid cascading issues.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0029"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>「我希望你实现这个功能，它会横跨我们的数据库、后端和多个前端界面。请先规划出需要的数据库 schema 变更，做完告诉我，我好去应用迁移。」 -&gt; 「现在请实现后端改动，并加上测试确保 XYZ 能正常工作。做完告诉我」 -&gt; 「现在在 web 和移动端界面上都实现改动，调用新的后端接口」</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>"I want you to implement this feature that will span our database, backend, and multiple frontend interfaces. Please first plan out the database schema changes needed, and let me know when that is done so I can apply the migration." -&gt; "Now please implement the backend changes and add tests to make sure XYZ works. Let me know when that is done" -&gt; "Now implement the changes in both our web and mobile interfaces to call the new backend endpoint"</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0030"><div class="zh side"><div class="tag">中文</div><h3 id="h-">教它验证自己的工作</h3>
+<p>给反馈时，不要只是指出问题（「这个函数不工作」）。要把你的测试流程讲清楚，让智能体在今后的任务中能独立验证。对于你会反复使用的测试模式，把它固化进智能体的永久知识库（参见「把内容加入智能体的知识库」）。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hteach-it-to-verify-its-own-work">Teach it to verify its own work</h3>
+<p>When giving feedback, go beyond simply pointing out issues ("This function isn't working"). Clearly articulate your testing process to enable the agent to independently verify future tasks. For testing patterns you'll frequently repeat, integrate these into your agent's permanent knowledge base (See Add to your agent's knowledge base).</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0031"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>在 Devin 中，我们会主动提示用户把关键测试流程保存到智能体的长期记忆里，让后续交互更顺畅。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>In Devin, we actively prompt users to save essential testing procedures to the agent's ongoing memory, streamlining future interactions.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0032"><div class="zh side"><div class="tag">中文</div><h3 id="h-ai-">在 AI 热点区域加大测试覆盖</h3>
+<p>目前，智能体还不具备把各种场景都彻底地交互式测试一遍的能力。加大那些被 AI 大量改动区域的测试覆盖率，才能对智能体的输出更有信心。扎实的测试意味着看起来正确的代码可以放心合并。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hincrease-test-coverage-in-ai-hot-spots">Increase test coverage in AI hot spots</h3>
+<p>Currently, agents aren't fully capable of interactively testing all scenarios thoroughly. Enhancing test coverage in areas heavily modified by AI ensures greater confidence in the agent's output. Solid tests mean that code that appears correct can be confidently merged without worry.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0033"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>我们团队先加强了代码库中某个关键部分的单元测试，然后才把「把实现从 Python 翻译成 C」这件事交给 AI。</p>
+<p>（高级）</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>Our team strengthened unit tests in a critical section of our codebase before entrusting our AI to translate the implementation from Python to C.</p>
+<p>(Advanced)</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0034"><div class="zh side"><div class="tag">中文</div><h2 id="h-">自动化工作流</h2>
+<p>智能体响应外部事件的速度远快于人类，而且比人类同事更愿意去做那些枯燥重复的工作。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hautomating-workflows">Automating Workflows</h2>
+<p>Agents can respond to incoming events much faster than humans, and they're a lot more willing to do boring, repetitive work, than their human counterparts.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0035"><div class="zh side"><div class="tag">中文</div><h3 id="h-">为最重复的工作创建快捷方式</h3>
+<p>工程团队经常遇到重复性的例行任务。这些正是用智能体自动化的理想对象。常见例子包括：</p>
+<ul>
+<li>移除 feature flag</li>
+</ul>
+<ul>
+<li>升级依赖</li>
+</ul>
+<ul>
+<li>为新功能的 PR 修复并补充测试</li>
+</ul>
+<p>要高效搭起这套东西，通常由一位资深工程师写一个稳健、可复用的提示词模板。[2] 在 Devin 中，这被称为 playbooks，可以针对这类场景反复运行。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcreate-shortcuts-for-your-most-repetitive-work">Create Shortcuts for Your Most Repetitive Work</h3>
+<p>Engineering teams frequently encounter repetitive, routine tasks. These are perfect candidates for automation with agents. Common examples include:</p>
+<ul>
+<li>feature flag removal</li>
+</ul>
+<ul>
+<li>dependency upgrades</li>
+</ul>
+<ul>
+<li>fixing and adding tests on new feature PRs</li>
+</ul>
+<p>To set this up efficiently, an experienced engineer typically creates a robust, reusable prompt template [2] In Devin, these are called playbooks that can run repeatedly for these scenarios.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0036"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>我们有一位客户，只要开发了新功能，就会自动触发三个专门负责编写单元测试的智能体。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>One of our customers automatically triggers three agents dedicated to writing unit tests whenever new features are developed.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0037"><div class="zh side"><div class="tag">中文</div><h3 id="h-">智能代码评审与强制执行</h3>
+<p>虽然已经有 Greptile、CodeRabbit 这类专门做快速代码评审的工具 [3]，但自主智能体也是一个有意思的选择，能给出更准确的判断，尤其是当它们已经索引过你仓库的功能之后。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hintelligent-code-review-enforcement">Intelligent Code Review &amp; Enforcement</h3>
+<p>While specialized tools for fast code review exist [3] Such as Greptile and CodeRabbit , autonomous agents can be an interesting option to deliver more accurate insights, particularly if they've already indexed the functionality of your repositories.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0038"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>在 Cognition，我们喜欢维护一份「工程师最常犯的错误」清单，并把它提交进代码库。这样一来，我们不用写传统的 lint 规则去捕捉它们（这往往做不到），而是让一个智能体在每个新 PR 上跑一遍，检查这些错误。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>At Cognition, we like to maintain a list of the most common mistakes engineers make and we commit this list to the codebase. Then, instead of writing classical lint rules to catch these (which is often not possible), we have an agent run on every new PRs to check for these mistakes.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0039"><div class="zh side"><div class="tag">中文</div><h3 id="h-">接入故障事件与告警</h3>
+<p>你也可以设置自主智能体在特定事件发生时自动触发。例如，Devin 提供了易用的 API，其他智能体则可以通过 CLI 命令接入自定义工作流。这类配置尤其适合与 MCP 搭配，用来摄取第三方错误日志。</p>
+<p>⚠️在对生产服务的问题做分诊时，AI 的调试能力并不出色。与其让 AI 从头到尾修 Bug，通常更务实的做法是让 AI 只把最可疑的错误、变更等标出来。</p>
+<p>（高级）</p>
+<h2 id="h-">定制化与提升性能</h2></div><div class="en side"><div class="tag">EN</div><h3 id="hhook-into-incidents-and-alerts">Hook into incidents and alerts</h3>
+<p>You can also set up autonomous agents to trigger automatically in response to specific events. For example, Devin provides an accessible API, and other agents can be integrated into custom workflows via CLI commands. These setups work especially well alongside MCPs to ingest third-party error logs.</p>
+<p>⚠️When it comes to triaging issues in production services, AI's debugging skills are not that great. Instead of asking the AI to fix bugs end-to-end as they come up, it is often more practical to ask the AI to just flag the most suspicious errors, changes, etc.</p>
+<p>(Advanced)</p>
+<h2 id="hcustomization-improving-performance">Customization &amp; Improving Performance</h2></div></div>
+<div class="pair" id="devin-coding-agents-101-0040"><div class="zh side"><div class="tag">中文</div><h3 id="h-">环境搭建</h3>
+<p>没有什么比不完整或不匹配的环境更能拖慢智能体。为了让一切顺畅运行，要把智能体的环境配置得和团队完全一致。这包括语言版本、包依赖和自动化检查。例如，pre-commit 应当安装在智能体的环境里，环境配置（密钥、语言版本、虚拟环境、浏览器登录态）应当用 .envrc 之类的工具或对 .bashrc 的自定义配置自动加载。</p></div><div class="en side"><div class="tag">EN</div><h3 id="henvironment-setup">Environment Setup</h3>
+<p>Nothing slows down an agent faster than an incomplete or mismatched environment. To keep things running smoothly, align your agent's setup exactly with your team's. This includes language versions, package dependencies, and automated checks. For example, pre-commit should be installed in the agent's environment and environment configurations (secrets, language versions, virtual environments, browser logins) should be sourced automatically using tools like .envrc or custom configuration of .bashrc</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0041"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>我们为智能体的浏览器配好了预认证的登录态，免去手动认证的麻烦，测试也容易多了。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>We set up our agent's browser with pre-authenticated logins, removing the hassle of manual authentication and making testing much easier.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0042"><div class="zh side"><div class="tag">中文</div><h3 id="h-cli-mcp">构建自定义 CLI 工具和 MCP</h3>
+<p>MCP 已经相当普及，把智能体接到外部工具上也很容易上手，值得快速试一遍 [4]。在 Devin 中，MCP 仍处于 beta 阶段，我们还在摸索最佳的支持方式，欢迎联系我们申请权限！但很多人忽略了给智能体准备一些简单的 CLI 脚本。举个最简单的例子，你可以给智能体一个脚本，让它根据工单 ID 拉取某个 Linear 工单的信息。你也可以给它一个工具，让它可靠地完成工作流中经常重复的环节，比如一个重启本地开发环境的脚本。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hbuild-custom-cli-tools-and-mcps">Build Custom CLI Tools and MCPs</h3>
+<p>MCPs are widely available and are quick to set up and experiment with connecting your agent to external tools [4] In Devin, MCPs are still in beta as we're figuring out the best way to support them. Please contact us for access!. But many people overlook setting up simple CLI scripts for your agents. As a simple example, you could give your agent a script to pull information about a linear ticket given a ticket ID. You might also want to give your agent a tool to perform common parts of a workflow reliably, such as a script for restarting the local development environment.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0043"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>我们有一位客户，做了一个 CLI 工具，只挑出测试套件中第一个失败的用例，效果很好。这个 CLI 会提示智能体只聚焦那一个用例，并附上详细的错误信息；有了它，智能体在长任务上的成功率更高、完成速度也更快。</p></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>We have a customer who has had a lot of success with creating a CLI tool that surfaces only the first failing test in a test suite. The CLI prompts the agent to focus on only that test with detailed error information, and this CLI leads the agent to have higher success and faster completion rates on long tasks.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0044"><div class="zh side"><div class="tag">中文</div><h3 id="h-">把内容加入智能体的知识库</h3>
+<p>如果你的智能体总是犯某些常见错误，那就是把你的反馈固化进它知识库的好时机。在 Devin 中有专门的知识管理系统。很多产品提供 .rules 文件、.md 文件，让智能体永久吸收。别只告诉它你用的是哪个框架，还要告诉它项目的整体架构。告诉它不同类型的任务通常该怎么做测试、重要命令怎么跑、你推荐使用哪些工具。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hadd-to-your-agent-s-knowledge-base">Add to your agent's knowledge base</h3>
+<p>If your agent makes some common mistakes, it's a great time to codify your feedback in the agent's knowledge base. In Devin, there is a dedicated knowledge management system. Many products offer .rules files, .md files for the agent to permanently ingest. Don't just give it guidelines on the framework you're using, but also tell it about the overall architecture of your project. Tell it what type of testing is common for different kinds of tasks, how to run important commands and which tools you recommend using.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0045"><div class="zh side"><div class="tag">中文</div><h4 id="h-">示例：</h4>
+<p>我们给智能体灌入了「新增一条服务路由时该照做的具体流程」这套知识，包括它在前端和后端每一处需要添加模板代码的位置。结果现在这类任务很容易就委派给 AI 了。</p>
+<p>实务考量</p>
+<h2 id="h-">自主智能体的局限</h2></div><div class="en side"><div class="tag">EN</div><h4 id="hexample-">Example:</h4>
+<p>We give our agent knowledge about the specific procedure it should follow when adding a new service route. The information includes every place it needs to add boilerplate in the frontend and backend. As a result, these tasks are now easily delegated to our AI.</p>
+<p>Practical Considerations</p>
+<h2 id="hlimitations-of-autonomous-agents">Limitations of Autonomous Agents</h2></div></div>
+<div class="pair" id="devin-coding-agents-101-0046"><div class="zh side"><div class="tag">中文</div><h3 id="h-">调试能力有限</h3>
+<p>缺陷报告往往看着简单。实际上很多 bug 不只需要访问数据库和日志，还需要超过今天多数 AI 智能体水平的调试能力。如果要用 AI 辅助调试，我们建议让它列出一份可能根因的清单，而不是试图自己把所有问题都调试并修好。然后由人根据自身经验判断哪个才是真正的根因。但一旦原因明确，智能体在实现修复上仍然相当能帮上忙。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hlimited-debugging-skills">Limited debugging skills</h3>
+<p>Bugs reports can be deceptively simple. But many bugs often require not only access to databases and logs, but also a level of debugging that is greater than most AI agents today. If using AI to aid in debugging, we recommend asking for a list of probable root causes rather than trying to debug and fix everything itself. Then, a human can decide based on their own experience which one is the real root cause. But once the cause is known, agents can still be quite helpful at implementing the fix.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0047"><div class="zh side"><div class="tag">中文</div><h3 id="h-">细粒度视觉推理能力较弱</h3>
+<p>总体来说，今天的模型在「达到设计稿或 Figma 原型截图所需的细节水平」这件事上，视觉推理能力并不出色。对于能用代码描述的视觉内容（例如把 Figma 的代码喂给它），它们才最可靠。如果你希望它匹配你的视觉风格，就该用一套带可复用组件的成熟设计系统。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hpoor-fine-grained-visual-reasoning">Poor fine-grained visual reasoning</h3>
+<p>Generally models today don't have great visual reasoning capabilities at the level of details needed to match screenshots of designs or Figma mockups. They are most reliable on visuals that can be described at the level of code (ex. giving it code from Figma). If you want it to match your visual style, you should use a good design system with reusable components.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0048"><div class="zh side"><div class="tag">中文</div><h3 id="h-">知识截止</h3>
+<p>每次你想用某个新库时，都应该明确把最新的文档指给它。否则，由于预训练基座模型存在知识截止，多数智能体还是会沿用这些库的旧写法。如果你把文档指给它，一个好的智能体能弥补这一点，但你必须时刻意识到这件事（记住，智能体甚至都不知道这些库出了新版本）。</p>
+<p>实务考量</p></div><div class="en side"><div class="tag">EN</div><h3 id="hknowledge-cutoffs">Knowledge Cutoffs</h3>
+<p>Whenever you want to work with a new library, you should explicitly point it to the latest docs. Otherwise, most agents will assume the old patterns from these libraries due to knowledge cutoffs in the pretrained base models. A good agent can overcome this if you point it to docs, but you must be mindful of this (remember, the agent doesn't even know that there are new versions of these libraries).</p>
+<p>Practical Considerations</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0049"><div class="zh side"><div class="tag">中文</div><h2 id="h-">管理时间、减少损失</h2>
+<p>不是每次使用智能体都会成功。2025 年，这些智能体的结果确实存在相当大的差异。这项工作的一部分，就是学会怎样使用智能体，让撞上成功结果的概率最大，同时把浪费的时间和 token 降到最低。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hmanaging-time-and-minimizing-losses">Managing Time and Minimizing Losses</h2>
+<p>Not all times you use an agent will result in success. In 2025, there is some real variance in the outcomes of these agents. Part of the job involves learning how to use agents in such a way to maximize the chance of running into successful outcomes while minimizing wasted time and tokens.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0050"><div class="zh side"><div class="tag">中文</div><h3 id="h-">要愿意更早止损</h3>
+<p>刚开始用智能体的人常犯的一个错误是：即便智能体的活儿已经跑偏了，他们仍执着于让这一次交互成功。如果你发现自己在想「它不听我的指令」或者「这东西在原地打转」，那就应该果断结束这段对话，或者亲自接手。继续发更多消息，往往说明你的任务本身复杂程度超出了智能体的能力，而不是某个改得掉的小失误。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hbe-willing-to-cut-your-losses-earlier">Be willing to cut your losses earlier</h3>
+<p>A common mistake for people who are new to using agents is that they commit to making an interaction successful, even when an agent's work is veering off track. If you ever find yourself thinking "it's ignoring my instructions" or "this thing is going in circles", you should be ok discontinuing that conversation or manually taking over. Sending more messages is more likely a sign of the inherent complexity of your task being higher than the agent's capabilities rather than some simple mistake that can be corrected.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0051"><div class="zh side"><div class="tag">中文</div><h3 id="h-">让你的尝试多元化</h3>
+<p>如果你是刚开始和智能体打交道，我们建议一开始就把赌注摊开：多试几种不同的提示词和思路。哪些任务你发现智能体天然做得好，就在这些上加大投入；它们做不好的，及早止损。不必要求每次都非让智能体成功不可。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hdiversifying-your-experiments">Diversifying your experiments</h3>
+<p>If you're new to working with agents, we recommend diversifying your bets at the start. Try a range of different prompts and ideas. Double down on the types of tasks you see the agents naturally performing well on - and cut your losses on the ones they don't. Don't feel a need to force your agents to find success every time.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0052"><div class="zh side"><div class="tag">中文</div><h3 id="h-">没有进展时就重新开始</h3>
+<p>在人身上，「重头再来」很少是正确的答案；在智能体身上，这个答案要正确得多。如果你交给智能体一个任务，而它怎么都处理不了反馈、纠不了方向，那么换一个全新智能体、把全部指令一次给全，往往能快得多地拿到结果。智能体修复一个已经乱掉的既有环境的能力，远不如它从零吐出新代码的能力。</p>
+<p>实务考量</p>
+<h2 id="h-">安全与权限</h2></div><div class="en side"><div class="tag">EN</div><h3 id="hstart-fresh-when-you-aren-t-making-progress">Start fresh when you aren't making progress</h3>
+<p>Starting over is the right answer a lot more often with agents than with humans. If you've given an agent a task and it is struggling to address feedback or correct course, starting fresh with a new agent and all of the instructions up front can often get to success much faster. The ability of an agent to correct a messed-up environment is much worse than its ability to spit out fresh code from scratch.</p>
+<p>Practical Considerations</p>
+<h2 id="hsecurity-and-permissioning">Security and Permissioning</h2></div></div>
+<div class="pair" id="devin-coding-agents-101-0053"><div class="zh side"><div class="tag">中文</div><h3 id="h-">为你的智能体创建账号</h3>
+<p>一个用完即弃的邮箱有助于安全地测试网站。如果智能体需要访问云资源，为它创建自定义 IAM 角色。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hcreate-accounts-for-your-agent">Create accounts for your agent</h3>
+<p>A throwaway email is helpful for safe testing of sites. Create custom IAM roles for your agent if it needs to access cloud resources.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0054"><div class="zh side"><div class="tag">中文</div><h3 id="h-">给它一个开发／预发布环境</h3>
+<p>理想情况下，智能体应当使用与你团队工程师相同的测试配置。我们建议完全不要给它生产服务的访问权限。使用远程智能体时，你可以在智能体的远程机器上运行完全隔离的测试环境。</p></div><div class="en side"><div class="tag">EN</div><h3 id="hgive-it-a-development-staging-environment">Give it a development / staging environment</h3>
+<p>Ideally the agent uses the same testing setup as the engineers on your team. We suggest avoiding giving access to production services entirely. When using remote agents, you can run fully isolated test environments on the agent's remote machine.</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0055"><div class="zh side"><div class="tag">中文</div><h3 id="h-api-">只读的 API 密钥</h3>
+<p>在可能的情况下，只给它只读权限。我们发现，任何与外部服务交互的脚本，仍由人类手动跑一遍会很有帮助。</p>
+<p>实务考量</p></div><div class="en side"><div class="tag">EN</div><h3 id="hreadonly-api-keys">Readonly API keys</h3>
+<p>Where possible, give it readonly access. We find it is still helpful for humans to manually run any script that interacts with outside services.</p>
+<p>Practical Considerations</p></div></div>
+<div class="pair" id="devin-coding-agents-101-0056"><div class="zh side"><div class="tag">中文</div><h2 id="h-">大变革在前</h2>
+<p>我们坚信软件工程师不会消失。即便编码智能体越来越聪明、越来越强，深厚的技术专业能力和对你代码库的熟稔依然无可替代。对项目、系统和代码的真正主导权，比以往任何时候都更重要。今天在我们团队，工程师要在兼顾多个系统的同时，保持深入的理解和审慎的判断。当自动化放大你的影响力时，同时驾驭多个并行任务的能力不只是「变得可能」——它会变成必需。我们很愿意分享在为自身组织迎接这一转变的过程中收集到的洞察，让你和你的团队也能在不断演变的软件开发世界里蓬勃发展。</p></div><div class="en side"><div class="tag">EN</div><h2 id="hbig-changes-ahead">Big Changes Ahead</h2>
+<p>We firmly believe that software engineers aren't going anywhere. Even as coding agents become smarter and more capable, deep technical expertise and intimate knowledge of your codebase remain invaluable. True ownership of your projects, your systems, and your code is more critical now than ever. On our team today, engineers are expected to oversee multiple systems while still maintaining deep understanding and thoughtful judgment. As automation amplifies your impact, the ability to juggle parallel tasks won't just become possible; It'll become essential. We're excited to share the insights we've gathered while preparing our own organization for this shift, so you and your team can also thrive in the evolving world of software development.</p></div></div>
+</div>
+<div class="toc"><b>本页目录</b><ul style="padding-left:14px"><li><a href="#devin-coding-agents-101-0000">第 1 段</a></li><li><a href="#devin-coding-agents-101-0001">第 2 段</a></li><li><a href="#devin-coding-agents-101-0002">第 3 段</a></li><li><a href="#devin-coding-agents-101-0003">第 4 段</a></li><li><a href="#devin-coding-agents-101-0004">第 5 段</a></li><li><a href="#devin-coding-agents-101-0005">第 6 段</a></li><li><a href="#devin-coding-agents-101-0006">第 7 段</a></li><li><a href="#devin-coding-agents-101-0007">第 8 段</a></li><li><a href="#devin-coding-agents-101-0008">第 9 段</a></li><li><a href="#devin-coding-agents-101-0009">第 10 段</a></li><li><a href="#devin-coding-agents-101-0010">第 11 段</a></li><li><a href="#devin-coding-agents-101-0011">第 12 段</a></li><li><a href="#devin-coding-agents-101-0012">第 13 段</a></li><li><a href="#devin-coding-agents-101-0013">第 14 段</a></li><li><a href="#devin-coding-agents-101-0014">第 15 段</a></li><li><a href="#devin-coding-agents-101-0015">第 16 段</a></li><li><a href="#devin-coding-agents-101-0016">第 17 段</a></li><li><a href="#devin-coding-agents-101-0017">第 18 段</a></li><li><a href="#devin-coding-agents-101-0018">第 19 段</a></li><li><a href="#devin-coding-agents-101-0019">第 20 段</a></li><li><a href="#devin-coding-agents-101-0020">第 21 段</a></li><li><a href="#devin-coding-agents-101-0021">第 22 段</a></li><li><a href="#devin-coding-agents-101-0022">第 23 段</a></li><li><a href="#devin-coding-agents-101-0023">第 24 段</a></li><li><a href="#devin-coding-agents-101-0024">第 25 段</a></li><li><a href="#devin-coding-agents-101-0025">第 26 段</a></li><li><a href="#devin-coding-agents-101-0026">第 27 段</a></li><li><a href="#devin-coding-agents-101-0027">第 28 段</a></li><li><a href="#devin-coding-agents-101-0028">第 29 段</a></li><li><a href="#devin-coding-agents-101-0029">第 30 段</a></li><li><a href="#devin-coding-agents-101-0030">第 31 段</a></li><li><a href="#devin-coding-agents-101-0031">第 32 段</a></li><li><a href="#devin-coding-agents-101-0032">第 33 段</a></li><li><a href="#devin-coding-agents-101-0033">第 34 段</a></li><li><a href="#devin-coding-agents-101-0034">第 35 段</a></li><li><a href="#devin-coding-agents-101-0035">第 36 段</a></li><li><a href="#devin-coding-agents-101-0036">第 37 段</a></li><li><a href="#devin-coding-agents-101-0037">第 38 段</a></li><li><a href="#devin-coding-agents-101-0038">第 39 段</a></li><li><a href="#devin-coding-agents-101-0039">第 40 段</a></li><li><a href="#devin-coding-agents-101-0040">第 41 段</a></li><li><a href="#devin-coding-agents-101-0041">第 42 段</a></li><li><a href="#devin-coding-agents-101-0042">第 43 段</a></li><li><a href="#devin-coding-agents-101-0043">第 44 段</a></li><li><a href="#devin-coding-agents-101-0044">第 45 段</a></li><li><a href="#devin-coding-agents-101-0045">第 46 段</a></li><li><a href="#devin-coding-agents-101-0046">第 47 段</a></li><li><a href="#devin-coding-agents-101-0047">第 48 段</a></li><li><a href="#devin-coding-agents-101-0048">第 49 段</a></li><li><a href="#devin-coding-agents-101-0049">第 50 段</a></li><li><a href="#devin-coding-agents-101-0050">第 51 段</a></li><li><a href="#devin-coding-agents-101-0051">第 52 段</a></li><li><a href="#devin-coding-agents-101-0052">第 53 段</a></li><li><a href="#devin-coding-agents-101-0053">第 54 段</a></li><li><a href="#devin-coding-agents-101-0054">第 55 段</a></li><li><a href="#devin-coding-agents-101-0055">第 56 段</a></li><li><a href="#devin-coding-agents-101-0056">第 57 段</a></li></ul></div>
+<script src="../../assets/app.js"></script>
+</body></html>

@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0030",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "8cc2bc86c13460680bfcc24e412a15f04f8a5f25",
+ "zh": "### 更强的可控性与可预测性\n\n提示工程让你能够影响 AI 的行为，确保回应稳定可预期，与你期望的目标保持一致。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

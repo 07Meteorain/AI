@@ -1,0 +1,10 @@
+{
+ "seg_id": "context-rot#0031",
+ "doc_id": "context-rot",
+ "fingerprint": "a2d99276f3a98d09050bf330365e3eec52dd8842",
+ "zh": "更广地说，我们的发现指向了上下文工程的重要性：精心构建和管理模型的上下文窗口。信息在模型上下文中的呈现位置与呈现方式，会强烈影响任务表现，因此这是未来优化模型表现一个有价值的方向。\n\n结论#\n\n通过实验我们证明，大语言模型并不能在不同输入长度下保持一致的表现。即便在非字面检索或文本复现这样简单的任务上，我们也看到表现随输入变长而越来越不均匀。\n\n我们的结果凸显了两个必要性：现有基准之外还需要更严格的长上下文评测，以及上下文工程本身。相关信息是否存在于模型的上下文中固然重要，但更重要的，是这些信息被如何呈现。我们证明，即便能力最强的模型对此也很敏感，因此有效的上下文工程是获得可靠表现的必要条件。\n\n脚注#\n\n[1]（2025 年 7 月 16 日）补充了 Latent List 的相关洞见并作了澄清，贡献者 Kiran Vodrahalli（Google Deepmind）\n\n[2] 示例的原始来源：https://arxiv.org/pdf/2410.10813\n\n参考文献#\n\n[1] Kamradt, G. (2023). Needle In A Haystack - Pressure Testing LLMs [GitHub Repository]. Link\n\n[2] Wu, D., Wang, H., Yu, W., Zhang, Y., Chang, K.-W., and Yu, D. (2025). LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory. arXiv preprint arXiv:2410.10813. Link",
+ "meta": {
+  "source": "../work/tr_g02.json",
+  "batch": "tr_g02"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0041",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "a624afec40982e86f58f5a86434b177fbd8ee583",
+ "zh": "#### 示例：\n\n我们为智能体的浏览器配好了预认证的登录态，免去手动认证的麻烦，测试也容易多了。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

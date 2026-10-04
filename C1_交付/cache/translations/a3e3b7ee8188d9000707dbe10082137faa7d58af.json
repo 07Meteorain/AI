@@ -1,0 +1,10 @@
+{
+ "seg_id": "finding-vulnerabilities-claude-codex#0017",
+ "doc_id": "finding-vulnerabilities-claude-codex",
+ "fingerprint": "a3e3b7ee8188d9000707dbe10082137faa7d58af",
+ "zh": "## Claude Code 的新 /security-review 命令效果如何？\n\nAnthropic 为 Claude Code 发布了一个新命令，叫 /security-review。它设计为在拉取请求上运行，用于检查改动的文件并提出问题，以识别具体的安全问题。你可以在这里找到那条提示词。\n\n在整个代码库上运行这个命令时，我们发现它识别出的安全问题相当有限。很多时候，它找不到那些我们在提示 Claude Code 每次只搜某一类安全问题时才能找到的问题。\n\n我们在 PY-APP-003、PY-APP-002 和 PY-APP-008 上运行了这个命令，三个应用加起来只找到一个 XSS，与整体实验的结果相去甚远。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0007",
+ "doc_id": "observability-basics",
+ "fingerprint": "024997f7d3001db694f4ba3940907050a55e77a4",
+ "zh": "## 追踪和跨度的技术实现\n\n下面我们进入正题，看看追踪在分布式系统中具体是怎么工作的。",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

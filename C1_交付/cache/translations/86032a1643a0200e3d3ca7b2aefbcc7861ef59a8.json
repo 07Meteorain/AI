@@ -1,0 +1,10 @@
+{
+ "seg_id": "specs-are-the-new-source-code#0002",
+ "doc_id": "specs-are-the-new-source-code",
+ "fingerprint": "86032a1643a0200e3d3ca7b2aefbcc7861ef59a8",
+ "zh": "## 为什么产品经理突然成了瓶颈\n\n吴恩达（Andrew Ng）在近期的演讲《Building Faster with AI》中提到一个前所未有的趋势：\n\n> 「我职业生涯中第一次看到，管理者向我提议配备的 PM 数量是工程师的两倍。我至今还不知道这个提议是不是个好主意，但我认为它预示着世界往哪个方向走。」——吴恩达（Andrew Ng）\n\n这印证了我们在上一篇文章中的预测：随着工程师借助 AI 交付速度快上数倍，公司需要更多 PM 来支撑这些高效的工程师，而不是更少。\n\n随着产品交付加速，产品管理的其他每个方面都承受着巨大压力——理解客户需求、打造合适的功能、验证影响力。\n\n而所有这些压力最终都聚焦到一件产物上——规格说明。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

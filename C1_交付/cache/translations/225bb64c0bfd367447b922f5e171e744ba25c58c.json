@@ -1,0 +1,10 @@
+{
+ "seg_id": "writing-effective-tools-for-agents#0011",
+ "doc_id": "writing-effective-tools-for-agents",
+ "fingerprint": "225bb64c0bfd367447b922f5e171e744ba25c58c",
+ "zh": "确保你构建的每个工具都有清晰而明确的用途。工具应当让智能体在拿到同样的底层资源时，能像人一样把任务拆分开来逐个解决，同时减少那些原本会被中间输出消耗掉的上下文。\n\n工具太多或功能重叠，也可能让智能体偏离高效策略。谨慎而有取舍地规划你要构建（或不构建）哪些工具，回报会非常可观。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

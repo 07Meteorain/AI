@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0006",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "42614d940561e59792c828b45f18e14d5856a982",
+ "zh": "#### 第 3 步：定制与微调\n\n大多数 AI 代码评审工具都支持定制，包括：\n\n- 规则灵敏度：针对不同类型的问题调整阈值\n\n- 领域特定模式：为你的代码库定义自定义规则\n\n- 集成深度：配置 AI 与你的工作流集成得有多深\n\n### AI 代码评审的最佳实践",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

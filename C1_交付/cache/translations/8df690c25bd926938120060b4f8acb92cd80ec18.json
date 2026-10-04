@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0016",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "8df690c25bd926938120060b4f8acb92cd80ec18",
+ "zh": "#### 示例：\n\n很多团队在 Slack 上讨论缺陷修复或小功能更新时，直接 @Devin 就完事了。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

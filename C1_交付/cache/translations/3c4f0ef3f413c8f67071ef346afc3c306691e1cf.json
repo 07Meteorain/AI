@@ -1,0 +1,10 @@
+{
+ "seg_id": "sast-vs-dast#0025",
+ "doc_id": "sast-vs-dast",
+ "fingerprint": "3c4f0ef3f413c8f67071ef346afc3c306691e1cf",
+ "zh": "### 强化学习简介\n\n强化学习是过去十年最引人注目的若干 AI 突破的核心。来这里了解它是如何工作的。\n\nLearn8 Minute Read",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "copilot-prompt-injection-rce#0002",
+ "doc_id": "copilot-prompt-injection-rce",
+ "fingerprint": "761a2e462d5b8e00aad0db835feb21a54e99fd3c",
+ "zh": "## 背景研究\n\n在查看 VS Code 和 GitHub Copilot 智能体模式时，我注意到一个奇怪的行为——它可以在未经用户批准的情况下创建并写入工作区中的文件。\n\n这些编辑会立即持久化，不是留在内存里等待评审的差异。修改会直接写入磁盘。\n\n这正是作为红队一员的人一看就知道不太妙的东西……所以我就在琢磨，这能不能被用来提权并执行代码。",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

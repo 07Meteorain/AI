@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0020",
+ "doc_id": "observability-basics",
+ "fingerprint": "51015b8e85fd1a25673167554cec4382f11790c1",
+ "zh": "### 错误处理与异常追踪\n\n发生异常时，跨度可以提供关键的上下文：\n\n- 记录带堆栈信息的异常\n\n- 给跨度添加事件，展示错误的演进过程\n\n- 创建 baggage 项，把错误上下文带过服务边界\n\n💡\n\n想更深入地了解如何提前发现问题、提升系统可靠性，看看这篇关于主动监控的文章：Proactive Monitoring。\n\n## 真实场景中的追踪模式与反模式",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

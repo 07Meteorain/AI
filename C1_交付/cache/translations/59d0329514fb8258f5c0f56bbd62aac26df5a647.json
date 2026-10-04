@@ -1,0 +1,10 @@
+{
+ "seg_id": "context-rot#0034",
+ "doc_id": "context-rot",
+ "fingerprint": "59d0329514fb8258f5c0f56bbd62aac26df5a647",
+ "zh": "测试的模型#\n\n由于上下文窗口或 thinking_budget 的限制，并非全部 18 个模型都会出现在每项实验中。\n\nAnthropic#\n\n- Claude Opus 4\n\n- Claude Sonnet 4\n\n- Claude Sonnet 3.7\n\nOpenAI#\n\nGoogle#\n\n- Gemini 2.5 Pro\n\n- Gemini 2.5 Flash\n\n- Gemini 2.0 Flash\n\nAlibaba#\n\n- Qwen3-235B-A22B\n\n- Qwen3-32B\n\n- Qwen3-8B\n\n使用的嵌入模型#\n\n- jina-embeddings-v3 (input_type='text-matching')\n\n- voyage-3-large (input_type=None)\n\n- all-MiniLM-L6-v2\n\n针-问题相似度#\n\n注意：同一模型的思考/非思考模式分别处理\n\n针-问题相似度 —— arXiv 草堆/PG 文章针\n\n针-问题相似度 —— PG 文章草堆/PG 文章针\n\n针-问题相似度 —— PG 文章草堆/arXiv 针正如我们在针-草堆相似度结果中提到的，我们注意到这一次模型表现异常出色，与其他针-草堆组合形成鲜明对比。单看这一项，似乎这些高性能模型的表现是均匀的。然而，这些模型在其余实验中并不保持这种均匀性。\n\n干扰项的影响#\n\n干扰项的影响：按干扰项数量划分的表现 —— arXiv 草堆/arXiv 针\n\n干扰项的影响：按单个干扰项划分的表现 —— arXiv 草堆/arXiv 针\n\n干扰项的影响：按干扰项数量划分的表现 —— PG 文章草堆/PG 文章针\n\n干扰项的影响：按单个干扰项划分的表现 —— PG 文章草堆/PG 文章针",
+ "meta": {
+  "source": "../work/tr_g02.json",
+  "batch": "tr_g02"
+ }
+}

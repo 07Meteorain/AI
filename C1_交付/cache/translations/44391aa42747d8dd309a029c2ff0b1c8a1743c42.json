@@ -1,0 +1,10 @@
+{
+ "seg_id": "how-to-review-code-effectively#0019",
+ "doc_id": "how-to-review-code-effectively",
+ "fingerprint": "44391aa42747d8dd309a029c2ff0b1c8a1743c42",
+ "zh": "### AI 时代的代码评审：为什么合并按钮永远在开发者手里\n\n谈到合并代码，最终决定权永远在开发者手里。但我们正在重新思考 GitHub Copilot 这类工具能帮上什么忙。\n\nElle Shwer\n\n开发者技能",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

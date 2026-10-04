@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0012",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "b5b2b6495b5b73930c31f112d024bd13b8492569",
+ "zh": "#### 攻击载荷说明\n\n- CrewAI：我们希望编排智能体来回答这个请求，因此明确要求它不要把该请求分派给其他同事智能体。\n\n- AutoGen：编排智能体依赖一组内置工具把任务转交给同事。这些工具遵循一致的命名约定，以 transfer_to_ 为前缀，同事的职能也会在工具描述中写明。Swarm 文档介绍了这一转交机制的具体细节。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

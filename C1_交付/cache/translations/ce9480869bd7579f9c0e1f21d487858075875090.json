@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0006",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "ce9480869bd7579f9c0e1f21d487858075875090",
+ "zh": "### 微调与适配\n\n用定制好的提示词在特定任务或领域上对 AI 模型做微调，能提升它的表现。此外，根据用户反馈或模型输出不断调整提示词，还能让模型的回应随时间进一步改善。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

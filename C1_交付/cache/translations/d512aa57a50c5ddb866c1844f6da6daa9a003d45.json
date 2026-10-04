@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0003",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "d512aa57a50c5ddb866c1844f6da6daa9a003d45",
+ "zh": "## 做提示工程需要什么？\n\n有几个关键要素决定了提示工程的效果。掌握它们，你就能与 AI 模型高效沟通，释放它们的全部潜力。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

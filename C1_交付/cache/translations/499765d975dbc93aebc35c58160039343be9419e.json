@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0023",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "499765d975dbc93aebc35c58160039343be9419e",
+ "zh": "### 搭好预览部署\n\n把你的 CI/CD 流水线配置成每个新拉取请求（PR）都自动创建一次预览部署，这样你立刻就能拿到一个可访问的 URL。评审 AI 智能体完成的前端任务时，这尤其方便。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

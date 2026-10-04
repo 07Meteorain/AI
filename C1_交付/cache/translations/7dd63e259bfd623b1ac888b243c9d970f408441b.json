@@ -1,0 +1,10 @@
+{
+ "seg_id": "prompt-engineering-overview#0037",
+ "doc_id": "prompt-engineering-overview",
+ "fingerprint": "7dd63e259bfd623b1ac888b243c9d970f408441b",
+ "zh": "- CAMP\n\n用 DORA 提升软件交付能力的项目。\n\n- 传统应用现代化\n\n分析传统工作负载并完成分类，开始云迁移。\n\n- 从 PaaS 迁移：Cloud Foundry、Openshift\n\n把现有容器搬进 Google 托管容器服务的工具。\n\n- 从大型机迁移\n\n把大型机应用迁上云的自动化工具与实践指导。\n\n- 软件交付现代化\n\n软件供应链最佳实践——内循环效率、CI/CD（持续集成与持续交付）与 S3C。\n\n- DevOps 最佳实践\n\n在组织内落地 DevOps 的流程与资源。\n\n- SRE（站点可靠性工程）原则\n\n在组织内采用 SRE 的工具与资源。\n\n- 平台工程\n\n完整的管理式服务与 Golden Paths 套件，用于构建、管理和扩展 IDP。\n\n- 在边缘运行应用\n\n在 Google 硬件无关的边缘解决方案上运行本地化、低延迟应用的实践指导。\n\n- 面向多云做架构设计\n\n用一致的平台管理跨多个云的工作负载。\n\n- 转向无服务器\n\n用于开发、部署和扩展应用的全托管环境。\n\n人工智能\n\n用 AI 与机器学习为你的业务增添智能和效率。\n\n- 搭载 Google AI 的 Customer Engagement Suite\n\n端到端应用，融合我们最先进的对话式 AI。\n\n- Document AI\n\n大规模自动化的文档处理与数据采集。\n\n- 面向商业场景的 Vertex AI Search\n\n为零售商提供 Google 品质的搜索与商品推荐。",
+ "meta": {
+  "source": "../work/tr_g01.json",
+  "batch": "tr_g01"
+ }
+}

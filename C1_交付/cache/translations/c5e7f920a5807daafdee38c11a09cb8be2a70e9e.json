@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0006",
+ "doc_id": "course-homepage",
+ "fingerprint": "c5e7f920a5807daafdee38c11a09cb8be2a70e9e",
+ "zh": "#### 讲座\n\n周一 9/29：从零搭一个编码智能体 —— 幻灯片、已完成练习\n\n周五 10/3：搭建自定义 MCP 服务器 —— 幻灯片、已完成练习\n\n第 3 周：AI IDE\n\n#### 主题\n\n- 上下文管理与代码理解\n\n#### 阅读\n\n#### 作业\n\n- 搭建一个自定义 MCP 服务器",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

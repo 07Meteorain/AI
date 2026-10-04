@@ -1,0 +1,10 @@
+{
+ "seg_id": "owasp-top-ten#0011",
+ "doc_id": "owasp-top-ten",
+ "fingerprint": "8faeb284245c1c9ab9a966e4ab05d5506e27496e",
+ "zh": "## 分析基础设施\n\n计划利用 OWASP Azure 云基础设施来收集、分析和存储所贡献的数据。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "seg_id": "copilot-prompt-injection-rce#0008",
+ "doc_id": "copilot-prompt-injection-rce",
+ "fingerprint": "0def7791460fb4028fb26ccda29cb386c284639d",
+ "zh": "## 打造 AI 病毒\n\n看到这里就会发现，这基本上等于允许制造病毒。攻击者可以嵌入指令，一旦拿到代码执行能力，就可以用额外的恶意软件去攻陷其他 Git 项目（以及 RAG 数据源），把恶意指令嵌进去，然后提交改动，甚至强制推送到上游。\n\n这会进一步扩散，因为其他开发者会在不知情的情况下传播被感染的代码。\n\n最后，我们还得聊聊不可见指令！",
+ "meta": {
+  "source": "../work/tr_g08.json",
+  "batch": "tr_g08"
+ }
+}

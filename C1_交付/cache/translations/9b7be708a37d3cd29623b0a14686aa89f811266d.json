@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0047",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "9b7be708a37d3cd29623b0a14686aa89f811266d",
+ "zh": "### 细粒度视觉推理能力较弱\n\n总体来说，今天的模型在「达到设计稿或 Figma 原型截图所需的细节水平」这件事上，视觉推理能力并不出色。对于能用代码描述的视觉内容（例如把 Figma 的代码喂给它），它们才最可靠。如果你希望它匹配你的视觉风格，就该用一套带可复用组件的成熟设计系统。",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

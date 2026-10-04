@@ -1,0 +1,10 @@
+{
+ "seg_id": "observability-basics#0001",
+ "doc_id": "observability-basics",
+ "fingerprint": "0f9e6d4db756f762e5e54a9839a3875bdd7f177c",
+ "zh": "# 追踪与跨度：你应该掌握的可观测性基础\n\n了解追踪和跨度如何让你看清分布式系统的内部——从而更快排查问题，构建更可靠的软件。\n\nAnjali Udasi",
+ "meta": {
+  "source": "../work/tr_g10.json",
+  "batch": "tr_g10"
+ }
+}

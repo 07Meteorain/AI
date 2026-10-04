@@ -1,0 +1,1159 @@
+{
+ "meta": {
+  "id": "sast-vs-dast",
+  "type": "html",
+  "path": "CS146S_offline/pages/sast-vs-dast.html",
+  "title": "SAST 与 DAST 对比",
+  "priority": 2,
+  "category": "Week 6 · 安全"
+ },
+ "page_title": "SAST vs. DAST vs. RASP: Comparing Application Security Testing Methods | Splunk",
+ "blocks": [
+  {
+   "kind": "heading",
+   "text": "SAST vs. DAST vs. RASP: Comparing Application Security Testing Methods",
+   "level": 1,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Learn December 18, 2024 Shanika Wickramasinghe \n \n Global spending on information security is set to reach $212 billion by 2025. This represents a growth of 15% from 2024. According to Gartner, the rise of generative AI and cloud adoption are key reasons for this rapid increase. The analyst firm further predicts that GenAI will play a part in 17% of all cyberattacks by 2027.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Businesses need advanced security strategies that go beyond traditional methods to counter these growing threats. This is why business owners need to be aware of security solutions like SAST, DAST, and RASP, as they offer multi-layered protection for applications.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "(Related reading: application security explained & common software testing methods.)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "What is SAST?",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Static Application Security Testing (SAST) is a white-box security testing method. SAST uses an application’s static source code or binaries to identify vulnerabilities. This means SAST tools operate on the application's code when the application is not running.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Developers use SAST to detect various security risks, such as: cross-site scripting (XSS), insecure deserialization, buffer overflows, and other OWASP vulnerabilities in the code. Since SAST alone cannot identify run-time-specific vulnerabilities, developers have to often combine SAST with other testing methods to achieve comprehensive security.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "SAST is a major component of the software development lifecycle because it detects vulnerabilities early. The earlier you catch them, the least costly they are to fix. As SAST tools can be executed during the development phase, developers are now able to write code and test it even a thousand times (!!) before releasing the product to the market.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "SAST can be integrated into the CI/CD pipeline, and when done so, it is referred to as “Secure DevOps” or “DevSecOps.” SAST is widely scalable through automation. The ability to Implement automated tests covering SAST techniques makes it an efficient solution for addressing code-level risks quickly.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "What is DAST?",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Dynamic Application Security Testing is a black-box testing method. The term \"Dynamic\" in DAST suggests that this method evaluates the security of an application while the application is running. Unlike SAST, DAST does not require access to the application’s source code. Instead, it :",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Simulates the actions of an external attacker.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Tests the application from the outside to identify vulnerabilities that only emerge during runtime.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "DAST has the capability to identify various security flaws like denial-of-service (DoS) vulnerabilities and insecure server configurations. By mimicking real-world attack scenarios, DAST tools assess how the application responds to these simulated threats. With this approach, developers can identify weaknesses that static testing methods like SAST might miss.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Typically, developers perform DAST during the later stages of the software development lifecycle, often just before deployment. By testing applications in their live environments, DAST provides a clear overview of runtime security and supports better-performing applications that can withstand potential attacks.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "How does SAST work?",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Developers use SAST tools to apply predefined rules and other detection methods — such as pattern matching and data flow analysis — to identify coding errors and other vulnerabilities. They integrate these tools into their IDEs or CI/CD pipelines to automate scans during the coding and testing phases.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Common SAST methods",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Here are some methods used in SAST.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Pattern matching scans the codebase for known patterns of insecure coding practices. For example, the use of weak cryptographic algorithms or insecure API calls.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Data flow C tracks how data flows through the application. This can identify vulnerabilities like SQL injection or buffer overflows by tracing untrusted input paths to sensitive operations.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Control flow analysis can analyze the application's control structures. For example, loops and conditionals to uncover logical flaws or potential vulnerabilities like race conditions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Custom rule creation. Many tools allow developers to create custom rules to have coding best practices. Here are some examples of these custom rules:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Flag any use of unsanitized input in SQL queries.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Identify code that outputs user-provided data to the browser without proper escaping.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Highlight the use of vulnerable or deprecated functions, such as eval() in JavaScript or strcpy() in C.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Detect occurrences of hardcoded API keys and passwords in the source code and mark any instance where input validation is missing for user-provided data.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Dependency scanning. Some SAST tools analyze third-party libraries and frameworks used in the application to identify vulnerabilities in dependencies.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Semantic analysis. By interpreting the meaning of the code rather than just its structure, SAST tools can detect insecure configurations or misuse of APIs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Machine learning models: Advanced SAST tools incorporate machine learning algorithms to recognize previously unknown vulnerabilities by analyzing patterns across large datasets.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Performance considerations when using SAST tools",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "SAST tools often require significant CPU and memory resources. This can be a major issue when analyzing large codebases. A full scan of a million lines of code might consume several gigabytes of RAM.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The time required for SAST scans can vary dramatically based on the size of the codebase, ranging from a few minutes for small projects to several hours for enterprise applications. This can impact:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Build pipeline timelines",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Developer productivity",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Consider using modern SAST tools that support incremental scanning, allowing you to analyze only the changed code instead of the entire codebase.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Additionally, performance tuning through rule selection and scope definition is crucial. Poorly configured SAST tools can unnecessarily analyze non-critical code paths, wasting time and resources without providing security benefits.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "How does DAST work?",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "DAST tools simulate real-world attacks — for example, sending various forms of malicious data into input fields to see how the application processes it — to identify vulnerabilities and weaknesses in the application’s behavior and responses.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Steps in DAST",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The process typically involves the following steps.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Step 1: Scanning. Scan the web application to discover entry points (such as URLs, forms, and APIs). This step maps out the application’s structure and identifies potential attack surfaces.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Step 2: Attack simulation. Simulate malicious activities by sending crafted requests to the application. These requests test for vulnerabilities like cross-site scripting and cross-site request forgery by attempting to exploit the entry points.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Step 3: Vulnerability detection. Analyze the application’s responses to identify security weaknesses. It evaluates whether the application behaves as expected under attack. For example, malicious data can be injected to detect an SQL injection flaw.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Step 4: Reporting. Generate reports with detected vulnerabilities and recommendations for remediation. Developers can use the results in the reports to fix the identified issues.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Modern DAST solutions can incorporate advanced features such as AI-driven analysis and real-time data integration. They automatically create test sets. Dynamically adapt to the application’s structure and minimize false positives using machine learning algorithms.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Performance considerations when using DAST tools",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Here are certain performance bottlenecks when using DAST tools that you need to keep in mind.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "DAST tools actively interact with the running application, temporarily increasing CPU and memory usage on both the application and web servers.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "The high volume of concurrent requests generated during DAST scanning can consume significant network bandwidth.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "DAST scanners often bypass or invalidate application caches by generating unique requests, reducing the effectiveness of caching mechanisms.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "The creation and management of multiple test sessions by DAST tools can increase memory usage on application servers.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "To avoid such issues or reduce their impact as much as possible, follow the practices below.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Schedule DAST scans during off-peak hours when application usage is minimal.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Conduct scans in a staging or pre-production environment that mirrors the production setup.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Use throttling features in DAST tools to control the number of simultaneous requests.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Increase application server thread pools during scanning periods.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Configure separate caching policies for DAST scanner IPs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Implement automatic scan suspension if performance thresholds are exceeded.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "SAST vs. DAST: key differences",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "This table summarizes the difference between SAST and DAST.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Criteria",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "SAST",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "DAST",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Type of testing",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "White-box testing. Tests the application from the inside out with access to the source code.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Black-box testing. Tests the application from the outside without access to the source code.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Software types supported",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Supports various types of software, including web applications, web services, and thick clients.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Supports web applications and web services but does not typically support other software types.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Stage in SDLC",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Performed early in the software development life cycle.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Conducted later in the SDLC, often during or after deployment.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Vulnerabilities detected",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Identifies coding flaws, such as: SQL injection, cross-site scripting (XSS), buffer overflows, etc.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Detects runtime issues, such as server configuration errors, denial-of-service vulnerabilities, and application-level flaws.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cost of fixing vulnerabilities",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Less expensive since issues are identified early in the SDLC.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "More expensive as vulnerabilities are found later, often requiring emergency fixes in order to deploy on time.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Runtime and environment issues",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Cannot detect runtime-specific or environment-related vulnerabilities.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Can identify vulnerabilities that appear only during runtime or due to environmental factors.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Depth vs. breadth",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Provides deep insights into code-level vulnerabilities.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Offers a broad view of the application's external security risks.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Integration with tools",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Integrates with IDEs and CI/CD pipelines for automated static analysis.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Integrates with CI/CD pipelines for continuous runtime testing.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "False positives and negatives",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Higher chance of false positives due to in-depth code analysis.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Lower false positives but higher risk of false negatives due to limited internal visibility.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Technology dependency",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Relies on programming languages and frameworks; requires compatibility with the tool.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Independent of application frameworks as they interact with the application externally.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Pros and cons of SAST and DAST",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Pros of SAST",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Identifies security vulnerabilities early in the software development life cycle.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Analyzes the codebase, including basic functions and complex branches.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Operates directly on the source code without requiring the application to run.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Provides real-time feedback with comprehensive insights, such as the exact location of vulnerabilities.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Generates exportable reports that can be tracked using dashboards.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Supports automation so that it is faster and more efficient than manual code reviews.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Cons of SAST",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Often generates a large number of false positives. Therefore, it may require manual reviews.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cannot identify runtime or environment-specific vulnerabilities, such as configuration errors.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Requires tools specific to each programming language so that maintenance is complex.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Struggles with understanding external libraries, APIs, and REST endpoints.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Pros of DAST",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Identifies vulnerabilities that only appear during application execution.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Operates externally and no access to source code is required. This is effective for testing third-party applications or compiled code.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Simulates actual attack scenarios and identifies risks missed by SAST.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Works independently of the application's programming language.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Evaluates the entire application and system. This includes memory consumption, resource usage, and third-party interfaces.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Cons of DAST",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Focus only on the outer layers of the application, which may miss vulnerabilities in deeper layers.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Applied later in the SDLC so that fixes are more expensive and time-consuming.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Miss certain vulnerabilities that SAST tools can identify through source code analysis. As an example, consider a web application that uses an insecure random number generator (e.g., Math.random() in JavaScript) to create session tokens. DAST may miss this flaw because it only tests runtime behavior. (But SAST can detect it.)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Require custom infrastructure for large projects and multiple instances of the application to run in parallel and therefore resource intensive.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "When should I use SAST vs. DAST?",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "SAST and DAST play complementary roles in securing SDLC. Understanding when to use each helps to have comprehensive security coverage.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "When to use SAST",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "During early development phases. Developers use SAST to identify vulnerabilities like SQL injection and hardcoded credentials early in the SDLC. By catching these issues before deployment, they reduce the cost and complexity of fixing them.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Eg:- A SAST tool scans Python code and flags a vulnerability where hardcoded API keys are embedded in the source code. Developers refactor the code to use environment variables to securely store and retrieve the keys.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "For code reviews. SAST integrates into version control systems. Allows developers to scan their code before committing it. This makes sure that only secure code enters the repository.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Example: A SAST tool can detect a vulnerability where a file path is constructed directly from user input without validation, exposing the application to path traversal attacks. Developers fix the issue by sanitizing the input and using secure library functions to handle file paths.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "In continuous integration/continuous deployment pipelines. SAST runs automated scans during the CI/CD process. It offers real-time feedback to developers.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "When to use DAST",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Pre-production testing. Developers use DAST to identify runtime vulnerabilities (eg:- insecure configurations, authentication flaws, insufficient access controls) in a staging or QA environment.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Example: A DAST tool can detect a database misconfiguration that exposes sensitive data. Then developers can secure the configuration before deployment.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "In post-deployment monitoring. DAST tools continue to scan deployed applications for vulnerabilities caused by changes in the environment or emerging threats. This guarantees that the application remains secure over time.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Testing third-party integrations. DAST can mimic an external attacker's perspective to identify vulnerabilities in third-party APIs or interconnected systems.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "For example: A DAST tool tests a web application and discovers a vulnerability in a third-party payment API where credit card details are being transmitted over an unencrypted HTTP connection. Developers resolve the issue by enforcing HTTPS for all API communications.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Which is more effective: SAST or DAST?",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The effectiveness of SAST or DAST depends on:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "The SDLC stage",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "The type of vulnerabilities being addressed",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "SAST works best in early development, primarily to identify vulnerabilities in the source code, reduce costs, and promote secure coding practices. In contrast, DAST focuses on runtime vulnerabilities in pre-production or deployed applications. It offers insights into issues like misconfigurations and insecure integrations.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Take a hybrid approach",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Instead of choosing one over the other, combining SAST and DAST creates a multi-layered security strategy that addresses vulnerabilities in both static code and runtime environments. SAST can be integrated into early development stages to detect and fix code-level issues before the application is compiled. Once the application is running in a test environment, DAST can identify runtime vulnerabilities and evaluate the application’s behavior under attack conditions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Automating both SAST and DAST scans within a CI/CD pipeline provides continuous feedback and accelerates the development process without compromising security.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "For agile or DevOps environments, adding tools like IAST or RASP can further enhance security. By correlating results from both SAST and DAST, organizations can achieve more comprehensive and effective vulnerability management.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Use RASP as an alternative to SAST and DAST",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Runtime Application Self-Protection (RASP) is an advanced security solution installed directly on the server where the application runs.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "RASP embeds itself into the application's runtime environment. This integration allows RASP to analyze the app's logic and data. While analyzing, it can:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Detect abnormal behaviors as they happen.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Block malicious activities instantly.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "A key difference is that RASP doesn't just alert on potential issues — it actively prevents attacks by isolating and resolving threats without relying on external tools.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "RASP offers a dynamic alternative to SAST and DAST. Unlike SAST, which analyzes static code, and DAST, which simulates external attacks, RASP operates in real time. It monitors the application’s behavior during execution and responds to live threats by terminating sessions or alerting defenders.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "RASP is particularly effective in protecting applications against vulnerabilities that bypass network defenses or are missed during development.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "However, overconfidence in RASP can lead organizations to neglect secure coding practices. Also, RASP may impact application performance because it operates directly within the application's runtime environment. RASP cannot replace the need to fix underlying flaws, but it provides continuous protection while remediation is underway.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "As one RASP user comments:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "“The decision to use a RASP tool should be based on a thorough assessment of the application's specific requirements and risk profile.”",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "The future is AppSec testing with SAST, DAST, and RASP",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The future of application testing lies in combining SAST, DAST, and RASP to create a comprehensive security strategy. As security challenges grow, integrating these tools into CI/CD pipelines and automating their processes will become essential.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Advances in AI and machine learning will make testing more efficient as it helps to reduce false positives and improve threat detection.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Financial and FinServ industries",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "In the financial sector, AI-powered tools will transform how vulnerabilities are detected and mitigated. SAST and DAST will continue to identify coding flaws and runtime issues during development and pre-production.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "But you won’t stop there: RASP will take it further by using AI to monitor live transactions. For instance, RASP could detect unusual patterns (Eg:- an attacker attempts to exploit a vulnerability in real time) and block these activities while notifying the security team.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "IoT, edge, and connected devices",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "When it comes to IoT, the combination of these tools will play an important role in securing connected devices. Here’s how:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "SAST can confirm that the firmware is free from vulnerabilities during development.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "DAST can test the security of communication protocols between devices.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "RASP, meanwhile, monitors deployed devices and detects and prevents unauthorized access attempts or data leaks caused by emerging threats.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Likewise, using multiple methods will help IoT ecosystems remain resilient. As explained in our many examples, SAST, DAST, and RASP together promise a future where applications are built and deployed with stronger, more proactive security measures.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Resilient security starts with proactive testing",
+   "level": 2,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Combining SAST, DAST, and RASP together can provide robust security that covers the entire software development lifecycle.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "By integrating these methods into CI/CD pipelines and using advances in AI, organizations can respond proactively to emerging threats. Together, these methods offer a holistic approach to secure modern applications from security vulnerabilities.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "/en_us/blog/fragments/disclaimer-with-divider",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "/en_us/blog/fragments/top-50-security-threats",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Style",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "two-column",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Title",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Filter",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Category",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Blog Limit",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "3",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Category",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "learn",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Sort Category Shuffle Order",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "true",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Learn6 Minute Read",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "What Is Authorization?",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Authorization is the process of deciding what actions, parts of a website, or application a given user can access after they have been authenticated.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Learn4 Minute Read",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Introduction to Reinforcement Learning",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Reinforcement learning is at the core of some of the most prominent AI breakthroughs in the last decade. Learn how it works here.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Learn8 Minute Read",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Data Observability: The Complete Introduction",
+   "level": 3,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Get the complete story on data observability here: what itis, the 5 pillars, benefits & implementing — and best of all, ALL the things you can do with it.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "/en_us/blog/fragments/about-splunk",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "/en_us/blog/fragments/subscribe-footer",
+   "level": 0,
+   "meta": {}
+  }
+ ]
+}

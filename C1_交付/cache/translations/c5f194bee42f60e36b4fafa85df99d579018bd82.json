@@ -1,0 +1,10 @@
+{
+ "seg_id": "agentic-ai-threats#0020",
+ "doc_id": "agentic-ai-threats",
+ "fingerprint": "c5f194bee42f60e36b4fafa85df99d579018bd82",
+ "zh": "#### 攻击载荷说明\n\n与智能体指令提取攻击类似，表 4 中的每条提示词都针对某个特定的目标智能体。在 CrewAI 中，编排智能体把任务“分派”给同事智能体；而在 AutoGen 中，编排智能体把任务“转交”给同事智能体。",
+ "meta": {
+  "source": "../work/tr_g07.json",
+  "batch": "tr_g07"
+ }
+}

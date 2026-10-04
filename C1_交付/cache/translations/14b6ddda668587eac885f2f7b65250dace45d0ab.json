@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0055",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "14b6ddda668587eac885f2f7b65250dace45d0ab",
+ "zh": "## 后续步骤\n\nMCP 工具 向你的 MCP 服务器添加工具。\n\n授权 定制认证与授权。",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

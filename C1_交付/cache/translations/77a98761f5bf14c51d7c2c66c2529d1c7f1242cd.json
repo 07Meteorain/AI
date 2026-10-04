@@ -1,0 +1,10 @@
+{
+ "seg_id": "devin-coding-agents-101#0008",
+ "doc_id": "devin-coding-agents-101",
+ "fingerprint": "77a98761f5bf14c51d7c2c66c2529d1c7f1242cd",
+ "zh": "#### 示例：\n\n「请为我们的代码加上对 Google 模型的支持。你应该参考最新的文档[这里](link)，并在 model groups 目录下创建一个新的实现文件」",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}

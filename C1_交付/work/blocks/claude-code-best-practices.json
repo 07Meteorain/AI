@@ -1,0 +1,643 @@
+{
+ "meta": {
+  "id": "claude-code-best-practices",
+  "type": "html",
+  "path": "CS146S_offline/pages/claude-code-best-practices.html",
+  "title": "Claude Code 最佳实践",
+  "priority": 1,
+  "category": "Week 4 · Claude Code"
+ },
+ "page_title": "Claude Code overview - Claude Code Docs",
+ "blocks": [
+  {
+   "kind": "paragraph",
+   "text": "Claude Code Docs home page",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Getting started",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Build with Claude Code",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Deployment",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Administration",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Configuration",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Reference",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Resources",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Getting started",
+   "level": 5,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Overview",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Core concepts",
+   "level": 5,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Use Claude Code",
+   "level": 5,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Platforms and integrations",
+   "level": 5,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Next steps",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Getting started",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "heading",
+   "text": "Claude Code overview",
+   "level": 1,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Claude Code is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools. Available in your terminal, IDE, desktop app, and browser.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Claude Code is an AI-powered coding assistant that helps you build features, fix bugs, and automate development tasks. It understands your entire codebase and can work across multiple files and tools to get things done.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Get started",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Choose your environment to get started. Most surfaces require a Claude subscription or Anthropic Console account. The Terminal CLI and VS Code also support third-party providers.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Terminal",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "VS Code",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Desktop app",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The full-featured CLI for working with Claude Code directly in your terminal. Edit files, run commands, and manage your entire project from the command line.To install Claude Code, use one of the following methods:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Native Install (Recommended)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Homebrew",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "WinGet",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "macOS, Linux, WSL:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "curl -fsSL https://claude.ai/install.sh | bash",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Windows PowerShell:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "irm https://claude.ai/install.ps1 | iex",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Windows CMD:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "If you see The token '&&' is not a valid statement separator, you’re in PowerShell, not CMD. Use the PowerShell command above instead. Your prompt shows PS C:\\ when you’re in PowerShell.Windows requires Git for Windows. Install it first if you don’t have it.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Native installations automatically update in the background to keep you on the latest version.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "brew install --cask claude-code",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Homebrew installations do not auto-update. Run brew upgrade claude-code periodically to get the latest features and security fixes.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "winget install Anthropic.ClaudeCode",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "WinGet installations do not auto-update. Run winget upgrade Anthropic.ClaudeCode periodically to get the latest features and security fixes.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Then start Claude Code in any project:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "cd your-project\nclaude",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "You’ll be prompted to log in on first use. That’s it! Continue with the Quickstart →",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "See advanced setup for installation options, manual updates, or uninstallation instructions. Visit troubleshooting if you hit issues.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The VS Code extension provides inline diffs, @-mentions, plan review, and conversation history directly in your editor.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Install for VS Code",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Install for Cursor",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Or search for “Claude Code” in the Extensions view (Cmd+Shift+X on Mac, Ctrl+Shift+X on Windows/Linux). After installing, open the Command Palette (Cmd+Shift+P / Ctrl+Shift+P), type “Claude Code”, and select Open in New Tab.Get started with VS Code →",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "A standalone app for running Claude Code outside your IDE or terminal. Review diffs visually, run multiple sessions side by side, schedule recurring tasks, and kick off cloud sessions.Download and install:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "macOS (Intel and Apple Silicon)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Windows (x64)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Windows ARM64 (remote sessions only)",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "After installing, launch Claude, sign in, and click the Code tab to start coding. A paid subscription is required.Learn more about the desktop app →",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Run Claude Code in your browser with no local setup. Kick off long-running tasks and check back when they’re done, work on repos you don’t have locally, or run multiple tasks in parallel. Available on desktop browsers and the Claude iOS app.Start coding at claude.ai/code.Get started on the web →",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "A plugin for IntelliJ IDEA, PyCharm, WebStorm, and other JetBrains IDEs with interactive diff viewing and selection context sharing.Install the Claude Code plugin from the JetBrains Marketplace and restart your IDE.Get started with JetBrains →",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "What you can do",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Here are some of the ways you can use Claude Code:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Automate the work you keep putting off",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Claude Code handles the tedious tasks that eat up your day: writing tests for untested code, fixing lint errors across a project, resolving merge conflicts, updating dependencies, and writing release notes.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "claude \"write tests for the auth module, run them, and fix any failures\"",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "Build features and fix bugs",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Describe what you want in plain language. Claude Code plans the approach, writes the code across multiple files, and verifies it works.For bugs, paste an error message or describe the symptom. Claude Code traces the issue through your codebase, identifies the root cause, and implements a fix. See common workflows for more examples.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Create commits and pull requests",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Claude Code works directly with git. It stages changes, writes commit messages, creates branches, and opens pull requests.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "claude \"commit my changes with a descriptive message\"",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "In CI, you can automate code review and issue triage with GitHub Actions or GitLab CI/CD.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Connect your tools with MCP",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "The Model Context Protocol (MCP) is an open standard for connecting AI tools to external data sources. With MCP, Claude Code can read your design docs in Google Drive, update tickets in Jira, pull data from Slack, or use your own custom tooling.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Customize with instructions, skills, and hooks",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "CLAUDE.md is a markdown file you add to your project root that Claude Code reads at the start of every session. Use it to set coding standards, architecture decisions, preferred libraries, and review checklists. Claude also builds auto memory as it works, saving learnings like build commands and debugging insights across sessions without you writing anything.Create custom commands to package repeatable workflows your team can share, like /review-pr or /deploy-staging.Hooks let you run shell commands before or after Claude Code actions, like auto-formatting after every file edit or running lint before a commit.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Run agent teams and build custom agents",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Spawn multiple Claude Code agents that work on different parts of a task simultaneously. A lead agent coordinates the work, assigns subtasks, and merges results.For fully custom workflows, the Agent SDK lets you build your own agents powered by Claude Code’s tools and capabilities, with full control over orchestration, tool access, and permissions.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Pipe, script, and automate with the CLI",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Claude Code is composable and follows the Unix philosophy. Pipe logs into it, run it in CI, or chain it with other tools:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "code",
+   "text": "# Analyze recent log output\ntail -200 app.log | claude -p \"Slack me if you see any anomalies\"\n\n# Automate translations in CI\nclaude -p \"translate new strings into French and raise a PR for review\"\n\n# Bulk operations across files\ngit diff main --name-only | claude -p \"review these changed files for security issues\"",
+   "level": 0,
+   "meta": {
+    "lang": ""
+   }
+  },
+  {
+   "kind": "paragraph",
+   "text": "See the CLI reference for the full set of commands and flags.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Schedule recurring tasks",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Run Claude on a schedule to automate work that repeats: morning PR reviews, overnight CI failure analysis, weekly dependency audits, or syncing docs after PRs merge.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Cloud scheduled tasks run on Anthropic-managed infrastructure, so they keep running even when your computer is off. Create them from the web, the Desktop app, or by running /schedule in the CLI.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Desktop scheduled tasks run on your machine, with direct access to your local files and tools",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "/loop repeats a prompt within a CLI session for quick polling",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Work from anywhere",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Sessions aren’t tied to a single surface. Move work between environments as your context changes:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Step away from your desk and keep working from your phone or any browser with Remote Control",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Message Dispatch a task from your phone and open the Desktop session it creates",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Kick off a long-running task on the web or iOS app, then pull it into your terminal with claude --teleport",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Hand off a terminal session to the Desktop app with /desktop for visual diff review",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Route tasks from team chat: mention @Claude in Slack with a bug report and get a pull request back",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Use Claude Code everywhere",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Each surface connects to the same underlying Claude Code engine, so your CLAUDE.md files, settings, and MCP servers work across all of them.\nBeyond the Terminal, VS Code, JetBrains, Desktop, and Web environments above, Claude Code integrates with CI/CD, chat, and browser workflows:",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Next steps",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Once you’ve installed Claude Code, these guides help you go deeper.",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Quickstart: walk through your first real task, from exploring a codebase to committing a fix",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Store instructions and memories: give Claude persistent instructions with CLAUDE.md files and auto memory",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Common workflows and best practices: patterns for getting the most out of Claude Code",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Settings: customize Claude Code for your workflow",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "Troubleshooting: solutions for common issues",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "list_item",
+   "text": "code.claude.com: demos, pricing, and product details",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Was this page helpful?",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Quickstart",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "⌘I",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Assistant",
+   "level": 0,
+   "meta": {}
+  },
+  {
+   "kind": "paragraph",
+   "text": "Responses are generated using AI and may contain mistakes.",
+   "level": 0,
+   "meta": {}
+  }
+ ]
+}

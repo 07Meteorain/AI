@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0030",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "d8f854b542a69c78c404aea62038d253a776e1bf",
+ "zh": "你会注意到，在示例 MCP 服务器中，如果打开 src/index.ts，主要区别在于 defaultHandler 被设成了 GitHubHandler：\n\nTypeScript",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

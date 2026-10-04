@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-server-authentication#0018",
+ "doc_id": "mcp-server-authentication",
+ "fingerprint": "970187d9d42262b2d38795a126f3ccaf9c1ea1b2",
+ "zh": "## 通过本地代理从 MCP 客户端连接\n\n既然远程 MCP 服务器已经跑起来了，你就可以用 mcp-remote 本地代理，把 Claude Desktop 或其他 MCP 客户端连上去——即使你的 MCP 客户端本身不支持远程传输层或客户端侧授权。这让你能提前体验用真实 MCP 客户端与远程 MCP 服务器交互是什么样。\n\n例如，从 Claude Desktop 连接：\n\n- 把 Claude Desktop 的配置更新为指向你的 MCP 服务器 URL：",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

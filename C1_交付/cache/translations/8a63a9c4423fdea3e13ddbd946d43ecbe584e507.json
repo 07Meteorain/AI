@@ -1,0 +1,10 @@
+{
+ "seg_id": "ai-code-review-best-practices#0014",
+ "doc_id": "ai-code-review-best-practices",
+ "fingerprint": "8a63a9c4423fdea3e13ddbd946d43ecbe584e507",
+ "zh": "### 其他值得关注的工具\n\n- DeepCode：擅长安全漏洞检测\n\n- Codacy：把传统分析与 AI 能力结合起来\n\n- SonarQube AI：企业级代码质量平台",
+ "meta": {
+  "source": "../work/tr_g09.json",
+  "batch": "tr_g09"
+ }
+}

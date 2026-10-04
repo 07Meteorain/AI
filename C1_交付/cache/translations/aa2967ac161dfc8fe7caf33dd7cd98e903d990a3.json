@@ -1,0 +1,10 @@
+{
+ "seg_id": "mcp-introduction#0013",
+ "doc_id": "mcp-introduction",
+ "fingerprint": "aa2967ac161dfc8fe7caf33dd7cd98e903d990a3",
+ "zh": "#### 集成速度\n\n✅ 快，即插即用\n\n❌ 慢，需要定制代码\n\n⚠️ 中等，专有\n\n⚠️ 中等，需要定制代码\n\n#### 认证\n\n#### 认证\n\n✅ OAuth 标准\n\n❌ 手工管理 API 密钥\n\n⚠️ 插件专用的 OAuth\n\n❌ 视实现而定\n\n#### 交互类型\n\n#### 交互类型\n\n✅ 持续且上下文丰富\n\n❌ 临时性交互\n\n❌ 单次交互\n\n⚠️ 受上下文限制\n\n#### 开放标准",
+ "meta": {
+  "source": "../work/tr_g05.json",
+  "batch": "tr_g05"
+ }
+}

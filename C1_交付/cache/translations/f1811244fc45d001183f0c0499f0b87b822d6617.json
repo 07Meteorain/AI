@@ -1,0 +1,10 @@
+{
+ "seg_id": "course-homepage#0003",
+ "doc_id": "course-homepage",
+ "fingerprint": "f1811244fc45d001183f0c0499f0b87b822d6617",
+ "zh": "### 目标\n\n掌握现代开发工具，理解 AI 辅助编码，学习自动化测试与部署，探索软件领域的新兴趋势。\n\n### 教室\n\n420-041",
+ "meta": {
+  "source": "../work/tr_g11.json",
+  "batch": "tr_g11"
+ }
+}

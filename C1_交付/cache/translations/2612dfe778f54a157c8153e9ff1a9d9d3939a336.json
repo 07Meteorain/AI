@@ -1,0 +1,10 @@
+{
+ "seg_id": "writing-effective-tools-for-agents#0019",
+ "doc_id": "writing-effective-tools-for-agents",
+ "fingerprint": "2612dfe778f54a157c8153e9ff1a9d9d3939a336",
+ "zh": "## 致谢\n\n由 Ken Aizawa 撰写，Research（Barry Zhang、Zachary Witten、Daniel Jiang、Sami Al-Sheikh、Matt Bell、Maggie Vo）、MCP（Theodora Chu、John Welsh、David Soria Parra、Adam Jones）、产品工程（Santiago Seira）、市场（Molly Vorwerck）、设计（Drew Roper）与应用 AI（Christian Ryan、Alexander Bricken）等部门的同事贡献了宝贵意见。\n\n1这里指除训练底层大模型本身之外。\n\n### 还想了解更多？\n\n探索课程",
+ "meta": {
+  "source": "../work/tr_g06.json",
+  "batch": "tr_g06"
+ }
+}
