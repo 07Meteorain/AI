@@ -1624,3 +1624,18 @@ step:9/1000 train_loss:5.8101 train_time:8733ms step_avg:970.38ms
 step:10/1000 train_loss:5.6173 train_time:9768ms step_avg:976.84ms
 step:250/1000 train_loss:3.6817 train_time:328506ms step_avg:1314.02ms
 step:500/1000 train_loss:3.1678 train_time:685777ms step_avg:1371.55ms
+step:750/1000 train_loss:2.9820 train_time:1053375ms step_avg:1404.50ms
+step:1000/1000 train_loss:2.8708 train_time:1426356ms step_avg:1426.36ms
+step:1000/1000 val_loss:2.9462 val_bpb:1.7659 train_time:1426358ms step_avg:1426.36ms
+peak memory allocated: 948 MiB reserved: 1276 MiB
+total_train_tokens:32768000
+Serialized model: 11584804 bytes
+Code size: 67709 bytes
+Total submission size: 11652513 bytes
+Serialized model int8+zlib: 3658424 bytes (payload:4233408 raw_torch:4256181 payload_ratio:2.73x)
+fp16_passthrough_bytes:0 param_count:3021616
+Total submission size int8+zlib: 3726133 bytes
+ARTIFACT_SIZE_OK: 3726133 <= 16,000,000 (headroom 12273867)
+final_int8_zlib_roundtrip eval_mode:chunked val_loss:2.9473 val_bpb:1.7666 eval_time:20927ms
+final_int8_zlib_roundtrip_exact val_loss:2.94732184 val_bpb:1.76655322
+submission_json_written:C:\Users\Administrator\Desktop\我的挑战\平台导出\ch-20260717031359-b8wyg0\挑战_C2G 参数高尔夫 —— 极限约束下的语言模型训练_b8wyg0_完整资料\C2G_ParameterGolf\Meteorain_C2G_参数高尔夫\logs\E3b_parallel_residual_fix_seed1337_submission.json
