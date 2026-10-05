@@ -29,6 +29,39 @@
 
 ---
 
+## 实测结果摘要
+
+**最终方案 E7 = 滑窗评估 + fp16 嵌入直传 + LR 调优**（3 个独立 seed）
+
+| seed | val_bpb | artifact (bytes) |
+|------|--------:|-----------------:|
+| 1337 | 1.74270 | 3,749,258 |
+| 42 | 1.74122 | 3,748,668 |
+| 314 | 1.73473 | 3,749,350 |
+| **均值** | **1.73955** | 3,749,092 |
+
+- 相对本地 baseline（1.76660）：**−0.02705 BPB（−1.53%）**
+- 统计显著性：**t = −11.05，p < 0.01**（df=2 临界值 4.30）
+- artifact **3,770,750 字节**（含代码），距 16,000,000 上限余量 12,229,250
+
+**逐项消融**（等算力，各 1,000 步）：
+
+| 改动 | Δ BPB | 处置 |
+|------|------:|------|
+| A 滑窗评估 | **−0.01786** | ✅ 采纳 |
+| E LR 调优 | −0.00072 | ✅ 采纳 |
+| B fp16 嵌入 | −0.00066 | ✅ 采纳 |
+| C 并行残差 | −0.00005（需先修正 start）| ⚠️ 低于噪声阈值 |
+| D QK-gain 5.25 | **+0.00832** | ❌ 有害，已剔除 |
+
+**两个最重要的发现**：
+1. 滑窗评估的收益**100% 归因于评估方式**（同权重对照，分数逐位相同到小数点后 8 位）
+2. **照搬上游超参数会失败**——QK-gain 5.25 在 11 层模型上单调改进，在 6 层上造成真实退化
+
+⚠️ **这些数字来自单卡 RTX 3050（4GB）、6 层 256 维、32.8M tokens，不可与官方 8×H100 榜单比较。**
+
+---
+
 ## 目录结构
 
 ```
@@ -46,7 +79,9 @@ Meteorain_C2G_参数高尔夫/
 │   └── Meteorain_C2G_AAR复盘.md         # ⭐ AAR 复盘（课程硬性交付项）
 ├── logs/                                # 训练日志（每实验一份）
 ├── results/                             # 结构化实验结果 JSON
-└── submission/                          # 提交元数据与 artifact
+└── submission/                          # 提交元数据与 artifact 打包
+    ├── Meteorain_C2G_submission_*.tar.gz
+    └── Meteorain_C2G_submission_*.json
 ```
 
 ---
@@ -89,27 +124,28 @@ TOKENIZER_PATH=./data/tokenizers/fineweb_1024_bpe.model \
 VOCAB_SIZE=1024 NUM_LAYERS=9 MODEL_DIM=512 NUM_HEADS=8 NUM_KV_HEADS=4 \
 MLP_MULT=2 TIE_EMBEDDINGS=1 \
 SLIDING_WINDOW_EVAL=1 EVAL_STRIDE=64 MAX_VAL_TOKENS=0 \
-FP16_EMBED_PASSTHROUGH=1 PARALLEL_RESIDUAL=1 QK_GAIN_INIT=5.25 TUNED_LR=1 \
+FP16_EMBED_PASSTHROUGH=1 PARALLEL_RESIDUAL=0 QK_GAIN_INIT=1.5 TUNED_LR=1 \
 MAX_WALLCLOCK_SECONDS=600 \
 torchrun --standalone --nproc_per_node=8 train_gpt.py
 ```
 
 ⚠️ `MAX_VAL_TOKENS=0` 表示用**完整官方验证集**，这是提交口径的硬要求。
-⚠️ fp16 嵌入很可能导致 artifact 超 16MB，需同步缩小 MLP hidden（见方案设计 §2-B）。
+⚠️ `QK_GAIN_INIT=1.5`（**不是** SOTA 用的 5.25）—— 我的实测显示 5.25 在浅层模型上造成 +0.008 的真实退化。**但在 9~11 层官方配置下应重新扫描 1.5 / 3.0 / 5.25，不可直接照搬我的结论。**
+⚠️ fp16 嵌入在 9×512 配置下多占约 512KB，而 baseline 只剩约 136KB 余量，**必须同步缩小 MLP hidden**（上游验证过 1024→992）。**绝不能提交超 16MB 的 artifact。**
 
 ---
 
 ## 我的五项改动
 
-全部通过环境变量开关，可单独关闭做消融。
+**最终采纳 A + B + E**（C 收益低于噪声阈值，D 实测有害已剔除）。全部通过环境变量开关，可单独关闭做消融。
 
-| 改动 | 开关 | 类别 | 一句话说明 |
-|------|------|------|-----------|
-| **A. 滑窗评估** | `SLIDING_WINDOW_EVAL` | 评估 | 每个 token 用接近满额上下文打分，而非平均只有 512 |
-| **B. fp16 嵌入直传** | `FP16_EMBED_PASSTHROUGH` | 量化 | tied embedding 同时当 embedding 和 output head，量化误差直接打到 logits |
-| **C. 并行残差** | `PARALLEL_RESIDUAL` | 架构 | attention 与 MLP 读同一份输入（GPT-J 风格）|
-| **D. QK-gain 调优** | `QK_GAIN_INIT` | 架构 | 可学习的 per-head query 缩放 |
-| **E. LR/warmdown 调优** | `TUNED_LR` | 训练 | warmdown 窗口太短导致低 LR 收敛时间不足 |
+| 改动 | 开关 | 类别 | 实测Δ | 一句话说明 |
+|------|------|------|------:|-----------|
+| **A. 滑窗评估** ✅ | `SLIDING_WINDOW_EVAL` | 评估 | **−0.01786** | 每个 token 用接近满额上下文打分，而非平均只有 256 |
+| **B. fp16 嵌入直传** ✅ | `FP16_EMBED_PASSTHROUGH` | 量化 | −0.00066 | tied embedding 同时当 embedding 和 output head，量化误差直接打到 logits |
+| **C. 并行残差** ⚠️ | `PARALLEL_RESIDUAL` | 架构 | −0.00005 | attention 与 MLP 读同一份输入（GPT-J 风格）；**收益低于噪声阈值，未采纳** |
+| **D. QK-gain 调优** ❌ | `QK_GAIN_INIT` | 架构 | **+0.00832** | 可学习 per-head query 缩放；**上游 5.25 在 6 层模型上有害，已剔除** |
+| **E. LR/warmdown 调优** ✅ | `TUNED_LR` | 训练 | −0.00072 | warmdown 窗口太短导致低 LR 收敛时间不足 |
 
 **每项改动都来自官方 `records/` 里已发表的实测记录**，我做了本地独立验证。详见 `docs/Meteorain_C2G_拿来说明.md`。
 
