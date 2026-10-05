@@ -1,0 +1,43 @@
+{
+  "author": "07Meteorain",
+  "github_id": "07Meteorain",
+  "name": "E3b_parallel_residual_fix_seed1337",
+  "blurb": "Baseline + sliding-window eval + fp16 embedding passthrough + parallel residuals + QK-gain + tuned LR warmdown.",
+  "date": "2026-10-05T15:13:19Z",
+  "val_loss": 2.9473218445404332,
+  "val_bpb": 1.7665532159897568,
+  "eval_mode": "chunked",
+  "seed": 1337,
+  "steps": 1000,
+  "total_train_tokens": 32768000,
+  "val_tokens_used": 999936,
+  "val_set_is_full_official": false,
+  "train_time_ms": 1426357.9,
+  "eval_time_ms": 20926.5,
+  "artifact_bytes_total": 3726133,
+  "artifact_bytes_code": 67709,
+  "artifact_bytes_model": 3658424,
+  "config": {
+    "vocab_size": 1024,
+    "num_layers": 6,
+    "model_dim": 256,
+    "num_heads": 8,
+    "num_kv_heads": 4,
+    "mlp_mult": 2,
+    "tie_embeddings": true,
+    "qk_gain_init": 1.5,
+    "matrix_lr": 0.04,
+    "warmdown_iters": 1200,
+    "tied_embed_lr": 0.05,
+    "sliding_window_eval": false,
+    "eval_stride": 64,
+    "fp16_embed_passthrough": false,
+    "parallel_residual": true,
+    "parallel_residual_start": 3,
+    "tuned_lr": false
+  },
+  "hardware": {
+    "gpu_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "world_size": 1
+  }
+}
