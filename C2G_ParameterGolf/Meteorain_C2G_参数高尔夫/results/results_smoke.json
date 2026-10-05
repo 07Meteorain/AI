@@ -1,0 +1,49 @@
+{
+  "tag": "smoke",
+  "generated_at": "2026-10-05T11:49:47Z",
+  "local_profile": {
+    "NUM_LAYERS": "6",
+    "MODEL_DIM": "256",
+    "NUM_HEADS": "8",
+    "NUM_KV_HEADS": "4",
+    "MLP_MULT": "2",
+    "TRAIN_SEQ_LEN": "512",
+    "TRAIN_BATCH_TOKENS": "32768",
+    "ITERATIONS": "30",
+    "WARMUP_STEPS": "5",
+    "VAL_BATCH_SIZE": "65536",
+    "MAX_WALLCLOCK_SECONDS": "0",
+    "EVAL_BATCH_SEQS": "32",
+    "EVAL_STRIDE": "64",
+    "MAX_VAL_TOKENS": "2000000",
+    "TRAIN_LOG_EVERY": "10",
+    "USE_COMPILE": "0"
+  },
+  "hardware_note": "Single NVIDIA RTX 3050 (4GB). NOT the challenge's 8xH100 SXM target.Fixed-step equal-compute ablation; absolute BPB is not comparable to the official 8xH100 leaderboard numbers.",
+  "records": [
+    {
+      "id": "SMOKE",
+      "desc": "管线冒烟测试",
+      "seed": 1337,
+      "status": "ok",
+      "val_bpb": 3.8319126023531527,
+      "val_loss": 6.394905147553987,
+      "eval_mode": "sliding_stride128",
+      "chunked_bpb": 3.83200009,
+      "sliding_gain_bpb": 8.748e-05,
+      "pre_quant_bpb": 3.819,
+      "quant_gap_bpb": 8.74876468475172e-05,
+      "artifact_bytes_total": 3100365,
+      "artifact_bytes_code": 66980,
+      "artifact_bytes_model": 3033385,
+      "steps": 30,
+      "total_train_tokens": 983040,
+      "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+      "elapsed_s": 264.3,
+      "env_overrides": {
+        "SLIDING_WINDOW_EVAL": "1",
+        "EVAL_STRIDE": "128"
+      }
+    }
+  ]
+}
