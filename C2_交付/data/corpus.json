@@ -1,0 +1,2787 @@
+[
+ {
+  "item_id": "MA-0001",
+  "source": "MATH-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "g",
+   "k",
+   "p"
+  ],
+  "bound_symbols": [
+   "k",
+   "p"
+  ],
+  "step_count": 6
+ },
+ {
+  "item_id": "MA-0002",
+  "source": "MATH-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": true,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "c",
+   "k",
+   "q",
+   "y"
+  ],
+  "bound_symbols": [
+   "c",
+   "k",
+   "q",
+   "y"
+  ],
+  "step_count": 6
+ },
+ {
+  "item_id": "MA-0003",
+  "source": "MATH-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "c",
+   "f",
+   "g",
+   "x",
+   "y"
+  ],
+  "bound_symbols": [
+   "S",
+   "c",
+   "f",
+   "g",
+   "x",
+   "y"
+  ],
+  "step_count": 4
+ },
+ {
+  "item_id": "MA-0004",
+  "source": "MATH-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": true,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "a",
+   "c",
+   "p"
+  ],
+  "bound_symbols": [
+   "S",
+   "a",
+   "c",
+   "p"
+  ],
+  "step_count": 3
+ },
+ {
+  "item_id": "MA-0005",
+  "source": "MATH-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": true,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "f",
+   "n",
+   "p",
+   "q"
+  ],
+  "bound_symbols": [
+   "f",
+   "n",
+   "p",
+   "q"
+  ],
+  "step_count": 7
+ },
+ {
+  "item_id": "MA-0006",
+  "source": "MATH-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "c",
+   "k",
+   "q"
+  ],
+  "bound_symbols": [
+   "c",
+   "k"
+  ],
+  "step_count": 8
+ },
+ {
+  "item_id": "MA-0007",
+  "source": "MATH-train",
+  "difficulty": "easy",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "c",
+   "r"
+  ],
+  "bound_symbols": [
+   "b",
+   "c",
+   "r"
+  ],
+  "step_count": 6
+ },
+ {
+  "item_id": "MA-0008",
+  "source": "MATH-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": true,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "f",
+   "k",
+   "n",
+   "q",
+   "x"
+  ],
+  "bound_symbols": [
+   "f",
+   "k",
+   "n",
+   "q",
+   "x"
+  ],
+  "step_count": 6
+ },
+ {
+  "item_id": "MA-0009",
+  "source": "MATH-train",
+  "difficulty": "easy",
+  "undertyping": true,
+  "scope_drift": true,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "f",
+   "q",
+   "r",
+   "x"
+  ],
+  "bound_symbols": [
+   "b",
+   "f",
+   "q",
+   "r",
+   "x"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "MA-0010",
+  "source": "MATH-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "a",
+   "b",
+   "p",
+   "x",
+   "y"
+  ],
+  "bound_symbols": [
+   "S",
+   "a",
+   "b",
+   "p",
+   "x",
+   "y"
+  ],
+  "step_count": 9
+ },
+ {
+  "item_id": "MA-0011",
+  "source": "MATH-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "b",
+   "c",
+   "k",
+   "n",
+   "q"
+  ],
+  "bound_symbols": [
+   "S",
+   "c",
+   "k",
+   "n",
+   "q"
+  ],
+  "step_count": 7
+ },
+ {
+  "item_id": "MA-0012",
+  "source": "MATH-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "g",
+   "n",
+   "p",
+   "r",
+   "y"
+  ],
+  "bound_symbols": [
+   "a",
+   "g",
+   "n",
+   "p",
+   "r",
+   "y"
+  ],
+  "step_count": 6
+ },
+ {
+  "item_id": "MA-0013",
+  "source": "MATH-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "T",
+   "b",
+   "g",
+   "p",
+   "q"
+  ],
+  "bound_symbols": [
+   "S",
+   "T",
+   "b",
+   "g",
+   "q"
+  ],
+  "step_count": 5
+ },
+ {
+  "item_id": "MA-0014",
+  "source": "MATH-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": true,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "k",
+   "q",
+   "r"
+  ],
+  "bound_symbols": [
+   "b",
+   "r"
+  ],
+  "step_count": 8
+ },
+ {
+  "item_id": "MA-0015",
+  "source": "MATH-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "c",
+   "n",
+   "p",
+   "r"
+  ],
+  "bound_symbols": [
+   "c",
+   "p",
+   "r"
+  ],
+  "step_count": 3
+ },
+ {
+  "item_id": "MA-0016",
+  "source": "MATH-train",
+  "difficulty": "medium",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "c",
+   "f",
+   "n",
+   "r",
+   "y"
+  ],
+  "bound_symbols": [
+   "S",
+   "c",
+   "f",
+   "n",
+   "r",
+   "y"
+  ],
+  "step_count": 9
+ },
+ {
+  "item_id": "MA-0017",
+  "source": "MATH-train",
+  "difficulty": "medium",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "c",
+   "q",
+   "r"
+  ],
+  "bound_symbols": [
+   "b",
+   "q",
+   "r"
+  ],
+  "step_count": 4
+ },
+ {
+  "item_id": "MA-0018",
+  "source": "MATH-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": true,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "T",
+   "b",
+   "n"
+  ],
+  "bound_symbols": [
+   "T",
+   "n"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "MA-0019",
+  "source": "MATH-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "a",
+   "n",
+   "p",
+   "r"
+  ],
+  "bound_symbols": [
+   "S",
+   "p",
+   "r"
+  ],
+  "step_count": 3
+ },
+ {
+  "item_id": "MA-0020",
+  "source": "MATH-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": true,
+  "unbound_symbol": true,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "c",
+   "n",
+   "q"
+  ],
+  "bound_symbols": [
+   "c",
+   "n",
+   "q"
+  ],
+  "step_count": 8
+ },
+ {
+  "item_id": "MA-0021",
+  "source": "MATH-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "n",
+   "p",
+   "r"
+  ],
+  "bound_symbols": [
+   "a",
+   "n",
+   "p",
+   "r"
+  ],
+  "step_count": 5
+ },
+ {
+  "item_id": "MA-0022",
+  "source": "MATH-train",
+  "difficulty": "medium",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "k",
+   "y"
+  ],
+  "bound_symbols": [
+   "S",
+   "k",
+   "y"
+  ],
+  "step_count": 8
+ },
+ {
+  "item_id": "MA-0023",
+  "source": "MATH-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "T",
+   "a",
+   "b",
+   "n"
+  ],
+  "bound_symbols": [
+   "T",
+   "a",
+   "b",
+   "n"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "MA-0024",
+  "source": "MATH-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": true,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "c",
+   "g",
+   "x"
+  ],
+  "bound_symbols": [
+   "S",
+   "c",
+   "g"
+  ],
+  "step_count": 7
+ },
+ {
+  "item_id": "MA-0025",
+  "source": "MATH-train",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": true,
+  "nonlocal_warrant": true,
+  "typecheck_ok": false,
+  "declared_types": [],
+  "used_symbols": [
+   "T",
+   "a",
+   "b",
+   "k",
+   "q",
+   "x"
+  ],
+  "bound_symbols": [
+   "a",
+   "b",
+   "k",
+   "x"
+  ],
+  "step_count": 8
+ },
+ {
+  "item_id": "MA-0026",
+  "source": "MATH-train",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": true,
+  "nonlocal_warrant": true,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "T",
+   "f",
+   "g",
+   "k",
+   "n",
+   "y"
+  ],
+  "bound_symbols": [
+   "T",
+   "g",
+   "n",
+   "y"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "MA-0027",
+  "source": "MATH-train",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": true,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": false,
+  "declared_types": [],
+  "used_symbols": [
+   "f",
+   "n",
+   "p",
+   "x"
+  ],
+  "bound_symbols": [
+   "f",
+   "n",
+   "x"
+  ],
+  "step_count": 6
+ },
+ {
+  "item_id": "MA-0028",
+  "source": "MATH-train",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "c",
+   "f",
+   "n"
+  ],
+  "bound_symbols": [
+   "b",
+   "c",
+   "n"
+  ],
+  "step_count": 8
+ },
+ {
+  "item_id": "MA-0029",
+  "source": "MATH-train",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": true,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "T",
+   "f",
+   "k",
+   "r"
+  ],
+  "bound_symbols": [
+   "T",
+   "f",
+   "r"
+  ],
+  "step_count": 6
+ },
+ {
+  "item_id": "MA-0030",
+  "source": "MATH-train",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": true,
+  "unbound_symbol": true,
+  "nonlocal_warrant": true,
+  "typecheck_ok": false,
+  "declared_types": [],
+  "used_symbols": [
+   "S",
+   "a",
+   "n",
+   "p",
+   "x",
+   "y"
+  ],
+  "bound_symbols": [
+   "S",
+   "p",
+   "x",
+   "y"
+  ],
+  "step_count": 5
+ },
+ {
+  "item_id": "MA-0031",
+  "source": "MATH-train",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": true,
+  "unbound_symbol": true,
+  "nonlocal_warrant": false,
+  "typecheck_ok": false,
+  "declared_types": [],
+  "used_symbols": [
+   "S",
+   "f",
+   "g",
+   "y"
+  ],
+  "bound_symbols": [
+   "S",
+   "f",
+   "g",
+   "y"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "MA-0032",
+  "source": "MATH-train",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "g",
+   "x",
+   "y"
+  ],
+  "bound_symbols": [
+   "x",
+   "y"
+  ],
+  "step_count": 4
+ },
+ {
+  "item_id": "MA-0033",
+  "source": "MATH-train",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": true,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "n",
+   "y"
+  ],
+  "bound_symbols": [
+   "a",
+   "n",
+   "y"
+  ],
+  "step_count": 4
+ },
+ {
+  "item_id": "MA-0034",
+  "source": "MATH-train",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "c",
+   "p",
+   "y"
+  ],
+  "bound_symbols": [
+   "c",
+   "p"
+  ],
+  "step_count": 8
+ },
+ {
+  "item_id": "MA-0035",
+  "source": "MATH-train",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": true,
+  "unbound_symbol": true,
+  "nonlocal_warrant": true,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "c",
+   "f",
+   "q"
+  ],
+  "bound_symbols": [
+   "c"
+  ],
+  "step_count": 3
+ },
+ {
+  "item_id": "MA-0036",
+  "source": "MATH-train",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": true,
+  "unbound_symbol": true,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "c",
+   "q",
+   "r"
+  ],
+  "bound_symbols": [
+   "q"
+  ],
+  "step_count": 5
+ },
+ {
+  "item_id": "GS-0037",
+  "source": "GSM8K-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "a",
+   "b",
+   "k"
+  ],
+  "bound_symbols": [
+   "S",
+   "a",
+   "b",
+   "k"
+  ],
+  "step_count": 3
+ },
+ {
+  "item_id": "GS-0038",
+  "source": "GSM8K-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "p",
+   "y"
+  ],
+  "bound_symbols": [
+   "a",
+   "p",
+   "y"
+  ],
+  "step_count": 8
+ },
+ {
+  "item_id": "GS-0039",
+  "source": "GSM8K-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": true,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "c",
+   "f",
+   "n",
+   "q",
+   "x"
+  ],
+  "bound_symbols": [
+   "b",
+   "c",
+   "f",
+   "n",
+   "q",
+   "x"
+  ],
+  "step_count": 3
+ },
+ {
+  "item_id": "GS-0040",
+  "source": "GSM8K-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "f",
+   "p",
+   "r"
+  ],
+  "bound_symbols": [
+   "b",
+   "p",
+   "r"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "GS-0041",
+  "source": "GSM8K-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "g",
+   "n",
+   "y"
+  ],
+  "bound_symbols": [
+   "a",
+   "g",
+   "n"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "GS-0042",
+  "source": "GSM8K-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": true,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "f",
+   "g",
+   "x",
+   "y"
+  ],
+  "bound_symbols": [
+   "f",
+   "g",
+   "x",
+   "y"
+  ],
+  "step_count": 9
+ },
+ {
+  "item_id": "GS-0043",
+  "source": "GSM8K-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "c",
+   "n",
+   "p",
+   "r"
+  ],
+  "bound_symbols": [
+   "c",
+   "n",
+   "p",
+   "r"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "GS-0044",
+  "source": "GSM8K-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "k",
+   "q"
+  ],
+  "bound_symbols": [
+   "a",
+   "k",
+   "q"
+  ],
+  "step_count": 7
+ },
+ {
+  "item_id": "GS-0045",
+  "source": "GSM8K-train",
+  "difficulty": "easy",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "c",
+   "f"
+  ],
+  "bound_symbols": [
+   "a",
+   "c"
+  ],
+  "step_count": 5
+ },
+ {
+  "item_id": "GS-0046",
+  "source": "GSM8K-train",
+  "difficulty": "easy",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "p",
+   "x",
+   "y"
+  ],
+  "bound_symbols": [
+   "S",
+   "p",
+   "x",
+   "y"
+  ],
+  "step_count": 4
+ },
+ {
+  "item_id": "GS-0047",
+  "source": "GSM8K-train",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "c",
+   "p",
+   "r"
+  ],
+  "bound_symbols": [
+   "S",
+   "c",
+   "r"
+  ],
+  "step_count": 6
+ },
+ {
+  "item_id": "GS-0048",
+  "source": "GSM8K-train",
+  "difficulty": "easy",
+  "undertyping": true,
+  "scope_drift": true,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "T",
+   "c",
+   "p"
+  ],
+  "bound_symbols": [
+   "T",
+   "c",
+   "p"
+  ],
+  "step_count": 4
+ },
+ {
+  "item_id": "GS-0049",
+  "source": "GSM8K-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "b",
+   "g",
+   "k",
+   "n",
+   "q"
+  ],
+  "bound_symbols": [
+   "S",
+   "b",
+   "g",
+   "n",
+   "q"
+  ],
+  "step_count": 7
+ },
+ {
+  "item_id": "GS-0050",
+  "source": "GSM8K-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "f",
+   "g",
+   "n",
+   "y"
+  ],
+  "bound_symbols": [
+   "b",
+   "f",
+   "g",
+   "n"
+  ],
+  "step_count": 4
+ },
+ {
+  "item_id": "GS-0051",
+  "source": "GSM8K-train",
+  "difficulty": "medium",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "f",
+   "k",
+   "r",
+   "x"
+  ],
+  "bound_symbols": [
+   "b",
+   "f",
+   "k",
+   "x"
+  ],
+  "step_count": 7
+ },
+ {
+  "item_id": "GS-0052",
+  "source": "GSM8K-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": true,
+  "unbound_symbol": false,
+  "nonlocal_warrant": true,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "c",
+   "p",
+   "q",
+   "r"
+  ],
+  "bound_symbols": [
+   "a",
+   "c",
+   "p",
+   "q",
+   "r"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "GS-0053",
+  "source": "GSM8K-train",
+  "difficulty": "medium",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "c",
+   "f",
+   "x"
+  ],
+  "bound_symbols": [
+   "f",
+   "x"
+  ],
+  "step_count": 3
+ },
+ {
+  "item_id": "GS-0054",
+  "source": "GSM8K-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": true,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "c",
+   "n",
+   "r"
+  ],
+  "bound_symbols": [
+   "c",
+   "n"
+  ],
+  "step_count": 8
+ },
+ {
+  "item_id": "GS-0055",
+  "source": "GSM8K-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "f",
+   "g",
+   "q"
+  ],
+  "bound_symbols": [
+   "b",
+   "f",
+   "g",
+   "q"
+  ],
+  "step_count": 9
+ },
+ {
+  "item_id": "GS-0056",
+  "source": "GSM8K-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "T",
+   "f",
+   "q"
+  ],
+  "bound_symbols": [
+   "T",
+   "f",
+   "q"
+  ],
+  "step_count": 5
+ },
+ {
+  "item_id": "GS-0057",
+  "source": "GSM8K-train",
+  "difficulty": "medium",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "f",
+   "k",
+   "q"
+  ],
+  "bound_symbols": [
+   "f",
+   "k",
+   "q"
+  ],
+  "step_count": 6
+ },
+ {
+  "item_id": "GS-0058",
+  "source": "GSM8K-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": true,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "a",
+   "f",
+   "k",
+   "p",
+   "q"
+  ],
+  "bound_symbols": [
+   "S",
+   "a",
+   "f",
+   "k",
+   "p"
+  ],
+  "step_count": 9
+ },
+ {
+  "item_id": "GS-0059",
+  "source": "GSM8K-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": false,
+  "declared_types": [],
+  "used_symbols": [
+   "S",
+   "T",
+   "c",
+   "f",
+   "p",
+   "r"
+  ],
+  "bound_symbols": [
+   "S",
+   "T",
+   "c",
+   "f"
+  ],
+  "step_count": 3
+ },
+ {
+  "item_id": "GS-0060",
+  "source": "GSM8K-train",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "c",
+   "g",
+   "k"
+  ],
+  "bound_symbols": [
+   "b",
+   "c",
+   "g",
+   "k"
+  ],
+  "step_count": 7
+ },
+ {
+  "item_id": "GS-0061",
+  "source": "GSM8K-train",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": true,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "g",
+   "q",
+   "r"
+  ],
+  "bound_symbols": [
+   "b",
+   "q",
+   "r"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "GS-0062",
+  "source": "GSM8K-train",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "f",
+   "y"
+  ],
+  "bound_symbols": [
+   "b",
+   "y"
+  ],
+  "step_count": 8
+ },
+ {
+  "item_id": "GS-0063",
+  "source": "GSM8K-train",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": true,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "T",
+   "b",
+   "c",
+   "x"
+  ],
+  "bound_symbols": [
+   "T",
+   "c",
+   "x"
+  ],
+  "step_count": 7
+ },
+ {
+  "item_id": "GS-0064",
+  "source": "GSM8K-train",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": true,
+  "unbound_symbol": false,
+  "nonlocal_warrant": true,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "f",
+   "g",
+   "k",
+   "y"
+  ],
+  "bound_symbols": [
+   "S",
+   "f",
+   "g",
+   "k",
+   "y"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "GS-0065",
+  "source": "GSM8K-train",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": true,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "T",
+   "c",
+   "y"
+  ],
+  "bound_symbols": [
+   "S",
+   "T",
+   "c",
+   "y"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "GS-0066",
+  "source": "GSM8K-train",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "q",
+   "x"
+  ],
+  "bound_symbols": [
+   "q",
+   "x"
+  ],
+  "step_count": 5
+ },
+ {
+  "item_id": "GS-0067",
+  "source": "GSM8K-train",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": true,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "b",
+   "g",
+   "q",
+   "r"
+  ],
+  "bound_symbols": [
+   "b",
+   "g",
+   "q",
+   "r"
+  ],
+  "step_count": 9
+ },
+ {
+  "item_id": "GS-0068",
+  "source": "GSM8K-train",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": false,
+  "declared_types": [],
+  "used_symbols": [
+   "S",
+   "T",
+   "f",
+   "k",
+   "n"
+  ],
+  "bound_symbols": [
+   "S",
+   "T",
+   "f",
+   "k",
+   "n"
+  ],
+  "step_count": 8
+ },
+ {
+  "item_id": "GS-0069",
+  "source": "GSM8K-train",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "T",
+   "k",
+   "p",
+   "r"
+  ],
+  "bound_symbols": [
+   "T",
+   "k",
+   "p"
+  ],
+  "step_count": 5
+ },
+ {
+  "item_id": "GS-0070",
+  "source": "GSM8K-train",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": true,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "q",
+   "y"
+  ],
+  "bound_symbols": [
+   "q",
+   "y"
+  ],
+  "step_count": 7
+ },
+ {
+  "item_id": "GS-0071",
+  "source": "GSM8K-train",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": true,
+  "nonlocal_warrant": true,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "T",
+   "c",
+   "f",
+   "p",
+   "x"
+  ],
+  "bound_symbols": [
+   "S",
+   "T",
+   "c",
+   "f",
+   "x"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "GS-0072",
+  "source": "GSM8K-train",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "g",
+   "r"
+  ],
+  "bound_symbols": [
+   "S",
+   "g",
+   "r"
+  ],
+  "step_count": 7
+ },
+ {
+  "item_id": "MI-0073",
+  "source": "MiniF2F-test",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "T",
+   "c",
+   "n"
+  ],
+  "bound_symbols": [
+   "S",
+   "T",
+   "c",
+   "n"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "MI-0074",
+  "source": "MiniF2F-test",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": false,
+  "declared_types": [],
+  "used_symbols": [
+   "S",
+   "b",
+   "k",
+   "n"
+  ],
+  "bound_symbols": [
+   "S",
+   "b",
+   "k",
+   "n"
+  ],
+  "step_count": 5
+ },
+ {
+  "item_id": "MI-0075",
+  "source": "MiniF2F-test",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "q",
+   "x",
+   "y"
+  ],
+  "bound_symbols": [
+   "q",
+   "x",
+   "y"
+  ],
+  "step_count": 7
+ },
+ {
+  "item_id": "MI-0076",
+  "source": "MiniF2F-test",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "b",
+   "c",
+   "f",
+   "p",
+   "r"
+  ],
+  "bound_symbols": [
+   "a",
+   "b",
+   "c",
+   "f",
+   "r"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "MI-0077",
+  "source": "MiniF2F-test",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "T",
+   "a",
+   "b",
+   "g",
+   "r"
+  ],
+  "bound_symbols": [
+   "b",
+   "g",
+   "r"
+  ],
+  "step_count": 6
+ },
+ {
+  "item_id": "MI-0078",
+  "source": "MiniF2F-test",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "T",
+   "a",
+   "b",
+   "f",
+   "q"
+  ],
+  "bound_symbols": [
+   "S",
+   "T",
+   "a",
+   "b",
+   "q"
+  ],
+  "step_count": 4
+ },
+ {
+  "item_id": "MI-0079",
+  "source": "MiniF2F-test",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "b",
+   "c",
+   "n",
+   "q"
+  ],
+  "bound_symbols": [
+   "a",
+   "b",
+   "c",
+   "q"
+  ],
+  "step_count": 6
+ },
+ {
+  "item_id": "MI-0080",
+  "source": "MiniF2F-test",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "b",
+   "g",
+   "n",
+   "p",
+   "y"
+  ],
+  "bound_symbols": [
+   "a",
+   "b",
+   "n",
+   "p",
+   "y"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "MI-0081",
+  "source": "MiniF2F-test",
+  "difficulty": "easy",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "f",
+   "k",
+   "n",
+   "q",
+   "r"
+  ],
+  "bound_symbols": [
+   "S",
+   "f",
+   "q",
+   "r"
+  ],
+  "step_count": 6
+ },
+ {
+  "item_id": "MI-0082",
+  "source": "MiniF2F-test",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "c",
+   "p",
+   "r",
+   "x"
+  ],
+  "bound_symbols": [
+   "b",
+   "c",
+   "p",
+   "r",
+   "x"
+  ],
+  "step_count": 9
+ },
+ {
+  "item_id": "MI-0083",
+  "source": "MiniF2F-test",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "k",
+   "n",
+   "r"
+  ],
+  "bound_symbols": [
+   "S",
+   "k",
+   "r"
+  ],
+  "step_count": 6
+ },
+ {
+  "item_id": "MI-0084",
+  "source": "MiniF2F-test",
+  "difficulty": "easy",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": false,
+  "declared_types": [],
+  "used_symbols": [
+   "S",
+   "T",
+   "f",
+   "g",
+   "p",
+   "y"
+  ],
+  "bound_symbols": [
+   "S",
+   "f",
+   "p",
+   "y"
+  ],
+  "step_count": 7
+ },
+ {
+  "item_id": "MI-0085",
+  "source": "MiniF2F-test",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": true,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "k",
+   "r",
+   "x"
+  ],
+  "bound_symbols": [
+   "a",
+   "r"
+  ],
+  "step_count": 5
+ },
+ {
+  "item_id": "MI-0086",
+  "source": "MiniF2F-test",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "g",
+   "k",
+   "x"
+  ],
+  "bound_symbols": [
+   "S",
+   "g",
+   "k",
+   "x"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "MI-0087",
+  "source": "MiniF2F-test",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": true,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "T",
+   "a",
+   "c",
+   "f",
+   "g",
+   "q"
+  ],
+  "bound_symbols": [
+   "T",
+   "a",
+   "c",
+   "g",
+   "q"
+  ],
+  "step_count": 3
+ },
+ {
+  "item_id": "MI-0088",
+  "source": "MiniF2F-test",
+  "difficulty": "medium",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "c",
+   "q",
+   "r"
+  ],
+  "bound_symbols": [
+   "c",
+   "q",
+   "r"
+  ],
+  "step_count": 4
+ },
+ {
+  "item_id": "MI-0089",
+  "source": "MiniF2F-test",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "f",
+   "n",
+   "x",
+   "y"
+  ],
+  "bound_symbols": [
+   "f",
+   "n",
+   "x",
+   "y"
+  ],
+  "step_count": 3
+ },
+ {
+  "item_id": "MI-0090",
+  "source": "MiniF2F-test",
+  "difficulty": "medium",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": true,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "b",
+   "g",
+   "y"
+  ],
+  "bound_symbols": [
+   "a",
+   "b",
+   "g",
+   "y"
+  ],
+  "step_count": 9
+ },
+ {
+  "item_id": "MI-0091",
+  "source": "MiniF2F-test",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": true,
+  "nonlocal_warrant": false,
+  "typecheck_ok": false,
+  "declared_types": [],
+  "used_symbols": [
+   "T",
+   "g",
+   "r",
+   "x"
+  ],
+  "bound_symbols": [
+   "T",
+   "r",
+   "x"
+  ],
+  "step_count": 5
+ },
+ {
+  "item_id": "MI-0092",
+  "source": "MiniF2F-test",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "c",
+   "k",
+   "n",
+   "r",
+   "x"
+  ],
+  "bound_symbols": [
+   "b",
+   "c",
+   "n",
+   "r",
+   "x"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "MI-0093",
+  "source": "MiniF2F-test",
+  "difficulty": "medium",
+  "undertyping": true,
+  "scope_drift": true,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "b",
+   "p",
+   "q",
+   "r",
+   "y"
+  ],
+  "bound_symbols": [
+   "b",
+   "p",
+   "q",
+   "r",
+   "y"
+  ],
+  "step_count": 9
+ },
+ {
+  "item_id": "MI-0094",
+  "source": "MiniF2F-test",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "T",
+   "a",
+   "c",
+   "k",
+   "p"
+  ],
+  "bound_symbols": [
+   "S",
+   "T",
+   "a",
+   "k",
+   "p"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "MI-0095",
+  "source": "MiniF2F-test",
+  "difficulty": "medium",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": true,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "b",
+   "g"
+  ],
+  "bound_symbols": [
+   "b",
+   "g"
+  ],
+  "step_count": 5
+ },
+ {
+  "item_id": "MI-0096",
+  "source": "MiniF2F-test",
+  "difficulty": "medium",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "c",
+   "f",
+   "p",
+   "r"
+  ],
+  "bound_symbols": [
+   "c",
+   "f",
+   "p",
+   "r"
+  ],
+  "step_count": 8
+ },
+ {
+  "item_id": "MI-0097",
+  "source": "MiniF2F-test",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": true,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "b",
+   "n",
+   "q"
+  ],
+  "bound_symbols": [
+   "S",
+   "b",
+   "q"
+  ],
+  "step_count": 6
+ },
+ {
+  "item_id": "MI-0098",
+  "source": "MiniF2F-test",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": true,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "b",
+   "f",
+   "k",
+   "n",
+   "q"
+  ],
+  "bound_symbols": [
+   "b",
+   "f",
+   "q"
+  ],
+  "step_count": 9
+ },
+ {
+  "item_id": "MI-0099",
+  "source": "MiniF2F-test",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "b",
+   "k",
+   "q",
+   "x"
+  ],
+  "bound_symbols": [
+   "S",
+   "k",
+   "q",
+   "x"
+  ],
+  "step_count": 2
+ },
+ {
+  "item_id": "MI-0100",
+  "source": "MiniF2F-test",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": true,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "b",
+   "c",
+   "f",
+   "n",
+   "p"
+  ],
+  "bound_symbols": [
+   "S",
+   "f",
+   "n"
+  ],
+  "step_count": 7
+ },
+ {
+  "item_id": "MI-0101",
+  "source": "MiniF2F-test",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": false,
+  "declared_types": [],
+  "used_symbols": [
+   "S",
+   "a",
+   "g",
+   "p"
+  ],
+  "bound_symbols": [
+   "S",
+   "a",
+   "g",
+   "p"
+  ],
+  "step_count": 7
+ },
+ {
+  "item_id": "MI-0102",
+  "source": "MiniF2F-test",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": true,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "n",
+   "x"
+  ],
+  "bound_symbols": [
+   "S",
+   "n",
+   "x"
+  ],
+  "step_count": 4
+ },
+ {
+  "item_id": "MI-0103",
+  "source": "MiniF2F-test",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": false,
+  "declared_types": [],
+  "used_symbols": [
+   "f",
+   "p",
+   "r",
+   "y"
+  ],
+  "bound_symbols": [
+   "f",
+   "p",
+   "y"
+  ],
+  "step_count": 9
+ },
+ {
+  "item_id": "MI-0104",
+  "source": "MiniF2F-test",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": true,
+  "unbound_symbol": true,
+  "nonlocal_warrant": true,
+  "typecheck_ok": false,
+  "declared_types": [],
+  "used_symbols": [
+   "T",
+   "f",
+   "g",
+   "n",
+   "r",
+   "y"
+  ],
+  "bound_symbols": [
+   "T",
+   "f",
+   "r",
+   "y"
+  ],
+  "step_count": 5
+ },
+ {
+  "item_id": "MI-0105",
+  "source": "MiniF2F-test",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "a",
+   "c",
+   "f",
+   "p",
+   "y"
+  ],
+  "bound_symbols": [
+   "S",
+   "a",
+   "c",
+   "y"
+  ],
+  "step_count": 5
+ },
+ {
+  "item_id": "MI-0106",
+  "source": "MiniF2F-test",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": false,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "a",
+   "k",
+   "x",
+   "y"
+  ],
+  "bound_symbols": [
+   "a",
+   "k",
+   "x",
+   "y"
+  ],
+  "step_count": 7
+ },
+ {
+  "item_id": "MI-0107",
+  "source": "MiniF2F-test",
+  "difficulty": "hard",
+  "undertyping": false,
+  "scope_drift": true,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "S",
+   "a",
+   "b",
+   "f",
+   "g",
+   "n"
+  ],
+  "bound_symbols": [
+   "a",
+   "b",
+   "f",
+   "g"
+  ],
+  "step_count": 3
+ },
+ {
+  "item_id": "MI-0108",
+  "source": "MiniF2F-test",
+  "difficulty": "hard",
+  "undertyping": true,
+  "scope_drift": true,
+  "unbound_symbol": false,
+  "nonlocal_warrant": false,
+  "typecheck_ok": true,
+  "declared_types": [
+   "Nat"
+  ],
+  "used_symbols": [
+   "T",
+   "f",
+   "n",
+   "x"
+  ],
+  "bound_symbols": [
+   "T",
+   "f"
+  ],
+  "step_count": 8
+ }
+]

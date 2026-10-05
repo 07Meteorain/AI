@@ -1,0 +1,81 @@
+=== VERIFICATION LEDGER (OpenAlex DOI lookups, 2026-10-05) ===
+
+DOI    : 10.1038/s41586-025-09833-y
+title  : Olympiad-level formal mathematical reasoning with reinforcement learning
+year   : 2025 | venue: Nature | type: journal | cited_by: 16
+authors: Thomas Hubert; Rishi Mehta; Laurent Sartran; Miklós Z. Horváth; Goran Žužić; Eric Wieser; Aja Huang; Julian Schrittwieser; Yannick Schroecker; Hussain Masoom; Ottavia Bertolli; Tom Zahavy
+
+DOI    : 10.1038/s41586-023-06747-5
+title  : Solving olympiad geometry without human demonstrations
+year   : 2024 | venue: Nature | type: journal | cited_by: 304
+authors: Trieu H. Trinh; Yuhuai Wu; Quoc Viet Le; He He; Thang Luong
+
+DOI    : 10.48550/arXiv.2210.12283
+title  : Draft, Sketch, and Prove: Guiding Formal Theorem Provers with Informal Proofs
+year   : 2022 | venue: arXiv (Cornell University) | type: repository | cited_by: 26
+authors: Albert Qiaochu Jiang; Sean Welleck; Jin Zhou; Wenda Li; Jiacheng Liu; Mateja Jamnik; Timothée Lacroix; Yuhuai Wu; Guillaume Lample
+
+DOI    : 10.48550/arXiv.2109.00110
+title  : MiniF2F: a cross-system benchmark for formal Olympiad-level mathematics
+year   : 2021 | venue: arXiv (Cornell University) | type: repository | cited_by: 25
+authors: Zheng, Kunhao; Jesse Michael Han; Stanislas Polu
+
+DOI    : 10.48550/arXiv.2406.03847
+title  : Lean Workbook: A large-scale Lean problem set formalized from natural language math problems
+year   : 2024 | venue: arXiv (Cornell University) | type: repository | cited_by: 2
+authors: Huaiyuan Ying; Zijian Wu; Yihan Geng; Yuan, Zheng; Dahua Lin; Kai Chen
+
+DOI    : 10.1007/978-3-030-79876-5_37
+title  : The Lean 4 Theorem Prover and Programming Language
+year   : 2021 | venue: Lecture notes in computer science | type: book series | cited_by: 237
+authors: Leonardo de Moura; Sebastian Ullrich
+
+DOI    : 10.1007/3-540-45949-9
+title  : Isabelle/HOL: A Proof Assistant for Higher-Order Logic
+year   : 2002 | venue: Digital Access to Libraries (Université catholique de Louvain (UCL), l'Université de Namur (UNamur) and the Université Saint-Louis (USL-B)) | type: repository | cited_by: 2301
+authors: Tobias Nipkow; Markus Wenzel; Lawrence Charles Paulson
+
+DOI    : 10.52202/068431-1800
+title  : Chain-Of-Thought Prompting Elicits Reasoning in Large Language Models
+year   : 2022 | venue: None | type: None | cited_by: 2351
+authors: Jason Wei; Xuezhi Wang; Dale Schuurmans; Maarten Bosma; Brian Ichter; Fei Xia; Ed Chi; Quoc V Le; Denny Zhou
+
+DOI    : 10.48550/arXiv.2211.12588
+title  : Program of Thoughts Prompting: Disentangling Computation from Reasoning for Numerical Reasoning Tasks
+year   : 2022 | venue: arXiv (Cornell University) | type: repository | cited_by: 108
+authors: Wenhu Chen; Xueguang Ma; Xinyi Wang; William W. Cohen
+
+DOI    : 10.48550/arXiv.2302.04761
+title  : Toolformer: Language Models Can Teach Themselves to Use Tools
+year   : 2023 | venue: arXiv (Cornell University) | type: repository | cited_by: 403
+authors: Timo Schick; Jane Dwivedi-Yu; Roberto Dessì; Roberta Răileanu; María Lomelí; Luke Zettlemoyer; Nicola Cancedda; Thomas Scialom
+
+DOI    : 10.48550/arXiv.2103.03874
+title  : Measuring Mathematical Problem Solving With the MATH Dataset
+year   : 2021 | venue: arXiv (Cornell University) | type: repository | cited_by: 276
+authors: Dan Hendrycks; Collin Burns; Saurav Kadavath; Akul Arora; Steven Basart; Tang, Eric; Dawn Xiaodong Song; Jacob Steinhardt
+
+DOI    : 10.48550/arXiv.2110.14168
+title  : Training Verifiers to Solve Math Word Problems
+year   : 2021 | venue: arXiv (Cornell University) | type: repository | cited_by: 23
+authors: Karl Cobbe; Vineet Kosaraju; Mohammad Bavarian; Chen, Mark; Jun, Heewoo; Kaiser, Lukasz; Plappert, Matthias; Tworek, Jerry; Hilton, Jacob; Nakano, Reiichiro; Hesse, Christopher; Schulman, John
+
+DOI    : 10.48550/arXiv.2405.07987
+title  : The Platonic Representation Hypothesis
+year   : 2024 | venue: arXiv (Cornell University) | type: repository | cited_by: 27
+authors: Minyoung Huh; Brian Cheung; Tongzhou Wang; Phillip Isola
+
+DOI    : 10.2139/ssrn.5250629
+title  : Physics of Language Models: Part 2.1, Grade-School Math and the Hidden Reasoning Process
+year   : 2025 | venue: SSRN Electronic Journal | type: repository | cited_by: 3
+authors: Ye Tian; Zicheng Xu; Yuanzhi Li; Zeyuan Allen-Zhu
+
+DOI    : 10.1145/3442188.3445922
+title  : On the Dangers of Stochastic Parrots
+year   : 2021 | venue: None | type: None | cited_by: 6752
+authors: Emily M. Bender; Timnit Gebru; Angelina McMillan-Major; Shmargaret Shmitchell
+
+DOI    : 10.48550/arXiv.2005.14165
+title  : Language Models are Few-Shot Learners
+year   : 2020 | venue: arXiv (Cornell University) | type: repository | cited_by: 2963
+authors: Brown, Tom B.; Benjamin Mann; Nick Ryder; Melanie Subbiah; Jared Kaplan; Prafulla Dhariwal; Arvind Neelakantan; Pranav Shyam; Girish Sastry; Amanda Askell; Sandhini Agarwal; Ariel Herbert-Voss
