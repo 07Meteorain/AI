@@ -82,9 +82,10 @@ def build(run_ids: list[str], out_name: str) -> Path:
     entries = collect(run_ids)
 
     # 汇总元数据：官方 submission.json 的字段 + 我需要的可追溯信息
+    #优先把 E7（实测筛出的有效组合，3 seed）作为主提交
     primary = None
     for e in entries:
-        if e.get("name", "").startswith("E6"):
+        if e.get("name", "").startswith("E7"):
             primary = e
             break
     primary = primary or (entries[-1] if entries else None)
@@ -180,9 +181,9 @@ def main() -> None:
 
     if args.all:
         run_ids = sorted(
-            p.stem for p in LOGS.glob("E*_submission.json")
+            p.name[: -len("_submission.json")]
+            for p in LOGS.glob("E*_submission.json")
         )
-        run_ids = [r[: -len("_submission.json")] for r in run_ids]
     elif args.run_id:
         run_ids = [args.run_id]
     else:
