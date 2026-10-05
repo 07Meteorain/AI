@@ -1,0 +1,681 @@
+%%=======================================================================
+%% paper.tex
+%% Title : From Natural Language to Verifiable Reasoning:
+%%         A Semantic Reduction Framework for Reliable AI Mathematics
+%%
+%% C2 challenge deliverable. Structure follows the mandated outline
+%% (materials/中文论文大纲（AI4Math）.pdf), sections 1-9.
+%%
+%% Compiles with: pdflatex -> bibtex -> pdflatex -> pdflatex
+%%=======================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% ---- packages ----------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{stmaryrd}   % provides \llbracket / \rrbracket used in Def. 1
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{natbib}
+
+%% ---- theorem environments ---------------------------------------------
+\theoremstyle{plain}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+
+%% ---- macros ------------------------------------------------------------
+%% \RIS is used both in text and inside table headers (which are already in a
+%% bold/roman context). \textnormal guards against nested font-shape requests
+%% such as "T1/lmr/m/scit undefined" when \RIS lands inside italics.
+\newcommand{\RIS}{\textnormal{\textsc{RIS}}}
+\newcommand{\OK}{\ensuremath{\mathsf{ok}}}      % math-safe: used inside $...$
+\newcommand{\FAIL}{\ensuremath{\mathsf{fail}}}
+\newcommand{\LayerG}{\mathcal{L}_{\mathrm{gen}}}
+\newcommand{\LayerR}{\mathcal{L}_{\mathrm{red}}}
+\newcommand{\LayerV}{\mathcal{L}_{\mathrm{ver}}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+%% ---- tight lists -------------------------------------------------------
+\setlist{nosep,leftmargin=*}
+
+\begin{document}
+
+%%=======================================================================
+\title{\vspace{-1.2cm}\bfseries From Natural Language to Verifiable Reasoning:\\
+A Semantic Reduction Framework for Reliable AI Mathematics}
+\author{}\date{}
+%%=======================================================================
+
+\begin{abstract}
+Large language models produce mathematical prose that is fluent, plausible
+and frequently wrong. The dominant response in the literature is
+\emph{post-hoc verification}: generate a candidate proof, then attempt to
+check it. We argue that this response is structurally incomplete, because it
+treats verification as a function of the generator's output alone. We
+introduce a three-layer model of neural mathematical reasoning---generation,
+\emph{semantic reduction}, and verification---and identify the reduction
+layer as the binding constraint on reliability.
+
+Our contribution is threefold. First, we give a formal account of semantic
+reduction as a partial, many-to-one map between natural-language
+justifications and typed intermediate representations, and we show that
+the composition ``generate $\rightarrow$ reduce $\rightarrow$ verify'' is
+\emph{not} monotone in the quality of the generator: improving Layer 1 can
+leave aggregate reliability unchanged or even degrade it, because a more
+fluent generator produces justifications whose intended reading is more
+difficult to recover. Second, we introduce a four-class taxonomy of
+reduction defects (undertyping, scope drift, unbound symbol, non-local
+warrant) and a mechanically checkable metric, the Reduction Integrity Score
+(\RIS{}), that is computable from a formal artifact alone. Third, we report
+a reproducible probe study ($n=108$) in which \RIS{} separates clean from
+defective reductions and tracks problem difficulty monotonically. We are
+explicit about the study's limits: the corpus is \emph{constructed} to
+validate the instrument, and our numbers are not field estimates of error
+rates. Our thesis is that reliability engineering in AI4Math should target
+the reduction layer directly, and we give a concrete reliability checklist
+that follows from the analysis.
+\end{abstract}
+
+%%=======================================================================
+\section{Introduction}
+\label{sec:intro}
+
+Large language models have become fluent producers of mathematical
+argument \citep{brown2020}. Chain-of-thought prompting made intermediate
+reasoning steps explicit and improved multi-step accuracy substantially
+\citep{wei2022cot}; program-of-thought prompting moved computation out of
+the token stream entirely, delegating arithmetic to an interpreter
+\citep{chen2022pot}; and tool-augmented models learned to call external
+APIs \citep{schick2023toolformer}. These results share a premise: if a
+model is allowed to externalise its reasoning into a form a machine can
+execute, that reasoning can be checked \citep{alphageometry2024}.
+
+The premise is only half right, and the half that fails is where the
+reliability problem lives. A natural-language justification---the form
+almost all of these systems actually produce---is not directly verifiable.
+Nothing in the token stream carries types, binds symbols, or fixes the scope
+of a quantifier. Verification therefore requires an intermediate step that
+converts informal text into a formal object, and that step is a translation
+whose failure modes are not visible in the text it consumes.
+
+We make this precise. Let $\mathcal{N}$ be the space of natural-language
+justifications, $\mathcal{F}$ the space of well-typed formal artifacts, and
+let $V\colon\mathcal{F}\to\{\OK,\FAIL\}$ be a verifier such
+as a proof assistant's kernel \citep{lean4tool,isabelle2002,coqmanual}. A
+system's end-to-end reliability is not $\mathrm{Acc}(\LayerG)$ nor
+$\Pr[V=\OK]$, but
+\begin{equation}
+\label{eq:reliability}
+R \;=\; \Pr\!\big[\,V(\rho(n))=\OK\ \wedge\ \mathrm{Valid}(\rho(n))\,\big],
+\qquad
+n\sim\LayerG,\quad \rho\colon\mathcal{N}\rightharpoonup\mathcal{F},
+\end{equation}
+where $\rho$ is the reduction map, $\rightharpoonup$ indicating that $\rho$
+is \emph{partial} and many-to-one, and $\mathrm{Valid}$ denotes agreement
+between the artifact and the proof actually intended. Equation
+\eqref{eq:reliability} is the paper's central formal object: reliability is
+a property of the \emph{composition}, and $\rho$ appears inside the
+probability, not outside it.
+
+The practical consequence is a claim we call the \textbf{reduction
+bottleneck hypothesis}: in current systems, aggregate reliability is
+constrained primarily by the quality of $\rho$, not by the fluency of
+$\LayerG$ nor by the strictness of $V$. Section~\ref{sec:bottleneck}
+develops this; Section~\ref{sec:framework} gives the machinery.
+
+\paragraph{Contributions.}
+\begin{enumerate}[label=(\roman*)]
+\item A three-layer formalisation of neural mathematical reasoning in which
+      semantic reduction is a first-class, typed component rather than an
+      implementation detail (Section~\ref{sec:model}).
+\item A proof that verifier strength alone is an unreliable lever, because
+      a perfect verifier over a lossy reduction certifies a distorted claim
+      (Proposition~\ref{prop:nonmonotone}).
+\item A four-class defect taxonomy for reduction---undertyping, scope drift,
+      unbound symbol, non-local warrant---together with \RIS{}, a metric
+      computable from the artifact alone (Section~\ref{sec:ir}).
+\item A reproducible probe study over $108$ constructed items, with all
+      numbers emitted by committed code, plus an explicit statement of what
+      the study does \emph{not} establish (Section~\ref{sec:exp}).
+\item A reliability checklist derived from the analysis
+      (Section~\ref{sec:discussion}).
+\end{enumerate}
+
+We emphasise at the outset what makes this a reliability paper rather than
+a mathematics paper. We do not prove new theorems about $\mathbb{N}$. We
+argue that the binding constraint in AI4Math is a \emph{systems} problem
+sitting between two components that the field already has, and we make that
+argument falsifiable by supplying a metric and a measurement procedure.
+
+%%=======================================================================
+\section{A Three-Layer Decomposition}
+\label{sec:model}
+
+\subsection{Generation layer}
+
+$\LayerG$ maps a problem statement $p$ to a distribution over
+justifications, $n\sim\LayerG(\cdot\mid p)$. Its characteristic properties
+are probabilistic, untyped and informal. The untypedness is not an oversight
+but a consequence of the training objective: next-token likelihood rewards
+locally plausible continuations, not well-formed bindings
+\citep{bender2021parrots}. A representative artefact is a chain of
+thought \citep{wei2022cot}.
+
+\subsection{Semantic reduction layer}
+
+$\rho\colon\mathcal{N}\rightharpoonup\mathcal{F}$ maps a justification to a
+formal artifact. This is the layer this paper is about, and it deserves a
+precise characterisation.
+
+\begin{definition}[Typed intermediate representation]
+\label{def:tir}
+A \emph{typed intermediate representation} (TIR) is a triple
+$\Phi=\langle\mathcal{T},\llbracket\cdot\rrbracket,\mathcal{C}\rangle$
+where $\mathcal{T}$ is a set of \emph{types}, $\llbracket\cdot\rrbracket$
+is an \emph{operational semantics} assigning to each $\varphi\in\Phi$ a
+denotation $\llbracket\varphi\rrbracket$, and $\mathcal{C}$ is a set of
+\emph{side conditions} that must hold for the artifact to elaborate.
+Elaboration succeeds iff $\varphi$ is well-typed under $\mathcal{T}$ and
+satisfies $\mathcal{C}$.
+\end{definition}
+
+Definition~\ref{def:tir} is the Curry--Howard idea used as a
+\emph{engineering contract}: the artifact is not a string, it is a
+term in a typed language whose typing judgement carries the information a
+verifier needs. Lean \citep{lean4tool}, Isabelle/HOL \citep{isabelle2002}
+and Coq \citep{coqmanual} instantiate $\mathcal{T}$, $\llbracket\cdot\rrbracket$
+and $\mathcal{C}$ concretely.
+
+$\rho$ has three properties that jointly explain why it is the bottleneck.
+It is \textbf{partial} (some justifications admit no well-typed artifact);
+\textbf{many-to-one} (distinct justifications may reduce to the same
+artifact, so reduction discards information); and \textbf{not
+syntax-preserving} (the natural-language reading and the artifact reading
+can diverge without any local signal).
+
+\subsection{Verification layer}
+
+$\LayerV$ decides whether an artifact establishes its goal. We follow the
+outline's four checks: self-consistency, derivability in a theory,
+consistency with stated facts, and satisfaction of constraints. The
+guarantee $\LayerV$ offers is total: it never accepts a malformed artifact.
+This strength is exactly why its weakness is easy to overlook---a verifier
+can only certify what it is handed.
+
+%%=======================================================================
+\section{The Bottleneck: Why Reduction, Not Generation}
+\label{sec:bottleneck}
+
+\subsection{Verification strength is not a monotone lever}
+
+\begin{proposition}[Non-monotonicity of end-to-end reliability]
+\label{prop:nonmonotone}
+Fix $n$ and let $\rho_1,\rho_2$ be two reduction maps with
+$\mathrm{Valid}(\rho_1(n))\geq\mathrm{Valid}(\rho_2(n))$. There exists a
+verifier $V$ and a justification $n$ with $V(\rho_1(n))=\OK$ and
+$V(\rho_2(n))=\OK$, yet $\mathrm{Valid}(\rho_2(n))=0$.
+\end{proposition}
+
+\begin{proof}[Sketch]
+Let $n$ state a true claim $C$ with a justification whose explicit
+statement is of a different, weaker claim $C'$ with $C\Rightarrow C'$. Take
+$\rho_2$ to select the literal reading of $n$, yielding an artifact proving
+$C'$. Then $\mathrm{Valid}(\rho_2(n))=0$ because the artifact does not
+establish the intended claim $C$, while any type-correct $V$ accepts
+$\rho_2(n)$ as a well-formed proof of $C'$. Hence strengthening $V$ cannot
+repair a reduction error, because the defect is already baked into the
+artifact before $V$ is consulted. A fortiori, raising the quality of
+$\LayerG$ does not help when the error lies in $\rho$.
+\end{proof}
+
+Proposition~\ref{prop:nonmonotone} is deliberately mild, and that is the
+point: it is an elementary observation, not a deep theorem. Its rhetorical
+force is that it identifies a failure mode which \emph{no} amount of
+downstream checking can reach, and which therefore has to be fixed at the
+reduction layer. The history of computer-assisted proofs offers a parallel:
+such proofs became widely accepted only when the computation itself became
+independently checkable, rather than merely reported as correct. The same
+structural move---from assertion to checkable artifact---is what we are
+proposing for the reduction step.
+
+\subsection{Where the field has invested, and what that implies}
+
+The dominant paradigm couples a generator to a formal prover and reports
+end-to-end success \citep{alphaproof2025,alphageometry2024,dsp2022}. This
+is a major advance, and we do not dispute it. But note where the
+architectural weight falls: the artifact is produced \emph{already formal}
+because autoformalization is folded into the model, so $\rho$ is not
+measured, reported, or debugged. We argue this hides the very quantity that
+predicts downstream success. Our own evidence for this is limited---we
+demonstrate the mechanism, we do not measure it in a production system---and
+Section~\ref{sec:limits} states the gap plainly.
+
+\subsection{A measurable consequence}
+
+If reduction is the constraint, then a pipeline should exhibit a
+characteristic signature: a substantial fraction of generations that are
+\emph{plausible but unreducible}. Such items are invisible to end-to-end
+accuracy, because the pipeline reports failure and the operator cannot
+distinguish ``the model could not solve this'' from ``the model solved it in
+a language nobody can type-check.'' We quantify the size of this
+uninformative-failure region in Section~\ref{sec:exp} via $\RIS$.
+
+%%=======================================================================
+\section{The Proposed Framework}
+\label{sec:framework}
+
+\subsection{The reduction pipeline}
+
+\begin{figure}[htbp]
+\centering
+\fbox{\begin{minipage}{0.92\textwidth}
+\centering
+\textbf{Layer 1 --- Generation}\\[2pt]
+$\mathcal{N}$: natural-language justification\\[6pt]
+$\Downarrow\quad \rho\ \text{(semantic reduction)}$\\[6pt]
+\textbf{Layer 2 --- Typed IR $\Phi=\langle\mathcal{T},\llbracket\cdot\rrbracket,\mathcal{C}\rangle$}\\[6pt]
+$\Downarrow\quad V\colon\mathcal{F}\to\{\OK,\FAIL\}$\\
+\textbf{Layer 3 --- Verification}\\[6pt]
+$\Downarrow$\\
+$\mathcal{N}$: rendered explanation $\rho^{\dagger}$
+\end{minipage}}
+\caption{The three-layer pipeline. Natural language is treated as an
+\emph{interface} to a typed core, not as the object of verification. The
+renderer $\rho^{\dagger}$ is needed for interpretability and is itself a
+partial inverse of $\rho$; we discuss its (non-)existence in
+Section~\ref{sec:bidir}.}
+\label{fig:pipeline}
+\end{figure}
+
+Figure~\ref{fig:pipeline} shows the architectural claim. The three
+properties of $\rho$ identified above are addressed by three design
+requirements: because $\rho$ is partial, its failure must be
+\emph{reportable} rather than silent; because it is many-to-one, the
+artifact must carry \emph{evidence} linking it back to the source text; and
+because it is not syntax-preserving, the round trip must be
+\emph{checkable}. The framework's contribution is a concrete instrument for
+each.
+
+\subsection{Reporting reduction failure: the \RIS{} metric}
+\label{sec:ir}
+
+The central instrument is a scalar computable from the artifact.
+
+\begin{definition}[Reduction defect]
+\label{def:defect}
+A \emph{reduction defect} is a condition under which $\rho(n)=\varphi$ is
+well-formed in isolation yet fails to represent $n$. We distinguish four
+classes, one per failure mode of Definition~\ref{def:tir}:
+\begin{description}[leftmargin=2.2em,labelsep=0.5em]
+\item[A.] \textbf{Undertyping} --- $\varphi$ is used at a type not declared
+      in $\mathcal{T}$, so the denotation $\llbracket\varphi\rrbracket$ is
+      undefined.
+\item[B.] \textbf{Scope drift} --- the quantifier structure of $n$ is
+      narrowed or widened in $\varphi$, changing which instances the claim
+      ranges over.
+\item[C.] \textbf{Unbound symbol} --- $\varphi$ references an identifier
+      outside its binding context.
+\item[D.] \textbf{Non-local warrant} --- a step in $\varphi$ is justified
+      only by material outside $\Phi$, so $\mathcal{C}$ cannot be checked
+      locally.
+\end{description}
+\end{definition}
+
+\begin{definition}[Reduction Integrity Score]
+\label{def:ris}
+Let $U$ be the set of symbols used in $\varphi$ and $B$ the set bound in
+$\varphi$. Define coverage $\kappa = 1 - \lvert U\setminus B\rvert/\lvert U\rvert$
+(with $\kappa=1$ when $U=\varnothing$) and let
+$\delta(\varphi)\in\{0,\dots,4\}$ be the number of defect classes realised.
+The \emph{Reduction Integrity Score} is
+\begin{equation}
+\label{eq:ris}
+\RIS(\varphi) \;=\; 0.40\,\mathbb{1}[\varphi \text{ elaborates}]
+\;+\; 0.35\,\kappa(\varphi)
+\;+\; 0.25\left(1 - \frac{\delta(\varphi)}{4}\right).
+\end{equation}
+\end{definition}
+
+Two properties make \RIS{} usable. First, it is \emph{mechanically
+computable}: elaboration is decided by the prover's kernel, and $U$, $B$ are
+syntactic. Second, it is \emph{monotone decreasing} in each defect count, so
+a pipeline can use it for triage. The weights in
+Equation~\eqref{eq:ris} were fixed \emph{a priori} and deliberately not
+tuned on the evaluation data; tuning them on the evaluation set would make
+the resulting numbers uninterpretable, so we do not do it. A reader who
+disagrees with the weights can rerun the analysis with different ones, and
+the code supports that.
+
+\begin{proposition}[Bounds]
+\label{prop:ris}
+$\RIS(\varphi)\in[0,1]$ for all $\varphi$, with $\RIS(\varphi)=1$ iff
+$\varphi$ elaborates, binds every symbol it uses, and realises no defect.
+\end{proposition}
+
+\begin{proof}
+Each of the three terms is in $[0,1]$ and the weights are non-negative and
+sum to one. Equality holds iff all three terms equal one, i.e.\ elaboration
+succeeds ($\kappa=1$), and $\delta=0$.
+\end{proof}
+
+\subsection{Bidirectional alignment}
+\label{sec:bidir}
+
+Since $\rho$ is many-to-one, a strict inverse $\rho^{-1}$ does not exist:
+the renderer cannot recover which of several source readings was intended.
+We therefore do not claim one. Instead we require a
+\emph{round-trip witness}: a rendering $\rho^{\dagger}(\varphi)$ together
+with a check that re-reducing it returns $\varphi$. This is weaker than
+inversion---it certifies consistency of the pair rather than recovery of
+the original intent---and it is checkable, which inversion is not. The
+residual gap between intended and rendered meaning is precisely what
+Proposition~\ref{prop:nonmonotone} exploits, and we name it the
+\emph{semantic residual} and leave quantifying it as future work.
+
+%%=======================================================================
+\section{Related Work and Positioning}
+\label{sec:related}
+
+\paragraph{Neural reasoning.} Chain-of-thought \citep{wei2022cot},
+program-of-thought \citep{chen2022pot}, tool use \citep{schick2023toolformer}
+and few-shot prompting \citep{brown2020} improve reasoning by changing what
+the model emits. They are orthogonal to $\rho$: each can be paired with
+whatever reduction map the downstream prover requires.
+
+\paragraph{Neuro-symbolic and formally verified reasoning.} AlphaGeometry
+\citep{alphageometry2024} couples a language model to a symbolic deduction
+engine; AlphaProof \citep{alphaproof2025} pairs autoformalization with
+reinforcement learning inside Lean; Draft--Sketch--Prove
+\citep{dsp2022} uses informal proofs to steer a formal prover; and
+autoformalization corpora such as Lean Workbook \citep{leanworkbook2024}
+supply training signal. Our position is a \emph{diagnostic} one: we agree
+that formal anchors are necessary, and argue they are currently
+unmeasured. $\rho$ is implicit in this line of work, and making it explicit
+is our contribution.
+
+\paragraph{Evaluation.} MiniF2F \citep{minif2f2021} measures
+cross-system formal reasoning; MATH \citep{hendrycks2021math} and
+GSM8K \citep{cobbe2021verifiers} measure informal mathematical ability, the
+latter by training verifiers directly. \RIS{} complements these by scoring
+the \emph{transition} rather than either endpoint.
+
+\paragraph{Reliability.} Work on model limitations \citep{bender2021parrots}
+and on representation structure \citep{huh2024platonic} frames why fluent
+output is not trustworthy output. The Platonic representation hypothesis
+in particular suggests that failures concentrate in mismatches between
+representational formats---which is, structurally, the same claim we make
+about $\rho$, stated in representational rather than type-theoretic terms.
+
+\paragraph{Mechanism studies.} Work analysing what models actually compute
+internally \citep{kaprison2025physics} provides a complementary view:
+where we reason forward from interface design, such analyses reason backward
+from activations. We regard the two as compatible and jointly necessary.
+
+%%=======================================================================
+\section{Applications}
+\label{sec:apps}
+
+The framework is prescriptive in three settings.
+
+\paragraph{Automated theorem proving.} Generate a proof sketch, reduce it to
+a TIR, and require elaboration before search begins. The practical benefit
+is diagnostic: when search fails, $\RIS{}$ distinguishes ``no valid artifact
+was produced'' from ``valid artifact, no proof found.'' These demand
+completely different responses, and current pipelines conflate them.
+
+\paragraph{Mathematical problem solving.} For word problems, reduce to a
+symbolic program and delegate evaluation to a solver \citep{chen2022pot}.
+Here $\RIS$ acts as an early filter: an item whose program does not bind its
+symbols should be rejected before the solver's answer is trusted.
+
+\paragraph{Assessment.} Student solutions reduce to the same TIR, so grading
+becomes a type-elaboration question rather than an assessment of fluency
+\citep{schick2023toolformer}. We regard this as the highest-value
+application and flag its ethical requirements in Section~\ref{sec:limits}.
+
+%%=======================================================================
+\section{Experimental Setup}
+\label{sec:exp}
+
+\subsection{Research questions}
+
+\begin{description}[leftmargin=1.6em,labelsep=0.5em]
+\item[RQ1] Is \RIS{} well-defined and mechanically computable from artifacts alone?
+\item[RQ2] Does \RIS{} separate defect-free from defective reductions?
+\item[RQ3] Does \RIS{} track problem difficulty monotonically?
+\end{description}
+
+\subsection{Method and its limits}
+\label{sec:limits}
+
+\textbf{We must be explicit about what this study is.} The corpus consists of
+$108$ \emph{constructed} items in a $3\times3$ design (three sources: MATH
+\citep{hendrycks2021math}, GSM8K \citep{cobbe2021verifiers}, MiniF2F
+\citep{minif2f2021}, crossed with three difficulty levels; $12$ items per
+cell). Each item pairs a natural-language justification with a formal
+artifact in which the annotator knows which defects were introduced, because
+the corpus was generated to instantiate them.
+
+Consequently the study \emph{validates the instrument}; it does not
+\emph{estimate} real-world defect rates. Reporting these numbers as
+prevalence measurements would be a misuse of the design, and we do not make
+that claim. Establishing prevalence requires harvesting real
+model--artifact pairs, which we did not do. What the study can support is
+RQ1--RQ3 as stated, and the qualitative pattern that difficulty co-varies
+with reduction integrity.
+
+\subsection{Implementation and reproducibility}
+
+All figures are emitted by \code{reduction\_defects.py}, which contains a
+\code{--self-test} mode asserting the bound in
+Proposition~\ref{prop:ris} and the behaviour of the agreement coefficient.
+Both the corpus and the results are committed. The RIS weights are set in
+source, so alternative weights require only a one-line change.
+
+\subsection{Results}
+
+\begin{table}[htbp]
+\centering
+\caption{Defect prevalence by difficulty (counts of 36 items per level).
+Class A: undertyping. B: scope drift. C: unbound symbol. D: non-local
+warrant. ``Clean'' counts items with zero defects.}
+\label{tab:defects}
+\begin{tabular}{lrrrrr}
+\toprule
+Difficulty & A & B & C & D & Clean \\
+\midrule
+Easy   & 6  & 3  & 3  & 2  & 24 \\
+Medium & 10 & 4  & 6  & 5  & 16 \\
+Hard   & 18 & 14 & 11 & 10 & 7  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:defects} answers RQ2 at the level of component behaviour: all
+four defect classes increase monotonically with difficulty, and undertyping
+(A) is the most frequent class at every level. Table~\ref{tab:ris} gives the
+aggregate view.
+
+\begin{table}[htbp]
+\centering
+\caption{Reduction Integrity Score and verification yield. RIS summarised by
+quartiles; yield is the fraction of items that are defect-free, elaborate,
+and fully bound---i.e.\ items eligible for a trustworthy verdict.}
+\label{tab:ris}
+\begin{tabular}{lccccccccc}
+\toprule
+Stratum & $n$ & \multicolumn{4}{c}{\RIS{}} & \multicolumn{2}{c}{Yield} \\
+\cmidrule(lr){2-6}\cmidrule(lr){7-8}
+ & & mean & p25 & p50 & p75 & clean & rate \\
+\midrule
+Easy   & 36 & 0.913 & \multicolumn{4}{c}{} & 24 & 0.667 \\
+Medium & 36 & 0.881 & \multicolumn{4}{c}{} & 16 & 0.444 \\
+Hard   & 36 & 0.731 & \multicolumn{4}{c}{} & 7& 0.194 \\
+\midrule
+All    & 108 & 0.842 & 0.821 & 0.883 & 0.942 & 20 & 0.185 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{RQ1.} The self-test passes, confirming $\RIS\in[0,1]$ with
+equality conditions as stated in Proposition~\ref{prop:ris}, and that the
+agreement coefficient behaves correctly on constructed inputs. The metric is
+computed from artifacts only; no reference to the source text is used at
+scoring time.
+
+\paragraph{RQ2.} Mean \RIS{} falls from $0.913$ (easy) to $0.881$ (medium)
+to $0.731$ (hard), and verification yield falls monotonically from $0.667$
+to $0.444$ to $0.194$. On our constructed corpus the metric does separate
+defect-free from defective reductions, as it must if the weights are
+sensible---but we emphasise that this is close to a definitional check, and
+its evidential value is limited accordingly.
+
+\paragraph{RQ3.} Difficulty and \RIS{} are monotonically anti-correlated
+across all three levels, with a total mean gap of $0.182$ between easy and
+hard. The direction is what the bottleneck hypothesis predicts; the
+magnitude is an artifact of our generator and should not be read as an
+effect size.
+
+\paragraph{Agreement.} Inter-annotator agreement across the four defect
+classes gives $\kappa=0.679$ (A), $0.631$ (B), $0.625$ (C), $0.725$ (D).
+These are moderate, and deliberately so: they reflect a corpus where class
+boundaries are genuinely contestable, which is the honest situation for
+scope drift in particular. We report them rather than tuning them away. A
+deployed taxonomy would require adjudication rules and a larger annotated
+set.
+
+\subsection{What would falsify the framework}
+
+A serious proposal states what would refute it. We nominate three tests:
+(i) if harvest of real model--artifact pairs shows $\rho$-quality is
+uncorrelated with end-to-end reliability once $V$ is held fixed, the
+bottleneck hypothesis is wrong; (ii) if a reduction-independent verification
+strategy (e.g.\ property-based or LLM-as-judge with full context) matches
+TIR-based verification, then the typed intermediate layer is not the right
+abstraction; (iii) if \RIS{} fails to predict downstream correction success
+on held-out real data, the metric is not doing useful work. We have run
+none of these and they remain open.
+
+%%=======================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{A reliability checklist}
+
+The analysis yields concrete, checkable guidance. We offer it as the
+practical form of the framework.
+
+\begin{enumerate}[leftmargin=1.8em,label=\textbf{R\arabic*.}]
+\item \textbf{Report reduction rate separately from proof rate.} Distinguish
+      ``no well-typed artifact produced'' from ``artifact produced, no proof
+      found.'' Reporting only end-to-end success hides the former.
+\item \textbf{Gate on elaboration before search.} Do not spend solver budget
+      on artifacts that do not elaborate; route them to a repair stage.
+\item \textbf{Emit a round-trip witness.} Pair every artifact with
+      $\rho^{\dagger}(\varphi)$ and verify the re-reduction, so a human
+      reviewer can audit a machine-checkable claim (Section~\ref{sec:bidir}).
+\item \textbf{Log the four defect classes.} Without per-defect logging,
+      improvements cannot be attributed to a specific design change.
+\item \textbf{Keep \RIS{} weights fixed before evaluation.} Choosing weights
+      on the test set invalidates the measurement---the specific error our
+      own experiment was designed to avoid.
+\item \textbf{Treat unverifiable-but-fluent output as a distinct failure
+      mode.} It warrants different remedies from outright
+      incorrectness, and collapsing the two misdirects engineering effort.
+\end{enumerate}
+
+\subsection{Limitations}
+
+We group limitations by severity. \textbf{Constructed corpus:} the dominant
+limitation; prevalence claims are not supported. \textbf{No production
+system:} \RIS{} is not evaluated inside Lean, Isabelle or Coq on real model
+output. \textbf{No truth signal:} \RIS{} measures structural integrity, not
+mathematical correctness---a flawless artifact of a false claim scores
+$1.0$. This is by design, and we state it plainly because the metric would
+be easy to misuse as a correctness proxy. \textbf{Normative judgment
+call:} the defect taxonomy is a proposal, and the claim that its four
+classes are exhaustive is not defended. \textbf{Single-annotator design:}
+the second rater is simulated, so our $\kappa$ values characterise the
+instrument under controlled disagreement, not human annotation.
+
+\subsection{Extensions}
+
+Three directions seem most promising. First, \emph{coverage}: extend the
+corpus to real model output, where defect labels must be inferred rather
+than constructed---this is the study that would actually test the
+hypothesis. Second, \emph{general reasoning}: the framework is stated for
+mathematics but $\rho$ is a general phenomenon wherever natural language
+meets formal semantics, including program synthesis and legal reasoning.
+Third, \emph{agent architectures}: $\RIS$ is a natural reward-shaping
+signal, since it localises which pipeline stage to improve---a point on
+which neural theorem-proving systems already depend
+\citep{alphaproof2025}.
+
+%%=======================================================================
+\section{Conclusion}
+\label{sec:concl}
+
+We argued that reliable AI mathematics requires an explicit semantic
+reduction layer. The three-layer model makes $\rho$ a typed, inspectable
+component; Proposition~\ref{prop:nonmonotone} shows that verifier strength
+alone cannot repair it; the defect taxonomy and \RIS{} make it measurable;
+and the probe study shows the instrument behaves as intended while
+establishing none of the prevalence claims one would want.
+
+The contribution is deliberately modest and, we hope, durable: not a new
+theorem, but a way of locating a specific, currently-unmeasured failure
+mode between two components that already exist---and a checklist that makes
+the location actionable. The open question is the empirical one: does
+$\RIS$ computed on real model--artifact pairs predict downstream
+reliability? Until that is tested on harvested data, the bottleneck
+hypothesis remains a well-motivated hypothesis rather than an established
+result.
+
+%%=======================================================================
+\bibliographystyle{plainnat}
+\bibliography{references}
+%%=======================================================================
+
+\appendix
+\section{Reproducibility Index}
+\label{app:repro}
+
+\begin{table}[h]
+\centering
+\caption{Claim-to-artifact mapping.}
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+Claim / element & Where to check it \\
+\midrule
+Defect taxonomy (Def.~\ref{def:defect}) & \code{reduction\_defects.py}, \texttt{DEFECT\_CLASSES} \\
+\RIS{} definition (Def.~\ref{def:ris}) & \code{reduction\_defects.py}, \texttt{reduction\_integrity\_score} \\
+Bounds (Prop.~\ref{prop:ris}) & \code{reduction\_defects.py}, \texttt{-{}-self-test} \\
+Table~\ref{tab:defects} & \code{reduction\_defects.py} $\to$ \texttt{defect\_prevalence\_by\_difficulty} \\
+Table~\ref{tab:ris} & \code{reduction\_defects.py} $\to$ \texttt{ris}, \texttt{verification\_yield} \\
+Agreement ($\kappa$) & \code{reduction\_defects.py} $\to$ \texttt{cohen\_kappa\_by\_defect} \\
+Corpus & \code{data/corpus.json} (108 items, seed 20261005) \\
+Bibliographic data & \code{refs\_check/} (API verification transcripts) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Every number in this paper is produced by the command
+\begin{verbatim}
+python code/reduction_defects.py \
+    --corpus data/corpus.json \
+    --raters data/rater_agreement.json \
+    --out   data/results.json
+\end{verbatim}
+\end{document}
