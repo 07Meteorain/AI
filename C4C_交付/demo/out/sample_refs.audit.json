@@ -1,0 +1,433 @@
+{
+  "files": [
+    "demo/sample_refs.bib"
+  ],
+  "elapsed": 5.311495065689087,
+  "missing_cited_keys": [],
+  "unused_bib_keys": [],
+  "results": [
+    {
+      "key": "vaswani2017attention",
+      "type": "inproceedings",
+      "title": "Attention Is All You Need",
+      "bib_year": 2017,
+      "bib_authors": [
+        "Vaswani, Ashish",
+        "Shazeer, Noam",
+        "Parmar, Niki",
+        "Uszkoreit, Jakob",
+        "Jones, Llion"
+      ],
+      "bib_doi": "",
+      "bib_arxiv": "1706.03762",
+      "bib_venue": "Advances in Neural Information Processing Systems",
+      "fingerprints": [],
+      "source_used": "arXiv",
+      "matched": {
+        "source": "arXiv",
+        "title": "Attention Is All You Need",
+        "year": 2017,
+        "authors": [
+          "Ashish Vaswani",
+          "Noam Shazeer",
+          "Niki Parmar",
+          "Jakob Uszkoreit",
+          "Llion Jones",
+          "Aidan N. Gomez",
+          "Lukasz Kaiser",
+          "Illia Polosukhin"
+        ],
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/1706.03762",
+        "cited_by": null,
+        "arxiv": "1706.03762",
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "arXiv 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "Attention Is All You Need",
+        "year": 2017,
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/1706.03762",
+        "authors": [
+          "Ashish Vaswani",
+          "Noam Shazeer",
+          "Niki Parmar",
+          "Jakob Uszkoreit",
+          "Llion Jones"
+        ],
+        "cited_by": null
+      }
+    },
+    {
+      "key": "kingma2014adam",
+      "type": "inproceedings",
+      "title": "Adam: A Method for Stochastic Optimization",
+      "bib_year": 2014,
+      "bib_authors": [
+        "Kingma, Diederik P.",
+        "Ba, Jimmy"
+      ],
+      "bib_doi": "",
+      "bib_arxiv": "1412.6980",
+      "bib_venue": "International Conference on Learning Representations",
+      "fingerprints": [],
+      "source_used": "arXiv",
+      "matched": {
+        "source": "arXiv",
+        "title": "Adam: A Method for Stochastic Optimization",
+        "year": 2014,
+        "authors": [
+          "Diederik P. Kingma",
+          "Jimmy Ba"
+        ],
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/1412.6980",
+        "cited_by": null,
+        "arxiv": "1412.6980",
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "arXiv 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "Adam: A Method for Stochastic Optimization",
+        "year": 2014,
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/1412.6980",
+        "authors": [
+          "Diederik P. Kingma",
+          "Jimmy Ba"
+        ],
+        "cited_by": null
+      }
+    },
+    {
+      "key": "vaswani2017",
+      "type": "article",
+      "title": "Attention Is All You Need",
+      "bib_year": 2017,
+      "bib_authors": [
+        "Vaswani, Ashish",
+        "Shazeer, Noam",
+        "Parmar, Niki",
+        "Uszkoreit, Jakob",
+        "Jones, Llion"
+      ],
+      "bib_doi": "10.5555/3295222.3295349",
+      "bib_arxiv": null,
+      "bib_venue": "Advances in Neural Information Processing Systems",
+      "fingerprints": [],
+      "source_used": "OpenAlex",
+      "matched": {
+        "source": "OpenAlex",
+        "title": "Attention Is All You Need",
+        "year": 2025,
+        "authors": [
+          "Ashish Vaswani",
+          "Noam Shazeer",
+          "Niki Jitendra Parmar",
+          "Jakob Uszkoreit",
+          "Llion Jones",
+          "Aidan N. Gomez",
+          "Łukasz Kaiser",
+          "Illia Polosukhin"
+        ],
+        "venue": "",
+        "doi": "10.65215/2q58a426",
+        "url": "https://doi.org/10.65215/2q58a426",
+        "cited_by": 26826,
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "PARTIAL",
+      "reason": "检索到同一篇论文（标题与作者均吻合），但数据源年份为 2025；常见于同一论文存在重印/修订版本，建议人工确认后再决定是否改 year 字段。 其余：年份不一致（bib=2017 vs 数据源=2025）",
+      "suggested": {
+        "title": "Attention Is All You Need",
+        "year": 2025,
+        "venue": "",
+        "doi": "10.65215/2q58a426",
+        "url": "https://doi.org/10.65215/2q58a426",
+        "authors": [
+          "Ashish Vaswani",
+          "Noam Shazeer",
+          "Niki Jitendra Parmar",
+          "Jakob Uszkoreit",
+          "Llion Jones"
+        ],
+        "cited_by": 26826
+      }
+    },
+    {
+      "key": "devlin2019bert",
+      "type": "article",
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "bib_year": 2018,
+      "bib_authors": [
+        "Devlin, Jacob",
+        "Chang, Ming-Wei",
+        "Lee, Kenton",
+        "Toutanova, Kristina"
+      ],
+      "bib_doi": "",
+      "bib_arxiv": "1810.04805",
+      "bib_venue": "arXiv preprint",
+      "fingerprints": [],
+      "source_used": "arXiv",
+      "matched": {
+        "source": "arXiv",
+        "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+        "year": 2018,
+        "authors": [
+          "Jacob Devlin",
+          "Ming-Wei Chang",
+          "Kenton Lee",
+          "Kristina Toutanova"
+        ],
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/1810.04805",
+        "cited_by": null,
+        "arxiv": "1810.04805",
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "arXiv 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+        "year": 2018,
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/1810.04805",
+        "authors": [
+          "Jacob Devlin",
+          "Ming-Wei Chang",
+          "Kenton Lee",
+          "Kristina Toutanova"
+        ],
+        "cited_by": null
+      }
+    },
+    {
+      "key": "goodfellow2014generative",
+      "type": "inproceedings",
+      "title": "Generative Adversarial Nets",
+      "bib_year": 2019,
+      "bib_authors": [
+        "Goodfellow, Ian",
+        "Pouget-Abadie, Jean",
+        "Mirza, Mehdi",
+        "Xu, Bing",
+        "Warde-Farley, David"
+      ],
+      "bib_doi": "",
+      "bib_arxiv": "1406.2661",
+      "bib_venue": "Advances in Neural Information Processing Systems",
+      "fingerprints": [],
+      "source_used": "arXiv",
+      "matched": {
+        "source": "arXiv",
+        "title": "Generative Adversarial Networks",
+        "year": 2014,
+        "authors": [
+          "Ian J. Goodfellow",
+          "Jean Pouget-Abadie",
+          "Mehdi Mirza",
+          "Bing Xu",
+          "David Warde-Farley",
+          "Sherjil Ozair",
+          "Aaron Courville",
+          "Yoshua Bengio"
+        ],
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/1406.2661",
+        "cited_by": null,
+        "arxiv": "1406.2661",
+        "_sim": 0.8844827586206896
+      },
+      "title_sim": 0.884,
+      "author_overlap": 0.714,
+      "verdict": "PARTIAL",
+      "reason": "检索到论文，但年份不一致（bib=2019 vs 数据源=2014）；标题偏差（相似度 0.88）",
+      "suggested": {
+        "title": "Generative Adversarial Networks",
+        "year": 2014,
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/1406.2661",
+        "authors": [
+          "Ian J. Goodfellow",
+          "Jean Pouget-Abadie",
+          "Mehdi Mirza",
+          "Bing Xu",
+          "David Warde-Farley"
+        ],
+        "cited_by": null
+      }
+    },
+    {
+      "key": "smith2023deep",
+      "type": "article",
+      "title": "A Deep Intelligent Neural Network Learning Model Based on Data Driven Adaptive Optimization for Advanced Machine Learning Applications",
+      "bib_year": 2023,
+      "bib_authors": [
+        "Smith, John A.",
+        "Chen, Wei",
+        "Kumar, Rajesh",
+        "Patel, Suresh"
+      ],
+      "bib_doi": "10.1234/jair.2023.45112",
+      "bib_arxiv": null,
+      "bib_venue": "Journal of Advanced Artificial Intelligence Research",
+      "fingerprints": [
+        [
+          "标题由高频泛义词堆砌，疑似占位/编造",
+          2
+        ]
+      ],
+      "source_used": "Crossref",
+      "matched": {
+        "source": "Crossref",
+        "title": "Neural Network-Based Discrete-Time Adaptive ILC",
+        "year": 2022,
+        "authors": [
+          "Ronghu Chi",
+          "Na Lin",
+          "Huimin Zhang",
+          "Ruikun Zhang"
+        ],
+        "venue": "Intelligent Control and Learning Systems",
+        "doi": "10.1007/978-981-19-0464-6_5",
+        "url": "https://doi.org/10.1007/978-981-19-0464-6_5",
+        "cited_by": 0,
+        "_sim": 0.3883977900552486
+      },
+      "title_sim": 0.388,
+      "author_overlap": 0.0,
+      "verdict": "FABRICATED",
+      "reason": "最佳匹配仅 0.39 < 阈值 0.82（最接近的是《Neural Network-Based Discrete-Time Adaptive ILC》），判定为编造引用",
+      "suggested": {
+        "title": "Neural Network-Based Discrete-Time Adaptive ILC",
+        "year": 2022,
+        "venue": "Intelligent Control and Learning Systems",
+        "doi": "10.1007/978-981-19-0464-6_5",
+        "url": "https://doi.org/10.1007/978-981-19-0464-6_5",
+        "authors": [
+          "Ronghu Chi",
+          "Na Lin",
+          "Huimin Zhang",
+          "Ruikun Zhang"
+        ],
+        "cited_by": 0
+      }
+    },
+    {
+      "key": "doe2021innovative",
+      "type": "inproceedings",
+      "title": "An Innovative Deep Learning Framework for Scalable Intelligence",
+      "bib_year": 2031,
+      "bib_authors": [
+        "Doe, Jane",
+        "Roe, Richard"
+      ],
+      "bib_doi": "",
+      "bib_arxiv": null,
+      "bib_venue": "In the Proceedings of the International Conference on Advanced Computational Methods",
+      "fingerprints": [
+        [
+          "年份 2031 不合理（未来或过旧）",
+          2
+        ]
+      ],
+      "source_used": "Crossref",
+      "matched": {
+        "source": "Crossref",
+        "title": "IOT-Enabled Deep Learning Framework for Scalable Crop Disease Prediction Using Multimodal Sensor and Image Fusion",
+        "year": 2026,
+        "authors": [],
+        "venue": "International Journal of Innovative Research in Technology",
+        "doi": "10.64643/ijirtv12i7-191743-459",
+        "url": "https://doi.org/10.64643/ijirtv12i7-191743-459",
+        "cited_by": 0,
+        "_sim": 0.5181818181818181
+      },
+      "title_sim": 0.518,
+      "author_overlap": -1.0,
+      "verdict": "FABRICATED",
+      "reason": "最佳匹配仅 0.52 < 阈值 0.82（最接近的是《IOT-Enabled Deep Learning Framework for Scalable Crop Diseas》），判定为编造引用",
+      "suggested": {
+        "title": "IOT-Enabled Deep Learning Framework for Scalable Crop Disease Prediction Using Multimodal Sensor and Image Fusion",
+        "year": 2026,
+        "venue": "International Journal of Innovative Research in Technology",
+        "doi": "10.64643/ijirtv12i7-191743-459",
+        "url": "https://doi.org/10.64643/ijirtv12i7-191743-459",
+        "authors": [],
+        "cited_by": 0
+      }
+    },
+    {
+      "key": "lecun2015deep",
+      "type": "article",
+      "title": "Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification",
+      "bib_year": 2015,
+      "bib_authors": [
+        "He, Kaiming",
+        "Zhang, Xiangyu",
+        "Ren, Shaoqing",
+        "Sun, Jian"
+      ],
+      "bib_doi": "",
+      "bib_arxiv": "1502.01852",
+      "bib_venue": "ICLR",
+      "fingerprints": [],
+      "source_used": "arXiv",
+      "matched": {
+        "source": "arXiv",
+        "title": "Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification",
+        "year": 2015,
+        "authors": [
+          "Kaiming He",
+          "Xiangyu Zhang",
+          "Shaoqing Ren",
+          "Jian Sun"
+        ],
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/1502.01852",
+        "cited_by": null,
+        "arxiv": "1502.01852",
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "arXiv 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification",
+        "year": 2015,
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/1502.01852",
+        "authors": [
+          "Kaiming He",
+          "Xiangyu Zhang",
+          "Shaoqing Ren",
+          "Jian Sun"
+        ],
+        "cited_by": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# 统一换行符，避免 Windows / macOS / Linux 混用时产生无意义 diff
+* text=auto eol=lf
+
+# 二进制文件不做换行转换
+*.png binary
+*.jpg binary
+*.gif binary
+*.pdf binary
+*.skill binary
+*.xlsx binary
+*.zip binary
+
+# 明确按文本处理
+*.md text
+*.py text
+*.bib text
+*.tex text
+*.json text
+*.yaml text
+*.yml text
+*.txt text

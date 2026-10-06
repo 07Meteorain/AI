@@ -9,6 +9,9 @@ AI 相关的学习产出与项目沉淀。
 | [`C1_交付/`](C1_交付/) | **Stanford CS146S 课程资料中文包** — 33 篇课程资料全量翻译 + 可复跑翻译管线 |
 | [`C2_交付/`](C2_交付/) | **AI4Math 可靠性论文** — 可投稿 LaTeX 论文 + 17 条 API 核验文献 + 可复现实验 |
 | [`C4A_交付/`](C4A_交付/) | **C4 技能提交自动评审器** — Level 4 完整评审系统 + 26 项测试 + 100% 人机一致率 |
+| [`C4B_公众号文章生成技能/`](C4B_公众号文章生成技能/) | **公众号文章生成技能** — 一键成稿 + 可直接发布的 HTML 输出 |
+| [`C4C_交付/`](C4C_交付/) | **引用真伪审计器** — 专治 AI 编造引用，零依赖四档判定 + 双语料实测零误报 |
+| [`C4D_交付/`](C4D_交付/) | **C4 agent-skill 交付** — 技能包 + 验证报告 + 输出截图 |
 
 ---
 
@@ -220,6 +223,87 @@ python skill/c4a-skill-evaluator/scripts/c4a_evaluator.py <文件夹> --outdir .
 | HTML | 全班一眼看分布 | 四条件达成度可视化仪表板，双击即开 |
 
 > ⚠️ **排名仅作参考**——C4 的评分核心是「被使用次数」，本工具评的是提交材料质量。
+
+---
+
+## C4C：引用真伪审计器
+
+> 挑战 ID `ch-20260717031424-4cdgor`
+> 专治 LLM 编造的参考文献——看起来完美，其实查无此文
+
+**输入**一个 `.bib`/`.tex`/`.md`，**输出**每条引用是否真实存在的四档判定 + 审计报告 + 修正版 `.bib`。
+
+| 指标 | 数值 |
+|---|---|
+| 判定档位 | 4 档：VERIFIED / PARTIAL / FABRICATED / UNCHECKED，附原因码与证据 URL |
+| 自建样本 | 8 条 → 4 VERIFIED / 2 PARTIAL / 2 FABRICATED，**零误报零漏报** |
+| 真实语料交叉验证 | 用 [`C2_交付/references.bib`](C2_交付/references.bib)（17 条已双 API 核验）跑 → **16 VERIFIED / 1 UNCHECKED / 0 FABRICATED** |
+| 依赖 | **零第三方依赖**（纯标准库），三个数据源均免 API key |
+| 迭代 | 8 轮，含 6 个真实 bug 修复 |
+
+### 快速开始
+
+```bash
+cd C4C_交付
+unzip Meteorain_C4_citation-truth-auditor.skill -d citation-truth-auditor/
+
+# 审计自己的参考文献
+python3 citation-truth-auditor/scripts/citation_auditor.py references.bib
+
+# 提交前生成修正版 + JSON（--fix 的编造条目只注释、不删除）
+python3 citation-truth-auditor/scripts/citation_auditor.py references.bib --fix --json
+```
+
+> 退出码 `1` = 发现编造引用，可直接当CI 门禁：
+> `citation_auditor.py refs.bib || exit 1`
+
+### 为什么值得做
+
+LLM 编造的引用**肉眼看不出来**——作者名像真的、期刊名像真的、DOI 格式规范。
+伤害通常在审稿人检索时才显现，那时已经晚了。人工逐条查20 条要近一小时，
+太枯燥导致大部分人干脆不查。
+
+本技能把「肉眼判断」换成「查询权威数据源」：DOI 直查 Crossref → arXiv ID 直查 arXiv
+→ 标题检索 Crossref + OpenAlex，三级降级，每条给出可复核的证据。
+
+### 两处不肯将就的设计
+
+**1. `UNCHECKED` ≠ 通过。** 查不到不等于没问题。工具在证据不足时明说「不知道」，
+而不是给一个让人安心的结论。
+
+**2. 编造条目只注释、不删除。** 审计工具自己也会错（见下），删除是不可逆的破坏操作。
+`--fix` 保留完整原文供人工复核。
+
+### 用真实文献库测过，而不是只用自己造的样本
+
+自建样本只能证明「能抓到假引用」——因为答案自己知道。
+真正有说服力的是拿**别人已核验过的真实文献库**看会不会误伤。
+第一次跑它误伤了 3 条，我逐一查出根因并修复：
+
+| 误报 | 根因 | 修复 |
+|---|---|---|
+| `dsp2022` | DOI 前缀 `10.48550/arxiv.*` 是 DataCite 签发，**不在 Crossref** | 按前缀路由到 arXiv 精确查询 |
+| `coqmanual` | 花括号机构作者 + 标题带 `- version 8.19.0` 后缀 | 机构作者单独处理 + 包含关系相似度 |
+| `alphaproof2025` | 作者用 `;` 分隔（Nature 导出格式），我只支持 `and` | `split_authors()` 支持三种分隔符 |
+
+> 一个会误伤真实引用的核查工具，危害比漏检更大——它会让用户删掉真正引用过的论文。
+
+### 已知边界（诚实声明）
+
+- **无法判断引用是否支撑你的论断**：`VERIFIED` 只代表「这篇论文存在」
+- **中文文献覆盖差**：三个库对中文期刊收录都很少，需人工核查
+- **软件手册/技术文档查不到属预期**：判`UNCHECKED` 而非 `FABRICATED`
+
+### 五份交付物
+
+| 文件 | 说明 |
+|---|---|
+| [`提交说明.md`](C4C_交付/提交说明.md) | 交付物对照表 + 阅读顺序 + 验收自查 |
+| [`Meteorain_C4_skill说明.md`](C4C_交付/Meteorain_C4_skill说明.md) | 解决什么问题、IO 契约、双语料实测数据 |
+| [`Meteorain_C4_教学说明.md`](C4C_交付/Meteorain_C4_教学说明.md) | 上手、7 个常见坑、CI 集成、练习题 |
+| [`Meteorain_C4_AI日志.md`](C4C_交付/Meteorain_C4_AI日志.md) | 8 轮迭代全过程，含 6 处失败经验 |
+| [`Meteorain_C4_AAR复盘.md`](C4C_交付/Meteorain_C4_AAR复盘.md) | AAR 复盘，含"差点让报告全绿"的关键决策 |
+| [`Meteorain_C4_citation-truth-auditor.skill`](C4C_交付/Meteorain_C4_citation-truth-auditor.skill) | 可安装技能包 |
 
 ---
 

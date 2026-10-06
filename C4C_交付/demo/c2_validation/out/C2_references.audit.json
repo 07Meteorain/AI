@@ -1,0 +1,924 @@
+{
+  "files": [
+    "demo/c2_validation/C2_references.bib"
+  ],
+  "elapsed": 7.3928258419036865,
+  "missing_cited_keys": [],
+  "unused_bib_keys": [],
+  "results": [
+    {
+      "key": "alphageometry2024",
+      "type": "article",
+      "title": "Solving olympiad geometry without human demonstrations",
+      "bib_year": 2024,
+      "bib_authors": [
+        "Trieu H. Trinh",
+        "Yuhuai Wu",
+        "Quoc Viet Le",
+        "He He",
+        "Thang Luong"
+      ],
+      "bib_doi": "10.1038/s41586-023-06747-5",
+      "bib_arxiv": null,
+      "bib_venue": "Nature",
+      "fingerprints": [],
+      "source_used": "Crossref",
+      "matched": {
+        "source": "Crossref",
+        "title": "Solving olympiad geometry without human demonstrations",
+        "year": 2024,
+        "authors": [
+          "Trieu H. Trinh",
+          "Yuhuai Wu",
+          "Quoc V. Le",
+          "He He",
+          "Thang Luong"
+        ],
+        "venue": "Nature",
+        "doi": "10.1038/s41586-023-06747-5",
+        "url": "https://doi.org/10.1038/s41586-023-06747-5",
+        "cited_by": 317,
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "Crossref 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "Solving olympiad geometry without human demonstrations",
+        "year": 2024,
+        "venue": "Nature",
+        "doi": "10.1038/s41586-023-06747-5",
+        "url": "https://doi.org/10.1038/s41586-023-06747-5",
+        "authors": [
+          "Trieu H. Trinh",
+          "Yuhuai Wu",
+          "Quoc V. Le",
+          "He He",
+          "Thang Luong"
+        ],
+        "cited_by": 317
+      }
+    },
+    {
+      "key": "dsp2022",
+      "type": "misc",
+      "title": "Draft, Sketch, and Prove: Guiding Formal Theorem Provers with Informal Proofs",
+      "bib_year": 2022,
+      "bib_authors": [
+        "Albert Qiaochu Jiang",
+        "Sean Welleck",
+        "Jin Zhou",
+        "Wenda Li",
+        "Jiacheng Liu"
+      ],
+      "bib_doi": "10.48550/arxiv.2210.12283",
+      "bib_arxiv": null,
+      "bib_venue": "arXiv (Cornell University)",
+      "fingerprints": [],
+      "source_used": "arXiv",
+      "matched": {
+        "source": "arXiv",
+        "title": "Draft, Sketch, and Prove: Guiding Formal Theorem Provers with Informal Proofs",
+        "year": 2022,
+        "authors": [
+          "Albert Q. Jiang",
+          "Sean Welleck",
+          "Jin Peng Zhou",
+          "Wenda Li",
+          "Jiacheng Liu",
+          "Mateja Jamnik",
+          "Timothée Lacroix",
+          "Yuhuai Wu",
+          "Guillaume Lample"
+        ],
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2210.12283",
+        "cited_by": null,
+        "arxiv": "2210.12283",
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "arXiv 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "Draft, Sketch, and Prove: Guiding Formal Theorem Provers with Informal Proofs",
+        "year": 2022,
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2210.12283",
+        "authors": [
+          "Albert Q. Jiang",
+          "Sean Welleck",
+          "Jin Peng Zhou",
+          "Wenda Li",
+          "Jiacheng Liu"
+        ],
+        "cited_by": null
+      }
+    },
+    {
+      "key": "minif2f2021",
+      "type": "misc",
+      "title": "MiniF2F: a cross-system benchmark for formal Olympiad-level mathematics",
+      "bib_year": 2021,
+      "bib_authors": [
+        "Kunhao Zheng",
+        "Jesse Michael Han",
+        "Stanislas Polu"
+      ],
+      "bib_doi": "10.48550/arxiv.2109.00110",
+      "bib_arxiv": null,
+      "bib_venue": "arXiv (Cornell University)",
+      "fingerprints": [],
+      "source_used": "arXiv",
+      "matched": {
+        "source": "arXiv",
+        "title": "MiniF2F: a cross-system benchmark for formal Olympiad-level mathematics",
+        "year": 2021,
+        "authors": [
+          "Kunhao Zheng",
+          "Jesse Michael Han",
+          "Stanislas Polu"
+        ],
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2109.00110",
+        "cited_by": null,
+        "arxiv": "2109.00110",
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "arXiv 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "MiniF2F: a cross-system benchmark for formal Olympiad-level mathematics",
+        "year": 2021,
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2109.00110",
+        "authors": [
+          "Kunhao Zheng",
+          "Jesse Michael Han",
+          "Stanislas Polu"
+        ],
+        "cited_by": null
+      }
+    },
+    {
+      "key": "leanworkbook2024",
+      "type": "misc",
+      "title": "Lean Workbook: A large-scale Lean problem set formalized from natural language math problems",
+      "bib_year": 2024,
+      "bib_authors": [
+        "Huaiyuan Ying",
+        "Zijian Wu",
+        "Yihan Geng",
+        "Zheng Yuan",
+        "Dahua Lin"
+      ],
+      "bib_doi": "10.48550/arxiv.2406.03847",
+      "bib_arxiv": null,
+      "bib_venue": "arXiv (Cornell University)",
+      "fingerprints": [],
+      "source_used": "arXiv",
+      "matched": {
+        "source": "arXiv",
+        "title": "Lean Workbook: A large-scale Lean problem set formalized from natural language math problems",
+        "year": 2024,
+        "authors": [
+          "Huaiyuan Ying",
+          "Zijian Wu",
+          "Yihan Geng",
+          "Zheng Yuan",
+          "Dahua Lin",
+          "Kai Chen"
+        ],
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2406.03847",
+        "cited_by": null,
+        "arxiv": "2406.03847",
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "arXiv 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "Lean Workbook: A large-scale Lean problem set formalized from natural language math problems",
+        "year": 2024,
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2406.03847",
+        "authors": [
+          "Huaiyuan Ying",
+          "Zijian Wu",
+          "Yihan Geng",
+          "Zheng Yuan",
+          "Dahua Lin"
+        ],
+        "cited_by": null
+      }
+    },
+    {
+      "key": "lean4tool",
+      "type": "misc",
+      "title": "The Lean 4 Theorem Prover and Programming Language",
+      "bib_year": 2021,
+      "bib_authors": [
+        "Leonardo de Moura",
+        "Sebastian Ullrich"
+      ],
+      "bib_doi": "10.1007/978-3-030-79876-5_37",
+      "bib_arxiv": null,
+      "bib_venue": "Lecture notes in computer science",
+      "fingerprints": [],
+      "source_used": "Crossref",
+      "matched": {
+        "source": "Crossref",
+        "title": "The Lean 4 Theorem Prover and Programming Language",
+        "year": 2021,
+        "authors": [
+          "Leonardo de Moura",
+          "Sebastian Ullrich"
+        ],
+        "venue": "Lecture Notes in Computer Science",
+        "doi": "10.1007/978-3-030-79876-5_37",
+        "url": "https://doi.org/10.1007/978-3-030-79876-5_37",
+        "cited_by": 248,
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "Crossref 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "The Lean 4 Theorem Prover and Programming Language",
+        "year": 2021,
+        "venue": "Lecture Notes in Computer Science",
+        "doi": "10.1007/978-3-030-79876-5_37",
+        "url": "https://doi.org/10.1007/978-3-030-79876-5_37",
+        "authors": [
+          "Leonardo de Moura",
+          "Sebastian Ullrich"
+        ],
+        "cited_by": 248
+      }
+    },
+    {
+      "key": "isabelle2002",
+      "type": "misc",
+      "title": "Isabelle/HOL: A Proof Assistant for Higher-Order Logic",
+      "bib_year": 2002,
+      "bib_authors": [
+        "Tobias Nipkow",
+        "Markus Wenzel",
+        "Lawrence Charles Paulson"
+      ],
+      "bib_doi": "10.1007/3-540-45949-9",
+      "bib_arxiv": null,
+      "bib_venue": "Digital Access to Libraries (Université catholique de Louvain (UCL), l'Université de Namur (UNamur) and the Université Saint-Louis (USL-B))",
+      "fingerprints": [],
+      "source_used": "OpenAlex",
+      "matched": {
+        "source": "OpenAlex",
+        "title": "Isabelle/HOL: A Proof Assistant for Higher-Order Logic",
+        "year": 2002,
+        "authors": [
+          "Tobias Nipkow",
+          "Markus Wenzel",
+          "Lawrence Charles Paulson"
+        ],
+        "venue": "Digital Access to Libraries (Université catholique de Louvain (UCL), l'Université de Namur (UNamur) and the Université Saint-Louis (USL-B))",
+        "doi": "10.1007/3-540-45949-9",
+        "url": "http://hdl.handle.net/2078/ebook:32693",
+        "cited_by": 2301,
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "OpenAlex 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "Isabelle/HOL: A Proof Assistant for Higher-Order Logic",
+        "year": 2002,
+        "venue": "Digital Access to Libraries (Université catholique de Louvain (UCL), l'Université de Namur (UNamur) and the Université Saint-Louis (USL-B))",
+        "doi": "10.1007/3-540-45949-9",
+        "url": "http://hdl.handle.net/2078/ebook:32693",
+        "authors": [
+          "Tobias Nipkow",
+          "Markus Wenzel",
+          "Lawrence Charles Paulson"
+        ],
+        "cited_by": 2301
+      }
+    },
+    {
+      "key": "wei2022cot",
+      "type": "inproceedings",
+      "title": "Chain-Of-Thought Prompting Elicits Reasoning in Large Language Models",
+      "bib_year": 2022,
+      "bib_authors": [
+        "Jason Wei",
+        "Xuezhi Wang",
+        "Dale Schuurmans",
+        "Maarten Bosma",
+        "Brian Ichter"
+      ],
+      "bib_doi": "10.52202/068431-1800",
+      "bib_arxiv": null,
+      "bib_venue": "Advances in Neural Information Processing Systems",
+      "fingerprints": [],
+      "source_used": "Crossref",
+      "matched": {
+        "source": "Crossref",
+        "title": "Chain-Of-Thought Prompting Elicits Reasoning in Large Language Models",
+        "year": 2022,
+        "authors": [
+          "Jason Wei",
+          "Xuezhi Wang",
+          "Dale Schuurmans",
+          "Maarten Bosma",
+          "Brian Ichter",
+          "Fei Xia",
+          "Ed Chi",
+          "Quoc V Le",
+          "Denny Zhou"
+        ],
+        "venue": "Advances in Neural Information Processing Systems 35",
+        "doi": "10.52202/068431-1800",
+        "url": "https://doi.org/10.52202/068431-1800",
+        "cited_by": 3405,
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "Crossref 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "Chain-Of-Thought Prompting Elicits Reasoning in Large Language Models",
+        "year": 2022,
+        "venue": "Advances in Neural Information Processing Systems 35",
+        "doi": "10.52202/068431-1800",
+        "url": "https://doi.org/10.52202/068431-1800",
+        "authors": [
+          "Jason Wei",
+          "Xuezhi Wang",
+          "Dale Schuurmans",
+          "Maarten Bosma",
+          "Brian Ichter"
+        ],
+        "cited_by": 3405
+      }
+    },
+    {
+      "key": "chen2022pot",
+      "type": "misc",
+      "title": "Program of Thoughts Prompting: Disentangling Computation from Reasoning for Numerical Reasoning Tasks",
+      "bib_year": 2022,
+      "bib_authors": [
+        "Wenhu Chen",
+        "Xueguang Ma",
+        "Xinyi Wang",
+        "William W. Cohen"
+      ],
+      "bib_doi": "10.48550/arxiv.2211.12588",
+      "bib_arxiv": null,
+      "bib_venue": "arXiv (Cornell University)",
+      "fingerprints": [],
+      "source_used": "arXiv",
+      "matched": {
+        "source": "arXiv",
+        "title": "Program of Thoughts Prompting: Disentangling Computation from Reasoning for Numerical Reasoning Tasks",
+        "year": 2022,
+        "authors": [
+          "Wenhu Chen",
+          "Xueguang Ma",
+          "Xinyi Wang",
+          "William W. Cohen"
+        ],
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2211.12588",
+        "cited_by": null,
+        "arxiv": "2211.12588",
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "arXiv 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "Program of Thoughts Prompting: Disentangling Computation from Reasoning for Numerical Reasoning Tasks",
+        "year": 2022,
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2211.12588",
+        "authors": [
+          "Wenhu Chen",
+          "Xueguang Ma",
+          "Xinyi Wang",
+          "William W. Cohen"
+        ],
+        "cited_by": null
+      }
+    },
+    {
+      "key": "schick2023toolformer",
+      "type": "misc",
+      "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+      "bib_year": 2023,
+      "bib_authors": [
+        "Timo Schick",
+        "Jane Dwivedi-Yu",
+        "Roberto Dessì",
+        "Roberta Răileanu",
+        "María Lomelí"
+      ],
+      "bib_doi": "10.48550/arxiv.2302.04761",
+      "bib_arxiv": null,
+      "bib_venue": "arXiv (Cornell University)",
+      "fingerprints": [],
+      "source_used": "arXiv",
+      "matched": {
+        "source": "arXiv",
+        "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+        "year": 2023,
+        "authors": [
+          "Timo Schick",
+          "Jane Dwivedi-Yu",
+          "Roberto Dessì",
+          "Roberta Raileanu",
+          "Maria Lomeli",
+          "Luke Zettlemoyer",
+          "Nicola Cancedda",
+          "Thomas Scialom"
+        ],
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2302.04761",
+        "cited_by": null,
+        "arxiv": "2302.04761",
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "arXiv 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+        "year": 2023,
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2302.04761",
+        "authors": [
+          "Timo Schick",
+          "Jane Dwivedi-Yu",
+          "Roberto Dessì",
+          "Roberta Raileanu",
+          "Maria Lomeli"
+        ],
+        "cited_by": null
+      }
+    },
+    {
+      "key": "hendrycks2021math",
+      "type": "misc",
+      "title": "Measuring Mathematical Problem Solving With the MATH Dataset",
+      "bib_year": 2021,
+      "bib_authors": [
+        "Dan Hendrycks",
+        "Collin Burns",
+        "Saurav Kadavath",
+        "Akul Arora",
+        "Steven Basart"
+      ],
+      "bib_doi": "10.48550/arxiv.2103.03874",
+      "bib_arxiv": null,
+      "bib_venue": "arXiv (Cornell University)",
+      "fingerprints": [],
+      "source_used": "arXiv",
+      "matched": {
+        "source": "arXiv",
+        "title": "Measuring Mathematical Problem Solving With the MATH Dataset",
+        "year": 2021,
+        "authors": [
+          "Dan Hendrycks",
+          "Collin Burns",
+          "Saurav Kadavath",
+          "Akul Arora",
+          "Steven Basart",
+          "Eric Tang",
+          "Dawn Song",
+          "Jacob Steinhardt"
+        ],
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2103.03874",
+        "cited_by": null,
+        "arxiv": "2103.03874",
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "arXiv 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "Measuring Mathematical Problem Solving With the MATH Dataset",
+        "year": 2021,
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2103.03874",
+        "authors": [
+          "Dan Hendrycks",
+          "Collin Burns",
+          "Saurav Kadavath",
+          "Akul Arora",
+          "Steven Basart"
+        ],
+        "cited_by": null
+      }
+    },
+    {
+      "key": "cobbe2021verifiers",
+      "type": "misc",
+      "title": "Training Verifiers to Solve Math Word Problems",
+      "bib_year": 2021,
+      "bib_authors": [
+        "Karl Cobbe",
+        "Vineet Kosaraju",
+        "Mohammad Bavarian",
+        "Mark Chen",
+        "Heewoo Jun"
+      ],
+      "bib_doi": "10.48550/arxiv.2110.14168",
+      "bib_arxiv": null,
+      "bib_venue": "arXiv (Cornell University)",
+      "fingerprints": [],
+      "source_used": "arXiv",
+      "matched": {
+        "source": "arXiv",
+        "title": "Training Verifiers to Solve Math Word Problems",
+        "year": 2021,
+        "authors": [
+          "Karl Cobbe",
+          "Vineet Kosaraju",
+          "Mohammad Bavarian",
+          "Mark Chen",
+          "Heewoo Jun",
+          "Lukasz Kaiser",
+          "Matthias Plappert",
+          "Jerry Tworek",
+          "Jacob Hilton",
+          "Reiichiro Nakano",
+          "Christopher Hesse",
+          "John Schulman"
+        ],
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2110.14168",
+        "cited_by": null,
+        "arxiv": "2110.14168",
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "arXiv 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "Training Verifiers to Solve Math Word Problems",
+        "year": 2021,
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2110.14168",
+        "authors": [
+          "Karl Cobbe",
+          "Vineet Kosaraju",
+          "Mohammad Bavarian",
+          "Mark Chen",
+          "Heewoo Jun"
+        ],
+        "cited_by": null
+      }
+    },
+    {
+      "key": "huh2024platonic",
+      "type": "misc",
+      "title": "The Platonic Representation Hypothesis",
+      "bib_year": 2024,
+      "bib_authors": [
+        "Minyoung Huh",
+        "Brian Cheung",
+        "Tongzhou Wang",
+        "Phillip Isola"
+      ],
+      "bib_doi": "10.48550/arxiv.2405.07987",
+      "bib_arxiv": null,
+      "bib_venue": "arXiv (Cornell University)",
+      "fingerprints": [],
+      "source_used": "arXiv",
+      "matched": {
+        "source": "arXiv",
+        "title": "The Platonic Representation Hypothesis",
+        "year": 2024,
+        "authors": [
+          "Minyoung Huh",
+          "Brian Cheung",
+          "Tongzhou Wang",
+          "Phillip Isola"
+        ],
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2405.07987",
+        "cited_by": null,
+        "arxiv": "2405.07987",
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "arXiv 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "The Platonic Representation Hypothesis",
+        "year": 2024,
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2405.07987",
+        "authors": [
+          "Minyoung Huh",
+          "Brian Cheung",
+          "Tongzhou Wang",
+          "Phillip Isola"
+        ],
+        "cited_by": null
+      }
+    },
+    {
+      "key": "kaprison2025physics",
+      "type": "misc",
+      "title": "Physics of Language Models: Part 2.1, Grade-School Math and the Hidden Reasoning Process",
+      "bib_year": 2025,
+      "bib_authors": [
+        "Ye Tian",
+        "Zicheng Xu",
+        "Yuanzhi Li",
+        "Zeyuan Allen-Zhu"
+      ],
+      "bib_doi": "10.2139/ssrn.5250629",
+      "bib_arxiv": null,
+      "bib_venue": "SSRN Electronic Journal",
+      "fingerprints": [],
+      "source_used": "Crossref",
+      "matched": {
+        "source": "Crossref",
+        "title": "Physics of Language Models: Part 2.1, Grade-School Math and the Hidden Reasoning Process",
+        "year": 2025,
+        "authors": [
+          "Tian Ye",
+          "Zicheng Xu",
+          "Yuanzhi Li",
+          "Zeyuan Allen-Zhu"
+        ],
+        "venue": "",
+        "doi": "10.2139/ssrn.5250629",
+        "url": "https://doi.org/10.2139/ssrn.5250629",
+        "cited_by": 4,
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 0.75,
+      "verdict": "VERIFIED",
+      "reason": "Crossref 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "Physics of Language Models: Part 2.1, Grade-School Math and the Hidden Reasoning Process",
+        "year": 2025,
+        "venue": "",
+        "doi": "10.2139/ssrn.5250629",
+        "url": "https://doi.org/10.2139/ssrn.5250629",
+        "authors": [
+          "Tian Ye",
+          "Zicheng Xu",
+          "Yuanzhi Li",
+          "Zeyuan Allen-Zhu"
+        ],
+        "cited_by": 4
+      }
+    },
+    {
+      "key": "bender2021parrots",
+      "type": "inproceedings",
+      "title": "On the Dangers of Stochastic Parrots",
+      "bib_year": 2021,
+      "bib_authors": [
+        "Emily M. Bender",
+        "Timnit Gebru",
+        "Angelina McMillan-Major",
+        "Shmargaret Shmitchell"
+      ],
+      "bib_doi": "10.1145/3442188.3445922",
+      "bib_arxiv": null,
+      "bib_venue": "Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency",
+      "fingerprints": [],
+      "source_used": "Crossref",
+      "matched": {
+        "source": "Crossref",
+        "title": "On the Dangers of Stochastic Parrots",
+        "year": 2021,
+        "authors": [
+          "Emily M. Bender",
+          "Timnit Gebru",
+          "Angelina McMillan-Major",
+          "Shmargaret Shmitchell"
+        ],
+        "venue": "Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency",
+        "doi": "10.1145/3442188.3445922",
+        "url": "https://doi.org/10.1145/3442188.3445922",
+        "cited_by": 6203,
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "Crossref 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "On the Dangers of Stochastic Parrots",
+        "year": 2021,
+        "venue": "Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency",
+        "doi": "10.1145/3442188.3445922",
+        "url": "https://doi.org/10.1145/3442188.3445922",
+        "authors": [
+          "Emily M. Bender",
+          "Timnit Gebru",
+          "Angelina McMillan-Major",
+          "Shmargaret Shmitchell"
+        ],
+        "cited_by": 6203
+      }
+    },
+    {
+      "key": "brown2020",
+      "type": "misc",
+      "title": "Language Models are Few-Shot Learners",
+      "bib_year": 2020,
+      "bib_authors": [
+        "Tom B. Brown",
+        "Benjamin Mann",
+        "Nick Ryder",
+        "Melanie Subbiah",
+        "Jared Kaplan"
+      ],
+      "bib_doi": "10.48550/arxiv.2005.14165",
+      "bib_arxiv": null,
+      "bib_venue": "arXiv (Cornell University)",
+      "fingerprints": [],
+      "source_used": "arXiv",
+      "matched": {
+        "source": "arXiv",
+        "title": "Language Models are Few-Shot Learners",
+        "year": 2020,
+        "authors": [
+          "Tom B. Brown",
+          "Benjamin Mann",
+          "Nick Ryder",
+          "Melanie Subbiah",
+          "Jared Kaplan",
+          "Prafulla Dhariwal",
+          "Arvind Neelakantan",
+          "Pranav Shyam",
+          "Girish Sastry",
+          "Amanda Askell",
+          "Sandhini Agarwal",
+          "Ariel Herbert-Voss"
+        ],
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2005.14165",
+        "cited_by": null,
+        "arxiv": "2005.14165",
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "arXiv 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "Language Models are Few-Shot Learners",
+        "year": 2020,
+        "venue": "arXiv preprint",
+        "doi": "",
+        "url": "https://arxiv.org/abs/2005.14165",
+        "authors": [
+          "Tom B. Brown",
+          "Benjamin Mann",
+          "Nick Ryder",
+          "Melanie Subbiah",
+          "Jared Kaplan"
+        ],
+        "cited_by": null
+      }
+    },
+    {
+      "key": "alphaproof2025",
+      "type": "article",
+      "title": "Olympiad-level formal mathematical reasoning with reinforcement learning",
+      "bib_year": 2025,
+      "bib_authors": [
+        "Thomas Hubert",
+        "Rishi Mehta",
+        "Laurent Sartran",
+        "Miklós Z. Horváth",
+        "Goran Žužić"
+      ],
+      "bib_doi": "10.1038/s41586-025-09833-y",
+      "bib_arxiv": null,
+      "bib_venue": "Nature",
+      "fingerprints": [],
+      "source_used": "Crossref",
+      "matched": {
+        "source": "Crossref",
+        "title": "Olympiad-level formal mathematical reasoning with reinforcement learning",
+        "year": 2025,
+        "authors": [
+          "Thomas Hubert",
+          "Rishi Mehta",
+          "Laurent Sartran",
+          "Miklós Z. Horváth",
+          "Goran Žužić",
+          "Eric Wieser",
+          "Aja Huang",
+          "Julian Schrittwieser",
+          "Yannick Schroecker",
+          "Hussain Masoom",
+          "Ottavia Bertolli",
+          "Tom Zahavy"
+        ],
+        "venue": "Nature",
+        "doi": "10.1038/s41586-025-09833-y",
+        "url": "https://doi.org/10.1038/s41586-025-09833-y",
+        "cited_by": 27,
+        "_sim": 1.0
+      },
+      "title_sim": 1.0,
+      "author_overlap": 1.0,
+      "verdict": "VERIFIED",
+      "reason": "Crossref 命中，标题相似度 1.00，年份/作者一致",
+      "suggested": {
+        "title": "Olympiad-level formal mathematical reasoning with reinforcement learning",
+        "year": 2025,
+        "venue": "Nature",
+        "doi": "10.1038/s41586-025-09833-y",
+        "url": "https://doi.org/10.1038/s41586-025-09833-y",
+        "authors": [
+          "Thomas Hubert",
+          "Rishi Mehta",
+          "Laurent Sartran",
+          "Miklós Z. Horváth",
+          "Goran Žužić"
+        ],
+        "cited_by": 27
+      }
+    },
+    {
+      "key": "coqmanual",
+      "type": "misc",
+      "title": "The Coq Proof Assistant Reference Manual",
+      "bib_year": 2021,
+      "bib_authors": [
+        "{The Coq Development Team}"
+      ],
+      "bib_doi": "",
+      "bib_arxiv": null,
+      "bib_venue": "Coq documentation",
+      "fingerprints": [],
+      "source_used": "Crossref",
+      "matched": {
+        "source": "Crossref",
+        "title": "Proof by Reflection",
+        "year": 2013,
+        "authors": [],
+        "venue": "Certified Programming with Dependent Types",
+        "doi": "10.7551/mitpress/9153.003.0019",
+        "url": "https://doi.org/10.7551/mitpress/9153.003.0019",
+        "cited_by": 0,
+        "_sim": 0.3864406779661017
+      },
+      "title_sim": 0.386,
+      "author_overlap": -1.0,
+      "verdict": "UNCHECKED",
+      "reason": "疑似软件手册/技术文档类条目——Crossref、arXiv、OpenAlex 均不收录此类文献，查不到属预期。请人工确认其存在性",
+      "suggested": {
+        "title": "Proof by Reflection",
+        "year": 2013,
+        "venue": "Certified Programming with Dependent Types",
+        "doi": "10.7551/mitpress/9153.003.0019",
+        "url": "https://doi.org/10.7551/mitpress/9153.003.0019",
+        "authors": [],
+        "cited_by": 0
+      }
+    }
+  ]
+}

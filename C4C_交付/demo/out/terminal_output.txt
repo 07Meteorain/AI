@@ -1,0 +1,75 @@
+[i] 解析到 8 条 bib 条目，开始核查…
+==============================================================================
+引用真伪审计报告 / Citation Truth Audit Report
+==============================================================================
+输入文件: demo/sample_refs.bib
+共审计 8 条引用，用时 5.3s
+
+[FABRICATED] doe2021innovative
+    题名: An Innovative Deep Learning Framework for Scalable Intelligence
+    作者: Doe, Jane, Roe, Richard
+    年份: 2031  期刊: In the Proceedings of the International Conference on Advanced Computational Methods  DOI: -
+    结论: 最佳匹配仅 0.52 < 阈值 0.82（最接近的是《IOT-Enabled Deep Learning Framework for Scalable Crop Diseas》），判定为编造引用
+    ⚠ 幻觉指纹[2]: 年份 2031 不合理（未来或过旧）
+------------------------------------------------------------------------------
+[FABRICATED] smith2023deep
+    题名: A Deep Intelligent Neural Network Learning Model Based on Data Driven 
+    作者: Smith, John A., Chen, Wei, Kumar, Rajesh
+    年份: 2023  期刊: Journal of Advanced Artificial Intelligence Research  DOI: 10.1234/jair.2023.45112
+    结论: 最佳匹配仅 0.39 < 阈值 0.82（最接近的是《Neural Network-Based Discrete-Time Adaptive ILC》），判定为编造引用
+    ⚠ 幻觉指纹[2]: 标题由高频泛义词堆砌，疑似占位/编造
+------------------------------------------------------------------------------
+[PARTIAL] vaswani2017
+    题名: Attention Is All You Need
+    作者: Vaswani, Ashish, Shazeer, Noam, Parmar, Niki
+    年份: 2017  期刊: Advances in Neural Information Processing Systems  DOI: 10.5555/3295222.3295349
+    结论: 检索到同一篇论文（标题与作者均吻合），但数据源年份为 2025；常见于同一论文存在重印/修订版本，建议人工确认后再决定是否改 year 字段。 其余：年份不一致（bib=2017 vs 数据源=2025）
+    建议修正: 题名=《Attention Is All You Need》 年份=2025 期刊= DOI=10.65215/2q58a426
+------------------------------------------------------------------------------
+[PARTIAL] goodfellow2014generative
+    题名: Generative Adversarial Nets
+    作者: Goodfellow, Ian, Pouget-Abadie, Jean, Mirza, Mehdi
+    年份: 2019  期刊: Advances in Neural Information Processing Systems  DOI: -
+    结论: 检索到论文，但年份不一致（bib=2019 vs 数据源=2014）；标题偏差（相似度 0.88）
+    建议修正: 题名=《Generative Adversarial Networks》 年份=2014 期刊=arXiv preprint DOI=-
+------------------------------------------------------------------------------
+[VERIFIED] vaswani2017attention
+    题名: Attention Is All You Need
+    作者: Vaswani, Ashish, Shazeer, Noam, Parmar, Niki
+    年份: 2017  期刊: Advances in Neural Information Processing Systems  DOI: -
+    结论: arXiv 命中，标题相似度 1.00，年份/作者一致
+------------------------------------------------------------------------------
+[VERIFIED] kingma2014adam
+    题名: Adam: A Method for Stochastic Optimization
+    作者: Kingma, Diederik P., Ba, Jimmy
+    年份: 2014  期刊: International Conference on Learning Representations  DOI: -
+    结论: arXiv 命中，标题相似度 1.00，年份/作者一致
+------------------------------------------------------------------------------
+[VERIFIED] devlin2019bert
+    题名: BERT: Pre-training of Deep Bidirectional Transformers for Language Und
+    作者: Devlin, Jacob, Chang, Ming-Wei, Lee, Kenton
+    年份: 2018  期刊: arXiv preprint  DOI: -
+    结论: arXiv 命中，标题相似度 1.00，年份/作者一致
+------------------------------------------------------------------------------
+[VERIFIED] lecun2015deep
+    题名: Delving Deep into Rectifiers: Surpassing Human-Level Performance on Im
+    作者: He, Kaiming, Zhang, Xiangyu, Ren, Shaoqing
+    年份: 2015  期刊: ICLR  DOI: -
+    结论: arXiv 命中，标题相似度 1.00，年份/作者一致
+------------------------------------------------------------------------------
+
+汇总 / Summary
+------------------------------------------------------------------------------
+  [VERIFIED]      4 条  ( 50%)
+  [PARTIAL]       2 条  ( 25%)
+  [FABRICATED]    2 条  ( 25%)
+  [UNCHECKED]     0 条  (  0%)
+
+⚠ 有 2 条疑似编造引用，提交前必须删除或替换。
+  处理顺序：1) FABRICATED 全部删除或换成真实来源
+            2) PARTIAL 按建议字段修正
+            3) VERIFIED 保留
+
+[✓] Markdown 报告: demo/out\sample_refs.audit.md
+[✓] JSON 结果: demo/out\sample_refs.audit.json
+[✓] 修正版 bib: demo/out\sample_refs.fixed.bib（FABRICATED 条目已注释，未直接删除）
