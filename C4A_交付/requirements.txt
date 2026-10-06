@@ -1,0 +1,22 @@
+# C4A 技能提交自动评审器 — Python 依赖
+#
+# 安装：
+#   pip install -r requirements.txt
+#
+# 说明：
+#   核心评审器（c4a_evaluator.py）除 PyYAML 外全部使用标准库，
+#   因此在无网环境下也可运行。以下按必要性分级。
+
+# ---- 必需（缺则无法启动）----
+PyYAML>=5.4                # 读取 c4_rubric.yaml 评审标准
+
+# ---- 强烈建议 ----
+openpyxl>=3.0# 生成 Excel 详表；缺失时自动跳过该输出
+
+# ---- 可选：解析以下格式的正文（缺失时这些格式只按文件名判定）----
+pypdf>=3.9                 # .pdf
+python-docx>=0.8.11        # .docx
+python-pptx>=0.6.19        # .pptx
+
+# ---- 可选：仅用于生成本项目 demo 截图，不影响评审功能 ----
+# pillow>=10.0

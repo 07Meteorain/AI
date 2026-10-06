@@ -1,0 +1,817 @@
+{
+  "meta": {
+    "generated_at": "2026-10-06T14:26:06",
+    "folder": "C:\\Users\\Administrator\\Desktop\\我的挑战\\平台导出\\ch-20260717031432-5jvqje\\挑战_C4A 技能提交自动评审_5jvqje_完整资料\\C4A_交付\\tests\\golden_dataset",
+    "level_reached": "Level 4 完整评审系统",
+    "engine": "c4a_evaluator.py"
+  },
+  "authors": {
+    "LiMing": {
+      "author_source": "parent_folder",
+      "files": [
+        "LiMing\\LiMing_C4_AI日志.md",
+        "LiMing\\LiMing_C4_skill说明.md",
+        "LiMing\\LiMing_C4_教学说明.md",
+        "LiMing\\summary.py"
+      ],
+      "completeness": {
+        "skill_doc": {
+          "label": "Skill 说明文档",
+          "weight": 0.2,
+          "status": "✅",
+          "matched": "LiMing\\LiMing_C4_skill说明.md",
+          "reason": "文件名命中强信号：LiMing_C4_skill说明"
+        },
+        "executable": {
+          "label": "可执行内容",
+          "weight": 0.2,
+          "status": "✅",
+          "matched": "LiMing\\LiMing_C4_skill说明.md",
+          "reason": "文件名命中强信号：LiMing_C4_skill说明"
+        },
+        "demo": {
+          "label": "Demo（视频/截图）",
+          "weight": 0.2,
+          "status": "❌",
+          "matched": "—",
+          "reason": "文件名与正文均未检出足够信号"
+        },
+        "teaching_doc": {
+          "label": "教学说明",
+          "weight": 0.2,
+          "status": "✅",
+          "matched": "LiMing\\LiMing_C4_教学说明.md",
+          "reason": "文件名命中强信号：LiMing_C4_教学说明"
+        },
+        "ai_log": {
+          "label": "AI 生成日志",
+          "weight": 0.2,
+          "status": "✅",
+          "matched": "LiMing\\LiMing_C4_AI日志.md",
+          "reason": "文件名命中强信号：LiMing_C4_AI日志"
+        }
+      },
+      "completeness_score": 0.8,
+      "completeness_grade": "✅ 齐全",
+      "quality_score": 0.3227,
+      "composite_score": 0.4623,
+      "confidence": "low",
+      "flags": [
+        "多为单关键词命中，结论置信度低"
+      ],
+      "criteria": [
+        {
+          "id": "reusable",
+          "label_cn": "可复用",
+          "score": 0.569,
+          "grade": "❌",
+          "items": [
+            {
+              "id": "R1",
+              "name": "有安装/使用步骤说明",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 1/11：安装",
+              "confidence": "low"
+            },
+            {
+              "id": "R2",
+              "name": "无硬编码绝对路径",
+              "weight": 1.5,
+              "type": "veto",
+              "satisfied": false,
+              "detail": "命中红线（否决）：L20 「脚本放在我的电脑上，路径是 `/Users/lm/Desktop/meeting_summary/summary.py`」",
+              "confidence": "medium"
+            },
+            {
+              "id": "R3",
+              "name": "声明了环境要求/依赖",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 10 个）",
+              "confidence": "medium"
+            },
+            {
+              "id": "R4",
+              "name": "路径写法可移植（相对路径/占位符/环境变量）",
+              "weight": 0.8,
+              "type": "regex",
+              "satisfied": true,
+              "detail": "正向信号命中 2 处",
+              "confidence": "medium"
+            },
+            {
+              "id": "R5",
+              "name": "无凭据/隐私泄露",
+              "weight": 1.5,
+              "type": "veto",
+              "satisfied": true,
+              "detail": "未命中任何红线（已检查 5 类），通过",
+              "confidence": "medium"
+            }
+          ],
+          "evidence": [
+            "关键词「安装」L22 「需要先安装一些库，具体见代码。」",
+            "🚫 否决证据：L20 「脚本放在我的电脑上，路径是 `/Users/lm/Desktop/meeting_summary/summary.py`」",
+            "L26 「from pathlib import Path」"
+          ]
+        },
+        {
+          "id": "executable",
+          "label_cn": "可执行",
+          "score": 0.4717,
+          "grade": "⚠️",
+          "items": [
+            {
+              "id": "E1",
+              "name": "含可运行的代码块",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 2/9：```python, def ",
+              "confidence": "low"
+            },
+            {
+              "id": "E2",
+              "name": "含明确的工作流/步骤定义",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 9 个）",
+              "confidence": "medium"
+            },
+            {
+              "id": "E3",
+              "name": "含可调用的 CLI 入口或明确调用方式",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 12 个）",
+              "confidence": "medium"
+            },
+            {
+              "id": "E4",
+              "name": "代码/配置语法可解析（结构性硬校验）",
+              "weight": 1.5,
+              "type": "structural",
+              "satisfied": true,
+              "detail": "结构事实命中：python_ast_parseable",
+              "confidence": "high"
+            },
+            {
+              "id": "E5",
+              "name": "声明了依赖安装方式",
+              "weight": 0.8,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 9 个）",
+              "confidence": "medium"
+            }
+          ],
+          "evidence": [
+            "关键词「```python」L24 「```python」"
+          ]
+        },
+        {
+          "id": "verifiable",
+          "label_cn": "可验证",
+          "score": 0.25,
+          "grade": "❌",
+          "items": [
+            {
+              "id": "V1",
+              "name": "有测试用例或示例",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 12 个）",
+              "confidence": "medium"
+            },
+            {
+              "id": "V2",
+              "name": "定义了预期输出/成功判据",
+              "weight": 1.2,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 10 个）",
+              "confidence": "medium"
+            },
+            {
+              "id": "V3",
+              "name": "有真实运行结果/demo 佐证",
+              "weight": 1.0,
+              "type": "structural",
+              "satisfied": true,
+              "detail": "结构事实命中：has_code_block",
+              "confidence": "high"
+            },
+            {
+              "id": "V4",
+              "name": "说明失败/边界情形如何处理",
+              "weight": 0.8,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 12 个）",
+              "confidence": "medium"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "clear_io",
+          "label_cn": "IO 明确",
+          "score": 0.0,
+          "grade": "❌",
+          "items": [
+            {
+              "id": "I1",
+              "name": "存在「输入X，输出Y」式一句话描述",
+              "weight": 1.5,
+              "type": "io_pattern",
+              "satisfied": false,
+              "detail": "未找到 IO 一句话描述（已试 3 种句式）",
+              "confidence": "medium"
+            },
+            {
+              "id": "I2",
+              "name": "输入有类型/格式说明",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 14 个）",
+              "confidence": "medium"
+            },
+            {
+              "id": "I3",
+              "name": "输出有类型/格式说明",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 11 个）",
+              "confidence": "medium"
+            },
+            {
+              "id": "I4",
+              "name": "有 one-liner 摘要句",
+              "weight": 1.2,
+              "type": "regex",
+              "satisfied": false,
+              "detail": "未命中正向信号（检查 3 个模式）",
+              "confidence": "medium"
+            }
+          ],
+          "evidence": []
+        }
+      ],
+      "suggestions": [
+        "【补齐缺失交付物】缺少「Demo（视频/截图）」——文件名建议包含：demo（判定依据：文件名与正文均未检出足够信号）",
+        "【提升「可复用」（当前 ❌ 57%）】未满足：无硬编码绝对路径、声明了环境要求/依赖",
+        "【提升「可执行」（当前 ⚠️ 47%）】未满足：含明确的工作流/步骤定义、含可调用的 CLI 入口或明确调用方式、声明了依赖安装方式",
+        "【提升「可验证」（当前 ❌ 25%）】未满足：有测试用例或示例、定义了预期输出/成功判据、说明失败/边界情形如何处理",
+        "【提升「IO 明确」（当前 ❌ 0%）】未满足：存在「输入X，输出Y」式一句话描述、输入有类型/格式说明、输出有类型/格式说明"
+      ]
+    },
+    "WangXiao": {
+      "author_source": "parent_folder",
+      "files": [
+        "WangXiao\\plot_tool.py",
+        "WangXiao\\readme.md",
+        "WangXiao\\王晓_C4_技能说明.md"
+      ],
+      "completeness": {
+        "skill_doc": {
+          "label": "Skill 说明文档",
+          "weight": 0.2,
+          "status": "✅",
+          "matched": "WangXiao\\王晓_C4_技能说明.md",
+          "reason": "文件名命中强信号：王晓_C4_技能说明"
+        },
+        "executable": {
+          "label": "可执行内容",
+          "weight": 0.2,
+          "status": "✅",
+          "matched": "WangXiao\\王晓_C4_技能说明.md",
+          "reason": "文件名命中强信号：王晓_C4_技能说明"
+        },
+        "demo": {
+          "label": "Demo（视频/截图）",
+          "weight": 0.2,
+          "status": "❌",
+          "matched": "—",
+          "reason": "文件名与正文均未检出足够信号"
+        },
+        "teaching_doc": {
+          "label": "教学说明",
+          "weight": 0.2,
+          "status": "❌",
+          "matched": "—",
+          "reason": "文件名与正文均未检出足够信号"
+        },
+        "ai_log": {
+          "label": "AI 生成日志",
+          "weight": 0.2,
+          "status": "❌",
+          "matched": "—",
+          "reason": "文件名与正文均未检出足够信号"
+        }
+      },
+      "completeness_score": 0.4,
+      "completeness_grade": "❌ 严重缺失",
+      "quality_score": 0.4,
+      "composite_score": 0.4,
+      "confidence": "high",
+      "flags": [],
+      "criteria": [
+        {
+          "id": "reusable",
+          "label_cn": "可复用",
+          "score": 0.6897,
+          "grade": "⚠️",
+          "items": [
+            {
+              "id": "R1",
+              "name": "有安装/使用步骤说明",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 1/11：使用方法",
+              "confidence": "low"
+            },
+            {
+              "id": "R2",
+              "name": "无硬编码绝对路径",
+              "weight": 1.5,
+              "type": "veto",
+              "satisfied": true,
+              "detail": "未命中任何红线（已检查 6 类），通过",
+              "confidence": "medium"
+            },
+            {
+              "id": "R3",
+              "name": "声明了环境要求/依赖",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 10 个）",
+              "confidence": "medium"
+            },
+            {
+              "id": "R4",
+              "name": "路径写法可移植（相对路径/占位符/环境变量）",
+              "weight": 0.8,
+              "type": "regex",
+              "satisfied": false,
+              "detail": "未命中正向信号（检查 8 个模式）",
+              "confidence": "medium"
+            },
+            {
+              "id": "R5",
+              "name": "无凭据/隐私泄露",
+              "weight": 1.5,
+              "type": "veto",
+              "satisfied": true,
+              "detail": "未命中任何红线（已检查 5 类），通过",
+              "confidence": "medium"
+            }
+          ],
+          "evidence": [
+            "关键词「使用方法」L17 「使用方法：把数据放进去，运行就好了。」"
+          ]
+        },
+        {
+          "id": "executable",
+          "label_cn": "可执行",
+          "score": 0.6604,
+          "grade": "⚠️",
+          "items": [
+            {
+              "id": "E1",
+              "name": "含可运行的代码块",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 2/9：```python, def ",
+              "confidence": "low"
+            },
+            {
+              "id": "E2",
+              "name": "含明确的工作流/步骤定义",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 9 个）",
+              "confidence": "medium"
+            },
+            {
+              "id": "E3",
+              "name": "含可调用的 CLI 入口或明确调用方式",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 1/12：python ",
+              "confidence": "low"
+            },
+            {
+              "id": "E4",
+              "name": "代码/配置语法可解析（结构性硬校验）",
+              "weight": 1.5,
+              "type": "structural",
+              "satisfied": true,
+              "detail": "结构事实命中：python_ast_parseable",
+              "confidence": "high"
+            },
+            {
+              "id": "E5",
+              "name": "声明了依赖安装方式",
+              "weight": 0.8,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 9 个）",
+              "confidence": "medium"
+            }
+          ],
+          "evidence": [
+            "关键词「```python」L19 「```python」",
+            "关键词「python 」L13 「我做了一个可以画图的小工具，用 Python 写的。」"
+          ]
+        },
+        {
+          "id": "verifiable",
+          "label_cn": "可验证",
+          "score": 0.25,
+          "grade": "❌",
+          "items": [
+            {
+              "id": "V1",
+              "name": "有测试用例或示例",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 12 个）",
+              "confidence": "medium"
+            },
+            {
+              "id": "V2",
+              "name": "定义了预期输出/成功判据",
+              "weight": 1.2,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 10 个）",
+              "confidence": "medium"
+            },
+            {
+              "id": "V3",
+              "name": "有真实运行结果/demo 佐证",
+              "weight": 1.0,
+              "type": "structural",
+              "satisfied": true,
+              "detail": "结构事实命中：has_code_block",
+              "confidence": "high"
+            },
+            {
+              "id": "V4",
+              "name": "说明失败/边界情形如何处理",
+              "weight": 0.8,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 12 个）",
+              "confidence": "medium"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "clear_io",
+          "label_cn": "IO 明确",
+          "score": 0.0,
+          "grade": "❌",
+          "items": [
+            {
+              "id": "I1",
+              "name": "存在「输入X，输出Y」式一句话描述",
+              "weight": 1.5,
+              "type": "io_pattern",
+              "satisfied": false,
+              "detail": "未找到 IO 一句话描述（已试 3 种句式）",
+              "confidence": "medium"
+            },
+            {
+              "id": "I2",
+              "name": "输入有类型/格式说明",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 14 个）",
+              "confidence": "medium"
+            },
+            {
+              "id": "I3",
+              "name": "输出有类型/格式说明",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": false,
+              "detail": "未命中关键词（检查 11 个）",
+              "confidence": "medium"
+            },
+            {
+              "id": "I4",
+              "name": "有 one-liner 摘要句",
+              "weight": 1.2,
+              "type": "regex",
+              "satisfied": false,
+              "detail": "未命中正向信号（检查 3 个模式）",
+              "confidence": "medium"
+            }
+          ],
+          "evidence": []
+        }
+      ],
+      "suggestions": [
+        "【补齐缺失交付物】缺少「Demo（视频/截图）」——文件名建议包含：demo（判定依据：文件名与正文均未检出足够信号）",
+        "【补齐缺失交付物】缺少「教学说明」——文件名建议包含：teaching_doc（判定依据：文件名与正文均未检出足够信号）",
+        "【补齐缺失交付物】缺少「AI 生成日志」——文件名建议包含：ai_log（判定依据：文件名与正文均未检出足够信号）",
+        "【提升「可复用」（当前 ⚠️ 69%）】未满足：声明了环境要求/依赖、路径写法可移植（相对路径/占位符/环境变量）",
+        "【提升「可执行」（当前 ⚠️ 66%）】未满足：含明确的工作流/步骤定义、声明了依赖安装方式",
+        "【提升「可验证」（当前 ❌ 25%）】未满足：有测试用例或示例、定义了预期输出/成功判据、说明失败/边界情形如何处理",
+        "【提升「IO 明确」（当前 ❌ 0%）】未满足：存在「输入X，输出Y」式一句话描述、输入有类型/格式说明、输出有类型/格式说明"
+      ]
+    },
+    "ZhangWei": {
+      "author_source": "parent_folder",
+      "files": [
+        "ZhangWei\\scripts\\pr_desc.py",
+        "ZhangWei\\ZhangWei_C4_AI日志.md",
+        "ZhangWei\\ZhangWei_C4_demo.png",
+        "ZhangWei\\ZhangWei_C4_skill说明.md",
+        "ZhangWei\\ZhangWei_C4_教学说明.md"
+      ],
+      "completeness": {
+        "skill_doc": {
+          "label": "Skill 说明文档",
+          "weight": 0.2,
+          "status": "✅",
+          "matched": "ZhangWei\\ZhangWei_C4_skill说明.md",
+          "reason": "文件名命中强信号：ZhangWei_C4_skill说明"
+        },
+        "executable": {
+          "label": "可执行内容",
+          "weight": 0.2,
+          "status": "✅",
+          "matched": "ZhangWei\\ZhangWei_C4_skill说明.md",
+          "reason": "文件名命中强信号：ZhangWei_C4_skill说明"
+        },
+        "demo": {
+          "label": "Demo（视频/截图）",
+          "weight": 0.2,
+          "status": "✅",
+          "matched": "ZhangWei\\ZhangWei_C4_demo.png",
+          "reason": "文件名命中强信号：ZhangWei_C4_demo"
+        },
+        "teaching_doc": {
+          "label": "教学说明",
+          "weight": 0.2,
+          "status": "✅",
+          "matched": "ZhangWei\\ZhangWei_C4_教学说明.md",
+          "reason": "文件名命中强信号：ZhangWei_C4_教学说明"
+        },
+        "ai_log": {
+          "label": "AI 生成日志",
+          "weight": 0.2,
+          "status": "✅",
+          "matched": "ZhangWei\\ZhangWei_C4_AI日志.md",
+          "reason": "文件名命中强信号：ZhangWei_C4_AI日志"
+        }
+      },
+      "completeness_score": 1.0,
+      "completeness_grade": "✅ 齐全",
+      "quality_score": 1.0,
+      "composite_score": 1.0,
+      "confidence": "high",
+      "flags": [],
+      "criteria": [
+        {
+          "id": "reusable",
+          "label_cn": "可复用",
+          "score": 1.0,
+          "grade": "✅",
+          "items": [
+            {
+              "id": "R1",
+              "name": "有安装/使用步骤说明",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 4/11：安装, install, pip install, 快速开始",
+              "confidence": "low"
+            },
+            {
+              "id": "R2",
+              "name": "无硬编码绝对路径",
+              "weight": 1.5,
+              "type": "veto",
+              "satisfied": true,
+              "detail": "未命中任何红线（已检查 6 类），通过",
+              "confidence": "medium"
+            },
+            {
+              "id": "R3",
+              "name": "声明了环境要求/依赖",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 3/10：依赖, requirements.txt, python 3",
+              "confidence": "low"
+            },
+            {
+              "id": "R4",
+              "name": "路径写法可移植（相对路径/占位符/环境变量）",
+              "weight": 0.8,
+              "type": "regex",
+              "satisfied": true,
+              "detail": "正向信号命中 1 处",
+              "confidence": "medium"
+            },
+            {
+              "id": "R5",
+              "name": "无凭据/隐私泄露",
+              "weight": 1.5,
+              "type": "veto",
+              "satisfied": true,
+              "detail": "未命中任何红线（已检查 5 类），通过",
+              "confidence": "medium"
+            }
+          ],
+          "evidence": [
+            "关键词「安装」L147 「### 步骤 1：安装依赖」",
+            "关键词「依赖」L147 「### 步骤 1：安装依赖」",
+            "L12 「from pathlib import Path」"
+          ]
+        },
+        {
+          "id": "executable",
+          "label_cn": "可执行",
+          "score": 1.0,
+          "grade": "✅",
+          "items": [
+            {
+              "id": "E1",
+              "name": "含可运行的代码块",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 2/9：```bash, def ",
+              "confidence": "low"
+            },
+            {
+              "id": "E2",
+              "name": "含明确的工作流/步骤定义",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 1/9：步骤 1",
+              "confidence": "low"
+            },
+            {
+              "id": "E3",
+              "name": "含可调用的 CLI 入口或明确调用方式",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 2/12：python , argparse",
+              "confidence": "low"
+            },
+            {
+              "id": "E4",
+              "name": "代码/配置语法可解析（结构性硬校验）",
+              "weight": 1.5,
+              "type": "structural",
+              "satisfied": true,
+              "detail": "结构事实命中：python_ast_parseable",
+              "confidence": "high"
+            },
+            {
+              "id": "E5",
+              "name": "声明了依赖安装方式",
+              "weight": 0.8,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 2/9：requirements.txt, pip install",
+              "confidence": "low"
+            }
+          ],
+          "evidence": [
+            "关键词「```bash」L149 「```bash」",
+            "关键词「步骤 1」L147 「### 步骤 1：安装依赖」",
+            "关键词「python 」L105 「**第 1 轮 prompt**：\"写一个 Python 脚本，读取 git commit 生成 PR 描述\"」",
+            "关键词「requirements.txt」L150 「pip install -r requirements.txt」"
+          ]
+        },
+        {
+          "id": "verifiable",
+          "label_cn": "可验证",
+          "score": 1.0,
+          "grade": "✅",
+          "items": [
+            {
+              "id": "V1",
+              "name": "有测试用例或示例",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 6/12：测试, test, 用例, pytest",
+              "confidence": "low"
+            },
+            {
+              "id": "V2",
+              "name": "定义了预期输出/成功判据",
+              "weight": 1.2,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 1/10：预期输出",
+              "confidence": "low"
+            },
+            {
+              "id": "V3",
+              "name": "有真实运行结果/demo 佐证",
+              "weight": 1.0,
+              "type": "structural",
+              "satisfied": true,
+              "detail": "结构事实命中：has_demo_media, has_code_block",
+              "confidence": "high"
+            },
+            {
+              "id": "V4",
+              "name": "说明失败/边界情形如何处理",
+              "weight": 0.8,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 5/12：边界情况, 异常, 为空, 失败",
+              "confidence": "low"
+            }
+          ],
+          "evidence": [
+            "关键词「测试」L51 「out += [\"\", \"### 验证方式\", \"- 请补充测试结果\"]」",
+            "关键词「预期输出」L193 「## 预期输出」",
+            "关键词「边界情况」L204 「## 边界情况」"
+          ]
+        },
+        {
+          "id": "clear_io",
+          "label_cn": "IO 明确",
+          "score": 1.0,
+          "grade": "✅",
+          "items": [
+            {
+              "id": "I1",
+              "name": "存在「输入X，输出Y」式一句话描述",
+              "weight": 1.5,
+              "type": "io_pattern",
+              "satisfied": true,
+              "detail": "命中「输入…输出…」句式 1 处",
+              "confidence": "high"
+            },
+            {
+              "id": "I2",
+              "name": "输入有类型/格式说明",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 1/14：输入：",
+              "confidence": "low"
+            },
+            {
+              "id": "I3",
+              "name": "输出有类型/格式说明",
+              "weight": 1.0,
+              "type": "keyword",
+              "satisfied": true,
+              "detail": "命中关键词 3/11：输出：, 返回, 产出",
+              "confidence": "low"
+            },
+            {
+              "id": "I4",
+              "name": "有 one-liner 摘要句",
+              "weight": 1.2,
+              "type": "regex",
+              "satisfied": true,
+              "detail": "正向信号命中 1 处",
+              "confidence": "medium"
+            }
+          ],
+          "evidence": [
+            "句式证据：L140 「## 输入输出」",
+            "关键词「输入：」L5 「输入：仓库路径 + 基准分支」",
+            "关键词「输出：」L6 「输出：Markdown 格式的 PR 描述」",
+            "L140 「## 输入输出」"
+          ]
+        }
+      ],
+      "suggestions": [
+        "✅ 五文件齐全、四条件全部达标——建议补充真实使用人数与反馈截图，C4 评分以「被使用次数」为核心。"
+      ]
+    }
+  },
+  "non_c4_files": []
+}

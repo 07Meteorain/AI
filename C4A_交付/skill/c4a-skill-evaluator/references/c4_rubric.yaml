@@ -1,0 +1,326 @@
+# ============================================================================
+# C4A 技能提交自动评审 — 评审标准（机器可读）
+#
+# 设计原则：证据化（evidence-based）+ 可否证（falsifiable）
+#   - 每一项检查都必须能指向一条具体证据（文件 + 行号 + 命中信号）
+#   - 每一项检查都有明确的反向信号（negative signal），用于"否决"误判
+#   - 结构性检查（可解析性）权重高于关键词检查
+#
+# 覆盖 C4 四条件：可复用 / 可执行 / 可验证 / IO 明确
+# ============================================================================
+
+meta:
+  version: "2.0"
+  challenge: "C4A"
+  derived_from:
+    - "C4.md 技能四条件（可复用/可执行/可验证/IO明确）"
+    - "c4_rubric.yaml 起始脚手架（starter scaffold）"
+  # 评审结论的可信度分级——低于 medium 的结论必须提示人工复核
+  confidence_levels:
+    high: "结构性硬校验（AST/YAML/文件存在性），确定性结论"
+    medium: "多信号加权命中，规则一致"
+    low: "单关键词命中，易误判 → 强制标记需人工复核"
+
+# ============================================================================
+# 一、提交完整性检查（Level 2）—— C4 要求的五个必须文件
+# ============================================================================
+required_deliverables:
+
+  skill_doc:
+    label_cn: "Skill 说明文档"
+    label_en: "Skill Description Document"
+    weight: 0.20
+    # 高置信信号：文件名直接命中（人主动命名，可信度最高）
+    strong_filename:
+      - "skill说明"
+      - "skill_doc"
+      - "skill-doc"
+      - "skill_description"
+      - "skill描述"
+      - "技能说明"
+    # 中置信信号：文档正文出现结构化说明
+    content_signals:
+      - "使用场景"
+      - "解决什么问题"
+      - "适用场景"
+      - "输入"
+      - "输出"
+      - "use case"
+      - "what problem"
+    min_content_hits: 3          # 正文需命中 >= 3 个信号才判为 ✅
+    min_content_hits_partial: 1  # 命中 1-2 个判为 ⚠️
+    preferred_extensions: [".md", ".pdf", ".docx", ".txt"]
+
+  executable:
+    label_cn: "可执行内容"
+    label_en: "Executable Skill Content"
+    weight: 0.20
+    strong_filename:
+      - "技能"
+      - "skill"
+    # 结构性硬校验：这些是"确定性"证据，权重最高
+    structural_checks:
+      python_ast_parseable: "*.py 能被 Python ast.parse 成功解析"
+      yaml_frontmatter_valid: "SKILL.md 含合法 YAML frontmatter（name + description）"
+      skill_archive_valid: "*.skill/*.zip 能作为 tar.gz/zip 打开且内含 SKILL.md"
+    content_signals:
+      - '```python'
+      - '```bash'
+      - '```javascript'
+      - "def "
+      - "class "
+      - "import "
+      - "workflow"
+      - "pipeline"
+    min_content_hits: 2
+    min_content_hits_partial: 1
+    preferred_extensions: [".skill", ".py", ".md", ".zip", ".sh", ".js"]
+
+  demo:
+    label_cn: "Demo（视频/截图）"
+    label_en: "Demo (video/screenshot)"
+    weight: 0.20
+    strong_filename:
+      - "demo"
+      - "演示"
+      - "截图"
+      - "录屏"
+      - "screen"
+      - "screenrecord"
+    # Demo 的最强证据是文件本身真实存在（二进制）
+    media_extensions: [".mp4", ".mov", ".webm", ".png", ".jpg", ".jpeg", ".gif"]
+    # 若用"截图描述"代替真实文件，需要更强的文本证据
+    fallback_content_signals:
+      - "demo"
+      - "演示视频"
+      - "运行截图"
+      - "效果如下"
+      - "输出示例"
+    min_content_hits_partial: 2
+
+  teaching_doc:
+    label_cn: "教学说明"
+    label_en: "Teaching Instructions"
+    weight: 0.20
+    strong_filename:
+      - "教学说明"
+      - "教学"
+      - "tutorial"
+      - "teaching"
+      - "上手指南"
+      - "quickstart"
+      - "how-to"
+      - "使用说明"
+    content_signals:
+      - "上手"
+      - "步骤"
+      - "常见坑"
+      - "坑"
+      - "安装"
+      - "注意事项"
+      - "优化技巧"
+      - "getting started"
+      - "step by step"
+      - "pitfall"
+    min_content_hits: 3
+    min_content_hits_partial: 1
+    preferred_extensions: [".md", ".pdf", ".docx", ".txt"]
+
+  ai_log:
+    label_cn: "AI 生成日志"
+    label_en: "AI Usage Log"
+    weight: 0.20
+    strong_filename:
+      - "AI日志"
+      - "AI_log"
+      - "ai-log"
+      - "AI使用"
+      - "AI协作"
+      - "协作日志"
+    content_signals:
+      - "使用的 AI"
+      - "AI 工具"
+      - "AI工具"
+      - "prompt"
+      - "迭代次数"
+      - "轮次"
+      - "ChatGPT"
+      - "Claude"
+      - "DeepSeek"
+      - "WorkBuddy"
+      - "CodeBuddy"
+      - "AAR"
+    min_content_hits: 3
+    min_content_hits_partial: 1
+    preferred_extensions: [".md", ".pdf", ".docx", ".txt"]
+
+# ============================================================================
+# 二、技能质量四条件（Level 3）—— C4 四条件的可检测化
+#
+# 每个维度由若干 check_item 组成，每个 check_item 有：
+#   - type: keyword | regex | structural | io_pattern
+#   - positive: 命中即满足
+#   - negative: 命中即否决（veto）—— 这是控制误判率的核心机制
+#   - veto: 是否允许 negative 触发否决（防止单项否决过度杀伤）
+# ============================================================================
+quality_criteria:
+
+  # --------------------------------------------------------------------------
+  reusable:
+    label_cn: "可复用"
+    label_en: "Reusable"
+    description: "别人拿过去能直接用，不依赖作者特定环境"
+    check_items:
+      - id: R1
+        name: "有安装/使用步骤说明"
+        type: keyword
+        positive: ["安装", "install", "pip install", "npm install", "快速开始", "quick start", "使用方法", "如何运行", "运行方式", "how to run", "usage"]
+        weight: 1.0
+      - id: R2
+        name: "无硬编码绝对路径"
+        type: veto
+        # negative 命中 = 硬编码路径 = 直接否决本项
+        positive: []
+        negative: ["/Users/[A-Za-z0-9_.-]+", "/home/[A-Za-z0-9_.-]+", "[A-Z]:\\\\[A-Za-z0-9_\\\\.-]+", "我的电脑", "my_secret", "api_key\\s*=\\s*['\"][^'\"]{8,}"]
+        weight: 1.5   # 权重最高：硬编码路径是"可复用"的致命伤
+        veto: true
+      - id: R3
+        name: "声明了环境要求/依赖"
+        type: keyword
+        positive: ["环境要求", "依赖", "requirements.txt", "dependencies", "前置条件", "prerequisite", "python 3", "node", "版本要求", "运行环境"]
+        weight: 1.0
+      - id: R4
+        name: "路径写法可移植（相对路径/占位符/环境变量）"
+        type: regex
+        positive: ["\\$\\{?[A-Z_]+\\}?", "os\\.path\\.join", "pathlib", "--output", "<folder>", "<path>", "YOUR_PATH", "relative"]
+        weight: 0.8
+      - id: R5
+        name: "无凭据/隐私泄露"
+        type: veto
+        positive: []
+        negative: ["sk-[A-Za-z0-9]{20,}", "ghp_[A-Za-z0-9]{20,}", "AKIA[0-9A-Z]{16}", "password\\s*=\\s*['\"][^'\"]{4,}", "2705457565@qq\\.com"]
+        weight: 1.5
+        veto: true
+
+  # --------------------------------------------------------------------------
+  executable:
+    label_cn: "可执行"
+    label_en: "Executable"
+    description: "不是理论，是能跑的东西"
+    check_items:
+      - id: E1
+        name: "含可运行的代码块"
+        type: keyword
+        positive: ['```python', '```bash', '```sh', '```javascript', '```js', "def ", "class ", "function ", "public static"]
+        weight: 1.0
+      - id: E2
+        name: "含明确的工作流/步骤定义"
+        type: keyword
+        positive: ["Step 1", "步骤 1", "步骤1", "workflow", "pipeline", "工作流", "流程", "Step 0", "阶段"]
+        weight: 1.0
+      - id: E3
+        name: "含可调用的 CLI 入口或明确调用方式"
+        type: keyword
+        positive: ["python3 ", "python ", "bash ", "sh ", "--help", "argparse", "sys.argv", "命令行", "usage:", "npm run", "c4a_evaluator.py", "evaluator.py"]
+        weight: 1.0
+      - id: E4
+        name: "代码/配置语法可解析（结构性硬校验）"
+        type: structural
+        # 由 evaluator.py 的 ast_parse / yaml_frontmatter 检查填充
+        positive: []
+        weight: 1.5
+      - id: E5
+        name: "声明了依赖安装方式"
+        type: keyword
+        positive: ["requirements.txt", "pip install", "import yaml", "import openpyxl", "pip3 install", "npm install", "无需依赖", "零依赖", "stdlib"]
+        weight: 0.8
+
+  # --------------------------------------------------------------------------
+  verifiable:
+    label_cn: "可验证"
+    label_en: "Verifiable"
+    description: "有明确的输入输出，能判断成功与否"
+    check_items:
+      - id: V1
+        name: "有测试用例或示例"
+        type: keyword
+        positive: ["测试", "test", "示例", "example", "样例", "用例", "assert", "pytest", "unittest", "self-test", "--self-test", "测试用例"]
+        weight: 1.0
+      - id: V2
+        name: "定义了预期输出/成功判据"
+        type: keyword
+        positive: ["预期输出", "预期结果", "expected", "期望输出", "应当输出", "成功判据", "判定标准", "通过条件", "输出格式", "验收"]
+        weight: 1.2
+      - id: V3
+        name: "有真实运行结果/demo 佐证"
+        type: structural
+        # 由 demo 文件存在性 + 输出样例填充
+        positive: []
+        weight: 1.0
+      - id: V4
+        name: "说明失败/边界情形如何处理"
+        type: keyword
+        positive: ["边界情况", "边界情形", "edge case", "异常", "如果不存在", "为空", "失败", "错误处理", "error handling", "回退", "fallback", "损坏"]
+        weight: 0.8
+
+  # --------------------------------------------------------------------------
+  clear_io:
+    label_cn: "IO 明确"
+    label_en: "Clear I/O"
+    description: "输入什么、输出什么，一目了然"
+    check_items:
+      - id: I1
+        name: "存在「输入X，输出Y」式一句话描述"
+        type: io_pattern
+        # 核心正则：同一句中先出现"输入"再出现"输出"
+        positive: []
+        io_patterns:
+          - "[^。\\n]{0,80}输入[^。\\n]{0,80}输出[^。\\n]{0,60}"
+          - "[^。\\n]{0,80}接受[^。\\n]{0,80}(返回|产出|生成)[^。\\n]{0,60}"
+          - "Given[^.\\n]{0,60}(returns?|produces?)[^.\\n]{0,60}"
+        weight: 1.5
+      - id: I2
+        name: "输入有类型/格式说明"
+        type: keyword
+        positive: ["输入：", "输入:", "input:", "输入一个", "接受一个", "文件夹路径", "file path", "字符串", "JSON", "CSV", "路径参数", "必填参数", "--folder", "--input"]
+        weight: 1.0
+      - id: I3
+        name: "输出有类型/格式说明"
+        type: keyword
+        positive: ["输出：", "输出:", "output:", "生成一份", "返回", "产出", "Markdown 报告", "Excel", ".xlsx", "JSON 输出", "报告文件"]
+        weight: 1.0
+      - id: I4
+        name: "有 one-liner 摘要句"
+        type: regex
+        positive: ["输入[^。\\n]{0,60}输出[^。\\n]{0,60}", "Given[^.\\n]{0,60}returns?[^.\\n]{0,60}", "接受[^。\\n]{0,40}返回[^。\\n]{0,40}"]
+        weight: 1.2
+
+# ============================================================================
+# 三、评分与排名（Level 4）
+# ============================================================================
+scoring:
+  # 完整性：按权重加权，而非简单计数（五个必须文件各0.20，满分=1.0）
+  completeness:
+    full_threshold: 0.80       # >= 0.80 → ✅ 齐全
+    partial_threshold: 0.50    # 0.50 ~ 0.80 → ⚠️ 部分缺失；< 0.50 → ❌ 严重缺失
+
+  # 质量：每个 check_item 的满足度 = (命中正向 - 命中反向) * weight
+  # criterion_score = clamp(加权满足度 / 总权重, 0, 1)
+  criterion:
+    pass_threshold: 0.70   # >= 0.70 → ✅
+    partial_threshold: 0.35     # 0.35 ~ 0.70 → ⚠️；< 0.35 → ❌
+
+  # 综合分：完整性 40% + 质量 60%（沿用 starter 的 composite 公式）
+  composite:
+    w_completeness: 0.40
+    w_quality: 0.60
+    # 低置信度惩罚：结论置信度为 low 时，综合分打 0.9折并标注"需人工复核"
+    low_confidence_penalty: 0.90
+
+  # 误判率控制：规则层自身的自检阈值
+  qa:
+    # 若一个提交的 completeness 与 quality 结论严重矛盾（如 5/5 齐全但质量全 ❌），
+    # 标记 contradiction，交由人工复核——避免"看起来确定但其实错了"
+    contradiction_check: true
+    # 未知作者不参与排名
+    exclude_unknown_from_ranking: true

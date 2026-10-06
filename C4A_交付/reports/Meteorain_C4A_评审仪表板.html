@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C4 提交自动评审仪表板</title>
+<style>
+  :root {
+    --bg:#f6f7f9; --card:#ffffff; --line:#e3e6ea; --ink:#1a1d21;
+    --muted:#6b7280; --brand:#2f5496; --ok:#16a34a; --warn:#d97706; --bad:#dc2626;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:32px 20px; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;
+    line-height:1.6; }
+  .wrap { max-width:1080px; margin:0 auto; }
+  header { margin-bottom:24px; }
+  h1 { margin:0 0 6px; font-size:26px; letter-spacing:-.3px; }
+  .sub { color:var(--muted); font-size:14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:22px; margin-bottom:18px; }
+  h2 { margin:0 0 16px; font-size:17px; }
+  .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; }
+  .kpi { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; }
+  .kpi .n { font-size:28px; font-weight:650; letter-spacing:-.5px; }
+  .kpi .l { color:var(--muted); font-size:13px; margin-top:2px; }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  th,td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line);
+    vertical-align:middle; }
+  th { color:var(--muted); font-weight:600; font-size:12.5px;
+    text-transform:uppercase; letter-spacing:.4px; }
+  tbody tr:last-child td { border-bottom:none; }
+  .bar { height:9px; background:#eceff3; border-radius:5px; overflow:hidden;
+    min-width:110px; }
+  .bar > span { display:block; height:100%; border-radius:5px; }
+  .g { font-weight:650; }
+  .chips { display:flex; gap:5px; flex-wrap:wrap; }
+  .chip { font-size:12px; padding:2px 9px; border-radius:20px; color:#fff;
+    white-space:nowrap; }
+  details { margin-top:12px; }
+  summary { cursor:pointer; color:var(--brand); font-size:13.5px; }
+  .ev { font-family:ui-monospace,Consolas,monospace; font-size:12px; color:var(--muted);
+    margin-top:5px; }
+  footer { color:var(--muted); font-size:12.5px; text-align:center; padding:18px 0; }
+  .tag { display:inline-block; font-size:11.5px; padding:1px 8px; border-radius:20px;
+    border:1px solid var(--line); color:var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>C4 提交自动评审仪表板</h1>
+  <div class="sub">由 <code>c4a_evaluator.py</code> 自动生成 · 2026-10-06 14:25</div>
+</header>
+
+<div class="kpis">
+    <div class="kpi"><div class="n">3</div><div class="l">提交人数</div></div>
+    <div class="kpi"><div class="n">2</div><div class="l">完整提交（≥80%）</div></div>
+    <div class="kpi"><div class="n">57%</div><div class="l">平均质量分</div></div>
+    <div class="kpi"><div class="n" style="color:var(--warn)">1</div>
+      <div class="l">需人工复核</div></div>
+    <div class="kpi"><div class="n" style="font-size:16px;padding-top:8px">
+      Level 4 完整评审系统</div><div class="l">达成级别</div></div>
+    </div>
+
+<div class="card">
+  <h2>四条件班级达成度</h2>
+  <table><thead><tr>
+    <th>条件</th><th>平均达成度</th><th>分布</th><th>评级构成</th>
+  </tr></thead><tbody><tr>
+          <td><strong>可复用</strong></td>
+          <td><div style="display:flex;align-items:center;gap:10px">
+            <div class="bar"><span style="width:75%;background:#16a34a"></span></div>
+            <b>75%</b></div></td>
+          <td>1 ✅ /
+              1 ⚠️ /
+              1 ❌</td>
+          <td><div class="chips"><span class="chip" style="background:#16a34a">✅</span><span class="chip" style="background:#d97706">⚠️</span><span class="chip" style="background:#dc2626">❌</span></div></td></tr><tr>
+          <td><strong>可执行</strong></td>
+          <td><div style="display:flex;align-items:center;gap:10px">
+            <div class="bar"><span style="width:71%;background:#16a34a"></span></div>
+            <b>71%</b></div></td>
+          <td>1 ✅ /
+              2 ⚠️ /
+              0 ❌</td>
+          <td><div class="chips"><span class="chip" style="background:#16a34a">✅</span><span class="chip" style="background:#d97706">⚠️</span><span class="chip" style="background:#d97706">⚠️</span></div></td></tr><tr>
+          <td><strong>可验证</strong></td>
+          <td><div style="display:flex;align-items:center;gap:10px">
+            <div class="bar"><span style="width:50%;background:#d97706"></span></div>
+            <b>50%</b></div></td>
+          <td>1 ✅ /
+              0 ⚠️ /
+              2 ❌</td>
+          <td><div class="chips"><span class="chip" style="background:#16a34a">✅</span><span class="chip" style="background:#dc2626">❌</span><span class="chip" style="background:#dc2626">❌</span></div></td></tr><tr>
+          <td><strong>IO 明确</strong></td>
+          <td><div style="display:flex;align-items:center;gap:10px">
+            <div class="bar"><span style="width:33%;background:#dc2626"></span></div>
+            <b>33%</b></div></td>
+          <td>1 ✅ /
+              0 ⚠️ /
+              2 ❌</td>
+          <td><div class="chips"><span class="chip" style="background:#16a34a">✅</span><span class="chip" style="background:#dc2626">❌</span><span class="chip" style="background:#dc2626">❌</span></div></td></tr></tbody></table>
+</div>
+
+<div class="card">
+  <h2>综合排名</h2>
+  <table><thead><tr>
+    <th>#</th><th>作者</th><th>完整性</th><th>质量分</th><th>综合分</th>
+    <th>四条件评级</th><th>置信度</th>
+  </tr></thead><tbody><tr>
+          <td>1</td><td><strong>ZhangWei</strong></td>
+          <td><div style="display:flex;align-items:center;gap:8px">
+            <div class="bar" style="min-width:80px"><span style="width:100%;background:#16a34a"></span></div>
+            <span>100%</span></div></td>
+          <td>100%</td><td><strong>1.00</strong></td>
+          <td><div class="chips"><span class="chip" style="background:#16a34a">✅ 100%</span><span class="chip" style="background:#16a34a">✅ 100%</span><span class="chip" style="background:#16a34a">✅ 100%</span><span class="chip" style="background:#16a34a">✅ 100%</span></div></td>
+          <td><span class="tag" style="color:var(--ok);border-color:var(--ok)">
+            high</span></td></tr><tr>
+          <td>2</td><td><strong>LiMing</strong></td>
+          <td><div style="display:flex;align-items:center;gap:8px">
+            <div class="bar" style="min-width:80px"><span style="width:80%;background:#16a34a"></span></div>
+            <span>80%</span></div></td>
+          <td>32%</td><td><strong>0.46</strong></td>
+          <td><div class="chips"><span class="chip" style="background:#dc2626">❌ 57%</span><span class="chip" style="background:#d97706">⚠️ 47%</span><span class="chip" style="background:#dc2626">❌ 25%</span><span class="chip" style="background:#dc2626">❌ 0%</span></div></td>
+          <td><span class="tag" style="color:var(--bad);border-color:var(--bad)">
+            low</span></td></tr><tr>
+          <td>3</td><td><strong>WangXiao</strong></td>
+          <td><div style="display:flex;align-items:center;gap:8px">
+            <div class="bar" style="min-width:80px"><span style="width:40%;background:#dc2626"></span></div>
+            <span>40%</span></div></td>
+          <td>40%</td><td><strong>0.40</strong></td>
+          <td><div class="chips"><span class="chip" style="background:#d97706">⚠️ 69%</span><span class="chip" style="background:#d97706">⚠️ 66%</span><span class="chip" style="background:#dc2626">❌ 25%</span><span class="chip" style="background:#dc2626">❌ 0%</span></div></td>
+          <td><span class="tag" style="color:var(--ok);border-color:var(--ok)">
+            high</span></td></tr></tbody></table>
+</div>
+
+<div class="card">
+  <h2>逐作者明细</h2>
+  <details open>
+      <summary><strong>ZhangWei</strong> — 综合 1.00
+        （完整性 100% / 质量 100%，
+        置信度 high）</summary>
+      
+      <table><thead><tr><th>项</th><th>检查内容</th><th>结果</th><th>权重</th>
+        <th>置信度</th><th>判定依据</th></tr></thead><tbody><tr><td>R1</td><td>有安装/使用步骤说明</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 4/11：安装, install, pip install, 快速开始</td></tr><tr><td>R2</td><td>无硬编码绝对路径</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.5</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中任何红线（已检查 6 类），通过</td></tr><tr><td>R3</td><td>声明了环境要求/依赖</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 3/10：依赖, requirements.txt, python 3</td></tr><tr><td>R4</td><td>路径写法可移植（相对路径/占位符/环境变量）</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>0.8</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    正向信号命中 1 处</td></tr><tr><td>R5</td><td>无凭据/隐私泄露</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.5</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中任何红线（已检查 5 类），通过</td></tr><tr><td>E1</td><td>含可运行的代码块</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 2/9：```bash, def </td></tr><tr><td>E2</td><td>含明确的工作流/步骤定义</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 1/9：步骤 1</td></tr><tr><td>E3</td><td>含可调用的 CLI 入口或明确调用方式</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 2/12：python , argparse</td></tr><tr><td>E4</td><td>代码/配置语法可解析（结构性硬校验）</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.5</td>
+                  <td><span class="tag">high</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    结构事实命中：python_ast_parseable</td></tr><tr><td>E5</td><td>声明了依赖安装方式</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>0.8</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 2/9：requirements.txt, pip install</td></tr><tr><td>V1</td><td>有测试用例或示例</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 6/12：测试, test, 用例, pytest</td></tr><tr><td>V2</td><td>定义了预期输出/成功判据</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.2</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 1/10：预期输出</td></tr><tr><td>V3</td><td>有真实运行结果/demo 佐证</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">high</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    结构事实命中：has_demo_media, has_code_block</td></tr><tr><td>V4</td><td>说明失败/边界情形如何处理</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>0.8</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 5/12：边界情况, 异常, 为空, 失败</td></tr><tr><td>I1</td><td>存在「输入X，输出Y」式一句话描述</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.5</td>
+                  <td><span class="tag">high</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中「输入…输出…」句式 1 处</td></tr><tr><td>I2</td><td>输入有类型/格式说明</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 1/14：输入：</td></tr><tr><td>I3</td><td>输出有类型/格式说明</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 3/11：输出：, 返回, 产出</td></tr><tr><td>I4</td><td>有 one-liner 摘要句</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.2</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    正向信号命中 1 处</td></tr></tbody></table>
+      <p style="font-size:13.5px;margin-bottom:4px"><strong>下一步行动：</strong></p>
+      <ol style="font-size:13.5px"><li>✅ 五文件齐全、四条件全部达标——建议补充真实使用人数与反馈截图，C4 评分以「被使用次数」为核心。</li></ol>
+    </details><details >
+      <summary><strong>LiMing</strong> — 综合 0.46
+        （完整性 80% / 质量 32%，
+        置信度 low）</summary>
+      <p style="color:var(--bad);font-size:13px">🚩 多为单关键词命中，结论置信度低</p>
+      <table><thead><tr><th>项</th><th>检查内容</th><th>结果</th><th>权重</th>
+        <th>置信度</th><th>判定依据</th></tr></thead><tbody><tr><td>R1</td><td>有安装/使用步骤说明</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 1/11：安装</td></tr><tr><td>R2</td><td>无硬编码绝对路径</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.5</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中红线（否决）：L20 「脚本放在我的电脑上，路径是 `/Users/lm/Desktop/meeting_summary/summary.py`」</td></tr><tr><td>R3</td><td>声明了环境要求/依赖</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.0</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 10 个）</td></tr><tr><td>R4</td><td>路径写法可移植（相对路径/占位符/环境变量）</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>0.8</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    正向信号命中 2 处</td></tr><tr><td>R5</td><td>无凭据/隐私泄露</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.5</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中任何红线（已检查 5 类），通过</td></tr><tr><td>E1</td><td>含可运行的代码块</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 2/9：```python, def </td></tr><tr><td>E2</td><td>含明确的工作流/步骤定义</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.0</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 9 个）</td></tr><tr><td>E3</td><td>含可调用的 CLI 入口或明确调用方式</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.0</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 12 个）</td></tr><tr><td>E4</td><td>代码/配置语法可解析（结构性硬校验）</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.5</td>
+                  <td><span class="tag">high</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    结构事实命中：python_ast_parseable</td></tr><tr><td>E5</td><td>声明了依赖安装方式</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>0.8</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 9 个）</td></tr><tr><td>V1</td><td>有测试用例或示例</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.0</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 12 个）</td></tr><tr><td>V2</td><td>定义了预期输出/成功判据</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.2</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 10 个）</td></tr><tr><td>V3</td><td>有真实运行结果/demo 佐证</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">high</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    结构事实命中：has_code_block</td></tr><tr><td>V4</td><td>说明失败/边界情形如何处理</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>0.8</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 12 个）</td></tr><tr><td>I1</td><td>存在「输入X，输出Y」式一句话描述</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.5</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未找到 IO 一句话描述（已试 3 种句式）</td></tr><tr><td>I2</td><td>输入有类型/格式说明</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.0</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 14 个）</td></tr><tr><td>I3</td><td>输出有类型/格式说明</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.0</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 11 个）</td></tr><tr><td>I4</td><td>有 one-liner 摘要句</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.2</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中正向信号（检查 3 个模式）</td></tr></tbody></table>
+      <p style="font-size:13.5px;margin-bottom:4px"><strong>下一步行动：</strong></p>
+      <ol style="font-size:13.5px"><li>【补齐缺失交付物】缺少「Demo（视频/截图）」——文件名建议包含：demo（判定依据：文件名与正文均未检出足够信号）</li><li>【提升「可复用」（当前 ❌ 57%）】未满足：无硬编码绝对路径、声明了环境要求/依赖</li><li>【提升「可执行」（当前 ⚠️ 47%）】未满足：含明确的工作流/步骤定义、含可调用的 CLI 入口或明确调用方式、声明了依赖安装方式</li><li>【提升「可验证」（当前 ❌ 25%）】未满足：有测试用例或示例、定义了预期输出/成功判据、说明失败/边界情形如何处理</li><li>【提升「IO 明确」（当前 ❌ 0%）】未满足：存在「输入X，输出Y」式一句话描述、输入有类型/格式说明、输出有类型/格式说明</li></ol>
+    </details><details >
+      <summary><strong>WangXiao</strong> — 综合 0.40
+        （完整性 40% / 质量 40%，
+        置信度 high）</summary>
+      
+      <table><thead><tr><th>项</th><th>检查内容</th><th>结果</th><th>权重</th>
+        <th>置信度</th><th>判定依据</th></tr></thead><tbody><tr><td>R1</td><td>有安装/使用步骤说明</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 1/11：使用方法</td></tr><tr><td>R2</td><td>无硬编码绝对路径</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.5</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中任何红线（已检查 6 类），通过</td></tr><tr><td>R3</td><td>声明了环境要求/依赖</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.0</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 10 个）</td></tr><tr><td>R4</td><td>路径写法可移植（相对路径/占位符/环境变量）</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>0.8</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中正向信号（检查 8 个模式）</td></tr><tr><td>R5</td><td>无凭据/隐私泄露</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.5</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中任何红线（已检查 5 类），通过</td></tr><tr><td>E1</td><td>含可运行的代码块</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 2/9：```python, def </td></tr><tr><td>E2</td><td>含明确的工作流/步骤定义</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.0</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 9 个）</td></tr><tr><td>E3</td><td>含可调用的 CLI 入口或明确调用方式</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">low</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    命中关键词 1/12：python </td></tr><tr><td>E4</td><td>代码/配置语法可解析（结构性硬校验）</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.5</td>
+                  <td><span class="tag">high</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    结构事实命中：python_ast_parseable</td></tr><tr><td>E5</td><td>声明了依赖安装方式</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>0.8</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 9 个）</td></tr><tr><td>V1</td><td>有测试用例或示例</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.0</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 12 个）</td></tr><tr><td>V2</td><td>定义了预期输出/成功判据</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.2</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 10 个）</td></tr><tr><td>V3</td><td>有真实运行结果/demo 佐证</td>
+                  <td class="g" style="color:#16a34a">✅</td>
+                  <td>1.0</td>
+                  <td><span class="tag">high</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    结构事实命中：has_code_block</td></tr><tr><td>V4</td><td>说明失败/边界情形如何处理</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>0.8</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 12 个）</td></tr><tr><td>I1</td><td>存在「输入X，输出Y」式一句话描述</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.5</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未找到 IO 一句话描述（已试 3 种句式）</td></tr><tr><td>I2</td><td>输入有类型/格式说明</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.0</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 14 个）</td></tr><tr><td>I3</td><td>输出有类型/格式说明</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.0</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中关键词（检查 11 个）</td></tr><tr><td>I4</td><td>有 one-liner 摘要句</td>
+                  <td class="g" style="color:#dc2626">❌</td>
+                  <td>1.2</td>
+                  <td><span class="tag">medium</span></td>
+                  <td style="color:var(--muted);font-size:12.5px">
+                    未命中正向信号（检查 3 个模式）</td></tr></tbody></table>
+      <p style="font-size:13.5px;margin-bottom:4px"><strong>下一步行动：</strong></p>
+      <ol style="font-size:13.5px"><li>【补齐缺失交付物】缺少「Demo（视频/截图）」——文件名建议包含：demo（判定依据：文件名与正文均未检出足够信号）</li><li>【补齐缺失交付物】缺少「教学说明」——文件名建议包含：teaching_doc（判定依据：文件名与正文均未检出足够信号）</li><li>【补齐缺失交付物】缺少「AI 生成日志」——文件名建议包含：ai_log（判定依据：文件名与正文均未检出足够信号）</li><li>【提升「可复用」（当前 ⚠️ 69%）】未满足：声明了环境要求/依赖、路径写法可移植（相对路径/占位符/环境变量）</li><li>【提升「可执行」（当前 ⚠️ 66%）】未满足：含明确的工作流/步骤定义、声明了依赖安装方式</li><li>【提升「可验证」（当前 ❌ 25%）】未满足：有测试用例或示例、定义了预期输出/成功判据、说明失败/边界情形如何处理</li><li>【提升「IO 明确」（当前 ❌ 0%）】未满足：存在「输入X，输出Y」式一句话描述、输入有类型/格式说明、输出有类型/格式说明</li></ol>
+    </details>
+</div>
+
+<div class="card">
+  <h2>五必须文件完整性矩阵</h2>
+  <table><thead><tr><th>作者</th><th>Skill 说明文档</th><th>可执行内容</th><th>Demo（视频/截图）</th><th>教学说明</th><th>AI 生成日志</th></tr></thead>
+  <tbody><tr><td><strong>ZhangWei</strong></td><td style="text-align:center" title="文件名命中强信号：ZhangWei_C4_skill说明"><span class="g" style="color:#16a34a">✅</span></td><td style="text-align:center" title="文件名命中强信号：ZhangWei_C4_skill说明"><span class="g" style="color:#16a34a">✅</span></td><td style="text-align:center" title="文件名命中强信号：ZhangWei_C4_demo"><span class="g" style="color:#16a34a">✅</span></td><td style="text-align:center" title="文件名命中强信号：ZhangWei_C4_教学说明"><span class="g" style="color:#16a34a">✅</span></td><td style="text-align:center" title="文件名命中强信号：ZhangWei_C4_AI日志"><span class="g" style="color:#16a34a">✅</span></td><td style="text-align:center"><b>100%</b></td></tr><tr><td><strong>LiMing</strong></td><td style="text-align:center" title="文件名命中强信号：LiMing_C4_skill说明"><span class="g" style="color:#16a34a">✅</span></td><td style="text-align:center" title="文件名命中强信号：LiMing_C4_skill说明"><span class="g" style="color:#16a34a">✅</span></td><td style="text-align:center" title="文件名与正文均未检出足够信号"><span class="g" style="color:#dc2626">❌</span></td><td style="text-align:center" title="文件名命中强信号：LiMing_C4_教学说明"><span class="g" style="color:#16a34a">✅</span></td><td style="text-align:center" title="文件名命中强信号：LiMing_C4_AI日志"><span class="g" style="color:#16a34a">✅</span></td><td style="text-align:center"><b>80%</b></td></tr><tr><td><strong>WangXiao</strong></td><td style="text-align:center" title="文件名命中强信号：王晓_C4_技能说明"><span class="g" style="color:#16a34a">✅</span></td><td style="text-align:center" title="文件名命中强信号：王晓_C4_技能说明"><span class="g" style="color:#16a34a">✅</span></td><td style="text-align:center" title="文件名与正文均未检出足够信号"><span class="g" style="color:#dc2626">❌</span></td><td style="text-align:center" title="文件名与正文均未检出足够信号"><span class="g" style="color:#dc2626">❌</span></td><td style="text-align:center" title="文件名与正文均未检出足够信号"><span class="g" style="color:#dc2626">❌</span></td><td style="text-align:center"><b>40%</b></td></tr></tbody></table>
+</div>
+
+<footer>
+  本仪表板所有结论均可追溯到具体文件与行号；标有 low 置信度的条目建议人工复核。<br>
+  排名仅作参考——C4 的评分核心是「被使用次数」，不是机器打分。
+</footer>
+</div>
+</body>
+</html>

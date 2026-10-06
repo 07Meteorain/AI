@@ -1,0 +1,78 @@
+test_author_from_folder_when_filename_irregular (__main__.TestCollection.test_author_from_folder_when_filename_irregular)
+WangXiao 的文件命名不规范，应靠父目录识别出作者。 ... ok
+test_chinese_filename_author_parsed (__main__.TestCollection.test_chinese_filename_author_parsed)
+王晓_C4_技能说明.md 的中文作者名应被解析，且不与目录名 WangXiao 分裂成两人。 ... ok
+test_non_c4_files_excluded (__main__.TestCollection.test_non_c4_files_excluded)
+黄金数据集里readme.md 属作者 bundle（文件夹传播），不应被误判为非 C4。 ... ok
+test_three_authors_detected (__main__.TestCollection.test_three_authors_detected) ... ok
+test_zhangwei_files_complete (__main__.TestCollection.test_zhangwei_files_complete) ... ok
+test_liming_missing_demo_detected (__main__.TestCompleteness.test_liming_missing_demo_detected)
+关键用例：LiMing 没有 demo 文件，必须被检出为缺失。 ... ok
+test_wangxiao_multiple_missing (__main__.TestCompleteness.test_wangxiao_multiple_missing) ... ok
+test_zhangwei_full_marks (__main__.TestCompleteness.test_zhangwei_full_marks) ... ok
+test_corrupt_skill_archive_does_not_crash (__main__.TestEdgeCases.test_corrupt_skill_archive_does_not_crash) ... ok
+test_empty_folder (__main__.TestEdgeCases.test_empty_folder) ... ok
+test_non_c4_files_filtered (__main__.TestEdgeCases.test_non_c4_files_filtered)
+混在根目录的非 C4 文件应被过滤，不污染任何作者 bundle。 ... ok
+test_unknown_author_excluded_from_ranking (__main__.TestEdgeCases.test_unknown_author_excluded_from_ranking)
+无作者线索的文件应标 Unknown，且不进排名。 ... ok
+test_agreement_with_human_judgment (__main__.TestGroundTruthAgreement.test_agreement_with_human_judgment) ... ok
+test_credential_leak_veto (__main__.TestQuality.test_credential_leak_veto)
+凭据泄露同样触发 veto。 ... ok
+test_hardcoded_path_vetoes_reusable (__main__.TestQuality.test_hardcoded_path_vetoes_reusable)
+核心防误判用例：LiMing 的 /Users/ 与 C:\ 必须让「可复用」判负。 ... ok
+test_io_pattern_detected (__main__.TestQuality.test_io_pattern_detected)
+I1：ZhangWei 的说明里有「输入…，输出…」句式。 ... ok
+test_python_ast_structural_check (__main__.TestQuality.test_python_ast_structural_check)
+结构性硬校验：ZhangWei 的 pr_desc.py 应能通过 ast.parse。 ... ok
+test_syntax_error_detected (__main__.TestQuality.test_syntax_error_detected)
+反向用例：故意制造语法错误，E4 必须判不满足。 ... ok
+test_verifiable_high_quality (__main__.TestQuality.test_verifiable_high_quality)
+ZhangWei 有测试用例 + 预期输出 → 可验证应达标。 ... ok
+test_json_report_serializable (__main__.TestReportGeneration.test_json_report_serializable) ... ok
+test_markdown_report_contains_all_sections (__main__.TestReportGeneration.test_markdown_report_contains_all_sections) ... ok
+test_all_check_items_have_weight (__main__.TestRubricIntegrity.test_all_check_items_have_weight) ... ok
+test_all_required_deliverables_have_signals (__main__.TestRubricIntegrity.test_all_required_deliverables_have_signals) ... ok
+test_non_structural_items_have_signals (__main__.TestRubricIntegrity.test_non_structural_items_have_signals)
+非 structural 型检查项必须给出可匹配的信号，否则恒为不满足。 ... ok
+test_scoring_thresholds_parseable (__main__.TestRubricIntegrity.test_scoring_thresholds_parseable)
+评分阈值必须能转 float（防YAML 注释粘连导致 '0.70# >= 0.70' 这类脏值）。 ... ok
+test_structural_items_all_implemented (__main__.TestRubricIntegrity.test_structural_items_all_implemented)
+rubric 里每条 type=structural 的 check_item 都必须在代码里登记了对应事实检查。 ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 1.683s
+
+OK
+
+==============================================================================
+误判率测量报告（评审器 vs 人工 ground truth）
+==============================================================================
+
+作者          维度        人工判定        评审器         结果
+------------------------------------------------------------------------------
+ZhangWei    可复用       ✅           ✅           ✓一致
+ZhangWei    可执行       ✅           ✅           ✓一致
+ZhangWei    可验证       ✅           ✅           ✓一致
+ZhangWei    IO明确      ✅           ✅           ✓一致
+ZhangWei    完整性       ≥100%       100%        ✓一致
+LiMing      可复用       ❌           ❌           ✓一致
+LiMing      可执行       ⚠️          ⚠️          ✓一致
+LiMing      可验证       ❌           ❌           ✓一致
+LiMing      IO明确      ❌           ❌           ✓一致
+LiMing      完整性       ≤85%        80%         ✓一致
+WangXiao    可复用       ⚠️          ⚠️          ✓一致
+WangXiao    可执行       ⚠️          ⚠️          ✓一致
+WangXiao    可验证       ❌           ❌           ✓一致
+WangXiao    IO明确      ❌           ❌           ✓一致
+WangXiao    完整性       ≤60%        40%         ✓一致
+------------------------------------------------------------------------------
+
+判定总数     : 15
+一致数       : 15
+人机一致率   : 100.0%
+误判率       : 0.0%
+
+说明：一致率高不代表规则完美——它证明的是在标注样本上结论可信。
+      剩余风险集中在置信度为 low 的结论，报告会主动标记需人工复核。
+==============================================================================

@@ -1,0 +1,12 @@
+[collect] 12 个 C4 文件，3 位作者，0 个非 C4 文件
+扫描路径   : C:\Users\Administrator\Desktop\我的挑战\平台导出\ch-20260717031432-5jvqje\挑战_C4A 技能提交自动评审_5jvqje_完整资料\C4A_交付\tests\golden_dataset
+作者数     : 3（参与排名 3）
+C4 文件数  : 12（非 C4 排除 0）
+达成级别   : Level 4 完整评审系统
+报告(MD)   : C:\Users\Administrator\Desktop\我的挑战\平台导出\ch-20260717031432-5jvqje\挑战_C4A 技能提交自动评审_5jvqje_完整资料\C4A_交付\reports\Meteorain_C4A_评审报告.md
+数据(JSON) : C:\Users\Administrator\Desktop\我的挑战\平台导出\ch-20260717031432-5jvqje\挑战_C4A 技能提交自动评审_5jvqje_完整资料\C4A_交付\reports\evaluation.json
+详表(XLSX) : C:\Users\Administrator\Desktop\我的挑战\平台导出\ch-20260717031432-5jvqje\挑战_C4A 技能提交自动评审_5jvqje_完整资料\C4A_交付\reports\Meteorain_C4A_评审详表.xlsx
+------------------------------------------------------------
+  ZhangWei       完整性  100%  质量  100%  综合   1.0  [high]
+  LiMing         完整性   80%  质量   32%  综合   0.5  [low]
+  WangXiao       完整性   40%  质量   40%  综合   0.4  [high]
