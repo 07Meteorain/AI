@@ -1,0 +1,9 @@
+﻿CPU=11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz
+Cores=6 Logical=12
+RAM_GB=15.7
+FreeRAM_GB=2.2
+OS=Microsoft Windows 11 专业版 10.0.22621 Build=22621
+--- GPU ---
+NVIDIA GeForce RTX 3050 Laptop GPU | VRAM_GB=4
+Intel(R) UHD Graphics | VRAM_GB=2
+GameViewer Virtual Display Adapter | VRAM_GB=0

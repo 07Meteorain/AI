@@ -1,0 +1,33 @@
+{
+  "model": "gemma4:e4b",
+  "device": {
+    "platform": "Windows-11-10.0.22621-SP0",
+    "processor": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+    "python": "3.13.14",
+    "machine": "AMD64",
+    "cpu": "11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz",
+    "ram_gb": 15.7,
+    "gpu": [
+      "NVIDIA GeForce RTX 3050 Laptop GPU",
+      "Intel(R) UHD Graphics",
+      "GameViewer Virtual Display Adapter"
+    ]
+  },
+  "turns": [
+    {
+      "user": "我叫什么名字？",
+      "agent": "{\"name_zh\": \"李明\", \"name_en\": \"Li Ming\"}",
+      "tool_calls": 0,
+      "tokens": 155,
+      "seconds": 26.11
+    },
+    {
+      "user": "我的偏好是什么？",
+      "agent": "{\"preference_zh\": \"喜欢安静的地方\", \"preference_en\": \"Likes quiet places\"}",
+      "tool_calls": 1,
+      "tokens": 616,
+      "seconds": 93.88
+    }
+  ],
+  "memory": "turns=4 facts=2 ~tokens=40 trimmed=0"
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  * { box-sizing:border-box; }
+  body { margin:0; background:#010409; padding:26px;
+         font-family:'Cascadia Mono','Consolas','SF Mono',monospace; }
+  .win { background:#0d1117; border:1px solid #30363d; border-radius:10px;
+          overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,.6); }
+  .bar { background:#161b22; border-bottom:1px solid #30363d;
+          padding:10px 14px; display:flex; align-items:center; gap:8px; }
+  .dot { width:11px; height:11px; border-radius:50%; }
+  .t { color:#8b949e; font-size:12px; margin-left:10px; }
+  pre { margin:0; padding:16px 18px; color:#c9d1d9;
+         font-size:13px; line-height:1.65; }
+</style></head>
+<body>
+<div class="win">
+  <div class="bar">
+    <span class="dot" style="background:#ff5f56"></span>
+    <span class="dot" style="background:#ffbd2e"></span>
+    <span class="dot" style="background:#27c93f"></span>
+    <span class="t">设备与环境 (device.png) &mdash; 2026-10-06 16:25:39</span>
+  </div>
+  <pre><div style="color:#3fb950;font-weight:600;white-space:pre-wrap">C4D 挑战 · 证据 1/4 —— 本地运行环境与设备信息</div><div style="color:#6e7681;white-space:pre-wrap">==============================================================</div><div style="color:#58a6ff;font-weight:600;white-space:pre-wrap">$ systeminfo | findstr /C:"OS Name" /C:"System Type"</div><div style="color:#c9d1d9;white-space:pre-wrap">  处理器: Intel64 Family 6 Model 141 Stepping 1, GenuineIntel</div><div style="color:#6e7681;white-space:pre-wrap"></div><div style="color:#58a6ff;font-weight:600;white-space:pre-wrap">$ ollama version is 0.35.1</div><div style="color:#c9d1d9;white-space:pre-wrap">  Ollama 服务地址: http://localhost:11434（本地回环，非云端）</div><div style="color:#c9d1d9;white-space:pre-wrap">  推理方式: 权重加载在本机内存/显存，全程离线，零 API 费用</div><div style="color:#6e7681;white-space:pre-wrap">==============================================================</div><div style="color:#3fb950;white-space:pre-wrap">✓ 确认：所有推理均在本机完成，数据不离开本设备</div></pre>
+</div>
+</body></html>

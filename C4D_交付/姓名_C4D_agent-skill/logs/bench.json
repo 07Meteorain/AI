@@ -1,0 +1,41 @@
+{
+  "model": "gemma4:e4b",
+  "device": {
+    "platform": "Windows-11-10.0.22621-SP0",
+    "processor": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+    "python": "3.13.14",
+    "machine": "AMD64",
+    "cpu": "11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz",
+    "ram_gb": 15.7,
+    "gpu": [
+      "NVIDIA GeForce RTX 3050 Laptop GPU",
+      "Intel(R) UHD Graphics",
+      "GameViewer Virtual Display Adapter"
+    ]
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "tokens": 733,
+      "tok_per_second": 7.34,
+      "wall_seconds": 111.04,
+      "model": "gemma4:e4b"
+    },
+    {
+      "round": 2,
+      "tokens": 898,
+      "tok_per_second": 7.36,
+      "wall_seconds": 135.57,
+      "model": "gemma4:e4b"
+    },
+    {
+      "round": 3,
+      "tokens": 834,
+      "tok_per_second": 6.96,
+      "wall_seconds": 133.19,
+      "model": "gemma4:e4b"
+    }
+  ],
+  "avg_tok_per_second": 7.22,
+  "at": "2026-10-06 15:05:35"
+}

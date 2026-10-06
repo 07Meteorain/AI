@@ -1,0 +1,26 @@
+{
+  "device": {
+    "platform": "Windows-11-10.0.22621-SP0",
+    "processor": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+    "python": "3.13.14",
+    "machine": "AMD64",
+    "cpu": "11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz",
+    "ram_gb": 15.7,
+    "gpu": [
+      "NVIDIA GeForce RTX 3050 Laptop GPU",
+      "Intel(R) UHD Graphics",
+      "GameViewer Virtual Display Adapter"
+    ]
+  },
+  "models": [
+    "gemma4:e4b"
+  ],
+  "bench": {
+    "model": "gemma4:e4b",
+    "tokens": 412,
+    "tok_per_second": 4.28,
+    "total_ms": 106864.5,
+    "content": "我是一个大型语言模型，目前正在您的本地环境中运行，随时准备为您提供帮助。"
+  },
+  "checked_at": "2026-10-06 15:27:38"
+}

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# 运行时产物（含数据库，不应入库）
+data/
+*.db
+*.db-journal
+
+# 环境探测脚本产生的临时文件
+_meta/*.exe
+_meta/*.part
+_meta/*.parts.json
+_meta/__pycache__/
+
+# 编辑器
+.vscode/
+.idea/
+.DS_Store
+
+# 说明：logs/ 与 output/ 是**真实运行证据**，有意纳入版本控制。
+# logs/  - Agent 推理轨迹、工具调用记录、性能数据
+# output/ - 模型生成的地图与行程产物

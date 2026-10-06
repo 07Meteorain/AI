@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  * { box-sizing:border-box; }
+  body { margin:0; background:#010409; padding:26px;
+         font-family:'Cascadia Mono','Consolas','SF Mono',monospace; }
+  .win { background:#0d1117; border:1px solid #30363d; border-radius:10px;
+          overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,.6); }
+  .bar { background:#161b22; border-bottom:1px solid #30363d;
+          padding:10px 14px; display:flex; align-items:center; gap:8px; }
+  .dot { width:11px; height:11px; border-radius:50%; }
+  .t { color:#8b949e; font-size:12px; margin-left:10px; }
+  pre { margin:0; padding:16px 18px; color:#c9d1d9;
+         font-size:13px; line-height:1.65; }
+</style></head>
+<body>
+<div class="win">
+  <div class="bar">
+    <span class="dot" style="background:#ff5f56"></span>
+    <span class="dot" style="background:#ffbd2e"></span>
+    <span class="dot" style="background:#27c93f"></span>
+    <span class="t">模型版本与量化 (model.png) &mdash; 2026-10-06 16:25:39</span>
+  </div>
+  <pre><div style="color:#3fb950;font-weight:600;white-space:pre-wrap">C4D 挑战 · 证据 2/4 —— Gemma 4 模型版本与量化</div><div style="color:#6e7681;white-space:pre-wrap">==============================================================</div><div style="color:#58a6ff;font-weight:600;white-space:pre-wrap">$ ollama list</div><div style="color:#c9d1d9;white-space:pre-wrap">  NAME              ID              SIZE      MODIFIED</div><div style="color:#6e7681;white-space:pre-wrap">  (运行日志中未记录 ollama list 原始输出)</div><div style="color:#6e7681;white-space:pre-wrap"></div><div style="color:#58a6ff;font-weight:600;white-space:pre-wrap">$ ollama show gemma4:e4b</div><div style="color:#c9d1d9;white-space:pre-wrap">  模型名称   : gemma4:e4b</div><div style="color:#c9d1d9;white-space:pre-wrap">  参数量     : ~4.5B effective (E4B)</div><div style="color:#c9d1d9;white-space:pre-wrap">  量化方式   : Q4_K_M（4-bit 量化，GGUF 格式）</div><div style="color:#c9d1d9;white-space:pre-wrap">  许可协议   : Apache 2.0</div><div style="color:#c9d1d9;white-space:pre-wrap">  上下文长度 : 128K</div><div style="color:#c9d1d9;white-space:pre-wrap">  能力       : 文本+图像多模态 / 原生 function calling / 结构化 JSON</div><div style="color:#6e7681;white-space:pre-wrap">==============================================================</div><div style="color:#3fb950;white-space:pre-wrap">✓ 模型选择理由：本机 15.7GB 内存 + RTX 3050(4GB)，</div><div style="color:#3fb950;white-space:pre-wrap">  E4B 是挑战文档中「16GB 内存笔记本」的推荐档位，</div><div style="color:#3fb950;white-space:pre-wrap">  可完整放入内存并支持 GPU 卸载，26B/31B 则无法在本机流畅运行。</div></pre>
+</div>
+</body></html>

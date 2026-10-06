@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  * { box-sizing:border-box; }
+  body { margin:0; background:#010409; padding:26px;
+         font-family:'Cascadia Mono','Consolas','SF Mono',monospace; }
+  .win { background:#0d1117; border:1px solid #30363d; border-radius:10px;
+          overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,.6); }
+  .bar { background:#161b22; border-bottom:1px solid #30363d;
+          padding:10px 14px; display:flex; align-items:center; gap:8px; }
+  .dot { width:11px; height:11px; border-radius:50%; }
+  .t { color:#8b949e; font-size:12px; margin-left:10px; }
+  pre { margin:0; padding:16px 18px; color:#c9d1d9;
+         font-size:13px; line-height:1.65; }
+</style></head>
+<body>
+<div class="win">
+  <div class="bar">
+    <span class="dot" style="background:#ff5f56"></span>
+    <span class="dot" style="background:#ffbd2e"></span>
+    <span class="dot" style="background:#27c93f"></span>
+    <span class="t">推理速度 tok/s (speed.png) &mdash; 2026-10-06 16:25:39</span>
+  </div>
+  <pre><div style="color:#3fb950;font-weight:600;white-space:pre-wrap">C4D 挑战 · 证据 3/4 —— 本地推理实测速度 (tok/s)</div><div style="color:#6e7681;white-space:pre-wrap">==============================================================</div><div style="color:#58a6ff;font-weight:600;white-space:pre-wrap">$ python -m sias_local_agent.cli doctor</div><div style="color:#c9d1d9;white-space:pre-wrap">  [doctor] 正在调用本地模型进行基准推理…</div><div style="color:#3fb950;white-space:pre-wrap">  模型: gemma4:e4b</div><div style="color:#3fb950;white-space:pre-wrap">  生成 token 数: 412</div><div style="color:#3fb950;white-space:pre-wrap">  推理速度: 4.28 tok/s</div><div style="color:#3fb950;white-space:pre-wrap">  单次耗时: 106864.5 ms</div><div style="color:#6e7681;white-space:pre-wrap"></div><div style="color:#58a6ff;font-weight:600;white-space:pre-wrap">$ python -m sias_local_agent.cli bench --rounds 3</div><div style="color:#c9d1d9;white-space:pre-wrap">  第1轮: 733 tokens  7.34 tok/s  111.04s</div><div style="color:#c9d1d9;white-space:pre-wrap">  第2轮: 898 tokens  7.36 tok/s  135.57s</div><div style="color:#c9d1d9;white-space:pre-wrap">  第3轮: 834 tokens  6.96 tok/s  133.19s</div><div style="color:#3fb950;white-space:pre-wrap">  平均推理速度: 7.22 tok/s</div><div style="color:#6e7681;white-space:pre-wrap">==============================================================</div><div style="color:#c9d1d9;white-space:pre-wrap">  测量方式: Ollama 返回的 eval_count / eval_duration_ns</div><div style="color:#c9d1d9;white-space:pre-wrap">  硬件加速: NVIDIA RTX 3050 Laptop GPU (CUDA offload)</div></pre>
+</div>
+</body></html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  * { box-sizing:border-box; }
+  body { margin:0; background:#010409; padding:26px;
+         font-family:'Cascadia Mono','Consolas','SF Mono',monospace; }
+  .win { background:#0d1117; border:1px solid #30363d; border-radius:10px;
+          overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,.6); }
+  .bar { background:#161b22; border-bottom:1px solid #30363d;
+          padding:10px 14px; display:flex; align-items:center; gap:8px; }
+  .dot { width:11px; height:11px; border-radius:50%; }
+  .t { color:#8b949e; font-size:12px; margin-left:10px; }
+  pre { margin:0; padding:16px 18px; color:#c9d1d9;
+         font-size:13px; line-height:1.65; }
+</style></head>
+<body>
+<div class="win">
+  <div class="bar">
+    <span class="dot" style="background:#ff5f56"></span>
+    <span class="dot" style="background:#ffbd2e"></span>
+    <span class="dot" style="background:#27c93f"></span>
+    <span class="t">Agent 工具调用 (agent.png) &mdash; 2026-10-06 16:25:39</span>
+  </div>
+  <pre><div style="color:#3fb950;font-weight:600;white-space:pre-wrap">C4D 挑战 · 证据 4/4 —— Agent 工具调用与结构化输出</div><div style="color:#6e7681;white-space:pre-wrap">==============================================================</div><div style="color:#58a6ff;font-weight:600;white-space:pre-wrap">$ python -m sias_local_agent.cli run --task plan --count 4</div><div style="color:#3fb950;white-space:pre-wrap">  [step 1] 调用工具 get_reference  6.52 tok/s</div><div style="color:#6e7681;white-space:pre-wrap">           args: {"name": "郑州西亚斯学院主校区"}</div><div style="color:#6e7681;white-space:pre-wrap">           -&gt; {"query": "郑州西亚斯学院主校区", "match_count": 1, "results": [{"id": "sias_main", "name": "SIAS Universi</div><div style="color:#3fb950;white-space:pre-wrap">  [step 1] 调用工具 get_reference  6.52 tok/s</div><div style="color:#6e7681;white-space:pre-wrap">           args: {"name": "西亚斯图书馆"}</div><div style="color:#6e7681;white-space:pre-wrap">           -&gt; {"query": "西亚斯图书馆", "match_count": 1, "results": [{"id": "sias_library", "name": "SIAS Library",</div><div style="color:#3fb950;white-space:pre-wrap">  [step 1] 调用工具 get_reference  6.52 tok/s</div><div style="color:#6e7681;white-space:pre-wrap">           args: {"name": "西亚斯中心广场"}</div><div style="color:#6e7681;white-space:pre-wrap">           -&gt; {"query": "西亚斯中心广场", "match_count": 1, "results": [{"id": "sias_grand_plaza", "name": "SIAS Gran</div><div style="color:#3fb950;white-space:pre-wrap">  [step 1] 调用工具 get_reference  6.52 tok/s</div><div style="color:#6e7681;white-space:pre-wrap">           args: {"name": "新郑博物馆"}</div><div style="color:#6e7681;white-space:pre-wrap">           -&gt; {"query": "新郑博物馆", "match_count": 1, "results": [{"id": "xinzheng_museum", "name": "Xinzheng Mus</div><div style="color:#3fb950;white-space:pre-wrap">  [step 2] 调用工具 plan_route  8.47 tok/s</div><div style="color:#6e7681;white-space:pre-wrap">           args: {"mode": "walking", "stops": "郑州西亚斯学院主校区,西亚斯图书馆,新郑博物馆,新郑黄河湿地公园"}</div><div style="color:#6e7681;white-space:pre-wrap">           -&gt; {"mode": "walking", "stop_count": 4, "route": ["郑州西亚斯学院主校区", "西亚斯图书馆", "新郑博物馆", "新郑黄河湿地公园"], "le</div><div style="color:#3fb950;white-space:pre-wrap">  [step 3] 调用工具 plan_route  4.87 tok/s</div><div style="color:#6e7681;white-space:pre-wrap">           args: {"mode": "driving", "stops": "郑州西亚斯学院主校区,西亚斯图书馆,新郑博物馆,河南工业与应用技术学院"}</div><div style="color:#6e7681;white-space:pre-wrap">           -&gt; {"mode": "driving", "stop_count": 4, "route": ["郑州西亚斯学院主校区", "西亚斯图书馆", "新郑博物馆", "河南工业与应用技术学院"], </div><div style="color:#3fb950;white-space:pre-wrap">  [step 4] 调用工具 plan_route  7.83 tok/s</div><div style="color:#6e7681;white-space:pre-wrap">           args: {"mode": "driving", "stops": "郑州西亚斯学院主校区,西亚斯图书馆,西亚斯中心广场,新郑博物馆"}</div><div style="color:#6e7681;white-space:pre-wrap">           -&gt; {"mode": "driving", "stop_count": 4, "route": ["郑州西亚斯学院主校区", "西亚斯中心广场", "西亚斯图书馆", "新郑博物馆"], "leg</div><div style="color:#3fb950;white-space:pre-wrap">  [step 5] 产出最终结构化 JSON  (7.82 tok/s)</div><div style="color:#6e7681;white-space:pre-wrap"></div><div style="color:#c9d1d9;white-space:pre-wrap">  ReAct 推理步数: 8</div><div style="color:#c9d1d9;white-space:pre-wrap">  工具调用总次数: 7</div><div style="color:#c9d1d9;white-space:pre-wrap">  消耗 token: 4886</div><div style="color:#c9d1d9;white-space:pre-wrap">  总耗时: 732.65s</div><div style="color:#c9d1d9;white-space:pre-wrap">  记忆状态: turns=6 facts=0 ~tokens=3267 trimmed=0</div><div style="color:#6e7681;white-space:pre-wrap"></div><div style="color:#c9d1d9;white-space:pre-wrap">  各工具实际调用次数（模型自主决定）:</div><div style="color:#3fb950;white-space:pre-wrap">    get_reference        4 次</div><div style="color:#3fb950;white-space:pre-wrap">    plan_route           3 次</div><div style="color:#6e7681;white-space:pre-wrap">==============================================================</div><div style="color:#3fb950;white-space:pre-wrap">✓ 模型自主决定调用哪个工具、调用几次，全程本地推理</div></pre>
+</div>
+</body></html>

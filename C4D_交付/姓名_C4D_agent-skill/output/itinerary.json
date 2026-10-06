@@ -1,0 +1,41 @@
+{
+  "title_zh": "西亚斯学院及周边文化探索之旅",
+  "title_en": "SIAS University and Surrounding Cultural Exploration Tour",
+  "summary_zh": "本行程规划了4个地点，涵盖了西亚斯学院的核心学习环境和新郑地区的历史文化景点，旨在提供一次结合学术与历史的深度游览体验。",
+  "summary_en": "This itinerary covers 4 locations, encompassing SIAS University's core academic environment and the historical cultural sites of Xinzheng, offering a deep tour combining academics and history.",
+  "steps": [
+    {
+      "order": 1,
+      "name_zh": "郑州西亚斯学院主校区",
+      "name_en": "SIAS University (Main Campus)",
+      "description_zh": "西亚斯学院的中心地带，一所中外合作办学高校。这里是高等教育和创新学习的典范，是学生们学习和成长的重要场所。",
+      "description_en": "The central campus of SIAS University, a Sino-foreign cooperative university. It is a model of higher education and innovative learning, a vital place for students' growth.",
+      "minutes": 60
+    },
+    {
+      "order": 2,
+      "name_zh": "新郑古城遗址公园",
+      "name_en": "Xinzheng Ancient City Ruins Park",
+      "description_zh": "探索新郑古城的历史痕迹。这里是当地历史文化的重要见证，可以了解古城的发展脉络和传统生活方式。",
+      "description_en": "Explore the historical traces of Xinzheng Ancient City. This site is an important witness to local history and culture, allowing insight into the city's development and traditional lifestyle.",
+      "minutes": 90
+    },
+    {
+      "order": 3,
+      "name_zh": "新郑博物馆",
+      "name_en": "Xinzheng Museum",
+      "description_zh": "深入了解新郑地区的历史变迁和文化遗产。博物馆内陈列了丰富的文物，是了解当地历史的最佳窗口。",
+      "description_en": "Gain deep insight into the historical changes and cultural heritage of the Xinzheng region. The museum houses rich artifacts, offering the best window into local history.",
+      "minutes": 60
+    },
+    {
+      "order": 4,
+      "name_zh": "当地特色商业街",
+      "name_en": "Local Specialty Street",
+      "description_zh": "在行程的最后，漫步于当地的特色商业街，品尝新郑的特色小吃，感受现代生活的活力和地域风情。",
+      "description_en": "To conclude the tour, stroll through a local specialty street, taste Xinzheng's unique snacks, and experience the vibrancy of modern life and regional charm.",
+      "minutes": 45
+    }
+  ],
+  "total_minutes": 255
+}

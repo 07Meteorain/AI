@@ -1,0 +1,21 @@
+{
+  "results": [
+    {
+      "model": "gemma4:e2b",
+      "tokens": 675,
+      "tok_per_second": 17.5,
+      "wall_seconds": 42.87,
+      "json_ok": true,
+      "parsed_locations": 3
+    },
+    {
+      "model": "gemma4:e4b",
+      "tokens": 899,
+      "tok_per_second": 7.64,
+      "wall_seconds": 130.7,
+      "json_ok": true,
+      "parsed_locations": 3
+    }
+  ],
+  "at": "2026-10-06 16:23:58"
+}

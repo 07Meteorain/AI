@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  * { box-sizing:border-box; }
+  body { margin:0; background:#010409; padding:26px;
+         font-family:'Cascadia Mono','Consolas','SF Mono',monospace; }
+  .win { background:#0d1117; border:1px solid #30363d; border-radius:10px;
+          overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,.6); }
+  .bar { background:#161b22; border-bottom:1px solid #30363d;
+          padding:10px 14px; display:flex; align-items:center; gap:8px; }
+  .dot { width:11px; height:11px; border-radius:50%; }
+  .t { color:#8b949e; font-size:12px; margin-left:10px; }
+  pre { margin:0; padding:16px 18px; color:#c9d1d9;
+         font-size:13px; line-height:1.65; }
+</style></head>
+<body>
+<div class="win">
+  <div class="bar">
+    <span class="dot" style="background:#ff5f56"></span>
+    <span class="dot" style="background:#ffbd2e"></span>
+    <span class="dot" style="background:#27c93f"></span>
+    <span class="t">离线测试 (tests.png) &mdash; 2026-10-06 16:25:39</span>
+  </div>
+  <pre><div style="color:#3fb950;font-weight:600;white-space:pre-wrap">C4D 补充证据 —— 离线单元测试（无需模型即可验证核心逻辑）</div><div style="color:#6e7681;white-space:pre-wrap">==============================================================</div><div style="color:#58a6ff;font-weight:600;white-space:pre-wrap">$ python tests/test_offline.py</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_catalog_shape</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_client_unavailable_graceful</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_extract_accepts_trailing_whitespace</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_extract_array_with_objects</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_extract_from_fence</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_extract_nested_braces</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_extract_plain_json</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_extract_rejects_trailing_garbage</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_extract_rejects_truncated_output</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_extract_top_level_array</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_extract_with_surrounding_prose</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_get_by_id</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_knowledge_all_coords_valid</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_knowledge_has_sias</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_map_html_contains_required</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_map_html_empty_safe</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_map_html_escapes_xss</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_memory_prompt_block</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_memory_prompt_trim</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_memory_roundtrip</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_memory_session_isolation</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_memory_upsert</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_normalize_bare_list</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_normalize_drops_bad_rows</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_normalize_empty_input</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_normalize_unknown_category_defaults</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_normalize_variants</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_plan_route_empty_raises</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_plan_route_sorts_by_distance</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_registry_schemas_valid</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_search_by_chinese_alias</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_search_by_english_alias</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_search_category_filter</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_search_empty_returns_all</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_tok_per_second_zero_safe</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_tool_invoke_roundtrip</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_validate_coords_inside</div><div style="color:#3fb950;white-space:pre-wrap">    PASS  test_validate_coords_outside</div><div style="color:#6e7681;white-space:pre-wrap">  38/38 passed</div><div style="color:#6e7681;white-space:pre-wrap">==============================================================</div><div style="color:#3fb950;white-space:pre-wrap">✓ 核心逻辑（JSON 解析/记忆/工具/地图/XSS 转义）全部通过</div></pre>
+</div>
+</body></html>

@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sias-local-agent"
+version = "1.0.0"
+description = "C4D 本地大模型 Agent 技能：完全离线运行的 Gemma 4 地图与规划 Agent"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "C4D Challenge Submission" }]
+keywords = ["agent", "local-llm", "gemma", "ollama", "function-calling", "map"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# 核心设计：运行时零第三方依赖，全部走标准库。
+# 这样读者在任何干净的 Python 3.10+ 环境都能直接跑通，
+# 不需要 pip install，也就不存在依赖地狱。
+dependencies = []
+
+[project.optional-dependencies]
+# 仅用于更丰富的设备信息采集；缺失时自动降级，不影响主流程
+rich = ["psutil>=5.9"]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+sias-agent = "sias_local_agent.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/07Meteorain/AI"
+Repository = "https://github.com/07Meteorain/AI"
+
+[tool.setuptools]
+packages = ["sias_local_agent"]
+
+[tool.setuptools.package-data]
+sias_local_agent = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v"
