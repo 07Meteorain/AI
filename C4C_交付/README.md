@@ -68,8 +68,20 @@ python scripts/pipeline.py examples/homework_linear_algebra.md output/ --compile
 
 针对学术写作场景，检查参考文献真伪（编造的 DOI、幽灵期刊等）。
 
+**一句话**：输入 `references.bib`，输出每条引用的判定
+（VERIFIED / PARTIAL / FABRICATED / UNCHECKED）+ 审计报告 + 修正版文献库。
+**零依赖，不用装任何东西，不用 API key。**
+
+```bash
+# 1. 解压技能包
+unzip Meteorain_C4_citation-truth-auditor.skill -d citation-truth-auditor/
+
+# 2. 审计你的参考文献
+python3 citation-truth-auditor/scripts/citation_auditor.py references.bib
+```
+
 - 技能说明：[`Meteorain_C4_skill说明.md`](./Meteorain_C4_skill说明.md)
-- 演示产物：[`demo/`](./demo/)
+- 演示产物：[`demo/Meteorain_C4_demo_终端输出.png`](./demo/Meteorain_C4_demo_终端输出.png)
 - 文档：[`Meteorain_C4_教学说明.md`](./Meteorain_C4_教学说明.md)｜[`Meteorain_C4_AAR复盘.md`](./Meteorain_C4_AAR复盘.md)｜[`Meteorain_C4_AI日志.md`](./Meteorain_C4_AI日志.md)
 
 ---
