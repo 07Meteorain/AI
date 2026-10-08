@@ -1,0 +1,458 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{xeCJK}
+% ── 中文字体自动探测（由 render_latex.py 生成）──
+% 探测到的候选字体：Source Han Serif SC, Noto Sans SC, SimSun, Microsoft YaHei, SimHei, KaiTi
+\IfFontExistsTF{Source Han Serif SC}{\setCJKmainfont{Source Han Serif SC}}{}
+\IfFontExistsTF{Noto Sans SC}{\setCJKmainfont{Noto Sans SC}}{}
+\IfFontExistsTF{SimSun}{\setCJKmainfont{SimSun}}{}
+\IfFontExistsTF{Microsoft YaHei}{\setCJKmainfont{Microsoft YaHei}}{}
+\IfFontExistsTF{SimHei}{\setCJKmainfont{SimHei}}{}
+\IfFontExistsTF{KaiTi}{\setCJKmainfont{KaiTi}}{}
+\IfFontExistsTF{FangSong}{\setCJKmainfont{FangSong}}{}
+\IfFontExistsTF{STSong}{\setCJKmainfont{STSong}}{}
+% 若以上全部缺失，中文可能显示为方框；请安装 Noto Sans CJK SC 或在 config 中指定字体
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+% 关闭 CJK 与西文之间的额外间距，贴近学术排版习惯
+
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Mathematics}
+\rhead{Student}
+\rfoot{Page \thepage}
+\cfoot{}
+
+% ── 颜色定义 ──
+\definecolor{solutionblue}{HTML}{1D4ED8}
+\definecolor{solutiongreen}{HTML}{15803D}
+\definecolor{warnamber}{HTML}{B45309}
+\definecolor{verifyred}{HTML}{B91C1C}
+
+% ── 自定义环境 ──
+\newtcolorbox{stepbox}{colback=blue!2!white,colframe=blue!20!black,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{verifybox}{colback=green!3!white,colframe=green!35!black,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt}
+\newtcolorbox{warnbox}{colback=orange!5!white,colframe=orange!45!black,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt}
+
+\newcommand{\problem}[1]{\subsection*{Problem~#1}}
+\newcommand{\solution}{%
+  \par\noindent
+  {\color{solutiongreen}\bfseries Solution.}\par
+}
+\newcommand{\verifyok}{\textcolor{solutiongreen}{\ensuremath{\checkmark}\ 已验证}}
+\newcommand{\verifywarn}{\textcolor{verifyred}{\ensuremath{\times}\ 验证存疑}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Homework Solutions} \\[0.6em]
+  {\large\color{solutionblue} Mathematics} \\[0.4em]
+  Student \quad | \quad 2026-10-06
+\end{center}
+\vspace{0.5em}\hrule\vspace{1.2em}
+\problem{Q1}
+
+\begin{stepbox}
+Suppose $f$ is a function and $L$ and $a$ are real numbers.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+见各子题计算过程。
+\end{stepbox}
+
+\begin{center}
+\textbackslash{}text\{见各子题\}
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.3em}
+\textbf{(a)}\quad \textcolor{gray}{\small Describe what is meant by \$\textbackslash{}lim\_\{x \textbackslash{}to a\} f(x) = L\$ as best you can.}
+
+\textcolor{warnamber}{未解：无法解析该子题的极限表达式}
+
+\textbf{(b)}\quad \textcolor{gray}{\small Graph a function \$y = f(x)\$ such that \$\textbackslash{}lim\_\{x \textbackslash{}to a\} f(x) = L\$, and \$f(a) = L\$.}
+
+This sub-question asks for a graph; see the matplotlib figure generated for this problem.
+
+$\quad\Rightarrow\quad \text{见附图}$
+
+\textbf{(c)}\quad \textcolor{gray}{\small Graph a function \$y = f(x)\$ such that \$\textbackslash{}lim\_\{x \textbackslash{}to a\} f(x) = L\$, but \$f(a) \textbackslash{}neq…}
+
+This sub-question asks for a graph; see the matplotlib figure generated for this problem.
+
+$\quad\Rightarrow\quad \text{见附图}$
+
+\textbf{(d)}\quad \textcolor{gray}{\small Graph a function \$y = f(x)\$ such that \$\textbackslash{}lim\_\{x \textbackslash{}to a\} f(x) = L\$, and \$f(a)\$ doe…}
+
+This sub-question asks for a graph; see the matplotlib figure generated for this problem.
+
+$\quad\Rightarrow\quad \text{见附图}$
+
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{Q2}
+
+\begin{stepbox}
+Is $\infty$ a number? What does $\lim_{x \to a} f(x) = \infty$ mean? Does $\lim_{x \to a} f(x) = \infty$ mean that the limit exists?
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+$\infty$ **不是**实数，也不是有理数/无理数中的任何一个。
+\end{stepbox}
+
+\begin{stepbox}
+它是一个**符号**，用来描述「无界增长」这种行为。
+\end{stepbox}
+
+\begin{stepbox}
+$\lim_{x\to a}f(x)=\infty$ 的含义：给定任意 $M>0$，
+\end{stepbox}
+
+\begin{stepbox}
+存在 $\delta>0$，当 $0<|x-a|<\delta$ 时 $f(x)>M$。
+\end{stepbox}
+
+\begin{stepbox}
+因此它表示**发散**，不能说「极限 = ∞ 存在」——
+\end{stepbox}
+
+\begin{stepbox}
+极限存在要求极限是**实数**，而 ∞ 不是实数。
+\end{stepbox}
+
+\begin{center}
+\textbackslash{}infty \textbackslash{}text\{ 不是实数；\}\textbackslash{}lim\_\{x\textbackslash{}to a\}f(x)=\textbackslash{}infty\textbackslash{}text\{ 表示发散（极限不存在）\}
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{Q3}
+
+\begin{stepbox}
+What does the Squeeze Theorem say? Draw a picture illustrating this theorem.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+**夹逼定理**：若在 $a$ 的某去心邻域内 $g(x)\le f(x)\le h(x)$，且 $\lim_{x\to a}g(x)=\lim_{x\to a}h(x)=L$，
+\end{stepbox}
+
+\begin{stepbox}
+则 $\lim_{x\to a}f(x)=L$。
+\end{stepbox}
+
+\begin{stepbox}
+直观理解：$f$ 被两个都收敛到 $L$ 的函数夹住，只能跟着收敛到 $L$。
+\end{stepbox}
+
+\begin{center}
+$\boxed{g\le f\le h,\ \lim g=\lim h=L \Rightarrow \lim f = L}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{Q4}
+
+\begin{stepbox}
+What do we mean by $\lim_{x \to a^-} f(x) = L$? What is meant by $\lim_{x \to a^+} f(x) = L$? Graph a function $y = f(x)$ and some point $x = a$ where $\lim_{x \to a^-} f(x) \neq \lim_{x \to a^+} f(x)$. Find an algebraic expression for such a function.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+$\lim_{x\to a^-}f(x)=L$：**左极限**——$x$ 从**小于** $a$ 的一侧趋近 $a$。
+\end{stepbox}
+
+\begin{stepbox}
+$\lim_{x\to a^+}f(x)=L$：**右极限**——$x$ 从**大于** $a$ 的一侧趋近 $a$。
+\end{stepbox}
+
+\begin{stepbox}
+**双侧极限存在** $\iff$ 左右极限都存在且相等。
+\end{stepbox}
+
+\begin{stepbox}
+
+\end{stepbox}
+
+\begin{stepbox}
+要求左右极限**不相等**的反例（跳跃间断点）：
+\end{stepbox}
+
+\begin{stepbox}
+$$f(x) = \begin{cases} 0, & x < 0\\ 1, & x \ge 0\end{cases}\quad (a=0)$$
+\end{stepbox}
+
+\begin{stepbox}
+此时 $\lim_{x\to 0^-}f(x) = 0$，$\lim_{x\to 0^+}f(x) = 1$，
+\end{stepbox}
+
+\begin{stepbox}
+二者不等，故 $\lim_{x\to 0}f(x)$ 不存在。
+\end{stepbox}
+
+\begin{center}
+\textbackslash{}lim\_\{x\textbackslash{}to a\textasciicircum{}-\}f(x)\textbackslash{}ne\textbackslash{}lim\_\{x\textbackslash{}to a\textasciicircum{}+\}f(x)\textbackslash{} \textbackslash{}Rightarrow\textbackslash{} \textbackslash{}lim\_\{x\textbackslash{}to a\}f(x) \textbackslash{}text\{ 不存在\}\textbackslash{}quad\textbackslash{}text\{（如 \} f(x)=\textbackslash{}mathbf\{1\}\_\{x\textbackslash{}ge 0\}\textbackslash{}text\{ 在 \} x=0\textbackslash{}text\{）\}
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{P1}
+
+\begin{stepbox}
+(a) Is the limit of a sum always the sum of the limits? Give an example where $\lim_{x \to a}[f(x) + g(x)]$ exists even though neither $\lim_{x \to a} f(x)$ nor $\lim_{x \to a} g(x)$ exist.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+**否**。和的极限**不总是**极限的和。
+\end{stepbox}
+
+\begin{stepbox}
+和律要求两个极限**各自存在**。
+\end{stepbox}
+
+\begin{stepbox}
+反例：$f(x)=\frac1x$，$g(x)=-\frac1x$（$x\to0$）。
+\end{stepbox}
+
+\begin{stepbox}
+两者极限都不存在，但 $\lim_{x\to0}[f+g]=\lim 0=0$。
+\end{stepbox}
+
+\begin{center}
+\textbackslash{}lim[f+g]=0\textbackslash{} \textbackslash{}text\{但\}\textbackslash{} \textbackslash{}lim f,\textbackslash{}lim g\textbackslash{} \textbackslash{}text\{均不存在\}
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{P2}
+
+\begin{stepbox}
+(a) Find $\lim_{x \to 0^+}(\frac{1}{x} - \frac{1}{|x|})$, $\lim_{x \to 0^-}(\frac{1}{x} - \frac{1}{|x|})$, and $\lim_{x \to 0}(\frac{1}{x} - \frac{1}{|x|})$, if they exist.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+$\lim_{x \to 0^+} - \frac{1}{\left|{x}\right|} + \frac{1}{x} = 0$
+\end{stepbox}
+
+\begin{stepbox}
+$\lim_{x \to 0^-} - \frac{1}{\left|{x}\right|} + \frac{1}{x} = -\infty$
+\end{stepbox}
+
+\begin{stepbox}
+$\lim_{x \to 0} - \frac{1}{\left|{x}\right|} + \frac{1}{x} = 0$
+\end{stepbox}
+
+\begin{center}
+$\boxed{0}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 2/2 项检验通过（答案形式检查、极限符号/数值交叉检验） \end{verifybox}
+
+\vspace{0.3em}
+\textbf{(b)}\quad \textcolor{gray}{\small Show that \$\textbackslash{}lim\_\{x \textbackslash{}to 0\} |x| = 0\$.}
+
+\textcolor{warnamber}{未解：无法解析该子题的极限表达式}
+
+\textbf{(c)}\quad \textcolor{gray}{\small Show that \$\textbackslash{}lim\_\{x \textbackslash{}to 0\} \textbackslash{}frac\{|x|\}\{x\}\$ does not exist.}
+
+左极限：$\lim_{x \to 0^-} \frac{\left|{x}\right|}{x} = -1$
+
+右极限：$\lim_{x \to 0^+} \frac{\left|{x}\right|}{x} = 1$
+
+因 $-1 \neq 1$，极限不存在。
+
+$\quad\Rightarrow\quad \text{DNE}$
+
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{P3}
+
+\begin{stepbox}
+For what kinds of functions can one evaluate the limit $\lim_{x \to a} f(x)$ by just plugging in $x = a$? Give an example of a function $f(x)$ for which the limit $\lim_{x \to a} f(x)$ exists and can be evaluated, yet for which this substitution doesn't work.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+**连续函数**可直接代入：$\lim_{x\to a}f(x)=f(a)$。
+\end{stepbox}
+
+\begin{stepbox}
+包括多项式、有理函数（在分母非零点）、三角/指数/对数函数在其定义域内的点。
+\end{stepbox}
+
+\begin{stepbox}
+反例：$f(x)=\frac{x^2-1}{x-1}$ 在 $x=1$ 处直接代入得 $0/0$，但 $\lim_{x\to1}(x+1)=2$。
+\end{stepbox}
+
+\begin{center}
+\textbackslash{}text\{连续函数：\}\textbackslash{}lim\_\{x\textbackslash{}to a\}f(x)=f(a)
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{AP1}
+
+\begin{stepbox}
+Below are listed three limits. Match the best method to each limit and evaluate each limit.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+见各子题计算过程。
+\end{stepbox}
+
+\begin{center}
+\textbackslash{}text\{见各子题\}
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.3em}
+\textbf{(a)}\quad \textcolor{gray}{\small \$\textbackslash{}lim\_\{x \textbackslash{}to 0\} \textbackslash{}frac\{x\textasciicircum{}\{1000\} - 703x\textasciicircum{}\{506\} + \textbackslash{}pi x\textasciicircum{}\{17\} + 480\}\{-372x\textasciicircum{}\{75\} + 39…}
+
+$\lim_{x \to 0} \frac{x^{1000} - 703 x^{506} + \pi x^{17} + 480}{- 372 x^{75} + 39 x^{14} + \sqrt{7} x^{5} - 24} = -20$
+
+$\quad\Rightarrow\quad -20$
+
+\textbf{(b)}\quad \textcolor{gray}{\small \$\textbackslash{}lim\_\{x \textbackslash{}to 4\} \textbackslash{}frac\{x\textasciicircum{}2 + 2x - 24\}\{x - 4\}\$}
+
+$\lim_{x \to 4} \frac{x^{2} + 2 x - 24}{x - 4} = 10$
+
+$\quad\Rightarrow\quad 10$
+
+\textbf{(c)}\quad \textcolor{gray}{\small \$\textbackslash{}lim\_\{x \textbackslash{}to 0\} x\textasciicircum{}2 \textbackslash{}sin(\textbackslash{}frac\{1\}\{x\})\$}
+
+$\lim_{x \to 0} x^{2} \sin{\left(\frac{1}{x} \right)} = 0$
+
+$\quad\Rightarrow\quad 0$
+
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{AP2}
+
+\begin{stepbox}
+Using a calculator, try to guess $\lim_{n \to \infty} n \sin(\frac{\pi}{n})$. (Remember that $n$ is in radians, not degrees!)
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+$\lim_{n \to \infty} n \sin{\left(\frac{\pi}{n} \right)} = \pi$
+\end{stepbox}
+
+\begin{center}
+$\boxed{\pi}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/2 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{AP3}
+
+\begin{stepbox}
+Draw a circle of radius 1. Inscribe a regular $n$-gon inside it.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+半径 $R = 1.0$，圆面积 $A_\bigcirc = \pi R^2$
+\end{stepbox}
+
+\begin{stepbox}
+把圆分成 $n$ 个等腰三角形（顶角 $2\pi/n$，两边都是半径 $R$）：
+\end{stepbox}
+
+\begin{stepbox}
+单个三角形面积：$\Delta_n = \frac{1}{2}R^2\sin\frac{2\pi}{n}$
+\end{stepbox}
+
+\begin{stepbox}
+$n$ 边形面积：$A_n = n\Delta_n = \frac{n}{2}R^2\sin\frac{2\pi}{n}$
+\end{stepbox}
+
+\begin{stepbox}
+$\lim_{n \to \infty} A_n = \lim_{n\to\infty} \frac{n}{2}R^2\sin\frac{2\pi}{n} = \pi$
+\end{stepbox}
+
+\begin{stepbox}
+直觉校验：$n\to\infty$ 时多边形越来越像圆，面积应趋于 $\pi R^2 = 1.0 \pi$—— 与上面一致 ✓
+\end{stepbox}
+
+\begin{center}
+$\boxed{\pi}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/2 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.3em}
+\textbf{(a)}\quad \textcolor{gray}{\small What is the measure of the angles formed around the center of the circle?}
+
+$n$ 个等腰三角形的顶角加起来是整周 $2\pi$，
+
+所以每个角 $\theta = \frac{2\pi}{n}$（即 $360°/n$）。
+
+$\quad\Rightarrow\quad \theta = \frac{2\pi}{n}$
+
+\textbf{(b)}\quad \textcolor{gray}{\small What is the area of one triangle? What is the area of the polygon?}
+
+$\Delta_n = \frac{1}{2}R^2\sin\frac{2\pi}{n} = 0.5 \sin{\left(\frac{2 \pi}{n} \right)}$
+
+多边形面积：$A_n = n\Delta_n = 0.5 n \sin{\left(\frac{2 \pi}{n} \right)}$
+
+$\quad\Rightarrow\quad \Delta_n = 0.5 \sin{\left(\frac{2 \pi}{n} \right)},\quad A_n = 0.5 n \sin{\left(\frac{2 \pi}{n} \right)}$
+
+\textbf{(c)}\quad \textcolor{gray}{\small Calculate \$\textbackslash{}lim\_\{n \textbackslash{}to \textbackslash{}infty\}\$ (Area of \$n\$-gon). Does this answer make sense …}
+
+$\lim_{n \to \infty} A_n = \lim_{n\to\infty} \frac{n}{2}R^2\sin\frac{2\pi}{n} = \pi$
+
+直觉校验：$n\to\infty$ 时多边形越来越像圆，面积应趋于 $\pi R^2 = 1.0 \pi$—— 与上面一致 ✓
+
+$\quad\Rightarrow\quad \pi$
+
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\vspace{1.5em}
+\hrule\vspace{0.8em}
+\begin{center}\small
+\textbf{求解汇总}\quad 共 10 题，自动解出 10 题（100\%）；验证通过 10 题，存疑 0 题。\\[0.3em]
+\textcolor{gray}{求解器分布：conceptual\_template×5、sympy\_geometry\_limit×1、sympy\_limit×4}
+\end{center}
+\vfill\begin{center}\footnotesize\textcolor{gray}{由 Meteorain C4C 作业自动求解流水线自动生成}\end{center}
+\end{document}

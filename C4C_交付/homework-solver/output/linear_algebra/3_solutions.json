@@ -1,0 +1,488 @@
+[
+  {
+    "problem_id": "1",
+    "problem_text": "Compute the determinant of the matrix $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$.",
+    "solved": true,
+    "steps": [
+      "解析到矩阵 $A = \\left[\\begin{matrix}1 & 2\\\\3 & 4\\end{matrix}\\right]$（阶数 2x2）",
+      "行列式定义：按第一行展开 $\\det(A) = -2$"
+    ],
+    "answer": "-2",
+    "answer_latex": "-2",
+    "solver": "sympy_matrix_determinant",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "eigen",
+      "matrix": "Matrix([[1, 2], [3, 4]])"
+    },
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "2",
+    "problem_text": "Let $A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$. Find $A^{-1}$.",
+    "solved": true,
+    "steps": [
+      "解析到矩阵 $A = \\left[\\begin{matrix}4 & 1\\\\2 & 3\\end{matrix}\\right]$（阶数 2x2）",
+      "$\\det(A) = 10$ → 非零，逆矩阵存在",
+      "$A^{-1} = \\left[\\begin{matrix}\\frac{3}{10} & - \\frac{1}{10}\\\\- \\frac{1}{5} & \\frac{2}{5}\\end{matrix}\\right]$",
+      "验证 $AA^{-1} = I$：$\\begin{pmatrix}\\left[\\begin{matrix}1 & 0\\\\0 & 1\\end{matrix}\\right]\\end{pmatrix}$"
+    ],
+    "answer": "\\left[\\begin{matrix}\\frac{3}{10} & - \\frac{1}{10}\\\\- \\frac{1}{5} & \\frac{2}{5}\\end{matrix}\\right]",
+    "answer_latex": "\\left[\\begin{matrix}\\frac{3}{10} & - \\frac{1}{10}\\\\- \\frac{1}{5} & \\frac{2}{5}\\end{matrix}\\right]",
+    "solver": "sympy_matrix_inverse",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "identity",
+      "M": "Matrix([[4, 1], [2, 3]])",
+      "Minv": "Matrix([[3/10, -1/10], [-1/5, 2/5]])"
+    },
+    "verification": {
+      "overall": "pass",
+      "n_checks": 3,
+      "n_passed": 3,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "method": "matrix_shape_check",
+          "issues": []
+        },
+        {
+          "passed": true,
+          "method": "identity_check",
+          "issue": null
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "3",
+    "problem_text": "Find all eigenvalues of $A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$.",
+    "solved": true,
+    "steps": [
+      "解析到矩阵 $A = \\left[\\begin{matrix}2 & 1\\\\1 & 2\\end{matrix}\\right]$（阶数 2x2）",
+      "特征多项式：$\\chi_A(\\lambda) = \\lambda^{2} - 4 \\lambda + 3$",
+      "特征值：$\\lambda = 3$，重数 1；$\\lambda = 1$，重数 1"
+    ],
+    "answer": "3, 1",
+    "answer_latex": "3, 1",
+    "solver": "sympy_eigenvalues",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "eigen",
+      "matrix": "Matrix([[2, 1], [1, 2]])"
+    },
+    "eigenvalues": [
+      "3",
+      "1"
+    ],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 2,
+      "n_passed": 2,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "residual": 0.0,
+          "chardegree": 2,
+          "method": "cross_check_eigen",
+          "issue": null
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "4",
+    "problem_text": "Find the eigenvalues and corresponding eigenvectors of\n$A = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$.",
+    "solved": true,
+    "steps": [
+      "解析到矩阵 $A = \\left[\\begin{matrix}1 & 0\\\\0 & 1\\end{matrix}\\right]$（阶数 2x2）",
+      "$\\lambda=1$ 的特征空间基：\\left[\\begin{matrix}1\\\\0\\end{matrix}\\right], \\left[\\begin{matrix}0\\\\1\\end{matrix}\\right]"
+    ],
+    "answer": "\\lambda = 1: \\; \\left[\\begin{matrix}1\\\\0\\end{matrix}\\right], \\left[\\begin{matrix}0\\\\1\\end{matrix}\\right]",
+    "answer_latex": "\\lambda = 1: \\; \\left[\\begin{matrix}1\\\\0\\end{matrix}\\right], \\left[\\begin{matrix}0\\\\1\\end{matrix}\\right]",
+    "solver": "sympy_eigenvectors",
+    "sub_solutions": [],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "5",
+    "problem_text": "Compute the eigenvalues of $A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 5 \\end{pmatrix}$.",
+    "solved": true,
+    "steps": [
+      "解析到矩阵 $A = \\left[\\begin{matrix}1 & 2 & 0\\\\0 & 1 & 0\\\\0 & 0 & 5\\end{matrix}\\right]$（阶数 3x3）",
+      "特征多项式：$\\chi_A(\\lambda) = \\lambda^{3} - 7 \\lambda^{2} + 11 \\lambda - 5$",
+      "特征值：$\\lambda = 1$，重数 2；$\\lambda = 5$，重数 1"
+    ],
+    "answer": "1\\ (2\\times), 5",
+    "answer_latex": "1\\ (2\\times), 5",
+    "solver": "sympy_eigenvalues",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "eigen",
+      "matrix": "Matrix([[1, 2, 0], [0, 1, 0], [0, 0, 5]])"
+    },
+    "eigenvalues": [
+      "1",
+      "5"
+    ],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 2,
+      "n_passed": 2,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "residual": 0.0,
+          "chardegree": 3,
+          "method": "cross_check_eigen",
+          "issue": null
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "6",
+    "problem_text": "Let $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $\\mathbf{b} = \\begin{pmatrix} 5 \\\\ 11 \\end{pmatrix}$.\nSolve the linear system $A\\mathbf{x} = \\mathbf{b}$.",
+    "solved": true,
+    "steps": [
+      "解析到矩阵 $A = \\left[\\begin{matrix}1 & 2\\\\3 & 4\\end{matrix}\\right]$（阶数 2x2）",
+      "$A = \\left[\\begin{matrix}1 & 2\\\\3 & 4\\end{matrix}\\right]$, $\\mathbf{b} = \\left[\\begin{matrix}5\\\\11\\end{matrix}\\right]$",
+      "$\\det(A) = -2$ → 系数矩阵非奇异，唯一解",
+      "$x = A^{-1}\\mathbf{b} = \\left[\\begin{matrix}-2 & 1\\\\\\frac{3}{2} & - \\frac{1}{2}\\end{matrix}\\right] \\cdot \\left[\\begin{matrix}5\\\\11\\end{matrix}\\right] = \\left[\\begin{matrix}1\\\\2\\end{matrix}\\right]$",
+      "验证 $Ax - \\mathbf{b} = \\left[\\begin{matrix}0\\\\0\\end{matrix}\\right]$"
+    ],
+    "answer": "\\left[\\begin{matrix}1\\\\2\\end{matrix}\\right]",
+    "answer_latex": "\\left[\\begin{matrix}1\\\\2\\end{matrix}\\right]",
+    "solver": "sympy_linear_system",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "identity",
+      "M": "Matrix([[1, 2], [3, 4]])",
+      "Minv": "Matrix([[-2, 1], [3/2, -1/2]])",
+      "b": "Matrix([[5], [11]])"
+    },
+    "verification": {
+      "overall": "pass",
+      "n_checks": 3,
+      "n_passed": 3,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "method": "matrix_shape_check",
+          "issues": []
+        },
+        {
+          "passed": true,
+          "method": "identity_check",
+          "issue": null
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "7",
+    "problem_text": "Determine whether the columns of\n$A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$ are orthogonal.",
+    "solved": true,
+    "steps": [
+      "解析到矩阵 $A = \\left[\\begin{matrix}1 & 1\\\\0 & 1\\end{matrix}\\right]$（阶数 2x2）",
+      "输入为 2x2 矩阵，取其列向量作为待处理向量：v_1 = \\left[\\begin{matrix}1\\\\0\\end{matrix}\\right], v_2 = \\left[\\begin{matrix}1\\\\1\\end{matrix}\\right]",
+      "两两内积：$\\langle v_1,v_2\\rangle = 1$",
+      "结论：**不正交**——存在内积非零的一对"
+    ],
+    "answer": "**不正交**——存在内积非零的一对;\\quad $\\langle v_1,v_2\\rangle = 1$",
+    "answer_latex": "**不正交**——存在内积非零的一对;\\quad $\\langle v_1,v_2\\rangle = 1$",
+    "solver": "sympy_orthogonality_check",
+    "sub_solutions": [],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "8",
+    "problem_text": "Apply Gram-Schmidt orthogonalization to\n$A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$.",
+    "solved": true,
+    "steps": [
+      "解析到矩阵 $A = \\left[\\begin{matrix}1 & 1\\\\1 & 0\\\\0 & 1\\end{matrix}\\right]$（阶数 3x2）",
+      "输入为 3x2 矩阵，取其行向量作为待处理向量：v_1 = \\left[\\begin{matrix}1 & 1\\end{matrix}\\right], v_2 = \\left[\\begin{matrix}1 & 0\\end{matrix}\\right], v_3 = \\left[\\begin{matrix}0 & 1\\end{matrix}\\right]",
+      "Gram-Schmidt 结果：",
+      "$q_1 = \\left[\\begin{matrix}1\\\\1\\\\0\\end{matrix}\\right]$",
+      "$q_2 = \\left[\\begin{matrix}\\frac{1}{2}\\\\- \\frac{1}{2}\\\\1\\end{matrix}\\right]$",
+      "验证 $Q^TQ = \\left[\\begin{matrix}2 & 0\\\\0 & \\frac{3}{2}\\end{matrix}\\right]$",
+      "说明：$Q$ 的**各列**依次为 $q_1, q_2, \\dots$，即所求正交组。"
+    ],
+    "answer": "Q = \\left[\\begin{matrix}1 & \\frac{1}{2}\\\\1 & - \\frac{1}{2}\\\\0 & 1\\end{matrix}\\right]",
+    "answer_latex": "Q = \\left[\\begin{matrix}1 & \\frac{1}{2}\\\\1 & - \\frac{1}{2}\\\\0 & 1\\end{matrix}\\right]",
+    "solver": "sympy_gram_schmidt",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "orthogonal",
+      "Q": "Matrix([[1, 1/2], [1, -1/2], [0, 1]])"
+    },
+    "verification": {
+      "overall": "pass",
+      "n_checks": 2,
+      "n_passed": 2,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "method": "identity_check",
+          "note": "QᵀQ 为对角阵（非对角元全 0）= Gram-Schmidt 正交组，对角元为长度平方：\\left[\\begin{matrix}2 & 0\\\\0 & \\frac{3}{2}\\end{matrix}\\right]"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "9",
+    "problem_text": "Compute the rank of\n$A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\\\ 3 & 6 \\end{pmatrix}$.",
+    "solved": true,
+    "steps": [
+      "解析到矩阵 $A = \\left[\\begin{matrix}1 & 2\\\\2 & 4\\\\3 & 6\\end{matrix}\\right]$（阶数 3x2）",
+      "行阶梯化后非零行数为 1"
+    ],
+    "answer": "1",
+    "answer_latex": "1",
+    "solver": "sympy_matrix_rank",
+    "sub_solutions": [],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "10",
+    "problem_text": "Let $A = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}$. Find a matrix $P$ that diagonalizes\n$A$, i.e. find $P$ and $D$ such that $A = PDP^{-1}$.",
+    "solved": true,
+    "steps": [
+      "解析到矩阵 $A = \\left[\\begin{matrix}2 & 0\\\\0 & 3\\end{matrix}\\right]$（阶数 2x2）",
+      "$P = \\left[\\begin{matrix}1 & 0\\\\0 & 1\\end{matrix}\\right]$",
+      "$\\det(P) = 1$",
+      "$D = \\left[\\begin{matrix}2 & 0\\\\0 & 3\\end{matrix}\\right]$",
+      "验证 $P^{-1}AP = \\left[\\begin{matrix}2 & 0\\\\0 & 3\\end{matrix}\\right]$",
+      "✓ 与 D 一致，对角化成立"
+    ],
+    "answer": "A = PDP^{-1},\\quad P = \\left[\\begin{matrix}1 & 0\\\\0 & 1\\end{matrix}\\right],\\quad D = \\left[\\begin{matrix}2 & 0\\\\0 & 3\\end{matrix}\\right]",
+    "answer_latex": "A = PDP^{-1},\\quad P = \\left[\\begin{matrix}1 & 0\\\\0 & 1\\end{matrix}\\right],\\quad D = \\left[\\begin{matrix}2 & 0\\\\0 & 3\\end{matrix}\\right]",
+    "solver": "sympy_diagonalize",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "diagonalize",
+      "M": "Matrix([[2, 0], [0, 3]])",
+      "P": "Matrix([[1, 0], [0, 1]])",
+      "D": "Matrix([[2, 0], [0, 3]])"
+    },
+    "eigenvalues": [
+      "2",
+      "3"
+    ],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 4,
+      "n_passed": 4,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "method": "matrix_shape_check",
+          "issues": []
+        },
+        {
+          "passed": true,
+          "method": "identity_check",
+          "issue": null
+        },
+        {
+          "passed": true,
+          "residual": 0.0,
+          "chardegree": 2,
+          "method": "cross_check_eigen",
+          "issue": null
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "11",
+    "problem_text": "Let $A = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$. What is the null space of $A$?",
+    "solved": true,
+    "steps": [
+      "解析到矩阵 $A = \\left[\\begin{matrix}0 & 0\\\\0 & 0\\end{matrix}\\right]$（阶数 2x2）",
+      "基：\\left[\\begin{matrix}1\\\\0\\end{matrix}\\right], \\left[\\begin{matrix}0\\\\1\\end{matrix}\\right]"
+    ],
+    "answer": "\\left\\{ \\left[\\begin{matrix}1\\\\0\\end{matrix}\\right], \\left[\\begin{matrix}0\\\\1\\end{matrix}\\right] \\right\\}",
+    "answer_latex": "\\left\\{ \\left[\\begin{matrix}1\\\\0\\end{matrix}\\right], \\left[\\begin{matrix}0\\\\1\\end{matrix}\\right] \\right\\}",
+    "solver": "sympy_nullspace",
+    "sub_solutions": [],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "12",
+    "problem_text": "Diagonalize $A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$.",
+    "solved": true,
+    "steps": [
+      "解析到矩阵 $A = \\left[\\begin{matrix}4 & 1\\\\2 & 3\\end{matrix}\\right]$（阶数 2x2）",
+      "$P = \\left[\\begin{matrix}-1 & 1\\\\2 & 1\\end{matrix}\\right]$",
+      "$\\det(P) = -3$",
+      "$D = \\left[\\begin{matrix}2 & 0\\\\0 & 5\\end{matrix}\\right]$",
+      "验证 $P^{-1}AP = \\left[\\begin{matrix}2 & 0\\\\0 & 5\\end{matrix}\\right]$",
+      "✓ 与 D 一致，对角化成立"
+    ],
+    "answer": "A = PDP^{-1},\\quad P = \\left[\\begin{matrix}-1 & 1\\\\2 & 1\\end{matrix}\\right],\\quad D = \\left[\\begin{matrix}2 & 0\\\\0 & 5\\end{matrix}\\right]",
+    "answer_latex": "A = PDP^{-1},\\quad P = \\left[\\begin{matrix}-1 & 1\\\\2 & 1\\end{matrix}\\right],\\quad D = \\left[\\begin{matrix}2 & 0\\\\0 & 5\\end{matrix}\\right]",
+    "solver": "sympy_diagonalize",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "diagonalize",
+      "M": "Matrix([[4, 1], [2, 3]])",
+      "P": "Matrix([[-1, 1], [2, 1]])",
+      "D": "Matrix([[2, 0], [0, 5]])"
+    },
+    "eigenvalues": [
+      "5",
+      "2"
+    ],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 4,
+      "n_passed": 4,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "method": "matrix_shape_check",
+          "issues": []
+        },
+        {
+          "passed": true,
+          "method": "identity_check",
+          "issue": null
+        },
+        {
+          "passed": true,
+          "residual": 0.0,
+          "chardegree": 2,
+          "method": "cross_check_eigen",
+          "issue": null
+        }
+      ]
+    }
+  }
+]

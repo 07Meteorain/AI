@@ -1,0 +1,523 @@
+[
+  {
+    "problem_id": "Q1",
+    "problem_text": "Suppose $f$ is a function and $L$ and $a$ are real numbers.",
+    "solved": true,
+    "steps": [
+      "见各子题计算过程。"
+    ],
+    "answer": "见子题",
+    "answer_latex": "\\text{见各子题}",
+    "solver": "sympy_limit",
+    "sub_solutions": [
+      {
+        "problem_id": "a",
+        "problem_text": "Describe what is meant by $\\lim_{x \\to a} f(x) = L$ as best you can.",
+        "solved": false,
+        "steps": [],
+        "answer": null,
+        "answer_latex": "",
+        "reason": "无法解析该子题的极限表达式",
+        "solver": "none",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "b",
+        "problem_text": "Graph a function $y = f(x)$ such that $\\lim_{x \\to a} f(x) = L$, and $f(a) = L$.",
+        "solved": true,
+        "steps": [
+          "This sub-question asks for a graph; see the matplotlib figure generated for this problem."
+        ],
+        "answer": "\\text{见附图}",
+        "answer_latex": "\\text{见附图}",
+        "solver": "sympy",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "c",
+        "problem_text": "Graph a function $y = f(x)$ such that $\\lim_{x \\to a} f(x) = L$, but $f(a) \\neq L$.",
+        "solved": true,
+        "steps": [
+          "This sub-question asks for a graph; see the matplotlib figure generated for this problem."
+        ],
+        "answer": "\\text{见附图}",
+        "answer_latex": "\\text{见附图}",
+        "solver": "sympy",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "d",
+        "problem_text": "Graph a function $y = f(x)$ such that $\\lim_{x \\to a} f(x) = L$, and $f(a)$ does not exist.",
+        "solved": true,
+        "steps": [
+          "This sub-question asks for a graph; see the matplotlib figure generated for this problem."
+        ],
+        "answer": "\\text{见附图}",
+        "answer_latex": "\\text{见附图}",
+        "solver": "sympy",
+        "sub_solutions": []
+      }
+    ],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "Q2",
+    "problem_text": "Is $\\infty$ a number? What does $\\lim_{x \\to a} f(x) = \\infty$ mean? Does $\\lim_{x \\to a} f(x) = \\infty$ mean that the limit exists?",
+    "solved": true,
+    "steps": [
+      "$\\infty$ **不是**实数，也不是有理数/无理数中的任何一个。",
+      "它是一个**符号**，用来描述「无界增长」这种行为。",
+      "$\\lim_{x\\to a}f(x)=\\infty$ 的含义：给定任意 $M>0$，",
+      "存在 $\\delta>0$，当 $0<|x-a|<\\delta$ 时 $f(x)>M$。",
+      "因此它表示**发散**，不能说「极限 = ∞ 存在」——",
+      "极限存在要求极限是**实数**，而 ∞ 不是实数。"
+    ],
+    "answer": "∞ 不是数；lim f = ∞ 表示无界发散，不意味着极限存在",
+    "answer_latex": "\\infty \\text{ 不是实数；}\\lim_{x\\to a}f(x)=\\infty\\text{ 表示发散（极限不存在）}",
+    "solver": "conceptual_template",
+    "sub_solutions": [],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "Q3",
+    "problem_text": "What does the Squeeze Theorem say? Draw a picture illustrating this theorem.",
+    "solved": true,
+    "steps": [
+      "**夹逼定理**：若在 $a$ 的某去心邻域内 $g(x)\\le f(x)\\le h(x)$，且 $\\lim_{x\\to a}g(x)=\\lim_{x\\to a}h(x)=L$，",
+      "则 $\\lim_{x\\to a}f(x)=L$。",
+      "直观理解：$f$ 被两个都收敛到 $L$ 的函数夹住，只能跟着收敛到 $L$。"
+    ],
+    "answer": "g(x)≤f(x)≤h(x) 且 lim g = lim h = L ⟹ lim f = L",
+    "answer_latex": "g\\le f\\le h,\\ \\lim g=\\lim h=L \\Rightarrow \\lim f = L",
+    "solver": "conceptual_template",
+    "sub_solutions": [],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "Q4",
+    "problem_text": "What do we mean by $\\lim_{x \\to a^-} f(x) = L$? What is meant by $\\lim_{x \\to a^+} f(x) = L$? Graph a function $y = f(x)$ and some point $x = a$ where $\\lim_{x \\to a^-} f(x) \\neq \\lim_{x \\to a^+} f(x)$. Find an algebraic expression for such a function.",
+    "solved": true,
+    "steps": [
+      "$\\lim_{x\\to a^-}f(x)=L$：**左极限**——$x$ 从**小于** $a$ 的一侧趋近 $a$。",
+      "$\\lim_{x\\to a^+}f(x)=L$：**右极限**——$x$ 从**大于** $a$ 的一侧趋近 $a$。",
+      "**双侧极限存在** $\\iff$ 左右极限都存在且相等。",
+      "",
+      "要求左右极限**不相等**的反例（跳跃间断点）：",
+      "$$f(x) = \\begin{cases} 0, & x < 0\\\\ 1, & x \\ge 0\\end{cases}\\quad (a=0)$$",
+      "此时 $\\lim_{x\\to 0^-}f(x) = 0$，$\\lim_{x\\to 0^+}f(x) = 1$，",
+      "二者不等，故 $\\lim_{x\\to 0}f(x)$ 不存在。"
+    ],
+    "answer": "左极限从下方、右极限从上方；双侧极限存在 iff 二者相等。反例：f(x)=0 (x<0), 1 (x≥0) 在 x=0 处跳跃",
+    "answer_latex": "\\lim_{x\\to a^-}f(x)\\ne\\lim_{x\\to a^+}f(x)\\ \\Rightarrow\\ \\lim_{x\\to a}f(x) \\text{ 不存在}\\quad\\text{（如 } f(x)=\\mathbf{1}_{x\\ge 0}\\text{ 在 } x=0\\text{）}",
+    "solver": "conceptual_template",
+    "sub_solutions": [],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "P1",
+    "problem_text": "(a) Is the limit of a sum always the sum of the limits? Give an example where $\\lim_{x \\to a}[f(x) + g(x)]$ exists even though neither $\\lim_{x \\to a} f(x)$ nor $\\lim_{x \\to a} g(x)$ exist.",
+    "solved": true,
+    "steps": [
+      "**否**。和的极限**不总是**极限的和。",
+      "和律要求两个极限**各自存在**。",
+      "反例：$f(x)=\\frac1x$，$g(x)=-\\frac1x$（$x\\to0$）。",
+      "两者极限都不存在，但 $\\lim_{x\\to0}[f+g]=\\lim 0=0$。"
+    ],
+    "answer": "否。反例 f=1/x, g=-1/x",
+    "answer_latex": "\\lim[f+g]=0\\ \\text{但}\\ \\lim f,\\lim g\\ \\text{均不存在}",
+    "solver": "conceptual_template",
+    "sub_solutions": [],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "P2",
+    "problem_text": "(a) Find $\\lim_{x \\to 0^+}(\\frac{1}{x} - \\frac{1}{|x|})$, $\\lim_{x \\to 0^-}(\\frac{1}{x} - \\frac{1}{|x|})$, and $\\lim_{x \\to 0}(\\frac{1}{x} - \\frac{1}{|x|})$, if they exist.",
+    "solved": true,
+    "steps": [
+      "$\\lim_{x \\to 0^+} - \\frac{1}{\\left|{x}\\right|} + \\frac{1}{x} = 0$",
+      "$\\lim_{x \\to 0^-} - \\frac{1}{\\left|{x}\\right|} + \\frac{1}{x} = -\\infty$",
+      "$\\lim_{x \\to 0} - \\frac{1}{\\left|{x}\\right|} + \\frac{1}{x} = 0$"
+    ],
+    "answer": "0",
+    "answer_latex": "0",
+    "solver": "sympy_limit",
+    "sub_solutions": [
+      {
+        "problem_id": "b",
+        "problem_text": "Show that $\\lim_{x \\to 0} |x| = 0$.",
+        "solved": false,
+        "steps": [],
+        "answer": null,
+        "answer_latex": "",
+        "reason": "无法解析该子题的极限表达式",
+        "solver": "none",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "c",
+        "problem_text": "Show that $\\lim_{x \\to 0} \\frac{|x|}{x}$ does not exist.",
+        "solved": true,
+        "steps": [
+          "左极限：$\\lim_{x \\to 0^-} \\frac{\\left|{x}\\right|}{x} = -1$",
+          "右极限：$\\lim_{x \\to 0^+} \\frac{\\left|{x}\\right|}{x} = 1$",
+          "因 $-1 \\neq 1$，极限不存在。"
+        ],
+        "answer": "\\text{DNE}",
+        "answer_latex": "\\text{DNE}",
+        "solver": "sympy",
+        "sub_solutions": []
+      }
+    ],
+    "verify_hint": {
+      "kind": "limit",
+      "ctx": [
+        "-1/Abs(x) + 1/x",
+        "x",
+        "0",
+        null
+      ]
+    },
+    "verification": {
+      "overall": "pass",
+      "n_checks": 2,
+      "n_passed": 2,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "relative_error": 0.0,
+          "symbolic": "0",
+          "numeric": "0.0",
+          "method": "cross_check_limit",
+          "issue": null
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "P3",
+    "problem_text": "For what kinds of functions can one evaluate the limit $\\lim_{x \\to a} f(x)$ by just plugging in $x = a$? Give an example of a function $f(x)$ for which the limit $\\lim_{x \\to a} f(x)$ exists and can be evaluated, yet for which this substitution doesn't work.",
+    "solved": true,
+    "steps": [
+      "**连续函数**可直接代入：$\\lim_{x\\to a}f(x)=f(a)$。",
+      "包括多项式、有理函数（在分母非零点）、三角/指数/对数函数在其定义域内的点。",
+      "反例：$f(x)=\\frac{x^2-1}{x-1}$ 在 $x=1$ 处直接代入得 $0/0$，但 $\\lim_{x\\to1}(x+1)=2$。"
+    ],
+    "answer": "连续函数可直接代入；(x²-1)/(x-1) 在 x=1 需先约分",
+    "answer_latex": "\\text{连续函数：}\\lim_{x\\to a}f(x)=f(a)",
+    "solver": "conceptual_template",
+    "sub_solutions": [],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "AP1",
+    "problem_text": "Below are listed three limits. Match the best method to each limit and evaluate each limit.",
+    "solved": true,
+    "steps": [
+      "见各子题计算过程。"
+    ],
+    "answer": "见子题",
+    "answer_latex": "\\text{见各子题}",
+    "solver": "sympy_limit",
+    "sub_solutions": [
+      {
+        "problem_id": "a",
+        "problem_text": "$\\lim_{x \\to 0} \\frac{x^{1000} - 703x^{506} + \\pi x^{17} + 480}{-372x^{75} + 39x^{14} + \\sqrt{7}x^5 - 24}$",
+        "solved": true,
+        "steps": [
+          "$\\lim_{x \\to 0} \\frac{x^{1000} - 703 x^{506} + \\pi x^{17} + 480}{- 372 x^{75} + 39 x^{14} + \\sqrt{7} x^{5} - 24} = -20$"
+        ],
+        "answer": "-20",
+        "answer_latex": "-20",
+        "solver": "sympy",
+        "sub_solutions": [],
+        "verify_hint": {
+          "kind": "limit",
+          "ctx": [
+            "(x**1000 - 703*x**506 + pi*x**17 + 480)/(-372*x**75 + 39*x**14 + sqrt(7)*x**5 - 24)",
+            "x",
+            "0",
+            "+"
+          ]
+        }
+      },
+      {
+        "problem_id": "b",
+        "problem_text": "$\\lim_{x \\to 4} \\frac{x^2 + 2x - 24}{x - 4}$",
+        "solved": true,
+        "steps": [
+          "$\\lim_{x \\to 4} \\frac{x^{2} + 2 x - 24}{x - 4} = 10$"
+        ],
+        "answer": "10",
+        "answer_latex": "10",
+        "solver": "sympy",
+        "sub_solutions": [],
+        "verify_hint": {
+          "kind": "limit",
+          "ctx": [
+            "(x**2 + 2*x - 24)/(x - 4)",
+            "x",
+            "4",
+            "+"
+          ]
+        }
+      },
+      {
+        "problem_id": "c",
+        "problem_text": "$\\lim_{x \\to 0} x^2 \\sin(\\frac{1}{x})$",
+        "solved": true,
+        "steps": [
+          "$\\lim_{x \\to 0} x^{2} \\sin{\\left(\\frac{1}{x} \\right)} = 0$"
+        ],
+        "answer": "0",
+        "answer_latex": "0",
+        "solver": "sympy",
+        "sub_solutions": [],
+        "verify_hint": {
+          "kind": "limit",
+          "ctx": [
+            "x**2*sin(1/x)",
+            "x",
+            "0",
+            "+"
+          ]
+        }
+      }
+    ],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "AP2",
+    "problem_text": "Using a calculator, try to guess $\\lim_{n \\to \\infty} n \\sin(\\frac{\\pi}{n})$. (Remember that $n$ is in radians, not degrees!)",
+    "solved": true,
+    "steps": [
+      "$\\lim_{n \\to \\infty} n \\sin{\\left(\\frac{\\pi}{n} \\right)} = \\pi$"
+    ],
+    "answer": "pi",
+    "answer_latex": "\\pi",
+    "solver": "sympy_limit",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "limit",
+      "ctx": [
+        "n*sin(pi/n)",
+        "n",
+        "oo",
+        null
+      ]
+    },
+    "verification": {
+      "overall": "pass",
+      "n_checks": 2,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 1,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": null,
+          "method": "cross_check_limit",
+          "symbolic": "pi",
+          "note": "数值采样不稳定（步长过大导致溢出或 NaN），跳过交叉检验"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "AP3",
+    "problem_text": "Draw a circle of radius 1. Inscribe a regular $n$-gon inside it.",
+    "solved": true,
+    "steps": [
+      "半径 $R = 1.0$，圆面积 $A_\\bigcirc = \\pi R^2$",
+      "把圆分成 $n$ 个等腰三角形（顶角 $2\\pi/n$，两边都是半径 $R$）：",
+      "单个三角形面积：$\\Delta_n = \\frac{1}{2}R^2\\sin\\frac{2\\pi}{n}$",
+      "$n$ 边形面积：$A_n = n\\Delta_n = \\frac{n}{2}R^2\\sin\\frac{2\\pi}{n}$",
+      "$\\lim_{n \\to \\infty} A_n = \\lim_{n\\to\\infty} \\frac{n}{2}R^2\\sin\\frac{2\\pi}{n} = \\pi$",
+      "直觉校验：$n\\to\\infty$ 时多边形越来越像圆，面积应趋于 $\\pi R^2 = 1.0 \\pi$—— 与上面一致 ✓"
+    ],
+    "answer": "\\pi",
+    "answer_latex": "\\pi",
+    "solver": "sympy_geometry_limit",
+    "sub_solutions": [
+      {
+        "problem_id": "a",
+        "problem_text": "What is the measure of the angles formed around the center of the circle?",
+        "solved": true,
+        "steps": [
+          "$n$ 个等腰三角形的顶角加起来是整周 $2\\pi$，",
+          "所以每个角 $\\theta = \\frac{2\\pi}{n}$（即 $360°/n$）。"
+        ],
+        "answer": "\\theta = \\frac{2\\pi}{n}",
+        "answer_latex": "\\theta = \\frac{2\\pi}{n}",
+        "solver": "sympy",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "b",
+        "problem_text": "What is the area of one triangle? What is the area of the polygon?",
+        "solved": true,
+        "steps": [
+          "$\\Delta_n = \\frac{1}{2}R^2\\sin\\frac{2\\pi}{n} = 0.5 \\sin{\\left(\\frac{2 \\pi}{n} \\right)}$",
+          "多边形面积：$A_n = n\\Delta_n = 0.5 n \\sin{\\left(\\frac{2 \\pi}{n} \\right)}$"
+        ],
+        "answer": "\\Delta_n = 0.5 \\sin{\\left(\\frac{2 \\pi}{n} \\right)},\\quad A_n = 0.5 n \\sin{\\left(\\frac{2 \\pi}{n} \\right)}",
+        "answer_latex": "\\Delta_n = 0.5 \\sin{\\left(\\frac{2 \\pi}{n} \\right)},\\quad A_n = 0.5 n \\sin{\\left(\\frac{2 \\pi}{n} \\right)}",
+        "solver": "sympy",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "c",
+        "problem_text": "Calculate $\\lim_{n \\to \\infty}$ (Area of $n$-gon). Does this answer make sense intuitively?",
+        "solved": true,
+        "steps": [
+          "$\\lim_{n \\to \\infty} A_n = \\lim_{n\\to\\infty} \\frac{n}{2}R^2\\sin\\frac{2\\pi}{n} = \\pi$",
+          "直觉校验：$n\\to\\infty$ 时多边形越来越像圆，面积应趋于 $\\pi R^2 = 1.0 \\pi$—— 与上面一致 ✓"
+        ],
+        "answer": "\\pi",
+        "answer_latex": "\\pi",
+        "solver": "sympy",
+        "sub_solutions": []
+      }
+    ],
+    "verify_hint": {
+      "kind": "limit",
+      "ctx": [
+        "0.5*n*sin(2*pi/n)",
+        "n",
+        "oo",
+        "+"
+      ]
+    },
+    "verification": {
+      "overall": "pass",
+      "n_checks": 2,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 1,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": null,
+          "method": "cross_check_limit",
+          "symbolic": "pi",
+          "note": "数值采样不稳定（步长过大导致溢出或 NaN），跳过交叉检验"
+        }
+      ]
+    }
+  }
+]

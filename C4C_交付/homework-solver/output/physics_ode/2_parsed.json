@@ -1,0 +1,160 @@
+[
+  {
+    "id": "1",
+    "text": "A net force of 12 N acts on a 3.0 kg mass that is initially at rest.\nFind the acceleration of the mass and the net force needed to keep it moving\nat constant velocity.",
+    "math_expressions": [],
+    "type": "physics",
+    "sub_problems": []
+  },
+  {
+    "id": "2",
+    "text": "A ball is dropped from rest in vacuum. How fast is it moving after 3.0 s,\nand how far has it fallen? Take $g = 9.8$ m/s^2.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "g = 9.8"
+      }
+    ],
+    "type": "calculation",
+    "sub_problems": []
+  },
+  {
+    "id": "3",
+    "text": "Find the kinetic energy of a 2.5 kg cart rolling at 6.0 m/s.",
+    "math_expressions": [],
+    "type": "physics",
+    "sub_problems": []
+  },
+  {
+    "id": "4",
+    "text": "A 4.0 kg object is lifted 3.0 m by a vertical force. Find the change in\nits gravitational potential energy.",
+    "math_expressions": [],
+    "type": "physics",
+    "sub_problems": []
+  },
+  {
+    "id": "5",
+    "text": "Two point charges of $3.0$ C and $5.0$ C are placed 2 m apart in vacuum.\nFind the magnitude of the Coulomb force between them.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "3.0"
+      },
+      {
+        "type": "inline",
+        "latex": "5.0"
+      }
+    ],
+    "type": "physics",
+    "sub_problems": []
+  },
+  {
+    "id": "6",
+    "text": "A potential difference of 24 V is applied across a 6 ohm resistor.\nFind the current through it and the power dissipated.",
+    "math_expressions": [],
+    "type": "physics",
+    "sub_problems": []
+  },
+  {
+    "id": "7",
+    "text": "What electric field strength corresponds to a force of 8.0 N acting on a\ncharge of 4.0 C?",
+    "math_expressions": [],
+    "type": "physics",
+    "sub_problems": []
+  },
+  {
+    "id": "8",
+    "text": "A gas sample occupies 0.05 m^3 at a temperature of 350 K and a pressure of\n202650 Pa. Find the number of moles present.",
+    "math_expressions": [],
+    "type": "calculation",
+    "sub_problems": []
+  },
+  {
+    "id": "9",
+    "text": "Solve the initial value problem $y' + 3y = 6$ subject to $y(0) = 2$.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "y' + 3y = 6"
+      },
+      {
+        "type": "inline",
+        "latex": "y(0) = 2"
+      }
+    ],
+    "type": "ode",
+    "sub_problems": []
+  },
+  {
+    "id": "10",
+    "text": "Find the general solution of $y' - 5y = 0$.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "y' - 5y = 0"
+      }
+    ],
+    "type": "ode",
+    "sub_problems": []
+  },
+  {
+    "id": "11",
+    "text": "Solve the second-order homogeneous equation $y'' - 7y' + 12y = 0$.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "y'' - 7y' + 12y = 0"
+      }
+    ],
+    "type": "ode",
+    "sub_problems": []
+  },
+  {
+    "id": "12",
+    "text": "Solve the separable differential equation $\\frac{dy}{dx} = x y$.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "\\frac{dy}{dx} = x y"
+      }
+    ],
+    "type": "ode",
+    "sub_problems": []
+  },
+  {
+    "id": "13",
+    "text": "A population model obeys $y' = 0.2y$ with $y(0) = 100$. Find $y(t)$ and\ninterpret the growth constant.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "y' = 0.2y"
+      },
+      {
+        "type": "inline",
+        "latex": "y(0) = 100"
+      },
+      {
+        "type": "inline",
+        "latex": "y(t)"
+      }
+    ],
+    "type": "ode",
+    "sub_problems": []
+  },
+  {
+    "id": "14",
+    "text": "Verify that $y = C_1 e^{2x} + C_2 e^{3x}$ solves $y'' - 5y' + 6y = 0$,\nand state whether every solution has this form.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "y = C_1 e^{2x} + C_2 e^{3x}"
+      },
+      {
+        "type": "inline",
+        "latex": "y'' - 5y' + 6y = 0"
+      }
+    ],
+    "type": "ode",
+    "sub_problems": []
+  }
+]

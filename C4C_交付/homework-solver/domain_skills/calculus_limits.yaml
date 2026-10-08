@@ -1,0 +1,716 @@
+# ============================================================
+# T-box: Calculus I — Limits & Tangent Lines
+# ============================================================
+# Oracle sources:
+#   - Stewart, Calculus: Early Transcendentals, Ch. 2
+#   - Berkeley Math 1A, Worksheets 3–4
+#
+# This file defines the domain ontology: concepts, proof patterns,
+# solution methods, and validation rules. The runtime solver uses
+# this to classify problems and retrieve appropriate solvers.
+# ============================================================
+
+domain: calculus_1_limits_and_derivatives
+version: "2.0"
+
+oracle_sources:
+  - type: textbook
+    ref: "Stewart/Kokoska, Calculus: Concepts and Contexts, 5th ed."
+    authority: primary
+  - type: study_guide
+    ref: "微积分学习指南：概念、上下文与精确定义 (distilled from Stewart + Berkeley Math 1A)"
+    authority: primary
+    distilled_knowledge:
+      - "Four Keywords proof method: Given/Choose/Suppose/Check"
+      - "δ cannot depend on x — must be fixed before x is given"
+      - "Continuity = three conditions: f(a) defined, limit exists, limit = f(a)"
+      - "L'Hôpital's Rule for 0/0 and ∞/∞ indeterminate forms"
+      - "Newton's Method: x_{n+1} = x_n - f(x_n)/f'(x_n)"
+      - "Implicit differentiation via chain rule"
+  - type: instructor_guide
+    ref: "伯克利 Math 1A 极限概念全解析与工作单解题指南 (Berkeley chief calculus lecturer)"
+    authority: primary
+    distilled_knowledge:
+      - "GCSC proof structure: Given ε, Choose δ, Suppose 0<|x-a|<δ, Check |f(x)-L|<ε"
+      - "Nonlinear ε-δ: bound variable factor first (e.g., |x+3|<7 when δ≤1), then δ=min(1, ε/7)"
+      - "Limit scenarios: continuous, removable discontinuity, jump, infinite, oscillatory"
+      - "Algebraic toolbox: factoring, rationalization, simplification, squeeze theorem"
+      - "Growth hierarchy: ln(x) << x^p << e^x as x→∞"
+      - "L'Hôpital prerequisites: MUST verify 0/0 or ∞/∞ before applying"
+      - "L'Hôpital advanced: 0·∞ → rewrite as fraction; x^x type → take log first"
+      - "IVT: continuous on [a,b] ⟹ f attains all values between f(a) and f(b)"
+      - "Fixed point proof: g(x) = f(x) - x, then IVT on g"
+      - "Exam traps: ∞ is not a number, δ cannot depend on x, check L'Hôpital preconditions"
+      - "x^1000-1 / (x-1) at x=1 is derivative definition trick"
+  - type: pedagogy_guide
+    ref: "ε-δ 极限证明教学与评估规范指南 (senior math education consultant)"
+    authority: primary
+    distilled_knowledge:
+      - "Paradigm shift: from 'discovering L' (intuitive) to 'proving for any ε' (logically self-evident)"
+      - "Game metaphor: Challenger gives ε, Responder must produce δ; δ must be fixed BEFORE x is chosen"
+      - "Preliminary Analysis vs Formal Proof: reverse engineering (finding δ) ≠ proof (forward deduction)"
+      - "Four-Word Method: Given (任意 ε>0), Choose (取 δ=...), Suppose (假设 0<|x-a|<δ), Check (正向演绎)"
+      - "Punctured neighborhood: must include 0 < |x-a|, not just |x-a| < δ"
+      - "min-notation for nonlinear: δ = min{1, ε/C} where C bounds the variable factor"
+      - "Constant C bounding: restrict δ≤1 first to bound |x+a|, then determine ε/C ratio"
+      - "Conjugate method for radical functions: rationalize to expose linear factor"
+      - "Common errors: illegal dependency (δ depends on x), scratchpad confusion, binding error (x in final ε), missing punctured neighborhood"
+      - "Grading: 40% correct δ selection, 60% rigorous forward deduction"
+  - type: exemplar
+    ref: "Berkeley Math 1A, Worksheet 3: Tangent Lines and ε-δ"
+    authority: secondary
+  - type: exemplar
+    ref: "Berkeley Math 1A, Worksheet 4: Limits"
+    authority: secondary
+
+# ============================================================
+# CONCEPT GRAPH
+# ============================================================
+# Node types: concept, proof_pattern, solution_method, conceptual_template
+# Edge types: specializes, requires, proves, solves, explains
+
+concepts:
+
+  # ──── Foundation concepts ────
+
+  - id: absolute_value
+    type: concept
+    name: "Absolute value"
+    formal: "|x| = x if x ≥ 0, -x if x < 0"
+    sympy: "Abs(x)"
+    prerequisites: []
+
+  - id: inequality
+    type: concept
+    name: "Inequalities and intervals"
+    formal: "a < x < b ↔ x ∈ (a,b)"
+    prerequisites: []
+
+  # ──── Limit concepts ────
+
+  - id: limit_definition
+    type: concept
+    name: "Limit of a function"
+    formal: "∀ε>0, ∃δ>0: 0<|x-a|<δ ⟹ |f(x)-L|<ε"
+    prerequisites: [absolute_value, inequality]
+    keywords: [limit, lim, approaches, tends to, converges]
+
+  - id: one_sided_limit
+    type: concept
+    name: "One-sided limits"
+    formal: "lim_{x→a⁺} f(x) = L and lim_{x→a⁻} f(x) = L"
+    prerequisites: [limit_definition]
+    keywords: [left limit, right limit, one-sided, from above, from below]
+
+  - id: limit_existence
+    type: concept
+    name: "Limit existence criterion"
+    formal: "lim_{x→a} f(x) = L iff lim_{x→a⁺} f(x) = lim_{x→a⁻} f(x) = L"
+    prerequisites: [one_sided_limit]
+    keywords: [exists, does not exist, DNE]
+
+  - id: squeeze_theorem
+    type: concept
+    name: "Squeeze Theorem"
+    formal: "g(x)≤f(x)≤h(x), lim g = lim h = L ⟹ lim f = L"
+    prerequisites: [limit_definition, inequality]
+    keywords: [squeeze, sandwich, pinching]
+
+  - id: continuity
+    type: concept
+    name: "Continuity at a point"
+    formal: "f continuous at a ↔ lim_{x→a} f(x) = f(a)"
+    prerequisites: [limit_definition]
+    keywords: [continuous, substitution, plug in, evaluate]
+
+  - id: infinity_limit
+    type: concept
+    name: "Limits involving infinity"
+    formal: "lim_{x→∞} f(x) and lim_{x→a} f(x) = ±∞"
+    prerequisites: [limit_definition]
+    keywords: [infinity, ∞, grows without bound, diverges]
+
+  # ──── ε-δ concepts ────
+
+  - id: epsilon_delta_notation
+    type: concept
+    name: "ε-δ neighborhood notation"
+    formal: "x within δ of a: |x-a| < δ ↔ a-δ < x < a+δ"
+    prerequisites: [absolute_value, inequality]
+    keywords: [within, neighborhood, delta, δ, epsilon, ε]
+
+  - id: epsilon_delta_computation
+    type: concept
+    name: "ε-δ computation (find δ for given ε)"
+    formal: "Given f, a, L, ε: find δ such that |x-a|<δ ⟹ |f(x)-L|<ε"
+    prerequisites: [epsilon_delta_notation, limit_definition]
+    keywords: [find delta, choose delta, δ such that]
+
+  # ──── Tangent / derivative concepts ────
+
+  - id: derivative_definition
+    type: concept
+    name: "Derivative as limit"
+    formal: "f'(a) = lim_{h→0} [f(a+h) - f(a)] / h"
+    prerequisites: [limit_definition]
+    keywords: [derivative, slope, rate of change]
+
+  - id: tangent_line
+    type: concept
+    name: "Tangent line at a point"
+    formal: "y - f(a) = f'(a)(x - a)"
+    prerequisites: [derivative_definition]
+    keywords: [tangent, tangent line, touching]
+
+  - id: horizontal_tangent
+    type: concept
+    name: "Horizontal tangent"
+    formal: "f'(x) = 0 at horizontal tangent points"
+    prerequisites: [tangent_line]
+    keywords: [horizontal tangent, critical point, maximum, minimum]
+
+  # ──── Concepts from study guide oracle ────
+
+  - id: epsilon_delta_proof_method
+    type: proof_pattern
+    name: "Four Keywords ε-δ proof method (GCSC)"
+    formal: |
+      Given ε > 0;
+      Choose δ = g(ε) (a function of ε and constants only, NOT x);
+      Suppose 0 < |x - a| < δ (punctured neighborhood — must include 0 < );
+      Check that |f(x) - L| < ε follows by FORWARD algebraic deduction.
+    prerequisites: [limit_definition, epsilon_delta_notation]
+    keywords: [prove, show, verify, epsilon-delta proof, four keywords, GCSC]
+    oracle_source: "study_guide: Q4 + pedagogy_guide: §3"
+    oracle_insight: |
+      - δ must be chosen BEFORE x — it cannot depend on x, only on ε and constants
+      - Preliminary analysis (finding δ) is NOT the proof; the proof is forward deduction
+      - Game metaphor: Challenger gives ε, Responder produces δ, then ANY x in the punctured neighborhood must satisfy the bound
+      - x is a bound variable — it must not appear in the final answer for δ
+      - Punctured neighborhood (0 < |x-a|) is essential: limit concerns behavior NEAR a, not AT a
+    common_errors:
+      - "Illegal dependency: δ = f(x, ε) — δ must not depend on x"
+      - "Scratchpad confusion: submitting reverse derivation as proof"
+      - "Binding error: final expression still contains x"
+      - "Missing punctured condition: writing |x-a| < δ without 0 < |x-a|"
+
+  - id: continuity
+    type: concept
+    name: "Continuity at a point"
+    formal: |
+      f continuous at a iff:
+        (1) f(a) is defined
+        (2) lim_{x→a} f(x) exists
+        (3) lim_{x→a} f(x) = f(a)
+    prerequisites: [limit_definition]
+    keywords: [continuous, continuity, plug in, substitution, three conditions]
+    oracle_source: "study_guide: Q2"
+
+  - id: differentiability_continuity
+    type: concept
+    name: "Differentiable implies continuous (converse false)"
+    formal: "f differentiable at a ⟹ f continuous at a, but NOT conversely"
+    prerequisites: [continuity, derivative_definition]
+    keywords: [differentiable, continuous, converse, corner, cusp]
+    oracle_source: "study_guide: Deep Q3"
+    counterexample: "|x - 4| is continuous at x = 4 but not differentiable (corner)"
+
+  - id: lhopital_rule
+    type: concept
+    name: "L'Hôpital's Rule"
+    formal: "If lim f(x)/g(x) = 0/0 or ∞/∞, then lim f(x)/g(x) = lim f'(x)/g'(x)"
+    prerequisites: [limit_definition, derivative_definition]
+    keywords: [l'hôpital, l'hospital, indeterminate, 0/0, infinity/infinity]
+    oracle_source: "study_guide: terminology"
+
+  - id: newton_method
+    type: concept
+    name: "Newton's Method"
+    formal: "x_{n+1} = x_n - f(x_n) / f'(x_n)"
+    prerequisites: [derivative_definition, tangent_line]
+    keywords: [newton, iteration, root finding, approximate]
+    oracle_source: "study_guide: Q7"
+
+  - id: implicit_differentiation
+    type: concept
+    name: "Implicit differentiation"
+    formal: "Differentiate F(x,y) = 0 with respect to x using chain rule"
+    prerequisites: [derivative_definition]
+    keywords: [implicit, dy/dx, chain rule, F(x,y)]
+    oracle_source: "study_guide: Q9"
+    example: "x² + y² = r² → 2x + 2y(dy/dx) = 0 → dy/dx = -x/y"
+
+  - id: critical_number
+    type: concept
+    name: "Critical number"
+    formal: "c in domain(f) where f'(c) = 0 or f'(c) does not exist"
+    prerequisites: [derivative_definition]
+    keywords: [critical, stationary, maximum, minimum, extremum]
+    oracle_source: "study_guide: terminology"
+
+  - id: mean_value_theorem
+    type: concept
+    name: "Mean Value Theorem"
+    formal: "f continuous on [a,b], differentiable on (a,b) ⟹ ∃c: f'(c) = (f(b)-f(a))/(b-a)"
+    prerequisites: [continuity, derivative_definition]
+    keywords: [mean value, MVT, average rate, instantaneous rate]
+    oracle_source: "study_guide: terminology + Deep Q5"
+
+  - id: rolle_theorem
+    type: concept
+    name: "Rolle's Theorem"
+    formal: "Special case of MVT: if f(a) = f(b), then ∃c: f'(c) = 0"
+    prerequisites: [mean_value_theorem]
+    keywords: [rolle, f(a) equals f(b)]
+    oracle_source: "study_guide: terminology"
+
+  - id: concavity
+    type: concept
+    name: "Concavity and inflection points"
+    formal: "f''(x) > 0 → concave up; f''(x) < 0 → concave down"
+    prerequisites: [derivative_definition]
+    keywords: [concave, concavity, inflection, second derivative]
+    oracle_source: "study_guide: terminology"
+
+  - id: absolute_vs_local_extrema
+    type: concept
+    name: "Absolute vs. local extrema"
+    formal: "Absolute max/min is global over entire domain; local is relative to a neighborhood"
+    prerequisites: [critical_number]
+    keywords: [absolute maximum, local maximum, global, extrema]
+    oracle_source: "study_guide: Q6"
+
+  - id: differential_linear_approx
+    type: concept
+    name: "Differentials and linear approximation"
+    formal: "dy = f'(x)dx; f(x+dx) ≈ f(x) + f'(x)dx"
+    prerequisites: [derivative_definition]
+    keywords: [differential, linear approximation, linearization, dx, dy]
+    oracle_source: "study_guide: terminology"
+
+  - id: hyperbolic_functions
+    type: concept
+    name: "Hyperbolic functions"
+    formal: "sinh x = (e^x - e^{-x})/2, cosh x = (e^x + e^{-x})/2"
+    prerequisites: []
+    keywords: [sinh, cosh, tanh, hyperbolic]
+    oracle_source: "study_guide: terminology"
+
+  - id: inverse_function
+    type: concept
+    name: "Inverse function"
+    formal: "f^{-1}(y) = x iff f(x) = y; requires f to be injective"
+    prerequisites: []
+    keywords: [inverse, bijective, injective, one-to-one]
+    oracle_source: "study_guide: terminology"
+
+  # ──── Concepts from instructor guide oracle ────
+
+  - id: discontinuity_types
+    type: concept
+    name: "Discontinuity classification"
+    formal: |
+      Removable: limit exists but ≠ f(a) or f(a) undefined
+      Jump: left and right limits exist but differ
+      Infinite: function → ±∞ (vertical asymptote)
+      Oscillatory: no limit (e.g., sin(1/x) near 0)
+    prerequisites: [limit_definition, one_sided_limit]
+    keywords: [discontinuity, removable, jump, infinite, oscillatory, asymptote]
+    oracle_source: "instructor_guide: §2"
+
+  - id: intermediate_value_theorem
+    type: concept
+    name: "Intermediate Value Theorem (IVT)"
+    formal: "f continuous on [a,b], N between f(a) and f(b) ⟹ ∃c∈(a,b): f(c) = N"
+    prerequisites: [continuity]
+    keywords: [IVT, intermediate value, root existence, fixed point]
+    oracle_source: "instructor_guide: §6"
+    applications: ["Prove root existence", "Fixed point: g(x)=f(x)-x, IVT on g"]
+
+  - id: growth_hierarchy
+    type: concept
+    name: "Growth rate hierarchy at infinity"
+    formal: "ln(x) << x^p << e^x as x→∞"
+    prerequisites: [infinity_limit]
+    keywords: [growth rate, exponential, polynomial, logarithm, asymptotic]
+    oracle_source: "instructor_guide: §5"
+    key_limits:
+      - "lim_{x→∞} ln(x)/x^p = 0 for any p > 0"
+      - "lim_{x→∞} e^x/x^n = ∞ for any n"
+
+  - id: limit_algebraic_strategies
+    type: concept
+    name: "Algebraic limit strategies"
+    formal: |
+      When direct substitution gives 0/0:
+      1. Factor and cancel
+      2. Rationalize (conjugate for radicals)
+      3. Simplify compound fractions
+      4. Squeeze theorem for oscillatory functions
+      5. Derivative definition trick: (x^n - a^n)/(x - a) = derivative of x^n at a
+    prerequisites: [limit_definition]
+    keywords: [factor, rationalize, conjugate, simplify, 0/0, indeterminate]
+    oracle_source: "instructor_guide: §4"
+
+  - id: epsilon_delta_nonlinear
+    type: proof_pattern
+    name: "ε-δ proof for nonlinear functions"
+    formal: |
+      For quadratic f(x) = x² at x = a:
+      |x² - a²| = |x+a|·|x-a|
+      Step 1: Bound the variable factor. Choose δ ≤ 1, then |x+a| < |a|+1+|a| = 2|a|+1
+      Step 2: δ = min(1, ε/(2|a|+1))
+      The min() ensures both the bounding constraint and error control hold simultaneously.
+    prerequisites: [epsilon_delta_proof_method]
+    keywords: [nonlinear, quadratic, bound, min, delta equals min]
+    oracle_source: "instructor_guide: §3 + pedagogy_guide: §4"
+    strategy_variants:
+      polynomial: "Constant C bounding method — restrict δ≤1 to bound variable factor, then δ = min(1, ε/C)"
+      radical: "Conjugate method — rationalize √f(x)−√L to expose linear factor in numerator"
+    detailed_example: |
+      Prove lim_{x→3} x² = 9:
+      1. Preliminary analysis: |x²-9| = |x-3|·|x+3|. Need to bound |x+3|.
+      2. Restrict: δ ≤ 1 ⟹ |x-3| < 1 ⟹ 2 < x < 4 ⟹ 5 < x+3 < 7 ⟹ |x+3| < 7.
+      3. Choose: δ = min(1, ε/7).
+      4. Formal proof (forward):
+         Given ε > 0. Choose δ = min(1, ε/7).
+         Suppose 0 < |x-3| < δ.
+         Then |x-3| < 1 (from δ ≤ 1), so |x+3| < 7.
+         Thus |x²-9| = |x-3|·|x+3| < (ε/7)·7 = ε. ∎
+
+# ============================================================
+# SOLUTION METHODS (solvers)
+# ============================================================
+
+solution_methods:
+
+  # ──── Limit solvers ────
+
+  - id: limit_direct_computation
+    type: solution_method
+    concept: limit_definition
+    name: "Direct limit computation"
+    applies_when: "Expression has a well-defined limit computable by SymPy"
+    tool: sympy
+    solver_template: sympy_solvers/limit_direct.py
+    input_schema:
+      expression: "LaTeX string of f(x)"
+      variable: "x (default)"
+      point: "value that x approaches"
+      direction: "null | '+' | '-'"
+    output_form: "number | expression | oo | -oo"
+
+  - id: limit_dne_proof
+    type: solution_method
+    concept: limit_existence
+    name: "Limit DNE via one-sided disagreement"
+    applies_when: "Text says 'does not exist' or one-sided limits disagree"
+    tool: sympy
+    solver_template: sympy_solvers/limit_dne.py
+    input_schema:
+      expression: "LaTeX string of f(x)"
+      variable: "x"
+      point: "value"
+    output_form: "DNE with left/right values shown"
+
+  - id: limit_squeeze
+    type: solution_method
+    concept: squeeze_theorem
+    name: "Squeeze theorem application"
+    applies_when: "Expression bounded by functions with known limits (e.g., x²sin(1/x))"
+    tool: sympy
+    solver_template: sympy_solvers/limit_direct.py  # SymPy handles this natively
+    input_schema:
+      expression: "LaTeX string"
+      variable: "x"
+      point: "value"
+    output_form: "number (the squeezed limit)"
+
+  # ──── ε-δ solvers ────
+
+  - id: ed_notation_solver
+    type: solution_method
+    concept: epsilon_delta_notation
+    name: "ε-δ notation templates"
+    applies_when: "Problem asks to express 'within δ of a' using inequality/absolute value/interval"
+    tool: template
+    solver_template: template_solvers/epsilon_delta_notation.py
+    input_schema:
+      center: "0 | a"
+      exclude_center: "true | false"
+      representation: "inequality | absolute_value | interval | graph"
+    output_form: "inequality or set notation"
+
+  - id: ed_computation_solver
+    type: solution_method
+    concept: epsilon_delta_computation
+    name: "ε-δ computation (algebraic)"
+    applies_when: "Given f(x), a, L, ε — find δ"
+    tool: sympy
+    solver_template: sympy_solvers/epsilon_delta_computation.py
+    input_schema:
+      f_expr: "LaTeX for f(x)"
+      a: "center point"
+      L: "limit value"
+      epsilon: "given ε value"
+    output_form: "δ = <expression>"
+
+  # ──── Tangent solvers ────
+
+  - id: tangent_at_point_solver
+    type: solution_method
+    concept: tangent_line
+    name: "Tangent line at given point"
+    applies_when: "Given curve y=f(x) and point (a, f(a)), find tangent line"
+    tool: sympy
+    solver_template: sympy_solvers/tangent_line.py
+    input_schema:
+      f_expr: "LaTeX for f(x) or y"
+      point_x: "x-coordinate"
+      point_y: "y-coordinate (optional, derived from f if omitted)"
+    output_form: "y = mx + b"
+
+  - id: horizontal_tangent_solver
+    type: solution_method
+    concept: horizontal_tangent
+    name: "Horizontal tangent finder"
+    applies_when: "Find points where tangent line is horizontal"
+    tool: sympy
+    solver_template: sympy_solvers/horizontal_tangent.py
+    input_schema:
+      f_expr: "LaTeX for f(x)"
+    output_form: "List of (x, y) points"
+
+  # ──── Derivative solvers (from study guide) ────
+
+  - id: lhopital_solver
+    type: solution_method
+    concept: lhopital_rule
+    name: "L'Hôpital's Rule application"
+    applies_when: "Limit gives 0/0 or ∞/∞ indeterminate form"
+    tool: sympy
+    solver_template: sympy_solvers/lhopital.py
+    input_schema:
+      numerator: "f(x) expression"
+      denominator: "g(x) expression"
+      variable: "x"
+      point: "value approached"
+    output_form: "number or expression"
+
+  - id: newton_method_solver
+    type: solution_method
+    concept: newton_method
+    name: "Newton's Method iteration"
+    applies_when: "Find approximate root of f(x) = 0"
+    tool: sympy
+    solver_template: sympy_solvers/newton_method.py
+    input_schema:
+      f_expr: "function expression"
+      x0: "initial guess"
+      iterations: "number of iterations (default 5)"
+    output_form: "sequence of approximations"
+
+  - id: implicit_diff_solver
+    type: solution_method
+    concept: implicit_differentiation
+    name: "Implicit differentiation"
+    applies_when: "Find dy/dx from F(x,y) = 0"
+    tool: sympy
+    solver_template: sympy_solvers/implicit_diff.py
+    input_schema:
+      equation: "F(x,y) = 0 expression"
+    output_form: "dy/dx expression"
+
+  - id: critical_points_solver
+    type: solution_method
+    concept: critical_number
+    name: "Find critical points"
+    applies_when: "Find where f'(x) = 0 or f'(x) undefined"
+    tool: sympy
+    solver_template: sympy_solvers/critical_points.py
+    input_schema:
+      f_expr: "function expression"
+    output_form: "list of critical numbers with classification"
+
+  # ──── Conceptual solvers ────
+
+  - id: conceptual_limit_definitions
+    type: solution_method
+    concept: limit_definition
+    name: "Conceptual: limit definitions and properties"
+    applies_when: "Problem asks 'what is meant by', 'describe', 'is ∞ a number?'"
+    tool: template
+    solver_template: template_solvers/conceptual_definitions.py
+    input_schema:
+      concept_key: "limit_definition | one_sided | squeeze | infinity | continuity"
+    output_form: "Structured explanation with formal definition"
+
+  - id: conceptual_tangent_questions
+    type: solution_method
+    concept: tangent_line
+    name: "Conceptual: tangent existence and uniqueness"
+    applies_when: "Problem asks about tangent existence, uniqueness, or counterexamples"
+    tool: template
+    solver_template: template_solvers/conceptual_definitions.py
+    input_schema:
+      concept_key: "tangent_uniqueness | tangent_nonexistence"
+    output_form: "Explanation with counterexample"
+
+# ============================================================
+# CLASSIFICATION RULES
+# ============================================================
+# Priority-ordered rules for mapping problem features to concept nodes.
+# Higher priority rules are checked first.
+
+classification_rules:
+
+  - priority: 100
+    pattern:
+      text_contains: ["within δ of", "within $\\delta$ of"]
+      has_function_definition: true
+    maps_to: epsilon_delta_computation
+    solver: ed_computation_solver
+
+  - priority: 95
+    pattern:
+      text_contains: ["within δ of", "within $\\delta$ of", "neighborhood"]
+      has_function_definition: false
+    maps_to: epsilon_delta_notation
+    solver: ed_notation_solver
+
+  - priority: 90
+    pattern:
+      text_contains: ["horizontal tangent"]
+    maps_to: horizontal_tangent
+    solver: horizontal_tangent_solver
+
+  - priority: 85
+    pattern:
+      text_contains: ["tangent line", "tangent at", "equation of the tangent"]
+      has_function_definition: true
+    maps_to: tangent_line
+    solver: tangent_at_point_solver
+
+  - priority: 80
+    pattern:
+      text_contains: ["does not exist", "DNE"]
+      has_limit_expression: true
+    maps_to: limit_existence
+    solver: limit_dne_proof
+
+  - priority: 70
+    pattern:
+      has_limit_expression: true
+      has_abstract_function: false
+    maps_to: limit_definition
+    solver: limit_direct_computation
+
+  - priority: 50
+    pattern:
+      text_contains: ["what is meant", "describe", "squeeze", "is ∞ a number",
+                       "one-sided", "what kinds of functions", "plugging in"]
+    maps_to: limit_definition
+    solver: conceptual_limit_definitions
+
+  - priority: 45
+    pattern:
+      text_contains: ["more than one tangent", "doesn't have a tangent",
+                       "without a tangent"]
+    maps_to: tangent_line
+    solver: conceptual_tangent_questions
+
+  # ──── New rules from oracle enrichment ────
+
+  - priority: 75
+    pattern:
+      text_contains: ["l'hôpital", "l'hospital", "indeterminate", "0/0"]
+    maps_to: lhopital_rule
+    solver: lhopital_solver
+
+  - priority: 65
+    pattern:
+      text_contains: ["intermediate value", "IVT", "fixed point", "root exists"]
+    maps_to: intermediate_value_theorem
+    solver: conceptual_limit_definitions
+
+  - priority: 63
+    pattern:
+      text_contains: ["discontinuit", "removable", "jump discontin", "oscillat"]
+    maps_to: discontinuity_types
+    solver: conceptual_limit_definitions
+
+  - priority: 60
+    pattern:
+      text_contains: ["growth rate", "grows faster", "asymptotic", "dominates"]
+    maps_to: growth_hierarchy
+    solver: conceptual_limit_definitions
+
+  - priority: 58
+    pattern:
+      text_contains: ["newton's method", "newton method", "iteration", "x_{n+1}"]
+    maps_to: newton_method
+    solver: newton_method_solver
+
+  - priority: 56
+    pattern:
+      text_contains: ["implicit", "dy/dx", "implicitly"]
+    maps_to: implicit_differentiation
+    solver: implicit_diff_solver
+
+  - priority: 54
+    pattern:
+      text_contains: ["critical number", "critical point", "extrema", "maximum", "minimum"]
+    maps_to: critical_number
+    solver: critical_points_solver
+
+  - priority: 52
+    pattern:
+      text_contains: ["continuous", "continuity", "three conditions"]
+    maps_to: continuity
+    solver: conceptual_limit_definitions
+
+  - priority: 48
+    pattern:
+      text_contains: ["factor", "rationalize", "conjugate", "simplify"]
+      has_limit_expression: true
+    maps_to: limit_algebraic_strategies
+    solver: limit_direct_computation
+
+  - priority: 10
+    pattern:
+      has_abstract_function: true
+    maps_to: null
+    solver: null  # → invoke oracle (LLM)
+    reason: "Abstract function — requires reasoning, not computation"
+
+# ============================================================
+# VALIDATION RULES
+# ============================================================
+
+validation_rules:
+
+  limit_computation:
+    - type: form_check
+      rule: "Result is a number, oo, -oo, zoo, nan, or 'DNE'"
+    - type: type_check
+      rule: "Result is sympy.Number or sympy.oo or sympy.zoo"
+
+  epsilon_delta_notation:
+    - type: form_check
+      rule: "Result contains δ, uses inequality/absolute value/interval notation"
+    - type: consistency_check
+      rule: "All three representations (inequality, abs, interval) are equivalent"
+
+  epsilon_delta_computation:
+    - type: positivity_check
+      rule: "δ > 0"
+    - type: verification
+      rule: "Substituting δ back: |x-a| < δ ⟹ |f(x)-L| < ε must hold"
+
+  tangent_line:
+    - type: form_check
+      rule: "Result is y = mx + b form"
+    - type: point_check
+      rule: "Line passes through the given point"
+    - type: slope_check
+      rule: "Slope equals f'(x₀) at the given point"

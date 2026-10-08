@@ -1,0 +1,182 @@
+[
+  {
+    "id": "1",
+    "text": "Compute the determinant of the matrix $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}"
+      }
+    ],
+    "type": "matrix",
+    "sub_problems": []
+  },
+  {
+    "id": "2",
+    "text": "Let $A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$. Find $A^{-1}$.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}"
+      },
+      {
+        "type": "inline",
+        "latex": "A^{-1}"
+      }
+    ],
+    "type": "matrix",
+    "sub_problems": []
+  },
+  {
+    "id": "3",
+    "text": "Find all eigenvalues of $A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}"
+      }
+    ],
+    "type": "matrix",
+    "sub_problems": []
+  },
+  {
+    "id": "4",
+    "text": "Find the eigenvalues and corresponding eigenvectors of\n$A = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "A = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}"
+      }
+    ],
+    "type": "matrix",
+    "sub_problems": []
+  },
+  {
+    "id": "5",
+    "text": "Compute the eigenvalues of $A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 5 \\end{pmatrix}$.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 5 \\end{pmatrix}"
+      }
+    ],
+    "type": "matrix",
+    "sub_problems": []
+  },
+  {
+    "id": "6",
+    "text": "Let $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $\\mathbf{b} = \\begin{pmatrix} 5 \\\\ 11 \\end{pmatrix}$.\nSolve the linear system $A\\mathbf{x} = \\mathbf{b}$.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}"
+      },
+      {
+        "type": "inline",
+        "latex": "\\mathbf{b} = \\begin{pmatrix} 5 \\\\ 11 \\end{pmatrix}"
+      },
+      {
+        "type": "inline",
+        "latex": "A\\mathbf{x} = \\mathbf{b}"
+      }
+    ],
+    "type": "matrix",
+    "sub_problems": []
+  },
+  {
+    "id": "7",
+    "text": "Determine whether the columns of\n$A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$ are orthogonal.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}"
+      }
+    ],
+    "type": "matrix",
+    "sub_problems": []
+  },
+  {
+    "id": "8",
+    "text": "Apply Gram-Schmidt orthogonalization to\n$A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\\\ 0 & 1 \\end{pmatrix}"
+      }
+    ],
+    "type": "matrix",
+    "sub_problems": []
+  },
+  {
+    "id": "9",
+    "text": "Compute the rank of\n$A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\\\ 3 & 6 \\end{pmatrix}$.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\\\ 3 & 6 \\end{pmatrix}"
+      }
+    ],
+    "type": "matrix",
+    "sub_problems": []
+  },
+  {
+    "id": "10",
+    "text": "Let $A = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}$. Find a matrix $P$ that diagonalizes\n$A$, i.e. find $P$ and $D$ such that $A = PDP^{-1}$.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "A = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}"
+      },
+      {
+        "type": "inline",
+        "latex": "P"
+      },
+      {
+        "type": "inline",
+        "latex": "A"
+      },
+      {
+        "type": "inline",
+        "latex": "P"
+      },
+      {
+        "type": "inline",
+        "latex": "D"
+      },
+      {
+        "type": "inline",
+        "latex": "A = PDP^{-1}"
+      }
+    ],
+    "type": "matrix",
+    "sub_problems": []
+  },
+  {
+    "id": "11",
+    "text": "Let $A = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$. What is the null space of $A$?",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "A = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}"
+      },
+      {
+        "type": "inline",
+        "latex": "A"
+      }
+    ],
+    "type": "matrix",
+    "sub_problems": []
+  },
+  {
+    "id": "12",
+    "text": "Diagonalize $A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$.",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}"
+      }
+    ],
+    "type": "matrix",
+    "sub_problems": []
+  }
+]

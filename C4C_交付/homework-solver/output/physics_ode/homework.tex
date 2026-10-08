@@ -1,0 +1,570 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{xeCJK}
+% ── 中文字体自动探测（由 render_latex.py 生成）──
+% 探测到的候选字体：Source Han Serif SC, Noto Sans SC, SimSun, Microsoft YaHei, SimHei, KaiTi
+\IfFontExistsTF{Source Han Serif SC}{\setCJKmainfont{Source Han Serif SC}}{}
+\IfFontExistsTF{Noto Sans SC}{\setCJKmainfont{Noto Sans SC}}{}
+\IfFontExistsTF{SimSun}{\setCJKmainfont{SimSun}}{}
+\IfFontExistsTF{Microsoft YaHei}{\setCJKmainfont{Microsoft YaHei}}{}
+\IfFontExistsTF{SimHei}{\setCJKmainfont{SimHei}}{}
+\IfFontExistsTF{KaiTi}{\setCJKmainfont{KaiTi}}{}
+\IfFontExistsTF{FangSong}{\setCJKmainfont{FangSong}}{}
+\IfFontExistsTF{STSong}{\setCJKmainfont{STSong}}{}
+% 若以上全部缺失，中文可能显示为方框；请安装 Noto Sans CJK SC 或在 config 中指定字体
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+% 关闭 CJK 与西文之间的额外间距，贴近学术排版习惯
+
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{PHYS 201 University Physics}
+\rhead{Meteorain}
+\rfoot{Page \thepage}
+\cfoot{}
+
+% ── 颜色定义 ──
+\definecolor{solutionblue}{HTML}{1D4ED8}
+\definecolor{solutiongreen}{HTML}{15803D}
+\definecolor{warnamber}{HTML}{B45309}
+\definecolor{verifyred}{HTML}{B91C1C}
+
+% ── 自定义环境 ──
+\newtcolorbox{stepbox}{colback=blue!2!white,colframe=blue!20!black,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{verifybox}{colback=green!3!white,colframe=green!35!black,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt}
+\newtcolorbox{warnbox}{colback=orange!5!white,colframe=orange!45!black,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt}
+
+\newcommand{\problem}[1]{\subsection*{Problem~#1}}
+\newcommand{\solution}{%
+  \par\noindent
+  {\color{solutiongreen}\bfseries Solution.}\par
+}
+\newcommand{\verifyok}{\textcolor{solutiongreen}{\ensuremath{\checkmark}\ 已验证}}
+\newcommand{\verifywarn}{\textcolor{verifyred}{\ensuremath{\times}\ 验证存疑}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Homework 4 — Solutions} \\[0.6em]
+  {\large\color{solutionblue} PHYS 201 University Physics} \\[0.4em]
+  Meteorain \quad | \quad 2026-10-06
+\end{center}
+\vspace{0.5em}\hrule\vspace{1.2em}
+\problem{1}
+
+\begin{stepbox}
+A net force of 12 N acts on a 3.0 kg mass that is initially at rest.
+Find the acceleration of the mass and the net force needed to keep it moving
+at constant velocity.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+识别领域：mechanics
+\end{stepbox}
+
+\begin{stepbox}
+$F = ma\ \Rightarrow\ a = \frac{F}{m}$
+\end{stepbox}
+
+\begin{stepbox}
+$a = \frac{12.0}{3.0} = 4.0\ \mathrm{m/s^2}$
+\end{stepbox}
+
+\begin{stepbox}
+量纲核对：$\mathrm{N/kg} = \mathrm{m/s^2}$ ✓
+\end{stepbox}
+
+\begin{stepbox}
+物体做匀速直线运动时 $a = 0$，由 $F_{net}=ma$ 得
+\end{stepbox}
+
+\begin{stepbox}
+$F_{net} = m\cdot 0 = 0\ \mathrm{N}$ —— 合力为零
+\end{stepbox}
+
+\begin{center}
+a = 4.0\textbackslash{} \textbackslash{}mathrm\{m/s\textasciicircum{}2\},\textbackslash{}qquad F\_\{net\}\textbackslash{} (\textbackslash{}text\{匀速时\}) = 0\textbackslash{} \textbackslash{}mathrm\{N\}
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 2/2 项检验通过（答案形式检查、量纲检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{2}
+
+\begin{stepbox}
+A ball is dropped from rest in vacuum. How fast is it moving after 3.0 s,
+and how far has it fallen? Take $g = 9.8$ m/s\textasciicircum{}2.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+识别领域：mechanics
+\end{stepbox}
+
+\begin{stepbox}
+自由落体（初速度为零，忽略空气阻力）：
+\end{stepbox}
+
+\begin{stepbox}
+$v = gt = 9.80665\times(3.0) = 29.41995\ \mathrm{m/s}$
+\end{stepbox}
+
+\begin{stepbox}
+$h = \frac{1}{2}gt^2 = 44.129925\ \mathrm{m}$
+\end{stepbox}
+
+\begin{stepbox}
+量纲核对：$\mathrm{m/s^2}\cdot\mathrm{s}=\mathrm{m/s}$ ✓；$\mathrm{m/s^2}\cdot\mathrm{s^2}=\mathrm{m}$ ✓
+\end{stepbox}
+
+\begin{center}
+$\boxed{v = 29.41995\ \mathrm{m/s},\quad h = 44.129925\ \mathrm{m}}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 2/2 项检验通过（答案形式检查、量纲检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{3}
+
+\begin{stepbox}
+Find the kinetic energy of a 2.5 kg cart rolling at 6.0 m/s.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+识别领域：mechanics
+\end{stepbox}
+
+\begin{stepbox}
+$K = \frac{1}{2}mv^2$
+\end{stepbox}
+
+\begin{stepbox}
+$= \frac{1}{2}\times2.5\times(6.0)^2 = 45.0\ \mathrm{J}$
+\end{stepbox}
+
+\begin{stepbox}
+量纲核对：$\mathrm{kg}\cdot\mathrm{m^2/s^2} = \mathrm{J}$ ✓
+\end{stepbox}
+
+\begin{center}
+$\boxed{45.0\ \mathrm{J}}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 2/2 项检验通过（答案形式检查、量纲检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{4}
+
+\begin{stepbox}
+A 4.0 kg object is lifted 3.0 m by a vertical force. Find the change in
+its gravitational potential energy.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+识别领域：mechanics
+\end{stepbox}
+
+\begin{stepbox}
+$U = mgh$
+\end{stepbox}
+
+\begin{stepbox}
+$= 4.0\times9.80665\times(3.0) = 117.7\ \mathrm{J}$
+\end{stepbox}
+
+\begin{center}
+$\boxed{117.7\ \mathrm{J}}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 2/2 项检验通过（答案形式检查、量纲检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{5}
+
+\begin{stepbox}
+Two point charges of $3.0$ C and $5.0$ C are placed 2 m apart in vacuum.
+Find the magnitude of the Coulomb force between them.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+识别领域：electromagnetism
+\end{stepbox}
+
+\begin{stepbox}
+库仑定律：$F = k\frac{|q_1q_2|}{r^2}$
+\end{stepbox}
+
+\begin{stepbox}
+$= 8987551792.3\times|3.0\times5.0|/(2.0)^2 = 3.37 \cdot 10^{10}\ \mathrm{N}$
+\end{stepbox}
+
+\begin{stepbox}
+量纲核对：$\mathrm{N\,m^2/C^2}\cdot\mathrm{C^2/m^2} = \mathrm{N}$ ✓
+\end{stepbox}
+
+\begin{center}
+$\boxed{3.37 \cdot 10^{10}\ \mathrm{N}}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 2/2 项检验通过（答案形式检查、量纲检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{6}
+
+\begin{stepbox}
+A potential difference of 24 V is applied across a 6 ohm resistor.
+Find the current through it and the power dissipated.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+识别领域：electromagnetism
+\end{stepbox}
+
+\begin{stepbox}
+欧姆定律：$I = V/R$
+\end{stepbox}
+
+\begin{stepbox}
+$= 24.0/6.0 = 4.0\ \mathrm{A}$
+\end{stepbox}
+
+\begin{stepbox}
+量纲核对：$\mathrm{V}/\Omega = \mathrm{A}$ ✓
+\end{stepbox}
+
+\begin{center}
+$\boxed{4.0\ \mathrm{A}}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 2/2 项检验通过（答案形式检查、量纲检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{7}
+
+\begin{stepbox}
+What electric field strength corresponds to a force of 8.0 N acting on a
+charge of 4.0 C?
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+识别领域：electromagnetism
+\end{stepbox}
+
+\begin{stepbox}
+$E = F/q$
+\end{stepbox}
+
+\begin{stepbox}
+$= 8.0/4.0 = 2.0\ \mathrm{N/C}$
+\end{stepbox}
+
+\begin{stepbox}
+量纲核对：$\mathrm{N/C}$ ✓
+\end{stepbox}
+
+\begin{center}
+$\boxed{2.0\ \mathrm{N/C}}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 2/2 项检验通过（答案形式检查、量纲检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{8}
+
+\begin{stepbox}
+A gas sample occupies 0.05 m\textasciicircum{}3 at a temperature of 350 K and a pressure of
+202650 Pa. Find the number of moles present.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+识别领域：thermodynamics
+\end{stepbox}
+
+\begin{stepbox}
+理想气体状态方程：$PV = nRT$
+\end{stepbox}
+
+\begin{stepbox}
+$n = \frac{PV}{RT} = \frac{202650.0\times0.05}{8.314462618\times350.0} = 3.482\ \mathrm{mol}$
+\end{stepbox}
+
+\begin{stepbox}
+量纲核对：$\mathrm{Pa\cdot m^3}/(\mathrm{J/(mol\cdot K)}\cdot\mathrm{K}) = \mathrm{mol}$ ✓
+\end{stepbox}
+
+\begin{center}
+$\boxed{3.482\ \mathrm{mol}}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 2/2 项检验通过（答案形式检查、量纲检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{9}
+
+\begin{stepbox}
+Solve the initial value problem $y' + 3y = 6$ subject to $y(0) = 2$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析方程：$3 y{\left(x \right)} + \frac{d}{d x} y{\left(x \right)} - 6 = 0$
+\end{stepbox}
+
+\begin{stepbox}
+方程类型：1 阶（齐次），关于 $y(x)$ 线性
+\end{stepbox}
+
+\begin{stepbox}
+初值条件：$y(0) = 2$
+\end{stepbox}
+
+\begin{stepbox}
+代入 $x = 0$：$C_{1} e^{- 3 x} + 2 = 2$$\Rightarrow C_{1} = 0$
+\end{stepbox}
+
+\begin{stepbox}
+因此 $y(x) = 2$
+\end{stepbox}
+
+\begin{stepbox}
+验证：把解代回原方程，残差 $y' - f(x,y) = 0$
+\end{stepbox}
+
+\begin{center}
+$\boxed{2}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{10}
+
+\begin{stepbox}
+Find the general solution of $y' - 5y = 0$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析方程：$- 5 y{\left(x \right)} + \frac{d}{d x} y{\left(x \right)} = 0$
+\end{stepbox}
+
+\begin{stepbox}
+方程类型：1 阶（齐次），关于 $y(x)$ 线性
+\end{stepbox}
+
+\begin{stepbox}
+无初值条件，给出通解（含任意常数）
+\end{stepbox}
+
+\begin{stepbox}
+$y(x) = C_{1} e^{5 x}$
+\end{stepbox}
+
+\begin{stepbox}
+验证：把解代回原方程，残差 $y' - f(x,y) = 5 C_{1} e^{5 x}$
+\end{stepbox}
+
+\begin{center}
+$\boxed{C_{1} e^{5 x}}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{11}
+
+\begin{stepbox}
+Solve the second-order homogeneous equation $y'' - 7y' + 12y = 0$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析方程：$12 y{\left(x \right)} - 7 \frac{d}{d x} y{\left(x \right)} + \frac{d^{2}}{d x^{2}} y{\left(x \right)} = 0$
+\end{stepbox}
+
+\begin{stepbox}
+方程类型：2 阶（齐次），关于 $y(x)$ 线性
+\end{stepbox}
+
+\begin{stepbox}
+无初值条件，给出通解（含任意常数）
+\end{stepbox}
+
+\begin{stepbox}
+$y(x) = \left(C_{1} + C_{2} e^{x}\right) e^{3 x}$
+\end{stepbox}
+
+\begin{stepbox}
+验证：把解代回原方程，残差 $y' - f(x,y) = \left(3 C_{1} + 4 C_{2} e^{x}\right) e^{3 x}$
+\end{stepbox}
+
+\begin{center}
+$\boxed{\left(C_{1} + C_{2} e^{x}\right) e^{3 x}}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{12}
+
+\begin{stepbox}
+Solve the separable differential equation $\frac{dy}{dx} = x y$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析方程：$- x y{\left(x \right)} + \frac{d}{d x} y{\left(x \right)} = 0$
+\end{stepbox}
+
+\begin{stepbox}
+方程类型：1 阶（齐次），关于 $y(x)$ 非线性
+\end{stepbox}
+
+\begin{stepbox}
+无初值条件，给出通解（含任意常数）
+\end{stepbox}
+
+\begin{stepbox}
+$y(x) = C_{1} e^{\frac{x^{2}}{2}}$
+\end{stepbox}
+
+\begin{stepbox}
+验证：把解代回原方程，残差 $y' - f(x,y) = C_{1} x e^{\frac{x^{2}}{2}}$
+\end{stepbox}
+
+\begin{center}
+$\boxed{C_{1} e^{\frac{x^{2}}{2}}}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{13}
+
+\begin{stepbox}
+A population model obeys $y' = 0.2y$ with $y(0) = 100$. Find $y(t)$ and
+interpret the growth constant.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析方程：$- \frac{y{\left(x \right)}}{5} + \frac{d}{d x} y{\left(x \right)} = 0$
+\end{stepbox}
+
+\begin{stepbox}
+方程类型：1 阶（齐次），关于 $y(x)$ 线性
+\end{stepbox}
+
+\begin{stepbox}
+初值条件：$y(0) = 100$
+\end{stepbox}
+
+\begin{stepbox}
+代入 $x = 0$：$C_{1} e^{\frac{x}{5}} = 100$$\Rightarrow C_{1} = 100$
+\end{stepbox}
+
+\begin{stepbox}
+因此 $y(x) = 100 e^{\frac{x}{5}}$
+\end{stepbox}
+
+\begin{stepbox}
+验证：把解代回原方程，残差 $y' - f(x,y) = 20 e^{\frac{x}{5}}$
+\end{stepbox}
+
+\begin{center}
+$\boxed{100 e^{\frac{x}{5}}}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{14}
+
+\begin{stepbox}
+Verify that $y = C_1 e^{2x} + C_2 e^{3x}$ solves $y'' - 5y' + 6y = 0$,
+and state whether every solution has this form.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+待验证的函数：$y = C_{1} e^{2 x} + C_{2} e^{3 x}$
+\end{stepbox}
+
+\begin{stepbox}
+方程：$6 y{\left(x \right)} - 5 \frac{d}{d x} y{\left(x \right)} + \frac{d^{2}}{d x^{2}} y{\left(x \right)} = 0$
+\end{stepbox}
+
+\begin{stepbox}
+把 $y = C_{1} e^{2 x} + C_{2} e^{3 x}$ 代入方程左端，得到残差：$R = 6 C_{1} e^{2 x} + C_{2} e^{3 x} - 10 \left(C_{1} + C_{2} e^{x}\right) e^{2 x} + \left(4 C_{1} + 9 C_{2} e^{x}\right) e^{2 x}$
+\end{stepbox}
+
+\begin{stepbox}
+其中 $C_{1}$、$C_{2}$ 为任意常数——残差恒等于 0，**与常数取值无关**。
+\end{stepbox}
+
+\begin{stepbox}
+✓ 残差恒为 0，候选解确实是该方程的解。
+\end{stepbox}
+
+\begin{stepbox}
+注意：通解为 \textbackslash{}left(C\_\{1\} + C\_\{2\} e\textasciicircum{}\{x\}\textbackslash{}right) e\textasciicircum{}\{2 x\}，与题给形式不同，需说明是否等价。
+\end{stepbox}
+
+\begin{center}
+验证通过：残差恒为 0
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\vspace{1.5em}
+\hrule\vspace{0.8em}
+\begin{center}\small
+\textbf{求解汇总}\quad 共 14 题，自动解出 14 题（100\%）；验证通过 14 题，存疑 0 题。\\[0.3em]
+\textcolor{gray}{求解器分布：physics\_coulomb×1、physics\_electric\_field×1、physics\_freefall×1、physics\_ideal\_gas×1、physics\_kinetic\_energy×1、physics\_newton2×1、physics\_ohm×1、physics\_potential\_energy×1、sympy\_dsolve×5、sympy\_verify\_substitution×1}
+\end{center}
+\vfill\begin{center}\footnotesize\textcolor{gray}{由 Meteorain C4C 作业自动求解流水线自动生成}\end{center}
+\end{document}

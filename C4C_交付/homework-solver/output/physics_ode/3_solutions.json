@@ -1,0 +1,549 @@
+[
+  {
+    "problem_id": "1",
+    "problem_text": "A net force of 12 N acts on a 3.0 kg mass that is initially at rest.\nFind the acceleration of the mass and the net force needed to keep it moving\nat constant velocity.",
+    "solved": true,
+    "steps": [
+      "识别领域：mechanics",
+      "$F = ma\\ \\Rightarrow\\ a = \\frac{F}{m}$",
+      "$a = \\frac{12.0}{3.0} = 4.0\\ \\mathrm{m/s^2}$",
+      "量纲核对：$\\mathrm{N/kg} = \\mathrm{m/s^2}$ ✓",
+      "物体做匀速直线运动时 $a = 0$，由 $F_{net}=ma$ 得",
+      "$F_{net} = m\\cdot 0 = 0\\ \\mathrm{N}$ —— 合力为零"
+    ],
+    "answer": "a = 4.0\\ \\mathrm{m/s^2},;  F_{net}\\ (\\text{匀速时}) = 0\\ \\mathrm{N}",
+    "answer_latex": "a = 4.0\\ \\mathrm{m/s^2},\\qquad F_{net}\\ (\\text{匀速时}) = 0\\ \\mathrm{N}",
+    "solver": "physics_newton2",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "physical"
+    },
+    "answer_value": "4.00000000000000",
+    "verification": {
+      "overall": "pass",
+      "n_checks": 2,
+      "n_passed": 2,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "method": "dimension_check",
+          "issues": [],
+          "expected": null,
+          "note": "当前仅做启发式检查；严格量纲分析需引入 pint 库"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "2",
+    "problem_text": "A ball is dropped from rest in vacuum. How fast is it moving after 3.0 s,\nand how far has it fallen? Take $g = 9.8$ m/s^2.",
+    "solved": true,
+    "steps": [
+      "识别领域：mechanics",
+      "自由落体（初速度为零，忽略空气阻力）：",
+      "$v = gt = 9.80665\\times(3.0) = 29.41995\\ \\mathrm{m/s}$",
+      "$h = \\frac{1}{2}gt^2 = 44.129925\\ \\mathrm{m}$",
+      "量纲核对：$\\mathrm{m/s^2}\\cdot\\mathrm{s}=\\mathrm{m/s}$ ✓；$\\mathrm{m/s^2}\\cdot\\mathrm{s^2}=\\mathrm{m}$ ✓"
+    ],
+    "answer": "v = 29.41995 m/s, h = 44.129925 m",
+    "answer_latex": "v = 29.41995\\ \\mathrm{m/s},\\quad h = 44.129925\\ \\mathrm{m}",
+    "solver": "physics_freefall",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "physical"
+    },
+    "answer_value": "29.4199500000000",
+    "verification": {
+      "overall": "pass",
+      "n_checks": 2,
+      "n_passed": 2,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "method": "dimension_check",
+          "issues": [],
+          "expected": null,
+          "note": "当前仅做启发式检查；严格量纲分析需引入 pint 库"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "3",
+    "problem_text": "Find the kinetic energy of a 2.5 kg cart rolling at 6.0 m/s.",
+    "solved": true,
+    "steps": [
+      "识别领域：mechanics",
+      "$K = \\frac{1}{2}mv^2$",
+      "$= \\frac{1}{2}\\times2.5\\times(6.0)^2 = 45.0\\ \\mathrm{J}$",
+      "量纲核对：$\\mathrm{kg}\\cdot\\mathrm{m^2/s^2} = \\mathrm{J}$ ✓"
+    ],
+    "answer": "45.0 J",
+    "answer_latex": "45.0\\ \\mathrm{J}",
+    "solver": "physics_kinetic_energy",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "physical"
+    },
+    "answer_value": "45.0000000000000",
+    "verification": {
+      "overall": "pass",
+      "n_checks": 2,
+      "n_passed": 2,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "method": "dimension_check",
+          "issues": [],
+          "expected": null,
+          "note": "当前仅做启发式检查；严格量纲分析需引入 pint 库"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "4",
+    "problem_text": "A 4.0 kg object is lifted 3.0 m by a vertical force. Find the change in\nits gravitational potential energy.",
+    "solved": true,
+    "steps": [
+      "识别领域：mechanics",
+      "$U = mgh$",
+      "$= 4.0\\times9.80665\\times(3.0) = 117.7\\ \\mathrm{J}$"
+    ],
+    "answer": "117.7 J",
+    "answer_latex": "117.7\\ \\mathrm{J}",
+    "solver": "physics_potential_energy",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "physical"
+    },
+    "answer_value": "117.679800000000",
+    "verification": {
+      "overall": "pass",
+      "n_checks": 2,
+      "n_passed": 2,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "method": "dimension_check",
+          "issues": [],
+          "expected": null,
+          "note": "当前仅做启发式检查；严格量纲分析需引入 pint 库"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "5",
+    "problem_text": "Two point charges of $3.0$ C and $5.0$ C are placed 2 m apart in vacuum.\nFind the magnitude of the Coulomb force between them.",
+    "solved": true,
+    "steps": [
+      "识别领域：electromagnetism",
+      "库仑定律：$F = k\\frac{|q_1q_2|}{r^2}$",
+      "$= 8987551792.3\\times|3.0\\times5.0|/(2.0)^2 = 3.37 \\cdot 10^{10}\\ \\mathrm{N}$",
+      "量纲核对：$\\mathrm{N\\,m^2/C^2}\\cdot\\mathrm{C^2/m^2} = \\mathrm{N}$ ✓"
+    ],
+    "answer": "3.37 \\cdot 10^{10} N",
+    "answer_latex": "3.37 \\cdot 10^{10}\\ \\mathrm{N}",
+    "solver": "physics_coulomb",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "physical"
+    },
+    "answer_value": "33703319221.1250",
+    "verification": {
+      "overall": "pass",
+      "n_checks": 2,
+      "n_passed": 2,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "method": "dimension_check",
+          "issues": [],
+          "expected": null,
+          "note": "当前仅做启发式检查；严格量纲分析需引入 pint 库"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "6",
+    "problem_text": "A potential difference of 24 V is applied across a 6 ohm resistor.\nFind the current through it and the power dissipated.",
+    "solved": true,
+    "steps": [
+      "识别领域：electromagnetism",
+      "欧姆定律：$I = V/R$",
+      "$= 24.0/6.0 = 4.0\\ \\mathrm{A}$",
+      "量纲核对：$\\mathrm{V}/\\Omega = \\mathrm{A}$ ✓"
+    ],
+    "answer": "4.0 A",
+    "answer_latex": "4.0\\ \\mathrm{A}",
+    "solver": "physics_ohm",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "physical"
+    },
+    "answer_value": "4.00000000000000",
+    "verification": {
+      "overall": "pass",
+      "n_checks": 2,
+      "n_passed": 2,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "method": "dimension_check",
+          "issues": [],
+          "expected": null,
+          "note": "当前仅做启发式检查；严格量纲分析需引入 pint 库"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "7",
+    "problem_text": "What electric field strength corresponds to a force of 8.0 N acting on a\ncharge of 4.0 C?",
+    "solved": true,
+    "steps": [
+      "识别领域：electromagnetism",
+      "$E = F/q$",
+      "$= 8.0/4.0 = 2.0\\ \\mathrm{N/C}$",
+      "量纲核对：$\\mathrm{N/C}$ ✓"
+    ],
+    "answer": "2.0 N/C",
+    "answer_latex": "2.0\\ \\mathrm{N/C}",
+    "solver": "physics_electric_field",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "physical"
+    },
+    "answer_value": "2.00000000000000",
+    "verification": {
+      "overall": "pass",
+      "n_checks": 2,
+      "n_passed": 2,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "method": "dimension_check",
+          "issues": [],
+          "expected": null,
+          "note": "当前仅做启发式检查；严格量纲分析需引入 pint 库"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "8",
+    "problem_text": "A gas sample occupies 0.05 m^3 at a temperature of 350 K and a pressure of\n202650 Pa. Find the number of moles present.",
+    "solved": true,
+    "steps": [
+      "识别领域：thermodynamics",
+      "理想气体状态方程：$PV = nRT$",
+      "$n = \\frac{PV}{RT} = \\frac{202650.0\\times0.05}{8.314462618\\times350.0} = 3.482\\ \\mathrm{mol}$",
+      "量纲核对：$\\mathrm{Pa\\cdot m^3}/(\\mathrm{J/(mol\\cdot K)}\\cdot\\mathrm{K}) = \\mathrm{mol}$ ✓"
+    ],
+    "answer": "3.482 mol",
+    "answer_latex": "3.482\\ \\mathrm{mol}",
+    "solver": "physics_ideal_gas",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "physical"
+    },
+    "answer_value": "3.48188467855109",
+    "verification": {
+      "overall": "pass",
+      "n_checks": 2,
+      "n_passed": 2,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        },
+        {
+          "passed": true,
+          "method": "dimension_check",
+          "issues": [],
+          "expected": null,
+          "note": "当前仅做启发式检查；严格量纲分析需引入 pint 库"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "9",
+    "problem_text": "Solve the initial value problem $y' + 3y = 6$ subject to $y(0) = 2$.",
+    "solved": true,
+    "steps": [
+      "解析方程：$3 y{\\left(x \\right)} + \\frac{d}{d x} y{\\left(x \\right)} - 6 = 0$",
+      "方程类型：1 阶（齐次），关于 $y(x)$ 线性",
+      "初值条件：$y(0) = 2$",
+      "代入 $x = 0$：$C_{1} e^{- 3 x} + 2 = 2$$\\Rightarrow C_{1} = 0$",
+      "因此 $y(x) = 2$",
+      "验证：把解代回原方程，残差 $y' - f(x,y) = 0$"
+    ],
+    "answer": "2",
+    "answer_latex": "2",
+    "solver": "sympy_dsolve",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "ode_expr",
+      "sol": "2",
+      "eq": "Eq(3*y(x) + Derivative(y(x), x) - 6, 0)"
+    },
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "10",
+    "problem_text": "Find the general solution of $y' - 5y = 0$.",
+    "solved": true,
+    "steps": [
+      "解析方程：$- 5 y{\\left(x \\right)} + \\frac{d}{d x} y{\\left(x \\right)} = 0$",
+      "方程类型：1 阶（齐次），关于 $y(x)$ 线性",
+      "无初值条件，给出通解（含任意常数）",
+      "$y(x) = C_{1} e^{5 x}$",
+      "验证：把解代回原方程，残差 $y' - f(x,y) = 5 C_{1} e^{5 x}$"
+    ],
+    "answer": "C_{1} e^{5 x}",
+    "answer_latex": "C_{1} e^{5 x}",
+    "solver": "sympy_dsolve",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "ode_expr",
+      "sol": "C1*exp(5*x)",
+      "eq": "Eq(-5*y(x) + Derivative(y(x), x), 0)"
+    },
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "11",
+    "problem_text": "Solve the second-order homogeneous equation $y'' - 7y' + 12y = 0$.",
+    "solved": true,
+    "steps": [
+      "解析方程：$12 y{\\left(x \\right)} - 7 \\frac{d}{d x} y{\\left(x \\right)} + \\frac{d^{2}}{d x^{2}} y{\\left(x \\right)} = 0$",
+      "方程类型：2 阶（齐次），关于 $y(x)$ 线性",
+      "无初值条件，给出通解（含任意常数）",
+      "$y(x) = \\left(C_{1} + C_{2} e^{x}\\right) e^{3 x}$",
+      "验证：把解代回原方程，残差 $y' - f(x,y) = \\left(3 C_{1} + 4 C_{2} e^{x}\\right) e^{3 x}$"
+    ],
+    "answer": "\\left(C_{1} + C_{2} e^{x}\\right) e^{3 x}",
+    "answer_latex": "\\left(C_{1} + C_{2} e^{x}\\right) e^{3 x}",
+    "solver": "sympy_dsolve",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "ode_expr",
+      "sol": "(C1 + C2*exp(x))*exp(3*x)",
+      "eq": "Eq(12*y(x) - 7*Derivative(y(x), x) + Derivative(y(x), (x, 2)), 0)"
+    },
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "12",
+    "problem_text": "Solve the separable differential equation $\\frac{dy}{dx} = x y$.",
+    "solved": true,
+    "steps": [
+      "解析方程：$- x y{\\left(x \\right)} + \\frac{d}{d x} y{\\left(x \\right)} = 0$",
+      "方程类型：1 阶（齐次），关于 $y(x)$ 非线性",
+      "无初值条件，给出通解（含任意常数）",
+      "$y(x) = C_{1} e^{\\frac{x^{2}}{2}}$",
+      "验证：把解代回原方程，残差 $y' - f(x,y) = C_{1} x e^{\\frac{x^{2}}{2}}$"
+    ],
+    "answer": "C_{1} e^{\\frac{x^{2}}{2}}",
+    "answer_latex": "C_{1} e^{\\frac{x^{2}}{2}}",
+    "solver": "sympy_dsolve",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "ode_expr",
+      "sol": "C1*exp(x**2/2)",
+      "eq": "Eq(-x*y(x) + Derivative(y(x), x), 0)"
+    },
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "13",
+    "problem_text": "A population model obeys $y' = 0.2y$ with $y(0) = 100$. Find $y(t)$ and\ninterpret the growth constant.",
+    "solved": true,
+    "steps": [
+      "解析方程：$- \\frac{y{\\left(x \\right)}}{5} + \\frac{d}{d x} y{\\left(x \\right)} = 0$",
+      "方程类型：1 阶（齐次），关于 $y(x)$ 线性",
+      "初值条件：$y(0) = 100$",
+      "代入 $x = 0$：$C_{1} e^{\\frac{x}{5}} = 100$$\\Rightarrow C_{1} = 100$",
+      "因此 $y(x) = 100 e^{\\frac{x}{5}}$",
+      "验证：把解代回原方程，残差 $y' - f(x,y) = 20 e^{\\frac{x}{5}}$"
+    ],
+    "answer": "100 e^{\\frac{x}{5}}",
+    "answer_latex": "100 e^{\\frac{x}{5}}",
+    "solver": "sympy_dsolve",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "ode_expr",
+      "sol": "100*exp(x/5)",
+      "eq": "Eq(-y(x)/5 + Derivative(y(x), x), 0)"
+    },
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "14",
+    "problem_text": "Verify that $y = C_1 e^{2x} + C_2 e^{3x}$ solves $y'' - 5y' + 6y = 0$,\nand state whether every solution has this form.",
+    "solved": true,
+    "steps": [
+      "待验证的函数：$y = C_{1} e^{2 x} + C_{2} e^{3 x}$",
+      "方程：$6 y{\\left(x \\right)} - 5 \\frac{d}{d x} y{\\left(x \\right)} + \\frac{d^{2}}{d x^{2}} y{\\left(x \\right)} = 0$",
+      "把 $y = C_{1} e^{2 x} + C_{2} e^{3 x}$ 代入方程左端，得到残差：$R = 6 C_{1} e^{2 x} + C_{2} e^{3 x} - 10 \\left(C_{1} + C_{2} e^{x}\\right) e^{2 x} + \\left(4 C_{1} + 9 C_{2} e^{x}\\right) e^{2 x}$",
+      "其中 $C_{1}$、$C_{2}$ 为任意常数——残差恒等于 0，**与常数取值无关**。",
+      "✓ 残差恒为 0，候选解确实是该方程的解。",
+      "注意：通解为 \\left(C_{1} + C_{2} e^{x}\\right) e^{2 x}，与题给形式不同，需说明是否等价。"
+    ],
+    "answer": "验证通过：残差恒为 0",
+    "answer_latex": "验证通过：残差恒为 0",
+    "solver": "sympy_verify_substitution",
+    "sub_solutions": [],
+    "verify_hint": {
+      "kind": "form_check"
+    },
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,64 @@
+{
+  "source_file": "homework_physics_ode.md",
+  "format": ".md",
+  "raw_text": "# PHYSICS 201 — University Physics, Homework 4\n## 力学 · 电磁学 · 热学\n\n### Problem 1\nA net force of 12 N acts on a 3.0 kg mass that is initially at rest.\nFind the acceleration of the mass and the net force needed to keep it moving\nat constant velocity.\n\n### Problem 2\nA ball is dropped from rest in vacuum. How fast is it moving after 3.0 s,\nand how far has it fallen? Take $g = 9.8$ m/s^2.\n\n### Problem 3\nFind the kinetic energy of a 2.5 kg cart rolling at 6.0 m/s.\n\n### Problem 4\nA 4.0 kg object is lifted 3.0 m by a vertical force. Find the change in\nits gravitational potential energy.\n\n### Problem 5\nTwo point charges of $3.0$ C and $5.0$ C are placed 2 m apart in vacuum.\nFind the magnitude of the Coulomb force between them.\n\n### Problem 6\nA potential difference of 24 V is applied across a 6 ohm resistor.\nFind the current through it and the power dissipated.\n\n### Problem 7\nWhat electric field strength corresponds to a force of 8.0 N acting on a\ncharge of 4.0 C?\n\n### Problem 8\nA gas sample occupies 0.05 m^3 at a temperature of 350 K and a pressure of\n202650 Pa. Find the number of moles present.\n\n## Problem Set B: Differential Equations\n\n### Problem 9\nSolve the initial value problem $y' + 3y = 6$ subject to $y(0) = 2$.\n\n### Problem 10\nFind the general solution of $y' - 5y = 0$.\n\n### Problem 11\nSolve the second-order homogeneous equation $y'' - 7y' + 12y = 0$.\n\n### Problem 12\nSolve the separable differential equation $\\frac{dy}{dx} = x y$.\n\n## Problem Set C: Mixed\n\n### Problem 13\nA population model obeys $y' = 0.2y$ with $y(0) = 100$. Find $y(t)$ and\ninterpret the growth constant.\n\n### Problem 14\nVerify that $y = C_1 e^{2x} + C_2 e^{3x}$ solves $y'' - 5y' + 6y = 0$,\nand state whether every solution has this form.",
+  "sections": [
+    {
+      "title": "Problem 1",
+      "content": "A net force of 12 N acts on a 3.0 kg mass that is initially at rest.\nFind the acceleration of the mass and the net force needed to keep it moving\nat constant velocity."
+    },
+    {
+      "title": "Problem 2",
+      "content": "A ball is dropped from rest in vacuum. How fast is it moving after 3.0 s,\nand how far has it fallen? Take $g = 9.8$ m/s^2."
+    },
+    {
+      "title": "Problem 3",
+      "content": "Find the kinetic energy of a 2.5 kg cart rolling at 6.0 m/s."
+    },
+    {
+      "title": "Problem 4",
+      "content": "A 4.0 kg object is lifted 3.0 m by a vertical force. Find the change in\nits gravitational potential energy."
+    },
+    {
+      "title": "Problem 5",
+      "content": "Two point charges of $3.0$ C and $5.0$ C are placed 2 m apart in vacuum.\nFind the magnitude of the Coulomb force between them."
+    },
+    {
+      "title": "Problem 6",
+      "content": "A potential difference of 24 V is applied across a 6 ohm resistor.\nFind the current through it and the power dissipated."
+    },
+    {
+      "title": "Problem 7",
+      "content": "What electric field strength corresponds to a force of 8.0 N acting on a\ncharge of 4.0 C?"
+    },
+    {
+      "title": "Problem 8",
+      "content": "A gas sample occupies 0.05 m^3 at a temperature of 350 K and a pressure of\n202650 Pa. Find the number of moles present."
+    },
+    {
+      "title": "Problem 9",
+      "content": "Solve the initial value problem $y' + 3y = 6$ subject to $y(0) = 2$."
+    },
+    {
+      "title": "Problem 10",
+      "content": "Find the general solution of $y' - 5y = 0$."
+    },
+    {
+      "title": "Problem 11",
+      "content": "Solve the second-order homogeneous equation $y'' - 7y' + 12y = 0$."
+    },
+    {
+      "title": "Problem 12",
+      "content": "Solve the separable differential equation $\\frac{dy}{dx} = x y$."
+    },
+    {
+      "title": "Problem 13",
+      "content": "A population model obeys $y' = 0.2y$ with $y(0) = 100$. Find $y(t)$ and\ninterpret the growth constant."
+    },
+    {
+      "title": "Problem 14",
+      "content": "Verify that $y = C_1 e^{2x} + C_2 e^{3x}$ solves $y'' - 5y' + 6y = 0$,\nand state whether every solution has this form."
+    }
+  ],
+  "char_count": 1730
+}

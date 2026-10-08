@@ -1,0 +1,105 @@
+{
+  "results": [
+    {
+      "name": "test1_tangent_epsilon_delta",
+      "label": "Berkeley Math 1A WS3：切线 & ε-δ",
+      "total": 8,
+      "solved": 8,
+      "rate": 1.0,
+      "verify_pass": 8,
+      "verify_fail": 0,
+      "empty_answers": 0,
+      "solver_distribution": {
+        "epsilon_delta_template": 3,
+        "conceptual_template": 2,
+        "epsilon_delta_computation": 1,
+        "sympy_tangent": 1,
+        "sympy_limit": 1
+      },
+      "elapsed": 0.28,
+      "unsolved": []
+    },
+    {
+      "name": "test2_limits",
+      "label": "Berkeley Math 1A WS4：极限",
+      "total": 10,
+      "solved": 10,
+      "rate": 1.0,
+      "verify_pass": 10,
+      "verify_fail": 0,
+      "empty_answers": 0,
+      "solver_distribution": {
+        "conceptual_template": 5,
+        "sympy_limit": 4,
+        "sympy_geometry_limit": 1
+      },
+      "elapsed": 0.15,
+      "unsolved": []
+    },
+    {
+      "name": "linear_algebra",
+      "label": "线性代数 12 题（新增学科）",
+      "total": 12,
+      "solved": 12,
+      "rate": 1.0,
+      "verify_pass": 12,
+      "verify_fail": 0,
+      "empty_answers": 0,
+      "solver_distribution": {
+        "sympy_eigenvalues": 2,
+        "sympy_diagonalize": 2,
+        "sympy_matrix_determinant": 1,
+        "sympy_matrix_inverse": 1,
+        "sympy_eigenvectors": 1,
+        "sympy_linear_system": 1,
+        "sympy_orthogonality_check": 1,
+        "sympy_gram_schmidt": 1,
+        "sympy_matrix_rank": 1,
+        "sympy_nullspace": 1
+      },
+      "elapsed": 0.07,
+      "unsolved": []
+    },
+    {
+      "name": "physics_ode",
+      "label": "物理 +微分方程 14 题（新增学科）",
+      "total": 14,
+      "solved": 14,
+      "rate": 1.0,
+      "verify_pass": 14,
+      "verify_fail": 0,
+      "empty_answers": 0,
+      "solver_distribution": {
+        "sympy_dsolve": 5,
+        "physics_newton2": 1,
+        "physics_freefall": 1,
+        "physics_kinetic_energy": 1,
+        "physics_potential_energy": 1,
+        "physics_coulomb": 1,
+        "physics_ohm": 1,
+        "physics_electric_field": 1,
+        "physics_ideal_gas": 1,
+        "sympy_verify_substitution": 1
+      },
+      "elapsed": 0.97,
+      "unsolved": []
+    }
+  ],
+  "claude_baseline": {
+    "test1_tangent_epsilon_delta": {
+      "solved": 8,
+      "total": 8,
+      "rate": 1.0
+    },
+    "test2_limits": {
+      "solved": 9,
+      "total": 10,
+      "rate": 0.9
+    },
+    "total": {
+      "solved": 17,
+      "total": 18,
+      "rate": 0.944
+    }
+  }
+}

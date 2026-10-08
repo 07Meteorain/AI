@@ -1,0 +1,68 @@
+{
+  "source_file": "homework_linear_algebra.md",
+  "format": ".md",
+  "raw_text": "# MATH 221 — Linear Algebra, Homework 6\n\n## Problem Set\n\n### Problem 1\nCompute the determinant of the matrix $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$.\n\n### Problem 2\nLet $A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$. Find $A^{-1}$.\n\n### Problem 3\nFind all eigenvalues of $A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$.\n\n### Problem 4\nFind the eigenvalues and corresponding eigenvectors of\n$A = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$.\n\n### Problem 5\nCompute the eigenvalues of $A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 5 \\end{pmatrix}$.\n\n### Problem 6\nLet $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $\\mathbf{b} = \\begin{pmatrix} 5 \\\\ 11 \\end{pmatrix}$.\nSolve the linear system $A\\mathbf{x} = \\mathbf{b}$.\n\n### Problem 7\nDetermine whether the columns of\n$A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$ are orthogonal.\n\n### Problem 8\nApply Gram-Schmidt orthogonalization to\n$A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$.\n\n### Problem 9\nCompute the rank of\n$A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\\\ 3 & 6 \\end{pmatrix}$.\n\n### Problem 10\nLet $A = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}$. Find a matrix $P$ that diagonalizes\n$A$, i.e. find $P$ and $D$ such that $A = PDP^{-1}$.\n\n### Problem 11\nLet $A = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$. What is the null space of $A$?\n\n### Problem 12\nDiagonalize $A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$.\n\n## Additional Problems\n\n### AP1\nCompute the trace and transpose of\n$A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 3 & 4 \\\\ 5 & 6 & 0 \\end{pmatrix}$.\n\n### AP2\nFind the reduced row echelon form of\n$A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 1 & 1 & 1 \\end{pmatrix}$.\n\n### AP3\nLet $A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 1 \\end{pmatrix}$. Prove that $A$ is symmetric but\nthat $A^2$ has eigenvalues $9$ and $1$. Verify by direct multiplication.",
+  "sections": [
+    {
+      "title": "Problem 1",
+      "content": "Compute the determinant of the matrix $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$."
+    },
+    {
+      "title": "Problem 2",
+      "content": "Let $A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$. Find $A^{-1}$."
+    },
+    {
+      "title": "Problem 3",
+      "content": "Find all eigenvalues of $A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$."
+    },
+    {
+      "title": "Problem 4",
+      "content": "Find the eigenvalues and corresponding eigenvectors of\n$A = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$."
+    },
+    {
+      "title": "Problem 5",
+      "content": "Compute the eigenvalues of $A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 5 \\end{pmatrix}$."
+    },
+    {
+      "title": "Problem 6",
+      "content": "Let $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $\\mathbf{b} = \\begin{pmatrix} 5 \\\\ 11 \\end{pmatrix}$.\nSolve the linear system $A\\mathbf{x} = \\mathbf{b}$."
+    },
+    {
+      "title": "Problem 7",
+      "content": "Determine whether the columns of\n$A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$ are orthogonal."
+    },
+    {
+      "title": "Problem 8",
+      "content": "Apply Gram-Schmidt orthogonalization to\n$A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$."
+    },
+    {
+      "title": "Problem 9",
+      "content": "Compute the rank of\n$A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\\\ 3 & 6 \\end{pmatrix}$."
+    },
+    {
+      "title": "Problem 10",
+      "content": "Let $A = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}$. Find a matrix $P$ that diagonalizes\n$A$, i.e. find $P$ and $D$ such that $A = PDP^{-1}$."
+    },
+    {
+      "title": "Problem 11",
+      "content": "Let $A = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$. What is the null space of $A$?"
+    },
+    {
+      "title": "Problem 12",
+      "content": "Diagonalize $A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$."
+    },
+    {
+      "title": "AP1",
+      "content": "Compute the trace and transpose of\n$A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 3 & 4 \\\\ 5 & 6 & 0 \\end{pmatrix}$."
+    },
+    {
+      "title": "AP2",
+      "content": "Find the reduced row echelon form of\n$A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 1 & 1 & 1 \\end{pmatrix}$."
+    },
+    {
+      "title": "AP3",
+      "content": "Let $A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 1 \\end{pmatrix}$. Prove that $A$ is symmetric but\nthat $A^2$ has eigenvalues $9$ and $1$. Verify by direct multiplication."
+    }
+  ],
+  "char_count": 1855
+}

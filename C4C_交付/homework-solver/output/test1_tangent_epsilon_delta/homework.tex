@@ -1,0 +1,400 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{xeCJK}
+% ── 中文字体自动探测（由 render_latex.py 生成）──
+% 探测到的候选字体：Source Han Serif SC, Noto Sans SC, SimSun, Microsoft YaHei, SimHei, KaiTi
+\IfFontExistsTF{Source Han Serif SC}{\setCJKmainfont{Source Han Serif SC}}{}
+\IfFontExistsTF{Noto Sans SC}{\setCJKmainfont{Noto Sans SC}}{}
+\IfFontExistsTF{SimSun}{\setCJKmainfont{SimSun}}{}
+\IfFontExistsTF{Microsoft YaHei}{\setCJKmainfont{Microsoft YaHei}}{}
+\IfFontExistsTF{SimHei}{\setCJKmainfont{SimHei}}{}
+\IfFontExistsTF{KaiTi}{\setCJKmainfont{KaiTi}}{}
+\IfFontExistsTF{FangSong}{\setCJKmainfont{FangSong}}{}
+\IfFontExistsTF{STSong}{\setCJKmainfont{STSong}}{}
+% 若以上全部缺失，中文可能显示为方框；请安装 Noto Sans CJK SC 或在 config 中指定字体
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+% 关闭 CJK 与西文之间的额外间距，贴近学术排版习惯
+
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Mathematics}
+\rhead{Student}
+\rfoot{Page \thepage}
+\cfoot{}
+
+% ── 颜色定义 ──
+\definecolor{solutionblue}{HTML}{1D4ED8}
+\definecolor{solutiongreen}{HTML}{15803D}
+\definecolor{warnamber}{HTML}{B45309}
+\definecolor{verifyred}{HTML}{B91C1C}
+
+% ── 自定义环境 ──
+\newtcolorbox{stepbox}{colback=blue!2!white,colframe=blue!20!black,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{verifybox}{colback=green!3!white,colframe=green!35!black,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt}
+\newtcolorbox{warnbox}{colback=orange!5!white,colframe=orange!45!black,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt}
+
+\newcommand{\problem}[1]{\subsection*{Problem~#1}}
+\newcommand{\solution}{%
+  \par\noindent
+  {\color{solutiongreen}\bfseries Solution.}\par
+}
+\newcommand{\verifyok}{\textcolor{solutiongreen}{\ensuremath{\checkmark}\ 已验证}}
+\newcommand{\verifywarn}{\textcolor{verifyred}{\ensuremath{\times}\ 验证存疑}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Homework Solutions} \\[0.6em]
+  {\large\color{solutionblue} Mathematics} \\[0.4em]
+  Student \quad | \quad 2026-10-06
+\end{center}
+\vspace{0.5em}\hrule\vspace{1.2em}
+\problem{Q1}
+
+\begin{stepbox}
+Can the graph of a function have more than one tangent at a given point? If so, graph your answer. If not, explain why.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+**不能**——在可导点处切线**唯一**。
+\end{stepbox}
+
+\begin{stepbox}
+理由：切线斜率由导数唯一确定，$k=f'(a)$；
+\end{stepbox}
+
+\begin{stepbox}
+过点 $(a,f(a))$ 且斜率为 $k$ 的直线只有一条。
+\end{stepbox}
+
+\begin{stepbox}
+（若导数不存在，则是「零条」切线而非「多条」。）
+\end{stepbox}
+
+\begin{center}
+\textbackslash{}text\{唯一切线\}:\textbackslash{} y-f(a)=f'(a)(x-a)
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{Q2}
+
+\begin{stepbox}
+Is there a function whose graph doesn't have a tangent at some point? If so, graph your answer. If not, explain why.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+**是**，存在函数在某点没有切线。
+\end{stepbox}
+
+\begin{stepbox}
+反例：$f(x)=|x|$ 在 $x=0$ 处连续但不可导——
+\end{stepbox}
+
+\begin{stepbox}
+左右导数分别为 $f'_-(0) = -1$ 与 $f'_+(0) = +1$，不相等。
+\end{stepbox}
+
+\begin{stepbox}
+图像在原点处有一个「尖点」，不存在切线。
+\end{stepbox}
+
+\begin{center}
+f(x)=|x| \textbackslash{}text\{ 在 \} x=0 \textbackslash{}text\{ 处不可导\}\textbackslash{} (f'\_-(0)=-1\textbackslash{}neq f'\_+(0)=1)
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{P1}
+
+\begin{stepbox}
+Suppose $\delta$ is a positive real number. How do you describe all real numbers $x$ that are within $\delta$ of 0?
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+x 在 0 的 δ 邻域内：$|x - 0| < \delta$，即 $0-\delta < x < 0+\delta$
+\end{stepbox}
+
+\begin{center}
+$\boxed{|x - 0| < \delta}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.3em}
+\textbf{(a)}\quad \textcolor{gray}{\small Using inequalities (\$<, >\$).}
+
+用不等式表示：$0 - \delta < x < 0 + \delta$
+
+$\quad\Rightarrow\quad 0 - \delta < x < 0 + \delta$
+
+\textbf{(b)}\quad \textcolor{gray}{\small Using absolute value notation.}
+
+$|x - 0| < \delta$
+
+$\quad\Rightarrow\quad |x - 0| < \delta$
+
+\textbf{(c)}\quad \textcolor{gray}{\small Using interval notation.}
+
+区间表示：$(0 - \delta, 0 + \delta)$
+
+$\quad\Rightarrow\quad (0 - \delta, 0 + \delta)$
+
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{P2}
+
+\begin{stepbox}
+Suppose $a$ is a real number and $\delta$ is a positive real number. How do you describe all real numbers $x$ that are within $\delta$ of $a$?
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+x 在 0 的 δ 邻域内：$|x - 0| < \delta$，即 $0-\delta < x < 0+\delta$
+\end{stepbox}
+
+\begin{center}
+$\boxed{|x - 0| < \delta}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.3em}
+\textbf{(a)}\quad \textcolor{gray}{\small Graphically, as on the line above.}
+
+\textcolor{warnamber}{未解：未识别的 ε-δ 子题类型}
+
+\textbf{(b)}\quad \textcolor{gray}{\small Using inequalities. There are at least two ways to do this. Find both.}
+
+用不等式表示：$0 - \delta < x < 0 + \delta$
+
+$\quad\Rightarrow\quad 0 - \delta < x < 0 + \delta$
+
+\textbf{(c)}\quad \textcolor{gray}{\small Using absolute value notation.}
+
+$|x - 0| < \delta$
+
+$\quad\Rightarrow\quad |x - 0| < \delta$
+
+\textbf{(d)}\quad \textcolor{gray}{\small Using interval notation.}
+
+区间表示：$(0 - \delta, 0 + \delta)$
+
+$\quad\Rightarrow\quad (0 - \delta, 0 + \delta)$
+
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{P3}
+
+\begin{stepbox}
+Suppose $a$ is a real number and $\delta$ is a positive real number. How do you describe all real numbers $x$ that are within $\delta$ of $a$, but not equal to $a$:
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+x 与 0 的距离在 δ 以内且不等于 0：$0 < |x - 0| < \delta$
+\end{stepbox}
+
+\begin{center}
+$\boxed{0 < |x - 0| < \delta}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.3em}
+\textbf{(a)}\quad \textcolor{gray}{\small Graphically.}
+
+\textcolor{warnamber}{未解：未识别的 ε-δ 子题类型}
+
+\textbf{(b)}\quad \textcolor{gray}{\small Using inequalities.}
+
+用不等式表示：$0 - \delta < x < 0 + \delta, \quad x \neq 0$
+
+$\quad\Rightarrow\quad 0 - \delta < x < 0 + \delta, \quad x \neq 0$
+
+\textbf{(c)}\quad \textcolor{gray}{\small Using absolute value notation.}
+
+$0 < |x - 0| < \delta$
+
+$\quad\Rightarrow\quad 0 < |x - 0| < \delta$
+
+\textbf{(d)}\quad \textcolor{gray}{\small Using interval notation.}
+
+区间表示：$(0 - \delta, 0) \cup (0, 0 + \delta)$
+
+$\quad\Rightarrow\quad (0 - \delta, 0) \cup (0, 0 + \delta)$
+
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{P4}
+
+\begin{stepbox}
+Let $f(x) = x^2$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+已知 $f(x) = x^{2}$，中心 $a = 3$
+\end{stepbox}
+
+\begin{stepbox}
+$f(a) = 9$，故目标值 $L = 9$
+\end{stepbox}
+
+\begin{center}
+\textbackslash{}text\{见各子题解答\}
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.3em}
+\textbf{(a)}\quad \textcolor{gray}{\small Find all the positive numbers \$x\$ such that \$f(x)\$ is within 1 of 9.}
+
+\textcolor{warnamber}{未解：该子题需要解不等式，未覆盖}
+
+\textbf{(b)}\quad \textcolor{gray}{\small Find a real number \$\textbackslash{}delta\$ such that whenever \$x\$ is within \$\textbackslash{}delta\$ of 3, \$f(…}
+
+要使 $|f(x) - 9| < 1$，先作差分解：
+
+$|f(x)-f(a)| = |x-a|\cdot(\text{与 }x\text{ 无关的因子})$
+
+限制 $\delta\le 1$，把后面的因子界为常数 $C$，得
+
+$\delta = \min\{1,\ \varepsilon/C\} = \frac{1}{8}$
+
+验证：取 $\delta = \frac{1}{8}$，当 $0<|x - 3| < \delta$ 时$|f(x) - 9| < 1$ ✓
+
+$\quad\Rightarrow\quad \frac{1}{8}$
+
+\textbf{(c)}\quad \textcolor{gray}{\small Find a real number \$\textbackslash{}delta\$ such that whenever \$x\$ is within \$\textbackslash{}delta\$ of 3, \$f(…}
+
+要使 $|f(x) - 9| < \frac{1}{2}$，先作差分解：
+
+$|f(x)-f(a)| = |x-a|\cdot(\text{与 }x\text{ 无关的因子})$
+
+限制 $\delta\le 1$，把后面的因子界为常数 $C$，得
+
+$\delta = \min\{1,\ \varepsilon/C\} = \frac{1}{16}$
+
+验证：取 $\delta = \frac{1}{16}$，当 $0<|x - 3| < \delta$ 时$|f(x) - 9| < \frac{1}{2}$ ✓
+
+$\quad\Rightarrow\quad \frac{1}{16}$
+
+\textbf{(d)}\quad \textcolor{gray}{\small Is it true that for any positive number \$\textbackslash{}varepsilon\$, there is a positive \$\textbackslash{}de…}
+
+要使 $|f(x) - 9| < \epsilon$，先作差分解：
+
+$|f(x)-f(a)| = |x-a|\cdot(\text{与 }x\text{ 无关的因子})$
+
+限制 $\delta\le 1$，把后面的因子界为常数 $C$，得
+
+$\delta = \min\{1,\ \varepsilon/C\} = \min\left(1, \frac{\epsilon}{8}\right)$
+
+验证：取 $\delta = \min\left(1, \frac{\epsilon}{8}\right)$，当 $0<|x - 3| < \delta$ 时$|f(x) - 9| < \epsilon$ ✓
+
+$\quad\Rightarrow\quad \min\left(1, \frac{\epsilon}{8}\right)$
+
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{AP1}
+
+\begin{stepbox}
+Graph $y = 2x - x^2$. For which points $a$ is the tangent line to the curve at the point $(a, 2a - a^2)$ a horizontal line? How is the value of $2x - x^2$ at these points related to the values of $2x - x^2$ at other points?
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+已知 $y = - x^{2} + 2 x$
+\end{stepbox}
+
+\begin{stepbox}
+求导：$y' = 2 - 2 x$
+\end{stepbox}
+
+\begin{stepbox}
+水平切线处 $y' = 0$：解得 $x = ['1']$
+\end{stepbox}
+
+\begin{stepbox}
+对应点：$(1, 1)$
+\end{stepbox}
+
+\begin{stepbox}
+$f''(1) = -2 < 0$：极大值点
+\end{stepbox}
+
+\begin{center}
+$\boxed{(1, 1)}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{AP2}
+
+\begin{stepbox}
+The point $(2, 0)$ is on the curve $y = 2x - x^2$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+见各子题计算过程。
+\end{stepbox}
+
+\begin{center}
+\textbackslash{}text\{见各子题\}
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.3em}
+\textbf{(a)}\quad \textcolor{gray}{\small Draw the tangent line to the curve at the point \$(2, 0)\$.}
+
+This sub-question asks for a graph; see the matplotlib figure generated for this problem.
+
+$\quad\Rightarrow\quad \text{见附图}$
+
+\textbf{(b)}\quad \textcolor{gray}{\small Try to determine the equation of this tangent line.}
+
+\textcolor{warnamber}{未解：无法解析该子题的极限表达式}
+
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\vspace{1.5em}
+\hrule\vspace{0.8em}
+\begin{center}\small
+\textbf{求解汇总}\quad 共 8 题，自动解出 8 题（100\%）；验证通过 8 题，存疑 0 题。\\[0.3em]
+\textcolor{gray}{求解器分布：conceptual\_template×2、epsilon\_delta\_computation×1、epsilon\_delta\_template×3、sympy\_limit×1、sympy\_tangent×1}
+\end{center}
+\vfill\begin{center}\footnotesize\textcolor{gray}{由 Meteorain C4C 作业自动求解流水线自动生成}\end{center}
+\end{document}

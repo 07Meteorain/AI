@@ -1,0 +1,455 @@
+# ============================================================
+# T-box: 线性代数（Linear Algebra）
+# ============================================================
+# Oracle sources:
+#   - Strang, Introduction to Linear Algebra（MIT 18.06 同款教材）
+#   - Lay, Linear Algebra and Its Applications
+#   - Berkeley Math 18/155 课程大纲
+#
+# 本文件定义线性代数领域的本体：概念、解题方法、分类规则、验证规则。
+# 运行时的求解器读这份配置来分类题目并路由到对应的求解器。
+#
+# 与 starter kit 的 calculus_limits.yaml 的关系：
+#   starter kit 只有微积分极限一个域，本文件是**新增**的独立域。
+#   二者共用 classify.py / retrieve.py 的 T-box 协议，可并存。
+# ============================================================
+
+domain: linear_algebra
+version: "1.0"
+
+oracle_sources:
+  - type: textbook
+    ref: "Strang, Introduction to Linear Algebra, 5th ed."
+    authority: primary
+    distilled_knowledge:
+      - "det 是乘法同态：det(AB) = det(A)det(B)，但对加法非线性"
+      - "可逆 ⟺ det ≠ 0 ⟺ 零空间仅含零向量 ⟺ 列满秩 ⟺ 无非零特征值为 0"
+      - "可对角化 ⟺ 有 n 个线性无关特征向量 ⟺ 每个特征值的几何重数 = 代数重数"
+      - "Gram-Schmidt：投影法 q_i = v_i - Σ⟨v_i,q_j⟩q_j，再归一化得标准正交组"
+      - "SVD：σ_i = √λ_i(AᵀA)，对角阵 Σ 补零到 max(m,n)×max(m,n)"
+  - type: instructor_guide
+    ref: "线性代数常见错误与判题要点"
+    authority: primary
+    distilled_knowledge:
+      - "考试陷阱：题目问det 却答成特征值；问列空间却答零空间"
+      - "逆矩阵必须验证 AA⁻¹ = I，写出 A⁻¹ 不给验证过程会被扣分"
+      - "奇异矩阵无逆，要明确说明 det = 0 而不是给一个假的逆"
+      - "Gram-Schmidt 输入可能是行向量组（m×n，m≠n），必须按形状判断"
+      - "重根矩阵未必不可对角化，要看几何重数"
+      - "正交 ≠ 标准正交，后者还要单位长度"
+
+# ============================================================
+# CONCEPT GRAPH
+# ============================================================
+
+concepts:
+
+  # ──── 基础对象 ────
+
+  - id: matrix
+    type: concept
+    name: "矩阵"
+    formal: "m×n 数组，元素 a_ij ∈ F"
+    prerequisites: []
+    keywords: [matrix, matrices, 矩阵, A, pmatrix, bmatrix]
+
+  - id: determinant
+    type: concept
+    name: "行列式"
+    formal: "det: M_n(F) → F，方阵的标量函数，det(AB)=det(A)det(B)"
+    prerequisites: [matrix]
+    keywords: [determinant, det, 行列式]
+
+  - id: inverse
+    type: concept
+    name: "逆矩阵"
+    formal: "AA⁻¹ = A⁻¹A = I_n；存在 ⟺ det(A) ≠ 0"
+    prerequisites: [matrix, determinant]
+    keywords: [inverse, invert, 逆矩阵, 逆, A^{-1}]
+
+  - id: rank
+    type: concept
+    name: "秩"
+    formal: "rank(A) = dim(row space) = dim(col space) ≤ min(m,n)"
+    prerequisites: [matrix]
+    keywords: [rank, 秩]
+
+  - id: trace
+    type: concept
+    name: "迹"
+    formal: "tr(A) = Σ a_ii = Σ λ_i（特征值之和）"
+    prerequisites: [matrix]
+    keywords: [trace, 迹]
+
+  - id: transpose
+    type: concept
+    name: "转置"
+    formal: "(Aᵀ)_ij = a_ji；(AB)ᵀ = BᵀAᵀ"
+    prerequisites: [matrix]
+    keywords: [transpose, 转置]
+
+  # ──── 谱理论 ────
+
+  - id: eigenvalue
+    type: concept
+    name: "特征值与特征向量"
+    formal: "Av = λv, v ≠ 0⟺ det(A - λI) = 0"
+    prerequisites: [matrix, determinant]
+    keywords: [eigenvalue, eigenvector, eigen, 特征值, 特征向量, 谱]
+    oracle_insight: |
+      特征值的代数重数之和恒等于 n。若求解器给出的特征值个数 < n，
+      说明存在重根未被分解，或用了数值方法近似——都应显式提示。
+
+  - id: diagonalization
+    type: concept
+    name: "对角化"
+    formal: "A = PDP⁻¹ ⟺ P 可逆且 D 为对角阵 ⟺ A 有 n 个线性无关特征向量"
+    prerequisites: [eigenvalue, inverse]
+    keywords: [diagonalize, diagonalization, diagonal form, 对角化, 相似对角]
+    oracle_insight: |
+      可对角化的充要条件：每个特征值的几何重数 = 代数重数。
+      det(P) = 0 说明选到的特征向量线性相关，P 构造失败。
+
+  - id: svd
+    type: concept
+    name: "奇异值分解"
+    formal: "A = UΣVᵀ，σ_i = √λ_i(AᵀA) ≥ 0"
+    prerequisites: [matrix, eigenvalue]
+    keywords: [singular value, svd, 奇异值, 奇异值分解]
+
+  # ──── 空间与正交性 ────
+
+  - id: nullspace
+    type: concept
+    name: "零空间（核）"
+    formal: "N(A) = {x : Ax = 0}"
+    prerequisites: [matrix]
+    keywords: [nullspace, null space, kernel, 零空间, 核]
+
+  - id: column_space
+    type: concept
+    name: "列空间"
+    formal: "C(A) = span{列向量}，维数 = rank(A)"
+    prerequisites: [matrix, rank]
+    keywords: [column space, col space, 列空间, 列空间]
+
+  - id: orthogonality
+    type: concept
+    name: "正交性"
+    formal: "u ⊥ v ⟺ ⟨u,v⟩ = uᵀv = 0；正交 ≠ 标准正交（后者还需 ‖u‖=1）"
+    prerequisites: [matrix]
+    keywords: [orthogonal, orthogonalize, orthogonal basis, 正交, 正交化, 正交基, 标准正交]
+    oracle_insight: |
+      真实作业里"对这组向量做 Gram-Schmidt"常把向量写成矩阵的**行**，
+      此时矩阵是非方阵。必须按形状判断取行还是取列。
+
+  # ──── 解题方法 ────
+
+  - id: linear_system
+    type: concept
+    name: "线性方程组"
+    formal: "Ax = b；有唯一解 ⟺ A 可逆 ⟺ det(A) ≠ 0"
+    prerequisites: [matrix, inverse]
+    keywords: [linear system, solve for x, Ax = b, 方程组, 线性方程组, 解方程组]
+
+# ============================================================
+# SOLUTION METHODS（求解器）
+# ============================================================
+
+solution_methods:
+
+  - id: matrix_determinant
+    type: solution_method
+    concept: determinant
+    name: "行列式计算"
+    applies_when: "题目要求 determinant / det / 行列式"
+    tool: sympy
+    solver_template: domain_solvers.solve_matrix
+    input_schema:
+      matrix: "LaTeX 矩阵（pmatrix/bmatrix/vmatrix/matrix）"
+    output_form: "标量"
+    verification: "det 数值化 + 手算小阶矩阵交叉核对"
+
+  - id: matrix_inverse
+    type: solution_method
+    concept: inverse
+    name: "逆矩阵"
+    applies_when: "题目出现 inverse / 逆 / A^{-1}（LaTeX 上标 -1）"
+    tool: sympy
+    solver_template: domain_solvers.solve_matrix
+    input_schema:
+      matrix: "LaTeX 矩阵"
+    output_form: "n×n 矩阵"
+    verification: "必须验证 AA⁻¹ = I；det = 0 时明确报「奇异，无逆」"
+    oracle_insight: |
+      ⚠️ 不能只匹配 "inverse" 关键词——真实作业常写 "Find $A^{-1}$"，
+      文本里根本没有 "inverse" 这个单词。必须同时识别 LaTeX 上标 -1。
+
+  - id: matrix_eigenvalues
+    type: solution_method
+    concept: eigenvalue
+    name: "特征值求解"
+    applies_when: "题目要求 eigenvalues / 特征值"
+    tool: sympy
+    solver_template: domain_solvers.solve_matrix
+    output_form: "特征值列表（含重数标注）"
+    verification: "对每个 λ 检查 det(A-λI) ≈ 0；检查重数之和是否等于 n"
+
+  - id: matrix_eigenvectors
+    type: solution_method
+    concept: eigenvalue
+    name: "特征向量求解"
+    applies_when: "题目要求 eigenvectors / 特征向量"
+    tool: sympy
+    solver_template: domain_solvers.solve_matrix
+    output_form: "每个特征值对应的特征空间基"
+
+  - id: matrix_diagonalize
+    type: solution_method
+    concept: diagonalization
+    name: "相似对角化"
+    applies_when: "题目要求 diagonalize / 对角化 / find P and D"
+    tool: sympy
+    solver_template: domain_solvers.solve_matrix
+    output_form: "A = PDP⁻¹ 及 P、D"
+    verification: "验证 det(P) ≠ 0 且 PDP⁻¹ = A"
+
+  - id: matrix_svd
+    type: solution_method
+    concept: svd
+    name: "奇异值分解"
+    applies_when: "题目要求 singular values / SVD / 奇异值"
+    tool: sympy
+    solver_template: domain_solvers.solve_matrix
+    output_form: "对角阵 Σ"
+    oracle_insight: |
+      ⚠️ SymPy 1.13 没有 M.svd() 方法，必须用 M.singular_values()，
+      再自己拼成 max(m,n)×max(m,n) 的对角阵（不足处补零）。
+
+  - id: matrix_rank
+    type: solution_method
+    concept: rank
+    name: "矩阵的秩"
+    applies_when: "题目要求 rank / 秩"
+    tool: sympy
+    solver_template: domain_solvers.solve_matrix
+    output_form: "整数"
+
+  - id: matrix_trace_transpose
+    type: solution_method
+    concept: trace
+    name: "迹与转置"
+    applies_when: "题目要求 trace / transpose / 迹 / 转置"
+    tool: sympy
+    solver_template: domain_solvers.solve_matrix
+
+  - id: matrix_rref
+    type: solution_method
+    concept: matrix
+    name: "行最简形"
+    applies_when: "题目要求 rref / row reduce / 行最简"
+    tool: sympy
+    solver_template: domain_solvers.solve_matrix
+
+  - id: nullspace_basis
+    type: solution_method
+    concept: nullspace
+    name: "零空间基"
+    applies_when: "题目要求 null space / 零空间"
+    tool: sympy
+    solver_template: domain_solvers.solve_matrix
+
+  - id: colspace_basis
+    type: solution_method
+    concept: column_space
+    name: "列空间基"
+    applies_when: "题目要求 column space / 列空间"
+    tool: sympy
+    solver_template: domain_solvers.solve_matrix
+
+  - id: orthogonality_check
+    type: solution_method
+    concept: orthogonality
+    name: "正交性判定"
+    applies_when: "题目问 are the vectors orthogonal / 是否正交（且未要求正交化）"
+    tool: sympy
+    solver_template: domain_solvers._solve_orthogonality
+    output_form: "两两内积 + 是否正交的结论"
+
+  - id: gram_schmidt
+    type: solution_method
+    concept: orthogonality
+    name: "Gram-Schmidt 正交化"
+    applies_when: "题目要求 Gram-Schmidt / 正交化 / 正交基"
+    tool: sympy
+    solver_template: domain_solvers._solve_orthogonality
+    output_form: "正交组Q（列为 q_1, q_2, ...）"
+    verification: "验证 QᵀQ 为对角阵（正交）或单位阵（标准正交）"
+    oracle_insight: |
+      ⚠️ SymPy 1.13 的 Matrix.orthogonalize 是 **classmethod**，
+      必须写成 Matrix.orthogonalize(v1, v2, ...)。
+      实例调用 M.orthogonalize() 会**静默返回空列表**，不报错——极易误判为「无解」。
+
+  - id: linear_system_solve
+    type: solution_method
+    concept: linear_system
+    name: "线性方程组求解"
+    applies_when: "题目形如 Ax = b 且同时给出 A 与 b"
+    tool: sympy
+    solver_template: domain_solvers._solve_linear_system
+    output_form: "解向量 x"
+    verification: "验证 Ax - b = 0；det(A)=0 时须讨论解的情况"
+
+# ============================================================
+# CLASSIFICATION RULES
+# 优先级从高到低。更具体的规则排前面。
+# ============================================================
+
+classification_rules:
+
+  # ── 谱理论（必须排在 matrix 类之前）──
+  - priority: 100
+    pattern:
+      text_contains: ["eigenvector", "特征向量"]
+    maps_to: eigenvalue
+    solver: matrix_eigenvectors
+
+  - priority: 98
+    pattern:
+      text_contains: ["eigenvalue", "特征值", "eigen"]
+    maps_to: eigenvalue
+    solver: matrix_eigenvalues
+
+  - priority: 96
+    pattern:
+      text_contains: ["diagonaliz", "对角化", "diagonal form"]
+    maps_to: diagonalization
+    solver: matrix_diagonalize
+
+  - priority: 94
+    pattern:
+      text_contains: ["singular value", "svd", "奇异值"]
+    maps_to: svd
+    solver: matrix_svd
+
+  # ── 正交性 ──
+  - priority: 92
+    pattern:
+      text_contains: ["gram-schmidt", "orthogonalize", "正交化",
+                      "orthonormal", "标准正交", "orthogonal basis", "正交基"]
+    maps_to: orthogonality
+    solver: gram_schmidt
+
+  - priority: 90
+    pattern:
+      text_contains: ["orthogonal", "正交"]
+    maps_to: orthogonality
+    solver: orthogonality_check
+
+  # ── 逆矩阵：关键词 OR LaTeX 上标（后者不能靠关键词捕获）──
+  - priority: 88
+    pattern:
+      text_contains: ["inverse", "逆矩阵", "逆"]
+    maps_to: inverse
+    solver: matrix_inverse
+
+  # ── 行列式 ──
+  - priority: 86
+    pattern:
+      text_contains: ["determinant", "行列式"]
+    maps_to: determinant
+    solver: matrix_determinant
+
+  # ── 空间 ──
+  - priority: 84
+    pattern:
+      text_contains: ["null space", "nullspace", "零空间", "kernel", "核空间"]
+    maps_to: nullspace
+    solver: nullspace_basis
+
+  - priority: 82
+    pattern:
+      text_contains: ["column space", "col space", "列空间"]
+    maps_to: column_space
+    solver: colspace_basis
+
+  # ── 标量不变量 ──
+  - priority: 80
+    pattern:
+      text_contains: ["rank", "秩"]
+    maps_to: rank
+    solver: matrix_rank
+
+  - priority: 78
+    pattern:
+      text_contains: ["trace", "迹"]
+    maps_to: trace
+    solver: matrix_trace_transpose
+
+  - priority: 76
+    pattern:
+      text_contains: ["transpose", "转置"]
+    maps_to: transpose
+    solver: matrix_trace_transpose
+
+  - priority: 74
+    pattern:
+      text_contains: ["rref", "row reduce", "行最简", "row echelon"]
+    maps_to: matrix
+    solver: matrix_rref
+
+  # ── 方程组 ──
+  - priority: 72
+    pattern:
+      text_contains: ["linear system", "方程组", "solve the system"]
+    maps_to: linear_system
+    solver: linear_system_solve
+
+  # ── 兜底 ──
+  - priority: 10
+    pattern:
+      has_matrix: true
+    maps_to: matrix
+    solver: null      # → 走domain_solvers 的意图识别
+    reason: "含矩阵但意图不明确，由 solve_matrix 做启发式路由"
+
+# ============================================================
+# VALIDATION RULES
+# ============================================================
+
+validation_rules:
+  determinant:
+    - type: value_check
+      rule: "结果必须是标量，不能是矩阵"
+    - type: sanity_check
+      rule: "1×1 矩阵的 det 等于该元素；2×2 满足 ad-bc"
+
+  inverse:
+    - type: existence_check
+      rule: "det(A) = 0 时不得给出逆矩阵，必须明确报「奇异」"
+    - type: identity_check
+      rule: "AA⁻¹ 必须等于单位阵I"
+
+  eigenvalues:
+    - type: polynomial_check
+      rule: "每个 λ 必须满足 det(A - λI) ≈ 0"
+    - type: multiplicity_check
+      rule: "代数重数之和应等于矩阵阶数 n"
+
+  diagonalization:
+    - type: invertibility_check
+      rule: "det(P) ≠ 0"
+    - type: reconstruction_check
+      rule: "PDP⁻¹ 必须等于 A"
+
+  gram_schmidt:
+    - type: orthogonality_check
+      rule: "QᵀQ 必��是对角阵（正交）或单位阵（标准正交）"
+    - type: shape_check
+      rule: "Q 的列数 = 输入向量个数"
+
+  linear_system:
+    - type: residual_check
+      rule: "Ax - b = 0"
+    - type: uniqueness_check
+      rule: "det(A) ≠ 0 时解唯一"

@@ -1,0 +1,446 @@
+[
+  {
+    "problem_id": "Q1",
+    "problem_text": "Can the graph of a function have more than one tangent at a given point? If so, graph your answer. If not, explain why.",
+    "solved": true,
+    "steps": [
+      "**不能**——在可导点处切线**唯一**。",
+      "理由：切线斜率由导数唯一确定，$k=f'(a)$；",
+      "过点 $(a,f(a))$ 且斜率为 $k$ 的直线只有一条。",
+      "（若导数不存在，则是「零条」切线而非「多条」。）"
+    ],
+    "answer": "不能。可导点处切线唯一，斜率 f'(a) 唯一确定",
+    "answer_latex": "\\text{唯一切线}:\\ y-f(a)=f'(a)(x-a)",
+    "solver": "conceptual_template",
+    "sub_solutions": [],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "Q2",
+    "problem_text": "Is there a function whose graph doesn't have a tangent at some point? If so, graph your answer. If not, explain why.",
+    "solved": true,
+    "steps": [
+      "**是**，存在函数在某点没有切线。",
+      "反例：$f(x)=|x|$ 在 $x=0$ 处连续但不可导——",
+      "左右导数分别为 $f'_-(0) = -1$ 与 $f'_+(0) = +1$，不相等。",
+      "图像在原点处有一个「尖点」，不存在切线。"
+    ],
+    "answer": "是。反例 f(x)=|x| 在 x=0 处不可导（左右导数 -1 与 +1）",
+    "answer_latex": "f(x)=|x| \\text{ 在 } x=0 \\text{ 处不可导}\\ (f'_-(0)=-1\\neq f'_+(0)=1)",
+    "solver": "conceptual_template",
+    "sub_solutions": [],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "P1",
+    "problem_text": "Suppose $\\delta$ is a positive real number. How do you describe all real numbers $x$ that are within $\\delta$ of 0?",
+    "solved": true,
+    "steps": [
+      "x 在 0 的 δ 邻域内：$|x - 0| < \\delta$，即 $0-\\delta < x < 0+\\delta$"
+    ],
+    "answer": "x 在 0 的 δ 邻域内：$|x - 0| < \\delta$，即 $0-\\delta < x < 0+\\delta$",
+    "answer_latex": "|x - 0| < \\delta",
+    "solver": "epsilon_delta_template",
+    "sub_solutions": [
+      {
+        "problem_id": "a",
+        "problem_text": "Using inequalities ($<, >$).",
+        "solved": true,
+        "steps": [
+          "用不等式表示：$0 - \\delta < x < 0 + \\delta$"
+        ],
+        "answer": "0 - \\delta < x < 0 + \\delta",
+        "answer_latex": "0 - \\delta < x < 0 + \\delta",
+        "solver": "sympy",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "b",
+        "problem_text": "Using absolute value notation.",
+        "solved": true,
+        "steps": [
+          "$|x - 0| < \\delta$"
+        ],
+        "answer": "|x - 0| < \\delta",
+        "answer_latex": "|x - 0| < \\delta",
+        "solver": "sympy",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "c",
+        "problem_text": "Using interval notation.",
+        "solved": true,
+        "steps": [
+          "区间表示：$(0 - \\delta, 0 + \\delta)$"
+        ],
+        "answer": "(0 - \\delta, 0 + \\delta)",
+        "answer_latex": "(0 - \\delta, 0 + \\delta)",
+        "solver": "sympy",
+        "sub_solutions": []
+      }
+    ],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "P2",
+    "problem_text": "Suppose $a$ is a real number and $\\delta$ is a positive real number. How do you describe all real numbers $x$ that are within $\\delta$ of $a$?",
+    "solved": true,
+    "steps": [
+      "x 在 0 的 δ 邻域内：$|x - 0| < \\delta$，即 $0-\\delta < x < 0+\\delta$"
+    ],
+    "answer": "x 在 0 的 δ 邻域内：$|x - 0| < \\delta$，即 $0-\\delta < x < 0+\\delta$",
+    "answer_latex": "|x - 0| < \\delta",
+    "solver": "epsilon_delta_template",
+    "sub_solutions": [
+      {
+        "problem_id": "a",
+        "problem_text": "Graphically, as on the line above.",
+        "solved": false,
+        "steps": [],
+        "answer": null,
+        "answer_latex": "",
+        "reason": "未识别的 ε-δ 子题类型",
+        "solver": "none",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "b",
+        "problem_text": "Using inequalities. There are at least two ways to do this. Find both.",
+        "solved": true,
+        "steps": [
+          "用不等式表示：$0 - \\delta < x < 0 + \\delta$"
+        ],
+        "answer": "0 - \\delta < x < 0 + \\delta",
+        "answer_latex": "0 - \\delta < x < 0 + \\delta",
+        "solver": "sympy",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "c",
+        "problem_text": "Using absolute value notation.",
+        "solved": true,
+        "steps": [
+          "$|x - 0| < \\delta$"
+        ],
+        "answer": "|x - 0| < \\delta",
+        "answer_latex": "|x - 0| < \\delta",
+        "solver": "sympy",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "d",
+        "problem_text": "Using interval notation.",
+        "solved": true,
+        "steps": [
+          "区间表示：$(0 - \\delta, 0 + \\delta)$"
+        ],
+        "answer": "(0 - \\delta, 0 + \\delta)",
+        "answer_latex": "(0 - \\delta, 0 + \\delta)",
+        "solver": "sympy",
+        "sub_solutions": []
+      }
+    ],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "P3",
+    "problem_text": "Suppose $a$ is a real number and $\\delta$ is a positive real number. How do you describe all real numbers $x$ that are within $\\delta$ of $a$, but not equal to $a$:",
+    "solved": true,
+    "steps": [
+      "x 与 0 的距离在 δ 以内且不等于 0：$0 < |x - 0| < \\delta$"
+    ],
+    "answer": "x 与 0 的距离在 δ 以内且不等于 0：$0 < |x - 0| < \\delta$",
+    "answer_latex": "0 < |x - 0| < \\delta",
+    "solver": "epsilon_delta_template",
+    "sub_solutions": [
+      {
+        "problem_id": "a",
+        "problem_text": "Graphically.",
+        "solved": false,
+        "steps": [],
+        "answer": null,
+        "answer_latex": "",
+        "reason": "未识别的 ε-δ 子题类型",
+        "solver": "none",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "b",
+        "problem_text": "Using inequalities.",
+        "solved": true,
+        "steps": [
+          "用不等式表示：$0 - \\delta < x < 0 + \\delta, \\quad x \\neq 0$"
+        ],
+        "answer": "0 - \\delta < x < 0 + \\delta, \\quad x \\neq 0",
+        "answer_latex": "0 - \\delta < x < 0 + \\delta, \\quad x \\neq 0",
+        "solver": "sympy",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "c",
+        "problem_text": "Using absolute value notation.",
+        "solved": true,
+        "steps": [
+          "$0 < |x - 0| < \\delta$"
+        ],
+        "answer": "0 < |x - 0| < \\delta",
+        "answer_latex": "0 < |x - 0| < \\delta",
+        "solver": "sympy",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "d",
+        "problem_text": "Using interval notation.",
+        "solved": true,
+        "steps": [
+          "区间表示：$(0 - \\delta, 0) \\cup (0, 0 + \\delta)$"
+        ],
+        "answer": "(0 - \\delta, 0) \\cup (0, 0 + \\delta)",
+        "answer_latex": "(0 - \\delta, 0) \\cup (0, 0 + \\delta)",
+        "solver": "sympy",
+        "sub_solutions": []
+      }
+    ],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "P4",
+    "problem_text": "Let $f(x) = x^2$.",
+    "solved": true,
+    "steps": [
+      "已知 $f(x) = x^{2}$，中心 $a = 3$",
+      "$f(a) = 9$，故目标值 $L = 9$"
+    ],
+    "answer": "见各子题",
+    "answer_latex": "\\text{见各子题解答}",
+    "solver": "epsilon_delta_computation",
+    "sub_solutions": [
+      {
+        "problem_id": "a",
+        "problem_text": "Find all the positive numbers $x$ such that $f(x)$ is within 1 of 9.",
+        "solved": false,
+        "steps": [],
+        "answer": null,
+        "answer_latex": "",
+        "reason": "该子题需要解不等式，未覆盖",
+        "solver": "none",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "b",
+        "problem_text": "Find a real number $\\delta$ such that whenever $x$ is within $\\delta$ of 3, $f(x)$ is within 1 of 9.",
+        "solved": true,
+        "steps": [
+          "要使 $|f(x) - 9| < 1$，先作差分解：",
+          "$|f(x)-f(a)| = |x-a|\\cdot(\\text{与 }x\\text{ 无关的因子})$",
+          "限制 $\\delta\\le 1$，把后面的因子界为常数 $C$，得",
+          "$\\delta = \\min\\{1,\\ \\varepsilon/C\\} = \\frac{1}{8}$",
+          "验证：取 $\\delta = \\frac{1}{8}$，当 $0<|x - 3| < \\delta$ 时$|f(x) - 9| < 1$ ✓"
+        ],
+        "answer": "\\frac{1}{8}",
+        "answer_latex": "\\frac{1}{8}",
+        "solver": "sympy",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "c",
+        "problem_text": "Find a real number $\\delta$ such that whenever $x$ is within $\\delta$ of 3, $f(x)$ is within $1/2$ of 9.",
+        "solved": true,
+        "steps": [
+          "要使 $|f(x) - 9| < \\frac{1}{2}$，先作差分解：",
+          "$|f(x)-f(a)| = |x-a|\\cdot(\\text{与 }x\\text{ 无关的因子})$",
+          "限制 $\\delta\\le 1$，把后面的因子界为常数 $C$，得",
+          "$\\delta = \\min\\{1,\\ \\varepsilon/C\\} = \\frac{1}{16}$",
+          "验证：取 $\\delta = \\frac{1}{16}$，当 $0<|x - 3| < \\delta$ 时$|f(x) - 9| < \\frac{1}{2}$ ✓"
+        ],
+        "answer": "\\frac{1}{16}",
+        "answer_latex": "\\frac{1}{16}",
+        "solver": "sympy",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "d",
+        "problem_text": "Is it true that for any positive number $\\varepsilon$, there is a positive $\\delta$ so that $f(x)$ is within $\\varepsilon$ of 9 whenever $x$ is within $\\delta$ of 3?",
+        "solved": true,
+        "steps": [
+          "要使 $|f(x) - 9| < \\epsilon$，先作差分解：",
+          "$|f(x)-f(a)| = |x-a|\\cdot(\\text{与 }x\\text{ 无关的因子})$",
+          "限制 $\\delta\\le 1$，把后面的因子界为常数 $C$，得",
+          "$\\delta = \\min\\{1,\\ \\varepsilon/C\\} = \\min\\left(1, \\frac{\\epsilon}{8}\\right)$",
+          "验证：取 $\\delta = \\min\\left(1, \\frac{\\epsilon}{8}\\right)$，当 $0<|x - 3| < \\delta$ 时$|f(x) - 9| < \\epsilon$ ✓"
+        ],
+        "answer": "\\min\\left(1, \\frac{\\epsilon}{8}\\right)",
+        "answer_latex": "\\min\\left(1, \\frac{\\epsilon}{8}\\right)",
+        "solver": "sympy",
+        "sub_solutions": []
+      }
+    ],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "AP1",
+    "problem_text": "Graph $y = 2x - x^2$. For which points $a$ is the tangent line to the curve at the point $(a, 2a - a^2)$ a horizontal line? How is the value of $2x - x^2$ at these points related to the values of $2x - x^2$ at other points?",
+    "solved": true,
+    "steps": [
+      "已知 $y = - x^{2} + 2 x$",
+      "求导：$y' = 2 - 2 x$",
+      "水平切线处 $y' = 0$：解得 $x = ['1']$",
+      "对应点：$(1, 1)$",
+      "$f''(1) = -2 < 0$：极大值点"
+    ],
+    "answer": "(1, 1)",
+    "answer_latex": "(1, 1)",
+    "solver": "sympy_tangent",
+    "sub_solutions": [],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  },
+  {
+    "problem_id": "AP2",
+    "problem_text": "The point $(2, 0)$ is on the curve $y = 2x - x^2$.",
+    "solved": true,
+    "steps": [
+      "见各子题计算过程。"
+    ],
+    "answer": "见子题",
+    "answer_latex": "\\text{见各子题}",
+    "solver": "sympy_limit",
+    "sub_solutions": [
+      {
+        "problem_id": "a",
+        "problem_text": "Draw the tangent line to the curve at the point $(2, 0)$.",
+        "solved": true,
+        "steps": [
+          "This sub-question asks for a graph; see the matplotlib figure generated for this problem."
+        ],
+        "answer": "\\text{见附图}",
+        "answer_latex": "\\text{见附图}",
+        "solver": "sympy",
+        "sub_solutions": []
+      },
+      {
+        "problem_id": "b",
+        "problem_text": "Try to determine the equation of this tangent line.",
+        "solved": false,
+        "steps": [],
+        "answer": null,
+        "answer_latex": "",
+        "reason": "无法解析该子题的极限表达式",
+        "solver": "none",
+        "sub_solutions": []
+      }
+    ],
+    "verification": {
+      "overall": "pass",
+      "n_checks": 1,
+      "n_passed": 1,
+      "n_failed": 0,
+      "n_skipped": 0,
+      "failed_methods": [],
+      "checks": [
+        {
+          "passed": true,
+          "issues": [],
+          "method": "form_check"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,450 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{xeCJK}
+% ── 中文字体自动探测（由 render_latex.py 生成）──
+% 探测到的候选字体：Source Han Serif SC, Noto Sans SC, SimSun, Microsoft YaHei, SimHei, KaiTi
+\IfFontExistsTF{Source Han Serif SC}{\setCJKmainfont{Source Han Serif SC}}{}
+\IfFontExistsTF{Noto Sans SC}{\setCJKmainfont{Noto Sans SC}}{}
+\IfFontExistsTF{SimSun}{\setCJKmainfont{SimSun}}{}
+\IfFontExistsTF{Microsoft YaHei}{\setCJKmainfont{Microsoft YaHei}}{}
+\IfFontExistsTF{SimHei}{\setCJKmainfont{SimHei}}{}
+\IfFontExistsTF{KaiTi}{\setCJKmainfont{KaiTi}}{}
+\IfFontExistsTF{FangSong}{\setCJKmainfont{FangSong}}{}
+\IfFontExistsTF{STSong}{\setCJKmainfont{STSong}}{}
+% 若以上全部缺失，中文可能显示为方框；请安装 Noto Sans CJK SC 或在 config 中指定字体
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+% 关闭 CJK 与西文之间的额外间距，贴近学术排版习惯
+
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{MATH 221 Linear Algebra}
+\rhead{Meteorain}
+\rfoot{Page \thepage}
+\cfoot{}
+
+% ── 颜色定义 ──
+\definecolor{solutionblue}{HTML}{1D4ED8}
+\definecolor{solutiongreen}{HTML}{15803D}
+\definecolor{warnamber}{HTML}{B45309}
+\definecolor{verifyred}{HTML}{B91C1C}
+
+% ── 自定义环境 ──
+\newtcolorbox{stepbox}{colback=blue!2!white,colframe=blue!20!black,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{verifybox}{colback=green!3!white,colframe=green!35!black,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt}
+\newtcolorbox{warnbox}{colback=orange!5!white,colframe=orange!45!black,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt}
+
+\newcommand{\problem}[1]{\subsection*{Problem~#1}}
+\newcommand{\solution}{%
+  \par\noindent
+  {\color{solutiongreen}\bfseries Solution.}\par
+}
+\newcommand{\verifyok}{\textcolor{solutiongreen}{\ensuremath{\checkmark}\ 已验证}}
+\newcommand{\verifywarn}{\textcolor{verifyred}{\ensuremath{\times}\ 验证存疑}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Homework 6 — Solutions} \\[0.6em]
+  {\large\color{solutionblue} MATH 221 Linear Algebra} \\[0.4em]
+  Meteorain \quad | \quad 2026-10-06
+\end{center}
+\vspace{0.5em}\hrule\vspace{1.2em}
+\problem{1}
+
+\begin{stepbox}
+Compute the determinant of the matrix $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析到矩阵 $A = \left[\begin{matrix}1 & 2\\3 & 4\end{matrix}\right]$（阶数 2x2）
+\end{stepbox}
+
+\begin{stepbox}
+行列式定义：按第一行展开 $\det(A) = -2$
+\end{stepbox}
+
+\begin{center}
+$\boxed{-2}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{2}
+
+\begin{stepbox}
+Let $A = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}$. Find $A^{-1}$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析到矩阵 $A = \left[\begin{matrix}4 & 1\\2 & 3\end{matrix}\right]$（阶数 2x2）
+\end{stepbox}
+
+\begin{stepbox}
+$\det(A) = 10$ → 非零，逆矩阵存在
+\end{stepbox}
+
+\begin{stepbox}
+$A^{-1} = \left[\begin{matrix}\frac{3}{10} & - \frac{1}{10}\\- \frac{1}{5} & \frac{2}{5}\end{matrix}\right]$
+\end{stepbox}
+
+\begin{stepbox}
+验证 $AA^{-1} = I$：$\begin{pmatrix}\left[\begin{matrix}1 & 0\\0 & 1\end{matrix}\right]\end{pmatrix}$
+\end{stepbox}
+
+\begin{center}
+$\boxed{\left[\begin{matrix}\frac{3}{10} & - \frac{1}{10}\\- \frac{1}{5} & \frac{2}{5}\end{matrix}\right]}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 3/3 项检验通过（答案形式检查、矩阵形状检查、矩阵恒等式验证） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{3}
+
+\begin{stepbox}
+Find all eigenvalues of $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析到矩阵 $A = \left[\begin{matrix}2 & 1\\1 & 2\end{matrix}\right]$（阶数 2x2）
+\end{stepbox}
+
+\begin{stepbox}
+特征多项式：$\chi_A(\lambda) = \lambda^{2} - 4 \lambda + 3$
+\end{stepbox}
+
+\begin{stepbox}
+特征值：$\lambda = 3$，重数 1；$\lambda = 1$，重数 1
+\end{stepbox}
+
+\begin{center}
+$\boxed{3, 1}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 2/2 项检验通过（答案形式检查、特征值特征多项式验证） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{4}
+
+\begin{stepbox}
+Find the eigenvalues and corresponding eigenvectors of
+$A = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析到矩阵 $A = \left[\begin{matrix}1 & 0\\0 & 1\end{matrix}\right]$（阶数 2x2）
+\end{stepbox}
+
+\begin{stepbox}
+$\lambda=1$ 的特征空间基：\textbackslash{}left[\textbackslash{}begin\{matrix\}1\textbackslash{}\textbackslash{}0\textbackslash{}end\{matrix\}\textbackslash{}right], \textbackslash{}left[\textbackslash{}begin\{matrix\}0\textbackslash{}\textbackslash{}1\textbackslash{}end\{matrix\}\textbackslash{}right]
+\end{stepbox}
+
+\begin{center}
+$\boxed{\lambda = 1: \; \left[\begin{matrix}1\\0\end{matrix}\right], \left[\begin{matrix}0\\1\end{matrix}\right]}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{5}
+
+\begin{stepbox}
+Compute the eigenvalues of $A = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 5 \end{pmatrix}$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析到矩阵 $A = \left[\begin{matrix}1 & 2 & 0\\0 & 1 & 0\\0 & 0 & 5\end{matrix}\right]$（阶数 3x3）
+\end{stepbox}
+
+\begin{stepbox}
+特征多项式：$\chi_A(\lambda) = \lambda^{3} - 7 \lambda^{2} + 11 \lambda - 5$
+\end{stepbox}
+
+\begin{stepbox}
+特征值：$\lambda = 1$，重数 2；$\lambda = 5$，重数 1
+\end{stepbox}
+
+\begin{center}
+$\boxed{1\ (2\times), 5}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 2/2 项检验通过（答案形式检查、特征值特征多项式验证） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{6}
+
+\begin{stepbox}
+Let $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix} 5 \\ 11 \end{pmatrix}$.
+Solve the linear system $A\mathbf{x} = \mathbf{b}$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析到矩阵 $A = \left[\begin{matrix}1 & 2\\3 & 4\end{matrix}\right]$（阶数 2x2）
+\end{stepbox}
+
+\begin{stepbox}
+$A = \left[\begin{matrix}1 & 2\\3 & 4\end{matrix}\right]$, $\mathbf{b} = \left[\begin{matrix}5\\11\end{matrix}\right]$
+\end{stepbox}
+
+\begin{stepbox}
+$\det(A) = -2$ → 系数矩阵非奇异，唯一解
+\end{stepbox}
+
+\begin{stepbox}
+$x = A^{-1}\mathbf{b} = \left[\begin{matrix}-2 & 1\\\frac{3}{2} & - \frac{1}{2}\end{matrix}\right] \cdot \left[\begin{matrix}5\\11\end{matrix}\right] = \left[\begin{matrix}1\\2\end{matrix}\right]$
+\end{stepbox}
+
+\begin{stepbox}
+验证 $Ax - \mathbf{b} = \left[\begin{matrix}0\\0\end{matrix}\right]$
+\end{stepbox}
+
+\begin{center}
+$\boxed{\left[\begin{matrix}1\\2\end{matrix}\right]}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 3/3 项检验通过（答案形式检查、矩阵形状检查、矩阵恒等式验证） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{7}
+
+\begin{stepbox}
+Determine whether the columns of
+$A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ are orthogonal.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析到矩阵 $A = \left[\begin{matrix}1 & 1\\0 & 1\end{matrix}\right]$（阶数 2x2）
+\end{stepbox}
+
+\begin{stepbox}
+输入为 2x2 矩阵，取其列向量作为待处理向量：v\_1 = \textbackslash{}left[\textbackslash{}begin\{matrix\}1\textbackslash{}\textbackslash{}0\textbackslash{}end\{matrix\}\textbackslash{}right], v\_2 = \textbackslash{}left[\textbackslash{}begin\{matrix\}1\textbackslash{}\textbackslash{}1\textbackslash{}end\{matrix\}\textbackslash{}right]
+\end{stepbox}
+
+\begin{stepbox}
+两两内积：$\langle v_1,v_2\rangle = 1$
+\end{stepbox}
+
+\begin{stepbox}
+结论：**不正交**——存在内积非零的一对
+\end{stepbox}
+
+\begin{center}
+**不正交**——存在内积非零的一对;\textbackslash{}quad \$\textbackslash{}langle v\_1,v\_2\textbackslash{}rangle = 1\$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{8}
+
+\begin{stepbox}
+Apply Gram-Schmidt orthogonalization to
+$A = \begin{pmatrix} 1 & 1 \\ 1 & 0 \\ 0 & 1 \end{pmatrix}$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析到矩阵 $A = \left[\begin{matrix}1 & 1\\1 & 0\\0 & 1\end{matrix}\right]$（阶数 3x2）
+\end{stepbox}
+
+\begin{stepbox}
+输入为 3x2 矩阵，取其行向量作为待处理向量：v\_1 = \textbackslash{}left[\textbackslash{}begin\{matrix\}1 \& 1\textbackslash{}end\{matrix\}\textbackslash{}right], v\_2 = \textbackslash{}left[\textbackslash{}begin\{matrix\}1 \& 0\textbackslash{}end\{matrix\}\textbackslash{}right], v\_3 = \textbackslash{}left[\textbackslash{}begin\{matrix\}0 \& 1\textbackslash{}end\{matrix\}\textbackslash{}right]
+\end{stepbox}
+
+\begin{stepbox}
+Gram-Schmidt 结果：
+\end{stepbox}
+
+\begin{stepbox}
+$q_1 = \left[\begin{matrix}1\\1\\0\end{matrix}\right]$
+\end{stepbox}
+
+\begin{stepbox}
+$q_2 = \left[\begin{matrix}\frac{1}{2}\\- \frac{1}{2}\\1\end{matrix}\right]$
+\end{stepbox}
+
+\begin{stepbox}
+验证 $Q^TQ = \left[\begin{matrix}2 & 0\\0 & \frac{3}{2}\end{matrix}\right]$
+\end{stepbox}
+
+\begin{stepbox}
+说明：$Q$ 的**各列**依次为 $q_1, q_2, \dots$，即所求正交组。
+\end{stepbox}
+
+\begin{center}
+$\boxed{Q = \left[\begin{matrix}1 & \frac{1}{2}\\1 & - \frac{1}{2}\\0 & 1\end{matrix}\right]}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 2/2 项检验通过（答案形式检查、矩阵恒等式验证） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{9}
+
+\begin{stepbox}
+Compute the rank of
+$A = \begin{pmatrix} 1 & 2 \\ 2 & 4 \\ 3 & 6 \end{pmatrix}$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析到矩阵 $A = \left[\begin{matrix}1 & 2\\2 & 4\\3 & 6\end{matrix}\right]$（阶数 3x2）
+\end{stepbox}
+
+\begin{stepbox}
+行阶梯化后非零行数为 1
+\end{stepbox}
+
+\begin{center}
+$\boxed{1}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{10}
+
+\begin{stepbox}
+Let $A = \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$. Find a matrix $P$ that diagonalizes
+$A$, i.e. find $P$ and $D$ such that $A = PDP^{-1}$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析到矩阵 $A = \left[\begin{matrix}2 & 0\\0 & 3\end{matrix}\right]$（阶数 2x2）
+\end{stepbox}
+
+\begin{stepbox}
+$P = \left[\begin{matrix}1 & 0\\0 & 1\end{matrix}\right]$
+\end{stepbox}
+
+\begin{stepbox}
+$\det(P) = 1$
+\end{stepbox}
+
+\begin{stepbox}
+$D = \left[\begin{matrix}2 & 0\\0 & 3\end{matrix}\right]$
+\end{stepbox}
+
+\begin{stepbox}
+验证 $P^{-1}AP = \left[\begin{matrix}2 & 0\\0 & 3\end{matrix}\right]$
+\end{stepbox}
+
+\begin{stepbox}
+✓ 与 D 一致，对角化成立
+\end{stepbox}
+
+\begin{center}
+$\boxed{A = PDP^{-1},\quad P = \left[\begin{matrix}1 & 0\\0 & 1\end{matrix}\right],\quad D = \left[\begin{matrix}2 & 0\\0 & 3\end{matrix}\right]}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 4/4 项检验通过（答案形式检查、矩阵形状检查、矩阵恒等式验证、特征值特征多项式验证） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{11}
+
+\begin{stepbox}
+Let $A = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}$. What is the null space of $A$?
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析到矩阵 $A = \left[\begin{matrix}0 & 0\\0 & 0\end{matrix}\right]$（阶数 2x2）
+\end{stepbox}
+
+\begin{stepbox}
+基：\textbackslash{}left[\textbackslash{}begin\{matrix\}1\textbackslash{}\textbackslash{}0\textbackslash{}end\{matrix\}\textbackslash{}right], \textbackslash{}left[\textbackslash{}begin\{matrix\}0\textbackslash{}\textbackslash{}1\textbackslash{}end\{matrix\}\textbackslash{}right]
+\end{stepbox}
+
+\begin{center}
+$\boxed{\left\{ \left[\begin{matrix}1\\0\end{matrix}\right], \left[\begin{matrix}0\\1\end{matrix}\right] \right\}}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 1/1 项检验通过（答案形式检查） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\problem{12}
+
+\begin{stepbox}
+Diagonalize $A = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}$.
+\end{stepbox}
+
+\solution
+
+\begin{stepbox}
+解析到矩阵 $A = \left[\begin{matrix}4 & 1\\2 & 3\end{matrix}\right]$（阶数 2x2）
+\end{stepbox}
+
+\begin{stepbox}
+$P = \left[\begin{matrix}-1 & 1\\2 & 1\end{matrix}\right]$
+\end{stepbox}
+
+\begin{stepbox}
+$\det(P) = -3$
+\end{stepbox}
+
+\begin{stepbox}
+$D = \left[\begin{matrix}2 & 0\\0 & 5\end{matrix}\right]$
+\end{stepbox}
+
+\begin{stepbox}
+验证 $P^{-1}AP = \left[\begin{matrix}2 & 0\\0 & 5\end{matrix}\right]$
+\end{stepbox}
+
+\begin{stepbox}
+✓ 与 D 一致，对角化成立
+\end{stepbox}
+
+\begin{center}
+$\boxed{A = PDP^{-1},\quad P = \left[\begin{matrix}-1 & 1\\2 & 1\end{matrix}\right],\quad D = \left[\begin{matrix}2 & 0\\0 & 5\end{matrix}\right]}$
+\end{center}
+
+\begin{verifybox}\small \verifyok\quad 4/4 项检验通过（答案形式检查、矩阵形状检查、矩阵恒等式验证、特征值特征多项式验证） \end{verifybox}
+
+\vspace{0.8em}\hrule\vspace{0.8em}
+
+\vspace{1.5em}
+\hrule\vspace{0.8em}
+\begin{center}\small
+\textbf{求解汇总}\quad 共 12 题，自动解出 12 题（100\%）；验证通过 12 题，存疑 0 题。\\[0.3em]
+\textcolor{gray}{求解器分布：sympy\_diagonalize×2、sympy\_eigenvalues×2、sympy\_eigenvectors×1、sympy\_gram\_schmidt×1、sympy\_linear\_system×1、sympy\_matrix\_determinant×1、sympy\_matrix\_inverse×1、sympy\_matrix\_rank×1、sympy\_nullspace×1、sympy\_orthogonality\_check×1}
+\end{center}
+\vfill\begin{center}\footnotesize\textcolor{gray}{由 Meteorain C4C 作业自动求解流水线自动生成}\end{center}
+\end{document}
