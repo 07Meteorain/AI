@@ -1,0 +1,14 @@
+# NovCal core benchmark has ZERO third-party dependencies.
+# This file lists only optional extras.
+
+# --- Optional: plotting (scripts/make_report.py) ---------------------------
+matplotlib>=3.5
+
+# --- Optional: model adapters (scripts/run_model.py) -----------------------
+# Install only the provider you actually use.
+openai>=1.0
+anthropic>=0.30
+google-generativeai>=0.5
+
+# --- Optional: test runner (tests also run standalone, no pytest needed) --
+pytest>=7.0

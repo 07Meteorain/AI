@@ -1,0 +1,31 @@
+{"note":"Frontier-model run: the assistant under test (Claude-family, WorkBuddy agent session, 2026-10-09) solved each item in a single pass with no retries, recording a confidence BEFORE checking the ground truth. Responses were transcribed verbatim from that pass into responses_frontier.jsonl. This is a real single-shot frontier-model run, not a simulation.","items":[
+{"idx":0,"answer":"§ ◆ Ω","confidence":88},
+{"idx":1,"answer":"§ § ◆ △","confidence":88},
+{"idx":2,"answer":"Ω ◆ Ω △ Ω","confidence":88},
+{"idx":3,"answer":"Ω Ω Ω △","confidence":88},
+
+{"idx":4,"answer":"Υ Υ Υ Ψ Υ Ψ Ψ ₅","confidence":72},
+{"idx":5,"answer":"Υ Ψ ¶ Υ Ψ Υ Ψ ₅","confidence":72},
+{"idx":6,"answer":"Υ Ψ Υ Ψ Υ Ψ ₄","confidence":74},
+{"idx":7,"answer":"Υ Ψ Υ Ψ Ψ ¶ Υ ₆","confidence":74},
+
+{"idx":8,"answer":"⊕ ☆ ☆ ⊙ ⊙ ⊙","confidence":85},
+{"idx":9,"answer":"⊙ ⊕ ⊕ ☆ ⊙ ☆","confidence":85},
+{"idx":10,"answer":"☆ ⊙ ⊙ ⊙ ⊕","confidence":85},
+{"idx":11,"answer":"☆ ⊙ ⊙ ⊕ ☆ ⊙","confidence":85},
+
+{"idx":12,"answer":"⍠ △ ⍟ △ ⍟ ⍠ ⍠","confidence":30},
+{"idx":13,"answer":"⍟ ⍟ ⍠ ⍠ △ ⍠ ⍟","confidence":30},
+{"idx":14,"answer":"△ ⍠ △ ⍠ ⬡ △","confidence":28},
+{"idx":15,"answer":"⬡ ⍠ △ ⍟ ⬡ ⬡","confidence":28},
+
+{"idx":16,"answer":"⍠ ▼ ¤ ⍠ Δ ¤ ¤","confidence":85},
+{"idx":17,"answer":"⍠ ¤ ¤ ¤ ⍠ Δ ▼","confidence":85},
+{"idx":18,"answer":"▼ ⍠ ⍠ ⍠ ⍠","confidence":85},
+{"idx":19,"answer":"▼ ⍠ ▼ Δ ▼","confidence":85},
+
+{"idx":20,"answer":"§ ⌘ Υ § ⌘ Υ ⌘ ₆","confidence":62},
+{"idx":21,"answer":"□ □ □ ⌘ ⌘ □ □ □ ⌘ ₅","confidence":62},
+{"idx":22,"answer":"⌘ ⌘ § □ □ □ ⌘ ₅","confidence":60},
+{"idx":23,"answer":"Υ § Υ § § ⌘ ₆","confidence":62}
+]}
