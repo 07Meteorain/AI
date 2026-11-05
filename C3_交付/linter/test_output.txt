@@ -1,0 +1,17 @@
+test_batch (test_question_lint.TestCli.test_batch) ... ok
+test_json_output (test_question_lint.TestCli.test_json_output) ... ok
+test_min_threshold_exit_code (test_question_lint.TestCli.test_min_threshold_exit_code) ... ok
+test_selftest (test_question_lint.TestCli.test_selftest) ... ok
+test_stdin (test_question_lint.TestCli.test_stdin) ... ok
+test_attempts_from_list_items (test_question_lint.TestElementMonotonicity.test_attempts_from_list_items) ... ok
+test_each_element_adds_points (test_question_lint.TestElementMonotonicity.test_each_element_adds_points) ... ok
+test_emotion_penalized (test_question_lint.TestNegativeSignals.test_emotion_penalized) ... ok
+test_empty_text_penalized (test_question_lint.TestNegativeSignals.test_empty_text_penalized) ... ok
+test_short_text_flag (test_question_lint.TestNegativeSignals.test_short_text_flag) ... ok
+test_case_ordering (test_question_lint.TestScoreLadder.test_case_ordering) ... ok
+test_rating_bands (test_question_lint.TestScoreLadder.test_rating_bands) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.615s
+
+OK

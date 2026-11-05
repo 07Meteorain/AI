@@ -1,0 +1,20 @@
+# 对照组：同一台机器、完整权限下的探针输出（2026-11-06 实测）
+
+## probe.py（Python 3.14.2）
+```text
+cmd.exe                stdio=pipe     status=0            -          err=-
+git                    stdio=pipe     status=0            -          err=-
+git                    stdio=devnull  status=0            -          err=-
+
+全部通过：进程创建正常
+```
+
+## 受限环境下的同一张表（Node 22，本次实际记录）
+```text
+cmd.exe status= 3221225794
+git     status= 3221225794
+where   status= 3221225794
+（stdio: "pipe" 时）git status= null err= EPERM
+```
+
+> 两表同一台机器、同一用户、同一条命令，唯一变量是「进程被谁托管」。
