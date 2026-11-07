@@ -1,0 +1,287 @@
+{
+  "version": 1,
+  "fingerprint": "3a40d780a8fca3c60c99798eb2bb7686793e0481ea94da1d8f135c2d7882c6df",
+  "stats": {
+    "total_items": 21,
+    "single": 16,
+    "confirmed": 1,
+    "resolved": 3,
+    "needs_review": 1,
+    "conflicts": 4,
+    "authors": 2,
+    "entries": 26
+  },
+  "items": [
+    {
+      "eid": "E-001",
+      "authors": [
+        "Aster",
+        "Bramble"
+      ],
+      "tags": [
+        "类型:分工"
+      ],
+      "status": "confirmed",
+      "rule": "R0",
+      "text": "主持人在 clock=0 冻结任务契约 v1.0：Aster 负责 merge/analyze（SEL-1），Bramble 负责 render/cli/tests（SEL-2），双方只按契约签名互相调用。"
+    },
+    {
+      "eid": "E-002",
+      "authors": [
+        "Aster"
+      ],
+      "tags": [
+        "技能:SEL-1",
+        "类型:实现"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "实现 merge.py：按 eid 归并，规则 R0 同文取最长、R1 决策优先、R2 时钟较新、R3 无法裁决；指纹由规范化 JSON 的 sha256 得出，保证顺序无关。"
+    },
+    {
+      "eid": "E-003",
+      "authors": [
+        "Aster"
+      ],
+      "tags": [
+        "技能:SEL-1",
+        "类型:实现"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "实现 analyze.py：迁移边按 item.versions 逐条判定，而不是用合并后的并集标签，否则两人共写的条目会伪造出迁移证据。"
+    },
+    {
+      "eid": "E-004",
+      "authors": [
+        "Aster"
+      ],
+      "tags": [
+        "技能:SEL-1",
+        "类型:决策"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "发现契约 v1.0 的迁移边定义有漏洞并上报：并集标签会把「两人共同确认的分工」算成「Aster 用了 SEL-2」。主持人裁定为 v1.1，改为逐条原始条目判定。"
+    },
+    {
+      "eid": "E-005",
+      "authors": [
+        "Aster"
+      ],
+      "tags": [
+        "技能:SEL-1",
+        "类型:决策"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "进一步指出画像口径也不一致：skill_tags 用并集会让 Bramble 背上他没用过的 SEL-1，出现「有计数、无迁移边」。主持人裁定 v1.2，全链路统一为逐版本口径。"
+    },
+    {
+      "eid": "E-006",
+      "authors": [
+        "Bramble"
+      ],
+      "tags": [
+        "技能:SEL-2",
+        "类型:实现"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "实现 render.py：自己实现 display_width（East Asian Wide/Fullwidth 记 2，组合符记 0，换行不计），中文列对齐不引 wcwidth；color=False 时严格零 ANSI。"
+    },
+    {
+      "eid": "E-007",
+      "authors": [
+        "Bramble"
+      ],
+      "tags": [
+        "技能:SEL-2",
+        "类型:实现"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "实现 cli.py：退出码契约 0/1/2，--json 分支绝不调用 render_terminal，--out 写出的合并日志必须能被 parse_log 原样读回，形成闭环。"
+    },
+    {
+      "eid": "E-008",
+      "authors": [
+        "Bramble"
+      ],
+      "tags": [
+        "技能:SEL-2",
+        "类型:实现"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "写 tests/test_duolog.py：56 个 unittest，覆盖解析错误、R0-R3、指纹顺序无关、宽度表、退出码与 --json 洁净度；Aster 模块缺失时整类 skip。"
+    },
+    {
+      "eid": "E-010",
+      "authors": [
+        "Aster"
+      ],
+      "tags": [
+        "技能:SEL-1",
+        "类型:决策"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "主持人在集成时发现 E-003 这类冲突裁决后仍带着两人的「类型」标签，一个事件同时是决策和实现。契约 v1.3 定为：技能取并集，类型只跟终裁版本。"
+    },
+    {
+      "eid": "E-011",
+      "authors": [
+        "Bramble"
+      ],
+      "tags": [
+        "技能:SEL-1",
+        "类型:实现"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "迁移 SEL-1 第一件：在 merge.py 里加 R4-补充合并，位置在 R2 之后 R3 之前，用整行有序子序列判包含。"
+    },
+    {
+      "eid": "E-012",
+      "authors": [
+        "Bramble"
+      ],
+      "tags": [
+        "技能:SEL-1",
+        "类型:实现"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "迁移 SEL-1 第二件：按 v1.3 重写标签合并，技能取并集、类型只跟终裁版本。我第一次意识到「并集」对一半标签是对的、对另一半是错的。"
+    },
+    {
+      "eid": "E-013",
+      "authors": [
+        "Aster"
+      ],
+      "tags": [
+        "技能:SEL-2",
+        "类型:实现"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "迁移 SEL-2 第一件：修 Bramble 的 render._fmt_tags，折叠短语报的是总类别数而不是剩余数（「等 4 类」应为「等 1 类」）；画像表「参与条目」改为按原始条目计数，与 share 同分母。"
+    },
+    {
+      "eid": "E-014",
+      "authors": [
+        "Aster"
+      ],
+      "tags": [
+        "技能:SEL-2",
+        "类型:实现"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "迁移 SEL-2 第二件：新建 explain.py 做单事件溯源，直接复用 render.display_width 做中文对齐，没有另写一套宽度表——这是 Bramble 教我的最关键一条。"
+    },
+    {
+      "eid": "E-015",
+      "authors": [
+        "Aster"
+      ],
+      "tags": [
+        "技能:SEL-2",
+        "类型:实现"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "explain 折行后第二行以顿号开头，违反中文行首禁则。改用「上一行末字一起下移」而不是「标点并回上一行」，因为折行点已贴列宽上限，上并必然超宽。"
+    },
+    {
+      "eid": "E-016",
+      "authors": [
+        "Aster"
+      ],
+      "tags": [
+        "技能:SEL-1",
+        "类型:实现"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "按 Bramble 的评审修 analyze.py：skill_owner 的键和值都 strip，空名视为未配置，消除空白字符造成的自迁移伪边。"
+    },
+    {
+      "eid": "E-017",
+      "authors": [
+        "Bramble"
+      ],
+      "tags": [
+        "类型:互检"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "评审 Aster 的 explain/cli 改动，报 6 条：固定 72 列不随终端变、_wrap 在 limit 小于首字符宽度时原地打转、_load_entries 吞掉前面的解析错误、winner=None 混淆三种状态、explain 不收 --no-color、_fmt_tags 多一个顿号。"
+    },
+    {
+      "eid": "E-018",
+      "authors": [
+        "Aster"
+      ],
+      "tags": [
+        "类型:互检"
+      ],
+      "status": "single",
+      "rule": "",
+      "text": "评审 Bramble 在 merge.py 里的 R4：多版本推广为「唯一版本覆盖所有」我认；但自相矛盾的超集也会赢 R4，且空行参与行匹配会让纯格式差异改变类型归属。"
+    },
+    {
+      "eid": "E-019",
+      "authors": [
+        "Aster",
+        "Bramble"
+      ],
+      "tags": [
+        "类型:决策"
+      ],
+      "status": "resolved",
+      "rule": "R1-决策优先",
+      "text": "R4 排在 R2 之后，实际只在时钟并列时生效，是 tie-breaker 不是主路径。要么把它提到 R2 之前承担「补充合并」主语义，要么在契约里明确它只是补位规则。"
+    },
+    {
+      "eid": "E-020",
+      "authors": [
+        "Aster",
+        "Bramble"
+      ],
+      "tags": [
+        "类型:实现"
+      ],
+      "status": "resolved",
+      "rule": "R2-时钟较新",
+      "text": "实测确认 R4 的触发条件：只要两版 clock 不等，R2 就先命中，R4 轮不到。所以准确说法是「时钟相等时才可能触发」，而不是「没有唯一最新时钟时触发」。"
+    },
+    {
+      "eid": "E-021",
+      "authors": [
+        "Aster",
+        "Bramble"
+      ],
+      "tags": [
+        "类型:互检"
+      ],
+      "status": "needs_review",
+      "rule": "R3-无法裁决",
+      "text": "【Aster】我认为 explain 除了规则代号，还应该给每个版本标注证据强度（强/弱），否则读者仍要自己判断哪个版本更可信。\n【Bramble】我认为 explain 不需要再标注证据强度：规则代号和理由已经说明工具凭什么这么裁，再叠一层强弱判断反而是我在替读者下结论。"
+    },
+    {
+      "eid": "E-022",
+      "authors": [
+        "Aster",
+        "Bramble"
+      ],
+      "tags": [
+        "类型:实现"
+      ],
+      "status": "resolved",
+      "rule": "R4-补充合并",
+      "text": "R4 判「一方包含另一方」必须按整行、按顺序判，不能退化成子串包含。\n用 in 判子串会让「实现」命中「实现细节」，行序反例（第二行第一行）也会被误判成包含。"
+    }
+  ]
+}
