@@ -381,28 +381,70 @@ GitHub 只运行仓库根目录的 `.github/workflows/`。`C5_交付/.github/wor
 
 ---
 
-## 第 10 轮：推送与 CI 验证
+## 第 10 轮：推送、CI 失败与修复
 
-> 本节在推送后回填。
-
-### 10.1 本地提交
+### 10.1 第一次推送
 
 ```bash
-git add C5_交付 .github/workflows/c5-promptlint.yml README.md
+git add -A
 git commit -m "feat(c5): add promptlint, a zero-dependency prompt template linter"
 git tag -a c5-v1.0.0 -m "C5 promptlint 1.0.0"
 git push origin master --tags
 ```
 
-### 10.2 期望的远端状态
+```text
+fafee09..d49f3b0  master -> master
+* [new tag]       c5-v1.0.0 -> c5-v1.0.0
+```
 
-- `master` 包含 `C5_交付/` 与根目录 workflow；
-- 标签 `c5-v1.0.0` 指向本次提交；
-- Actions 运行 `C5 promptlint CI`：5 个 Python 版本 + SARIF job。
+### 10.2 第一次 CI：5 绿 1 红，而且红在测试之前
 
-### 10.3 回填
+Run `42612565075`（提交 `d49f3b0`）：
 
-（推送后填写运行结果、run URL 与失败修复记录。）
+| Job | 结果 | 说明 |
+| --- | --- | --- |
+| Python 3.10 / 3.11 / 3.12 / 3.13 | success | 测试、干净示例、12 findings 断言全部通过 |
+| SARIF | success | `upload-sarif` 接受了中文路径，Code Scanning 可用 |
+| **Python 3.9** | **failure** | 失败步骤是 `Run actions/setup-python@v5`；`Unit tests` 被 skip |
+
+关键判断：**3.9 的测试一次都没有运行**。当时的 `ubuntu-latest` 已经不为 3.9
+提供 setup-python 构建，所以这不是代码失败，而是「支持 3.9」只验证了一半。
+
+### 10.3 修复
+
+测试矩阵改为 `ubuntu-22.04`（该镜像仍提供 3.9），提交 `85762f9`：
+
+```yaml
+test:
+  name: Python ${{ matrix.python-version }}
+  # 3.9 is no longer provisioned on ubuntu-latest; 22.04 still ships it.
+  runs-on: ubuntu-22.04
+```
+
+### 10.4 第二次 CI：6/6 全绿
+
+Run [`42612751936`](https://github.com/07Meteorain/AI/actions/runs/42612751936)：
+`success`。Python 3.9 / 3.10 / 3.11 / 3.12 / 3.13 与 SARIF 全部通过；3.9 这次真的
+跑了 81 项测试，而不是被 skip。
+
+### 10.5 远端核对
+
+```text
+d49f3b0 → 85762f9  master
+refs/tags/c5-v1.0.0 → （文档回填后移动到最终提交）
+raw.githubusercontent.com/.../C5_交付/README.md → HTTP 200
+```
+
+标签移动的理由：`c5-v1.0.0` 创建后几分钟内就发现 CI 配置需要修；它还没有外部
+使用者，因此把这个标签指向「包含 CI 修复与真实日志」的最终提交，而不是让使用者
+checkout 到一个已知 CI 配置有问题的提交。**这是一次有意的强制移动，不是无意的
+覆盖**；如果标签已经发布过，正确做法是发 1.0.1，而不是移动标签。
+
+### 10.6 这轮真正的教训
+
+CI 第一次「5/6 绿」看起来只差一个版本，但它差的是**整个 3.9 验证**。如果我只
+盯着「14 个成功步骤」的多数，就会在 README 里写下「3.9 已验证」——这正是
+AAR F3 记录的那类错误。
 
 ---
 
@@ -418,6 +460,7 @@ git push origin master --tags
 | 8 | 指标手写导致 75/77 不一致 | 交付前核对 | 脚本统计后统一 |
 | 9 | 指纹漏掉 occurrence 序数 | 独立评审 | 加序数 + 测试 |
 | 9 | 第一次评审范围过大而超时 | 我 | 改为只读 5 个文件 |
+| 10 | CI 的 `ubuntu-latest` 无法安装 3.9 | Actions 第一次运行 | 固定 `ubuntu-22.04`，第二次全绿 |
 
 ## 附录：关键数字怎么复现
 
