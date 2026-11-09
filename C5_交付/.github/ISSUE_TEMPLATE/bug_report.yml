@@ -1,0 +1,71 @@
+name: Bug report
+description: A wrong finding, a missed finding, a crash, or broken output
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Please remove API keys, personal data, and private
+        prompt content before pasting anything here.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what did you get instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: The exact command and a minimal file tree.
+      placeholder: |
+        python -m promptlint check prompts/ --format text
+    validations:
+      required: true
+  - type: textarea
+    id: prompt
+    attributes:
+      label: Minimal prompt (redacted)
+      description: The smallest template that shows the problem. Replace secrets with X.
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: promptlint version
+      placeholder: output of `python -m promptlint --version`
+    validations:
+      required: true
+  - type: dropdown
+    id: python
+    attributes:
+      label: Python version
+      options:
+        - "3.9"
+        - "3.10"
+        - "3.11"
+        - "3.12"
+        - "3.13"
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: I removed secrets and personal data from this report.
+          required: true
+        - label: I searched existing issues before opening this one.
+          required: true

@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "promptlint"
+version = "1.0.0"
+description = "Static analysis for LLM prompt templates: catch broken placeholders, leaked secrets, missing output contracts, and injection surface before the prompt reaches a model."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "07Meteorain", email = "2025105220114@student.local" }]
+keywords = ["prompt-engineering", "llm", "linter", "static-analysis", "sarif", "ai"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Text Processing",
+]
+
+[project.urls]
+Homepage = "https://github.com/07Meteorain/AI/tree/master/C5_%E4%BA%A4%E4%BB%98"
+Repository = "https://github.com/07Meteorain/AI"
+Changelog = "https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/CHANGELOG.md"
+
+[project.scripts]
+promptlint = "promptlint.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["promptlint*"]
+
+[tool.setuptools.package-data]
+promptlint = ["py.typed"]

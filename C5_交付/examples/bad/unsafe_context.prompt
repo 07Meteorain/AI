@@ -1,0 +1,6 @@
+---
+vars: [user_message]
+---
+Summarise the following customer message in three sentences.
+{{user_message}}
+Reply in Markdown.

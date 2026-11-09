@@ -1,0 +1,62 @@
+# Standalone CI for this directory.
+#
+# The repository is a monorepo, so GitHub only runs workflows from its root
+# `.github/workflows/`. This file is the CI to keep when `C5_交付/` is extracted
+# into its own repository; the monorepo equivalent is `c5-promptlint.yml`.
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Clean examples must pass
+        run: python -m promptlint check examples/good --fail-on info
+      - name: Broken examples must fail with 12 findings
+        shell: bash
+        run: |
+          set +e
+          output=$(python -m promptlint check examples --config examples/promptlint.json)
+          status=$?
+          echo "$output"
+          test "$status" -eq 1
+          test "$(printf '%s' "$output" | grep -c '^  ')" -eq 12
+
+  sarif:
+    name: SARIF
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate SARIF
+        run: |
+          python -m promptlint check examples --config examples/promptlint.json \
+            --format sarif --output promptlint.sarif || true
+      - name: Upload SARIF
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: promptlint.sarif

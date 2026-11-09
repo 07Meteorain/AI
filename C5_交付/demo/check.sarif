@@ -1,0 +1,499 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "promptlint",
+          "informationUri": "https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98",
+          "version": "1.0.0",
+          "rules": [
+            {
+              "id": "PL001",
+              "name": "prompt-empty",
+              "shortDescription": {
+                "text": "The prompt body is empty."
+              },
+              "fullDescription": {
+                "text": "A file that contains only front matter or whitespace sends nothing to the model. This is almost always a broken template or a wrong path."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/docs/rules.md#pl001"
+            },
+            {
+              "id": "PL002",
+              "name": "placeholder-undeclared",
+              "shortDescription": {
+                "text": "A placeholder is used but not listed in front-matter vars."
+              },
+              "fullDescription": {
+                "text": "When a template declares its variables, an undeclared placeholder is a typo or a forgotten declaration. The renderer will either fail or ship a literal '{{name}}' to the model."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/docs/rules.md#pl002"
+            },
+            {
+              "id": "PL003",
+              "name": "placeholder-unused",
+              "shortDescription": {
+                "text": "A declared variable is never used."
+              },
+              "fullDescription": {
+                "text": "Unused variables usually mean the template drifted: a section was removed but its input stayed, or the author forgot to reference the value."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/docs/rules.md#pl003"
+            },
+            {
+              "id": "PL004",
+              "name": "placeholder-malformed",
+              "shortDescription": {
+                "text": "A placeholder has broken syntax."
+              },
+              "fullDescription": {
+                "text": "Unbalanced braces, empty names, and invalid identifiers do not render. They silently reach the model as literal text, which makes the output look like a model failure instead of a template bug."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/docs/rules.md#pl004"
+            },
+            {
+              "id": "PL005",
+              "name": "secret-literal",
+              "shortDescription": {
+                "text": "A credential looks hard-coded in the prompt."
+              },
+              "fullDescription": {
+                "text": "Prompts are copied into logs, issues, and model providers. A key pasted into a template leaks everywhere the prompt goes; rotate it and load it from the environment instead."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/docs/rules.md#pl005"
+            },
+            {
+              "id": "PL006",
+              "name": "pii-literal",
+              "shortDescription": {
+                "text": "The prompt contains what looks like personal data."
+              },
+              "fullDescription": {
+                "text": "Emails, phone numbers, and national ids in a template end up in request logs and provider dashboards. Use synthetic placeholders for examples."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/docs/rules.md#pl006"
+            },
+            {
+              "id": "PL007",
+              "name": "missing-output-contract",
+              "shortDescription": {
+                "text": "The prompt does not say what shape the answer should take."
+              },
+              "fullDescription": {
+                "text": "Without a stated format, two runs of the same prompt drift apart and downstream parsers break. Short prompts are exempt because they are often one-line questions where the format is obvious."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/docs/rules.md#pl007"
+            },
+            {
+              "id": "PL008",
+              "name": "duplicate-instruction",
+              "shortDescription": {
+                "text": "The same instruction appears more than once."
+              },
+              "fullDescription": {
+                "text": "Repeated lines usually survive an edit that replaced a sentence but left the old copy. They waste budget and can contradict the newer wording."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/docs/rules.md#pl008"
+            },
+            {
+              "id": "PL009",
+              "name": "untrusted-input-boundary",
+              "shortDescription": {
+                "text": "Untrusted input is interpolated without a delimiter."
+              },
+              "fullDescription": {
+                "text": "When retrieved text or user content sits in the same channel as the instructions, a sentence inside the data can act as an instruction. Wrapping it in an XML tag (or similar delimiter) gives the model a structural boundary to trust."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/docs/rules.md#pl009"
+            },
+            {
+              "id": "PL010",
+              "name": "prompt-too-long",
+              "shortDescription": {
+                "text": "The prompt exceeds the configured token budget."
+              },
+              "fullDescription": {
+                "text": "Longer prompts cost more, hit context limits earlier, and tend to bury the instruction that matters. Split the task or retrieve only the relevant context."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/docs/rules.md#pl010"
+            },
+            {
+              "id": "PL011",
+              "name": "invisible-character",
+              "shortDescription": {
+                "text": "Zero-width or bidirectional characters are present."
+              },
+              "fullDescription": {
+                "text": "Invisible characters can hide instructions, break exact matching, and make two identical-looking prompts behave differently. They usually arrive by copy-paste from a chat window or a PDF."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/docs/rules.md#pl011"
+            },
+            {
+              "id": "PL012",
+              "name": "front-matter-invalid",
+              "shortDescription": {
+                "text": "The front matter cannot be parsed."
+              },
+              "fullDescription": {
+                "text": "promptlint reads vars from front matter. If the block is malformed, variable checks silently switch off, so the template looks clean while nothing is actually verified."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/docs/rules.md#pl012"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "PL010",
+          "ruleIndex": 9,
+          "level": "warning",
+          "message": {
+            "text": "prompt is ~244 tokens (limit 120)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/bad/bloated.prompt"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1,
+                  "endLine": 4,
+                  "endColumn": 2
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "promptlint/v1": "97ee8ab65c8fa9f6826956dc6d826e30fdbbef64"
+          }
+        },
+        {
+          "ruleId": "PL007",
+          "ruleIndex": 6,
+          "level": "warning",
+          "message": {
+            "text": "no output format is specified (354 characters of instructions)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/bad/leaky.prompt"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1,
+                  "endLine": 4,
+                  "endColumn": 2
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "promptlint/v1": "edc14f6b49c0319892050fe6c04499ba88fc3441"
+          }
+        },
+        {
+          "ruleId": "PL005",
+          "ruleIndex": 4,
+          "level": "error",
+          "message": {
+            "text": "possible OpenAI-style API key: sk-l...2b9d"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/bad/leaky.prompt"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 17,
+                  "endLine": 6,
+                  "endColumn": 18
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "promptlint/v1": "e3b4a9aeb5fc565a955e0ede1e433b45ec5dd22d"
+          }
+        },
+        {
+          "ruleId": "PL006",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "email address in prompt: a***@example.com"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/bad/leaky.prompt"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 24,
+                  "endLine": 7,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "promptlint/v1": "1775ad8f7f7559440f83292752e3ce36f4b9f5ea"
+          }
+        },
+        {
+          "ruleId": "PL006",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "mobile number in prompt: <redacted:11 chars>"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/bad/leaky.prompt"
+                },
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 25,
+                  "endLine": 8,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "promptlint/v1": "37ff89248edc925fed6d45c6bbe2fe5647feb40f"
+          }
+        },
+        {
+          "ruleId": "PL008",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "instruction repeats line 10: Always answer in English and cite sources."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/bad/leaky.prompt"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1,
+                  "endLine": 11,
+                  "endColumn": 2
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "promptlint/v1": "91c6ad9ed60b9a7e59e39d80d66fde7b7e6a792c"
+          }
+        },
+        {
+          "ruleId": "PL003",
+          "ruleIndex": 2,
+          "level": "warning",
+          "message": {
+            "text": "variable 'name' is declared but never used"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/bad/malformed.prompt"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 1,
+                  "endLine": 2,
+                  "endColumn": 2
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "promptlint/v1": "16047c52b426ede6f6abe918b6f884c071d3c529"
+          }
+        },
+        {
+          "ruleId": "PL004",
+          "ruleIndex": 3,
+          "level": "error",
+          "message": {
+            "text": "unbalanced placeholder delimiter '{{'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/bad/malformed.prompt"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 7,
+                  "endLine": 4,
+                  "endColumn": 8
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "promptlint/v1": "44236cd40932b17c3a2ed0043260d25f4774c4f1"
+          }
+        },
+        {
+          "ruleId": "PL004",
+          "ruleIndex": 3,
+          "level": "error",
+          "message": {
+            "text": "empty placeholder '{{}}'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/bad/malformed.prompt"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 13,
+                  "endLine": 5,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "promptlint/v1": "6d7e96f9b7e278eb7177e2eb4885b3eed0e2cda0"
+          }
+        },
+        {
+          "ruleId": "PL004",
+          "ruleIndex": 3,
+          "level": "error",
+          "message": {
+            "text": "invalid placeholder name '1st_topic'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/bad/malformed.prompt"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 23,
+                  "endLine": 5,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "promptlint/v1": "676817c974847c2c46e2affafe680eb979c790c6"
+          }
+        },
+        {
+          "ruleId": "PL004",
+          "ruleIndex": 3,
+          "level": "error",
+          "message": {
+            "text": "unbalanced placeholder delimiter '}}'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/bad/malformed.prompt"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 26,
+                  "endLine": 6,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "promptlint/v1": "9e59ff4a60adc610cc9ef0e0fd3db68a4f95d62b"
+          }
+        },
+        {
+          "ruleId": "PL009",
+          "ruleIndex": 8,
+          "level": "warning",
+          "message": {
+            "text": "untrusted input '{{user_message}}' is not delimited"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/bad/unsafe_context.prompt"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1,
+                  "endLine": 5,
+                  "endColumn": 2
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "promptlint/v1": "356694166982d247665c0f0d252d8d5a9629f69d"
+          }
+        }
+      ]
+    }
+  ]
+}

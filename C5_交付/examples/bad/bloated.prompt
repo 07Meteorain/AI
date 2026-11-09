@@ -1,0 +1,16 @@
+---
+vars: [topic]
+---
+Write a comprehensive report about {{topic}}. Cover the history, the current
+state, the main competing views, the economics, the technical constraints, the
+regulatory environment, and the likely trajectory over the next five years.
+Consider the perspectives of users, operators, regulators, and researchers.
+Be thorough. Be precise. Be balanced. Do not omit edge cases. Do not hedge.
+Do not use bullet points unless a list is genuinely clearer than prose.
+Do not repeat yourself. Do not pad the response. Do not invent facts.
+When you are unsure, say so explicitly and explain what would resolve it.
+Prefer concrete examples over abstractions. Cite the sources you rely on.
+Explain your reasoning before each conclusion. Define every technical term.
+Assume the reader is intelligent but new to the domain. Avoid jargon where a
+plain word will do, but do not simplify away the details that matter.
+Write at least two thousand words and at most two thousand five hundred words.

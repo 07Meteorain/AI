@@ -1,0 +1,6 @@
+---
+vars: [name, topic]
+---
+Hello {{name}
+Write about {{ }} and {{1st_topic}}.
+Use {{topic}} only once. }} this closing pair is stray.

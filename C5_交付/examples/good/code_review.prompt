@@ -1,0 +1,11 @@
+---
+vars: [language, diff]
+---
+Review the following {{language}} diff for correctness, security, and readability.
+Point out only issues that you can justify from the diff itself.
+
+<diff>
+{{diff}}
+</diff>
+
+Return a Markdown list. If there are no issues, return the single word: LGTM

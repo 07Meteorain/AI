@@ -1,0 +1,21 @@
+examples/bad/bloated.prompt
+  4:1  warning PL010  prompt is ~244 tokens (limit 120)
+
+examples/bad/leaky.prompt
+  4:1  warning PL007  no output format is specified (354 characters of instructions)
+  6:17  error   PL005  possible OpenAI-style API key: sk-l...2b9d
+  7:24  warning PL006  email address in prompt: a***@example.com
+  8:25  warning PL006  mobile number in prompt: <redacted:11 chars>
+  11:1  warning PL008  instruction repeats line 10: Always answer in English and cite sources.
+
+examples/bad/malformed.prompt
+  2:1  warning PL003  variable 'name' is declared but never used
+  4:7  error   PL004  unbalanced placeholder delimiter '{{'
+  5:13  error   PL004  empty placeholder '{{}}'
+  5:23  error   PL004  invalid placeholder name '1st_topic'
+  6:26  error   PL004  unbalanced placeholder delimiter '}}'
+
+examples/bad/unsafe_context.prompt
+  5:1  warning PL009  untrusted input '{{user_message}}' is not delimited
+
+12 problems in 6 files (5 errors, 7 warnings, 0 info)

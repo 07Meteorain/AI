@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Rule reference
+    url: https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/docs/rules.md
+    about: Every rule, its rationale, and its known limits.
+  - name: CLI reference
+    url: https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/docs/cli.md
+    about: Commands, options, exit codes, and configuration precedence.
+  - name: Security issue
+    url: https://github.com/07Meteorain/AI/blob/master/C5_%E4%BA%A4%E4%BB%98/SECURITY.md
+    about: Please report vulnerabilities privately, not in a public issue.

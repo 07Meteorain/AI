@@ -1,0 +1,166 @@
+{
+  "tool": "promptlint",
+  "version": "1.0.0",
+  "summary": {
+    "files_checked": 6,
+    "findings": 12,
+    "errors": 5,
+    "warnings": 7,
+    "infos": 0,
+    "suppressed": 0
+  },
+  "files": [
+    {
+      "path": "examples/bad/bloated.prompt",
+      "findings": [
+        {
+          "rule": "PL010",
+          "severity": "warning",
+          "message": "prompt is ~244 tokens (limit 120)",
+          "line": 4,
+          "column": 1,
+          "end_line": 4,
+          "end_column": 2,
+          "hint": "Split the prompt or move reference material into retrieval.",
+          "snippet": "Write a comprehensive report about {{topic}}. Cover the history, the current"
+        }
+      ]
+    },
+    {
+      "path": "examples/bad/leaky.prompt",
+      "findings": [
+        {
+          "rule": "PL007",
+          "severity": "warning",
+          "message": "no output format is specified (354 characters of instructions)",
+          "line": 4,
+          "column": 1,
+          "end_line": 4,
+          "end_column": 2,
+          "hint": "State the format: JSON schema, Markdown table, or a numbered list.",
+          "snippet": "You are a marketing assistant. Write a launch announcement about {{topic}}."
+        },
+        {
+          "rule": "PL005",
+          "severity": "error",
+          "message": "possible OpenAI-style API key: sk-l...2b9d",
+          "line": 6,
+          "column": 17,
+          "end_line": 6,
+          "end_column": 18,
+          "hint": "Remove it, rotate the key, and read the value from the environment.",
+          "snippet": "Use the API key sk-live-7f3a9c2e1b4d8f6a0c5e2b9d to call the tracker,"
+        },
+        {
+          "rule": "PL006",
+          "severity": "warning",
+          "message": "email address in prompt: a***@example.com",
+          "line": 7,
+          "column": 24,
+          "end_line": 7,
+          "end_column": 25,
+          "hint": "Replace it with a placeholder such as {{email}}.",
+          "snippet": "and email the draft to alice.wong@example.com when it is done."
+        },
+        {
+          "rule": "PL006",
+          "severity": "warning",
+          "message": "mobile number in prompt: <redacted:11 chars>",
+          "line": 8,
+          "column": 25,
+          "end_line": 8,
+          "end_column": 26,
+          "hint": "Replace it with a placeholder such as {{phone}}.",
+          "snippet": "Call the growth lead at 13800138000 if the tracker fails."
+        },
+        {
+          "rule": "PL008",
+          "severity": "warning",
+          "message": "instruction repeats line 10: Always answer in English and cite sources.",
+          "line": 11,
+          "column": 1,
+          "end_line": 11,
+          "end_column": 2,
+          "hint": "Delete the earlier copy, or merge the two versions.",
+          "snippet": "Always answer in English and cite sources."
+        }
+      ]
+    },
+    {
+      "path": "examples/bad/malformed.prompt",
+      "findings": [
+        {
+          "rule": "PL003",
+          "severity": "warning",
+          "message": "variable 'name' is declared but never used",
+          "line": 2,
+          "column": 1,
+          "end_line": 2,
+          "end_column": 2,
+          "hint": "Remove it from vars or reference it as {{name}}.",
+          "snippet": "vars: [name, topic]"
+        },
+        {
+          "rule": "PL004",
+          "severity": "error",
+          "message": "unbalanced placeholder delimiter '{{'",
+          "line": 4,
+          "column": 7,
+          "end_line": 4,
+          "end_column": 8,
+          "hint": "Use ASCII letters, digits, '_', '.', or '-' inside {{...}}.",
+          "snippet": "Hello {{name}"
+        },
+        {
+          "rule": "PL004",
+          "severity": "error",
+          "message": "empty placeholder '{{}}'",
+          "line": 5,
+          "column": 13,
+          "end_line": 5,
+          "end_column": 14,
+          "hint": "Use ASCII letters, digits, '_', '.', or '-' inside {{...}}.",
+          "snippet": "Write about {{ }} and {{1st_topic}}."
+        },
+        {
+          "rule": "PL004",
+          "severity": "error",
+          "message": "invalid placeholder name '1st_topic'",
+          "line": 5,
+          "column": 23,
+          "end_line": 5,
+          "end_column": 24,
+          "hint": "Use ASCII letters, digits, '_', '.', or '-' inside {{...}}.",
+          "snippet": "Write about {{ }} and {{1st_topic}}."
+        },
+        {
+          "rule": "PL004",
+          "severity": "error",
+          "message": "unbalanced placeholder delimiter '}}'",
+          "line": 6,
+          "column": 26,
+          "end_line": 6,
+          "end_column": 27,
+          "hint": "Use ASCII letters, digits, '_', '.', or '-' inside {{...}}.",
+          "snippet": "Use {{topic}} only once. }} this closing pair is stray."
+        }
+      ]
+    },
+    {
+      "path": "examples/bad/unsafe_context.prompt",
+      "findings": [
+        {
+          "rule": "PL009",
+          "severity": "warning",
+          "message": "untrusted input '{{user_message}}' is not delimited",
+          "line": 5,
+          "column": 1,
+          "end_line": 5,
+          "end_column": 2,
+          "hint": "Wrap it: <input>\\n{{user_message}}\\n</input>",
+          "snippet": "{{user_message}}"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+﻿ID     SEVERITY  NAME                      SUMMARY
+PL001  error     prompt-empty              The prompt body is empty.
+PL002  error     placeholder-undeclared    A placeholder is used but not listed in front-matter vars.
+PL003  warning   placeholder-unused        A declared variable is never used.
+PL004  error     placeholder-malformed     A placeholder has broken syntax.
+PL005  error     secret-literal            A credential looks hard-coded in the prompt.
+PL006  warning   pii-literal               The prompt contains what looks like personal data.
+PL007  warning   missing-output-contract   The prompt does not say what shape the answer should take.
+PL008  warning   duplicate-instruction     The same instruction appears more than once.
+PL009  warning   untrusted-input-boundary  Untrusted input is interpolated without a delimiter.
+PL010  warning   prompt-too-long           The prompt exceeds the configured token budget.
+PL011  warning   invisible-character       Zero-width or bidirectional characters are present.
+PL012  error     front-matter-invalid      The front matter cannot be parsed.

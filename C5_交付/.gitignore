@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Tool output
+.promptlint-baseline.json
+report.sarif
+report.json
+
+# Editors
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

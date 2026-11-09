@@ -1,0 +1,35 @@
+name: Feature request
+description: Propose a new rule, output format, or integration
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Describe the situation where promptlint does not help you today.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: |
+        For a new rule: what should it catch, what is a bad example, and what is
+        a good example? What would make it a false positive?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Existing rule, config, baseline, or another tool?
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Project constraints
+      options:
+        - label: The proposal keeps promptlint zero-dependency and offline.
+          required: true
+        - label: The proposal is deterministic (no timestamps, randomness, or network).
+          required: true
