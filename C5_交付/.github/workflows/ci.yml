@@ -17,7 +17,8 @@ permissions:
 jobs:
   test:
     name: Python ${{ matrix.python-version }}
-    runs-on: ubuntu-latest
+    # 3.9 is no longer provisioned on ubuntu-latest; 22.04 still ships it.
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
