@@ -1,0 +1,713 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-10T23:30:19+08:00",
+  "repo": {
+    "name": "AI",
+    "path": "E:\\我的挑战\\C5A\\.tmp\\AI",
+    "remote": "https://github.com/07Meteorain/AI",
+    "branch": "master",
+    "head_sha": "451f4b6299c81c6cde738782fd6b041592ea6ead",
+    "head_subject": "docs(c5): add repo链接 note pointing to the promptlint repository",
+    "head_date": "2026-11-09T20:13:28+08:00",
+    "first_commit_date": "2026-10-04T19:33:31+08:00",
+    "last_commit_age_days": 1,
+    "age_days": 37,
+    "dirty": false,
+    "total_commits": 99,
+    "tracked_files": 1246
+  },
+  "tags": {
+    "count": 1,
+    "latest": "c5-v1.0.0",
+    "latest_date": "2026-11-09",
+    "list": [
+      {
+        "name": "c5-v1.0.0",
+        "date": "2026-11-09"
+      }
+    ]
+  },
+  "branches": {
+    "local_count": 1,
+    "remote_count": 1,
+    "default": "master",
+    "stale_days": 180,
+    "stale_count": 0,
+    "stale_ratio": 0.0,
+    "stale": [],
+    "local": [
+      {
+        "name": "master",
+        "date": "2026-11-09T20:13:28+08:00",
+        "days": 1
+      }
+    ]
+  },
+  "files": {
+    "tracked": 1246,
+    "binary": 29,
+    "text": 1217,
+    "total_loc": 204846,
+    "source_loc": 25313,
+    "test_loc": 3845,
+    "test_file_count": 19,
+    "by_extension": [
+      {
+        "ext": ".json",
+        "files": 763,
+        "loc": 75706,
+        "share": 0.6123595505617978
+      },
+      {
+        "ext": ".md",
+        "files": 183,
+        "loc": 38644,
+        "share": 0.14686998394863562
+      },
+      {
+        "ext": ".py",
+        "files": 103,
+        "loc": 29028,
+        "share": 0.0826645264847512
+      },
+      {
+        "ext": ".html",
+        "files": 80,
+        "loc": 32671,
+        "share": 0.06420545746388442
+      },
+      {
+        "ext": ".txt",
+        "files": 33,
+        "loc": 18828,
+        "share": 0.026484751203852328
+      },
+      {
+        "ext": ".png",
+        "files": 14,
+        "loc": 0,
+        "share": 0.011235955056179775
+      },
+      {
+        "ext": "(无扩展名)",
+        "files": 10,
+        "loc": 176,
+        "share": 0.008025682182985553
+      },
+      {
+        "ext": ".jsonl",
+        "files": 9,
+        "loc": 3239,
+        "share": 0.0072231139646869984
+      },
+      {
+        "ext": ".pdf",
+        "files": 7,
+        "loc": 0,
+        "share": 0.0056179775280898875
+      },
+      {
+        "ext": ".tex",
+        "files": 6,
+        "loc": 3240,
+        "share": 0.004815409309791332
+      },
+      {
+        "ext": ".prompt",
+        "files": 6,
+        "loc": 64,
+        "share": 0.004815409309791332
+      },
+      {
+        "ext": ".yml",
+        "files": 5,
+        "loc": 249,
+        "share": 0.0040128410914927765
+      },
+      {
+        "ext": ".bib",
+        "files": 5,
+        "loc": 686,
+        "share": 0.0040128410914927765
+      },
+      {
+        "ext": ".yaml",
+        "files": 4,
+        "loc": 1531,
+        "share": 0.0032102728731942215
+      },
+      {
+        "ext": ".js",
+        "files": 3,
+        "loc": 92,
+        "share": 0.002407704654895666
+      },
+      {
+        "ext": ".skill",
+        "files": 3,
+        "loc": 0,
+        "share": 0.002407704654895666
+      },
+      {
+        "ext": ".css",
+        "files": 2,
+        "loc": 62,
+        "share": 0.0016051364365971107
+      },
+      {
+        "ext": ".xlsx",
+        "files": 2,
+        "loc": 0,
+        "share": 0.0016051364365971107
+      },
+      {
+        "ext": ".toml",
+        "files": 2,
+        "loc": 93,
+        "share": 0.0016051364365971107
+      },
+      {
+        "ext": ".gz",
+        "files": 1,
+        "loc": 0,
+        "share": 0.0008025682182985554
+      },
+      {
+        "ext": ".zip",
+        "files": 1,
+        "loc": 0,
+        "share": 0.0008025682182985554
+      },
+      {
+        "ext": ".exe",
+        "files": 1,
+        "loc": 0,
+        "share": 0.0008025682182985554
+      },
+      {
+        "ext": ".sh",
+        "files": 1,
+        "loc": 38,
+        "share": 0.0008025682182985554
+      },
+      {
+        "ext": ".sarif",
+        "files": 1,
+        "loc": 499,
+        "share": 0.0008025682182985554
+      },
+      {
+        "ext": ".typed",
+        "files": 1,
+        "loc": 0,
+        "share": 0.0008025682182985554
+      }
+    ],
+    "by_directory": [
+      {
+        "dir": "C1_交付",
+        "files": 840,
+        "loc": 111394,
+        "share": 0.6741573033707865
+      },
+      {
+        "dir": "C4C_交付",
+        "files": 75,
+        "loc": 21672,
+        "share": 0.06019261637239166
+      },
+      {
+        "dir": "C5_交付",
+        "files": 63,
+        "loc": 5696,
+        "share": 0.05056179775280899
+      },
+      {
+        "dir": "C4D_交付",
+        "files": 52,
+        "loc": 8852,
+        "share": 0.04173354735152488
+      },
+      {
+        "dir": "C2G_ParameterGolf",
+        "files": 43,
+        "loc": 23791,
+        "share": 0.03451043338683788
+      },
+      {
+        "dir": "C2A_C9_交付",
+        "files": 40,
+        "loc": 6717,
+        "share": 0.03210272873194221
+      },
+      {
+        "dir": "C3C_交付",
+        "files": 39,
+        "loc": 6359,
+        "share": 0.03130016051364366
+      },
+      {
+        "dir": "C4A_交付",
+        "files": 37,
+        "loc": 6814,
+        "share": 0.02969502407704655
+      },
+      {
+        "dir": "C3_交付",
+        "files": 20,
+        "loc": 1851,
+        "share": 0.016051364365971106
+      },
+      {
+        "dir": "C4B_公众号文章生成技能",
+        "files": 18,
+        "loc": 4142,
+        "share": 0.014446227929373997
+      },
+      {
+        "dir": "C2_交付",
+        "files": 13,
+        "loc": 6068,
+        "share": 0.01043338683788122
+      },
+      {
+        "dir": "(根目录)",
+        "files": 5,
+        "loc": 1421,
+        "share": 0.0040128410914927765
+      },
+      {
+        "dir": ".github",
+        "files": 1,
+        "loc": 69,
+        "share": 0.0008025682182985554
+      }
+    ],
+    "largest": [
+      {
+        "path": "C4C_交付/homework-solver/tools/tectonic.exe",
+        "size": 50167808
+      },
+      {
+        "path": "C4C_交付/Meteorain_C4C_homework-solver.skill",
+        "size": 19487706
+      },
+      {
+        "path": "C1_交付/source_materials/CS146S_offline/pdfs/how-openai-uses-codex.pdf",
+        "size": 8040907
+      },
+      {
+        "path": "C1_交付/source_materials/Vibe_Coding_Playbook.pdf",
+        "size": 7964392
+      },
+      {
+        "path": "C1_交付/source_materials/CS146S_offline/pdfs/how-anthropic-uses-claude-code.pdf",
+        "size": 6218838
+      },
+      {
+        "path": "C1_交付/work/translations.jsonl",
+        "size": 2436539
+      },
+      {
+        "path": "C1_交付/source_materials/CS146S_offline/pages/prompt-engineering-overview.html",
+        "size": 2005200
+      },
+      {
+        "path": "C1_交付/work/segments.jsonl",
+        "size": 1822797
+      },
+      {
+        "path": "C1_交付/source_materials/CS146S_offline/pdfs/ai-assisted-code-review-assessment.pdf",
+        "size": 986515
+      },
+      {
+        "path": "C1_交付/source_materials/CS146S_offline/pages/claude-code-best-practices.html",
+        "size": 832025
+      },
+      {
+        "path": "C1_交付/work/batch_p1.json",
+        "size": 811981
+      },
+      {
+        "path": "C1_交付/source_materials/CS146S_offline/pages/warp-vs-claude-code.html",
+        "size": 452468
+      },
+      {
+        "path": "C1_交付/source_materials/CS146S_offline/pages/agentic-ai-threats.html",
+        "size": 392152
+      },
+      {
+        "path": "C1_交付/source_materials/CS146S_offline/pages/mcp-introduction.html",
+        "size": 378139
+      },
+      {
+        "path": "C4D_交付/姓名_C4D_output_screenshots/04_Agent工具调用.png",
+        "size": 336299
+      },
+      {
+        "path": "C4C_交付/demo/Meteorain_C4_demo_终端输出.png",
+        "size": 325093
+      },
+      {
+        "path": "C2G_ParameterGolf/Meteorain_C2G_参数高尔夫/submission/Meteorain_C2G_submission_20261006_004853.tar.gz",
+        "size": 319024
+      },
+      {
+        "path": "C2_交付/paper/paper.pdf",
+        "size": 300420
+      },
+      {
+        "path": "C1_交付/source_materials/CS146S_offline/pages/context-rot.html",
+        "size": 271776
+      },
+      {
+        "path": "C1_交付/reports/02_qc.json",
+        "size": 245950
+      }
+    ]
+  },
+  "commits": {
+    "total": 99,
+    "merges": 0,
+    "merge_ratio": 0.0,
+    "authors": [
+      {
+        "name": "07Meteorain",
+        "count": 92,
+        "share": 0.9292929292929293
+      },
+      {
+        "name": "Meteorain",
+        "count": 6,
+        "share": 0.06060606060606061
+      },
+      {
+        "name": "C2 Author",
+        "count": 1,
+        "share": 0.010101010101010102
+      }
+    ],
+    "author_total": 3,
+    "by_year": [
+      {
+        "year": "2026",
+        "count": 99
+      }
+    ],
+    "conventional_count": 10,
+    "conventional_ratio": 0.10101010101010101,
+    "type_counts": {
+      "docs": 4,
+      "feat": 4,
+      "ci": 1,
+      "fix": 1
+    },
+    "subject_avg_len": 63.7979797979798,
+    "subject_gt_72_ratio": 0.3434343434343434,
+    "body_ratio": 0.1717171717171717,
+    "churn": [
+      {
+        "path": "README.md",
+        "commits": 10,
+        "share": 0.10101010101010101
+      },
+      {
+        "path": "C1_交付/README.md",
+        "commits": 4,
+        "share": 0.04040404040404041
+      },
+      {
+        "path": "C4C_交付/README.md",
+        "commits": 3,
+        "share": 0.030303030303030304
+      },
+      {
+        "path": "C1_交付/提交说明.md",
+        "commits": 3,
+        "share": 0.030303030303030304
+      },
+      {
+        "path": "C5_交付/AAR复盘.md",
+        "commits": 2,
+        "share": 0.020202020202020204
+      },
+      {
+        "path": "C5_交付/AI日志.md",
+        "commits": 2,
+        "share": 0.020202020202020204
+      },
+      {
+        "path": "C5_交付/提交说明.md",
+        "commits": 2,
+        "share": 0.020202020202020204
+      },
+      {
+        "path": ".github/workflows/c5-promptlint.yml",
+        "commits": 2,
+        "share": 0.020202020202020204
+      },
+      {
+        "path": "C5_交付/.github/workflows/ci.yml",
+        "commits": 2,
+        "share": 0.020202020202020204
+      },
+      {
+        "path": "C4C_交付/提交说明.md",
+        "commits": 2,
+        "share": 0.020202020202020204
+      },
+      {
+        "path": "C2G_ParameterGolf/Meteorain_C2G_参数高尔夫/results/results_ablation.json",
+        "commits": 2,
+        "share": 0.020202020202020204
+      },
+      {
+        "path": "C2G_ParameterGolf/Meteorain_C2G_参数高尔夫/README.md",
+        "commits": 2,
+        "share": 0.020202020202020204
+      },
+      {
+        "path": "C2G_ParameterGolf/Meteorain_C2G_参数高尔夫/logs/E3b_parallel_residual_fix_seed1337.txt",
+        "commits": 2,
+        "share": 0.020202020202020204
+      },
+      {
+        "path": "C2G_ParameterGolf/Meteorain_C2G_参数高尔夫/docs/Meteorain_C2G_leaderboard.md",
+        "commits": 2,
+        "share": 0.020202020202020204
+      },
+      {
+        "path": "C2G_ParameterGolf/Meteorain_C2G_参数高尔夫/docs/Meteorain_C2G_ablation.md",
+        "commits": 2,
+        "share": 0.020202020202020204
+      },
+      {
+        "path": "C2G_ParameterGolf/Meteorain_C2G_参数高尔夫/docs/Meteorain_C2G_AAR复盘.md",
+        "commits": 2,
+        "share": 0.020202020202020204
+      },
+      {
+        "path": "C2G_ParameterGolf/Meteorain_C2G_参数高尔夫/code/package_submission.py",
+        "commits": 2,
+        "share": 0.020202020202020204
+      },
+      {
+        "path": ".gitignore",
+        "commits": 2,
+        "share": 0.020202020202020204
+      },
+      {
+        "path": "C1_交付/AAR复盘.md",
+        "commits": 2,
+        "share": 0.020202020202020204
+      },
+      {
+        "path": "C1_交付/deliverables/AAR复盘.md",
+        "commits": 2,
+        "share": 0.020202020202020204
+      }
+    ],
+    "test_touching_commits": 7,
+    "test_touch_ratio": 0.0707070707070707
+  },
+  "governance": {
+    "checks": {
+      "readme": true,
+      "license": false,
+      "contributing": false,
+      "changelog": false,
+      "code_of_conduct": false,
+      "security": false,
+      "ci": true,
+      "issue_templates": false,
+      "dependabot": false,
+      "release_workflow": false,
+      "tests": false,
+      "test_files": false
+    },
+    "workflows": [
+      "c5-promptlint.yml"
+    ]
+  },
+  "health": {
+    "score": 29,
+    "checks": [
+      {
+        "id": "readme",
+        "label": "README",
+        "points": 6,
+        "earned": 6,
+        "ok": true,
+        "evidence": "存在",
+        "description": "根目录 README"
+      },
+      {
+        "id": "license",
+        "label": "LICENSE",
+        "points": 4,
+        "earned": 0,
+        "ok": false,
+        "evidence": "缺失",
+        "description": "开源许可证"
+      },
+      {
+        "id": "contributing",
+        "label": "CONTRIBUTING",
+        "points": 5,
+        "earned": 0,
+        "ok": false,
+        "evidence": "缺失",
+        "description": "贡献指南"
+      },
+      {
+        "id": "changelog",
+        "label": "CHANGELOG",
+        "points": 4,
+        "earned": 0,
+        "ok": false,
+        "evidence": "缺失",
+        "description": "变更日志"
+      },
+      {
+        "id": "code_of_conduct",
+        "label": "CODE_OF_CONDUCT",
+        "points": 3,
+        "earned": 0,
+        "ok": false,
+        "evidence": "缺失",
+        "description": "行为准则"
+      },
+      {
+        "id": "security",
+        "label": "SECURITY",
+        "points": 3,
+        "earned": 0,
+        "ok": false,
+        "evidence": "缺失",
+        "description": "安全披露政策"
+      },
+      {
+        "id": "ci",
+        "label": "CI 工作流",
+        "points": 8,
+        "earned": 8,
+        "ok": true,
+        "evidence": "存在",
+        "description": ".github/workflows 下的流水线"
+      },
+      {
+        "id": "issue_templates",
+        "label": "Issue 模板",
+        "points": 4,
+        "earned": 0,
+        "ok": false,
+        "evidence": "缺失",
+        "description": "结构化的 Issue 模板"
+      },
+      {
+        "id": "dependabot",
+        "label": "依赖自动更新",
+        "points": 3,
+        "earned": 0,
+        "ok": false,
+        "evidence": "缺失",
+        "description": "Dependabot / Renovate 配置"
+      },
+      {
+        "id": "release_workflow",
+        "label": "发布流水线",
+        "points": 5,
+        "earned": 0,
+        "ok": false,
+        "evidence": "缺失",
+        "description": "自动构建或发布工作流"
+      },
+      {
+        "id": "tests",
+        "label": "测试目录",
+        "points": 8,
+        "earned": 0,
+        "ok": false,
+        "evidence": "缺失",
+        "description": "tests/ 或 test/ 目录"
+      },
+      {
+        "id": "test_files",
+        "label": "测试文件",
+        "points": 7,
+        "earned": 0,
+        "ok": false,
+        "evidence": "缺失",
+        "description": "≥10 个测试文件"
+      },
+      {
+        "id": "test_ratio",
+        "label": "测试代码密度",
+        "points": 5,
+        "earned": 0,
+        "ok": false,
+        "evidence": "测试/源码 LOC = 0.15",
+        "description": "测试 LOC / 源码 LOC ≥ 0.3"
+      },
+      {
+        "id": "tags",
+        "label": "版本标签",
+        "points": 5,
+        "earned": 0,
+        "ok": false,
+        "evidence": "1 个 tag，最新 c5-v1.0.0",
+        "description": "≥3 个 tag"
+      },
+      {
+        "id": "conventional",
+        "label": "规范化提交",
+        "points": 8,
+        "earned": 0,
+        "ok": false,
+        "evidence": "占比 10.1%",
+        "description": "Conventional Commits 占比 ≥ 30%"
+      },
+      {
+        "id": "merges",
+        "label": "合并痕迹",
+        "points": 4,
+        "earned": 0,
+        "ok": false,
+        "evidence": "0 个 merge commit",
+        "description": "≥3 个 merge commit（分支/PR 协作）"
+      },
+      {
+        "id": "message_quality",
+        "label": "提交信息质量",
+        "points": 3,
+        "earned": 0,
+        "ok": false,
+        "evidence": "平均 63.8 字符，超长 34.3%",
+        "description": "主题长度 10–72 字符且超长占比 <10%"
+      },
+      {
+        "id": "recent",
+        "label": "近期活跃",
+        "points": 8,
+        "earned": 8,
+        "ok": true,
+        "evidence": "最近提交距今 1 天",
+        "description": "最近 365 天内有提交"
+      },
+      {
+        "id": "branch_hygiene",
+        "label": "分支卫生",
+        "points": 7,
+        "earned": 7,
+        "ok": true,
+        "evidence": "过期远程分支 0/1",
+        "description": "过期远程分支占比 ≤ 25%"
+      }
+    ],
+    "findings": [
+      "健康度低于 60 分，工程基建存在明显缺口。",
+      "Conventional Commits 占比仅 10.1%，提交类型无法被工具聚合。",
+      "测试代码密度偏低（测试/源码 LOC = 0.15）。"
+    ]
+  }
+}

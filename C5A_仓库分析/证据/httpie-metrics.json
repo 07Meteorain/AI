@@ -1,0 +1,1021 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-10T23:30:19+08:00",
+  "repo": {
+    "name": "httpie",
+    "path": "E:\\我的挑战\\C5A\\.tmp\\httpie",
+    "remote": "https://github.com/httpie/cli",
+    "branch": "master",
+    "head_sha": "5b604c37c6c67e18e7c3e9aee6c88a8c22b98345",
+    "head_subject": "Fix `https` behaviour in fish (#1611)",
+    "head_date": "2024-12-17T09:30:35-08:00",
+    "first_commit_date": "2012-02-25T13:39:38+01:00",
+    "last_commit_age_days": 692,
+    "age_days": 5372,
+    "dirty": false,
+    "total_commits": 1797,
+    "tracked_files": 265
+  },
+  "tags": {
+    "count": 50,
+    "latest": "3.2.4",
+    "latest_date": "2024-11-01",
+    "list": [
+      {
+        "name": "3.2.4",
+        "date": "2024-11-01"
+      },
+      {
+        "name": "3.2.3",
+        "date": "2024-07-10"
+      },
+      {
+        "name": "3.2.2",
+        "date": "2023-05-19"
+      },
+      {
+        "name": "3.2.1",
+        "date": "2022-05-06"
+      },
+      {
+        "name": "3.2.0",
+        "date": "2022-05-05"
+      },
+      {
+        "name": "3.1.0",
+        "date": "2022-03-08"
+      },
+      {
+        "name": "3.0.2",
+        "date": "2022-01-24"
+      },
+      {
+        "name": "3.0.1",
+        "date": "2022-01-23"
+      },
+      {
+        "name": "3.0.0",
+        "date": "2022-01-21"
+      },
+      {
+        "name": "2.6.0",
+        "date": "2021-10-14"
+      },
+      {
+        "name": "2.5.0",
+        "date": "2021-09-06"
+      },
+      {
+        "name": "2.4.0",
+        "date": "2021-02-06"
+      },
+      {
+        "name": "2.3.0",
+        "date": "2020-10-25"
+      },
+      {
+        "name": "2.2.0",
+        "date": "2020-06-18"
+      },
+      {
+        "name": "2.1.0",
+        "date": "2020-04-18"
+      },
+      {
+        "name": "2.0.0",
+        "date": "2020-01-12"
+      },
+      {
+        "name": "1.0.3",
+        "date": "2019-08-26"
+      },
+      {
+        "name": "1.0.2",
+        "date": "2018-11-14"
+      },
+      {
+        "name": "1.0.1",
+        "date": "2018-11-14"
+      },
+      {
+        "name": "1.0.0",
+        "date": "2018-11-02"
+      },
+      {
+        "name": "0.9.9",
+        "date": "2018-07-22"
+      },
+      {
+        "name": "0.9.8",
+        "date": "2016-12-08"
+      },
+      {
+        "name": "0.9.7",
+        "date": "2016-12-08"
+      },
+      {
+        "name": "0.9.6",
+        "date": "2016-08-13"
+      },
+      {
+        "name": "0.9.4",
+        "date": "2016-07-01"
+      },
+      {
+        "name": "0.9.3",
+        "date": "2016-01-01"
+      },
+      {
+        "name": "0.9.2",
+        "date": "2015-02-24"
+      },
+      {
+        "name": "0.9.1",
+        "date": "2015-02-07"
+      },
+      {
+        "name": "0.9.0",
+        "date": "2015-01-31"
+      },
+      {
+        "name": "0.8.0",
+        "date": "2014-01-25"
+      },
+      {
+        "name": "0.7.1",
+        "date": "2013-09-24"
+      },
+      {
+        "name": "0.7.0",
+        "date": "2013-09-24"
+      },
+      {
+        "name": "0.6.0",
+        "date": "2013-06-03"
+      },
+      {
+        "name": "0.5.1",
+        "date": "2013-05-13"
+      },
+      {
+        "name": "0.5.0",
+        "date": "2013-04-27"
+      },
+      {
+        "name": "0.4.1",
+        "date": "2013-02-26"
+      },
+      {
+        "name": "0.4.0",
+        "date": "2013-02-22"
+      },
+      {
+        "name": "0.3.1",
+        "date": "2012-12-18"
+      },
+      {
+        "name": "0.3.0",
+        "date": "2012-09-21"
+      },
+      {
+        "name": "0.2.7",
+        "date": "2012-08-07"
+      },
+      {
+        "name": "0.2.6",
+        "date": "2012-07-26"
+      },
+      {
+        "name": "0.2.5",
+        "date": "2012-07-17"
+      },
+      {
+        "name": "0.2.4",
+        "date": "2012-07-17"
+      },
+      {
+        "name": "0.2.3",
+        "date": "2012-07-17"
+      },
+      {
+        "name": "0.2.2",
+        "date": "2012-06-24"
+      },
+      {
+        "name": "0.2.1",
+        "date": "2012-06-13"
+      },
+      {
+        "name": "0.2.0",
+        "date": "2012-04-25"
+      },
+      {
+        "name": "0.1.6",
+        "date": "2012-03-04"
+      },
+      {
+        "name": "0.1.5",
+        "date": "2012-03-04"
+      },
+      {
+        "name": "0.1.4",
+        "date": "2012-02-28"
+      }
+    ]
+  },
+  "branches": {
+    "local_count": 1,
+    "remote_count": 10,
+    "default": "master",
+    "stale_days": 180,
+    "stale_count": 9,
+    "stale_ratio": 0.9,
+    "stale": [
+      {
+        "name": "origin/auto-updates",
+        "date": "2022-05-05T19:24:37+03:00",
+        "days": 1649
+      },
+      {
+        "name": "origin/dependabot/github_actions/peter-evans/create-or-update-comment-3",
+        "date": "2023-04-05T14:58:11+00:00",
+        "days": 1315
+      },
+      {
+        "name": "origin/dependabot/github_actions/peter-evans/create-pull-request-5",
+        "date": "2023-04-05T14:58:07+00:00",
+        "days": 1315
+      },
+      {
+        "name": "origin/feature/term-headers",
+        "date": "2021-04-07T15:21:59+02:00",
+        "days": 2043
+      },
+      {
+        "name": "origin/fix-initial-number-escaping",
+        "date": "2022-06-07T14:50:56+02:00",
+        "days": 1617
+      },
+      {
+        "name": "origin/isidentical/feature/dont-crop-styles",
+        "date": "2022-05-05T16:53:54+02:00",
+        "days": 1650
+      },
+      {
+        "name": "origin/isidentical/feature/shell-completion",
+        "date": "2022-05-20T10:42:38+03:00",
+        "days": 1635
+      },
+      {
+        "name": "origin/isidentical/refactors/color-system",
+        "date": "2022-05-10T10:51:31+03:00",
+        "days": 1645
+      },
+      {
+        "name": "origin/mickael/oss-76-http-prompt-merge",
+        "date": "2021-10-08T10:45:49+02:00",
+        "days": 1859
+      }
+    ],
+    "local": [
+      {
+        "name": "master",
+        "date": "2024-12-17T09:30:35-08:00",
+        "days": 692
+      }
+    ]
+  },
+  "files": {
+    "tracked": 265,
+    "binary": 3,
+    "text": 262,
+    "total_loc": 28276,
+    "source_loc": 12327,
+    "test_loc": 6847,
+    "test_file_count": 37,
+    "by_extension": [
+      {
+        "ext": ".py",
+        "files": 133,
+        "loc": 19002,
+        "share": 0.5018867924528302
+      },
+      {
+        "ext": ".json",
+        "files": 26,
+        "loc": 1231,
+        "share": 0.09811320754716982
+      },
+      {
+        "ext": ".md",
+        "files": 24,
+        "loc": 4053,
+        "share": 0.09056603773584905
+      },
+      {
+        "ext": ".xml",
+        "files": 24,
+        "loc": 169,
+        "share": 0.09056603773584905
+      },
+      {
+        "ext": ".yml",
+        "files": 17,
+        "loc": 733,
+        "share": 0.06415094339622641
+      },
+      {
+        "ext": "(无扩展名)",
+        "files": 8,
+        "loc": 580,
+        "share": 0.03018867924528302
+      },
+      {
+        "ext": ".sh",
+        "files": 3,
+        "loc": 34,
+        "share": 0.011320754716981131
+      },
+      {
+        "ext": ".1",
+        "files": 3,
+        "loc": 1300,
+        "share": 0.011320754716981131
+      },
+      {
+        "ext": ".yaml",
+        "files": 2,
+        "loc": 129,
+        "share": 0.007547169811320755
+      },
+      {
+        "ext": ".jinja2",
+        "files": 2,
+        "loc": 51,
+        "share": 0.007547169811320755
+      },
+      {
+        "ext": ".rb",
+        "files": 2,
+        "loc": 134,
+        "share": 0.007547169811320755
+      },
+      {
+        "ext": ".txt",
+        "files": 2,
+        "loc": 271,
+        "share": 0.007547169811320755
+      },
+      {
+        "ext": ".ps1",
+        "files": 2,
+        "loc": 4,
+        "share": 0.007547169811320755
+      },
+      {
+        "ext": ".key",
+        "files": 2,
+        "loc": 93,
+        "share": 0.007547169811320755
+      },
+      {
+        "ext": ".pem",
+        "files": 2,
+        "loc": 108,
+        "share": 0.007547169811320755
+      },
+      {
+        "ext": ".xsl",
+        "files": 2,
+        "loc": 38,
+        "share": 0.007547169811320755
+      },
+      {
+        "ext": ".in",
+        "files": 1,
+        "loc": 8,
+        "share": 0.0037735849056603774
+      },
+      {
+        "ext": ".gif",
+        "files": 1,
+        "loc": 0,
+        "share": 0.0037735849056603774
+      },
+      {
+        "ext": ".svg",
+        "files": 1,
+        "loc": 1,
+        "share": 0.0037735849056603774
+      },
+      {
+        "ext": ".nuspec",
+        "files": 1,
+        "loc": 50,
+        "share": 0.0037735849056603774
+      },
+      {
+        "ext": ".png",
+        "files": 1,
+        "loc": 0,
+        "share": 0.0037735849056603774
+      },
+      {
+        "ext": ".bash",
+        "files": 1,
+        "loc": 20,
+        "share": 0.0037735849056603774
+      },
+      {
+        "ext": ".fish",
+        "files": 1,
+        "loc": 119,
+        "share": 0.0037735849056603774
+      },
+      {
+        "ext": ".ini",
+        "files": 1,
+        "loc": 7,
+        "share": 0.0037735849056603774
+      },
+      {
+        "ext": ".cfg",
+        "files": 1,
+        "loc": 110,
+        "share": 0.0037735849056603774
+      },
+      {
+        "ext": ".crt",
+        "files": 1,
+        "loc": 31,
+        "share": 0.0037735849056603774
+      },
+      {
+        "ext": ".bin",
+        "files": 1,
+        "loc": 0,
+        "share": 0.0037735849056603774
+      }
+    ],
+    "by_directory": [
+      {
+        "dir": "tests",
+        "files": 103,
+        "loc": 8937,
+        "share": 0.3886792452830189
+      },
+      {
+        "dir": "httpie",
+        "files": 78,
+        "loc": 9817,
+        "share": 0.2943396226415094
+      },
+      {
+        "dir": "docs",
+        "files": 33,
+        "loc": 4890,
+        "share": 0.12452830188679245
+      },
+      {
+        "dir": ".github",
+        "files": 19,
+        "loc": 620,
+        "share": 0.07169811320754717
+      },
+      {
+        "dir": "(根目录)",
+        "files": 16,
+        "loc": 1617,
+        "share": 0.06037735849056604
+      },
+      {
+        "dir": "extras",
+        "files": 16,
+        "loc": 2395,
+        "share": 0.06037735849056604
+      }
+    ],
+    "largest": [
+      {
+        "path": "docs/httpie-animation.gif",
+        "size": 1043348
+      },
+      {
+        "path": "tests/fixtures/xmldata/invalid/quadratic.xml",
+        "size": 103054
+      },
+      {
+        "path": "docs/README.md",
+        "size": 87110
+      },
+      {
+        "path": "docs/stardust.png",
+        "size": 58935
+      },
+      {
+        "path": "httpie/cli/definition.py",
+        "size": 30099
+      },
+      {
+        "path": "tests/test_sessions.py",
+        "size": 28361
+      },
+      {
+        "path": "CHANGELOG.md",
+        "size": 26998
+      },
+      {
+        "path": "httpie/cli/argparser.py",
+        "size": 23749
+      },
+      {
+        "path": "tests/test_output.py",
+        "size": 21373
+      },
+      {
+        "path": "tests/test_json.py",
+        "size": 19282
+      },
+      {
+        "path": "extras/man/https.1",
+        "size": 15253
+      },
+      {
+        "path": "extras/man/http.1",
+        "size": 15250
+      },
+      {
+        "path": "docs/contributors/people.json",
+        "size": 14772
+      },
+      {
+        "path": "tests/test_cli.py",
+        "size": 14622
+      },
+      {
+        "path": "httpie/client.py",
+        "size": 13796
+      },
+      {
+        "path": "tests/utils/__init__.py",
+        "size": 13448
+      },
+      {
+        "path": "httpie/output/formatters/colors.py",
+        "size": 13390
+      },
+      {
+        "path": "tests/test_uploads.py",
+        "size": 13246
+      },
+      {
+        "path": "httpie/downloads.py",
+        "size": 12179
+      },
+      {
+        "path": "tests/test_httpie.py",
+        "size": 10753
+      }
+    ]
+  },
+  "commits": {
+    "total": 1797,
+    "merges": 107,
+    "merge_ratio": 0.05954368391764051,
+    "authors": [
+      {
+        "name": "Jakub Roztocil",
+        "count": 1128,
+        "share": 0.6277128547579299
+      },
+      {
+        "name": "Batuhan Taskaya",
+        "count": 148,
+        "share": 0.08235948803561491
+      },
+      {
+        "name": "Mickaël Schoentgen",
+        "count": 107,
+        "share": 0.05954368391764051
+      },
+      {
+        "name": "Jakub Roztočil",
+        "count": 79,
+        "share": 0.0439621591541458
+      },
+      {
+        "name": "Jakub Roztočil",
+        "count": 39,
+        "share": 0.021702838063439065
+      },
+      {
+        "name": "Marc Abramowitz",
+        "count": 12,
+        "share": 0.00667779632721202
+      },
+      {
+        "name": "dependabot[bot]",
+        "count": 11,
+        "share": 0.006121313299944352
+      },
+      {
+        "name": "Miro Hrončok",
+        "count": 11,
+        "share": 0.006121313299944352
+      },
+      {
+        "name": "Nicolas Beltran",
+        "count": 11,
+        "share": 0.006121313299944352
+      },
+      {
+        "name": "Jake Basile",
+        "count": 7,
+        "share": 0.0038953811908736783
+      }
+    ],
+    "author_total": 174,
+    "by_year": [
+      {
+        "year": "2012",
+        "count": 309
+      },
+      {
+        "year": "2013",
+        "count": 119
+      },
+      {
+        "year": "2014",
+        "count": 154
+      },
+      {
+        "year": "2015",
+        "count": 104
+      },
+      {
+        "year": "2016",
+        "count": 218
+      },
+      {
+        "year": "2017",
+        "count": 60
+      },
+      {
+        "year": "2018",
+        "count": 41
+      },
+      {
+        "year": "2019",
+        "count": 133
+      },
+      {
+        "year": "2020",
+        "count": 158
+      },
+      {
+        "year": "2021",
+        "count": 281
+      },
+      {
+        "year": "2022",
+        "count": 161
+      },
+      {
+        "year": "2023",
+        "count": 36
+      },
+      {
+        "year": "2024",
+        "count": 23
+      }
+    ],
+    "conventional_count": 15,
+    "conventional_ratio": 0.008875739644970414,
+    "type_counts": {
+      "docs": 14,
+      "fix": 1
+    },
+    "subject_avg_len": 31.671675013912076,
+    "subject_gt_72_ratio": 0.02448525319977741,
+    "body_ratio": 0.2621035058430718,
+    "churn": [
+      {
+        "path": "README.rst",
+        "commits": 452,
+        "share": 0.26745562130177514
+      },
+      {
+        "path": "CHANGELOG.rst",
+        "commits": 148,
+        "share": 0.08757396449704143
+      },
+      {
+        "path": "setup.py",
+        "commits": 118,
+        "share": 0.06982248520710059
+      },
+      {
+        "path": "httpie/cli.py",
+        "commits": 117,
+        "share": 0.06923076923076923
+      },
+      {
+        "path": "httpie/client.py",
+        "commits": 108,
+        "share": 0.06390532544378698
+      },
+      {
+        "path": "httpie/__init__.py",
+        "commits": 106,
+        "share": 0.06272189349112427
+      },
+      {
+        "path": "docs/README.md",
+        "commits": 105,
+        "share": 0.0621301775147929
+      },
+      {
+        "path": "httpie/core.py",
+        "commits": 105,
+        "share": 0.0621301775147929
+      },
+      {
+        "path": "tests/tests.py",
+        "commits": 100,
+        "share": 0.05917159763313609
+      },
+      {
+        "path": "httpie/input.py",
+        "commits": 95,
+        "share": 0.05621301775147929
+      },
+      {
+        "path": "CHANGELOG.md",
+        "commits": 78,
+        "share": 0.046153846153846156
+      },
+      {
+        "path": "httpie/sessions.py",
+        "commits": 70,
+        "share": 0.04142011834319527
+      },
+      {
+        "path": "httpie/downloads.py",
+        "commits": 66,
+        "share": 0.03905325443786982
+      },
+      {
+        "path": "httpie/models.py",
+        "commits": 65,
+        "share": 0.038461538461538464
+      },
+      {
+        "path": ".travis.yml",
+        "commits": 62,
+        "share": 0.036686390532544376
+      },
+      {
+        "path": "tests/test_output.py",
+        "commits": 60,
+        "share": 0.03550295857988166
+      },
+      {
+        "path": "tests/test_httpie.py",
+        "commits": 60,
+        "share": 0.03550295857988166
+      },
+      {
+        "path": "tests/test_sessions.py",
+        "commits": 58,
+        "share": 0.03431952662721893
+      },
+      {
+        "path": "httpie/cli/definition.py",
+        "commits": 55,
+        "share": 0.03254437869822485
+      },
+      {
+        "path": "Makefile",
+        "commits": 50,
+        "share": 0.029585798816568046
+      }
+    ],
+    "test_touching_commits": 408,
+    "test_touch_ratio": 0.24142011834319527
+  },
+  "governance": {
+    "checks": {
+      "readme": true,
+      "license": true,
+      "contributing": true,
+      "changelog": true,
+      "code_of_conduct": true,
+      "security": true,
+      "ci": true,
+      "issue_templates": true,
+      "dependabot": true,
+      "release_workflow": true,
+      "tests": true,
+      "test_files": true
+    },
+    "workflows": [
+      "benchmark.yml",
+      "code-style.yml",
+      "content.yml",
+      "coverage.yml",
+      "docs-check-markdown.yml",
+      "docs-deploy.yml",
+      "release-brew.yml",
+      "release-choco.yml",
+      "release-linux-standalone.yml",
+      "release-pypi.yml",
+      "release-snap.yml",
+      "stale.yml",
+      "test-package-linux-snap.yml",
+      "test-package-mac-brew.yml",
+      "tests.yml"
+    ]
+  },
+  "health": {
+    "score": 77,
+    "checks": [
+      {
+        "id": "readme",
+        "label": "README",
+        "points": 6,
+        "earned": 6,
+        "ok": true,
+        "evidence": "存在",
+        "description": "根目录 README"
+      },
+      {
+        "id": "license",
+        "label": "LICENSE",
+        "points": 4,
+        "earned": 4,
+        "ok": true,
+        "evidence": "存在",
+        "description": "开源许可证"
+      },
+      {
+        "id": "contributing",
+        "label": "CONTRIBUTING",
+        "points": 5,
+        "earned": 5,
+        "ok": true,
+        "evidence": "存在",
+        "description": "贡献指南"
+      },
+      {
+        "id": "changelog",
+        "label": "CHANGELOG",
+        "points": 4,
+        "earned": 4,
+        "ok": true,
+        "evidence": "存在",
+        "description": "变更日志"
+      },
+      {
+        "id": "code_of_conduct",
+        "label": "CODE_OF_CONDUCT",
+        "points": 3,
+        "earned": 3,
+        "ok": true,
+        "evidence": "存在",
+        "description": "行为准则"
+      },
+      {
+        "id": "security",
+        "label": "SECURITY",
+        "points": 3,
+        "earned": 3,
+        "ok": true,
+        "evidence": "存在",
+        "description": "安全披露政策"
+      },
+      {
+        "id": "ci",
+        "label": "CI 工作流",
+        "points": 8,
+        "earned": 8,
+        "ok": true,
+        "evidence": "存在",
+        "description": ".github/workflows 下的流水线"
+      },
+      {
+        "id": "issue_templates",
+        "label": "Issue 模板",
+        "points": 4,
+        "earned": 4,
+        "ok": true,
+        "evidence": "存在",
+        "description": "结构化的 Issue 模板"
+      },
+      {
+        "id": "dependabot",
+        "label": "依赖自动更新",
+        "points": 3,
+        "earned": 3,
+        "ok": true,
+        "evidence": "存在",
+        "description": "Dependabot / Renovate 配置"
+      },
+      {
+        "id": "release_workflow",
+        "label": "发布流水线",
+        "points": 5,
+        "earned": 5,
+        "ok": true,
+        "evidence": "存在",
+        "description": "自动构建或发布工作流"
+      },
+      {
+        "id": "tests",
+        "label": "测试目录",
+        "points": 8,
+        "earned": 8,
+        "ok": true,
+        "evidence": "存在",
+        "description": "tests/ 或 test/ 目录"
+      },
+      {
+        "id": "test_files",
+        "label": "测试文件",
+        "points": 7,
+        "earned": 7,
+        "ok": true,
+        "evidence": "存在",
+        "description": "≥10 个测试文件"
+      },
+      {
+        "id": "test_ratio",
+        "label": "测试代码密度",
+        "points": 5,
+        "earned": 5,
+        "ok": true,
+        "evidence": "测试/源码 LOC = 0.56",
+        "description": "测试 LOC / 源码 LOC ≥ 0.3"
+      },
+      {
+        "id": "tags",
+        "label": "版本标签",
+        "points": 5,
+        "earned": 5,
+        "ok": true,
+        "evidence": "50 个 tag，最新 3.2.4",
+        "description": "≥3 个 tag"
+      },
+      {
+        "id": "conventional",
+        "label": "规范化提交",
+        "points": 8,
+        "earned": 0,
+        "ok": false,
+        "evidence": "占比 0.9%",
+        "description": "Conventional Commits 占比 ≥ 30%"
+      },
+      {
+        "id": "merges",
+        "label": "合并痕迹",
+        "points": 4,
+        "earned": 4,
+        "ok": true,
+        "evidence": "107 个 merge commit",
+        "description": "≥3 个 merge commit（分支/PR 协作）"
+      },
+      {
+        "id": "message_quality",
+        "label": "提交信息质量",
+        "points": 3,
+        "earned": 3,
+        "ok": true,
+        "evidence": "平均 31.7 字符，超长 2.4%",
+        "description": "主题长度 10–72 字符且超长占比 <10%"
+      },
+      {
+        "id": "recent",
+        "label": "近期活跃",
+        "points": 8,
+        "earned": 0,
+        "ok": false,
+        "evidence": "最近提交距今 692 天",
+        "description": "最近 365 天内有提交"
+      },
+      {
+        "id": "branch_hygiene",
+        "label": "分支卫生",
+        "points": 7,
+        "earned": 0,
+        "ok": false,
+        "evidence": "过期远程分支 9/10",
+        "description": "过期远程分支占比 ≤ 25%"
+      }
+    ],
+    "findings": [
+      "Conventional Commits 占比仅 0.9%，提交类型无法被工具聚合。",
+      "最近一次提交距今 692 天，项目处于低活跃/维护状态，依赖前需评估。",
+      "有 9 个远程分支超过 180 天未更新，建议合并或删除。",
+      "过期远程分支占比 90%，分支模型缺少清理机制。"
+    ]
+  }
+}
