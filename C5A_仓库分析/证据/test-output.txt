@@ -1,0 +1,20 @@
+test_full_score_is_100 (test_repo_inspector.HealthTests.test_full_score_is_100) ... ok
+test_inactive_and_stale_branches (test_repo_inspector.HealthTests.test_inactive_and_stale_branches) ... ok
+test_missing_readme_and_ci_reduces_score (test_repo_inspector.HealthTests.test_missing_readme_and_ci_reduces_score) ... ok
+test_classify_commit (test_repo_inspector.HelperTests.test_classify_commit) ... ok
+test_count_lines (test_repo_inspector.HelperTests.test_count_lines) ... ok
+test_extension_and_directory (test_repo_inspector.HelperTests.test_extension_and_directory) ... ok
+test_human_bytes (test_repo_inspector.HelperTests.test_human_bytes) ... ok
+test_is_binary (test_repo_inspector.HelperTests.test_is_binary) ... ok
+test_is_source (test_repo_inspector.HelperTests.test_is_source) ... ok
+test_pct (test_repo_inspector.HelperTests.test_pct) ... ok
+test_test_path_matching (test_repo_inspector.HelperTests.test_test_path_matching) ... ok
+test_inspect_smoke (test_repo_inspector.InspectTests.test_inspect_smoke) ... ok
+test_markdown_sections (test_repo_inspector.InspectTests.test_markdown_sections) ... ok
+test_not_a_git_repo (test_repo_inspector.InspectTests.test_not_a_git_repo) ... ok
+test_stale_branch_detection (test_repo_inspector.InspectTests.test_stale_branch_detection) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 6.133s
+
+OK
