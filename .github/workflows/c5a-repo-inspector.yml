@@ -1,0 +1,43 @@
+name: C5A repo inspector CI
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "C5A_仓库分析/**"
+      - ".github/workflows/c5a-repo-inspector.yml"
+  pull_request:
+    paths:
+      - "C5A_仓库分析/**"
+      - ".github/workflows/c5a-repo-inspector.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: C5A_仓库分析/工具
+
+jobs:
+  test:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Smoke report on this repository
+        run: |
+          python repo_inspector.py ../.. --quiet \
+            --out-md "$RUNNER_TEMP/c5a-report.md" \
+            --out-json "$RUNNER_TEMP/c5a-metrics.json"
+          grep -q "健康度评分" "$RUNNER_TEMP/c5a-report.md"
+          python -c "import json,os; d=json.load(open(os.environ['RUNNER_TEMP']+'/c5a-metrics.json',encoding='utf-8')); assert d['repo']['total_commits'] > 0; print('commits:', d['repo']['total_commits'])"
