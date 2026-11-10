@@ -1,0 +1,67 @@
+$ git init -q -b main
+[exit 0]
+
+$ git config user.name Drill User
+[exit 0]
+
+$ git config user.email drill@example.com
+[exit 0]
+
+$ git config commit.gpgsign false
+[exit 0]
+
+$ git add -A
+[exit 0]
+
+$ git commit -q -m chore: base config
+[exit 0]
+
+$ git switch -q -c feature/port
+[exit 0]
+
+$ git commit -q -am feat: change port to 9090
+[exit 0]
+
+$ git switch -q main
+[exit 0]
+
+$ git commit -q -am fix: change port to 8081
+[exit 0]
+
+$ git merge feature/port
+Auto-merging config.txt
+CONFLICT (content): Merge conflict in config.txt
+Automatic merge failed; fix conflicts and then commit the result.
+[exit 1]
+
+--- 冲突文件当前内容 ---
+host=prod
+<<<<<<< HEAD
+port=8081
+=======
+port=9090
+>>>>>>> feature/port
+retries=3
+
+
+$ git status --short
+UU config.txt
+[exit 0]
+
+$ git add config.txt
+[exit 0]
+
+$ git commit -q -m merge: resolve port conflict (keep 9090)
+[exit 0]
+
+$ git log --graph --oneline --decorate
+*   7befae2 (HEAD -> main) merge: resolve port conflict (keep 9090)
+|\  
+| * 954aaac (feature/port) feat: change port to 9090
+* | 407a684 fix: change port to 8081
+|/  
+* 7088a58 chore: base config
+[exit 0]
+
+$ git status --short
+[exit 0]
