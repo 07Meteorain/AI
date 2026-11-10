@@ -1,0 +1,44 @@
+$ git log --graph --oneline --decorate -40
+
+*   3961ed1 (HEAD -> master, origin/master, origin/HEAD) Merge pull request #1 from 07Meteorain/feat/c5a-repo-analysis
+|\  
+| * 8365103 (origin/feat/c5a-repo-analysis, feat/c5a-repo-analysis) docs(c5a): 回填 PR 编号与状态
+| * 353cfe6 docs(c5a): 记录分支与 PR 实战
+| * 824fb16 docs(c5a): 修正行数与示例数量
+| * cfa6873 docs(c5a): 根 README 增加 C5A 索引
+| * 0aa4147 ci(c5a): 在 Python 3.9-3.13 上验证分析器
+| * 8b70489 docs(c5a): 补全交付 README 与提交说明
+| * 46ff0e8 docs(c5a): 记录 AI 使用日志与 AAR 复盘
+| * 42ae63b docs(c5a): 新增 Git 排错手册与冲突演练
+| * d0fffee docs(c5a): 完成本仓库自检与读仓库方法论
+| * 32b8a33 docs(c5a): 分析 httpie/cli 的架构与协作模式
+| * afe3809 test(c5a): 覆盖分析器指标与错误路径
+| * 8a599ce feat(c5a): 新增零依赖仓库分析器
+| * 719b433 chore(c5a): 初始化交付目录与量化证据
+|/  
+* 451f4b6 docs(c5): add repo链接 note pointing to the promptlint repository
+* 0dbbe9c (tag: c5-v1.0.0) docs(c5): record the real CI run and the Python 3.9 runner fix
+* 85762f9 ci(c5): pin the test matrix to ubuntu-22.04 for Python 3.9
+* d49f3b0 feat(c5): add promptlint, a zero-dependency prompt template linter
+* fafee09 C3C: add joint-deliverable index for 联合成果
+* d8cc3cb feat(C3C): 双人协作与技能迁移交付包
+* 97c02fc feat(C3): 群内高质量参与交付包
+* 9461f13 C2A/C9：NovCal 元认知基准（Track 2）
+* 3d204d7 C4C：根 README 补回引用审计器的快速上手段落
+* 31fc6f5 C4C：作业自动求解与排版技能包（homework-solver）
+* 4d089a2 C4D：补充 Agent 技能说明文档，命中提交要求的 Agent 技能交付物
+* 692ff66 C4C：引用真伪审计器（citation-truth-auditor）
+* dc8a14e C4D：本地大模型 Agent 技能（Gemma 4 + Ollama，完全离线）
+* b512de7 C4B：修正交付目录层级（去掉重复嵌套）
+* ea6b65f C4B 公众号文章生成技能：从 starter kit 改造的个人技能 + 完整交付文档
+* 270beb5 C4A：技能提交自动评审器（Level 4 完整评审系统）
+* 5ea5cd8 C2G 最终版：E7 3-seed 验证完成 (1.73955, t=-11.05): THIRD_PARTY_NOTICES.md
+* a338730 C2G 最终版：E7 3-seed 验证完成 (1.73955, t=-11.05): submission/Meteorain_C2G_submission_20261006_004853_submission.json
+* fe1f336 C2G 最终版：E7 3-seed 验证完成 (1.73955, t=-11.05): submission/Meteorain_C2G_submission_20261006_004853.tar.gz
+* 7c24c56 C2G 最终版：E7 3-seed 验证完成 (1.73955, t=-11.05): results/results_smoke.json
+* d8f1ce1 C2G 最终版：E7 3-seed 验证完成 (1.73955, t=-11.05): results/results_seeds.json
+* d4cac6f C2G 最终版：E7 3-seed 验证完成 (1.73955, t=-11.05): results/results_ablation.json
+* e5070f2 C2G 最终版：E7 3-seed 验证完成 (1.73955, t=-11.05): requirements.txt
+* 58c9421 C2G 最终版：E7 3-seed 验证完成 (1.73955, t=-11.05): requirements.md
+* 1d39acf C2G 最终版：E7 3-seed 验证完成 (1.73955, t=-11.05): README.md
+* 891efb4 C2G 最终版：E7 3-seed 验证完成 (1.73955, t=-11.05): logs/E7_best_validated_seed42_submission.json
