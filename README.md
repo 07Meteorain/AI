@@ -530,7 +530,7 @@ python -m unittest discover -s tests                                    # 81 项
 | 指标 | 数值 |
 | --- | --- |
 | 分析对象 | `httpie/cli`（他人仓库）+ `07Meteorain/AI`（本仓库自检） |
-| 工具 | `repo_inspector.py`，约 600 行，仅标准库 + git |
+| 工具 | `repo_inspector.py`，约 900 行，仅标准库 + git |
 | 测试 | **15 项全通过**（unittest，无第三方依赖） |
 | httpie 关键数据 | 1,797 提交 / 265 文件 / 28,276 行 / 174 署名 / 50 tags |
 | httpie 测试密度 | 6,847 测试行 / 12,327 源码行 = 0.56 |

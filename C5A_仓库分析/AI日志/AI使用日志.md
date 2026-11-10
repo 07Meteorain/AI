@@ -182,7 +182,7 @@ R7 自审 ──► 评分维度逐项对照 ──► 红旗自查 ──► �
 1. `test_inactive_and_stale_branches` 报 `KeyError: 'stale_days'` → 健康度函数改用 `branches.get("stale_days", 180)`；
 2. `test_not_a_git_repo` 没抛异常 → 测试目录建在了临时仓库内部，`git rev-parse` 向上找到了父仓库；改用仓库外的临时目录。
 
-**产出**：`工具/repo_inspector.py`（约 600 行）、`工具/tests/test_repo_inspector.py`（15 项，全绿）。
+**产出**：`工具/repo_inspector.py`（约 900 行）、`工具/tests/test_repo_inspector.py`（15 项，全绿）。
 
 **评审**：每次指标变化都重跑两个仓库，确认「修正一个口径不会悄悄改变另一个数字」。
 
