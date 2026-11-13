@@ -70,7 +70,7 @@
         (f.excerpt ? '<pre class="excerpt">' + esc(f.excerpt) + '</pre>' : '') +
         (rule.rationale ? '<details><summary>为什么这是问题</summary><p>' + esc(rule.rationale) + '</p></details>' : '') +
         '<div class="issue-actions">' +
-          '<button class="btn tiny ghost" data-action="ignore" data-rule="' + esc(f.ruleId) + '">忽略这一条</button>' +
+          '<button class="btn tiny ghost" data-action="ignore" data-rule="' + esc(f.ruleId) + '" data-line="' + f.line + '">忽略这一条</button>' +
           '<button class="btn tiny ghost" data-action="disable" data-rule="' + esc(f.ruleId) + '">关闭 ' + esc(f.ruleId) + '</button>' +
         '</div>' +
       '</article>';

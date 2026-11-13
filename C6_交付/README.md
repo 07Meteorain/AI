@@ -121,7 +121,7 @@ node tools/promptgate-cli.js prompts/*.md --fail-on error
 ### 开发与自检
 
 ```bash
-node --test                 # 130 项测试，零依赖，Node ≥ 18
+node --test                 # 131 项测试，零依赖，Node ≥ 18
 node tools/gen_rules_doc.js # 规则改了之后重新生成 docs/rules.md
 node tools/gen_rules_doc.js --check   # 文档漂移检测（CI 会跑）
 ```
@@ -136,7 +136,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools\shots.ps1
 
 ## 测试
 
-`node --test` → **130 项，全部通过**。零测试框架依赖（只用 `node:test` + `node:assert`）。
+`node --test` → **131 项，全部通过**。零测试框架依赖（只用 `node:test` + `node:assert`）。
 
 | 文件 | 覆盖点 | 项数 |
 | --- | --- | --- |
@@ -259,7 +259,7 @@ C6_交付/
 │   ├── gen_rules_doc.js     # docs/rules.md 生成器
 │   ├── make_icons.py        # 图标生成（只在改图时需要）
 │   └── shots.ps1            # demo 截图脚本
-├── tests/                   # 130 项，node --test
+├── tests/                   # 131 项，node --test
 ├── demo/                    # 演示脚本 + 7 张截图
 ├── docs/rules.md            # 自动生成的规则说明
 ├── README.md                # 本文件

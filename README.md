@@ -577,7 +577,7 @@ python repo_inspector.py ../.. --out-md /tmp/report.md   # 分析本仓库
 | --- | --- |
 | 形态 | 浏览器应用（`file://` 双击即可用）+ 零依赖 CLI + 可离线 PWA |
 | 规则 | **15 条**（PG001–PG015），分安全/稳定性/可维护/成本四类，每条有 rationale 与误报边界 |
-| 测试 | **130 项全通过**（`node --test`，零测试框架依赖） |
+| 测试 | **131 项全通过**（`node --test`，零测试框架依赖） |
 | 依赖 | **0**（浏览器原生 + Node 标准库），无构建步骤 |
 | 代码 | core 11 个纯函数模块 2,155 行；UI 2 个模块；工具 4 个 |
 | 产物 | Markdown / JSON / SARIF 2.1.0（GitHub Code Scanning 可直接上传） |
@@ -592,7 +592,7 @@ python repo_inspector.py ../.. --out-md /tmp/report.md   # 分析本仓库
 ```bash
 cd C6_交付
 node tools/promptgate-cli.js prompt.md --fail-on warning --format sarif --out report.sarif
-node --test                                    # 130 项
+node --test                                    # 131 项
 ```
 
 ### 三个不肯将就的地方
@@ -608,8 +608,8 @@ node --test                                    # 130 项
 | --- | --- |
 | [`C6_交付/README.md`](C6_交付/README.md) | 功能、架构、规则表、部署、诚实边界 |
 | [`C6_交付/提交说明.md`](C6_交付/提交说明.md) | 交付物对照 + 评审阅读顺序 + 一分钟验收 |
-| [`C6_交付/AI日志.md`](C6_交付/AI日志.md) | 12 轮协作记录，含 **16 处 AI 出错**（11 处由测试抓到） |
-| [`C6_交付/AAR复盘.md`](C6_交付/AAR复盘.md) | 预期 vs 实际、失败经验 F1–F7（含 2 条未解决）、带指标的改进方案 |
+| [`C6_交付/AI日志.md`](C6_交付/AI日志.md) | 12 轮协作记录，含 **17 处 AI 出错**（12 处由自动化验证抓到） |
+| [`C6_交付/AAR复盘.md`](C6_交付/AAR复盘.md) | 预期 vs 实际、失败经验 F1–F8（含 3 条未解决）、带指标的改进方案 |
 | [`C6_交付/拿来说明.md`](C6_交付/拿来说明.md) | 5 个关键取舍：门禁与健康分为什么分离、基线为什么不绑行号、为什么零依赖 |
 | [`C6_交付/demo/演示脚本.md`](C6_交付/demo/演示脚本.md) | 3 分钟带看脚本 + 7 张截图的索引 |
 | [`C6_交付/docs/rules.md`](C6_交付/docs/rules.md) | 规则手册（由代码生成，CI 检查漂移） |

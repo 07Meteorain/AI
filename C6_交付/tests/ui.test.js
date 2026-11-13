@@ -29,6 +29,17 @@ test('问题卡片包含规则号、行号、建议与去定位按钮', () => {
   assert.match(html, /忽略这一条/);
 });
 
+test('「忽略这一条」按钮必须同时带 rule 与 line（否则点击会静默失效）', () => {
+  const r = bad();
+  const html = ui.issuesHtml(r, 'all', rules.RULE_INDEX);
+  const buttons = html.match(/<button[^>]*data-action="ignore"[^>]*>/g) || [];
+  assert.ok(buttons.length > 0, '至少应渲染出忽略按钮');
+  buttons.forEach((tag) => {
+    assert.match(tag, /data-rule="PG\d{3}"/, '缺少 data-rule：' + tag);
+    assert.match(tag, /data-line="\d+"/, '缺少 data-line（app.js 靠它定位具体发现）：' + tag);
+  });
+});
+
 test('所有用户可写内容都被转义（XSS 回归）', () => {
   const r = good();
   r.findings.push({
