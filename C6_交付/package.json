@@ -1,0 +1,24 @@
+{
+  "name": "promptgate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PromptGate —— prompt 上线前的静态体检（浏览器本地运行 + 零依赖 CLI）",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test tests/",
+    "gen:docs": "node tools/gen_rules_doc.js",
+    "lint:docs": "node tools/gen_rules_doc.js --check",
+    "check": "node tools/gen_rules_doc.js --check && node --test tests/",
+    "lint:prompt": "node tools/promptgate-cli.js app/js/core/samples.js"
+  },
+  "keywords": [
+    "prompt",
+    "lint",
+    "gate",
+    "sre",
+    "offline"
+  ]
+}
