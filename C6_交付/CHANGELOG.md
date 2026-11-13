@@ -22,7 +22,7 @@ C6 交付版本。首个对外可用版本。
     `--save-baseline`、`--out`、`--quiet`、`--list-rules`，支持 stdin。
 - **文档生成**（`tools/gen_rules_doc.js`）：`docs/rules.md` 从规则定义生成，
   `--check` 用于 CI 的文档漂移检测。
-- **测试**（`tests/`）：130 项，零第三方依赖（`node:test`）。
+- **测试**（`tests/`）：131 项，零第三方依赖（`node:test`）。
 - **CI**（`.github/workflows/c6-ci.yml`）：测试 + 文档漂移检查。
 - **部署**（`.github/workflows/c6-pages.yml`）：`app/` 自动发布到 GitHub Pages。
 - **演示**（`demo/`）：演示脚本、7 张真实截图、CLI 实跑输出。
