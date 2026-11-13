@@ -165,7 +165,8 @@ parser → tokenizer → diff → rules → samples → 探针脚本 → UI → 
 | 链接有效性 | `tests/docs.test.js` 的 README 链接检查 | 0 个失效 |
 | 脚本存在性 | `tests/docs.test.js` 的 `<script src>` 检查 | 0 个缺失 |
 | SW 预缓存清单 | `tests/docs.test.js` 的 sw.js 清单检查 | 0 个缺失 |
-| 线上可用 | `curl -I https://07meteorain.github.io/AI/` | 见提交后的记录 |
-| 截图 | `tools/shots.ps1` | 7 张，全部人工过目 |
+| 线上可用 | curl -I https://07meteorain.github.io/AI/ | **200**，	ext/html，标题 PromptGate · prompt 上线前的静态体检；styles.css / js/core/rules.js / manifest.webmanifest 均 200 且 MIME 正确 |
+| 截图 | 	ools/shots.ps1 | 7 张，全部人工过目 |
+| 线上渲染 | headless 截图线上 URL | 与本地截图**逐字节一致**（sha256 相同），说明部署没有改动任何产物 |
 
 > 如果上面任何一项是「应该没问题」，那它就不该出现在这张表里。
