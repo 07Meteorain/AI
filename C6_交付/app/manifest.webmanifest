@@ -1,0 +1,16 @@
+{
+  "name": "PromptGate · prompt 上线前的静态体检",
+  "short_name": "PromptGate",
+  "description": "在 prompt 上线前检查硬编码凭据、注入面、自相矛盾的指令、变量契约与成本预算。全部在浏览器本地运行。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#080b14",
+  "theme_color": "#0b1020",
+  "lang": "zh-CN",
+  "categories": ["developer", "productivity", "utilities"],
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

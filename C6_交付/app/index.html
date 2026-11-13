@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PromptGate · prompt 上线前的静态体检</title>
+<meta name="description" content="PromptGate 在 prompt 上线前检查硬编码凭据、注入面、自相矛盾指令、变量契约与成本预算。全部在浏览器本地运行，文本不上传。">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#editor">跳到编辑器</a>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M5 4h9l5 5v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/>
+        <path d="M14 4v5h5M8 13h6M8 17h4"/>
+      </svg>
+    </span>
+    <div class="brand-text">
+      <strong>PromptGate</strong>
+      <small>prompt 上线前的静态体检</small>
+    </div>
+  </div>
+
+  <div class="verdict" id="verdict" aria-live="polite">
+    <span class="badge badge-idle" id="verdict-badge">待检查</span>
+    <div class="score-wrap" id="score-wrap">
+      <span class="score" id="score">—</span><span class="score-unit">/100</span>
+    </div>
+    <span class="gate-text" id="gate-text"></span>
+  </div>
+
+  <div class="actions">
+    <button class="btn ghost" id="btn-samples" title="从模板开始（T）">模板</button>
+    <div class="menu-wrap">
+      <button class="btn" id="btn-export" aria-haspopup="true" aria-expanded="false">导出 ▾</button>
+      <div class="menu" id="export-menu" role="menu" hidden>
+        <button role="menuitem" data-export="md">Markdown 报告<span class="kbd">.md</span></button>
+        <button role="menuitem" data-export="json">JSON 结果<span class="kbd">.json</span></button>
+        <button role="menuitem" data-export="sarif">SARIF 2.1.0<span class="kbd">.sarif</span></button>
+        <hr>
+        <button role="menuitem" data-export="copy">复制 Markdown</button>
+        <button role="menuitem" data-export="baseline">把当前发现存为基线</button>
+      </div>
+    </div>
+    <button class="btn icon" id="btn-theme" title="切换深浅色（D）" aria-label="切换深浅色">◐</button>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="功能页">
+  <button role="tab" class="tab active" data-tab="check" aria-selected="true">体检</button>
+  <button role="tab" class="tab" data-tab="budget" aria-selected="false">预算</button>
+  <button role="tab" class="tab" data-tab="versions" aria-selected="false">版本</button>
+  <button role="tab" class="tab" data-tab="rules" aria-selected="false">规则</button>
+  <span class="tab-spacer"></span>
+  <span class="privacy-note" title="所有分析都在本地完成，没有网络请求">🔒 本地运行 · 文本不外传</span>
+</nav>
+
+<main>
+  <!-- ============ 体检 ============ -->
+  <section class="panel active" id="tab-check" role="tabpanel" aria-label="体检">
+    <div class="workspace">
+
+      <div class="pane editor-pane">
+        <div class="pane-head">
+          <div class="pane-title">
+            <span class="dot" aria-hidden="true"></span>
+            <span>PROMPT</span>
+            <span class="doc-stats" id="doc-stats">0 行 · 0 字符 · ~0 token</span>
+          </div>
+          <div class="pane-tools">
+            <button class="btn tiny" id="btn-open" title="打开本地 .md/.txt">打开</button>
+            <button class="btn tiny ghost" id="btn-clear" title="清空编辑器">清空</button>
+            <input type="file" id="file-input" accept=".md,.markdown,.txt,.prompt,.tmpl,text/plain" hidden>
+          </div>
+        </div>
+        <div class="editor-body">
+          <div class="gutter" id="gutter" aria-hidden="true"></div>
+          <textarea id="editor" spellcheck="false" autocomplete="off" autocapitalize="off"
+            wrap="off" aria-label="prompt 编辑器"
+            placeholder="把 prompt 贴进来，或点右上角「模板」看几个真实例子…"></textarea>
+        </div>
+        <div class="vars-bar" id="vars-bar"></div>
+      </div>
+
+      <div class="pane report-pane">
+        <div class="pane-head sticky">
+          <div class="filters" id="filters" role="group" aria-label="按级别筛选">
+            <button class="chip active" data-filter="all">全部 <b id="c-all">0</b></button>
+            <button class="chip" data-filter="error">error <b id="c-error">0</b></button>
+            <button class="chip" data-filter="warning">warning <b id="c-warning">0</b></button>
+            <button class="chip" data-filter="info">info <b id="c-info">0</b></button>
+            <button class="chip" data-filter="suppressed" title="被基线或开关忽略的条目">已忽略 <b id="c-suppressed">0</b></button>
+          </div>
+          <div class="pane-tools">
+            <label class="inline-label" title="门禁阈值：达到该级别即判定不通过">
+              阈值
+              <select id="fail-on" class="select">
+                <option value="error">error</option>
+                <option value="warning">warning</option>
+                <option value="none">不设门禁</option>
+              </select>
+            </label>
+            <button class="btn tiny ghost" id="btn-reset-suppress" title="清空基线">重置忽略</button>
+          </div>
+        </div>
+        <div class="issues" id="issues" aria-live="polite"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 预算 ============ -->
+  <section class="panel" id="tab-budget" role="tabpanel" aria-label="预算" hidden>
+    <div class="budget-wrap">
+      <div class="card">
+        <h2>成本预算</h2>
+        <p class="muted">按当前 prompt 的输入量估算。当前输入 <b id="b-tokens">0</b> token，
+          输出按下面的假设。价格是每 100 万 token 的美元标价，快照 <b id="b-price-date">—</b>。</p>
+        <div class="assumptions">
+          <label>每次输出 token
+            <input type="number" id="a-output" min="0" step="50" value="800">
+          </label>
+          <label>每天调用次数
+            <input type="number" id="a-calls" min="0" step="50" value="200">
+          </label>
+          <label>计费天数
+            <input type="number" id="a-days" min="1" step="1" value="30">
+          </label>
+          <label class="checkline">
+            <input type="checkbox" id="a-edit-price"> 允许编辑价格
+          </label>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>模型对比</h2>
+          <span class="muted" id="b-cheapest"></span>
+        </div>
+        <div class="table-scroll">
+          <table class="table" id="budget-table">
+            <thead>
+              <tr>
+                <th>模型</th><th>厂商</th><th class="num">输入价</th><th class="num">输出价</th>
+                <th class="num">单次</th><th class="num">月度</th><th>占比</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>token 花在哪里</h2>
+        <p class="muted">按小节聚合（降序）。长 prompt 的优化顺序应该从这里开始，而不是从措辞。</p>
+        <div id="section-bars" class="bars"></div>
+      </div>
+
+      <div class="card">
+        <h2>估算器的诚实边界</h2>
+        <ul class="notes">
+          <li>token 数为启发式估算：中文按 0.75 token/字、英文按 1.3 token/词、数字每 3 位 1 token、标点 0.6。误差约 ±20%。</li>
+          <li>真实分词器（cl100k / o200k / 各家自研）对同一段中文的切分会差 10%–30%，精确值请用官方 <code>count_tokens</code> 接口。</li>
+          <li>价格随官方调整，本表只是快照；改价不需要改代码，直接在「允许编辑价格」里改。</li>
+          <li>预算只算「prompt 本身」。真实成本还要加历史对话、检索片段、重试与缓存命中率 —— 这些都按实际业务另算。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 版本 ============ -->
+  <section class="panel" id="tab-versions" role="tabpanel" aria-label="版本" hidden>
+    <div class="versions-wrap">
+      <div class="card">
+        <h2>保存当前版本</h2>
+        <p class="muted">版本存在浏览器 localStorage 里，最多保留 20 个；换设备不会同步。</p>
+        <div class="row">
+          <input type="text" id="version-msg" class="input grow" maxlength="60"
+            placeholder="这次改了什么？例如「加了输出格式约束」">
+          <button class="btn primary" id="btn-save-version">保存版本</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <h2>历史版本</h2>
+          <span class="muted" id="version-count"></span>
+        </div>
+        <div id="version-list" class="version-list"></div>
+      </div>
+      <div class="card" id="diff-card" hidden>
+        <div class="card-head">
+          <h2>对比</h2>
+          <span class="muted" id="diff-summary"></span>
+        </div>
+        <div id="diff-view" class="diff"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 规则 ============ -->
+  <section class="panel" id="tab-rules" role="tabpanel" aria-label="规则" hidden>
+    <div class="rules-wrap">
+      <div class="card">
+        <div class="card-head">
+          <h2>规则表</h2>
+          <input type="search" id="rule-search" class="input" placeholder="搜索规则 / 关键词…">
+        </div>
+        <p class="muted">共 <b id="rule-total">15</b> 条。关掉的规则不参与体检，也会在报告里标注为「规则已关闭」。
+          每条规则的完整说明见 <code>docs/rules.md</code>。</p>
+        <div id="rule-list" class="rule-list"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <span>PromptGate v1.0.0</span>
+  <span class="sep">·</span>
+  <span>本地运行，零依赖，零网络请求</span>
+  <span class="sep">·</span>
+  <a href="https://github.com/07Meteorain/AI" target="_blank" rel="noopener">源码 / 文档</a>
+  <span class="sep">·</span>
+  <span class="muted">token 与价格为估算，详见「预算」页说明</span>
+</footer>
+
+<!-- 模板抽屉 -->
+<div class="modal" id="samples-modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-body" role="dialog" aria-modal="true" aria-labelledby="samples-title">
+    <div class="modal-head">
+      <h2 id="samples-title">模板库</h2>
+      <button class="btn icon ghost" data-close aria-label="关闭">✕</button>
+    </div>
+    <p class="muted">载入会覆盖编辑器内容（当前内容会先自动保存为草稿）。</p>
+    <div id="sample-list" class="sample-list"></div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toast-wrap" aria-live="polite"></div>
+
+<script src="js/core/util.js"></script>
+<script src="js/core/parser.js"></script>
+<script src="js/core/tokenizer.js"></script>
+<script src="js/core/diff.js"></script>
+<script src="js/core/rules.js"></script>
+<script src="js/core/gate.js"></script>
+<script src="js/core/exporter.js"></script>
+<script src="js/core/storage.js"></script>
+<script src="js/core/models.js"></script>
+<script src="js/core/samples.js"></script>
+<script src="js/core/report.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
