@@ -1,0 +1,51 @@
+# C6 · PromptGate —— 发布到 GitHub Pages
+#
+# 为什么用 workflow 而不是「branch + /docs」：
+#   GitHub Pages 的 legacy 模式只允许发布仓库根目录或 /docs，
+#   而本项目的应用在 C6_交付/app/ 下。所以用 build_type=workflow，
+#   直接把这个目录作为 artifact 发布。
+#
+# 发布后地址：https://07meteorain.github.io/AI/
+name: C6 Pages
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "C6_交付/app/**"
+      - ".github/workflows/c6-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: deploy app/
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 静态检查（防止把坏版本发上线）
+        working-directory: C6_交付
+        run: |
+          node --test
+          node tools/gen_rules_doc.js --check
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: C6_交付/app
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

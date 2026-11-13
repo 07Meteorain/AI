@@ -1,0 +1,67 @@
+# C6 · PromptGate —— 测试与静态检查
+#
+# 这个工作流只做三件事：跑测试、检查文档是否漂移、用 CLI 体检一份合格样例。
+# 之所以不在这里跑 lint（ESLint 等），是因为本项目坚持零依赖：加一个 linter 就
+# 需要 npm install，而「clone 下来就能验证」是这个项目最重要的性质之一。
+name: C6 CI
+
+on:
+  push:
+    paths:
+      - "C6_交付/**"
+      - ".github/workflows/c6-ci.yml"
+  pull_request:
+    paths:
+      - "C6_交付/**"
+      - ".github/workflows/c6-ci.yml"
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: C6_交付
+
+jobs:
+  test:
+    name: node --test（130 项）
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 版本信息
+        run: node --version && python3 --version
+
+      - name: 全量测试
+        run: node --test
+
+      - name: 文档漂移检测（docs/rules.md 是否与 rules.js 一致）
+        run: node tools/gen_rules_doc.js --check
+
+      - name: CLI 冒烟（合格样例应退出码 0）
+        run: node tools/promptgate-cli.js "demo/示例-合格.md" --quiet
+
+      - name: CLI 冒烟（反面样例应退出码 1）
+        run: |
+          set +e
+          node tools/promptgate-cli.js "demo/示例-反面.md" --quiet
+          code=$?
+          if [ "$code" -ne 1 ]; then
+            echo "期望退出码 1（被门禁拦下），实际 $code"
+            exit 1
+          fi
+          echo "退出码 1，符合预期"
+
+      - name: SARIF 可被解析
+        run: |
+          node tools/promptgate-cli.js "demo/示例-反面.md" --format sarif --out /tmp/pg.sarif || true
+          python3 - <<'PY'
+          import json
+          with open("/tmp/pg.sarif", encoding="utf-8") as f:
+              sarif = json.load(f)
+          assert sarif["version"] == "2.1.0", sarif["version"]
+          assert sarif["runs"][0]["tool"]["driver"]["name"] == "PromptGate"
+          print("SARIF OK:", len(sarif["runs"][0]["results"]), "results")
+          PY
