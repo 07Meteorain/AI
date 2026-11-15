@@ -1,0 +1,13 @@
+﻿python.exe : .......................错误：不支持的格式：pdf
+所在位置 行:19 字符: 1
++ & $py -m unittest discover -s tests 2>&1 | Out-File -FilePath (Join-P ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (.......................错误：不支持的格式：pdf:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+...错误：课程目录不存在：C:\Users\ADMINI~1\AppData\Local\Temp\tmp6h7govk2\nope
+.................................................
+----------------------------------------------------------------------
+Ran 75 tests in 2.212s
+
+OK

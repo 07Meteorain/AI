@@ -1,0 +1,6 @@
+﻿submitgate 2.1.0 自检
+python      : 3.12.14 (Windows-11-10.0.22621-SP0)
+交付目录    : C:\Users\Administrator\AppData\Local\Temp\dsh-c8\fresh2\C8_交付
+默认课程记录: C:\Users\Administrator\AppData\Local\Temp\dsh-c8\fresh2\C8_交付\challenges（存在=True）
+默认仓库根  : C:\Users\Administrator\AppData\Local\Temp\dsh-c8\fresh2（存在=True）
+自检通过：解析 / 匹配 / 缺失判定 / 红旗封顶 全部符合预期

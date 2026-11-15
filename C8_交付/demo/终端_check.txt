@@ -1,0 +1,22 @@
+﻿submitgate 2.1.0 · 11 个挑战 · 仓库 HEAD 6b216a7
+课程记录：C:\Users\Administrator\AppData\Local\Temp\dsh-c8\fresh2\C8_交付\challenges
+交付仓库：C:\Users\Administrator\AppData\Local\Temp\dsh-c8\fresh2
+------------------------------------------------------------------------
+[PASS] C3    必需 3/3  红旗 -                                  可验证 55/100（6/6 维）
+[PASS] C3C   必需 4/4  红旗 -                                  可验证 91/100（5/5 维）
+[PASS] C5    必需 4/4  红旗 -                                  可验证 99/100（5/5 维）
+[PASS] C5A   必需 3/3  红旗 -                                  可验证 91/100（5/5 维）
+[PASS] C6    必需 4/4  红旗 -                                  可验证 99/100（5/5 维）
+[PASS] C6A   必需 4/4  红旗 -                                  可验证 84/100（5/5 维）
+[FAIL] C7    必需 0/3  红旗 missing_artifacts,no_ai_log        可验证 0/0（0/5 维）
+[PASS] C8    必需 4/4  红旗 -                                  可验证 100/100（5/5 维）
+[FAIL] C9    必需 2/3  红旗 missing_artifacts                  可验证 42/75（4/5 维）
+[FAIL] C10   必需 0/4  红旗 missing_artifacts,no_ai_log        可验证 0/0（0/5 维）
+[FAIL] C10H  必需 0/4  红旗 missing_artifacts,no_ai_log        可验证 0/0（0/5 维）
+------------------------------------------------------------------------
+无交付目录：C7、C10、C10H
+缺失必需交付物：12/40 项
+报告：C:\Users\Administrator\AppData\Local\Temp\dsh-c8\fresh2\C8_交付\demo\交付验收报告.md
+报告：C:\Users\Administrator\AppData\Local\Temp\dsh-c8\fresh2\C8_交付\demo\交付验收报告.json
+报告：C:\Users\Administrator\AppData\Local\Temp\dsh-c8\fresh2\C8_交付\demo\导航站.html
+结论：FAIL（7/11 挑战通过；可验证得分 661/775，覆盖 40/56 维，非成绩）
