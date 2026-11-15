@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C7 内容传播 · 一次内容传播的最小系统</title>
+<meta name="description" content="一篇长文 + 32 条标题候选的评分器 + 四渠道参数与 UTM 生成器 + 6 张可复算的数据截图。零依赖，离线可跑。">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到主内容</a>
+
+<header class="top">
+  <div class="brand">
+    <span class="kicker">C7 · 内容传播 · 构建个人影响力</span>
+    <h1>一次内容传播的最小系统</h1>
+    <p class="sub">文章 → 标题实验室 → 渠道埋点 → 数据回收 → AAR。每一步都能单独跑，也能串起来跑。</p>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="主导航">
+    <a href="#read">阅读</a>
+    <a href="#titles">标题实验室</a>
+    <a href="#channels">渠道</a>
+    <a href="#data">数据</a>
+    <a href="#review">复盘</a>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <!-- ============================ 阅读 ============================ -->
+  <section id="view-read" class="view" role="tabpanel">
+    <div class="card bar">
+      <div>
+        <b>正文已按公众号排版渲染</b>
+        <span class="muted">（由 tools/build_article.py 调用 C4B 的 wechat_publisher 生成，可直接全选粘贴进公众号编辑器）</span>
+      </div>
+      <div class="btns">
+        <a class="btn" id="openArticle" href="article.html" target="_blank" rel="noopener">新窗口打开</a>
+        <a class="btn ghost" href="checklist.html" target="_blank" rel="noopener">《验收清单》单页</a>
+        <button class="btn ghost" id="fitFrame" type="button">撑满高度</button>
+      </div>
+    </div>
+    <iframe id="articleFrame" class="article-frame" src="article.html" title="正文"></iframe>
+  </section>
+
+  <!-- ============================ 标题实验室 ============================ -->
+  <section id="view-titles" class="view" role="tabpanel">
+    <div class="grid2">
+      <div class="card">
+        <h2>实时评分</h2>
+        <label class="field">
+          <span>改一个标题，看它掉在哪个区间</span>
+          <input id="titleInput" type="text" maxlength="64" spellcheck="false"
+                 value="6 个 AI 挑战 63 次提交：我关于验收的三条硬结论">
+        </label>
+        <div id="scoreCard" class="score-card"></div>
+        <p class="hint">规则在 <code>数据/title_rubric.json</code>。Python 与 JS 是两套实现，逐条对齐
+          （<code>tests/titlescore-parity.test.js</code>）。出现「震惊 / 必看 / 99% / 绝对」会被一票否决。</p>
+      </div>
+
+      <div class="card">
+        <h2>A/B 样本量计算器</h2>
+        <p class="muted">先算"做不做得了"，再决定做不做。</p>
+        <div class="inline-fields">
+          <label class="field"><span>A 组点击率 %</span><input id="abP1" type="number" value="9" min="0.1" max="99" step="0.1"></label>
+          <label class="field"><span>B 组点击率 %</span><input id="abP2" type="number" value="11" min="0.1" max="99" step="0.1"></label>
+          <label class="field"><span>本次总曝光</span><input id="abN" type="number" value="860" min="2" step="10"></label>
+        </div>
+        <div id="abOut" class="ab-out"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>候选标题 <span class="tag" id="titleCount"></span></h2>
+      <div class="table-wrap" id="titleTable"></div>
+      <p class="hint">排序规则：总分 → 具体性 → 钩子 → ID。完整理由见 <code>数据/标题评分表.md</code>。</p>
+    </div>
+  </section>
+
+  <!-- ============================ 渠道 ============================ -->
+  <section id="view-channels" class="view" role="tabpanel">
+    <div class="card">
+      <h2>四渠道参数（推演口径）</h2>
+      <div id="channelCards" class="cards"></div>
+      <p class="hint">这些数不是线上实测，是按公开经验设的参数；含义与取值理由见 <code>数据/指标口径.md</code>。</p>
+    </div>
+
+    <div class="card">
+      <h2>UTM 链接生成器</h2>
+      <div class="inline-fields">
+        <label class="field grow"><span>落地页</span><input id="utmBase" type="url" value="https://07meteorain.github.io/AI/C7/"></label>
+        <label class="field"><span>campaign</span><input id="utmCampaign" type="text" value="c7_acceptance"></label>
+      </div>
+      <div id="utmMatrix" class="utm"></div>
+      <p class="hint">四个渠道一次生成，避免"每个渠道手工拼一次"这种一定会漏的事。生成完记得写进 <code>数据/utm.csv</code>。</p>
+    </div>
+
+    <div class="card">
+      <h2>发布清单 <span class="tag" id="checkDone"></span></h2>
+      <div id="checklist" class="checks"></div>
+      <div class="btns"><button class="btn ghost" id="resetCheck" type="button">清空勾选</button></div>
+    </div>
+  </section>
+
+  <!-- ============================ 数据 ============================ -->
+  <section id="view-data" class="view" role="tabpanel">
+    <div class="card totals" id="totals"></div>
+
+    <div class="grid2">
+      <div class="card">
+        <h2>渠道漏斗</h2>
+        <div id="funnelBox" class="svg-box"></div>
+        <p class="hint" id="funnelNote"></p>
+      </div>
+      <div class="card">
+        <h2>七日累积阅读</h2>
+        <div id="growthBox" class="svg-box"></div>
+        <p class="hint">发布后 72 小时基本决定终局：D3 之后曲线就走平了。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>仓库事实（446 项测试从哪来）</h2>
+      <div class="table-wrap" id="factsTable"></div>
+      <p class="hint">数据钉在 <code>master@099371a</code> 快照上；实测与自报逐关对比，8/8 一致。</p>
+    </div>
+
+    <div class="card">
+      <h2>六张数据截图</h2>
+      <div class="shots" id="shots"></div>
+      <p class="hint">PNG 由 <code>tools/chartgen.py</code> 生成，数据指纹记在 <code>数据/screenshots/manifest.json</code>，
+        数据变了没重画会被 <code>--check</code> 抓到。</p>
+    </div>
+  </section>
+
+  <!-- ============================ 复盘 ============================ -->
+  <section id="view-review" class="view" role="tabpanel">
+    <div class="card">
+      <h2>AAR 复盘草稿 <span class="tag" id="aarStatus"></span></h2>
+      <p class="muted">发布后在这里写：预期 → 实际 → 归因 → 改什么。草稿存在本机 localStorage，不上传。</p>
+      <textarea id="aarNotes" rows="16" spellcheck="false"></textarea>
+      <div class="btns">
+        <button class="btn" id="aarExport" type="button">导出 Markdown</button>
+        <button class="btn ghost" id="aarClear" type="button">恢复模板</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>数据回收模板</h2>
+      <p class="muted">发布 24 小时 / 7 天后各填一次。填完覆盖 <code>数据/metrics.csv</code>，再跑
+        <code>python tools/chartgen.py</code>，推演图就变成实测图。</p>
+      <pre id="csvPreview" class="code-block"></pre>
+      <div class="btns"><button class="btn" id="dlCsv" type="button">下载 CSV 模板</button></div>
+      <label class="field">
+        <span>或者粘贴一份 CSV 试试解析</span>
+        <textarea id="csvPaste" rows="4" spellcheck="false" placeholder="channel,date,impressions,entered&#10;wechat,2026-11-16,860,77"></textarea>
+      </label>
+      <div class="btns"><button class="btn ghost" id="checkCsv" type="button">解析</button></div>
+      <div id="csvResult"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>数据与口径：<code>数据/指标口径.md</code> · 评分规则：<code>数据/title_rubric.json</code></span>
+  <span>仓库：<a href="https://github.com/07Meteorain/AI/tree/master/C7_内容传播">github.com/07Meteorain/AI</a></span>
+</footer>
+
+<script src="js/core/data.js"></script>
+<script src="js/core/titlescore.js"></script>
+<script src="js/core/metrics.js"></script>
+<script src="js/core/utm.js"></script>
+<script src="js/core/csv.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
