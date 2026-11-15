@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 交付验收清单 · 12 条</title>
+<style>
+  :root{
+    --ink:#16181d; --sub:#5b6270; --line:#e4e8ef; --bg:#f6f7f9; --accent:#2f6feb;
+    --ok:#10b981; --warn:#f59e0b; --card:#fff;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.7;
+  }
+  .page{max-width:900px;margin:0 auto;padding:48px 32px 72px;}
+  header{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:34px;}
+  .kicker{font-size:13px;letter-spacing:.18em;color:var(--accent);font-weight:700;text-transform:uppercase;}
+  h1{font-size:34px;line-height:1.25;margin:10px 0 8px;letter-spacing:-.5px;}
+  .lede{color:var(--sub);font-size:16px;margin:0;}
+  .meta{margin-top:16px;font-size:13px;color:var(--sub);display:flex;gap:18px;flex-wrap:wrap;}
+  .intro{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:18px 22px;border-radius:6px;margin:28px 0 34px;font-size:15.5px;color:#2b3038;}
+  .intro strong{color:var(--ink)}
+  h2{font-size:15px;letter-spacing:.06em;color:var(--sub);text-transform:uppercase;
+    margin:34px 0 12px;font-weight:700;}
+  ol.items{list-style:none;margin:0;padding:0;counter-reset:item;}
+  ol.items li{
+    background:var(--card);border:1px solid var(--line);border-radius:8px;
+    padding:14px 18px 14px 58px;margin-bottom:10px;position:relative;font-size:15.5px;
+    break-inside:avoid;
+  }
+  ol.items li::before{
+    counter-increment:item;content:counter(item,decimal-leading-zero);
+    position:absolute;left:18px;top:14px;font-size:13px;font-weight:700;color:var(--accent);
+    font-variant-numeric:tabular-nums;
+  }
+  ol.items li::after{
+    content:"";position:absolute;right:20px;top:50%;transform:translateY(-50%);
+    width:16px;height:16px;border:1.5px solid #c8cfda;border-radius:4px;
+  }
+  li .q{display:block;font-weight:600}
+  li .why{display:block;color:var(--sub);font-size:14px;margin-top:3px}
+  .lvl{display:inline-block;font-size:11px;font-weight:700;padding:1px 7px;border-radius:20px;
+    margin-right:8px;vertical-align:1px;letter-spacing:.04em}
+  .lvl.run{background:#e8f1fd;color:#1d4ed8}
+  .lvl.rep{background:#e7f8f1;color:#047857}
+  .lvl.sig{background:#fef3c7;color:#b45309}
+  .case{background:#fff;border:1px solid var(--line);border-radius:8px;padding:16px 20px;margin-bottom:10px;font-size:15px}
+  .case h3{margin:0 0 6px;font-size:15.5px}
+  .case .tag{font-size:12px;font-weight:700;color:#b91c1c;background:#fee2e2;padding:1px 8px;border-radius:20px;margin-right:8px}
+  .case p{margin:0;color:var(--sub);font-size:14.5px}
+  footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);color:var(--sub);font-size:13px;
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  a{color:var(--accent);text-decoration:none}
+  @media print{
+    body{background:#fff}
+    .page{max-width:none;padding:0 12mm}
+    ol.items li, .case{box-shadow:none}
+    h2{page-break-after:avoid}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="kicker">AI 交付 · 验收清单</div>
+    <h1>在说「做完了」之前，先过这 12 条</h1>
+    <p class="lede">来自 6 个 AI 挑战、63 次提交、446 项测试的失败记录。每一条都对应一次真实的坑。</p>
+    <div class="meta">
+      <span>版本 v1.0 · 2026-11-15</span>
+      <span>适用：文档 / 代码 / 数据 / 报告</span>
+      <span>预计耗时：8–20 分钟</span>
+    </div>
+  </header>
+
+  <div class="intro">
+    <strong>为什么需要这张表：</strong>AI 生成的东西，最容易出的不是"跑不起来"，而是<strong>"跑起来了，而且看起来是对的"</strong>。
+    格式合法、结构完整、语气自信——这三样正好是最容易被伪造的。
+    下面 12 条按三层排列：<strong>能跑（01–04）→ 能复算（05–08）→ 能截图（09–12）</strong>。三层都过，才叫交付。
+  </div>
+
+  <h2>第一层 · 能跑</h2>
+  <ol class="items">
+    <li><span class="q"><span class="lvl run">能跑</span>有没有一条命令，能从干净环境跑通全部？</span>
+      <span class="why">不是"我这台机器上可以"。换一台、换个人、照 README 执行一次。</span></li>
+    <li><span class="q"><span class="lvl run">能跑</span>依赖是不是越少越好？</span>
+      <span class="why">每多一个依赖，第一次打开的人就多一次失败机会。零依赖优先，必须依赖就写清版本。</span></li>
+    <li><span class="q"><span class="lvl run">能跑</span>失败时会不会说话？</span>
+      <span class="why">报错能不能定位到文件、行号、规则？"出错了"三个字等于没有报错。</span></li>
+    <li><span class="q"><span class="lvl run">能跑</span>有没有一个 30 秒内可验收的入口？</span>
+      <span class="why">一个能打开的链接、一张能看的图、或一条能跑的命令。评审不该先读三千字。</span></li>
+  </ol>
+
+  <h2>第二层 · 能复算</h2>
+  <ol class="items" start="5">
+    <li><span class="q"><span class="lvl rep">能复算</span>报告里出现的每个数字，是不是脚本生成的？</span>
+      <span class="why">手打的数字会在下一次提交后变成假话。数字要带"截止哪个 commit / 哪一天"。</span></li>
+    <li><span class="q"><span class="lvl rep">能复算</span>生成的文档有没有漂移检测？</span>
+      <span class="why">改了代码忘了改文档，是最常见的"文档说谎"。让 CI 跑一次 <code>--check</code>。</span></li>
+    <li><span class="q"><span class="lvl rep">能复算</span>有没有一条<b>反向测试</b>：正确的输入必须不被判错？</span>
+      <span class="why">最重要的不是"该抓的抓到了"，而是"不该抓的没抓错"。我第一版引用审计器就是在这里翻车的。</span></li>
+    <li><span class="q"><span class="lvl rep">能复算</span>有没有把「我不确定」和「它是错的」分开处理？</span>
+      <span class="why">漏掉一个错，丢的是严谨；冤枉一个对，丢的是信任。工具要让第二种错误更难发生。</span></li>
+  </ol>
+
+  <h2>第三层 · 能截图</h2>
+  <ol class="items" start="9">
+    <li><span class="q"><span class="lvl sig">能截图</span>结论能不能变成一张别人看得懂的图？</span>
+      <span class="why">"优化明显"不是结论；"从 47 秒降到 6 秒"才是。</span></li>
+    <li><span class="q"><span class="lvl sig">能截图</span>图里的数据有没有标口径与时间？</span>
+      <span class="why">价格快照日期、样本量、估算误差。让读者知道哪些是实测、哪些是推演。</span></li>
+    <li><span class="q"><span class="lvl sig">能截图</span>有没有写清"这个工具/这份交付做不到什么"？</span>
+      <span class="why">敢说"我做不到 X"的东西，它说的"我能做到 Y"才值钱。</span></li>
+    <li><span class="q"><span class="lvl sig">能截图</span>交给一个陌生人，他能不能只靠 README 跑起来？</span>
+      <span class="why">找一个没参与的人试一次。他卡住的地方就是你缺的文档。</span></li>
+  </ol>
+
+  <h2>三个真实案例</h2>
+  <div class="case">
+    <h3><span class="tag">坑 1</span>格式合法的假引用</h3>
+    <p>17 条参考文献里有 3 条是 AI 幻觉。最危险那条 arXiv ID 格式合法、能打开、有标题有作者——只是指向另一篇论文。<strong>对应第 5 条：查元数据，别读。</strong></p>
+  </div>
+  <div class="case">
+    <h3><span class="tag">坑 2</span>第一版工具误伤了真数据</h3>
+    <p>引用审计器第一版把 3 条真文献判成"编造"，因为它们没有 DOI。<strong>对应第 7、8 条：把"不确定"单独分档。</strong></p>
+  </div>
+  <div class="case">
+    <h3><span class="tag">坑 3</span>测试全绿，按钮是坏的</h3>
+    <p>130 项测试全绿，但"忽略这一条"按钮从写下的那一刻就失效，且不报错。<strong>对应第 3、4 条：测"界面有反应"，别只测"函数被调用"。</strong></p>
+  </div>
+
+  <footer>
+    <span>清单来源：<a href="https://github.com/07Meteorain/AI">github.com/07Meteorain/AI</a> · C7_内容传播</span>
+    <span>可自由转发，注明出处即可</span>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,433 @@
+{
+  "version": 1,
+  "generated": "2026-11-15 16:08",
+  "source_root": "E:\\我的挑战\\C9\\C9_交付\\examples\\notes",
+  "stats": {
+    "total": 27,
+    "by_status": {
+      "approved": 27
+    },
+    "approved": 27,
+    "rejected": 0,
+    "candidate": 0,
+    "by_kind": {
+      "term-list": 9,
+      "cloze": 7,
+      "heading-question": 5,
+      "explicit-qa": 3,
+      "definition": 3
+    },
+    "new": 27,
+    "due": 0,
+    "reviewed_today": 0,
+    "suspended": 0,
+    "today": "2026-11-15"
+  },
+  "cards": [
+    {
+      "id": "99bd841d0659bf57",
+      "kind": "heading-question",
+      "prompt": "RAG 是什么？",
+      "answer": "RAG（Retrieval-Augmented Generation，检索增强生成）是一种把外部知识检索接进生成流程的做法：模型在回答之前，先从文档库里取回相关片段，再基于这些片段组织答案。它解决的不是「模型会不会说话」，而是「模型说的话有没有依据」。",
+      "source": "01-rag-basics.md",
+      "heading": "RAG 是什么？",
+      "line": 12,
+      "confidence": 0.88,
+      "tags": [
+        "示例 · 检索"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "9827ad7ba447c6e9",
+      "kind": "cloze",
+      "prompt": "填空：RAG（Retrieval-Augmented Generation，检索增强生成）是一种把____接进生成流程的做法：模型在回答之前，先从文档库里取回相关片段，再基于这些片段组织答案。",
+      "answer": "外部知识检索",
+      "source": "01-rag-basics.md",
+      "heading": "RAG 是什么？",
+      "line": 12,
+      "confidence": 0.62,
+      "tags": [
+        "示例 · 检索"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "d643455c60d5c56a",
+      "kind": "term-list",
+      "prompt": "「切分（Chunking）」是什么？",
+      "answer": "把长文档拆成大小合适、语义完整的片段，片段太大噪音多，太小则丢上下文。",
+      "source": "01-rag-basics.md",
+      "heading": "一条完整的 RAG 链路",
+      "line": 18,
+      "confidence": 0.84,
+      "tags": [
+        "示例 · 检索"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "0a3f6f65aa71c03f",
+      "kind": "term-list",
+      "prompt": "「嵌入（Embedding）」是什么？",
+      "answer": "把每个片段映射成向量，使语义相近的文本在向量空间里距离更近。",
+      "source": "01-rag-basics.md",
+      "heading": "一条完整的 RAG 链路",
+      "line": 19,
+      "confidence": 0.84,
+      "tags": [
+        "示例 · 检索"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "827236bce11db7f0",
+      "kind": "term-list",
+      "prompt": "「召回（Retrieval）」是什么？",
+      "answer": "用问题向量在索引里找最相近的若干片段，常用余弦相似度排序。",
+      "source": "01-rag-basics.md",
+      "heading": "一条完整的 RAG 链路",
+      "line": 20,
+      "confidence": 0.84,
+      "tags": [
+        "示例 · 检索"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "3f7364f7590d97df",
+      "kind": "term-list",
+      "prompt": "「重排（Rerank）」是什么？",
+      "answer": "用更贵的模型对候选片段重新打分，把真正相关的几条提到前面。",
+      "source": "01-rag-basics.md",
+      "heading": "一条完整的 RAG 链路",
+      "line": 21,
+      "confidence": 0.84,
+      "tags": [
+        "示例 · 检索"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "00e266618471b956",
+      "kind": "term-list",
+      "prompt": "「生成（Generation）」是什么？",
+      "answer": "把选中的片段和问题一起交给模型，要求它只依据给定材料回答。",
+      "source": "01-rag-basics.md",
+      "heading": "一条完整的 RAG 链路",
+      "line": 22,
+      "confidence": 0.84,
+      "tags": [
+        "示例 · 检索"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "254464d74d23872b",
+      "kind": "heading-question",
+      "prompt": "为什么要做检索，而不是把文档全塞进上下文？",
+      "answer": "把全部文档塞进上下文看起来最省事，但会遇到三个硬约束：上下文窗口有上限；长上下文里的信息会被稀释，模型更容易漏掉关键句；每次请求都携带全部文档，成本和延迟都不可接受。检索的本质是在有限预算内提高信息密度。",
+      "source": "01-rag-basics.md",
+      "heading": "为什么要做检索，而不是把文档全塞进上下文？",
+      "line": 26,
+      "confidence": 0.88,
+      "tags": [
+        "示例 · 检索"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "a9c367a2e244831c",
+      "kind": "definition",
+      "prompt": "「召回失败」是什么？",
+      "answer": "正确的片段根本没有被检索到。",
+      "source": "01-rag-basics.md",
+      "heading": "常见失败模式",
+      "line": 30,
+      "confidence": 0.8,
+      "tags": [
+        "示例 · 检索"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "f39826be61c0c5f5",
+      "kind": "definition",
+      "prompt": "「上下文冲突」是什么？",
+      "answer": "检索到的多个片段互相矛盾，模型却把它们都当成事实。",
+      "source": "01-rag-basics.md",
+      "heading": "常见失败模式",
+      "line": 32,
+      "confidence": 0.8,
+      "tags": [
+        "示例 · 检索"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "c248dcbee621422d",
+      "kind": "cloze",
+      "prompt": "填空：____是指检索到的多个片段互相矛盾，模型却把它们都当成事实。",
+      "answer": "上下文冲突",
+      "source": "01-rag-basics.md",
+      "heading": "常见失败模式",
+      "line": 32,
+      "confidence": 0.62,
+      "tags": [
+        "示例 · 检索"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "fa1597196536319f",
+      "kind": "definition",
+      "prompt": "「引用错位」是什么？",
+      "answer": "答案引用了并不支持该结论的片段。",
+      "source": "01-rag-basics.md",
+      "heading": "常见失败模式",
+      "line": 34,
+      "confidence": 0.8,
+      "tags": [
+        "示例 · 检索"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "2c628e12f7bb90b3",
+      "kind": "heading-question",
+      "prompt": "如何评估一个 RAG 系统？",
+      "answer": "评估要拆成两段：先看检索，再看生成。检索段常用 Recall@k 与 MRR；生成段常用忠实度（答案是否只依据给定材料）与答案相关性。只看最终答案的「感觉对不对」，无法定位问题出在哪一段。",
+      "source": "01-rag-basics.md",
+      "heading": "如何评估一个 RAG 系统？",
+      "line": 38,
+      "confidence": 0.88,
+      "tags": [
+        "示例 · 检索"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "40cac8f96d6a1b36",
+      "kind": "explicit-qa",
+      "prompt": "RAG 能解决模型幻觉吗？",
+      "answer": "不能完全解决。它让答案有材料可依据，从而降低幻觉概率，但检索失败或材料本身错误时，模型仍可能给出错误答案。",
+      "source": "01-rag-basics.md",
+      "heading": "一个最小示例",
+      "line": 53,
+      "confidence": 0.95,
+      "tags": [
+        "示例 · 检索"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "cec22381a3c278e1",
+      "kind": "heading-question",
+      "prompt": "为什么不能靠「感觉」改 prompt？",
+      "answer": "改完 prompt 觉得「好像更好了」，是最常见的自欺。模型的输出有随机性，一次变好可能只是采样运气；没有固定样本、固定评分标准和版本记录，改动就无法归因。评测闭环的作用是把「感觉」换成「同一批题、同一把尺子、可重复的分数」。",
+      "source": "02-prompt-eval.md",
+      "heading": "为什么不能靠「感觉」改 prompt？",
+      "line": 10,
+      "confidence": 0.88,
+      "tags": [
+        "示例 · 评测"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "a34ad48ce758c1b6",
+      "kind": "term-list",
+      "prompt": "「评测集」是什么？",
+      "answer": "一组有代表性的输入，覆盖正常路径与边界情况，并保留一份不参与调参的留出集。",
+      "source": "02-prompt-eval.md",
+      "heading": "一个闭环由四件事组成",
+      "line": 14,
+      "confidence": 0.84,
+      "tags": [
+        "示例 · 评测"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "a784bf2d06c5a1e6",
+      "kind": "term-list",
+      "prompt": "「评分器」是什么？",
+      "answer": "把输出变成分数的规则，可以是精确匹配、结构化断言，或另一个模型的判定。",
+      "source": "02-prompt-eval.md",
+      "heading": "一个闭环由四件事组成",
+      "line": 15,
+      "confidence": 0.84,
+      "tags": [
+        "示例 · 评测"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "78c37a906f3e5048",
+      "kind": "term-list",
+      "prompt": "「基线」是什么？",
+      "answer": "当前线上版本的分数，没有基线就没有「变好」。",
+      "source": "02-prompt-eval.md",
+      "heading": "一个闭环由四件事组成",
+      "line": 16,
+      "confidence": 0.84,
+      "tags": [
+        "示例 · 评测"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "d1b73cc7440af86b",
+      "kind": "term-list",
+      "prompt": "「回归门」是什么？",
+      "answer": "新版本必须在评测集上不低于基线，才允许上线。",
+      "source": "02-prompt-eval.md",
+      "heading": "一个闭环由四件事组成",
+      "line": 17,
+      "confidence": 0.84,
+      "tags": [
+        "示例 · 评测"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "3c9de94fcba658f3",
+      "kind": "cloze",
+      "prompt": "填空：____要求输出与标准答案逐字一致，适合分类、抽取、格式固定的任务，误判率低但对措辞敏感。",
+      "answer": "精确匹配",
+      "source": "02-prompt-eval.md",
+      "heading": "评分的三种粒度",
+      "line": 21,
+      "confidence": 0.62,
+      "tags": [
+        "示例 · 评测"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "eb75e3c4849249a7",
+      "kind": "cloze",
+      "prompt": "填空：____让另一个模型按评分细则打分，适合开放式回答，但必须固定评审 prompt 与模型版本，否则分数本身会漂移。",
+      "answer": "模型评审",
+      "source": "02-prompt-eval.md",
+      "heading": "评分的三种粒度",
+      "line": 25,
+      "confidence": 0.62,
+      "tags": [
+        "示例 · 评测"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "5a81a4ad72d4b80f",
+      "kind": "cloze",
+      "prompt": "填空：先用 30 到 ____覆盖主要失败模式，能稳定复现问题后再扩。",
+      "answer": "50 条",
+      "source": "02-prompt-eval.md",
+      "heading": "样本量要多大？",
+      "line": 29,
+      "confidence": 0.62,
+      "tags": [
+        "示例 · 评测"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "6f700cfb75794e4c",
+      "kind": "cloze",
+      "prompt": "填空：把 ____随机样本跑一遍却不分类，通常不如 30 条精心构造的边界样本有信息量。",
+      "answer": "200 条",
+      "source": "02-prompt-eval.md",
+      "heading": "样本量要多大？",
+      "line": 29,
+      "confidence": 0.62,
+      "tags": [
+        "示例 · 评测"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "ab6df16e836631cf",
+      "kind": "heading-question",
+      "prompt": "样本量要多大？",
+      "answer": "样本量不是越多越好。先用 30 到 50 条覆盖主要失败模式，能稳定复现问题后再扩。把 200 条随机样本跑一遍却不分类，通常不如 30 条精心构造的边界样本有信息量。",
+      "source": "02-prompt-eval.md",
+      "heading": "样本量要多大？",
+      "line": 29,
+      "confidence": 0.88,
+      "tags": [
+        "示例 · 评测"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "83121dda3c3137fc",
+      "kind": "explicit-qa",
+      "prompt": "评测集可以反复用来调 prompt 吗？",
+      "answer": "可以调，但必须留出。反复在同一个集合上试错，分数会虚高；留出集只在版本定稿时跑一次。",
+      "source": "02-prompt-eval.md",
+      "heading": "样本量要多大？",
+      "line": 31,
+      "confidence": 0.95,
+      "tags": [
+        "示例 · 评测"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "f324c29fd5e7d8d1",
+      "kind": "cloze",
+      "prompt": "填空：真正有用的笔记是____：每个要点都能变成一个值得回答的问题。",
+      "answer": "可提问的",
+      "source": "03-note-mistakes.md",
+      "heading": "误区二：笔记越全越好",
+      "line": 14,
+      "confidence": 0.62,
+      "tags": [
+        "示例 · 学习方法"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    },
+    {
+      "id": "8409ff1d0a73b7ae",
+      "kind": "explicit-qa",
+      "prompt": "AI 生成的笔记还有价值吗？",
+      "answer": "有，但价值在「对照」而不在「替代」。先自己写，再让 AI 补漏，能暴露自己忽略的角度；反过来则容易把 AI 的组织方式当成自己的理解。",
+      "source": "03-note-mistakes.md",
+      "heading": "一个可执行的做法",
+      "line": 24,
+      "confidence": 0.95,
+      "tags": [
+        "示例 · 学习方法"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:08"
+    }
+  ]
+}

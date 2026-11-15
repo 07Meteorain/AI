@@ -1,0 +1,31 @@
+Recall 浏览器自检（Edge headless，2026-11-15）
+页面：site/selftest.html（file:// 直接打开，无服务器）
+========================================================================
+data-result: PASS
+summary: 通过 120 / 120 项断言
+断言数: 120 PASS / 0 FAIL
+
+通过项（前 20 条）：
+vectors.js 已加载
+new-good-x4#1.ef
+new-good-x4#1.reps
+new-good-x4#1.interval
+new-good-x4#1.due
+new-good-x4#1.lapses
+new-good-x4#1.suspended
+new-good-x4#2.ef
+new-good-x4#2.reps
+new-good-x4#2.interval
+new-good-x4#2.due
+new-good-x4#2.lapses
+new-good-x4#2.suspended
+new-good-x4#3.ef
+new-good-x4#3.reps
+new-good-x4#3.interval
+new-good-x4#3.due
+new-good-x4#3.lapses
+new-good-x4#3.suspended
+new-good-x4#4.ef
+
+完整输出由 `msedge --headless=new --dump-dom site/selftest.html` 生成；
+断言覆盖 8 组 SM-2 向量 × 6 个字段 + 日期/到期/leech 边界。

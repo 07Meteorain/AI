@@ -1,0 +1,61 @@
+# C7 内容传播 —— 静态检查与测试
+#
+# 这里跑的全是 --check：它们不生成任何东西，只回答一个问题——
+# "仓库里提交的产物，和源文件/规则/数据还对得上吗？"
+# 这是本关最重要的工程约束：文档与产物不许漂移。
+name: C7 content CI
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "C7_内容传播/**"
+      - ".github/workflows/c7-ci.yml"
+  pull_request:
+    paths:
+      - "C7_内容传播/**"
+      - ".github/workflows/c7-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: C7_内容传播
+
+jobs:
+  drift:
+    name: 产物漂移检测（Python）
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 依赖
+        run: |
+          python -m pip install --quiet --upgrade pip
+          # Pillow 画图；其余三个是复用 C4B 转换器所需（tools/build_article.py）
+          python -m pip install --quiet pillow markdown beautifulsoup4 lxml python-docx
+      - name: 标题评分产物（CSV / Markdown / JS fixture）
+        run: python tools/title_score.py --check
+      - name: 数据截图与数据指纹
+        run: python tools/chartgen.py --check
+      - name: app 数据包 data.js
+        run: python tools/gen_data_js.py --check
+      - name: 正文 HTML（公众号版 / app 副本）
+        run: python tools/build_article.py --check
+      - name: 仓库事实快照（自报=实测、证据串存在、合计对得上）
+        run: python tools/repo_facts.py --check
+
+  tests:
+    name: Node 测试（zero-dependency）
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: node --test
+        run: node --test tests/*.test.js

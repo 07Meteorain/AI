@@ -1,0 +1,15 @@
+# 运行产物（记忆库是交付的一部分，但缓存不是）
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 本地临时预览（架构图渲染出来的位图不进仓库）
+docs/_preview.png

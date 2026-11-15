@@ -1,0 +1,9 @@
+scope,declared_tests,source,evidence
+C2A_C9_交付,35,C2A_C9_交付/README.md,35 项测试
+C3_交付,12,C3_交付/README.md,12 项测试
+C3C_交付,108,C3C_交付/README.md,108 项，全部通过
+C4A_交付,26,C4A_交付/README.md,Ran 26 tests
+C4D_交付,38,C4D_交付/README.md,38 项测试
+C5_交付,81,C5_交付/README.md,81 项 unittest
+C5A_仓库分析,15,C5A_仓库分析/README.md,15 项，应全部 OK
+C6_交付,131,C6_交付/README.md,131 项，全部通过

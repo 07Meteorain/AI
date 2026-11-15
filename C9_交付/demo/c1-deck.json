@@ -1,0 +1,1630 @@
+{
+  "version": 1,
+  "generated": "2026-11-15 16:07",
+  "source_root": "E:\\我的挑战\\C9\\_inspect\\C1_交付\\translations",
+  "stats": {
+    "total": 107,
+    "by_status": {
+      "approved": 107
+    },
+    "approved": 107,
+    "rejected": 0,
+    "candidate": 0,
+    "by_kind": {
+      "heading-question": 56,
+      "cloze": 51
+    },
+    "new": 107,
+    "due": 0,
+    "reviewed_today": 0,
+    "suspended": 0,
+    "today": "2026-11-15"
+  },
+  "cards": [
+    {
+      "id": "c17bd57945cd0253",
+      "kind": "cloze",
+      "prompt": "填空：为避免触及语言模型的输出上下文上限，该查询把返回的行数限制为 ____。",
+      "answer": "20 行",
+      "source": "agentic-ai-threats.md",
+      "heading": "攻击载荷说明",
+      "line": 446,
+      "confidence": 0.62,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "c92744523ab66c73",
+      "kind": "cloze",
+      "prompt": "填空：更新于 ____ 5 月 2 日太平洋时间下午 2:20，以更新产品表述。",
+      "answer": "2025 年",
+      "source": "agentic-ai-threats.md",
+      "heading": "延伸资源",
+      "line": 802,
+      "confidence": 0.62,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "e25e3f3a20f44d23",
+      "kind": "cloze",
+      "prompt": "填空：AIware ’24，____ 7 月 15–16 日，巴西 Porto de Galinhas Manushree Vijayvergiya 等 除了评审（以及学习）代码改动及其影响之外。",
+      "answer": "2024 年",
+      "source": "ai-assisted-code-review-assessment-pdf.md",
+      "heading": "AI 辅助代码评审评估",
+      "line": 15,
+      "confidence": 0.62,
+      "tags": [
+        "Week 7 · 讲义"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "6a6b365217a6e208",
+      "kind": "cloze",
+      "prompt": "填空：在我们的数据集中，____ 的文件恰好有一条相关代码评论，11% 有两条，4% 有三条或更多。",
+      "answer": "85%",
+      "source": "ai-assisted-code-review-assessment-pdf.md",
+      "heading": "AI 辅助代码评审评估",
+      "line": 19,
+      "confidence": 0.62,
+      "tags": [
+        "Week 7 · 讲义"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "bb068c6e8f077823",
+      "kind": "heading-question",
+      "prompt": "AI 代码评审工具有多准？",
+      "answer": "对于语法错误、风格违规和基本安全漏洞这类常见问题，AI 代码评审工具的准确率通常在 70%–90%。不过，准确率会随问题的复杂度和具体工具而显著变化。对于架构决策和复杂业务逻辑，人工评审依然不可替代。",
+      "source": "ai-code-review-best-practices.md",
+      "heading": "AI 代码评审工具有多准？",
+      "line": 225,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "daa8aa887ea871f6",
+      "kind": "cloze",
+      "prompt": "填空：对于语法错误、风格违规和基本安全漏洞这类常见问题，AI 代码评审工具的准确率通常在 ____–90%。",
+      "answer": "70%",
+      "source": "ai-code-review-best-practices.md",
+      "heading": "AI 代码评审工具有多准？",
+      "line": 225,
+      "confidence": 0.62,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "5fecfcf5237aee4c",
+      "kind": "heading-question",
+      "prompt": "AI 代码评审能完全取代人类评审者吗？",
+      "answer": "不能，AI 代码评审应当是人类评审者的补充，而不是替代。AI 擅长发现例行问题并保持一致性，但在架构决策、业务逻辑验证和复杂问题求解上，仍然需要人类评审者。最有效的做法是把 AI 自动化与人类专业能力结合起来。",
+      "source": "ai-code-review-best-practices.md",
+      "heading": "AI 代码评审能完全取代人类评审者吗？",
+      "line": 229,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "6de88c47dbc4fb04",
+      "kind": "heading-question",
+      "prompt": "我怎么说服团队采用 AI 代码评审？",
+      "answer": "先从有热情的团队成员参与的小范围试点开始。用节省下来的时间、变好的代码质量指标和下降的 bug 率来展示明确的价值。至于对岗位安全的顾虑，就把 AI 定位成一个效率工具，让开发者能专注更高价值的工作。",
+      "source": "ai-code-review-best-practices.md",
+      "heading": "我怎么说服团队采用 AI 代码评审？",
+      "line": 233,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "f038e71f43bf4be0",
+      "kind": "heading-question",
+      "prompt": "我该怎么处理 AI 代码评审带来的误报？",
+      "answer": "建立一个反馈闭环，让开发者可以把建议标记为误报。大多数工具都允许你调节灵敏度设置，并为特定代码模式创建忽略规则。定期复盘误报，有助于随时间推移提升系统的准确率。",
+      "source": "ai-code-review-best-practices.md",
+      "heading": "我该怎么处理 AI 代码评审带来的误报？",
+      "line": 237,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "e0fa65063b56e940",
+      "kind": "heading-question",
+      "prompt": "使用 AI 代码评审工具时，我的代码安全吗？",
+      "answer": "安全性取决于工具和部署模式。基于云的工具可能在外部服务器上处理你的代码，而本地部署方案则把代码留在你自己的基础设施内。选择方案时，请审查每个工具的数据处理政策，并结合你组织的安全要求来考虑。",
+      "source": "ai-code-review-best-practices.md",
+      "heading": "使用 AI 代码评审工具时，我的代码安全吗？",
+      "line": 241,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "c679f58f13d74c6b",
+      "kind": "heading-question",
+      "prompt": "AI 代码评审会拖慢我的开发流程吗？",
+      "answer": "一开始可能会有一点学习曲线，但大多数团队在 2-4 周内就能看到整体时间上的节省。AI 早早发现问题，减少了调试时间和评审轮次。关键在于合理配置，让它聚焦高影响的问题，而不是用一堆细枝末节的建议淹没开发者。",
+      "source": "ai-code-review-best-practices.md",
+      "heading": "AI 代码评审会拖慢我的开发流程吗？",
+      "line": 245,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "34267076fab162b1",
+      "kind": "heading-question",
+      "prompt": "我该如何把 AI 代码评审接入现有的 CI/CD 流水线？",
+      "answer": "大多数 AI 代码评审工具都提供 API 集成和 webhook 支持。你通常可以把它作为 CI 流水线中的一个步骤，或作为拉取请求上的自动化检查来接进来。先从基础集成开始，随着团队逐渐适应，再逐步加入更复杂的工作流。",
+      "source": "ai-code-review-best-practices.md",
+      "heading": "我该如何把 AI 代码评审接入现有的 CI/CD 流水线？",
+      "line": 249,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "9ccd4b64ee46ba01",
+      "kind": "heading-question",
+      "prompt": "我该如何平衡 AI 的建议与团队的编码规范？",
+      "answer": "把 AI 工具配置成与现有的编码规范和风格指南一致。大多数工具都允许定制规则，也能从你的代码库模式中学习。要根据团队反馈和不断演进的标准，定期复审并调整配置。",
+      "source": "ai-code-review-best-practices.md",
+      "heading": "我该如何平衡 AI 的建议与团队的编码规范？",
+      "line": 253,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "be839ba5396e1572",
+      "kind": "heading-question",
+      "prompt": "我该如何衡量 AI 代码评审实现的成效？",
+      "answer": "跟踪这些指标：生产 bug 的减少量、代码评审节省下来的时间、开发者满意度评分，以及代码质量的改善。落地前先建立基线测量，使用 3-6 个月后再对比结果。",
+      "source": "ai-code-review-best-practices.md",
+      "heading": "我该如何衡量 AI 代码评审实现的成效？",
+      "line": 257,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "6f05743641c9b078",
+      "kind": "heading-question",
+      "prompt": "AI 漏掉了人类评审能发现的重要问题，该怎么改进？",
+      "answer": "这很常见，也在预期之内。AI 工具擅长模式识别，但可能漏掉与具体上下文相关的问题。要用人类监督来补上 AI 评审，尤其是复杂逻辑和架构决策部分。利用 AI 反馈来改进工具配置，并为领域特定的模式考虑自定义规则。",
+      "source": "ai-code-review-best-practices.md",
+      "heading": "AI 漏掉了人类评审能发现的重要问题，该怎么改进？",
+      "line": 261,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "ee94b95fc7bda71b",
+      "kind": "heading-question",
+      "prompt": "炉边对话：FinServ 公司如何用 AI for Prod 优化成本？",
+      "answer": "听听 Affirm、MSCI 和 SoFi 等 FinServ 公司的工程负责人分享他们的 AI 策略与做法。",
+      "source": "benefits-agentic-ai-oncall.md",
+      "heading": "炉边对话：FinServ 公司如何用 AI for Prod 优化成本",
+      "line": 131,
+      "confidence": 0.88,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "f79fa35a47f27b92",
+      "kind": "heading-question",
+      "prompt": "如何评测一个可用于生产的 AI SRE？",
+      "answer": "了解如何评测 AI SRE，确保它能在你独特的生产环境中稳定运行。这份指南讲解了五个智能体支柱、六个关键评测维度，以及区分“可用于生产的 AI SRE”与实验性方案的企业级就绪标准。",
+      "source": "benefits-agentic-ai-oncall.md",
+      "heading": "如何评测一个可用于生产的 AI SRE",
+      "line": 137,
+      "confidence": 0.88,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "10b8044e175a6193",
+      "kind": "cloze",
+      "prompt": "填空：如果你发现团队把 ____ 的时间花在挑缩进和变量名的毛病上，那你多半是在把所有人的时间浪费在一件基本可以自动化的事情上。",
+      "answer": "90%",
+      "source": "code-review-essentials.md",
+      "heading": "风格问题",
+      "line": 246,
+      "confidence": 0.62,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "64c07a97b7386a92",
+      "kind": "heading-question",
+      "prompt": "如何不再拉垮，转而变得很出色？",
+      "answer": "过去八年，我主要靠这个博客在人生中取得了一些成就；过去四年，又靠创办 Stack Overflow 和 Stack Exchange 有所收获。伴随我们双胞胎女儿的出生，我终于有几个月时间来",
+      "source": "code-reviews-just-do-it.md",
+      "heading": "如何不再拉垮，转而变得很出色",
+      "line": 65,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "9b82aed31f00b2a8",
+      "kind": "heading-question",
+      "prompt": "上下文腐化：输入 token 增加如何影响大语言模型的表现？",
+      "answer": "人们通常假定大语言模型（LLM）会均匀地处理上下文——也就是说，模型处理第 10,000 个 token 应当和处理第 100 个 token 一样可靠。但实际上，这个假定并不成立。我们观察到，即使在简单任务上，模型表现也会随输入长度变化而显著波动。",
+      "source": "context-rot.md",
+      "heading": "上下文腐化：输入 token 增加如何影响大语言模型的表现",
+      "line": 27,
+      "confidence": 0.88,
+      "tags": [
+        "Week 1 · 上下文工程"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "75f963c6f12b72c2",
+      "kind": "cloze",
+      "prompt": "填空：人们通常假定大语言模型（LLM）会均匀地处理上下文——也就是说，模型处理第 10,____ token 应当和处理第 100 个 token 一样可靠。",
+      "answer": "000 个",
+      "source": "context-rot.md",
+      "heading": "上下文腐化：输入 token 增加如何影响大语言模型的表现",
+      "line": 27,
+      "confidence": 0.62,
+      "tags": [
+        "Week 1 · 上下文工程"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "0b6f09d4ce1a6273",
+      "kind": "cloze",
+      "prompt": "填空：在这份报告里，我们评测了 ____大语言模型，其中包括最先进的 GPT-4.1、Claude 4、Gemini 2.5 和 Qwen3 系列模型。",
+      "answer": "18 个",
+      "source": "context-rot.md",
+      "heading": "上下文腐化：输入 token 增加如何影响大语言模型的表现",
+      "line": 29,
+      "confidence": 0.62,
+      "tags": [
+        "Week 1 · 上下文工程"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "2a736aac937bab39",
+      "kind": "cloze",
+      "prompt": "填空：____ 6 月 29 日报告该漏洞后，微软确认了复现结果，并追问了一些问题。",
+      "answer": "2025 年",
+      "source": "copilot-prompt-injection-rce.md",
+      "heading": "负责任披露",
+      "line": 145,
+      "confidence": 0.62,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "6451543e40f82a8c",
+      "kind": "cloze",
+      "prompt": "填空：离线缓存 — 这是 themodernsoftware.dev 于 ____ 4 月 2 日抓取并保存在本地的版本。",
+      "answer": "2026 年",
+      "source": "course-homepage.md",
+      "heading": "CS146S：现代软件开发者 OFFLINE CACHE",
+      "line": 19,
+      "confidence": 0.62,
+      "tags": [
+        "课程概览"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "a761d28d0b8ac490",
+      "kind": "cloze",
+      "prompt": "填空：传统软件开发生命周期的每一个环节都在被 AI 自动化重塑，这也随之提出了一个问题：下一代软件工程师应当如何利用这些进步，把自己的开发效率提升 ____，并为职业生涯做好准备？",
+      "answer": "10 倍",
+      "source": "course-homepage.md",
+      "heading": "课程简介",
+      "line": 25,
+      "confidence": 0.62,
+      "tags": [
+        "课程概览"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "372ff880dead14e9",
+      "kind": "heading-question",
+      "prompt": "这门课适合谁？",
+      "answer": "本课程面向具备编程经验（相当于 CS111）的学生，帮助他们了解如何利用现代 AI 工具大幅提升自己的软件开发效率。建议修过 CS221/229，但不作强制要求。",
+      "source": "course-homepage.md",
+      "heading": "这门课适合谁？",
+      "line": 275,
+      "confidence": 0.88,
+      "tags": [
+        "课程概览"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "4ad71f947e44a582",
+      "kind": "heading-question",
+      "prompt": "这门课我会有什么产出？",
+      "answer": "学生将完成每周的动手作业，内容涵盖 LLM 提示词、MCP 服务器开发、AI IDE 使用、Claude Code 工作流、安全分析、代码评审自动化和全栈 Web 应用。课程最后以一个展示现代开发实践的最终项目收尾。",
+      "source": "course-homepage.md",
+      "heading": "这门课我会有什么产出？",
+      "line": 279,
+      "confidence": 0.88,
+      "tags": [
+        "课程概览"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "e991968a7329c6a0",
+      "kind": "heading-question",
+      "prompt": "我们会用到哪些工具？",
+      "answer": "课程覆盖一批 AI 开发工具，包括 Claude Code、Warp 终端、Cursor/Windsurf IDE、Semgrep、Graphite 和 Vercel。我们还会用到 Model Context Protocol（MCP）以及各类 LLM API。",
+      "source": "course-homepage.md",
+      "heading": "我们会用到哪些工具？",
+      "line": 283,
+      "confidence": 0.88,
+      "tags": [
+        "课程概览"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "a429a25e44364144",
+      "kind": "heading-question",
+      "prompt": "成绩怎么评定？",
+      "answer": "成绩由每周作业、课堂讨论参与度和最终项目共同决定。具体截止时间见作业日历。",
+      "source": "course-homepage.md",
+      "heading": "成绩怎么评定？",
+      "line": 287,
+      "confidence": 0.88,
+      "tags": [
+        "课程概览"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "9636abf8e90cd17d",
+      "kind": "heading-question",
+      "prompt": "讲座有录像吗？",
+      "answer": "录像是否提供，请咨询课程团队。每场讲座的幻灯片链接见上方教学大纲。",
+      "source": "course-homepage.md",
+      "heading": "讲座有录像吗？",
+      "line": 291,
+      "confidence": 0.88,
+      "tags": [
+        "课程概览"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "38dd37514eca3761",
+      "kind": "heading-question",
+      "prompt": "我该怎么联系教学团队？",
+      "answer": "Mihail Eric：办公时间周五 12:00–12:30 PM",
+      "source": "course-homepage.md",
+      "heading": "我该怎么联系教学团队？",
+      "line": 295,
+      "confidence": 0.88,
+      "tags": [
+        "课程概览"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "a06712d68c87aeef",
+      "kind": "cloze",
+      "prompt": "填空：这些基本准则会帮助你在 ____更有效地与编码智能体交互。",
+      "answer": "2025 年",
+      "source": "devin-coding-agents-101.md",
+      "heading": "提示词基础",
+      "line": 47,
+      "confidence": 0.62,
+      "tags": [
+        "Week 2 · 编码智能体"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "f4035ee79e578927",
+      "kind": "heading-question",
+      "prompt": "说明你希望怎么做，而不只是做什么？",
+      "answer": "把智能体想象成一位初级编码搭档，它的决策未必可靠。简单的任务可以直接描述，但更复杂的任务，从一开始就要清晰地勾勒出你偏好的方案。提前把整体架构和逻辑交给智能体，不仅能提高它成功的概率，还能减少你评审代码的时间——因为你对预期做法已经熟悉。",
+      "source": "devin-coding-agents-101.md",
+      "heading": "说明你希望怎么做，而不只是做什么",
+      "line": 51,
+      "confidence": 0.88,
+      "tags": [
+        "Week 2 · 编码智能体"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "dddae3bfb2e4c664",
+      "kind": "cloze",
+      "prompt": "填空：但把中大型任务（通常是 1 到 ____的工作量）委派出去，才是自主智能体回报最高的地方。",
+      "answer": "6 小时",
+      "source": "devin-coding-agents-101.md",
+      "heading": "委派更大的任务单",
+      "line": 135,
+      "confidence": 0.62,
+      "tags": [
+        "Week 2 · 编码智能体"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "37c8f4fc6a7e70d9",
+      "kind": "cloze",
+      "prompt": "填空：现实的目标是节省约 ____ 的时间，而不是彻底自动化；你的专业判断在验证和最终质量把关上依然关键。",
+      "answer": "80%",
+      "source": "devin-coding-agents-101.md",
+      "heading": "让初稿自动化",
+      "line": 141,
+      "confidence": 0.62,
+      "tags": [
+        "Week 2 · 编码智能体"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "643ace82de60822e",
+      "kind": "cloze",
+      "prompt": "填空：OpenAI Codex 没能报告出任何正确的 IDOR，TPR 为 ____（0/5）；SQL 注入表现很差，0%（0/5）；XSS 也是 0%（0/28）；但出人意料的是，它报告出的路径遍历问题比 Claude Code 更多，TPR 达 47%（8/17）。",
+      "answer": "0%",
+      "source": "finding-vulnerabilities-claude-codex.md",
+      "heading": "分享",
+      "line": 101,
+      "confidence": 0.62,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "c5eeb7b87bdc318e",
+      "kind": "cloze",
+      "prompt": "填空：我们在 ____大型、基于 Python、仍在积极维护的开源项目上做测试，使用的是常见 Web 框架（Django、Flask、FastAPI）。",
+      "answer": "11 个",
+      "source": "finding-vulnerabilities-claude-codex.md",
+      "heading": "常规 SAST 基准测试的问题：缺乏真实性",
+      "line": 180,
+      "confidence": 0.62,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "534920917742a234",
+      "kind": "heading-question",
+      "prompt": "Claude Code 的新 /security-review 命令效果如何？",
+      "answer": "Anthropic 为 Claude Code 发布了一个新命令，叫 /security-review。它设计为在拉取请求上运行，用于检查改动的文件并提出问题，以识别具体的安全问题。你可以在这里找到那条提示词。",
+      "source": "finding-vulnerabilities-claude-codex.md",
+      "heading": "Claude Code 的新 /security-review 命令效果如何？",
+      "line": 517,
+      "confidence": 0.88,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "40d5e0e895d3ae25",
+      "kind": "cloze",
+      "prompt": "填空：话虽如此，有个反例是 Sean Heelan 做了足够的上下文工程，让推理模型成功报出一个漏洞（____ 的概率）。",
+      "answer": "8%",
+      "source": "finding-vulnerabilities-claude-codex.md",
+      "heading": "回答我们的问题",
+      "line": 535,
+      "confidence": 0.62,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "531577e2e84bc0d8",
+      "kind": "heading-question",
+      "prompt": "Anthropic 如何使用 Claude Code？",
+      "answer": "Anthropic 团队如何使用 Claude Code Anthropic 的内部团队正在用 Claude Code 改变自己的工作流，让开发者和非技术人员都能攻克复杂项目、自动化各类任务，并弥合此前制约他们效率的技能落差。通过对我们自己那些 Claude Code 熟练用户的访谈，我们整理了不同部门如何发挥 Claude Code 的作用、它对各自工作的影响，以及给其他考虑引入 Claude Code 的组织的建议。",
+      "source": "how-anthropic-uses-claude-code-pdf.md",
+      "heading": "Anthropic 如何使用 Claude Code",
+      "line": 13,
+      "confidence": 0.88,
+      "tags": [
+        "Week 4 · 讲义"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "ac5328a92a562298",
+      "kind": "cloze",
+      "prompt": "填空：强化支持工作流 能够处理大得多的数据量、识别异常（比如监控 ____仪表盘），这些工作靠人工根本审不完。",
+      "answer": "200 个",
+      "source": "how-anthropic-uses-claude-code-pdf.md",
+      "heading": "Anthropic 如何使用 Claude Code",
+      "line": 19,
+      "confidence": 0.62,
+      "tags": [
+        "Week 4 · 讲义"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "a69fb1ca402824e9",
+      "kind": "cloze",
+      "prompt": "填空：他们把自己也不熟悉的抽象问题丢给 Claude，让它自主工作，然后在方案完成约 ____ 时接手评审，再做最后的打磨。",
+      "answer": "80%",
+      "source": "how-anthropic-uses-claude-code-pdf.md",
+      "heading": "Anthropic 如何使用 Claude Code",
+      "line": 21,
+      "confidence": 0.62,
+      "tags": [
+        "Week 4 · 讲义"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "9044f578b8df6370",
+      "kind": "cloze",
+      "prompt": "填空：榜单已经到第 ____版本，结果显示只要给模型超过一个工具，所有模型的表现都会变差4。",
+      "answer": "3 个",
+      "source": "how-long-contexts-fail.md",
+      "heading": "上下文混乱",
+      "line": 86,
+      "confidence": 0.62,
+      "tags": [
+        "Week 1 · 上下文工程"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "1ffa529d970864df",
+      "kind": "cloze",
+      "prompt": "填空：团队把全部 ____工具连同查询一起给了一个量化（压缩）过的 Llama 3.1 8b，模型失败了——尽管上下文还远在 16k 上下文窗口之内。",
+      "answer": "46 个",
+      "source": "how-long-contexts-fail.md",
+      "heading": "上下文混乱",
+      "line": 90,
+      "confidence": 0.62,
+      "tags": [
+        "Week 1 · 上下文工程"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "6c4980b61857c3c4",
+      "kind": "heading-question",
+      "prompt": "OpenAI 如何使用 Codex Merged +217 -196？",
+      "answer": "引言 在 OpenAI，Codex 已被安全、产品工程、前端、API、基础设施、性能工程等多个技术团队日常使用。各团队用它加速各类工程任务，从理解复杂系统、重构大型代码库，到在紧迫的截止日期前交付新功能、处置故障事件。我们通过访谈 OpenAI 工程师并结合内部使用数据，整理出这些用例与最佳实践，它们展示了 Codex 如何帮助我们的团队加快速度、提升工作质量、并在规模化场景下管理复杂度。",
+      "source": "how-openai-uses-codex-pdf.md",
+      "heading": "OpenAI 如何使用 Codex Merged +217 -196",
+      "line": 17,
+      "confidence": 0.88,
+      "tags": [
+        "Week 4 · 讲义"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "6c7243dacc9699e4",
+      "kind": "cloze",
+      "prompt": "填空：基础设施工程师，API 可靠性 Codex 特别适合快速发现性能问题——花 ____写提示词，就能省下 30 分钟的工作。",
+      "answer": "5 分钟",
+      "source": "how-openai-uses-codex-pdf.md",
+      "heading": "OpenAI 如何使用 Codex Merged +217 -196",
+      "line": 23,
+      "confidence": 0.62,
+      "tags": [
+        "Week 4 · 讲义"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "480de1911b728c7c",
+      "kind": "cloze",
+      "prompt": "填空：团队亲历 我整天都在开会，但仍然合了 ____ PR，因为 Codex 一直在后台干活。",
+      "answer": "4 个",
+      "source": "how-openai-uses-codex-pdf.md",
+      "heading": "OpenAI 如何使用 Codex Merged +217 -196",
+      "line": 27,
+      "confidence": 0.62,
+      "tags": [
+        "Week 4 · 讲义"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "c28278d63e34d1ad",
+      "kind": "heading-question",
+      "prompt": "如何高效评审代码：一位 GitHub 资深工程师的哲学？",
+      "answer": "GitHub 资深工程师 Sarah Vessels 讲述了她对代码评审的哲学、好的代码评审与坏的代码评审之间的差别、她寻找和评审代码的策略，以及如何让别人评审自己的代码时收获最大。",
+      "source": "how-to-review-code-effectively.md",
+      "heading": "如何高效评审代码：一位 GitHub 资深工程师的哲学",
+      "line": 41,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "a558b6cdfb6d16d9",
+      "kind": "heading-question",
+      "prompt": "什么是代码评审？",
+      "answer": "严格来说，代码评审——也就是 GitHub 上的拉取请求评审——让协作者能够对拉取请求中提出的改动发表评论，表示对这些改动的认可，或者在拉取请求被合并之前要求进一步修改。",
+      "source": "how-to-review-code-effectively.md",
+      "heading": "什么是代码评审？",
+      "line": 64,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "871306e73f4f55d4",
+      "kind": "heading-question",
+      "prompt": "如何找到待评审的拉取请求？",
+      "answer": "我待在 GitHub 通知收件箱里。它是我在浏览器里固定仅有的几个标签页之一，所以随时都能打开。每当我在等 CI、在任务之间、开始一天工作，或者总之有点空闲时，我都喜欢去翻收件箱。我评审的大部分拉取请求都是在那里找到的。GitHub 的团队通常会有一个把某个 Slack 频道当作“大本营”，那是分享待评审拉取请求的好地方——这也是我发现拉取请求的另一条主要途径。",
+      "source": "how-to-review-code-effectively.md",
+      "heading": "如何找到待评审的拉取请求",
+      "line": 78,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "a02b51b9c9113d89",
+      "kind": "cloze",
+      "prompt": "填空：如果你想更多了解如何在 GitHub 上使用拉取请求评审，可以看看 GitHub Community 上资深 DevOps 架构师 Mickey Gousset 和资深 DevOps 架构师 Joshua Johanning 讨论“评审一个拉取请求的 ____建议”的那篇文章。",
+      "answer": "5 个",
+      "source": "how-to-review-code-effectively.md",
+      "heading": "收尾",
+      "line": 246,
+      "confidence": 0.62,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "06f1dae64bf106ee",
+      "kind": "heading-question",
+      "prompt": "如何用 GitHub Copilot 提升你的代码评审和拉取请求？",
+      "answer": "通过来自我们工程团队的真实提示词、示例和工作流技巧，看看 GitHub Copilot 如何简化代码评审、拉取请求和日常工程任务。",
+      "source": "how-to-review-code-effectively.md",
+      "heading": "如何用 GitHub Copilot 提升你的代码评审和拉取请求",
+      "line": 266,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "c261c23b2f9362d8",
+      "kind": "heading-question",
+      "prompt": "AI 时代的代码评审：为什么合并按钮永远在开发者手里？",
+      "answer": "谈到合并代码，最终决定权永远在开发者手里。但我们正在重新思考 GitHub Copilot 这类工具能帮上什么忙。",
+      "source": "how-to-review-code-effectively.md",
+      "heading": "AI 时代的代码评审：为什么合并按钮永远在开发者手里",
+      "line": 272,
+      "confidence": 0.88,
+      "tags": [
+        "Week 7 · 代码评审"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "62046487f9295414",
+      "kind": "cloze",
+      "prompt": "填空：自 ____ 6 月的首次提交以来，Kubernetes 已经发展成容器编排的事实标准，拥有来自 44 个国家、8,000 多家公司的 88,000 多名贡献者。",
+      "answer": "2014 年",
+      "source": "kubernetes-troubleshooting-ai.md",
+      "heading": "Resolve AI 中的 Kubernetes 排查",
+      "line": 57,
+      "confidence": 0.62,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "7f09bd6bcc309fec",
+      "kind": "cloze",
+      "prompt": "填空：Resolve AI 的智能体 AI 是一个由 AI 驱动、7×____在线的 Kubernetes 专家，它把你的线索串联起来，给出可执行的诊断，并在整个 Kubernetes 集群中自动化那些繁琐的调查。",
+      "answer": "24 小时",
+      "source": "kubernetes-troubleshooting-ai.md",
+      "heading": "智能体 AI 如何改变排查",
+      "line": 81,
+      "confidence": 0.62,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "341028b9699b1a2b",
+      "kind": "heading-question",
+      "prompt": "智能体 AI 如何改变排查？",
+      "answer": "现在想象一下：有一个 Kubernetes 排查搭档，它不只是定位问题，还能主动解决问题。Resolve AI 的智能体 AI 是一个由 AI 驱动、7×24 小时在线的 Kubernetes 专家，它把你的线索串联起来，给出可执行的诊断，并在整个 Kubernetes 集群中自动化那些繁琐的调查。",
+      "source": "kubernetes-troubleshooting-ai.md",
+      "heading": "智能体 AI 如何改变排查",
+      "line": 81,
+      "confidence": 0.88,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "bd83eaf87fe11584",
+      "kind": "heading-question",
+      "prompt": "既然可以轻松，何必硬扛？",
+      "answer": "Kubernetes 确实复杂，但排查不必复杂。依赖 kubectl 命令、K8sGPT 之类的开源工具以及手工日志关联的传统做法，跟不上现代 Kubernetes 环境的规模和速度。从第一天起，Resolve AI 就利用内置的专业能力改变你管理 Kubernetes 的方式：消除重复的救火工作、简化 Kubernetes 运维，把你的夜晚和周末还给你。",
+      "source": "kubernetes-troubleshooting-ai.md",
+      "heading": "既然可以轻松，何必硬扛？",
+      "line": 134,
+      "confidence": 0.88,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "40a02d6336ecb02d",
+      "kind": "cloze",
+      "prompt": "填空：众所周知，VS Code 有 ____工具的硬上限——但很多模型远在达到这个数字之前，就已经在准确调用工具上力不从心了。",
+      "answer": "128 个",
+      "source": "mcp-food-for-thought.md",
+      "heading": "智能体应付不了大量工具",
+      "line": 30,
+      "confidence": 0.62,
+      "tags": [
+        "Week 2 · MCP"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "6adb93e6114ba545",
+      "kind": "cloze",
+      "prompt": "填空：设想一个 API，一次返回 ____记录，每条记录又很宽（比如 50 个字段）。",
+      "answer": "100 条",
+      "source": "mcp-food-for-thought.md",
+      "heading": "API 会迅速撑爆上下文窗口",
+      "line": 38,
+      "confidence": 0.62,
+      "tags": [
+        "Week 2 · MCP"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "5498460462ccc5dc",
+      "kind": "cloze",
+      "prompt": "填空：一条记录里也许有个占 100,____ token 的大文本字段，另一条却只有 10 个。",
+      "answer": "000 个",
+      "source": "mcp-food-for-thought.md",
+      "heading": "API 会迅速撑爆上下文窗口",
+      "line": 40,
+      "confidence": 0.62,
+      "tags": [
+        "Week 2 · MCP"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "292c1df00c1bb85a",
+      "kind": "heading-question",
+      "prompt": "Model Context Protocol (MCP) 是什么？",
+      "answer": "MCP 本质上是 AI 应用与外部工具或数据源之间的通用适配器。它定义了一套通用协议（基于 JSON-RPC 2.0 构建），让 AI 助手能够以结构化的方式调用外部服务中的函数、获取数据或使用预定义的提示词。过去每个 LLM 应用都要为各个 API 或数据库编写定制代码，而 MCP 为所有交互提供了一套标准化的“语言”。",
+      "source": "mcp-introduction.md",
+      "heading": "Model Context Protocol (MCP) 是什么？",
+      "line": 31,
+      "confidence": 0.88,
+      "tags": [
+        "Week 2 · MCP"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "619c3fc87ffef0e8",
+      "kind": "cloze",
+      "prompt": "填空：MCP 刚出现时（____底），它提供了用于工具与数据交换的核心协议，但缺少连接远程服务器的标准化认证机制。",
+      "answer": "2024 年",
+      "source": "mcp-introduction.md",
+      "heading": "早期局限（没有内置认证）",
+      "line": 246,
+      "confidence": 0.62,
+      "tags": [
+        "Week 2 · MCP"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "f572bbb43314a26b",
+      "kind": "cloze",
+      "prompt": "填空：____ 9 月 8 日 · 4 分钟 · David Soria Parra（首席维护者）、Adam Jones（注册表维护者）、Tadas Antanavicius（注册表维护者）、Toby Padilla（注册表维护者）、Theodora Chu（Anthropic 的 MCP 产品经理）",
+      "answer": "2025 年",
+      "source": "mcp-registry-preview.md",
+      "heading": "MCP 注册表隆重推出",
+      "line": 22,
+      "confidence": 0.62,
+      "tags": [
+        "Week 2 · MCP"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "af7416c385deadac",
+      "kind": "heading-question",
+      "prompt": "什么是 AI 原生工程？为什么重要？",
+      "answer": "AI 原生工程是指工程师主要与 AI 交互来编排自己的工作：无论是编写代码，还是操作生产系统。AI 原生与单纯“使用 AI”有显著区别——后者中工程师仍然在自己的系统和工具之间操作，只是用 AI 加快流程中的单个步骤。",
+      "source": "multi-agent-systems-ai-native.md",
+      "heading": "什么是 AI 原生工程？为什么重要？",
+      "line": 63,
+      "confidence": 0.88,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "2a528ed52ccc8a12",
+      "kind": "heading-question",
+      "prompt": "为什么多智能体系统是让工程 AI 原生的关键？",
+      "answer": "现代生产系统具有学界所说的“不可约的相互依赖”：要理解它们，需要跨多个领域的专门知识，而这些知识无法整合进一个连贯的单一模型。这正是多数构建者会忽略的洞察：没有任何单一 AI 工具或一组 AI 模型，能在协调实时调查的同时维持所有这些领域上的专家级知识。",
+      "source": "multi-agent-systems-ai-native.md",
+      "heading": "为什么多智能体系统是让工程 AI 原生的关键？",
+      "line": 83,
+      "confidence": 0.88,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "81e0ea60e8e861a5",
+      "kind": "cloze",
+      "prompt": "填空：举例来说：当关键故障事件期间 API 延迟飙升 ____，调查需要多个专门智能体同时做实时分析：跨 50 多个微服务关联追踪、分析慢数据库查询与连接池耗尽、检查最近的部署和基础设施变更、扫描认证日志寻找安全异常、结合当前负载模式评估自动扩缩容函数，以及结合 SLA（服务等级协议）语境分析支持工单对客户的影响。",
+      "answer": "10 倍",
+      "source": "multi-agent-systems-ai-native.md",
+      "heading": "为什么多智能体系统是让工程 AI 原生的关键？",
+      "line": 85,
+      "confidence": 0.62,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "06e674205d4ddb6e",
+      "kind": "heading-question",
+      "prompt": "追踪和日志有什么区别？",
+      "answer": "日志捕获离散的单个事件，而追踪展示跨服务的操作之间的关系。日志告诉你发生了什么；追踪告诉你它是怎么发生的。",
+      "source": "observability-basics.md",
+      "heading": "追踪和日志有什么区别？",
+      "line": 302,
+      "confidence": 0.88,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "83330c0347c4d8e0",
+      "kind": "heading-question",
+      "prompt": "加入追踪会让我的应用变慢吗？",
+      "answer": "现代追踪库带来的开销极小——配置得当时通常对性能的影响低于 3%。配合采样，你还能进一步降低这一影响。",
+      "source": "observability-basics.md",
+      "heading": "加入追踪会让我的应用变慢吗？",
+      "line": 306,
+      "confidence": 0.88,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "f9d3c8b0a4b20b4d",
+      "kind": "cloze",
+      "prompt": "填空：现代追踪库带来的开销极小——配置得当时通常对性能的影响低于 ____。",
+      "answer": "3%",
+      "source": "observability-basics.md",
+      "heading": "加入追踪会让我的应用变慢吗？",
+      "line": 306,
+      "confidence": 0.62,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "2c2b9820fedd2f5f",
+      "kind": "heading-question",
+      "prompt": "我需要修改所有代码才能加入追踪吗？",
+      "answer": "不一定。许多框架都提供自动埋点，只需很少的代码改动就能加入追踪。OpenTelemetry 为大多数语言的主流框架提供了自动埋点。",
+      "source": "observability-basics.md",
+      "heading": "我需要修改所有代码才能加入追踪吗？",
+      "line": 310,
+      "confidence": 0.88,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "cfa9a0ab3f9af8e7",
+      "kind": "heading-question",
+      "prompt": "分布式追踪会产生多少数据？",
+      "answer": "差异极大，取决于流量、采样率和跨度细节。对繁忙的系统，要做好每天从几 GB 到几 TB 的准备。正因如此，选对可观测性平台对成本控制很重要。",
+      "source": "observability-basics.md",
+      "heading": "分布式追踪会产生多少数据？",
+      "line": 314,
+      "confidence": 0.88,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "9967233a8e90b476",
+      "kind": "heading-question",
+      "prompt": "追踪对安全与合规有帮助吗？",
+      "answer": "有！追踪为请求在系统中的流转建立了审计轨迹。加上合适的属性，你就能追踪哪些用户或服务在何时访问了哪些数据。",
+      "source": "observability-basics.md",
+      "heading": "追踪对安全与合规有帮助吗？",
+      "line": 318,
+      "confidence": 0.88,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "3d51c109e8634c31",
+      "kind": "heading-question",
+      "prompt": "追踪和跨度与其他可观测性信号是什么关系？",
+      "answer": "追踪是指标和日志的补充。指标从宏观层面展示系统健康状况，日志提供详细事件，追踪则把点连接起来，展示跨服务的请求流向。",
+      "source": "observability-basics.md",
+      "heading": "追踪和跨度与其他可观测性信号是什么关系？",
+      "line": 322,
+      "confidence": 0.88,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "e7686f8a9f127097",
+      "kind": "cloze",
+      "prompt": "填空：我们计划接受对新版十大风险的贡献，截止日期为 ____ 7 月 31 日，数据范围为 2021 年至 2024 年。",
+      "answer": "2025 年",
+      "source": "owasp-top-ten.md",
+      "heading": "贡献周期",
+      "line": 211,
+      "confidence": 0.62,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "82a0f8f40499542c",
+      "kind": "cloze",
+      "prompt": "填空：我们计划沿用 ____的模型来计算可能性（likelihood），以发生率（incidence rate）而非频次来衡量某个应用至少含有一个 CWE 实例的可能性。",
+      "answer": "2021 年",
+      "source": "owasp-top-ten.md",
+      "heading": "流程",
+      "line": 255,
+      "confidence": 0.62,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "c00ac25b08178d3c",
+      "kind": "cloze",
+      "prompt": "填空：此外，我们还将为前 20-____ CWE 制定基础 CWSS 评分，并把潜在影响纳入十大风险的权重。",
+      "answer": "30 个",
+      "source": "owasp-top-ten.md",
+      "heading": "流程",
+      "line": 257,
+      "confidence": 0.62,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "fba958cb604ee797",
+      "kind": "heading-question",
+      "prompt": "什么是提示工程？",
+      "answer": "提示工程是设计并优化提示词的艺术与科学，用来引导 AI 模型（尤其是 LLM）生成期望的回答。通过精心设计提示词，你为模型提供上下文、指令和示例，帮助它理解你的意图，给出有意义的回应。可以把它理解为给 AI 画一张路线图，把它引向你想要的输出。",
+      "source": "prompt-engineering-overview.md",
+      "heading": "什么是提示工程？",
+      "line": 31,
+      "confidence": 0.88,
+      "tags": [
+        "Week 1 · 提示工程"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "2b5fd3fe7d9b444c",
+      "kind": "heading-question",
+      "prompt": "什么是 AI 的提示词？",
+      "answer": "在 AI 语境中，提示词就是你提供给模型、用来引出特定回应的输入。它可以有各种形式，从简单的问题或关键词，到复杂的指令、代码片段，甚至创意写作样例。提示词的有效性直接影响 AI 输出的质量与相关性。",
+      "source": "prompt-engineering-overview.md",
+      "heading": "什么是 AI 的提示词？",
+      "line": 39,
+      "confidence": 0.88,
+      "tags": [
+        "Week 1 · 提示工程"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "1ca06bf8cd16ff19",
+      "kind": "heading-question",
+      "prompt": "做提示工程需要什么？",
+      "answer": "有几个关键要素决定了提示工程的效果。掌握它们，你就能与 AI 模型高效沟通，释放它们的全部潜力。",
+      "source": "prompt-engineering-overview.md",
+      "heading": "做提示工程需要什么？",
+      "line": 43,
+      "confidence": 0.88,
+      "tags": [
+        "Week 1 · 提示工程"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "dac59fdce0cbe792",
+      "kind": "cloze",
+      "prompt": "填空：不要写\"写一首长诗\"，而要写\"写一首 ____的十四行诗，探讨爱与失去的主题。",
+      "answer": "14 行",
+      "source": "prompt-engineering-overview.md",
+      "heading": "4. 写得具体：",
+      "line": 467,
+      "confidence": 0.62,
+      "tags": [
+        "Week 1 · 提示工程"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "fcda2aba4fdb3545",
+      "kind": "cloze",
+      "prompt": "填空：\"一步步解决这个问题：John 有 ____苹果，他吃了 2 个。",
+      "answer": "5 个",
+      "source": "prompt-engineering-overview.md",
+      "heading": "6. 用好思维链提示：",
+      "line": 531,
+      "confidence": 0.62,
+      "tags": [
+        "Week 1 · 提示工程"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "9d7cae33161caff9",
+      "kind": "cloze",
+      "prompt": "填空：新客户可获得 ____免费额度，用于 Google Cloud。",
+      "answer": "300 美元",
+      "source": "prompt-engineering-overview.md",
+      "heading": "用 Google Cloud 开启你的 AI 之旅",
+      "line": 581,
+      "confidence": 0.62,
+      "tags": [
+        "Week 1 · 提示工程"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "d279841e39ef0ff1",
+      "kind": "cloze",
+      "prompt": "填空：云原生关系型数据库，扩展能力无上限，可用性达 ____。",
+      "answer": "99.999%",
+      "source": "prompt-engineering-overview.md",
+      "heading": "继续浏览",
+      "line": 1317,
+      "confidence": 0.62,
+      "tags": [
+        "Week 1 · 提示工程"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "ba13580582adae90",
+      "kind": "cloze",
+      "prompt": "填空：全球信息安全支出预计到 ____将达到 2120 亿美元，较 2024 年增长 15%。",
+      "answer": "2025 年",
+      "source": "sast-vs-dast.md",
+      "heading": "SAST 与 DAST 与 RASP：应用安全测试方法对比",
+      "line": 19,
+      "confidence": 0.62,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "c093feb1a3ae0b01",
+      "kind": "cloze",
+      "prompt": "填空：该机构进一步预测，到 ____，生成式 AI 将参与 17% 的网络攻击。",
+      "answer": "2027 年",
+      "source": "sast-vs-dast.md",
+      "heading": "SAST 与 DAST 与 RASP：应用安全测试方法对比",
+      "line": 19,
+      "confidence": 0.62,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "62a228495c6f3c88",
+      "kind": "heading-question",
+      "prompt": "什么是 SAST？",
+      "answer": "静态应用安全测试（SAST）是一种白盒安全测试方法。SAST 通过应用程序的静态源代码或二进制文件来识别漏洞。这意味着 SAST 工具是在应用程序不运行的情况下对其代码进行分析的。",
+      "source": "sast-vs-dast.md",
+      "heading": "什么是 SAST？",
+      "line": 27,
+      "confidence": 0.88,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "87c9c3b06c9c4c70",
+      "kind": "heading-question",
+      "prompt": "什么是 DAST？",
+      "answer": "动态应用安全测试（DAST）是一种黑盒测试方法。DAST 中的“动态”意味着它在应用程序运行期间评估其安全性。与 SAST 不同，DAST 不需要访问应用程序的源代码。相反，它：",
+      "source": "sast-vs-dast.md",
+      "heading": "什么是 DAST？",
+      "line": 37,
+      "confidence": 0.88,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "28f9edcb647065c4",
+      "kind": "heading-question",
+      "prompt": "SAST 是如何工作的？",
+      "answer": "开发者使用 SAST 工具应用预定义规则和其他检测方法——比如模式匹配和数据流分析——来识别编码错误与其他漏洞。他们把这些工具集成进 IDE 或 CI/CD 流水线，在编码和测试阶段自动执行扫描。",
+      "source": "sast-vs-dast.md",
+      "heading": "SAST 是如何工作的？",
+      "line": 49,
+      "confidence": 0.88,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "3b1136df58ddeb7c",
+      "kind": "heading-question",
+      "prompt": "DAST 是如何工作的？",
+      "answer": "DAST 工具模拟真实世界的攻击——例如把各种形式的恶意数据送进输入字段，观察应用程序如何处理它们——以识别应用程序行为与响应中的漏洞和弱点。",
+      "source": "sast-vs-dast.md",
+      "heading": "DAST 是如何工作的？",
+      "line": 93,
+      "confidence": 0.88,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "4c4d9394bfc2d64e",
+      "kind": "heading-question",
+      "prompt": "什么时候该用 SAST，什么时候该用 DAST？",
+      "answer": "SAST 和 DAST 在保障 SDLC 安全方面扮演互补角色。理解各自适用的时机，有助于获得全面的安全覆盖。",
+      "source": "sast-vs-dast.md",
+      "heading": "什么时候该用 SAST，什么时候该用 DAST？",
+      "line": 255,
+      "confidence": 0.88,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "6ff77170ac946b39",
+      "kind": "heading-question",
+      "prompt": "哪个更有效：SAST 还是 DAST？",
+      "answer": "SAST 最适合在开发早期使用，主要用于识别源代码中的漏洞、降低成本并推动安全编码实践。相比之下，DAST 关注预生产或已部署应用程序中的运行时漏洞，能就配置错误、集成不安全之类的问题提供洞察。",
+      "source": "sast-vs-dast.md",
+      "heading": "哪个更有效：SAST 还是 DAST？",
+      "line": 289,
+      "confidence": 0.88,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "e64b85dce28d3dd9",
+      "kind": "heading-question",
+      "prompt": "什么是授权？",
+      "answer": "授权是指在用户完成认证之后，决定该用户可以访问哪些操作、网站的哪些部分或应用程序的哪些部分的过程。",
+      "source": "sast-vs-dast.md",
+      "heading": "什么是授权？",
+      "line": 381,
+      "confidence": 0.88,
+      "tags": [
+        "Week 6 · 安全"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "99d492440ba725b8",
+      "kind": "heading-question",
+      "prompt": "原型成了新规格说明，而规格说明成了新的……源码？",
+      "answer": "在我的职业生涯中，规格说明越来越短。我刚加入 Microsoft 时，一位产品经理的价值是按他写的规格说明的厚度来衡量的。多年之后，在 Tripadvisor，我们把那位把一份规格说明——潦草地写在餐巾纸上——带进产品评审会的产品经理奉为传奇。",
+      "source": "specs-are-the-new-source-code.md",
+      "heading": "原型成了新规格说明，而规格说明成了新的……源码？",
+      "line": 25,
+      "confidence": 0.88,
+      "tags": [
+        "Week 3 · 规格驱动开发"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "a2b40b893fa151bb",
+      "kind": "heading-question",
+      "prompt": "为什么产品经理突然成了瓶颈？",
+      "answer": "吴恩达（Andrew Ng）在近期的演讲《Building Faster with AI》中提到一个前所未有的趋势：",
+      "source": "specs-are-the-new-source-code.md",
+      "heading": "为什么产品经理突然成了瓶颈",
+      "line": 41,
+      "confidence": 0.88,
+      "tags": [
+        "Week 3 · 规格驱动开发"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "2cd24e1eb8377d46",
+      "kind": "heading-question",
+      "prompt": "等等，原型不是已经把规格说明杀死了吗？",
+      "answer": "直到最近，产品生命周期都必须从规格说明（或 PRD、或概念文档、或一张餐巾纸）开始，由它推动最初的线框图、设计、原型和 MVP 开发。",
+      "source": "specs-are-the-new-source-code.md",
+      "heading": "等等，原型不是已经把规格说明杀死了吗？",
+      "line": 81,
+      "confidence": 0.88,
+      "tags": [
+        "Week 3 · 规格驱动开发"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "f75aa52b2953abfc",
+      "kind": "cloze",
+      "prompt": "填空：____我加入 Google、被要求带领一支七人“生产团队”时，我此前整个人生都在做软件工程。",
+      "answer": "2003 年",
+      "source": "sre-introduction.md",
+      "heading": "Google 的服务管理之道：站点可靠性工程",
+      "line": 78,
+      "confidence": 0.62,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "a7fbdad7128cc88c",
+      "kind": "cloze",
+      "prompt": "填空：50–____ 是 Google 软件工程师，更准确地说，是通过 Google 软件工程师标准流程招聘进来的人。",
+      "answer": "60%",
+      "source": "sre-introduction.md",
+      "heading": "Google 的服务管理之道：站点可靠性工程",
+      "line": 82,
+      "confidence": 0.62,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "32422f7adf5f06e8",
+      "kind": "heading-question",
+      "prompt": "DevOps 还是 SRE？",
+      "answer": "“DevOps”这个说法于 2008 年底在业界出现，到本文写作时（2016 年初）仍处于不断变化之中。它的核心原则——让 IT 职能参与系统设计与开发的每个阶段、相对人力而言重度依赖自动化、把工程实践和工具应用到运维任务上——与 SRE 的许多原则和实践是一致的。人们可以把 DevOps 看作把若干 SRE 核心原则推广到更广泛的组织、管理结构和人员上的一种泛化；也可以同样地把 SRE 看作 DevOps 的一种具体实现，外加一些独具特色的扩展。",
+      "source": "sre-introduction.md",
+      "heading": "DevOps 还是 SRE？",
+      "line": 101,
+      "confidence": 0.88,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "aea1edcba6ed26a2",
+      "kind": "cloze",
+      "prompt": "填空：“DevOps”这个说法于 ____底在业界出现，到本文写作时（2016 年初）仍处于不断变化之中。",
+      "answer": "2008 年",
+      "source": "sre-introduction.md",
+      "heading": "DevOps 还是 SRE？",
+      "line": 101,
+      "confidence": 0.62,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "9253b7d28e8d178a",
+      "kind": "cloze",
+      "prompt": "填空：如前所述，Google 把 SRE 的运维工作限制在其时间的 ____。",
+      "answer": "50%",
+      "source": "sre-introduction.md",
+      "heading": "确保对工程工作的持续专注",
+      "line": 111,
+      "confidence": 0.62,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "8327e347f8396557",
+      "kind": "cloze",
+      "prompt": "填空：当 SRE 专注运维工作时，平均而言每个 8–____的值班班次最多应接到两起事件。",
+      "answer": "12 小时",
+      "source": "sre-introduction.md",
+      "heading": "确保对工程工作的持续专注",
+      "line": 113,
+      "confidence": 0.62,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "79606237f2a16d41",
+      "kind": "cloze",
+      "prompt": "填空：在用户与服务之间的路径上还有很多其他系统（他们的笔记本电脑、家里的 WiFi、他们的 ISP、电网……），而这些系统合起来远达不到 ____ 可用。",
+      "answer": "99.999%",
+      "source": "sre-introduction.md",
+      "heading": "在不违反服务 SLO（服务等级目标）的前提下追求最高变更速度",
+      "line": 121,
+      "confidence": 0.62,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "15b8f19771510076",
+      "kind": "cloze",
+      "prompt": "填空：错误预算源于这样一个观察：基本上，对几乎所有东西来说，____ 都是错误的可靠性目标（起搏器和防抱死制动系统是显著的例外）。",
+      "answer": "100%",
+      "source": "sre-introduction.md",
+      "heading": "在不违反服务 SLO（服务等级目标）的前提下追求最高变更速度",
+      "line": 121,
+      "confidence": 0.62,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "5b6e03c0a90eff5a",
+      "kind": "cloze",
+      "prompt": "填空：当确实需要人时，我们发现提前思考并把最佳实践记录成一份“操作手册”，相比“临场硬扛”的策略能让 MTTR 大致改善 ____。",
+      "answer": "3 倍",
+      "source": "sre-introduction.md",
+      "heading": "应急响应",
+      "line": 154,
+      "confidence": 0.62,
+      "tags": [
+        "Week 9 · SRE 与可观测性"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "278e1ee898654105",
+      "kind": "heading-question",
+      "prompt": "什么是工具？",
+      "answer": "在计算领域，确定性系统给定相同的输入，每次都会产生相同的输出；而非确定性系统——比如智能体——即使起点条件相同，生成的回应也可能不一样。",
+      "source": "writing-effective-tools-for-agents.md",
+      "heading": "什么是工具？",
+      "line": 55,
+      "confidence": 0.88,
+      "tags": [
+        "Week 2 · 编码智能体"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "199d3811fb312642",
+      "kind": "heading-question",
+      "prompt": "如何编写工具？",
+      "answer": "本节介绍如何与智能体协作，既帮它编写你给它的工具，也帮它改进这些工具。先快速搭起工具原型并在本地测试。接着运行一次全面的评测，衡量之后的改动。在与智能体协作的过程中，你可以反复迭代评测与改进，直到智能体在真实任务上表现出色。",
+      "source": "writing-effective-tools-for-agents.md",
+      "heading": "如何编写工具",
+      "line": 67,
+      "confidence": 0.88,
+      "tags": [
+        "Week 2 · 编码智能体"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    },
+    {
+      "id": "38026671b3a7c890",
+      "kind": "cloze",
+      "prompt": "填空：在 Claude Code 中，我们默认把工具回应限制在 25,____ token。",
+      "answer": "000 个",
+      "source": "writing-effective-tools-for-agents.md",
+      "heading": "优化工具响应的 token 效率",
+      "line": 210,
+      "confidence": 0.62,
+      "tags": [
+        "Week 2 · 编码智能体"
+      ],
+      "status": "approved",
+      "created": "2026-11-15 16:07"
+    }
+  ]
+}

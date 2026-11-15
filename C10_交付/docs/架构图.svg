@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="820" viewBox="0 0 1100 820" role="img" aria-label="第二大脑五层架构图">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4b5563"/>
+    </marker>
+    <marker id="arrowdash" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/>
+    </marker>
+    <style>
+      .t  { font-family: "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif; fill: #111827; }
+      .s  { font-family: "Consolas","Cascadia Mono",monospace; fill: #374151; }
+      .m  { font-family: "Consolas","Cascadia Mono",monospace; fill: #6b7280; }
+      .lbl{ font-family: "Microsoft YaHei","PingFang SC",sans-serif; fill: #7c3aed; font-size: 12px; }
+    </style>
+  </defs>
+
+  <rect width="1100" height="820" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="40" y="46" class="t" font-size="24" font-weight="700">第二大脑 · 五层架构</text>
+  <text x="40" y="72" class="m" font-size="13">brain v1.0 ｜ 零第三方依赖 ｜ 默认离线可跑 ｜ 每次运行留一条 trace</text>
+
+  <!-- L1 -->
+  <rect x="40" y="90" width="720" height="70" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.6"/>
+  <text x="60" y="118" class="t" font-size="17" font-weight="700">L1 接口层</text>
+  <text x="60" y="142" class="s" font-size="12.5">brain/interface/cli.py · render.py ｜ 14 条命令 ｜ 回执 / 退出码 0·1·2</text>
+  <text x="700" y="130" class="m" font-size="12">人 → 系统</text>
+
+  <!-- L1 -> L3 -->
+  <line x1="400" y1="160" x2="400" y2="178" stroke="#4b5563" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- L3 -->
+  <rect x="40" y="180" width="720" height="100" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="1.6"/>
+  <text x="60" y="208" class="t" font-size="17" font-weight="700">L3 循环层</text>
+  <text x="60" y="232" class="s" font-size="12.5">planner 意图→步骤 ｜ engine 执行·反思 ｜ compose 结果→人话 ｜ trace 留痕</text>
+  <text x="60" y="256" class="s" font-size="12.5">classify → plan → act → observe → compose → reflect → trace</text>
+  <text x="640" y="256" class="m" font-size="12">步数上限 8</text>
+
+  <!-- L3 -> 下层 -->
+  <line x1="400" y1="280" x2="400" y2="292" stroke="#4b5563" stroke-width="1.6"/>
+  <path d="M 400 292 H 170 V 308" fill="none" stroke="#4b5563" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <path d="M 400 292 V 308" fill="none" stroke="#4b5563" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <path d="M 400 292 H 630 V 308" fill="none" stroke="#4b5563" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- L2 -->
+  <rect x="40" y="310" width="250" height="110" rx="10" fill="#fff7ed" stroke="#f59e0b" stroke-width="1.6"/>
+  <text x="58" y="338" class="t" font-size="16" font-weight="700">L2 工具层</text>
+  <text x="58" y="362" class="s" font-size="12">12 个工具</text>
+  <text x="58" y="382" class="s" font-size="12">契约 · 权限 · 超时 · 熔断</text>
+  <text x="58" y="402" class="m" font-size="11.5">ToolResult(ok, data, error)</text>
+
+  <!-- L4 -->
+  <rect x="310" y="310" width="180" height="110" rx="10" fill="#fdf2f8" stroke="#ec4899" stroke-width="1.6"/>
+  <text x="326" y="338" class="t" font-size="16" font-weight="700">L4 技能层</text>
+  <text x="326" y="362" class="s" font-size="12">SKILL.md + handler</text>
+  <text x="326" y="382" class="s" font-size="12">渐进披露</text>
+  <text x="326" y="402" class="m" font-size="11.5">调用次数 / 成功率</text>
+
+  <!-- L5 -->
+  <rect x="520" y="310" width="240" height="110" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.6"/>
+  <text x="538" y="338" class="t" font-size="16" font-weight="700">L5 记忆层</text>
+  <text x="538" y="362" class="s" font-size="12">KSTAR 四层</text>
+  <text x="538" y="382" class="s" font-size="12">BM25 · 同义词 · 沉淀</text>
+  <text x="538" y="402" class="m" font-size="11.5">Record / Hit</text>
+
+  <!-- 存储 -->
+  <line x1="170" y1="420" x2="170" y2="446" stroke="#4b5563" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <line x1="400" y1="420" x2="400" y2="446" stroke="#4b5563" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <line x1="630" y1="420" x2="630" y2="446" stroke="#4b5563" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="448" width="250" height="56" rx="8" fill="#f9fafb" stroke="#9ca3af"/>
+  <text x="58" y="472" class="s" font-size="12">文件 / git（只读）</text>
+  <text x="58" y="492" class="m" font-size="11.5">fs.read · fs.list · git.status</text>
+
+  <rect x="310" y="448" width="180" height="56" rx="8" fill="#f9fafb" stroke="#9ca3af"/>
+  <text x="326" y="472" class="s" font-size="12">skills/</text>
+  <text x="326" y="492" class="m" font-size="11.5">3 个人工 + _drafts/</text>
+
+  <rect x="520" y="448" width="240" height="56" rx="8" fill="#f9fafb" stroke="#9ca3af"/>
+  <text x="538" y="472" class="s" font-size="12">memory/</text>
+  <text x="538" y="492" class="m" font-size="11.5">db/*.jsonl · knowledge/*.md</text>
+
+  <!-- 进化层 -->
+  <line x1="630" y1="504" x2="630" y2="556" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arrowdash)"/>
+  <text x="470" y="534" class="lbl">trace + 记忆（只读扫描）</text>
+
+  <rect x="40" y="558" width="720" height="92" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="7 5"/>
+  <text x="60" y="586" class="t" font-size="17" font-weight="700">进化层  brain/evolve/</text>
+  <text x="60" y="610" class="s" font-size="12.5">① 同一工具序列成功 ≥3 次 → 生成草稿技能   ② 先没问到、换个说法问到了 → 学同义词</text>
+  <text x="60" y="632" class="s" font-size="12.5">③ 重复工作流 ≥3 / 同一错误 ≥2 / 情境变冷 → 沉淀或归档   ④ 全量度量：per-intent 前后对比</text>
+
+  <!-- 回写箭头 -->
+  <line x1="400" y1="556" x2="400" y2="506" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arrowdash)"/>
+  <text x="250" y="534" class="lbl">写 skills/_drafts/</text>
+  <line x1="700" y1="556" x2="700" y2="506" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arrowdash)"/>
+  <text x="708" y="534" class="lbl">写同义词</text>
+
+  <!-- 右侧 KSTAR 面板 -->
+  <rect x="800" y="90" width="260" height="230" rx="10" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="818" y="118" class="t" font-size="15" font-weight="700">KSTAR 四层记忆</text>
+  <rect x="818" y="130" width="224" height="40" rx="6" fill="#dbeafe"/>
+  <text x="828" y="148" class="s" font-size="12">K 知识：结论/决策/方法论</text>
+  <text x="828" y="163" class="m" font-size="11">不衰减 · 免疫时间</text>
+  <rect x="818" y="176" width="224" height="40" rx="6" fill="#e0e7ff"/>
+  <text x="828" y="194" class="s" font-size="12">S 情境：某时某地发生了什么</text>
+  <text x="828" y="209" class="m" font-size="11">半衰期 30 天 · 会归档</text>
+  <rect x="818" y="222" width="224" height="40" rx="6" fill="#dcfce7"/>
+  <text x="828" y="240" class="s" font-size="12">T 任务：目标/承诺/状态机</text>
+  <text x="828" y="255" class="m" font-size="11">open → done → AR</text>
+  <rect x="818" y="268" width="224" height="40" rx="6" fill="#fef3c7"/>
+  <text x="828" y="286" class="s" font-size="12">AR 行动-反思：做了什么/学到什么</text>
+  <text x="828" y="301" class="m" font-size="11">→ 沉淀为 K / 技能</text>
+
+  <!-- 右侧不变量 -->
+  <rect x="800" y="340" width="260" height="150" rx="10" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="818" y="368" class="t" font-size="15" font-weight="700">三条不变量</text>
+  <text x="818" y="394" class="s" font-size="12">· 删除只能归档，不可逆操作禁止</text>
+  <text x="818" y="418" class="s" font-size="12">· 降级必须留痕，不许静默</text>
+  <text x="818" y="442" class="s" font-size="12">· 自动生成的技能只能是草稿</text>
+  <text x="818" y="470" class="m" font-size="11.5">任何一条被破坏 = 架构被破坏</text>
+
+  <!-- 右侧度量 -->
+  <rect x="800" y="510" width="260" height="140" rx="10" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="818" y="538" class="t" font-size="15" font-weight="700">进化的度量（演示实测）</text>
+  <text x="818" y="564" class="s" font-size="12">review 意图：3.0 步 → 1.0 步</text>
+  <text x="818" y="588" class="s" font-size="12">检索命中率：67% → 100%</text>
+  <text x="818" y="612" class="s" font-size="12">同义词：0 组 → 1 组</text>
+  <text x="818" y="636" class="m" font-size="11.5">python -m brain trend</text>
+
+  <!-- 页脚 -->
+  <text x="40" y="700" class="m" font-size="12">依赖方向严格单向：L1 → L3 → (L2 · L4 · L5)。进化层不在一次运行路径上，它离线扫描并回写。</text>
+  <text x="40" y="722" class="m" font-size="12">唯一组合根：brain/app.py。看完 App.__init__ 就看完全部接线。</text>
+  <text x="40" y="752" class="m" font-size="12">图由 docs/架构图.svg 提供（纯手写 SVG，无绘图依赖）；对应文档 ARCHITECTURE.md。</text>
+</svg>
