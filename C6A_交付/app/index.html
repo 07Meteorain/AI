@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>交卷雷达 · C6A 提交数据仪表盘</title>
+<meta name="description" content="把 106 人 × 6 个挑战的提交、迟交、评审、红旗变成可复核的数字：口径写在页面上，洞察带证据，筛选即结论。">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到主内容</a>
+
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-opacity=".28" stroke-width="1.5"/>
+        <circle cx="16" cy="16" r="7.5" fill="none" stroke="currentColor" stroke-opacity=".45" stroke-width="1.5"/>
+        <path d="M16 16 L26.5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="16" cy="16" r="2.4" fill="currentColor"/>
+        <circle cx="24.4" cy="20.6" r="1.8" fill="currentColor" opacity=".75"/>
+        <circle cx="9.2" cy="21.4" r="1.4" fill="currentColor" opacity=".45"/>
+      </svg>
+      <div>
+        <h1>交卷雷达 <span class="en">Submission Radar</span></h1>
+        <p>把「这次作业交得怎么样」从感觉，变成可复核的数字</p>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <div class="pills">
+        <span class="pill pill-warn" id="badgeSource" title="班级数据为合成数据，用于验证管线；本人真实数据在「真实数据」页单列">合成数据 · seed 20260717</span>
+        <span class="pill" id="badgeAsOf">快照 2026-11-15</span>
+      </div>
+      <button class="btn ghost" id="btnTheme" title="切换主题（T）">浅色</button>
+      <button class="btn primary" id="btnTour" title="60 秒自动走查">▶ 演示模式</button>
+    </div>
+  </header>
+
+  <section class="filters" aria-label="筛选">
+    <div class="filter-row">
+      <span class="flabel">挑战</span>
+      <div class="chips" id="fChallenge"></div>
+      <span class="flabel">班级</span>
+      <div class="chips" id="fClass"></div>
+      <span class="flabel">状态</span>
+      <div class="chips" id="fStatus"></div>
+      <label class="search">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10.6 10.6L14 14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <input id="q" type="search" placeholder="学号 / 姓名（按 / 聚焦）" autocomplete="off">
+      </label>
+      <button class="btn ghost small" id="btnReset">重置</button>
+    </div>
+    <div class="filter-row scope-row">
+      <div class="scope" id="scope" aria-live="polite"></div>
+      <div class="scope-actions">
+        <button class="btn ghost small" id="btnExport">导出当前视图 CSV</button>
+      </div>
+    </div>
+  </section>
+
+  <nav class="tabs" id="tabs" role="tablist" aria-label="视图">
+    <button role="tab" data-tab="overview" aria-selected="true">总览</button>
+    <button role="tab" data-tab="insights">洞察 <em id="insightCount">7</em></button>
+    <button role="tab" data-tab="students">学生</button>
+    <button role="tab" data-tab="dictionary">口径</button>
+    <button role="tab" data-tab="real">真实数据</button>
+  </nav>
+
+  <main id="main">
+    <!-- 总览 -->
+    <section class="view" data-view="overview">
+      <div class="kpis" id="kpis"></div>
+
+      <div class="grid">
+        <article class="card span-8">
+          <header class="card-head">
+            <h2>提交时间线<small>按提交日聚合 · 虚线为挑战截止日</small></h2>
+            <span class="hint" data-tip="口径：submitted_at 按 +08:00 归日；同一份作业多次提交只取最后一次。">口径</span>
+          </header>
+          <div id="chartTimeline" class="chart chart-tall"></div>
+          <p class="note" id="noteTimeline"></p>
+        </article>
+
+        <article class="card span-4">
+          <header class="card-head">
+            <h2>各挑战完成度<small>分母 = 该挑战应交份数</small></h2>
+            <span class="hint" data-tip="分母随筛选变化：只选 A 班时，分母 = A 班在读人数 × 挑战数。">口径</span>
+          </header>
+          <div id="chartChallenges" class="chart"></div>
+          <p class="note">点击任意一行按该挑战筛选；C6 进行中，完成度天然偏低。</p>
+        </article>
+
+        <article class="card span-4">
+          <header class="card-head">
+            <h2>总分分布<small>10 分一档 · 仅已评审</small></h2>
+            <span class="hint" data-tip="未交不计 0 分，待评审不进分布：缺失不是零。">口径</span>
+          </header>
+          <div id="chartHist" class="chart"></div>
+          <p class="note" id="noteHist"></p>
+        </article>
+
+        <article class="card span-4">
+          <header class="card-head">
+            <h2>五个维度<small>中位线 ＋ 四分位区间</small></h2>
+            <span class="hint" data-tip="每条为学生得分的 p25–p75，竖线为中位数；括号内是该维度权重。">口径</span>
+          </header>
+          <div id="chartDims" class="chart"></div>
+          <p class="note">AI 使用质量是唯一明显偏低的维度。</p>
+        </article>
+
+        <article class="card span-4">
+          <header class="card-head">
+            <h2>交付物缺口<small>缺件占比 · 按份计</small></h2>
+            <span class="hint" data-tip="一份作业可同时缺多项，所以四个比例相加会超过 100%。">口径</span>
+          </header>
+          <div id="chartFlags" class="chart"></div>
+          <p class="note" id="noteFlags"></p>
+        </article>
+
+        <article class="card span-6">
+          <header class="card-head">
+            <h2>班级 × 评审人<small>柱子是班级均分，菱形是该班主评审人的均分</small></h2>
+            <span class="hint" data-tip="评审人与班级约 88% 绑定：班级差里混着评审人宽严，不能直接当学情差。">口径</span>
+          </header>
+          <div id="chartClass" class="chart"></div>
+          <p class="note" id="noteClass"></p>
+        </article>
+
+        <article class="card span-6">
+          <header class="card-head">
+            <h2>迟交 vs 按时<small>同一把尺子下的两组分布</small></h2>
+            <span class="hint" data-tip="迟交 = submitted_at 晚于截止时间；迟交仍算已交，不并入未交。">口径</span>
+          </header>
+          <div id="chartLate" class="chart"></div>
+          <p class="note" id="noteLate"></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 洞察 -->
+    <section class="view" data-view="insights" hidden>
+      <div class="section-intro">
+        <h2>7 条结论，每条都带证据、口径和该做什么</h2>
+        <p>数字全部由 <code>data/build_dataset.py</code> 从同一份数据算出，页面不做二次判断；「应用到看板」会把结论对应的筛选条件推回总览。</p>
+      </div>
+      <div class="insights" id="insightList"></div>
+    </section>
+
+    <!-- 学生 -->
+    <section class="view" data-view="students" hidden>
+      <div class="table-toolbar">
+        <div class="scope" id="tableScope">按总分升序 · 最低分先看</div>
+        <div class="table-tools">
+          <span class="muted" id="tableSort"></span>
+          <button class="btn ghost small" id="btnExport2">导出 CSV</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="table" id="studentTable">
+          <thead>
+            <tr>
+              <th data-sort="student_id">学号</th>
+              <th data-sort="student_name">姓名</th>
+              <th data-sort="class">班</th>
+              <th data-sort="challenge_id">挑战</th>
+              <th data-sort="submitted_at">提交时间</th>
+              <th data-sort="early_hours">提前 / 迟交</th>
+              <th data-sort="reviewer">评审</th>
+              <th data-sort="total">总分</th>
+              <th data-sort="flag_count">红旗</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="studentBody"></tbody>
+        </table>
+      </div>
+      <div class="pager" id="pager"></div>
+    </section>
+
+    <!-- 口径 -->
+    <section class="view" data-view="dictionary" hidden>
+      <div class="section-intro">
+        <h2>口径先写死，数字才有意义</h2>
+        <p>下面 10 个指标是看板里出现的全部口径。每一行都写清楚：公式、分母、边界情况，以及「为什么非要这么定」。</p>
+      </div>
+      <div class="card">
+        <div class="table-wrap">
+          <table class="table" id="dictTable">
+            <thead><tr><th>指标</th><th>公式</th><th>分母</th><th>边界情况</th><th>为什么这么定</th></tr></thead>
+            <tbody id="dictBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card span-6">
+          <header class="card-head"><h2>同一个问题，三种分母<small>都来自这 511 份数据</small></h2></header>
+          <div id="chartDenominator" class="chart chart-short"></div>
+          <p class="note">报「提交率」不写分母，等于没报。对外只该用中间那一版。</p>
+        </article>
+        <article class="card span-6">
+          <header class="card-head"><h2>五类脏数据，五条处理规则<small>原始导出 611 行 → 净数据 511 行</small></h2></header>
+          <div class="table-wrap">
+            <table class="table table-compact">
+              <thead><tr><th>问题</th><th>行数</th><th>处理</th></tr></thead>
+              <tbody id="cleanBody"></tbody>
+            </table>
+          </div>
+          <p class="note">处理规则写在 <code>build_dataset.py</code> 的 <code>clean()</code> 里，可复跑、可被测试覆盖。</p>
+        </article>
+      </div>
+
+      <div class="card">
+        <header class="card-head"><h2>踩过的坑<small>每一条都对应看板里的一个设计决定</small></h2></header>
+        <ol class="traps" id="traps"></ol>
+      </div>
+    </section>
+
+    <!-- 真实数据 -->
+    <section class="view" data-view="real" hidden>
+      <div class="section-intro">
+        <h2>真实锚点：本人仓库的 13 次交付</h2>
+        <p>班级数据是合成的（平台没有导出接口），但这一页是**真的**：<code>data/fetch_real.py</code> 通过 GitHub API 拉取 <a href="https://github.com/07Meteorain/AI" target="_blank" rel="noreferrer">07Meteorain/AI</a> 每个交付目录的 commit 时间与文件量。它证明的恰恰是「时间口径没选对，结论会整段失真」。</p>
+      </div>
+      <div class="kpis" id="realKpis"></div>
+      <div class="grid">
+        <article class="card span-7">
+          <header class="card-head">
+            <h2>每个交付目录的 commit 数<small>颜色越亮 = 越像「一次性推送」</small></h2>
+            <span class="hint" data-tip="判定规则：commit ≥ 5 且时间跨度 ≤ 4 小时，视为一次批量推送或历史改写。">口径</span>
+          </header>
+          <div id="chartCommits" class="chart"></div>
+          <p class="note">C2G 的 50 条 commit 全部落在 1.8 小时内——这不是「迭代 50 次」，而是一次性推上去的。</p>
+        </article>
+        <article class="card span-5">
+          <header class="card-head"><h2>git 时间为什么不能当提交时间</h2></header>
+          <ul class="bullets">
+            <li><b>推送 ≠ 完成。</b>本地写一周，最后 push 一次，commit 时间只记录最后一次。</li>
+            <li><b>改写历史会重写时间。</b>rebase / squash 之后，时间线是假的。</li>
+            <li><b>时区差 8 小时。</b>GitHub 返回 UTC，直接和本地 23:59 的截止时间比，会把「按时」判成「迟交」。</li>
+          </ul>
+          <p class="note">所以班级看板的提交时间一律取自平台「提交事件」，而不是 git——这一条写在口径页第 3 个坑里。</p>
+        </article>
+      </div>
+      <div class="card">
+        <div class="table-wrap">
+          <table class="table" id="realTable">
+            <thead><tr><th>目录</th><th>commit</th><th>文件</th><th>体积</th><th>首 / 末 commit（+08:00）</th><th>跨度</th><th>判定</th></tr></thead>
+            <tbody id="realBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <b>数据说明</b>：班级全景为合成数据（seed 20260717，106 在读 / 12 退课免修 / 6 挑战 / 511 份有效提交），人物与学号均为虚构，用于验证管线与看板；
+      「真实数据」页的 13 个目录来自本人 GitHub 仓库，可逐条核对。
+    </div>
+    <div class="footer-meta">
+      <span>C6A · 提交数据仪表盘</span>
+      <span>纯静态 · 无后端 · 无追踪</span>
+      <span>生成于 <span id="genAt"></span></span>
+    </div>
+  </footer>
+</div>
+
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="学生详情">
+  <div class="drawer-head">
+    <div>
+      <h2 id="drawerName">—</h2>
+      <p class="muted" id="drawerMeta">—</p>
+    </div>
+    <button class="btn ghost small" id="drawerClose">关闭 ✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+<div class="scrim" id="scrim" hidden></div>
+
+<div class="tooltip" id="tooltip" role="status"></div>
+
+<div class="tour" id="tour" hidden>
+  <div class="tour-card">
+    <div class="tour-step" id="tourStep">1 / 5</div>
+    <h3 id="tourTitle">—</h3>
+    <p id="tourText">—</p>
+    <div class="tour-actions">
+      <button class="btn ghost small" id="tourExit">退出</button>
+      <div>
+        <button class="btn ghost small" id="tourPrev">上一步</button>
+        <button class="btn primary small" id="tourNext">下一步</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
