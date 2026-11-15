@@ -216,10 +216,10 @@ n 476 median 74.1 mean 74.4
 | 指标 | 数值 | 怎么算的 |
 | --- | --- | --- |
 | 协作轮次 | 11 轮 | 本文档的小节数 |
-| 真实失败 | 6 次 | shell 0xC0000142、`KeyError: _total`、API 404、GBK 编码、API 403、`[hidden]` 失效 |
+| 真实失败 | 7 次 | shell 0xC0000142、`KeyError: _total`、API 404、GBK 编码、API 403、`[hidden]` 失效、`.ps1` 无 BOM 乱码 |
 | 截图轮次 | 4 轮（首图 → 全量 9 张 → 修版 → 终版） | `demo/截图/` 的生成时间 |
 | 数据行数变化 | 611 → 511 | `data/metrics.json` → `meta.log` |
-| 单测 | 12 项 | `python -m unittest discover -s tests` |
+| 单测 | 18 项 | `python -m unittest discover -s tests` |
 | 前端依赖 | 0 | `app/` 下无 node_modules、无 CDN 引用 |
 | 一次构建耗时 | < 1s | `build_dataset.py` 实测 |
 
