@@ -1,0 +1,87 @@
+# C9 · Recall —— 测试与浏览器自检
+#
+# 这个工作流只做四件事：跑 Python 测试、跑运行时自检、用 CLI 走一遍闭环、
+# 用真实浏览器验证 JS/Python 两端算出的复习日期一致。
+# 不安装任何第三方 Python 包；浏览器用 runner 自带的 Chrome。
+name: C9 CI
+
+on:
+  push:
+    paths:
+      - "C9_交付/**"
+      - ".github/workflows/c9-recall.yml"
+  pull_request:
+    paths:
+      - "C9_交付/**"
+      - ".github/workflows/c9-recall.yml"
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: C9_交付
+
+jobs:
+  test:
+    name: Python ${{ matrix.python }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.9", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: 版本信息
+        run: python --version
+
+      - name: 全量测试（128 项）
+        run: python -m unittest discover -s tests -v
+
+      - name: 运行时自检
+        run: python -m recall selfcheck
+
+      - name: CLI 闭环（build → review → web）
+        run: |
+          set -e
+          python -m recall build examples/notes --db /tmp/recall.db --out /tmp/deck.json
+          python -m recall review --db /tmp/recall.db --limit 3 --script 3,2,4 --today 2026-11-15
+          python -m recall stats --db /tmp/recall.db --today 2026-11-16 --json
+          python -m recall web --db /tmp/recall.db --out /tmp/site
+          test -f /tmp/site/index.html
+          test -f /tmp/site/deck.js
+
+      - name: 浏览器自检（120 条断言）
+        run: |
+          set -e
+          cd site
+          CHROME=""
+          for c in google-chrome google-chrome-stable chromium chromium-browser; do
+            if command -v "$c" >/dev/null 2>&1; then CHROME="$c"; break; fi
+          done
+          if [ -z "$CHROME" ]; then
+            echo "没有可用的 Chrome，跳过浏览器自检（Python 测试已覆盖算法）"
+            exit 0
+          fi
+          "$CHROME" --headless=new --no-sandbox --disable-gpu \
+            --virtual-time-budget=3000 --dump-dom selftest.html > /tmp/dom.html
+          grep -q 'data-result="PASS"' /tmp/dom.html
+          grep -q '通过 120 / 120' /tmp/dom.html
+          echo "浏览器自检通过：120/120"
+
+      - name: 真实语料回归（C1 33 篇）
+        run: |
+          set -e
+          python -m recall build ../C1_交付/translations --db /tmp/c1.db
+          python -m recall stats --db /tmp/c1.db --today 2026-11-15 --json > /tmp/c1.json
+          python - <<'PY'
+          import json
+          data = json.load(open("/tmp/c1.json", encoding="utf-8"))
+          assert data["total"] >= 100, data["total"]
+          assert data["by_kind"].get("heading-question", 0) >= 40, data["by_kind"]
+          print("C1 OK:", data["total"], "cards", data["by_kind"])
+          PY
