@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>127 次提交、464 项测试：验收的三条硬结论</title>
+</head>
+<body style="max-width: 677px; margin: 0 auto; padding: 20px; background: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', sans-serif;">
+<section style="padding: 0 0 18px 0; margin: 0 0 8px 0; border-bottom: 1px solid #d6e6fb;"><section style="background-color: #e8f1fd; padding: 16px 18px; margin: 24px 0; border: 1px solid #d6e6fb; border-radius: 6px;"><p style="font-size: 15px; font-weight: bold; color: #0b57a4; margin: 0 0 10px 0;">📖 本文目录</p><p style="font-size: 15px; line-height: 1.9; color: #202124; margin: 5px 0; font-weight: bold;">1. 一、最贵的假，是「格式合法」的假</p><p style="font-size: 15px; line-height: 1.9; color: #202124; margin: 5px 0; font-weight: bold;">2. 二、第一版审计器误伤真文献，我差点把它做废</p><p style="font-size: 15px; line-height: 1.9; color: #202124; margin: 5px 0; font-weight: bold;">3. 三、静默失效：没人验收的功能等于不存在</p><p style="font-size: 15px; line-height: 1.9; color: #202124; margin: 5px 0; font-weight: bold;">4. 四、把验收拆成三层</p><p style="font-size: 15px; line-height: 1.9; color: #202124; margin: 5px 0; font-weight: bold;">5. 五、12 条验收清单</p><p style="font-size: 15px; line-height: 1.9; color: #202124; margin: 5px 0; font-weight: bold;">6. 六、三条硬结论</p></section><p style="font-size: 22px; font-weight: bold; color: #0b57a4; line-height: 1.45; margin: 0 0 10px 0;">127 次提交、464 项测试：验收的三条硬结论</p><p style="font-size: 13px; color: #80868b; margin: 0 0 8px 0;">Meteorain · 2026-11-15</p><p style="font-size: 14px; color: #202124; line-height: 1.8; margin: 0; padding: 10px 12px; background-color: #e8f1fd; border-radius: 4px;">从一个「测试全绿但按钮是坏的」下午，到一个点开能访问却指向别的论文的 arXiv ID，我发现真正贵的不是"让 AI 写出来"，而是"确认它写对了"。这是一份关于验收的实录，和一张可以逐条打勾的清单。</p></section>
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">我用大半年的时间做了 6 个 AI 方向的主关挑战（前后 14 个交付目录）：翻译一套课程资料、写一篇带参考文献的论文、做一个 prompt 静态检查器、做一个上线前的 prompt 体检工具。最后攒下 127 次提交、1,355 个文件、464 项自测。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">如果只看结果，这像是一条"AI 帮我干了很多活"的进度条。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">但真正让我印象深刻的，是另外三个瞬间：</p>
+
+
+<ul>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;"><span style="font-weight: bold; color: #1a73e8;">C2</span>，论文里 17 条参考文献，AI 生成了 3 条幻觉：一个格式合法、点开能访问、但指向<span style="font-weight: bold; color: #1a73e8;">另一篇论文</span>的 arXiv ID，和两个凭空编出来的标题。</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;"><span style="font-weight: bold; color: #1a73e8;">C4C</span>，我把这套核验做成通用审计器。第一版拿 C2 那 17 条<span style="font-weight: bold; color: #1a73e8;">已核验的真文献</span>当测试集，误报了 3 条。</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;"><span style="font-weight: bold; color: #1a73e8;">C6</span>，交付当天的最后几分钟，我发现"忽略这一条"按钮从写下的那一刻起就是坏的。点下去没反应，控制台里也没有任何报错。</li>
+</ul>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">这三个故障有个共同的形状：<span style="font-weight: bold; color: #1a73e8;">它们都不是"跑不起来"，而是"跑起来了，而且看起来是对的"。</span></p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">这就是我今天想说的那件事。</p>
+
+
+<h2 style="font-size: 20px; font-weight: bold; line-height: 1.5; color: #0b57a4; margin: 34px 0 16px 0; padding-left: 12px; border-left: 4px solid #1a73e8; letter-spacing: 0.5px;">一、最贵的假，是「格式合法」的假</h2>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">C2 的 3 条幻觉里，最危险的不是那两个编出来的标题——它们经不起一次搜索。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">最危险的是那个 arXiv ID：<span style="background-color: #f0f7ff; color: #d6336c; font-size: 14px; padding: 3px 6px; border-radius: 3px; font-family: Menlo, Consolas, monospace;">2406.14405</span>，格式完全合法，链接能打开，页面有标题、有作者、有摘要。它甚至<span style="font-weight: bold; color: #1a73e8;">真的存在</span>。只不过它指向的是另一篇论文（Hetzel 与 Starke 关于 $L^p$ 逼近的工作），而不是 AI 声称的那篇。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">你点开链接，浏览器告诉你"这是一个 arXiv 页面"，然后你就信了。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">这就是 AI 幻觉最难防的形态：<span style="font-weight: bold; color: #1a73e8;">它伪造的不是内容，是证据的格式。</span> 格式是标准化的、公开的、可枚举的：你知道 arXiv 的 ID 长什么样，它就给你一个长得一模一样的；你知道 BibTeX 有 12 个字段，它就把 12 个字段填满，一个不空。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;"><span style="font-weight: bold; color: #1a73e8;">格式越标准，越难靠"读一遍"发现。</span></p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">后来我的验收方式变成了一份核验台账：每条引用同时查 Crossref 和 OpenAlex，标题的 token-set F1 ≥ 0.90、年份差 ≤ 1、双源交叉确认，才算通过。3 条幻觉全部被拦下，17 条真文献全部留下（台账在仓库 <span style="background-color: #f0f7ff; color: #d6336c; font-size: 14px; padding: 3px 6px; border-radius: 3px; font-family: Menlo, Consolas, monospace;">C2_交付/refs_check/VERIFICATION_LEDGER.txt</span>）。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">这件事改变了我对"验收"的理解：</p>
+
+
+<p style="background-color: #f0f7ff; color: #202124; padding: 14px 16px; margin: 20px 0; border-left: 4px solid #1a73e8; font-size: 15px; line-height: 1.8;">
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">验收不是"再读一遍"，而是"找一条独立于生成过程的、能被机器裁定的证据"。</p>
+</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">"再读一遍"用的是同一套语言模型直觉，它当然看不出自己刚编的东西哪里不对。核对元数据用的是外部数据库，它不需要相信任何人。</p>
+
+
+<h2 style="font-size: 20px; font-weight: bold; line-height: 1.5; color: #0b57a4; margin: 34px 0 16px 0; padding-left: 12px; border-left: 4px solid #1a73e8; letter-spacing: 0.5px;">二、第一版审计器误伤真文献，我差点把它做废</h2>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">C4C 里我把这套流程做成了通用工具：解析参考文献，查 DOI，查不到就报错。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">第一版拿 C2 那 17 条真文献当测试集——它报了 3 条"疑似编造"。那 3 条是真的，只是没有 DOI（会议论文与 arXiv 条目）。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">那一刻我差点放弃这个工具。逻辑上它没错，"查不到"确实是"查不到"。但它没用，因为<span style="font-weight: bold; color: #1a73e8;">它把"我不确定"说成了"它是假的"</span>，而这两种错误对使用者的代价完全不同：</p>
+
+
+<ul>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;">漏掉一条假引用，你丢的是一次严谨；</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;">冤枉一条真引用，你丢的是对工具的信任。</li>
+</ul>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">改法是把它拆成四档，只有最后一档才报错：</p>
+
+
+<table style="border-collapse: collapse; margin: 20px 0; font-size: 14px; width: 100%;">
+<thead>
+<tr>
+<th style="background-color: #e8f1fd; color: #0b57a4; font-weight: bold; padding: 10px 8px; text-align: left; border: 1px solid #d6e6fb;">判定</th>
+<th style="background-color: #e8f1fd; color: #0b57a4; font-weight: bold; padding: 10px 8px; text-align: left; border: 1px solid #d6e6fb;">条件</th>
+<th style="background-color: #e8f1fd; color: #0b57a4; font-weight: bold; padding: 10px 8px; text-align: left; border: 1px solid #d6e6fb;">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">可核验</td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">DOI/arXiv 命中且元数据一致</td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">通过</td>
+</tr>
+<tr>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">可检索</td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">无 DOI，但标题能在数据库中命中</td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">通过，标注"无 DOI"</td>
+</tr>
+<tr>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">待人工</td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">查不到，但格式与主题都合理</td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;"><span style="font-weight: bold; color: #1a73e8;">不报错</span>，进人工队列</td>
+</tr>
+<tr>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">明确矛盾</td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">元数据互相冲突（年份/作者/期刊不符）</td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">报错</td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">改完之后，同一批双语料，零误报。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">这条规则后来被我复用到所有工具里：<span style="font-weight: bold; color: #1a73e8;">工具的第一版不是用来"抓错"的，是用来"不冤枉人"的。</span></p>
+
+
+<h2 style="font-size: 20px; font-weight: bold; line-height: 1.5; color: #0b57a4; margin: 34px 0 16px 0; padding-left: 12px; border-left: 4px solid #1a73e8; letter-spacing: 0.5px;">三、静默失效：没人验收的功能等于不存在</h2>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">C6 那个按钮的问题更隐蔽。它的事件处理需要从 <span style="background-color: #f0f7ff; color: #d6336c; font-size: 14px; padding: 3px 6px; border-radius: 3px; font-family: Menlo, Consolas, monospace;">data-line</span> 属性里读行号，重构的时候这个属性丢了。点击时读到 <span style="background-color: #f0f7ff; color: #d6336c; font-size: 14px; padding: 3px 6px; border-radius: 3px; font-family: Menlo, Consolas, monospace;">undefined</span>，抛错，被一个 <span style="background-color: #f0f7ff; color: #d6336c; font-size: 14px; padding: 3px 6px; border-radius: 3px; font-family: Menlo, Consolas, monospace;">try/catch</span> 吞掉。于是：<span style="font-weight: bold; color: #1a73e8;">按钮是灰的，但它看起来就应该那样。</span></p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">130 项测试全绿。因为测试覆盖的是纯逻辑模块——解析、规则、门禁、导出——而坏掉的，是"逻辑"和"DOM"之间的那根线。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">这个 bug 在 git 历史里只活了 3 分 12 秒（<span style="background-color: #f0f7ff; color: #d6336c; font-size: 14px; padding: 3px 6px; border-radius: 3px; font-family: Menlo, Consolas, monospace;">638b101</span> 引入，<span style="background-color: #f0f7ff; color: #d6336c; font-size: 14px; padding: 3px 6px; border-radius: 3px; font-family: Menlo, Consolas, monospace;">e94f2a1</span> 修复）。但它不是被测试抓住的，是我在浏览器里点了一下才发现的。第 131 项测试，是修完它之后补上的。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">我补了三样东西：</p>
+
+
+<ol>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;"><span style="font-weight: bold; color: #1a73e8;">一条 UI 测试</span>：渲染 → 模拟点击 → 断言状态真的变了。不测"函数被调用"，测"界面有反应"。</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;"><span style="font-weight: bold; color: #1a73e8;">一条资源存在性测试</span>：解析 <span style="background-color: #f0f7ff; color: #d6336c; font-size: 14px; padding: 3px 6px; border-radius: 3px; font-family: Menlo, Consolas, monospace;">index.html</span> 里的 <span style="background-color: #f0f7ff; color: #d6336c; font-size: 14px; padding: 3px 6px; border-radius: 3px; font-family: Menlo, Consolas, monospace;">&lt;script src&gt;</span> 和 Service Worker 的预缓存清单，断言这些文件都在。线上 404 是最难在本地复现的故障。</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;"><span style="font-weight: bold; color: #1a73e8;">一条"反向测试"</span>：断言<span style="font-weight: bold; color: #1a73e8;">合格的样例必须零命中</span>。任何人加规则时如果误伤了正常内容，这条测试立刻变红。</li>
+</ol>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">第 3 条现在是我认为最重要的一条测试。它保护的正是第二节那类错误：<span style="font-weight: bold; color: #1a73e8;">不是"该抓的没抓到"，而是"不该抓的抓到了"。</span></p>
+
+
+<h2 style="font-size: 20px; font-weight: bold; line-height: 1.5; color: #0b57a4; margin: 34px 0 16px 0; padding-left: 12px; border-left: 4px solid #1a73e8; letter-spacing: 0.5px;">四、把验收拆成三层</h2>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">做到这里，我发现"验收"其实可以拆成三个可独立设计的层，而且一层比一层便宜：</p>
+
+
+<table style="border-collapse: collapse; margin: 20px 0; font-size: 14px; width: 100%;">
+<thead>
+<tr>
+<th style="background-color: #e8f1fd; color: #0b57a4; font-weight: bold; padding: 10px 8px; text-align: left; border: 1px solid #d6e6fb;">层</th>
+<th style="background-color: #e8f1fd; color: #0b57a4; font-weight: bold; padding: 10px 8px; text-align: left; border: 1px solid #d6e6fb;">问题</th>
+<th style="background-color: #e8f1fd; color: #0b57a4; font-weight: bold; padding: 10px 8px; text-align: left; border: 1px solid #d6e6fb;">做法</th>
+<th style="background-color: #e8f1fd; color: #0b57a4; font-weight: bold; padding: 10px 8px; text-align: left; border: 1px solid #d6e6fb;">成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;"><span style="font-weight: bold; color: #1a73e8;">能跑</span></td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">换台机器能不能起来？</td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">一条命令从零跑通，零依赖优先</td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">一次性</td>
+</tr>
+<tr>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;"><span style="font-weight: bold; color: #1a73e8;">能复算</span></td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">同样的输入，输出一样吗？</td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">所有数字由脚本产出；文档由代码生成，带 <span style="background-color: #f0f7ff; color: #d6336c; font-size: 14px; padding: 3px 6px; border-radius: 3px; font-family: Menlo, Consolas, monospace;">--check</span> 漂移检测</td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">一次性</td>
+</tr>
+<tr>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;"><span style="font-weight: bold; color: #1a73e8;">能截图</span></td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">别人凭什么相信？</td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">结论要能变成一张图、一份报告，且别人能复现这张图</td>
+<td style="padding: 10px 8px; border: 1px solid #d6e6fb; color: #202124; font-size: 14px; line-height: 1.7;">一次性</td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">三层都不贵，但都要求同一件事：<span style="font-weight: bold; color: #1a73e8;">在开始做之前就设计好"它将来怎么被验收"。</span></p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">反过来，凡是做完才想"怎么证明"的活，最后都会变成"我读了一遍，感觉没问题"。</p>
+
+
+<h2 style="font-size: 20px; font-weight: bold; line-height: 1.5; color: #0b57a4; margin: 34px 0 16px 0; padding-left: 12px; border-left: 4px solid #1a73e8; letter-spacing: 0.5px;">五、12 条验收清单</h2>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">以下是我现在每个交付物上线前会逐条过的东西，可以直接抄：</p>
+
+
+<ol>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;">有没有一条命令，能从干净环境跑通全部？</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;">有没有一条<span style="font-weight: bold; color: #1a73e8;">反向测试</span>：正确的输入必须不被判错？</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;">所有出现在报告里的数字，是不是都由脚本生成，而不是手打的？</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;">生成的文档有没有漂移检测（改了代码忘了改文档会红）？</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;">有没有一条测试，专门验证"声称存在的文件真的存在"？</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;">依赖是不是越少越好？每多一个依赖，第一次打开的人就多一次失败机会。</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;">失败时会不会说话？报错能不能定位到行、到文件、到规则？</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;">有没有把"我不确定"和"它是错的"分开处理？</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;">有没有一个可以在 30 秒内验收的入口（一个链接、一张图、一条命令）？</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;">结论有没有注明时间与口径（价格快照日期、样本量、估算误差）？</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;">有没有写清楚"这个工具做不到什么"？</li>
+<li style="font-size: 16px; line-height: 1.8; color: #202124; margin: 8px 0;">如果我现在把这份东西交给一个陌生人，他能不能只靠 README 跑起来？</li>
+</ol>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">第 11 条很多人会跳过，但它是可信度的来源之一。一个敢说"我做不到 X"的工具，它说的"我能做到 Y"才值钱。</p>
+
+
+<h2 style="font-size: 20px; font-weight: bold; line-height: 1.5; color: #0b57a4; margin: 34px 0 16px 0; padding-left: 12px; border-left: 4px solid #1a73e8; letter-spacing: 0.5px;">六、三条硬结论</h2>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">现在让 AI 写出一份看起来专业的交付物，几乎不要钱。所以稀缺的东西变了，我把这半年的结论压成三条：</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;"><span style="font-weight: bold; color: #1a73e8;">结论一：验收的第一步是找到"AI 控制不了的证据"。</span><br/>
+不是"再读一遍"，而是 DOI 元数据、测试断言、可复算脚本。只要证据来自同一套语言直觉，它就验不出幻觉。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;"><span style="font-weight: bold; color: #1a73e8;">结论二：好工具的标志是"不冤枉人"，不是"抓得多"。</span><br/>
+把"不确定"和"是错的"分开，把正确样例零命中当成最高优先级的回归测试。误伤一次，工具就废了。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;"><span style="font-weight: bold; color: #1a73e8;">结论三：验收要能被别人重跑，否则它只是你的自信。</span><br/>
+数字有脚本、截图有指纹、文档有漂移检测。一条结论如果换个人复现不出来，它就不是结论，是说法。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;">我见过太多团队在同一个地方摔跤：生成环节上了工具，验收环节还在靠人眼。结果就是产能上去了，事故密度也上去了，而人的注意力全被拖进了"再读一遍"里。</p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;"><span style="font-weight: bold; color: #1a73e8;">把验收做成基础设施</span>，是我这半年最确定的一个结论。它不性感，但它是唯一能让产出规模变大的同时不增加风险的做法。</p>
+
+
+<p style="border: none; border-top: 1px solid #d6e6fb; margin: 28px 0;"></p>
+
+
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;"><span style="font-style: italic;">本文来自一个持续了半年的 AI 挑战仓库（6 个主关、127 次提交、464 项自测，全部公开可查）。如果你想要那张可以逐条打勾的《AI 交付验收清单》，在公众号后台回复「验收」自取。</span></p>
+
+
+<p style="background-color: #f0f7ff; color: #202124; padding: 14px 16px; margin: 20px 0; border-left: 4px solid #1a73e8; font-size: 15px; line-height: 1.8;">
+<p style="font-size: 16px; line-height: 1.8; color: #202124; margin: 18px 0; letter-spacing: 0.5px; text-align: justify;"><span style="font-weight: bold; color: #1a73e8;">数据口径</span>：截止 <span style="background-color: #f0f7ff; color: #d6336c; font-size: 14px; padding: 3px 6px; border-radius: 3px; font-family: Menlo, Consolas, monospace;">master@165f7d3</span>（2026-11-15，C7 提交之前）。提交数、文件数、测试数由 <span style="background-color: #f0f7ff; color: #d6336c; font-size: 14px; padding: 3px 6px; border-radius: 3px; font-family: Menlo, Consolas, monospace;">tools/repo_facts.py</span> 从 git 历史与测试文件静态计数得出，可复算；同一份口径见 <span style="background-color: #f0f7ff; color: #d6336c; font-size: 14px; padding: 3px 6px; border-radius: 3px; font-family: Menlo, Consolas, monospace;">C7_内容传播/数据/指标口径.md</span>。C6 那个按钮的 bug 由 <span style="background-color: #f0f7ff; color: #d6336c; font-size: 14px; padding: 3px 6px; border-radius: 3px; font-family: Menlo, Consolas, monospace;">e94f2a1</span> 修复，与引入它的 <span style="background-color: #f0f7ff; color: #d6336c; font-size: 14px; padding: 3px 6px; border-radius: 3px; font-family: Menlo, Consolas, monospace;">638b101</span> 相隔 3 分 12 秒 —— 它没被 131 项测试抓住，是我在浏览器里点了一下才发现的。</p>
+</p>
+<section style="border-top: 1px solid #d6e6fb; margin: 36px 0 0 0; padding-top: 18px;"><p style="font-size: 13px; color: #80868b; line-height: 1.9; text-align: center; margin: 0;">— 原创，作者：Meteorain，转载请注明出处</p></section>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "updated": "2026-11-15",
+  "note": "标题评分是确定性的：同一份 JSON 驱动 Python(tools/title_score.py) 与 JS(app/js/core/titlescore.js)，两边必须给出完全相同的分数，由 tests/titlescore-parity.test.js 保证。改这里就要重跑 tools/title_score.py 与 node tools/gen_data_js.js。",
+  "dimensions": [
+    { "id": "hook",          "label": "钩子强度", "max": 25 },
+    { "id": "specificity",   "label": "具体性",   "max": 20 },
+    { "id": "searchability", "label": "检索性",   "max": 15 },
+    { "id": "platformFit",   "label": "平台适配", "max": 20 },
+    { "id": "credibility",   "label": "可信度",   "max": 20 }
+  ],
+  "hook": {
+    "base": 8,
+    "rules": [
+      { "id": "hasDigits",  "kind": "regex", "value": "[0-9]+",                                   "points": 4, "cap": 4, "label": "含阿拉伯数字" },
+      { "id": "hasQuestion","kind": "regex", "value": "[？?]",                                    "points": 3, "cap": 3, "label": "含疑问/设问" },
+      { "id": "hasContrast","kind": "words", "value": ["不是", "而是", "才", "反而", "却"],        "points": 3, "cap": 3, "label": "含反差/转折" },
+      { "id": "hasStrong",  "kind": "words", "value": ["最", "唯一", "十倍", "归零", "稀缺", "重要"], "points": 3, "cap": 3, "label": "含强判断" },
+      { "id": "hasCost",    "kind": "words", "value": ["骗", "坑", "事故", "失败", "误伤", "坏", "冤枉", "假"], "points": 4, "cap": 4, "label": "含代价/损失词" }
+    ]
+  },
+  "specificity": {
+    "base": 6,
+    "rules": [
+      { "id": "numberDensity", "kind": "regexCount", "value": "[0-9]+",       "points": 2, "cap": 6, "label": "数字密度" },
+      { "id": "domainTerms",   "kind": "wordCount",  "value": ["AI", "prompt", "DOI", "arXiv", "测试", "仓库", "流水线", "按钮", "文献", "引用"], "points": 2, "cap": 6, "label": "领域术语" },
+      { "id": "concreteObject","kind": "words",      "value": ["清单", "交付物", "挑战", "文章", "报告", "表格"], "points": 2, "cap": 2, "label": "具体产物" }
+    ]
+  },
+  "searchability": {
+    "base": 5,
+    "rules": [
+      { "id": "keywords", "kind": "wordCount", "value": ["验收", "AI", "交付", "测试", "清单", "prompt", "方法", "可信", "文献", "引用", "流水线", "生成"], "points": 3, "cap": 10, "label": "检索关键词覆盖" }
+    ]
+  },
+  "platformFit": {
+    "base": 0,
+    "bands": [
+      { "maxLength": 24, "minLength": 16, "score": 20, "label": "公众号最佳区间 16–24 字" },
+      { "maxLength": 28, "minLength": 12, "score": 14, "label": "可接受 12–15 / 25–28 字" },
+      { "maxLength": 34, "minLength": 8,  "score": 8,  "label": "偏短或偏长 8–11 / 29–34 字" },
+      { "maxLength": 999, "minLength": 0, "score": 4,  "label": "过长或过短" }
+    ],
+    "penalties": [
+      { "id": "clickbait", "kind": "wordCount", "value": ["震惊", "必看", "速看", "99%", "所有人", "一定", "彻底", "完美", "最强"], "points": -5, "cap": -10, "label": "标题党/绝对化用词" },
+      { "id": "multiQuestion", "kind": "regexCount", "value": "[？?]", "points": -2, "cap": -4, "label": "连续多问号" }
+    ]
+  },
+  "credibility": {
+    "base": 20,
+    "penalties": [
+      { "id": "hype",       "kind": "wordCount", "value": ["震惊", "必看", "速看", "99%", "所有人", "一定"], "points": -6, "cap": -12, "label": "夸张承诺" },
+      { "id": "absolutism", "kind": "wordCount", "value": ["彻底", "完美", "最强", "永远", "绝对"],        "points": -4, "cap": -8,  "label": "绝对化表述" },
+      { "id": "unsupported", "kind": "words",    "value": ["十倍", "100倍", "全都"],                     "points": -3, "cap": -3,  "label": "无依据的倍数词" }
+    ],
+    "bonuses": [
+      { "id": "groundedNumber", "kind": "regex", "value": "[0-9]+", "points": 2, "cap": 2, "label": "数字有出处感" }
+    ]
+  },
+  "thresholds": { "strong": 75, "usable": 64, "weak": 52 },
+  "veto": {
+    "words": ["震惊", "必看", "速看", "99%", "绝对", "史上最"],
+    "cap": 40,
+    "label": "标题党/绝对化用词，一票否决"
+  },
+  "tieBreak": ["total:desc", "specificity:desc", "hook:desc", "id:asc"]
+}
