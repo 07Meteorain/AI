@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recall 自检</title>
+<style>
+  body { font-family: "Segoe UI", "PingFang SC", sans-serif; background: #f7f3ec; color: #211f1c; margin: 0; padding: 40px 20px; }
+  main { max-width: 760px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  #summary { font-size: 15px; font-weight: 600; padding: 12px 16px; border-radius: 10px; background: #e8efe8; color: #2f6b4f; display: inline-block; margin: 12px 0 20px; }
+  #summary.bad { background: #f7e4e4; color: #a52a2a; }
+  pre { background: #fffdf9; border: 1px solid #e2d9cb; border-radius: 12px; padding: 18px; font-size: 12.5px; line-height: 1.7; overflow: auto; }
+  a { color: #b4441c; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Recall 自检</h1>
+  <p>在真实浏览器里跑排程向量，确认 JS 与 Python 两端算出的复习日期完全一致。</p>
+  <p><a href="index.html">← 回到复习页</a></p>
+  <div id="summary">运行中…</div>
+  <pre id="out"></pre>
+</main>
+<script src="lib.js"></script>
+<script src="vectors.js"></script>
+<script src="selftest.js"></script>
+</body>
+</html>
