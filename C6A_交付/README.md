@@ -136,6 +136,11 @@ python data/build_dataset.py            # 重新生成 raw / clean / metrics.jso
 python data/build_dataset.py --check    # 只打印产物指纹，用于核对是否与种子一致
 ```
 
+> **关于「可复现」的精确说法**：随机数用到 `random.gauss` / `betavariate`，它们内部依赖
+> libm 的 `log`/`cos`，**同一平台同一 Python 版本下逐字节一致**；换平台（Windows ↔ Linux）
+> 末位差异可能让少数抽样翻转，得到 505–515 行这类微差。要严格复现，请以仓库里提交的
+> `data/raw/*.csv` 为源（它本身就是平台无关的事实来源），而不是重新抽样。
+
 **想刷新真实数据**（需要网络；匿名 GitHub API 限额 60 次/小时）：
 
 ```bash
