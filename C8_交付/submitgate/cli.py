@@ -122,7 +122,10 @@ def _cmd_check(args: argparse.Namespace) -> int:
     for path in written:
         print(f"报告：{path}")
     verdict = "PASS" if report.gate_ok else "FAIL"
-    print(f"结论：{verdict}（{len(report.passed)}/{report.total} 挑战通过；估算总分 {report.score}/{report.max_score}，非成绩）")
+    print(
+        f"结论：{verdict}（{len(report.passed)}/{report.total} 挑战通过；"
+        f"可验证得分 {report.score}/{report.max_score}，覆盖 {report.covered_dimensions}/{report.total_dimensions} 维，非成绩）"
+    )
     return EXIT_OK if report.gate_ok else EXIT_GATE_FAIL
 
 
