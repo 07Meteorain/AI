@@ -46,6 +46,19 @@ class BuildMappingTest(unittest.TestCase):
         self.assertIn("C9 按 mapping.json 声明映射到 C2A_C9_交付/", mapping.notes)
         self.assertEqual([p.name for p in mapping.orphans], ["C4A_交付"])
 
+    def test_exact_dir_wins_over_alias(self):
+        """C9 补了 C9_交付/ 之后，别名不能继续把它指向旧的 C2A_C9_交付/。"""
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            challenges = _challenges(root, ["C9"])
+            repo = root / "repo"
+            write_files(repo / "C9_交付", {"07Meteorain_C9_AAR_W.md": "x"})
+            write_files(repo / "C2A_C9_交付", {"旧.md": "x"})
+            mapping = mp.build_mapping(challenges, repo, {"C9": "C2A_C9_交付"})
+        self.assertEqual(mapping.get("C9").name, "C9_交付")
+        self.assertTrue(any("忽略 mapping.json 里的别名" in note for note in mapping.notes))
+
     def test_missing_alias_target_is_none(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

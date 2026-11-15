@@ -90,6 +90,25 @@ def build_mapping(
     for challenge in challenges:
         source_id = challenge.source_id.upper()
         alias = aliases.get(source_id)
+        candidates = by_id.get(source_id, [])
+
+        # 真实目录优先于别名：C9 曾经只能映射到 C2A_C9_交付/，但仓库后来补了 C9_交付/。
+        # 若让别名抢先，新补的交付会被静默忽略 —— 这是交付期间真实发生过的一次误判。
+        if candidates:
+            if len(candidates) == 1:
+                mapping.entries[source_id] = candidates[0]
+                used_names.add(candidates[0].name)
+            else:
+                mapping.entries[source_id] = candidates[0]
+                mapping.ambiguous[source_id] = candidates
+                used_names.add(candidates[0].name)
+                names = "、".join(p.name for p in candidates)
+                mapping.notes.append(f"{source_id} 命中多个目录（{names}），暂取 {candidates[0].name}/")
+            if alias:
+                note = f"{source_id} 存在同名目录 {candidates[0].name}/，忽略 mapping.json 里的别名 {alias}/"
+                mapping.notes.append(note)
+            continue
+
         if alias:
             target = root / alias
             if target.is_dir():
@@ -102,18 +121,7 @@ def build_mapping(
                 mapping.notes.append(f"{source_id} 声明的别名 {alias}/ 不存在")
             continue
 
-        candidates = by_id.get(source_id, [])
-        if len(candidates) == 1:
-            mapping.entries[source_id] = candidates[0]
-            used_names.add(candidates[0].name)
-        elif len(candidates) > 1:
-            mapping.entries[source_id] = candidates[0]
-            mapping.ambiguous[source_id] = candidates
-            used_names.add(candidates[0].name)
-            names = "、".join(p.name for p in candidates)
-            mapping.notes.append(f"{source_id} 命中多个目录（{names}），暂取 {candidates[0].name}/")
-        else:
-            mapping.entries[source_id] = None
+        mapping.entries[source_id] = None
 
     mapping.orphans = [
         path
