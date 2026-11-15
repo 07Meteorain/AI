@@ -1,0 +1,3201 @@
+{
+  "tool": "submitgate",
+  "version": "2.1.0",
+  "generated_at": "2026-11-15T16:05:07",
+  "course_root": "E:\\我的挑战\\C8\\C8_交付\\challenges",
+  "repo_root": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\ai-repo-clone",
+  "git_head": "099371a",
+  "summary": {
+    "challenges": 11,
+    "passed": 5,
+    "failed": 6,
+    "missing_delivery": 5,
+    "red_flags": 12,
+    "required_total": 40,
+    "required_missing": 20,
+    "score": 462,
+    "max_score": 575,
+    "full_score": 1100,
+    "covered_dimensions": 30,
+    "total_dimensions": 56,
+    "gate": "FAIL"
+  },
+  "challenges": [
+    {
+      "source_id": "C3",
+      "challenge_id": "ch-20260717031407-ez6fae",
+      "title": "C3 群内高质量参与",
+      "deadline": "2026-12-31T23:59",
+      "status": "PASS",
+      "delivery_dir": "C3_交付",
+      "file_count": 20,
+      "missing": [],
+      "score": 55,
+      "max_score": 100,
+      "full_score": 100,
+      "covered_dimensions": 6,
+      "total_dimensions": 6,
+      "dimensions": [
+        {
+          "id": "participationQuality",
+          "label": "参与质量",
+          "max_points": 25,
+          "score": 8,
+          "pass_ratio": 0.333,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "substance",
+          "label": "内容实质",
+          "max_points": 20,
+          "score": 7,
+          "pass_ratio": 0.333,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "collaboration",
+          "label": "协作贡献",
+          "max_points": 15,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "aiUsage",
+          "label": "AI使用质量",
+          "max_points": 15,
+          "score": 15,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "reflectionQuality",
+          "label": "复盘质量",
+          "max_points": 20,
+          "score": 20,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "artifactCompleteness",
+          "label": "产物完整性",
+          "max_points": 5,
+          "score": 5,
+          "pass_ratio": 0.903,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        }
+      ],
+      "deliverables": [
+        {
+          "raw": "*AI日志*",
+          "name": "AI日志",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C3_交付/07Meteorain_C3_AI日志.md"
+          ]
+        },
+        {
+          "raw": "*AAR*",
+          "name": "AAR",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C3_交付/07Meteorain_C3_AAR.md"
+          ]
+        },
+        {
+          "raw": "*反思*",
+          "name": "反思",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C3_交付/07Meteorain_C3_反思.md"
+          ]
+        }
+      ],
+      "red_flags": [],
+      "checks": [
+        {
+          "id": "docs_evidence",
+          "label": "参与质量：相关文档",
+          "dimension": "participationQuality",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "participation/参与记录表.md（1835 字符）",
+          "evidence": [
+            "C3_交付/participation/参与记录表.md"
+          ]
+        },
+        {
+          "id": "docs_substance",
+          "label": "参与质量：文档有实际内容",
+          "dimension": "participationQuality",
+          "weight": 2.0,
+          "status": "fail",
+          "detail": "1835 字符 / 模板痕迹 24 处 / 表格 20 行（疑似模板）",
+          "evidence": [
+            "C3_交付/participation/参与记录表.md"
+          ]
+        },
+        {
+          "id": "docs_evidence",
+          "label": "内容实质：相关文档",
+          "dimension": "substance",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "participation/参与记录表.md（1835 字符）",
+          "evidence": [
+            "C3_交付/participation/参与记录表.md"
+          ]
+        },
+        {
+          "id": "docs_substance",
+          "label": "内容实质：文档有实际内容",
+          "dimension": "substance",
+          "weight": 2.0,
+          "status": "fail",
+          "detail": "1835 字符 / 模板痕迹 24 处 / 表格 20 行（疑似模板）",
+          "evidence": [
+            "C3_交付/participation/参与记录表.md"
+          ]
+        },
+        {
+          "id": "spec:collab:协作记录",
+          "label": "collab：协作记录",
+          "dimension": "collaboration",
+          "weight": 1.0,
+          "status": "fail",
+          "detail": "未找到对应文件",
+          "evidence": []
+        },
+        {
+          "id": "spec:collab:互评或评审",
+          "label": "collab：互评或评审",
+          "dimension": "collaboration",
+          "weight": 1.0,
+          "status": "fail",
+          "detail": "未找到对应文件",
+          "evidence": []
+        },
+        {
+          "id": "spec:collab:迁移或教学笔记",
+          "label": "collab：迁移或教学笔记",
+          "dimension": "collaboration",
+          "weight": 1.0,
+          "status": "fail",
+          "detail": "未找到对应文件",
+          "evidence": []
+        },
+        {
+          "id": "ai_log",
+          "label": "AI 日志存在",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "07Meteorain_C3_AI日志.md（6073 字符）",
+          "evidence": [
+            "C3_交付/07Meteorain_C3_AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_rounds",
+          "label": "AI 日志有迭代轮次",
+          "dimension": "aiUsage",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "最大轮次 6（不同标记 4 个）",
+          "evidence": [
+            "C3_交付/07Meteorain_C3_AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_prompts",
+          "label": "AI 日志含 prompt 原文",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "7 个 prompt 片段（代码块/引用）",
+          "evidence": [
+            "C3_交付/07Meteorain_C3_AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_failures",
+          "label": "AI 日志含失败/返工记录",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "命中 1 处",
+          "evidence": [
+            "C3_交付/07Meteorain_C3_AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_volume",
+          "label": "AI 日志体量",
+          "dimension": "aiUsage",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "6073 字符",
+          "evidence": [
+            "C3_交付/07Meteorain_C3_AI日志.md"
+          ]
+        },
+        {
+          "id": "aar",
+          "label": "AAR 复盘存在",
+          "dimension": "reflectionQuality",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "07Meteorain_C3_AAR.md（3906 字符）",
+          "evidence": [
+            "C3_交付/07Meteorain_C3_AAR.md"
+          ]
+        },
+        {
+          "id": "aar_sections",
+          "label": "AAR 覆盖复盘要素",
+          "dimension": "reflectionQuality",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "覆盖 6/7 类要素",
+          "evidence": [
+            "C3_交付/07Meteorain_C3_AAR.md"
+          ]
+        },
+        {
+          "id": "aar_numbers",
+          "label": "AAR 含具体数字",
+          "dimension": "reflectionQuality",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "33 个不同数字",
+          "evidence": [
+            "C3_交付/07Meteorain_C3_AAR.md"
+          ]
+        },
+        {
+          "id": "aar_failures",
+          "label": "AAR 有失败经验小节",
+          "dimension": "reflectionQuality",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "小节：4. 失败经验（6 条，含 2 条未解决）",
+          "evidence": [
+            "C3_交付/07Meteorain_C3_AAR.md"
+          ]
+        },
+        {
+          "id": "aar_actions",
+          "label": "AAR 有改进方案",
+          "dimension": "reflectionQuality",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "小节：5. 如果重来一次，我会改的三件事",
+          "evidence": [
+            "C3_交付/07Meteorain_C3_AAR.md"
+          ]
+        },
+        {
+          "id": "req:AI日志",
+          "label": "必需交付物：AI日志",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C3_交付/07Meteorain_C3_AI日志.md"
+          ]
+        },
+        {
+          "id": "req:AAR",
+          "label": "必需交付物：AAR",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C3_交付/07Meteorain_C3_AAR.md"
+          ]
+        },
+        {
+          "id": "req:反思",
+          "label": "必需交付物：反思",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C3_交付/07Meteorain_C3_反思.md"
+          ]
+        },
+        {
+          "id": "readme",
+          "label": "README 存在",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "README.md（3786 字符）",
+          "evidence": [
+            "C3_交付/README.md"
+          ]
+        },
+        {
+          "id": "readme_usage",
+          "label": "README 有安装/使用小节",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "小节：快速开始",
+          "evidence": [
+            "C3_交付/README.md"
+          ]
+        },
+        {
+          "id": "runnable",
+          "label": "有可运行入口",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "入口：linter/tests/test_question_lint.py",
+          "evidence": [
+            "C3_交付/linter/tests/test_question_lint.py"
+          ]
+        },
+        {
+          "id": "volume",
+          "label": "必需交付物总体量",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "共 25369 字节",
+          "evidence": []
+        },
+        {
+          "id": "acceptance",
+          "label": "有验收记录",
+          "dimension": "artifactCompleteness",
+          "weight": 1.5,
+          "status": "fail",
+          "detail": "没有 验收/acceptance 命名的文件或目录",
+          "evidence": []
+        },
+        {
+          "id": "submit_note",
+          "label": "有提交说明",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "提交说明.md",
+          "evidence": [
+            "C3_交付/提交说明.md"
+          ]
+        },
+        {
+          "id": "on_time",
+          "label": "按时交付",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "最后提交 2026-11-13 20:17 ≤ 截止 2026-12-31 23:59",
+          "evidence": []
+        }
+      ],
+      "notes": []
+    },
+    {
+      "source_id": "C3C",
+      "challenge_id": "ch-20260717031415-0vi5d1",
+      "title": "C3C 双人协作与技能迁移",
+      "deadline": "2026-12-31T23:59",
+      "status": "PASS",
+      "delivery_dir": "C3C_交付",
+      "file_count": 39,
+      "missing": [],
+      "score": 91,
+      "max_score": 100,
+      "full_score": 100,
+      "covered_dimensions": 5,
+      "total_dimensions": 5,
+      "dimensions": [
+        {
+          "id": "collaboration",
+          "label": "协作贡献",
+          "max_points": 25,
+          "score": 25,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "skillTransfer",
+          "label": "技能迁移",
+          "max_points": 20,
+          "score": 13,
+          "pass_ratio": 0.667,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "artifactCompleteness",
+          "label": "产物完整性",
+          "max_points": 20,
+          "score": 18,
+          "pass_ratio": 0.914,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "aiUsage",
+          "label": "AI使用质量",
+          "max_points": 15,
+          "score": 15,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "reflectionQuality",
+          "label": "复盘质量",
+          "max_points": 20,
+          "score": 20,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        }
+      ],
+      "deliverables": [
+        {
+          "raw": "*协作记录*",
+          "name": "协作记录",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C3C_交付/07Meteorain_C3C_协作记录.md"
+          ]
+        },
+        {
+          "raw": "*联合成果*",
+          "name": "联合成果",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C3C_交付/07Meteorain_C3C_联合成果.md"
+          ]
+        },
+        {
+          "raw": "*AI日志*",
+          "name": "AI日志",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C3C_交付/07Meteorain_C3C_AI日志.md"
+          ]
+        },
+        {
+          "raw": "*AAR*",
+          "name": "AAR",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C3C_交付/07Meteorain_C3C_AAR.md"
+          ]
+        }
+      ],
+      "red_flags": [],
+      "checks": [
+        {
+          "id": "spec:collab:协作记录",
+          "label": "collab：协作记录",
+          "dimension": "collaboration",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 3 个：logs/协作报告.md",
+          "evidence": [
+            "C3C_交付/logs/协作报告.md",
+            "C3C_交付/logs/合并记录.md",
+            "C3C_交付/07Meteorain_C3C_协作记录.md"
+          ]
+        },
+        {
+          "id": "spec:collab:互评或评审",
+          "label": "collab：互评或评审",
+          "dimension": "collaboration",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 4 个：notes/Aster_评审Bramble.md",
+          "evidence": [
+            "C3C_交付/notes/Aster_评审Bramble.md",
+            "C3C_交付/notes/Bramble_评审Aster.md",
+            "C3C_交付/notes/Aster_评审Bramble_第二轮.md",
+            "C3C_交付/notes/Bramble_评审Aster_第二轮.md"
+          ]
+        },
+        {
+          "id": "spec:collab:迁移或教学笔记",
+          "label": "collab：迁移或教学笔记",
+          "dimension": "collaboration",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 8 个：notes/Aster_设计笔记.md",
+          "evidence": [
+            "C3C_交付/notes/Aster_设计笔记.md",
+            "C3C_交付/notes/Bramble_设计笔记.md",
+            "C3C_交付/notes/Aster_评审Bramble.md",
+            "C3C_交付/notes/Aster_迁移笔记_SEL2.md"
+          ]
+        },
+        {
+          "id": "spec:transfer:迁移笔记",
+          "label": "transfer：迁移笔记",
+          "dimension": "skillTransfer",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 2 个：notes/Aster_迁移笔记_SEL2.md",
+          "evidence": [
+            "C3C_交付/notes/Aster_迁移笔记_SEL2.md",
+            "C3C_交付/notes/Bramble_迁移笔记_SEL1.md"
+          ]
+        },
+        {
+          "id": "spec:transfer:互教或教学记录",
+          "label": "transfer：互教或教学记录",
+          "dimension": "skillTransfer",
+          "weight": 1.0,
+          "status": "fail",
+          "detail": "未找到对应文件",
+          "evidence": []
+        },
+        {
+          "id": "spec:transfer:评审或互检",
+          "label": "transfer：评审或互检",
+          "dimension": "skillTransfer",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 4 个：notes/Aster_评审Bramble.md",
+          "evidence": [
+            "C3C_交付/notes/Aster_评审Bramble.md",
+            "C3C_交付/notes/Bramble_评审Aster.md",
+            "C3C_交付/notes/Aster_评审Bramble_第二轮.md",
+            "C3C_交付/notes/Bramble_评审Aster_第二轮.md"
+          ]
+        },
+        {
+          "id": "req:协作记录",
+          "label": "必需交付物：协作记录",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C3C_交付/07Meteorain_C3C_协作记录.md"
+          ]
+        },
+        {
+          "id": "req:联合成果",
+          "label": "必需交付物：联合成果",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C3C_交付/07Meteorain_C3C_联合成果.md"
+          ]
+        },
+        {
+          "id": "req:AI日志",
+          "label": "必需交付物：AI日志",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C3C_交付/07Meteorain_C3C_AI日志.md"
+          ]
+        },
+        {
+          "id": "req:AAR",
+          "label": "必需交付物：AAR",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C3C_交付/07Meteorain_C3C_AAR.md"
+          ]
+        },
+        {
+          "id": "readme",
+          "label": "README 存在",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "README.md（4452 字符）",
+          "evidence": [
+            "C3C_交付/README.md"
+          ]
+        },
+        {
+          "id": "readme_usage",
+          "label": "README 有安装/使用小节",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "小节：快速开始（不需要 `pip install`）",
+          "evidence": [
+            "C3C_交付/README.md"
+          ]
+        },
+        {
+          "id": "runnable",
+          "label": "有可运行入口",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "入口：duolog/__main__.py",
+          "evidence": [
+            "C3C_交付/duolog/__main__.py",
+            "C3C_交付/duolog/cli.py",
+            "C3C_交付/tests/test_analyze_strip.py",
+            "C3C_交付/tests/test_duolog.py"
+          ]
+        },
+        {
+          "id": "volume",
+          "label": "必需交付物总体量",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "共 42312 字节",
+          "evidence": []
+        },
+        {
+          "id": "acceptance",
+          "label": "有验收记录",
+          "dimension": "artifactCompleteness",
+          "weight": 1.5,
+          "status": "fail",
+          "detail": "没有 验收/acceptance 命名的文件或目录",
+          "evidence": []
+        },
+        {
+          "id": "submit_note",
+          "label": "有提交说明",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "07Meteorain_C3C_提交说明.md",
+          "evidence": [
+            "C3C_交付/07Meteorain_C3C_提交说明.md"
+          ]
+        },
+        {
+          "id": "on_time",
+          "label": "按时交付",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "最后提交 2026-11-13 20:17 ≤ 截止 2026-12-31 23:59",
+          "evidence": []
+        },
+        {
+          "id": "ai_log",
+          "label": "AI 日志存在",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "07Meteorain_C3C_AI日志.md（5715 字符）",
+          "evidence": [
+            "C3C_交付/07Meteorain_C3C_AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_rounds",
+          "label": "AI 日志有迭代轮次",
+          "dimension": "aiUsage",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "最大轮次 3（不同标记 3 个）",
+          "evidence": [
+            "C3C_交付/07Meteorain_C3C_AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_prompts",
+          "label": "AI 日志含 prompt 原文",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "7 个 prompt 片段（代码块/引用）",
+          "evidence": [
+            "C3C_交付/07Meteorain_C3C_AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_failures",
+          "label": "AI 日志含失败/返工记录",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "命中 1 处",
+          "evidence": [
+            "C3C_交付/07Meteorain_C3C_AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_volume",
+          "label": "AI 日志体量",
+          "dimension": "aiUsage",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "5715 字符",
+          "evidence": [
+            "C3C_交付/07Meteorain_C3C_AI日志.md"
+          ]
+        },
+        {
+          "id": "aar",
+          "label": "AAR 复盘存在",
+          "dimension": "reflectionQuality",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "07Meteorain_C3C_AAR.md（4884 字符）",
+          "evidence": [
+            "C3C_交付/07Meteorain_C3C_AAR.md"
+          ]
+        },
+        {
+          "id": "aar_sections",
+          "label": "AAR 覆盖复盘要素",
+          "dimension": "reflectionQuality",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "覆盖 4/7 类要素",
+          "evidence": [
+            "C3C_交付/07Meteorain_C3C_AAR.md"
+          ]
+        },
+        {
+          "id": "aar_numbers",
+          "label": "AAR 含具体数字",
+          "dimension": "reflectionQuality",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "35 个不同数字",
+          "evidence": [
+            "C3C_交付/07Meteorain_C3C_AAR.md"
+          ]
+        },
+        {
+          "id": "aar_failures",
+          "label": "AAR 有失败经验小节",
+          "dimension": "reflectionQuality",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "小节：2. 六条具体失败与根因",
+          "evidence": [
+            "C3C_交付/07Meteorain_C3C_AAR.md"
+          ]
+        },
+        {
+          "id": "aar_actions",
+          "label": "AAR 有改进方案",
+          "dimension": "reflectionQuality",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "小节：1.4 下次怎么改（可执行，不是口号）",
+          "evidence": [
+            "C3C_交付/07Meteorain_C3C_AAR.md"
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "source_id": "C5",
+      "challenge_id": "ch-20260717031503-ihozqu",
+      "title": "C5 GitHub Repository",
+      "deadline": "2026-12-31T23:59",
+      "status": "PASS",
+      "delivery_dir": "C5_交付",
+      "file_count": 63,
+      "missing": [],
+      "score": 99,
+      "max_score": 100,
+      "full_score": 100,
+      "covered_dimensions": 5,
+      "total_dimensions": 5,
+      "dimensions": [
+        {
+          "id": "repoQuality",
+          "label": "仓库质量",
+          "max_points": 25,
+          "score": 25,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "community",
+          "label": "社区要素",
+          "max_points": 20,
+          "score": 20,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "artifactCompleteness",
+          "label": "产物完整性",
+          "max_points": 15,
+          "score": 14,
+          "pass_ratio": 0.914,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "aiUsage",
+          "label": "AI使用质量",
+          "max_points": 20,
+          "score": 20,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "reflectionQuality",
+          "label": "复盘质量",
+          "max_points": 20,
+          "score": 20,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        }
+      ],
+      "deliverables": [
+        {
+          "raw": "README.md",
+          "name": "README.md",
+          "wildcard": false,
+          "ok": true,
+          "note": "命中 3 个文件",
+          "files": [
+            "C5_交付/README.md",
+            "C5_交付/demo/README.md",
+            "C5_交付/examples/README.md"
+          ]
+        },
+        {
+          "raw": "*repo链接*",
+          "name": "repo链接",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C5_交付/repo链接.md"
+          ]
+        },
+        {
+          "raw": "*AI日志*",
+          "name": "AI日志",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C5_交付/AI日志.md"
+          ]
+        },
+        {
+          "raw": "*拿来说明*",
+          "name": "拿来说明",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C5_交付/拿来说明.md"
+          ]
+        }
+      ],
+      "red_flags": [],
+      "checks": [
+        {
+          "id": "spec:repo:README",
+          "label": "repo：README",
+          "dimension": "repoQuality",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 1 个：README.md",
+          "evidence": [
+            "C5_交付/README.md"
+          ]
+        },
+        {
+          "id": "spec:repo:LICENSE",
+          "label": "repo：LICENSE",
+          "dimension": "repoQuality",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 1 个：LICENSE",
+          "evidence": [
+            "C5_交付/LICENSE"
+          ]
+        },
+        {
+          "id": "spec:repo:测试目录",
+          "label": "repo：测试目录",
+          "dimension": "repoQuality",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 8 个：tests/test_cli.py",
+          "evidence": [
+            "C5_交付/tests/test_cli.py",
+            "C5_交付/tests/test_sarif.py",
+            "C5_交付/tests/test_engine.py",
+            "C5_交付/tests/test_parser.py"
+          ]
+        },
+        {
+          "id": "spec:repo:CI 工作流",
+          "label": "repo：CI 工作流",
+          "dimension": "repoQuality",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 1 个：.github/workflows/ci.yml",
+          "evidence": [
+            "C5_交付/.github/workflows/ci.yml"
+          ]
+        },
+        {
+          "id": "spec:repo:文档目录",
+          "label": "repo：文档目录",
+          "dimension": "repoQuality",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 3 个：docs/cli.md",
+          "evidence": [
+            "C5_交付/docs/cli.md",
+            "C5_交付/docs/rules.md",
+            "C5_交付/docs/architecture.md"
+          ]
+        },
+        {
+          "id": "spec:community:Issue 模板",
+          "label": "community：Issue 模板",
+          "dimension": "community",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 3 个：.github/ISSUE_TEMPLATE/config.yml",
+          "evidence": [
+            "C5_交付/.github/ISSUE_TEMPLATE/config.yml",
+            "C5_交付/.github/ISSUE_TEMPLATE/bug_report.yml",
+            "C5_交付/.github/ISSUE_TEMPLATE/feature_request.yml"
+          ]
+        },
+        {
+          "id": "spec:community:PR 模板",
+          "label": "community：PR 模板",
+          "dimension": "community",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 1 个：.github/PULL_REQUEST_TEMPLATE.md",
+          "evidence": [
+            "C5_交付/.github/PULL_REQUEST_TEMPLATE.md"
+          ]
+        },
+        {
+          "id": "spec:community:贡献指南",
+          "label": "community：贡献指南",
+          "dimension": "community",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 1 个：CONTRIBUTING.md",
+          "evidence": [
+            "C5_交付/CONTRIBUTING.md"
+          ]
+        },
+        {
+          "id": "spec:community:行为准则",
+          "label": "community：行为准则",
+          "dimension": "community",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 1 个：CODE_OF_CONDUCT.md",
+          "evidence": [
+            "C5_交付/CODE_OF_CONDUCT.md"
+          ]
+        },
+        {
+          "id": "spec:community:安全策略",
+          "label": "community：安全策略",
+          "dimension": "community",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 1 个：SECURITY.md",
+          "evidence": [
+            "C5_交付/SECURITY.md"
+          ]
+        },
+        {
+          "id": "spec:community:变更日志",
+          "label": "community：变更日志",
+          "dimension": "community",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 1 个：CHANGELOG.md",
+          "evidence": [
+            "C5_交付/CHANGELOG.md"
+          ]
+        },
+        {
+          "id": "req:README.md",
+          "label": "必需交付物：README.md",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 3 个文件",
+          "evidence": [
+            "C5_交付/README.md",
+            "C5_交付/demo/README.md",
+            "C5_交付/examples/README.md"
+          ]
+        },
+        {
+          "id": "req:repo链接",
+          "label": "必需交付物：repo链接",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C5_交付/repo链接.md"
+          ]
+        },
+        {
+          "id": "req:AI日志",
+          "label": "必需交付物：AI日志",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C5_交付/AI日志.md"
+          ]
+        },
+        {
+          "id": "req:拿来说明",
+          "label": "必需交付物：拿来说明",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C5_交付/拿来说明.md"
+          ]
+        },
+        {
+          "id": "readme",
+          "label": "README 存在",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "README.md（7507 字符）",
+          "evidence": [
+            "C5_交付/README.md"
+          ]
+        },
+        {
+          "id": "readme_usage",
+          "label": "README 有安装/使用小节",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "小节：30 秒验证",
+          "evidence": [
+            "C5_交付/README.md"
+          ]
+        },
+        {
+          "id": "runnable",
+          "label": "有可运行入口",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "入口：pyproject.toml",
+          "evidence": [
+            "C5_交付/pyproject.toml",
+            "C5_交付/promptlint/__main__.py",
+            "C5_交付/promptlint/cli.py",
+            "C5_交付/tests/test_baseline.py"
+          ]
+        },
+        {
+          "id": "volume",
+          "label": "必需交付物总体量",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "共 43119 字节",
+          "evidence": []
+        },
+        {
+          "id": "acceptance",
+          "label": "有验收记录",
+          "dimension": "artifactCompleteness",
+          "weight": 1.5,
+          "status": "fail",
+          "detail": "没有 验收/acceptance 命名的文件或目录",
+          "evidence": []
+        },
+        {
+          "id": "submit_note",
+          "label": "有提交说明",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "提交说明.md",
+          "evidence": [
+            "C5_交付/提交说明.md"
+          ]
+        },
+        {
+          "id": "on_time",
+          "label": "按时交付",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "最后提交 2026-11-13 20:17 ≤ 截止 2026-12-31 23:59",
+          "evidence": []
+        },
+        {
+          "id": "ai_log",
+          "label": "AI 日志存在",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "AI日志.md（10647 字符）",
+          "evidence": [
+            "C5_交付/AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_rounds",
+          "label": "AI 日志有迭代轮次",
+          "dimension": "aiUsage",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "最大轮次 10（不同标记 10 个）",
+          "evidence": [
+            "C5_交付/AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_prompts",
+          "label": "AI 日志含 prompt 原文",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "25 个 prompt 片段（代码块/引用）",
+          "evidence": [
+            "C5_交付/AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_failures",
+          "label": "AI 日志含失败/返工记录",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "命中 3 处",
+          "evidence": [
+            "C5_交付/AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_volume",
+          "label": "AI 日志体量",
+          "dimension": "aiUsage",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "10647 字符",
+          "evidence": [
+            "C5_交付/AI日志.md"
+          ]
+        },
+        {
+          "id": "aar",
+          "label": "AAR 复盘存在",
+          "dimension": "reflectionQuality",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "AAR复盘.md（5348 字符）",
+          "evidence": [
+            "C5_交付/AAR复盘.md"
+          ]
+        },
+        {
+          "id": "aar_sections",
+          "label": "AAR 覆盖复盘要素",
+          "dimension": "reflectionQuality",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "覆盖 7/7 类要素",
+          "evidence": [
+            "C5_交付/AAR复盘.md"
+          ]
+        },
+        {
+          "id": "aar_numbers",
+          "label": "AAR 含具体数字",
+          "dimension": "reflectionQuality",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "38 个不同数字",
+          "evidence": [
+            "C5_交付/AAR复盘.md"
+          ]
+        },
+        {
+          "id": "aar_failures",
+          "label": "AAR 有失败经验小节",
+          "dimension": "reflectionQuality",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "小节：3.4 把失败写进交付",
+          "evidence": [
+            "C5_交付/AAR复盘.md"
+          ]
+        },
+        {
+          "id": "aar_actions",
+          "label": "AAR 有改进方案",
+          "dimension": "reflectionQuality",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "小节：6 改进方案",
+          "evidence": [
+            "C5_交付/AAR复盘.md"
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "source_id": "C5A",
+      "challenge_id": "ch-20260717031511-x5c6t1",
+      "title": "C5A GitHub 入门与仓库理解",
+      "deadline": "2026-12-31T23:59",
+      "status": "PASS",
+      "delivery_dir": "C5A_仓库分析",
+      "file_count": 20,
+      "missing": [],
+      "score": 91,
+      "max_score": 100,
+      "full_score": 100,
+      "covered_dimensions": 5,
+      "total_dimensions": 5,
+      "dimensions": [
+        {
+          "id": "fundamentals",
+          "label": "基础掌握",
+          "max_points": 25,
+          "score": 25,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "artifactCompleteness",
+          "label": "产物完整性",
+          "max_points": 20,
+          "score": 18,
+          "pass_ratio": 0.903,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "technicalExecution",
+          "label": "技术实现",
+          "max_points": 15,
+          "score": 8,
+          "pass_ratio": 0.5,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "aiUsage",
+          "label": "AI使用质量",
+          "max_points": 20,
+          "score": 20,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "reflectionQuality",
+          "label": "复盘质量",
+          "max_points": 20,
+          "score": 20,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        }
+      ],
+      "deliverables": [
+        {
+          "raw": "*仓库分析*",
+          "name": "仓库分析",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 3 个文件",
+          "files": [
+            "C5A_仓库分析/仓库分析/03-读仓库方法论.md",
+            "C5A_仓库分析/仓库分析/02-本仓库结构自检.md",
+            "C5A_仓库分析/仓库分析/01-httpie-cli-深度分析.md"
+          ]
+        },
+        {
+          "raw": "README.md",
+          "name": "README.md",
+          "wildcard": false,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C5A_仓库分析/README.md"
+          ]
+        },
+        {
+          "raw": "*AI日志*",
+          "name": "AI日志",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C5A_仓库分析/AI日志/AI使用日志.md"
+          ]
+        }
+      ],
+      "red_flags": [],
+      "checks": [
+        {
+          "id": "spec:gitpractice:实战记录",
+          "label": "gitpractice：实战记录",
+          "dimension": "fundamentals",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 5 个：.gitignore",
+          "evidence": [
+            "C5A_仓库分析/.gitignore",
+            "C5A_仓库分析/证据/pr-info.txt",
+            "C5A_仓库分析/Git实战/02-排错手册.md",
+            "C5A_仓库分析/Git实战/01-分支与PR实战.md"
+          ]
+        },
+        {
+          "id": "spec:gitpractice:证据文件",
+          "label": "gitpractice：证据文件",
+          "dimension": "fundamentals",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 8 个：证据/pr-info.txt",
+          "evidence": [
+            "C5A_仓库分析/证据/pr-info.txt",
+            "C5A_仓库分析/证据/test-output.txt",
+            "C5A_仓库分析/证据/httpie-report.md",
+            "C5A_仓库分析/证据/ai-repo-report.md"
+          ]
+        },
+        {
+          "id": "req:仓库分析",
+          "label": "必需交付物：仓库分析",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 3 个文件",
+          "evidence": [
+            "C5A_仓库分析/仓库分析/03-读仓库方法论.md",
+            "C5A_仓库分析/仓库分析/02-本仓库结构自检.md",
+            "C5A_仓库分析/仓库分析/01-httpie-cli-深度分析.md"
+          ]
+        },
+        {
+          "id": "req:README.md",
+          "label": "必需交付物：README.md",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C5A_仓库分析/README.md"
+          ]
+        },
+        {
+          "id": "req:AI日志",
+          "label": "必需交付物：AI日志",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C5A_仓库分析/AI日志/AI使用日志.md"
+          ]
+        },
+        {
+          "id": "readme",
+          "label": "README 存在",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "README.md（6078 字符）",
+          "evidence": [
+            "C5A_仓库分析/README.md"
+          ]
+        },
+        {
+          "id": "readme_usage",
+          "label": "README 有安装/使用小节",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "小节：30 秒验证",
+          "evidence": [
+            "C5A_仓库分析/README.md"
+          ]
+        },
+        {
+          "id": "runnable",
+          "label": "有可运行入口",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "入口：工具/tests/test_repo_inspector.py",
+          "evidence": [
+            "C5A_仓库分析/工具/tests/test_repo_inspector.py"
+          ]
+        },
+        {
+          "id": "volume",
+          "label": "必需交付物总体量",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "共 78738 字节",
+          "evidence": []
+        },
+        {
+          "id": "acceptance",
+          "label": "有验收记录",
+          "dimension": "artifactCompleteness",
+          "weight": 1.5,
+          "status": "fail",
+          "detail": "没有 验收/acceptance 命名的文件或目录",
+          "evidence": []
+        },
+        {
+          "id": "submit_note",
+          "label": "有提交说明",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "提交说明.md",
+          "evidence": [
+            "C5A_仓库分析/提交说明.md"
+          ]
+        },
+        {
+          "id": "on_time",
+          "label": "按时交付",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "最后提交 2026-11-13 20:17 ≤ 截止 2026-12-31 23:59",
+          "evidence": []
+        },
+        {
+          "id": "spec:engineering:测试",
+          "label": "engineering：测试",
+          "dimension": "technicalExecution",
+          "weight": 1.0,
+          "status": "fail",
+          "detail": "未找到对应文件",
+          "evidence": []
+        },
+        {
+          "id": "spec:engineering:入口或依赖清单",
+          "label": "engineering：入口或依赖清单",
+          "dimension": "technicalExecution",
+          "weight": 1.0,
+          "status": "fail",
+          "detail": "未找到对应文件",
+          "evidence": []
+        },
+        {
+          "id": "spec:engineering:文档",
+          "label": "engineering：文档",
+          "dimension": "technicalExecution",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 1 个：README.md",
+          "evidence": [
+            "C5A_仓库分析/README.md"
+          ]
+        },
+        {
+          "id": "spec:engineering:CI 工作流",
+          "label": "engineering：CI 工作流",
+          "dimension": "technicalExecution",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "仓库根有：.github/workflows/c5a-repo-inspector.yml",
+          "evidence": [
+            ".github/workflows/c5a-repo-inspector.yml"
+          ]
+        },
+        {
+          "id": "ai_log",
+          "label": "AI 日志存在",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "AI日志/AI使用日志.md（11603 字符）",
+          "evidence": [
+            "C5A_仓库分析/AI日志/AI使用日志.md"
+          ]
+        },
+        {
+          "id": "ai_rounds",
+          "label": "AI 日志有迭代轮次",
+          "dimension": "aiUsage",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "最大轮次 7（不同标记 8 个）",
+          "evidence": [
+            "C5A_仓库分析/AI日志/AI使用日志.md"
+          ]
+        },
+        {
+          "id": "ai_prompts",
+          "label": "AI 日志含 prompt 原文",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "4 个 prompt 片段（代码块/引用）",
+          "evidence": [
+            "C5A_仓库分析/AI日志/AI使用日志.md"
+          ]
+        },
+        {
+          "id": "ai_failures",
+          "label": "AI 日志含失败/返工记录",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "命中 3 处",
+          "evidence": [
+            "C5A_仓库分析/AI日志/AI使用日志.md"
+          ]
+        },
+        {
+          "id": "ai_volume",
+          "label": "AI 日志体量",
+          "dimension": "aiUsage",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "11603 字符",
+          "evidence": [
+            "C5A_仓库分析/AI日志/AI使用日志.md"
+          ]
+        },
+        {
+          "id": "aar",
+          "label": "AAR 复盘存在",
+          "dimension": "reflectionQuality",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "复盘/AAR复盘.md（5782 字符）",
+          "evidence": [
+            "C5A_仓库分析/复盘/AAR复盘.md"
+          ]
+        },
+        {
+          "id": "aar_sections",
+          "label": "AAR 覆盖复盘要素",
+          "dimension": "reflectionQuality",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "覆盖 6/7 类要素",
+          "evidence": [
+            "C5A_仓库分析/复盘/AAR复盘.md"
+          ]
+        },
+        {
+          "id": "aar_numbers",
+          "label": "AAR 含具体数字",
+          "dimension": "reflectionQuality",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "58 个不同数字",
+          "evidence": [
+            "C5A_仓库分析/复盘/AAR复盘.md"
+          ]
+        },
+        {
+          "id": "aar_failures",
+          "label": "AAR 有失败经验小节",
+          "dimension": "reflectionQuality",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "小节：2.5 没达到预期的地方",
+          "evidence": [
+            "C5A_仓库分析/复盘/AAR复盘.md"
+          ]
+        },
+        {
+          "id": "aar_actions",
+          "label": "AAR 有改进方案",
+          "dimension": "reflectionQuality",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "小节：4. 下次怎么做：可执行改进",
+          "evidence": [
+            "C5A_仓库分析/复盘/AAR复盘.md"
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "source_id": "C6",
+      "challenge_id": "ch-20260717031519-qqqx60",
+      "title": "C6 Web Application",
+      "deadline": "2026-12-31T23:59",
+      "status": "PASS",
+      "delivery_dir": "C6_交付",
+      "file_count": 60,
+      "missing": [],
+      "score": 99,
+      "max_score": 100,
+      "full_score": 100,
+      "covered_dimensions": 5,
+      "total_dimensions": 5,
+      "dimensions": [
+        {
+          "id": "productQuality",
+          "label": "产品完成度",
+          "max_points": 25,
+          "score": 25,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "technicalExecution",
+          "label": "技术实现",
+          "max_points": 20,
+          "score": 20,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "artifactCompleteness",
+          "label": "产物完整性",
+          "max_points": 15,
+          "score": 14,
+          "pass_ratio": 0.914,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "aiUsage",
+          "label": "AI使用质量",
+          "max_points": 20,
+          "score": 20,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "reflectionQuality",
+          "label": "复盘质量",
+          "max_points": 20,
+          "score": 20,
+          "pass_ratio": 1.0,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        }
+      ],
+      "deliverables": [
+        {
+          "raw": "*app链接*",
+          "name": "app链接",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C6_交付/app链接.md"
+          ]
+        },
+        {
+          "raw": "*demo*",
+          "name": "demo",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 11 个文件",
+          "files": [
+            "C6_交付/demo/演示脚本.md",
+            "C6_交付/demo/示例-反面.md",
+            "C6_交付/demo/示例-合格.md",
+            "C6_交付/demo/cli-演示输出.txt",
+            "C6_交付/demo/截图/03-预算.png",
+            "C6_交付/demo/截图/07-窄屏.png",
+            "C6_交付/demo/截图/04-规则表.png",
+            "C6_交付/demo/截图/06-浅色主题.png"
+          ]
+        },
+        {
+          "raw": "*repo链接*",
+          "name": "repo链接",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C6_交付/repo链接.md"
+          ]
+        },
+        {
+          "raw": "*AI日志*",
+          "name": "AI日志",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C6_交付/AI日志.md"
+          ]
+        }
+      ],
+      "red_flags": [],
+      "checks": [
+        {
+          "id": "spec:product:应用入口",
+          "label": "product：应用入口",
+          "dimension": "productQuality",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 1 个：app/index.html",
+          "evidence": [
+            "C6_交付/app/index.html"
+          ]
+        },
+        {
+          "id": "spec:product:在线链接",
+          "label": "product：在线链接",
+          "dimension": "productQuality",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 2 个：app链接.md",
+          "evidence": [
+            "C6_交付/app链接.md",
+            "C6_交付/repo链接.md"
+          ]
+        },
+        {
+          "id": "spec:product:演示材料",
+          "label": "product：演示材料",
+          "dimension": "productQuality",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 11 个：demo/演示脚本.md",
+          "evidence": [
+            "C6_交付/demo/演示脚本.md",
+            "C6_交付/demo/示例-反面.md",
+            "C6_交付/demo/示例-合格.md",
+            "C6_交付/demo/cli-演示输出.txt"
+          ]
+        },
+        {
+          "id": "spec:product:截图",
+          "label": "product：截图",
+          "dimension": "productQuality",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 10 个：demo/截图/03-预算.png",
+          "evidence": [
+            "C6_交付/demo/截图/03-预算.png",
+            "C6_交付/demo/截图/07-窄屏.png",
+            "C6_交付/demo/截图/04-规则表.png",
+            "C6_交付/demo/截图/06-浅色主题.png"
+          ]
+        },
+        {
+          "id": "spec:engineering:测试",
+          "label": "engineering：测试",
+          "dimension": "technicalExecution",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 12 个：tests/helpers.js",
+          "evidence": [
+            "C6_交付/tests/helpers.js",
+            "C6_交付/tests/ui.test.js",
+            "C6_交付/tests/cli.test.js",
+            "C6_交付/tests/diff.test.js"
+          ]
+        },
+        {
+          "id": "spec:engineering:入口或依赖清单",
+          "label": "engineering：入口或依赖清单",
+          "dimension": "technicalExecution",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 1 个：package.json",
+          "evidence": [
+            "C6_交付/package.json"
+          ]
+        },
+        {
+          "id": "spec:engineering:文档",
+          "label": "engineering：文档",
+          "dimension": "technicalExecution",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "命中 2 个：README.md",
+          "evidence": [
+            "C6_交付/README.md",
+            "C6_交付/docs/rules.md"
+          ]
+        },
+        {
+          "id": "spec:engineering:CI 工作流",
+          "label": "engineering：CI 工作流",
+          "dimension": "technicalExecution",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "仓库根有：.github/workflows/c6-ci.yml",
+          "evidence": [
+            ".github/workflows/c6-ci.yml",
+            ".github/workflows/c6-pages.yml"
+          ]
+        },
+        {
+          "id": "req:app链接",
+          "label": "必需交付物：app链接",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C6_交付/app链接.md"
+          ]
+        },
+        {
+          "id": "req:demo",
+          "label": "必需交付物：demo",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 11 个文件",
+          "evidence": [
+            "C6_交付/demo/演示脚本.md",
+            "C6_交付/demo/示例-反面.md",
+            "C6_交付/demo/示例-合格.md",
+            "C6_交付/demo/cli-演示输出.txt"
+          ]
+        },
+        {
+          "id": "req:repo链接",
+          "label": "必需交付物：repo链接",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C6_交付/repo链接.md"
+          ]
+        },
+        {
+          "id": "req:AI日志",
+          "label": "必需交付物：AI日志",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C6_交付/AI日志.md"
+          ]
+        },
+        {
+          "id": "readme",
+          "label": "README 存在",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "README.md（9442 字符）",
+          "evidence": [
+            "C6_交付/README.md"
+          ]
+        },
+        {
+          "id": "readme_usage",
+          "label": "README 有安装/使用小节",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "小节：快速开始",
+          "evidence": [
+            "C6_交付/README.md"
+          ]
+        },
+        {
+          "id": "runnable",
+          "label": "有可运行入口",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "入口：package.json",
+          "evidence": [
+            "C6_交付/package.json",
+            "C6_交付/tests/cli.test.js",
+            "C6_交付/tests/diff.test.js",
+            "C6_交付/tests/docs.test.js"
+          ]
+        },
+        {
+          "id": "volume",
+          "label": "必需交付物总体量",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "共 626471 字节",
+          "evidence": []
+        },
+        {
+          "id": "acceptance",
+          "label": "有验收记录",
+          "dimension": "artifactCompleteness",
+          "weight": 1.5,
+          "status": "fail",
+          "detail": "没有 验收/acceptance 命名的文件或目录",
+          "evidence": []
+        },
+        {
+          "id": "submit_note",
+          "label": "有提交说明",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "提交说明.md",
+          "evidence": [
+            "C6_交付/提交说明.md"
+          ]
+        },
+        {
+          "id": "on_time",
+          "label": "按时交付",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "最后提交 2026-11-13 20:17 ≤ 截止 2026-12-31 23:59",
+          "evidence": []
+        },
+        {
+          "id": "ai_log",
+          "label": "AI 日志存在",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "AI日志.md（7008 字符）",
+          "evidence": [
+            "C6_交付/AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_rounds",
+          "label": "AI 日志有迭代轮次",
+          "dimension": "aiUsage",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "最大轮次 12（不同标记 2 个）",
+          "evidence": [
+            "C6_交付/AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_prompts",
+          "label": "AI 日志含 prompt 原文",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "9 个 prompt 片段（代码块/引用）",
+          "evidence": [
+            "C6_交付/AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_failures",
+          "label": "AI 日志含失败/返工记录",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "命中 2 处",
+          "evidence": [
+            "C6_交付/AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_volume",
+          "label": "AI 日志体量",
+          "dimension": "aiUsage",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "7008 字符",
+          "evidence": [
+            "C6_交付/AI日志.md"
+          ]
+        },
+        {
+          "id": "aar",
+          "label": "AAR 复盘存在",
+          "dimension": "reflectionQuality",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "AAR复盘.md（6491 字符）",
+          "evidence": [
+            "C6_交付/AAR复盘.md"
+          ]
+        },
+        {
+          "id": "aar_sections",
+          "label": "AAR 覆盖复盘要素",
+          "dimension": "reflectionQuality",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "覆盖 6/7 类要素",
+          "evidence": [
+            "C6_交付/AAR复盘.md"
+          ]
+        },
+        {
+          "id": "aar_numbers",
+          "label": "AAR 含具体数字",
+          "dimension": "reflectionQuality",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "45 个不同数字",
+          "evidence": [
+            "C6_交付/AAR复盘.md"
+          ]
+        },
+        {
+          "id": "aar_failures",
+          "label": "AAR 有失败经验小节",
+          "dimension": "reflectionQuality",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "小节：3. 失败经验（F1–F8，含未解决）",
+          "evidence": [
+            "C6_交付/AAR复盘.md"
+          ]
+        },
+        {
+          "id": "aar_actions",
+          "label": "AAR 有改进方案",
+          "dimension": "reflectionQuality",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "小节：5. 改进方案（带指标）",
+          "evidence": [
+            "C6_交付/AAR复盘.md"
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "source_id": "C6A",
+      "challenge_id": "ch-20260717031528-w43gy7",
+      "title": "C6A 提交数据仪表盘",
+      "deadline": "2026-12-31T23:59",
+      "status": "FAIL",
+      "delivery_dir": "—",
+      "file_count": 0,
+      "missing": [
+        "仪表盘",
+        "demo",
+        "数据",
+        "AI日志"
+      ],
+      "score": 0,
+      "max_score": 0,
+      "full_score": 100,
+      "covered_dimensions": 0,
+      "total_dimensions": 5,
+      "dimensions": [
+        {
+          "id": "dataInsight",
+          "label": "数据洞察",
+          "max_points": 25,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "visualization",
+          "label": "可视化",
+          "max_points": 20,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "artifactCompleteness",
+          "label": "产物完整性",
+          "max_points": 15,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "aiUsage",
+          "label": "AI使用质量",
+          "max_points": 20,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "reflectionQuality",
+          "label": "复盘质量",
+          "max_points": 20,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        }
+      ],
+      "deliverables": [
+        {
+          "raw": "*仪表盘*",
+          "name": "仪表盘",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        },
+        {
+          "raw": "*demo*",
+          "name": "demo",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        },
+        {
+          "raw": "*数据*",
+          "name": "数据",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        },
+        {
+          "raw": "*AI日志*",
+          "name": "AI日志",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        }
+      ],
+      "red_flags": [
+        {
+          "id": "missing_artifacts",
+          "description": "核心交付物缺失",
+          "dimension": "artifactCompleteness",
+          "max_score": 5,
+          "detail": "缺失/为空：仪表盘、demo、数据、AI日志"
+        },
+        {
+          "id": "no_ai_log",
+          "description": "无 AI 使用记录/AAR",
+          "dimension": "reflectionQuality",
+          "max_score": 5,
+          "detail": "没有任何 AI 使用记录"
+        }
+      ],
+      "checks": [],
+      "notes": [
+        "仓库里没有与该挑战编号对应的交付目录"
+      ]
+    },
+    {
+      "source_id": "C7",
+      "challenge_id": "ch-20260717031536-sfz852",
+      "title": "C7 内容传播",
+      "deadline": "2026-12-31T23:59",
+      "status": "FAIL",
+      "delivery_dir": "—",
+      "file_count": 0,
+      "missing": [
+        "文章标题",
+        "数据截图",
+        "AI日志"
+      ],
+      "score": 0,
+      "max_score": 0,
+      "full_score": 100,
+      "covered_dimensions": 0,
+      "total_dimensions": 5,
+      "dimensions": [
+        {
+          "id": "contentQuality",
+          "label": "内容质量",
+          "max_points": 25,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "distribution",
+          "label": "传播设计",
+          "max_points": 20,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "artifactCompleteness",
+          "label": "产物完整性",
+          "max_points": 15,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "aiUsage",
+          "label": "AI使用质量",
+          "max_points": 20,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "reflectionQuality",
+          "label": "复盘质量",
+          "max_points": 20,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        }
+      ],
+      "deliverables": [
+        {
+          "raw": "*文章标题*",
+          "name": "文章标题",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        },
+        {
+          "raw": "*数据截图*",
+          "name": "数据截图",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        },
+        {
+          "raw": "*AI日志*",
+          "name": "AI日志",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        }
+      ],
+      "red_flags": [
+        {
+          "id": "missing_artifacts",
+          "description": "核心交付物缺失",
+          "dimension": "artifactCompleteness",
+          "max_score": 5,
+          "detail": "缺失/为空：文章标题、数据截图、AI日志"
+        },
+        {
+          "id": "no_ai_log",
+          "description": "无 AI 使用记录/AAR",
+          "dimension": "reflectionQuality",
+          "max_score": 5,
+          "detail": "没有任何 AI 使用记录"
+        }
+      ],
+      "checks": [],
+      "notes": [
+        "仓库里没有与该挑战编号对应的交付目录"
+      ]
+    },
+    {
+      "source_id": "C8",
+      "challenge_id": "ch-20260717031544-7vw0rn",
+      "title": "C8 Real-World Project Execution（真实项目落地）",
+      "deadline": "2026-12-31T23:59",
+      "status": "FAIL",
+      "delivery_dir": "—",
+      "file_count": 0,
+      "missing": [
+        "proposal",
+        "AAR_W",
+        "AI日志",
+        "拿来说明"
+      ],
+      "score": 0,
+      "max_score": 0,
+      "full_score": 100,
+      "covered_dimensions": 0,
+      "total_dimensions": 5,
+      "dimensions": [
+        {
+          "id": "delivery",
+          "label": "交付质量",
+          "max_points": 25,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "problemSolving",
+          "label": "问题解决",
+          "max_points": 20,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "artifactCompleteness",
+          "label": "产物完整性",
+          "max_points": 15,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "aiUsage",
+          "label": "AI使用质量",
+          "max_points": 20,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "reflectionQuality",
+          "label": "复盘质量",
+          "max_points": 20,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        }
+      ],
+      "deliverables": [
+        {
+          "raw": "*proposal*",
+          "name": "proposal",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        },
+        {
+          "raw": "*AAR_W*",
+          "name": "AAR_W",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        },
+        {
+          "raw": "*AI日志*",
+          "name": "AI日志",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        },
+        {
+          "raw": "*拿来说明*",
+          "name": "拿来说明",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        }
+      ],
+      "red_flags": [
+        {
+          "id": "missing_artifacts",
+          "description": "核心交付物缺失",
+          "dimension": "artifactCompleteness",
+          "max_score": 5,
+          "detail": "缺失/为空：proposal、AAR_W、AI日志、拿来说明"
+        },
+        {
+          "id": "no_ai_log",
+          "description": "无 AI 使用记录/AAR",
+          "dimension": "reflectionQuality",
+          "max_score": 5,
+          "detail": "没有任何 AI 使用记录"
+        }
+      ],
+      "checks": [],
+      "notes": [
+        "仓库里没有与该挑战编号对应的交付目录"
+      ]
+    },
+    {
+      "source_id": "C9",
+      "challenge_id": "ch-20260717031553-t2892g",
+      "title": "C9 Self-Initiated Project（自驱项目）",
+      "deadline": "2026-12-31T23:59",
+      "status": "FAIL",
+      "delivery_dir": "C2A_C9_交付",
+      "file_count": 40,
+      "missing": [
+        "AAR_W"
+      ],
+      "score": 27,
+      "max_score": 75,
+      "full_score": 100,
+      "covered_dimensions": 4,
+      "total_dimensions": 5,
+      "dimensions": [
+        {
+          "id": "initiative",
+          "label": "自驱力",
+          "max_points": 25,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "delivery",
+          "label": "交付质量",
+          "max_points": 20,
+          "score": 4,
+          "pass_ratio": 0.182,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "artifactCompleteness",
+          "label": "产物完整性",
+          "max_points": 15,
+          "score": 5,
+          "pass_ratio": 0.833,
+          "covered": true,
+          "coverage_note": "",
+          "capped": true,
+          "cap_reason": "红旗 missing_artifacts 触发：核心交付物缺失，封顶 5"
+        },
+        {
+          "id": "aiUsage",
+          "label": "AI使用质量",
+          "max_points": 20,
+          "score": 5,
+          "pass_ratio": 0.733,
+          "covered": true,
+          "coverage_note": "",
+          "capped": true,
+          "cap_reason": "红旗 one_shot_ai 触发：一句话指令直接提交、无迭代，封顶 5"
+        },
+        {
+          "id": "reflectionQuality",
+          "label": "复盘质量",
+          "max_points": 20,
+          "score": 13,
+          "pass_ratio": 0.667,
+          "covered": true,
+          "coverage_note": "",
+          "capped": false,
+          "cap_reason": ""
+        }
+      ],
+      "deliverables": [
+        {
+          "raw": "*proposal*",
+          "name": "proposal",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C2A_C9_交付/07Meteorain_C2A_proposal.md"
+          ]
+        },
+        {
+          "raw": "*AAR_W*",
+          "name": "AAR_W",
+          "wildcard": true,
+          "ok": false,
+          "note": "未找到匹配文件",
+          "files": []
+        },
+        {
+          "raw": "*AI日志*",
+          "name": "AI日志",
+          "wildcard": true,
+          "ok": true,
+          "note": "命中 1 个文件",
+          "files": [
+            "C2A_C9_交付/07Meteorain_C9_AI日志.md"
+          ]
+        }
+      ],
+      "red_flags": [
+        {
+          "id": "missing_artifacts",
+          "description": "核心交付物缺失",
+          "dimension": "artifactCompleteness",
+          "max_score": 5,
+          "detail": "缺失/为空：AAR_W"
+        },
+        {
+          "id": "one_shot_ai",
+          "description": "一句话指令直接提交、无迭代",
+          "dimension": "aiUsage",
+          "max_score": 5,
+          "detail": "轮次=2、prompt 片段=4、失败记录=1"
+        }
+      ],
+      "checks": [
+        {
+          "id": "docs_evidence",
+          "label": "自驱力：相关文档",
+          "dimension": "initiative",
+          "weight": 1.0,
+          "status": "unverified",
+          "detail": "交付目录里没有可自动核对的证据，需人工判断",
+          "evidence": []
+        },
+        {
+          "id": "docs_substance",
+          "label": "自驱力：文档有实际内容",
+          "dimension": "initiative",
+          "weight": 2.0,
+          "status": "unverified",
+          "detail": "同上",
+          "evidence": []
+        },
+        {
+          "id": "req_all",
+          "label": "必需交付物齐全",
+          "dimension": "delivery",
+          "weight": 4.0,
+          "status": "fail",
+          "detail": "缺：AAR_W",
+          "evidence": []
+        },
+        {
+          "id": "acceptance",
+          "label": "有验收记录",
+          "dimension": "delivery",
+          "weight": 3.0,
+          "status": "fail",
+          "detail": "没有 验收/acceptance 命名的文件或目录",
+          "evidence": []
+        },
+        {
+          "id": "submit_note",
+          "label": "有提交说明",
+          "dimension": "delivery",
+          "weight": 2.0,
+          "status": "fail",
+          "detail": "没有 提交说明/交付说明",
+          "evidence": []
+        },
+        {
+          "id": "on_time",
+          "label": "按时交付",
+          "dimension": "delivery",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "最后提交 2026-11-13 20:17 ≤ 截止 2026-12-31 23:59",
+          "evidence": []
+        },
+        {
+          "id": "req:proposal",
+          "label": "必需交付物：proposal",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C2A_C9_交付/07Meteorain_C2A_proposal.md"
+          ]
+        },
+        {
+          "id": "req:AAR_W",
+          "label": "必需交付物：AAR_W",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "fail",
+          "detail": "未找到匹配文件",
+          "evidence": []
+        },
+        {
+          "id": "req:AI日志",
+          "label": "必需交付物：AI日志",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "命中 1 个文件",
+          "evidence": [
+            "C2A_C9_交付/07Meteorain_C9_AI日志.md"
+          ]
+        },
+        {
+          "id": "readme",
+          "label": "README 存在",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "README.md（5724 字符）",
+          "evidence": [
+            "C2A_C9_交付/README.md"
+          ]
+        },
+        {
+          "id": "readme_usage",
+          "label": "README 有安装/使用小节",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "小节：第二条主张：ECE 单独使用是一个陷阱",
+          "evidence": [
+            "C2A_C9_交付/README.md"
+          ]
+        },
+        {
+          "id": "runnable",
+          "label": "有可运行入口",
+          "dimension": "artifactCompleteness",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "入口：requirements.txt",
+          "evidence": [
+            "C2A_C9_交付/requirements.txt",
+            "C2A_C9_交付/novcal/cli.py",
+            "C2A_C9_交付/tests/test_novcal.py"
+          ]
+        },
+        {
+          "id": "volume",
+          "label": "必需交付物总体量",
+          "dimension": "artifactCompleteness",
+          "weight": 1.0,
+          "status": "pass",
+          "detail": "共 22058 字节",
+          "evidence": []
+        },
+        {
+          "id": "ai_log",
+          "label": "AI 日志存在",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "07Meteorain_C9_AI日志.md（4560 字符）",
+          "evidence": [
+            "C2A_C9_交付/07Meteorain_C9_AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_rounds",
+          "label": "AI 日志有迭代轮次",
+          "dimension": "aiUsage",
+          "weight": 4.0,
+          "status": "fail",
+          "detail": "最大轮次 2（要求 ≥3）",
+          "evidence": [
+            "C2A_C9_交付/07Meteorain_C9_AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_prompts",
+          "label": "AI 日志含 prompt 原文",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "4 个 prompt 片段（代码块/引用）",
+          "evidence": [
+            "C2A_C9_交付/07Meteorain_C9_AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_failures",
+          "label": "AI 日志含失败/返工记录",
+          "dimension": "aiUsage",
+          "weight": 3.0,
+          "status": "pass",
+          "detail": "命中 1 处",
+          "evidence": [
+            "C2A_C9_交付/07Meteorain_C9_AI日志.md"
+          ]
+        },
+        {
+          "id": "ai_volume",
+          "label": "AI 日志体量",
+          "dimension": "aiUsage",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "4560 字符",
+          "evidence": [
+            "C2A_C9_交付/07Meteorain_C9_AI日志.md"
+          ]
+        },
+        {
+          "id": "aar",
+          "label": "AAR 复盘存在",
+          "dimension": "reflectionQuality",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "07Meteorain_C9_反思报告.md（4462 字符）",
+          "evidence": [
+            "C2A_C9_交付/07Meteorain_C9_反思报告.md"
+          ]
+        },
+        {
+          "id": "aar_sections",
+          "label": "AAR 覆盖复盘要素",
+          "dimension": "reflectionQuality",
+          "weight": 4.0,
+          "status": "pass",
+          "detail": "覆盖 5/7 类要素",
+          "evidence": [
+            "C2A_C9_交付/07Meteorain_C9_反思报告.md"
+          ]
+        },
+        {
+          "id": "aar_numbers",
+          "label": "AAR 含具体数字",
+          "dimension": "reflectionQuality",
+          "weight": 2.0,
+          "status": "pass",
+          "detail": "48 个不同数字",
+          "evidence": [
+            "C2A_C9_交付/07Meteorain_C9_反思报告.md"
+          ]
+        },
+        {
+          "id": "aar_failures",
+          "label": "AAR 有失败经验小节",
+          "dimension": "reflectionQuality",
+          "weight": 2.0,
+          "status": "fail",
+          "detail": "没有失败/教训类小节",
+          "evidence": [
+            "C2A_C9_交付/07Meteorain_C9_反思报告.md"
+          ]
+        },
+        {
+          "id": "aar_actions",
+          "label": "AAR 有改进方案",
+          "dimension": "reflectionQuality",
+          "weight": 3.0,
+          "status": "fail",
+          "detail": "没有改进/下一步小节",
+          "evidence": [
+            "C2A_C9_交付/07Meteorain_C9_反思报告.md"
+          ]
+        }
+      ],
+      "notes": [
+        "无法自动验证的维度（需人工）：自驱力"
+      ]
+    },
+    {
+      "source_id": "C10",
+      "challenge_id": "ch-20260717031601-4cwlrx",
+      "title": "C10 Build Your Own Agent（构建你的长期智能体 / 第二大脑）",
+      "deadline": "2026-12-31T23:59",
+      "status": "FAIL",
+      "delivery_dir": "—",
+      "file_count": 0,
+      "missing": [
+        "AGENT.md",
+        "architecture",
+        "AAR",
+        "AI日志"
+      ],
+      "score": 0,
+      "max_score": 0,
+      "full_score": 100,
+      "covered_dimensions": 0,
+      "total_dimensions": 5,
+      "dimensions": [
+        {
+          "id": "systemArchitecture",
+          "label": "系统架构",
+          "max_points": 25,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "memorySystem",
+          "label": "记忆系统",
+          "max_points": 20,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "artifactCompleteness",
+          "label": "产物完整性",
+          "max_points": 15,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "aiUsage",
+          "label": "AI使用质量",
+          "max_points": 20,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "reflectionQuality",
+          "label": "复盘质量",
+          "max_points": 20,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        }
+      ],
+      "deliverables": [
+        {
+          "raw": "AGENT.md",
+          "name": "AGENT.md",
+          "wildcard": false,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        },
+        {
+          "raw": "*architecture*",
+          "name": "architecture",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        },
+        {
+          "raw": "*AAR*",
+          "name": "AAR",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        },
+        {
+          "raw": "*AI日志*",
+          "name": "AI日志",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        }
+      ],
+      "red_flags": [
+        {
+          "id": "missing_artifacts",
+          "description": "核心交付物缺失",
+          "dimension": "artifactCompleteness",
+          "max_score": 5,
+          "detail": "缺失/为空：AGENT.md、architecture、AAR、AI日志"
+        },
+        {
+          "id": "no_ai_log",
+          "description": "无 AI 使用记录/AAR",
+          "dimension": "reflectionQuality",
+          "max_score": 5,
+          "detail": "没有任何 AI 使用记录"
+        }
+      ],
+      "checks": [],
+      "notes": [
+        "仓库里没有与该挑战编号对应的交付目录"
+      ]
+    },
+    {
+      "source_id": "C10H",
+      "challenge_id": "ch-20260717031609-rnur5a",
+      "title": "C10H 安装并驾驭 Hermes Agent",
+      "deadline": "2026-12-31T23:59",
+      "status": "FAIL",
+      "delivery_dir": "—",
+      "file_count": 0,
+      "missing": [
+        "安装记录",
+        "配置说明",
+        "demo",
+        "AI日志"
+      ],
+      "score": 0,
+      "max_score": 0,
+      "full_score": 100,
+      "covered_dimensions": 0,
+      "total_dimensions": 5,
+      "dimensions": [
+        {
+          "id": "mastery",
+          "label": "驾驭程度",
+          "max_points": 25,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "integration",
+          "label": "集成质量",
+          "max_points": 20,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "artifactCompleteness",
+          "label": "产物完整性",
+          "max_points": 15,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "aiUsage",
+          "label": "AI使用质量",
+          "max_points": 20,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        },
+        {
+          "id": "reflectionQuality",
+          "label": "复盘质量",
+          "max_points": 20,
+          "score": 0,
+          "pass_ratio": 0.0,
+          "covered": false,
+          "coverage_note": "交付目录里没有可核对的证据，需人工判断",
+          "capped": false,
+          "cap_reason": ""
+        }
+      ],
+      "deliverables": [
+        {
+          "raw": "*安装记录*",
+          "name": "安装记录",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        },
+        {
+          "raw": "*配置说明*",
+          "name": "配置说明",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        },
+        {
+          "raw": "*demo*",
+          "name": "demo",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        },
+        {
+          "raw": "*AI日志*",
+          "name": "AI日志",
+          "wildcard": true,
+          "ok": false,
+          "note": "没有找到对应交付目录",
+          "files": []
+        }
+      ],
+      "red_flags": [
+        {
+          "id": "missing_artifacts",
+          "description": "核心交付物缺失",
+          "dimension": "artifactCompleteness",
+          "max_score": 5,
+          "detail": "缺失/为空：安装记录、配置说明、demo、AI日志"
+        },
+        {
+          "id": "no_ai_log",
+          "description": "无 AI 使用记录/AAR",
+          "dimension": "reflectionQuality",
+          "max_score": 5,
+          "detail": "没有任何 AI 使用记录"
+        }
+      ],
+      "checks": [],
+      "notes": [
+        "仓库里没有与该挑战编号对应的交付目录"
+      ]
+    }
+  ],
+  "orphans": [
+    "C1_交付",
+    "C2G_ParameterGolf",
+    "C2_交付",
+    "C4A_交付",
+    "C4B_公众号文章生成技能",
+    "C4C_交付",
+    "C4D_交付"
+  ],
+  "mapping_notes": [
+    "C9 按 mapping.json 声明映射到 C2A_C9_交付/"
+  ]
+}
