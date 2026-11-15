@@ -23,6 +23,7 @@ AI 相关的学习产出与项目沉淀。
 | [`C8_交付/`](C8_交付/) | **submitgate 交付验收门禁** — 一条命令检查 11 个挑战的 40 条必需交付物 / 23 个评分维度 / 3 类红旗：零依赖 Python + 单文件离线报告，10 个误判与 4 次实跑全记录 |
 | [`C9_交付/`](C9_交付/) | **Recall（回响）** — 把 Markdown 笔记编译成可审核的复习卡：零依赖 CLI + 离线 Web + SM-2 + 128 项测试 + 真实语料 107 张 |
 | [`C10_交付/`](C10_交付/) | **第二大脑（Build Your Own Agent）** — 五层架构 + KSTAR 四层记忆 + 重复任务自动固化成技能：196 项测试，同一个"复盘"从 3 步降到 1 步、可复现 |
+| [`C10H_HermesAgent/`](C10H_HermesAgent/) | **安装并驾驭 Hermes Agent** — 4 GB 显存 Windows 本地部署 + 64k Ollama + 4 个可复跑 demo + 9 个真实故障复盘 |
 
 ---
 
@@ -889,6 +890,58 @@ python demo/run_demo.py                    # 14 场景重放，写 demo/终端�
 > **诚实边界**：离线模式只做抽取式回答（规则规划器不"理解"语义）；无 API key，
 > LLM 路径只在假 provider 上测过；检索是词面匹配，无向量；演示只有 14 条 trace，
 > 趋势属示意。逐条写在 `C10_交付/README.md`「诚实边界」与 AAR §6。
+
+---
+
+## C10H：安装并驾驭 Hermes Agent
+
+> 挑战 ID `ch-20260717031609-rnur5a`
+
+在一台 **4 GB 显存、没有云端 API Key、GitHub API 被限流**的 Windows 笔记本上，
+把 Nous Research 的 Hermes Agent 装成能干活的本地工具型 agent。
+
+| 指标 | 数值 |
+| --- | --- |
+| Hermes | v0.23.1（commit `3b4215785882`），PM 运行时 Python 3.14.9 / Node 26.12.1 / Chromium 1208 |
+| 模型 | Ollama `gemma4-e2b-64k`（4.6B Q4_K_M，num_ctx 65536，100% GPU） |
+| demo | 4 个场景全部 `exit_code=0`，10 次真实工具调用 |
+| 记忆 | `USER.md` 真实写入，新会话可读 |
+| 技能 | 44 个 bundled + 自建 `c10h-delivery-check` |
+| 排错 | 9 个安装/配置故障 + 1 次模型幻觉，全部留原始轨迹 |
+
+### 快速开始
+
+**只想看证据** → [`C10H_HermesAgent/demo/transcripts/01_summary.md`](C10H_HermesAgent/demo/transcripts/01_summary.md)
+
+**想复跑 demo** →
+
+```powershell
+$env:HERMES_HOME='E:\hermes'
+E:\hermes\bin\hermes.exe gateway run          # 另开窗口保持
+cd C10H_HermesAgent\demo
+.\run_demo.ps1 -Scenario 01
+```
+
+### 三个关键判断
+
+1. **官方安装器不是唯一路径** —— GitHub API 403 时，改走「官方源码 + 系统 Python venv + PM 自举」，而不是改系统策略或等。
+2. **小模型会把「打算做」说成「已经做」** —— 第一次 demo 声称写入但文件不存在；加上「写完必须 `read_file` 回读」后才成功。
+3. **验收标准要写进任务** —— 限工具面 + 强制回读 + 禁止空口声称，比事后检查更省力。
+
+### 交付物
+
+| 文件 | 内容 |
+| --- | --- |
+| [`C10H_HermesAgent/README.md`](C10H_HermesAgent/README.md) | 总览、30 秒验证、交付物地图 |
+| [`C10H_HermesAgent/安装记录/安装记录.md`](C10H_HermesAgent/安装记录/安装记录.md) | 时间线、9 个故障、版本/commit、验收命令 |
+| [`C10H_HermesAgent/配置说明/配置说明.md`](C10H_HermesAgent/配置说明/配置说明.md) | config 逐项解释、模型、人格、记忆、技能、网关、安全 |
+| [`C10H_HermesAgent/demo/`](C10H_HermesAgent/demo/) | 4 个 prompt + 原始 JSONL + 可读 Markdown + 复跑脚本 |
+| [`C10H_HermesAgent/AI日志/AI使用日志.md`](C10H_HermesAgent/AI日志/AI使用日志.md) | 14 轮协作、prompt 迭代、失败清单 |
+| [`C10H_HermesAgent/复盘/AAR复盘.md`](C10H_HermesAgent/复盘/AAR复盘.md) | 预期 vs 实际、5 Whys、方法论 |
+| [`C10H_HermesAgent/排错/排错手册.md`](C10H_HermesAgent/排错/排错手册.md) | 10 个故障的症状/根因/修复/预防 |
+| [`C10H_HermesAgent/扩展/`](C10H_HermesAgent/扩展/) | SOUL 人格、自建技能、64k 上下文、demo 协议 |
+
+> **诚实边界**：消息平台未接入（无 token）；`hermes update` 因 GitHub 403 未验证；4.6B 模型在路径/多步任务上仍会出错。
 
 ---
 

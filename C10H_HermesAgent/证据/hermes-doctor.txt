@@ -1,0 +1,143 @@
+
+┌─────────────────────────────────────────────────────────┐
+│                 🩺 Hermes Doctor                        │
+└─────────────────────────────────────────────────────────┘
+
+◆ Security Advisories
+  ✓ No active security advisories
+
+◆ MCP Server Security
+  ✓ No suspicious MCP stdio commands
+
+◆ Python Environment
+  ✓ Python 3.14.9
+  ✓ SQLite 3.53.1
+    → SQLite source id: 2026-05-05 10:34:17 c88b22011a54b4f6fbd149e9f8e4…
+    → state.db: WAL journal mode (320.0 KB)
+    → cron/executions.db: WAL journal mode (24.0 KB)
+    → projects.db: WAL journal mode (44.0 KB)
+    → kanban.db: WAL journal mode (116.0 KB)
+  ✓ Runtime venv staged (E:\hermes\installs\9249f73cb9b5d199\environments\46601517dea042eebcca3cde2886d037\venv) (active in this process)
+
+◆ SSL / CA Certificates
+  ✓ TLS platform trust store configured; default SSL context available
+
+◆ Required Packages
+  ✓ OpenAI SDK
+  ✓ Rich (terminal UI)
+  ✓ python-dotenv
+  ✓ ruamel.yaml
+  ✓ HTTPX
+  ✓ Croniter (cron expressions) (optional)
+  ⚠ python-telegram-bot (optional, not installed)
+  ⚠ discord.py (optional, not installed)
+  ✓ Dashboard web surface (imports cleanly)
+
+◆ Configuration Files
+  ✓ E:\hermes/.env file exists
+  ⚠ No API key found in E:\hermes/.env
+  ✓ E:\hermes/config.yaml exists
+  ✓ Config version up to date (v53)
+  ✓ No deprecated config keys or env vars
+
+◆ xAI Model Retirement (May 15, 2026)
+  ✓ No retired xAI models in config
+
+◆ Session Reset (timers removed Sep 7, 2026)
+  ✓ No idle/daily session_reset policy configured
+
+◆ Auth Providers
+  ⚠ Nous Portal auth (not logged in)
+  ⚠ OpenAI Codex auth (not logged in)
+    → No Codex credentials stored. Run `hermes auth add openai-codex --type oauth` to authenticate.
+    → codex CLI not installed (optional — only required to import tokens from an existing Codex CLI login)
+  ⚠ MiniMax OAuth (not logged in)
+  ⚠ xAI OAuth (not logged in)
+    → No xAI OAuth credentials stored. Select xAI Grok OAuth (SuperGrok / Premium+) in `hermes model`.
+
+◆ Directory Structure
+  ✓ E:\hermes directory exists
+  ✓ E:\hermes/cron/ exists
+  ✓ E:\hermes/sessions/ exists
+  ✓ E:\hermes/logs/ exists
+  ✓ E:\hermes/skills/ exists
+  ✓ E:\hermes/memories/ exists
+  ✓ E:\hermes/cache/scratch/ is the scratch dir (TMPDIR; 0 B, entries pruned after 24h idle)
+  ✓ E:\hermes/SOUL.md exists (persona configured)
+  ✓ E:\hermes/memories/ directory exists
+    → MEMORY.md not created yet (will be created when the agent first writes a memory)
+    → USER.md not created yet (will be created when the agent first writes a memory)
+  ✓ E:\hermes/state.db exists (1 sessions)
+    → state.db logical size 536.0 KB, 134 pages, 0 free, WAL 1005.9 KB
+    → 2 messages, 1 sessions, journal_mode=wal
+    → FTS tables: messages_fts, messages_fts_trigram
+  ✓ E:\hermes/cron/ store is writable
+
+◆ External Tools
+  ✓ git
+  ✓ ripgrep (rg) (pm store) (faster file search)
+  ⚠ Docker/Podman not found (optional)
+  ✓ Node.js
+  ✓ Chromium (E:\hermes\tools\chromium-1208\chrome-win64\chrome.exe)
+  ✓ Root npm package deps (1 moderate vulnerability)
+  ✓ web workspace deps (1 moderate vulnerability)
+  ✓ ui-tui workspace deps (no known vulnerabilities)
+
+◆ API Connectivity
+  Running 44 connectivity checks in parallel…
+                                                                      
+  ⚠ OpenRouter API (not configured)
+
+◆ Tool Availability
+  ✓ browser
+  ✓ browser-use
+  ✓ catalog
+  ✓ clarify
+  ✓ code_execution
+  ✓ computer_use
+  ✓ connections
+  ✓ cronjob
+  ✓ delegation
+  ✓ desktop_ui
+  ✓ file
+  ✓ memory
+  ✓ onboarding
+  ✓ project
+  ✓ session_search
+  ✓ skills
+  ✓ terminal
+  ✓ todo
+  ✓ tts
+  ✓ video
+  ✓ vision
+  ✓ kanban (runtime-gated; loaded only for dispatcher-spawned workers)
+  ✓ web search (firecrawl)
+  ✓ web extract (firecrawl)
+  ⚠ a2a (system dependency not met)
+  ⚠ browser-cdp (system dependency not met)
+  ⚠ discord (missing DISCORD_BOT_TOKEN)
+  ⚠ discord_admin (missing DISCORD_BOT_TOKEN)
+  ⚠ feishu_doc (system dependency not met)
+  ⚠ feishu_drive (system dependency not met)
+  ⚠ image_gen (image generation unavailable — check the provider selection and its key or SDK with 'hermes tools')
+  ⚠ video_gen (system dependency not met)
+  ⚠ x_search (missing XAI_API_KEY)
+
+◆ Skills Hub
+  ⚠ Skills Hub directory not initialized (run: hermes skills list)
+  ⚠ No GITHUB_TOKEN (60 req/hr rate limit — set in E:\hermes/.env for better rates)
+
+◆ Memory Provider
+  ✓ Built-in memory active (no external provider configured — this is fine)
+
+◆ NeMo Relay Plugins
+  ✓ No Relay plugin files found
+
+────────────────────────────────────────────────────────────
+  Found 2 issue(s) to address:
+
+  1. Run 'hermes setup' to configure API keys
+  2. Run 'hermes setup' to configure missing API keys for full tool access
+
+  Tip: run 'hermes doctor --fix' to auto-fix what's possible.
+

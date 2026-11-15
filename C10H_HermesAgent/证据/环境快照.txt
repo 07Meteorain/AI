@@ -1,0 +1,12 @@
+采集时间: 2026-11-15 16:59:52 +08:00
+OS: Microsoft Windows 11 专业版 build 22621
+CPU: 11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz
+RAM: 15.7 GB
+GPU: NVIDIA GeForce RTX 3050 Laptop GPU, 4096 MiB
+PS: 5.1.22621.1830
+git: git version 2.55.0.windows.5
+python(system): Python 3.14.2
+node(system): not on PATH
+uv: uv 0.13.5 (46776a95d 2026-10-21 x86_64-pc-windows-msvc)
+bash: E:\hermes\tools\git-2.56.1+1-win32-x64\usr\bin\bash.exe
+ollama: ollama version is 0.35.1

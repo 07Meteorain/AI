@@ -1,0 +1,9 @@
+Preview                                Workspace          Last Active   Src              ID
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+请使用 skill_manage 工具创建一个新技能，参数： - nam   workspace          just now      oneshot          local-b908dc39f49e1470641d91546360c57e0d5b276b2bc306d5cb5a5fbb4db4aaa1
+这是一个新会话。不要调用任何工具。  只根据你系统提示中注入的 USER   workspace          3m ago        oneshot          local-c2e883d3598aeb48cc83cc757abad95858aa69fc2d22f55893052b45a11f8364
+请调用 memory 工具，把下面这一条写入用户档案（target=us   workspace          4m ago        oneshot          local-7c5f22b098b48cce19d9a6ac3ccc6ea85c90ca249e759b8bdac61489ba38eb1f
+读取当前目录下 project/notes.md 和 project/s   workspace          6m ago        oneshot          local-191ad49c86e9212bfb330fb554e6a680688dd0ca2f6623b9d1d954fdb2e42e65
+读取当前目录下 project/notes.md 和 project/s   workspace          9m ago        oneshot          local-78a3fb5f845fc2ec0ba83f6c379eca0d4fbadd811d151b8fe75857aa65f5b5e2
+读取当前目录下 project/notes.md 和 project/s   workspace          13m ago       oneshot          local-9af9f5e81b9f1115f3b4948bad54604d849f4942243d5550e029852571c3bd88
+只回答一句话：你好，请用中文介绍你自己。                   demo               16m ago       oneshot          local-9ed3ba5605bfec95bcd30e53282e7e12b0ec050e1bbc1b3e83c846e72f45d46e
