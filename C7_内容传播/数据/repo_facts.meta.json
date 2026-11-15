@@ -1,0 +1,26 @@
+{
+  "as_of_commit": "165f7d3d7d0ad5d6a2339402528e46bf42cecc81",
+  "as_of_date": "2026-11-15",
+  "baseline_note": "C7 提交之前的 master（含 C6A）",
+  "repo": "https://github.com/07Meteorain/AI",
+  "total_commits": 127,
+  "counted_scopes": [
+    "C1_交付",
+    "C2_交付",
+    "C2A_C9_交付",
+    "C2G_ParameterGolf",
+    "C3_交付",
+    "C3C_交付",
+    "C4A_交付",
+    "C4B_公众号文章生成技能",
+    "C4C_交付",
+    "C4D_交付",
+    "C5_交付",
+    "C5A_仓库分析",
+    "C6_交付",
+    "C6A_交付"
+  ],
+  "method": "files/kb: os.walk 计数；commits: git log -- <dir> 计数；tests: def test_ / test( / it( 静态正则计数",
+  "total_tests": 464,
+  "total_files": 1355
+}

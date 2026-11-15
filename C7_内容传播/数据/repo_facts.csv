@@ -1,0 +1,15 @@
+scope,files,kb,commits,tests_computed,tests_py,tests_js,declared_tests,declared_source,test_files
+C1_交付,840,39999,5,0,0,0,,,
+C2_交付,13,449,1,0,0,0,,,
+C2A_C9_交付,40,742,1,35,35,0,35,C2A_C9_交付/README.md,tests/test_novcal.py:35
+C2G_ParameterGolf,43,1358,50,0,0,0,,,
+C3_交付,20,81,1,12,12,0,12,C3_交付/README.md,linter/tests/test_question_lint.py:12
+C3C_交付,39,293,2,108,108,0,108,C3C_交付/README.md,tests/test_analyze_strip.py:4 tests/test_duolog.py:59 tests/test_explain.py:25 tests/test_merge_round2.py:20
+C4A_交付,37,550,1,26,26,0,26,C4A_交付/README.md,tests/test_evaluator.py:26
+C4B_公众号文章生成技能,18,220,2,0,0,0,,,
+C4C_交付,75,69354,3,0,0,0,,,
+C4D_交付,52,1473,2,38,38,0,38,C4D_交付/README.md,姓名_C4D_agent-skill/tests/test_offline.py:38
+C5_交付,63,203,4,81,81,0,81,C5_交付/README.md,tests/test_baseline.py:7 tests/test_cli.py:18 tests/test_engine.py:7 tests/test_parser.py:11 tests/test_rules_quality.py:10 tests/test_rules_safety.py:14 tests/test_rules_structure.py:9 tests/test_sarif.py:5
+C5A_仓库分析,20,215,13,15,15,0,15,C5A_仓库分析/README.md,工具/tests/test_repo_inspector.py:15
+C6_交付,60,919,8,131,0,131,131,C6_交付/README.md,tests/cli.test.js:16 tests/diff.test.js:10 tests/docs.test.js:6 tests/exporter.test.js:13 tests/gate.test.js:12 tests/parser.test.js:14 tests/rules.test.js:16 tests/samples.test.js:8 tests/storage.test.js:7 tests/tokenizer.test.js:12 tests/ui.test.js:17
+C6A_交付,35,4603,1,18,18,0,,,tests/test_pipeline.py:18

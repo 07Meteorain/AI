@@ -1,0 +1,30 @@
+{
+  "generator": "tools/chartgen.py",
+  "note": "每张图的数据指纹（SHA256）；数据变了图没重画 -> --check 报警",
+  "charts": {
+    "01_标题评分.png": {
+      "index": 1,
+      "data_sha256": "5bbb5cdc5b3c859446d5968c3752cd03baef4fe632d801bca2ee7947286b6bc0"
+    },
+    "02_渠道漏斗.png": {
+      "index": 2,
+      "data_sha256": "3235d0e1e5e239827da1f3726e58c0b82c1d793d5fc3aac608b0ae1f8f511ef7"
+    },
+    "03_七日增长.png": {
+      "index": 3,
+      "data_sha256": "13835d80e6ffdc759e4a91b789a945d165fe50ca172c80bccdfa236f67c042ec"
+    },
+    "04_AB显著性.png": {
+      "index": 4,
+      "data_sha256": "fef6d10e1c31f5c739e2e04e638b3cc3ef4d73412f41fb92c6031404690a5a83"
+    },
+    "05_正文结构.png": {
+      "index": 5,
+      "data_sha256": "377c7a55ddf51cfe8a3e4195f5085c073c7315fdb36978fe48268e2e054e566b"
+    },
+    "06_仓库事实.png": {
+      "index": 6,
+      "data_sha256": "dfb95409c5b5ce27e39708cbaa97d131ea5d8e4f473d3eb45ac430b295f4eefc"
+    }
+  }
+}
