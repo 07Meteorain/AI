@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Recall</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">R</div>
+      <div class="brand-text">
+        <h1>Recall</h1>
+        <p>把读过的，变成记得的</p>
+      </div>
+    </div>
+    <nav class="tabs" aria-label="主导航">
+      <button class="tab active" data-tab="study" type="button">复习</button>
+      <button class="tab" data-tab="audit" type="button">审核</button>
+      <button class="tab" data-tab="stats" type="button">统计</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="tab-study" class="panel active" aria-label="复习">
+      <div class="study-head">
+        <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+        <div class="counters">
+          <span id="counter">0 / 0</span>
+          <span id="due-note" class="muted"></span>
+        </div>
+      </div>
+
+      <article id="study-card" class="card">
+        <div class="card-meta">
+          <span id="card-kind" class="chip"></span>
+          <span id="card-source" class="source"></span>
+        </div>
+        <p id="card-prompt" class="prompt"></p>
+        <p id="study-tip" class="tip">先在心里回答，再显示答案</p>
+        <div id="answer-block" class="answer-block hidden">
+          <div class="rule"></div>
+          <p id="card-answer" class="answer"></p>
+          <p id="card-hint" class="hint"></p>
+        </div>
+        <div id="reveal-row" class="actions">
+          <button id="reveal-btn" class="btn primary" type="button">显示答案 <kbd>Space</kbd></button>
+        </div>
+        <div id="grade-row" class="actions hidden">
+          <button class="btn grade again" data-grade="1" type="button">忘记 <kbd>1</kbd></button>
+          <button class="btn grade hard" data-grade="2" type="button">困难 <kbd>2</kbd></button>
+          <button class="btn grade good" data-grade="3" type="button">记得 <kbd>3</kbd></button>
+          <button class="btn grade easy" data-grade="4" type="button">简单 <kbd>4</kbd></button>
+        </div>
+      </article>
+
+      <article id="study-done" class="done hidden">
+        <h2>这一轮结束了</h2>
+        <p id="done-summary" class="muted"></p>
+        <button id="restart-btn" class="btn primary" type="button">再来一轮</button>
+      </article>
+
+      <article id="study-empty" class="empty hidden">
+        <h2>今天没有到期卡片</h2>
+        <p class="muted">新卡会在下一轮出现。也可以去「审核」把不想要的卡剔掉。</p>
+      </article>
+    </section>
+
+    <section id="tab-audit" class="panel" aria-label="审核">
+      <div class="section-head">
+        <div>
+          <h2>审核候选</h2>
+          <p class="muted">机器只提候选。剔掉的卡不会进入复习。</p>
+        </div>
+        <div class="audit-tools">
+          <span id="audit-count" class="muted"></span>
+          <button id="export-btn" class="btn ghost" type="button">导出决定</button>
+        </div>
+      </div>
+
+      <article id="audit-card" class="card">
+        <div class="card-meta">
+          <span id="audit-kind" class="chip"></span>
+          <span id="audit-source" class="source"></span>
+        </div>
+        <p id="audit-prompt" class="prompt"></p>
+        <div class="rule"></div>
+        <p id="audit-answer" class="answer"></p>
+        <div class="actions">
+          <button id="keep-btn" class="btn primary" type="button">保留 <kbd>K</kbd></button>
+          <button id="drop-btn" class="btn danger" type="button">剔除 <kbd>D</kbd></button>
+          <button id="skip-btn" class="btn ghost" type="button">跳过 <kbd>S</kbd></button>
+        </div>
+      </article>
+
+      <article id="audit-done" class="empty hidden">
+        <h2>审核完了</h2>
+        <p class="muted">点「导出决定」得到 JSON，再运行 <code>recall apply decisions.json</code> 写回数据库。</p>
+      </article>
+    </section>
+
+    <section id="tab-stats" class="panel" aria-label="统计">
+      <h2>统计</h2>
+      <div id="stat-cards" class="stat-grid"></div>
+      <h3>按类型</h3>
+      <div id="kind-bars" class="bars"></div>
+      <h3>未来 7 天到期</h3>
+      <div id="forecast" class="bars"></div>
+      <p id="stats-note" class="muted"></p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>本地离线 · 无账号 · 不上传</span>
+    <span id="foot-meta"></span>
+    <a href="selftest.html">自检</a>
+  </footer>
+</div>
+<script src="deck.js"></script>
+<script src="lib.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
